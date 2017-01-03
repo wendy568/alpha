@@ -82,7 +82,7 @@ class time_zone{
 	{
 		$date = getdate();
 		$dates = [];
-		$this_month = $date['mon'];
+		$this_month = ($date['mon'] < 10) ? '0' . $date['mon'] : $date['mon'];
 		$this_year = $date['year'];
 		if($date['mday'] < 7) {
 			$slice = explode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day')));
@@ -94,7 +94,7 @@ class time_zone{
 					$day = $slice[2] - (7 - $date['mday'] - $i);
 				} else {
 					$j = $j + 1;
-					$day = $j;
+					$day = '0' . $j;
 					$month = $this_month;
 					$year = $this_year;
 				}
@@ -111,7 +111,7 @@ class time_zone{
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
 			print_r(array_reverse($dates));
-			return $dates;
+			return array_reverse($dates);
 		}
 	}
 
