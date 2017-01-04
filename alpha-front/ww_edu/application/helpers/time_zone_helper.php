@@ -96,20 +96,19 @@ class time_zone{
 					$day = $j;
 					$month = $this_month;
 				}
-				print_r($dates);
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
+			print_r($dates);
 			return $dates;
 
 		} elseif ($date['mday'] >= 7) {
 			$year = date("Y");
 			$month = date("m");
-			$day = 7 - ($date['mday'] - 1);
-			for ($i=1; $i <= 7; $i++) { 
+			for ($i=1; $i < 7; $i++) { 
 				$day = 7 - ($date['mday'] - $i);
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
-			print_r($dates);
+			print_r(array_reverse($dates));
 			return $dates;
 		}
 	}
