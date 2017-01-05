@@ -96,6 +96,7 @@ class time_zone{
 					$j = $j + 1;
 					$day = $j;
 					$month = $this_month;
+					$year = $this_year;
 				}
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
