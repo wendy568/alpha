@@ -155,7 +155,7 @@ class Trading_datas_calculate {
     private function sum($index, $data = [])
     {
     	$datas = $this->_data;
-    	if(isset($data)) $datas = $data;
+    	if(!empty($data)) $datas = $data;
 
     	$sum = 0;
     	array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
@@ -293,7 +293,7 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
 
     	if(!empty($data)) $datas = $data;
-    	print_r($datas);die;
+
     	return $array = array_count_values(array_column($datas, $index));
     }
 
