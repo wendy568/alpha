@@ -88,7 +88,7 @@ class Trading_datas_calculate {
 
 		return $this;
 	}
-
+	//只判断今年
 	public function get_month()
 	{
 		$datas = $this->_data;
