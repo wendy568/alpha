@@ -286,11 +286,12 @@ class Trading_datas_calculate {
 
     	return $ratio;
     }
-    
+
     //只处理枚举
     public function ratio($index, $data = [])
     {
     	$datas = $this->_data;
+    	print_r($datas);die;
     	if(isset($data)) $datas = $data;
     	return $array = array_count_values(array_column($datas, $index));
     }
