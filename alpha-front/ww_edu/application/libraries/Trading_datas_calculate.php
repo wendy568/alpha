@@ -272,7 +272,8 @@ class Trading_datas_calculate {
     	return $this->accuracy($index) * $this->avg($index, $this->_data);
     }
 
-    //Count(OrderNo(OrderType=0))/Count(OrderNO(OrderType=1))
+    //只处理枚举
+    //Count(OrderNo(OrderType=0))/Count(OrderNO(OrderType=1)) 
     public function percent_ratio($index)
     {
     	$datas = $this->_data;
@@ -285,7 +286,8 @@ class Trading_datas_calculate {
 
     	return $ratio;
     }
-
+    
+    //只处理枚举
     public function ratio($index, $data = [])
     {
     	$datas = $this->_data;
