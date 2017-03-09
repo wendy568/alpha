@@ -75,9 +75,9 @@ class Trading_datas_calculate {
 					$year = date('Y', $v);
 					$month = date('m', $v);
 					$day = date('d', $v);
-
+					echo $month; echo $this->this_month;die;
 					if ($year == $this->this_year && $month == $this->this_month && $day != $this->this_day) {
-						echo '‘';
+
 						unset($datas[$key]);
 					}
 				}
