@@ -72,11 +72,9 @@ class Trading_datas_calculate {
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == $this->time_filter_definition) {
-					$year = date('Y', $v);
 					$month = date('m', $v);
 					$day = date('d', $v);
-					echo $month; echo $this->this_month;die;
-					if ($year == $this->this_year && $month == $this->this_month && $day != $this->this_day) {
+					if ($month != $this->this_month OR $day != $this->this_day) {
 
 						unset($datas[$key]);
 					}
