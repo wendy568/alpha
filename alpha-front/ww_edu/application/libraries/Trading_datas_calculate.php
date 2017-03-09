@@ -291,8 +291,9 @@ class Trading_datas_calculate {
     public function ratio($index, $data = [])
     {
     	$datas = $this->_data;
-    	print_r($datas);die;
+
     	if(isset($data)) $datas = $data;
+    	print_r($datas);die;
     	return $array = array_count_values(array_column($datas, $index));
     }
 
