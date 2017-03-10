@@ -80,7 +80,7 @@ class Trading_datas_calculate {
 		return $this->count;
 	}
 
-	public function get_day($callback = null , $index = 'position')
+	public function get_day()
 	{
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
