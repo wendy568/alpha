@@ -150,13 +150,13 @@ function toJson($var)
 
             if (is_array($var) && count($var) && (array_keys($var) !== range(0, sizeof($var) - 1))) {
 
-                $properties = array_map(array($this, 'name_value'),
+                $properties = array_map('name_value',
                                         array_keys($var),
                                         array_values($var));
                 return '{' . join(',', $properties) . '}';
             }
 
-            $elements = array_map(array($this, 'toJson'), $var);
+            $elements = array_map('toJson', $var);
 
             return '[' . join(',', $elements) . ']';
 
