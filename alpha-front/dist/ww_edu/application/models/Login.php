@@ -153,7 +153,7 @@ class Login extends CI_Model
 
 	function user_layout_info($id)
 	{
-		$map = 'SELECT nic_name,face, email, wealth
+		$map = 'SELECT nic_name,face, email
 				FROM member
 				WHERE id="'.$id.'"';
 		
