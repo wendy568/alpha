@@ -297,7 +297,7 @@ class Trading_datas_calculate {
     //(A*B) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
     public function ability($index)
     {
-    	return $this->accuracy($index) * $this->avg($index, $this->_data);
+    	return round($this->accuracy($index) * $this->avg($index, $this->_data), 4);
     }
 
     //只处理枚举
