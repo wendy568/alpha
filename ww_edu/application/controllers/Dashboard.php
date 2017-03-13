@@ -16,7 +16,7 @@ class Dashboard extends MY_Controller
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas();
 		$this->load->library('trading_datas_calculate');
-		$data['data'] = $this->trading_datas_calculate->build($mt4, 3)->get_week()->property('get_one_by_one', ['ratio', ['order_type', [0,1]]])->get_property();
+		$data['data'] = $this->trading_datas_calculate->build($mt4, 3)->get_week()->property('get_one_by_one', ['ratio', ['order_type']])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);

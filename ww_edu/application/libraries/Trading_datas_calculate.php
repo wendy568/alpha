@@ -294,20 +294,17 @@ class Trading_datas_calculate {
     }
 
     //只处理枚举
-    public function ratio($index, $enmu = [], $data = [])
+    public function ratio($index, $data = [])
     {
     	$datas = $this->_data;
 
     	if(!empty($data)) $datas = $data;
+
     	$array = array_count_values(array_column($datas, $index));
-    	// array_walk($array, function ($val, $key) use ($enmu){
-    	// 	foreach ($enmu as $k) {
-    	// 		if ($key == $k) {
-    	// 		# code...
-    	// 		}
-    	// 	}
-    	// });
-    	print_r($array);
+    	return array_filter($array, function ($val, $key) {
+    		return '_' . $key;
+    	});
+    	
     }
 
 }
