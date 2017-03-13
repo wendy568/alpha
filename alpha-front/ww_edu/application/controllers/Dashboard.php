@@ -77,7 +77,7 @@ class Dashboard extends MY_Controller
 		$mt4 = $this->TradingAnalysis->export_mt4_datas();
 		$this->load->library('trading_datas_calculate');
 		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('percent_ratio', ['order_type'])->get_property();
-	
+		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
 }
