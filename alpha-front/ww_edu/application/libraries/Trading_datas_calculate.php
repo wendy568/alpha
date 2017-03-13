@@ -291,7 +291,7 @@ class Trading_datas_calculate {
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
     public function accuracy($index)
     {
-    	return  $this->count_positive($index) / $this->count;
+    	return  round($this->count_positive($index) / $this->count, 4);
     }
 
     //(A*B) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
