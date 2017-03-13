@@ -4,9 +4,7 @@
             <i class="zpf-close" @click="close">
                 <s class="zpf-close-line"></s>
             </i>
-            <div class="zpf-header">
-                <i class="zpf-header-icon"></i>
-            </div>
+            <div class="zpf-header">Zone+申请</div>
             <form class="zpf-form">
                 <div class="zpf-place">
                     <label for="place">
@@ -275,7 +273,7 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(220,235,250,.9);
+        background: rgba(1,1,1,.5);
         z-index: 999;
         .zpf-dialog{
             position: relative;
@@ -283,7 +281,7 @@
             margin: 100px auto;
             background: #fff;
             box-shadow: 0 0 18px rgba(0,0,0,.01);
-            border-radius: 2px;
+            border-radius: 8px;
             .zpf-close{
 				position: absolute;
 				right: 0;
@@ -309,13 +307,13 @@
 				}
 			}
             .zpf-header{
-                width: 100%;
-                height: 100px;
-                position: relative;
-                background-image: url(../assets/images/act_form.png);
-                background-size: 100% 100%;
-                background-position: center center;
-                background-repeat: no-repeat;
+               width: 100%;
+                overflow: hidden;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 100px;
+                color:$gray1;
                 .zpf-header-icon{
                     display: block;
                     position: absolute;
@@ -328,7 +326,7 @@
                 }
             }
             .zpf-form{
-                padding: 30px 70px;
+                padding: 0 70px 30px;
                 .zpf-place,.zpf-date,.zpf-period,.zpf-type,.zpf-name,.zpf-phone,.zpf-email,.zpf-address,.zpf-position,.zpf-combo,.zpf-cost{
                     padding-bottom: 20px;
                     overflow: hidden;

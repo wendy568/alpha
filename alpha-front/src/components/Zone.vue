@@ -180,7 +180,7 @@
                     }
                     .zone-item-mask{
                         width: 100%;
-                        height: 100%;
+                        height: 320px;
                         position: absolute;
                         left: 0;
                         top: 0;

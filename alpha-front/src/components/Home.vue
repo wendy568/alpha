@@ -254,9 +254,6 @@
 						float: left;
 						width: 50%;
 						overflow: hidden;
-						background-position: center center;
-						background-size: 100% 100%;
-						background-repeat: no-repeat;
 						height: 460px;
 						.zone-item-mask{
 							width: 270px;
@@ -288,7 +285,8 @@
 							}
 						}
 						&:nth-child(1){
-							background:url(../assets/images/alpha_image_index_zone.png) 50% 50% no-repeat;
+							background:url(../assets/images/alpha_image_index_zone.png)  center center no-repeat;
+							background-size: 100%;
 							.zone-item-mask{
 								width: 100%;
 								height: 100%;
@@ -312,7 +310,7 @@
 										background: transparent;
 										color: #fff;
 										border: 1px solid #fff;
-										border-radius: 1px;
+										border-radius: 2px;
 										transition: all .2s;
 										&:hover{
 											background: #fff;
@@ -323,7 +321,8 @@
 							}
 						}
 						&:nth-child(2){
-							background:url(../assets/images/alpha_image_index_zone+.png) 50% 50% no-repeat;
+							background:url(../assets/images/alpha_image_index_zone+.png) center center no-repeat;
+							background-size: 100%;
 							.zone-item-mask{
 								width: 100%;
 								height: 100%;
@@ -347,7 +346,7 @@
 										background: transparent;
 										color: $primary;
 										border: 1px solid $primary;
-										border-radius: 1px;
+										border-radius: 2px;
 										transition: all .2s;
 										&:hover{
 											background: $primary;
@@ -592,7 +591,7 @@
 							background-color: #999;
 							width: 100%;
 							height: 100%;
-							border-radius: 3px;
+							border-radius: 2px;
 						}
 					}
 					.event-item-info{
@@ -645,7 +644,7 @@
 						.event-item-btn{
 							outline: none;
 							border: none;
-							background-color: $primary;
+							background-color: #cdb083;
 							color: #fff;
 							text-align: center;
 							padding: 7px 20px;

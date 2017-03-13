@@ -17,7 +17,7 @@
                 <label for="phone">
                     Phone
                 </label>
-                <input @change="checkPhone" name="phone" class="input-large" type="phone" placeholder="138-0823-9461" v-model="phone" required/>
+                <input @change="checkPhone" name="phone" class="input-large" type="phone" placeholder="07896543234" v-model="phone" required/>
             </div>
             <div class="pro-email">
                 <label for="email">

@@ -73,7 +73,14 @@ const routes = [
 				} 
 			}
 		]
-	}
+	},
+	{
+		path: '/payBack',
+		component: (resolve) => {
+			require(['../components/Pay_callback'], resolve)
+		},
+		name: 'payBack'
+	},
 ]
 
 const router = new VueRouter({

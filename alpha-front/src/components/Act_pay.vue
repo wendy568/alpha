@@ -27,9 +27,9 @@
                 </li>
             </ul>
             <div class="ap-next">
-                <button class="ap-next-btn" @click="openBack($store.state.pay_info.price)">
+                <router-link class="ap-next-btn" @click="openBack($store.state.pay_info.price)" to="/payBack">
                     Next
-                </button>
+                </router-link>
             </div>
         </div>
 
@@ -121,7 +121,8 @@
                             // document.getElementById('alipay').src = self.$store.state.api_addr + 'payment/alipay?WIDout_trade_no=' + sessionStorage.getItem('order_no') + '&WIDsubject=chenqitest&currency=GBP&WIDtotal_fee=' + price
                             
                             window.open(self.$store.state.api_addr + 'payment/alipay?WIDout_trade_no=' + sessionStorage.getItem('order_no') + '&WIDsubject=chenqitest&currency=GBP&WIDtotal_fee=' + price)
-                            
+
+                                self.$router.push({path:'/payBack'})
                         }else if(json.archive.status === 400){
 
                         }
