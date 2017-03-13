@@ -300,7 +300,7 @@ class Trading_datas_calculate {
 
     	if(!empty($data)) $datas = $data;
     	// print_r(array_column($datas, $index));die;
-    	return $array = array_count_values(array_column($datas, $index));
+    	return array_column($datas, $index);
     }
 
 }
