@@ -259,7 +259,7 @@ class Trading_datas_calculate {
     public function frequency($callback, $param)
     {
     	$denominator = call_user_func_array([$this, $callback], $param);
-    	return ($this->count / $denominator) * 300;
+    	return round(($this->count / $denominator) * 300, 4);
     }
 
     private function count_positive($index)
