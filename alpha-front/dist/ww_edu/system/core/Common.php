@@ -848,4 +848,17 @@ if ( ! function_exists('function_usable'))
 
 		return FALSE;
 	}
+
+	if ( ! function_exists('verb_method_enable'))
+	{
+		function verb_method_enable($verb = null)
+		{
+			if($verb === null) {
+				return;
+			}
+
+			return $bool = (strtolower($_SERVER['REQUEST_METHOD']) == trim($verb)) ? FALSE : TRUE;
+		}
+
+	}
 }

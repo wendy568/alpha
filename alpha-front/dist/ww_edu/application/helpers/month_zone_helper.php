@@ -40,3 +40,30 @@ function sort_recursive(&$array)
 
 	return $array;
 }
+
+function _fetch_from_array($array, $index = NULL)
+{
+	static $n = 0;
+
+	isset($index) OR $index = array_keys($array);
+	// print_r($array);
+	if (is_array($index))
+	{
+		$output = array();
+		foreach ($index as $key)
+		{
+			$n++;
+			$output[$key] = _fetch_from_array($array, $key);
+		}
+
+		return $output;
+	}
+
+	if (isset($array[$index]))
+	{
+		return $array[$index].'CQ';
+	} else {
+		return false;
+	}
+
+}

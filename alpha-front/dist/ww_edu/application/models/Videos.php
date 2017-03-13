@@ -165,6 +165,7 @@ class Videos extends CI_Model
 				{$where}
 				AND class_id='".$class_id."'
 				AND pid=0 
+				ORDER BY id DESC
 				LIMIT {$start},{$limit}";
 
 		$result = $this->db->query($map)->result_array();
@@ -212,7 +213,7 @@ class Videos extends CI_Model
 		if ($to_id) {
 			$map = 'INSERT message(from_id,to_id,class_id,pid,content,create_time) VALUES ("'.$from_id.'","'.$to_id.'","'.$class_id.'","'.$pid.'","'.$content.'","'.date('Y-m-d H:i:s', time()).'")';	
 		} else {
-			$map = 'INSERT message(from_id,class_id,pid,content) VALUES ("'.$from_id.'","'.$class_id.'","'.$pid.'","'.$content.'")';
+			$map = 'INSERT message(from_id,class_id,pid,content,create_time) VALUES ("'.$from_id.'","'.$class_id.'","'.$pid.'","'.$content.'","'.date('Y-m-d H:i:s', time()).'")';
 		}
 
 		$this->db->query($map);

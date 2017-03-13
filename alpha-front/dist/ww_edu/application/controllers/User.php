@@ -65,7 +65,7 @@ class User extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 
 		$nic_name = $this->input->get_post('nic_name', TRUE);
-		$username = $this->input->get_post('username', TRUE);
+		// $username = $this->input->get_post('username', TRUE);
 		$email = $this->input->get_post('email', TRUE);
 		$password = $this->input->get_post('password', TRUE);
 
@@ -74,7 +74,7 @@ class User extends MY_Controller
 		$this->load->model('login');
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data = array();
-		$this->login->register($email, md5($password), $nic_name, $username, $response, $data);
+		$this->login->register($email, md5($password), $nic_name, $response, $data);
 		if($response['archive']['status'] === 0)
 		{
 			$str = $this->encode($email);
@@ -141,7 +141,7 @@ class User extends MY_Controller
 	public function user_info_center()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
-	
+		
 		$token = $this->input->get_post('token', TRUE);
 		$mem_id = $this->get_bytoken($token);
 		$this->load->database();
@@ -160,29 +160,36 @@ class User extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$datas = $this->input->post();
-		$mem_id = $this->get_bytoken($token);
+		$datas['mem_id'] = $this->get_bytoken($token);
+		$datas['id'] = $this->get_bytoken($token);
+		if(!empty($datas['name'])) $datas['name'] = addslashes($datas['name']);
+		if(!empty($datas['content'])) $datas['content'] = addslashes($datas['content']);
+		if(!empty($datas['title'])) $datas['title'] = addslashes($datas['title']);
 		if(!empty($datas['describe'])) $datas['describe'] = addslashes($datas['describe']);
+		if(!empty($datas['act_info'])) $datas['act_info'] = addslashes($datas['act_info']);
 
 		$this->load->helper('json');
 		$this->load->helper('databases_filter');
+		$this->load->helper('set_source');
+		$image = null;
+
+		if(!empty($datas['width']) && !empty($datas['height'])) $image = get_image($datas['width'], $datas['height'], "{$datas['file_path']}");
+		if($image) $datas['image'] = addslashes(json_encode(array("{$datas['file_path']}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
 
 		$dfdb = databases_filter::build();
-
-		$cols = array('member', 'user_info', );
+		$cols = array('member', 'user_info');
 
 		$dfdb->set_query($cols, $datas)
 		     ->filter_blank($cols)
-		     ->update_complete($cols, array(
-				'member' => array('id' => $mem_id),
-				'user_info' => array('mem_id' => $mem_id),
-			));
-
+			 ->update_complete(
+			 	$cols, array('member' => array('id'=> $datas['id']),
+			 				 'user_info' => array('mem_id' => $datas['mem_id'])
+			 			));
+		// print_r($cols);die;
 		$this->load->database();
 		$this->load->model('users');
-
-		$data['data'] = array();
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$this->users->update_user_info($cols, $response);
+		$data['data'] = $this->users->update($cols, $response);
 
 		encode_json($response, $data);
 	}
@@ -254,6 +261,78 @@ class User extends MY_Controller
 			'email' => $email,
 			'ssl' => $const->alphatrader['base']['ssl'],
 		));
+	}
+
+	public function update()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$token = $this->input->get_post('token', TRUE);
+		$datas = $this->input->post();
+		$datas['from_id'] = $this->get_bytoken($token);
+		if(!empty($datas['name'])) $datas['name'] = addslashes($datas['name']);
+		if(!empty($datas['content'])) $datas['content'] = addslashes($datas['content']);
+		if(!empty($datas['title'])) $datas['title'] = addslashes($datas['title']);
+		if(!empty($datas['describe'])) $datas['describe'] = addslashes($datas['describe']);
+		if(!empty($datas['act_info'])) $datas['act_info'] = addslashes($datas['act_info']);
+
+		$this->load->helper('json');
+		$this->load->helper('databases_filter');
+		$this->load->helper('set_source');
+		$image = null;
+
+		if(!empty($datas['width']) && !empty($datas['height'])) $image = get_image($datas['width'], $datas['height'], "{$datas['file_path']}");
+		if($image) $datas['image'] = addslashes(json_encode(array("{$datas['file_path']}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
+
+		$dfdb = databases_filter::build();
+		$cols = array($datas['table']);
+
+		$dfdb->set_query($cols, $datas)
+		     ->filter_blank($cols)
+			 ->update_complete($cols, array($datas['table']=>array('id'=>$datas['id'])));
+		// print_r($cols);die;
+		$this->load->database();
+		$this->load->model('users');
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->users->update($cols, $response);
+
+		encode_json($response, $data);
+	}
+
+	public function add()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$token = $this->input->get_post('token', TRUE);
+		$datas = $this->input->post();
+		$datas['from_id'] = $this->get_bytoken($token);
+		if(!empty($datas['name'])) $datas['name'] = addslashes($datas['name']);
+		if(!empty($datas['content'])) $datas['content'] = addslashes($datas['content']);
+		if(!empty($datas['title'])) $datas['title'] = addslashes($datas['title']);
+		if(!empty($datas['describe'])) $datas['describe'] = addslashes($datas['describe']);
+		if(!empty($datas['act_info'])) $datas['act_info'] = addslashes($datas['act_info']);
+
+		$this->load->helper('json');
+		$this->load->helper('databases_filter');
+		$this->load->helper('set_source');
+		$image = null;
+
+		if(!empty($datas['width']) && !empty($datas['height'])) $image = get_image($datas['width'], $datas['height'], "{$datas['file_path']}");
+		if($image) $datas['image'] = addslashes(json_encode(array("{$datas['file_path']}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
+
+		$dfdb = databases_filter::build();
+		$cols = array($datas['table']);
+
+		$dfdb->set_query($cols, $datas)
+		     ->filter_blank($cols)
+			 ->insert_complete($cols);
+		// print_r($cols);die;
+		$this->load->database();
+		$this->load->model('users');
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->users->add($cols, $response);
+
+		encode_json($response, $data);
 	}
 }
 
