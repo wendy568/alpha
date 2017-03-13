@@ -6,8 +6,51 @@ class MY_Controller extends CI_Controller
 		parent::__construct();
 		// $this->load->library('session');
 		//session_start();
-		//$this->auth_role();
 		//$this->origin = $this->get_origin();
+	}
+
+	public function get_bytoken($token)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		$this->load->database();
+		$this->load->model('login');
+		$data = $this->login->get_bytoken($token);
+		return $data;
+	}
+
+	public function get_bytoken_id_forAdmin($token)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		$this->load->database();
+		$this->load->model('admins');
+		$data = $this->admins->get_bytoken_id($token);
+		return $data;
+	}
+
+	public function get_bytoken_id($token)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		$this->load->database();
+		$this->load->model('login');
+		$data = $this->login->get_bytoken_id($token);
+		return $data;
+	}
+
+	public function get_byadmintoken($token)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		$this->load->database();
+		$this->load->model('admins');
+		$data = $this->admins->get_bytoken($token);
+		return $data;
+	}
+
+	public function _exit($sys_code, $user_code, $text)
+	{
+		header("Content-type: application/json");
+		set_status_header($sys_code);
+		echo json_encode($response = array('archive' => array('status' => $user_code,'message' => $text)));
+		exit(EXIT__AUTO_MIN);
 	}
 
 	/**

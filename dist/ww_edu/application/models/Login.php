@@ -80,9 +80,10 @@ class Login extends CI_Model
 		}
 		else
 		{
-			$response = array('archive' => array('status' => 400,'message' =>'请重新登陆'),'data'=>$token);
-			echo json_encode($response);
-			exit;
+			header("Content-type: application/json");
+			set_status_header(203);
+			echo json_encode($response = array('archive' => array('status' => 400,'message' => 'Non-Authoritative Information')));
+			exit(EXIT_USER_INPUT);
 		}
 
 	}
@@ -121,7 +122,7 @@ class Login extends CI_Model
 		$response = $result['id']?array('archive' => array('status' => 100,'message' =>'username is exists!')):array('archive' => array('status' => 0,'message' =>''));
 	}
 
-	function register($email, $password, $nic_name, $username, &$response, &$data)
+	function register($email, $password, $nic_name, &$response, &$data)
 	{
 		$e = $this->email_isexists($email);
 		if($e)
@@ -130,7 +131,7 @@ class Login extends CI_Model
 			return false;
 		}
 		$result = array();
-		$map = 'INSERT member(email,password,nic_name,username,create_time) VALUES("'.$email.'","'.$password.'","'.$nic_name.'","'.$username.'","'.date('Y-m-d H:i:s',time()).'")';
+		$map = 'INSERT member(email,password,nic_name,create_time) VALUES("'.$email.'","'.$password.'","'.$nic_name.'","'.date('Y-m-d H:i:s',time()).'")';
 		$this->db->query($map);
 	    $result = $this->db->insert_id();
 	    $map = 'INSERT user_info(mem_id) VALUES("'.$result.'")';

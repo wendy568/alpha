@@ -80,9 +80,10 @@ class Admins extends CI_Model
 		}
 		else
 		{
-			$response = array('archive' => array('status' => 400,'message' =>'请重新登陆'),'data'=>$token);
-			echo json_encode($response);
-			exit;
+			header("Content-type: application/json");
+			set_status_header(203);
+			echo json_encode($response = array('archive' => array('status' => 400,'message' => 'Non-Authoritative Information')));
+			exit(EXIT_USER_INPUT);
 		}
 
 	}
@@ -99,6 +100,46 @@ class Admins extends CI_Model
 		$result = $query->row_array();
 		
 		return isset($result)?$result['from_id']:NULL;
+	}
+
+	function update($cols, &$response)
+	{	
+		$message = '';
+		$status = 0;
+		array_walk($cols, function($val, $key) use (&$message){
+			if($this->db->query($val)){			
+				$message .= "{$key} update success,";
+			}else{
+				$message .= "{$key} update failed,";
+				$status = 39;
+			}
+		});
+		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+	}
+
+	function add($cols, &$response)
+	{	
+		$message = '';
+		$status = 0;
+		array_walk($cols, function($val, $key) use (&$message){
+			if($this->db->query($val)){			
+				$message .= "{$key} add success,";
+			}else{
+				$message .= "{$key} add failed,";
+				$status = 39;
+			}
+		});
+		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+	}
+
+	function delete($id, $table)
+	{
+		$map = "DELETE FROM {$table} 
+				WHERE id in (".$id.")";
+		
+		$this->db->query($map);
+		$result = $this->db->affected_rows();
+		return $result;
 	}
 
 }

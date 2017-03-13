@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "747a4272e859e7cd17d9efe9ef9d2f94",
-    "content-hash": "ad06848272fa8b39677871bde36d1d1b",
+    "hash": "757b3bd9296064e273817da5cf40e58d",
+    "content-hash": "e3e8ecaf1cd38b13b542c28fd32c12d5",
     "packages": [
         {
             "name": "blablacar/memcached-client",
@@ -148,42 +148,6 @@
             "time": "2017-01-26 22:05:40"
         },
         {
-<<<<<<< .mine
-||||||| .r91
-            "name": "payments/alipay",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/chenqidage/payments.git",
-                "reference": "b76e8359d918a3fe35d744bd51fffc1221ba43f5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/chenqidage/payments/zipball/b76e8359d918a3fe35d744bd51fffc1221ba43f5",
-                "reference": "b76e8359d918a3fe35d744bd51fffc1221ba43f5",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "payments\\alipay\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Chen Qi",
-                    "email": "7chnqe22@gmail.com"
-                }
-            ],
-            "description": "common,function,library,ext",
-            "time": "2017-02-24 06:39:46"
-        },
-        {
-=======
             "name": "payments/alipay",
             "version": "dev-master",
             "source": {
@@ -217,7 +181,6 @@
             "time": "2017-02-24 07:31:31"
         },
         {
->>>>>>> .r92
             "name": "phpdocumentor/reflection-common",
             "version": "1.0",
             "source": {
@@ -1434,7 +1397,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "blablacar/memcached-client": 0
+        "blablacar/memcached-client": 0,
+        "payments/alipay": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

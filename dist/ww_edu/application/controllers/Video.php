@@ -543,7 +543,7 @@ class Video extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = $this->videos->detail_recommend_teacher($start, $limit);
 
-		encode_json($response, $data, $client, $paras);
+		encode_json($response, $data, $status = 201, $client, $paras);
 	}
 
 	public function detail_forTeacher()

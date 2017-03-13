@@ -7,21 +7,6 @@ class Users extends CI_Model
         parent::__construct();
     }
 
-	function update_user_info($cols, &$response)
-	{	
-		$message = '';
-		$status = 0;
-		array_walk($cols, function($val, $key) use (&$message){
-			if($this->db->query($val)){			
-				$message .= "{$key}模型更新成功,";
-			}else{
-				$message .= "{$key}模型更新失败,";
-				$status = 39;
-			}
-		});
-		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
-	}
-
 	function email_verify($email)
 	{
 		$map = 'UPDATE member 
@@ -36,7 +21,7 @@ class Users extends CI_Model
 
 	function user_info_center($id)
 	{
-		$map = 'SELECT m.email, m.phone, ui.first_name, ui.last_name, ui.certification, ui.birthdate, ui.country, ui.city, ui.sex, ui.describe  
+		$map = 'SELECT m.email, m.phone, ui.full_name, ui.pro, ui.organization,ui.tradingplatform 
 				FROM member m 
 				LEFT JOIN user_info ui
 				ON  m.id=ui.mem_id 
@@ -106,5 +91,35 @@ class Users extends CI_Model
 
 		$response['archive'] = array('status' => 103,'message' =>'密码错误');
 	}		
+
+	function update($cols, &$response)
+	{	
+		$message = '';
+		$status = 0;
+		array_walk($cols, function($val, $key) use (&$message){
+			if($this->db->query($val)){			
+				$message .= "{$key} update success,";
+			}else{
+				$message .= "{$key} update failed,";
+				$status = 39;
+			}
+		});
+		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+	}
+
+	function add($cols, &$response)
+	{	
+		$message = '';
+		$status = 0;
+		array_walk($cols, function($val, $key) use (&$message){
+			if($this->db->query($val)){			
+				$message .= "{$key} add success,";
+			}else{
+				$message .= "{$key} add failed,";
+				$status = 39;
+			}
+		});
+		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+	}
 
 }
