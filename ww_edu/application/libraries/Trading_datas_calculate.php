@@ -190,7 +190,7 @@ class Trading_datas_calculate {
     //TimeNow-AccountOpentTime
     public function transaction_peroid()
     {
-    	print_r(current($this->_data));
+    	return time() - current($this->_data)['order_open_time'];
     }
 
 }
