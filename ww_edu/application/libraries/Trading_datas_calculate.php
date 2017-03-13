@@ -302,7 +302,7 @@ class Trading_datas_calculate {
 
     	$array = array_count_values(array_column($datas, $index));
     	return array_filter($array, function ($key) {
-    		return '_' . $key;
+    		return $key;
     	}, ARRAY_FILTER_USE_KEY);
     	
     }
