@@ -22,7 +22,7 @@ $border-warning: #faebcc;
 $border-danger: #ebccd1;
 
 //header
-$headerheight: 60px;
+$headerheight: 70px;
 
 //chicun
 $contentwidth: 1140px;
@@ -71,6 +71,8 @@ $font: #88909f;
 	border: none;
 	background: $success;
 	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
 }
 
 .btn-primary {
@@ -124,8 +126,20 @@ $font: #88909f;
 }
 
 .btn-default-out {
-	color: $gray1;
-	border-color: $gray4;
+	width: 100px;
+    height: 32px;
+    font-size: 12px;    
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    color: $gray2;
+    background: transparent;
+    border: 1px solid $gray3;
+    transition: all .2s;
+    &:hover{
+        color: #fff;
+        background: $success;    
+    }
 }
 
 .btn-success-out {
@@ -271,7 +285,7 @@ $pheight: 24px;
 }
 
 .badge-success{
-	padding: 5px 8px;
+	padding: 5px 15px;
 	border-radius: 5px;
 	color: #fff;
 	background: $success;

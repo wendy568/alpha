@@ -114,6 +114,13 @@
                             self.zone_list[i].title = 'Chengdu Zone'
                         }
                     }
+                    for(let y = 0;y < self.zone_list.length;y ++){
+                        if(self.zone_list[y].image !== null || self.zone_list[y].image !== "" || self.zone_list[y].image !== undefined){
+                            self.zone_list[y].image = self.$store.state.api_addr + 'upload/' + self.zone_list[y].image[0] + 'm_' + self.zone_list[y].image[1]    
+                        }else{
+                            self.zone_list[y].image = 'http://content.jwplatform.com/thumbs/' + self.zone_list[y].source + '-320.jpg' 
+                        }
+                    }   
                 })
             })
         },
@@ -127,6 +134,9 @@
 <style scoped lang="scss">
     @import '../css/alpha.scss';
     .zone-box{
+        position: relative;
+        width: 100%;
+        overflow: hidden;
         .zone-info{
             width: 1140px;
             margin: 0 auto;

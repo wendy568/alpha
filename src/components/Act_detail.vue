@@ -93,12 +93,12 @@
 <style scoped lang="scss">
     @import '../css/alpha.scss';
     .ad-box{
-        position: fixed;
+        position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(230,240,250,.7);
+        background: rgba(1,1,1,.5);
         z-index: 999;
         .ad-dialog{
             position: relative;

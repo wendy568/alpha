@@ -270,7 +270,7 @@
     $zpfheight: 36px;
 
     .zpf-box{
-        position: fixed;
+        position: absolute;
         left: 0;
         top: 0;
         width: 100%;
@@ -280,7 +280,7 @@
         .zpf-dialog{
             position: relative;
             width: 600px;
-            margin: 50px auto;
+            margin: 100px auto;
             background: #fff;
             box-shadow: 0 0 18px rgba(0,0,0,.01);
             border-radius: 2px;

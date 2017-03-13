@@ -2,7 +2,7 @@
 	<div class="per-box">
 		<div class="per-header">
 			<div class="per-portrait">
-				<img class="per-portrait-img" :src="user_face" alt="">
+				<img class="per-portrait-img" src="../assets/images/photo.jpg" alt="">
 				<p class="per-nicname">
 					{{$store.state.nic_name}}
 				</p>
@@ -26,8 +26,8 @@
 	export default {
 		data() {
 			return {
-				user_face: '../assets/images/portrait.jpg',
-				nic_name: 'Jay Zhou',
+				// user_face: '',
+				nic_name: '',
 				tabs: [
 					{ title: 'profile',icon: '../assets/images/user.png', link: '/personal/profile' },
 					{ title: 'video',icon: '../assets/images/favorite.png', link: '/personal/favorite' },
@@ -37,7 +37,24 @@
 		},
 		mounted() {
 			const self = this
-			
+			// console.log($store.state.nic_name)
+			// let formData = new FormData()
+			// if(sessionStorage.getItem('token')){
+			// 	formData.append('token',sessionStorage.getItem('token'))
+			// 	fetch(state.api_addr + 'user/user_layout_info',{
+			// 		mode: 'cors',
+			// 		method: 'post',
+			// 		body: formData
+			// 	}).then((res) => {
+			// 		res.ok && res.json().then((json) => {
+			// 			if(json.archive.status === 0) {
+
+			// 			}else{
+							
+			// 			}
+			// 		})
+			// 	})
+			// }
 		}
 	}
 </script>

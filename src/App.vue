@@ -21,19 +21,20 @@
 </script>
 
 <style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Verdana;
-}
-ul{
-  list-style-type: none;
-}
+    #app {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
+      color: #2c3e50;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Verdana;
+      position: relative;
+    }
+    ul{
+      list-style-type: none;
+    }
 </style>

@@ -199,7 +199,7 @@ const actions = {
 			let formData = new FormData()
 			if(sessionStorage.getItem('token')){
 				formData.append('token',sessionStorage.getItem('token'))
-				fetch(state.api_addr + 'user/user_info_center',{
+				fetch(state.api_addr + 'user/user_layout_info',{
 					mode: 'cors',
 					method: 'post',
 					body: formData

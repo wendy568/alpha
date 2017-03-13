@@ -1,9 +1,11 @@
 <template>
     <div class="zp-box">
         <zonep_form v-if="$store.state.show_zonepform"></zonep_form>
-		<act_pay v-if="$store.state.show_actpay"></act_pay>
+        <act_pay v-if="$store.state.show_actpay"></act_pay>
+
         <div class="zp-top">
             <div class="zp-wrp">
+                <!-- 简介 -->
                 <div class="zp-info">
                     <p class="zp-info-content">
                         <b class="zp-info-content-one">
@@ -12,28 +14,23 @@
                         lpha Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader
                     </p>
                 </div>
+                <!-- apply -->
                 <ul class="zp-model">
                     <li class="zp-model-item" v-for="item in models">
-                        <h3 class="zp-model-item-title">
-                            {{item.title}}
-                        </h3>
-                        <p class="zp-model-item-intro">
-                            {{item.intro}}
-                        </p>
+                        <!-- 标题 -->
+                        <h3 class="zp-model-item-title"> {{item.title}}</h3>
+                        <!--介绍 -->
+                        <p class="zp-model-item-intro">{{item.intro}}</p>
+                        <!-- icon -->
                         <p class="zp-model-item-icon">
-                            <span class="zp-model-item-icon-img">
-                            
-                            </span>
+                            <span class="zp-model-item-icon-img"></span>
                         </p>
+                        <!-- price -->
                         <p class="zp-model-item-sel">
-                            <span class="zp-model-item-left">
-                                普通 ￡0.01/每月
-                            </span>
-                            |
-                            <span class="zp-model-item-right">
-                                高级 ￡0.02/每月
-                            </span>
+                            <span class="zp-model-item-left">普通 ￡0.01/每月</span>
+                            <span class="zp-model-item-right"> 高级 ￡0.02/每月</span>
                         </p>
+                        <!-- 特色 -->
                         <div class="zp-model-item-content">
                             <p>{{item.content1}}</p>
                             <p>{{item.content2}}</p>
@@ -41,11 +38,11 @@
                             <p>{{item.content4}}<span>[仅限高级]</span></p>
                             <p>{{item.content5}}<span>[仅限高级]</span></p>
                         </div>
+                        <!-- apply按钮 -->
                         <p class="zp-model-item-option">
-                            <button class="zp-model-item-apply" @click="pay">
-                                Apply
-                            </button>
+                            <button class="zp-model-item-apply" @click="pay"> Apply </button>
                         </p>
+                        <!-- 按钮下的一段话 -->
                         <p class="zp-model-item-des">
                             {{item.des}}
                         </p>
@@ -53,11 +50,10 @@
                 </ul>
             </div>
         </div>
+        <!-- footer -->
         <div class="zp-bottom">
             <div class="zp-bottom-mask">
-                <button class="zp-bottom-apply">
-                    Apply Now
-                </button>
+                <button class="zp-bottom-apply"> Apply Now </button>
             </div>
         </div>
     </div>
@@ -77,7 +73,7 @@
         },
         methods: {
             pay() {
-				const self = this
+                const self = this
                 // self.form.order = 0
                 // self.form.location = location
                 // self.form.price = price
@@ -87,7 +83,7 @@
                 }else{
                     self.$store.dispatch('TOGGLEZONEPFORM','on')
                 }
-			}
+            }
         },
         components: {
             zonep_form,
@@ -101,20 +97,21 @@
     .zp-box{
         width: 100%;
         overflow: hidden;
+        position: relative;
         .zp-top{
-            background-image: url(../assets/images/act_banner.jpg);
-            background-position: top center;
-            background-repeat: no-repeat;
+            background: url(../assets/images/act_banner.jpg) top center no-repeat;
             background-size: 100%;
-            padding: 180px 150px;
             overflow: hidden;
             min-height: 1000px;
+            margin-bottom: 60px;
             .zp-wrp{
                 width: 1140px;
-                margin: 0 auto;
+                margin:150px auto 60px;
+                overflow: hidden;
+                // 简介
                 .zp-info{
                     width: 65%;
-                    background: rgba(0,0,15,.7);
+                    background: rgba(51,61,76,.7);
                     color: #fff;
                     padding: 5px;
                     margin-bottom: 50px;
@@ -130,20 +127,20 @@
                         }
                     }
                 }
+                // apply
                 .zp-model{
                     width: 100%;
-                    background: transparent;
                     padding: 0;
                     margin: 0;
+                    background: transparent;
                     font-size: 14px;
-                    
                     .zp-model-item{
                         padding: 50px 70px;
                         text-align: center;
-                        border: 1px solid $gray5;
+                        border: 1px solid #f3f6f8;
                         width: 550px;
                         min-height: 300px;
-                        background: #fff;
+                        background: rgba(255,255,255,.98);
                         float: left;
                         box-sizing: border-box;
                         cursor: pointer;
@@ -151,24 +148,26 @@
                             margin-right: 40px;
                         }
                         &:hover{
-                            box-shadow: 0 50px 50px 0 rgba(0,0,0,.05);
+                            box-shadow: 0px 50px 50px 0 rgba(0,0,0,.05);
                         }
+                        // 标题
                         .zp-model-item-title{
                             color: $primary;
                             font-size: 20px;
-                            font-weight: 400;
-                            background-image: url(../assets/images/zplus_arrow.png);
-                            background-repeat: no-repeat;
+                            font-weight: bold;
+                            background: url(../assets/images/zplus_arrow.png) bottom center no-repeat;
                             background-size: 18%;
-                            background-position: bottom center;
                             margin: 0;
                             padding-bottom: 20px;
                         }
+                        // 介绍
                         .zp-model-item-intro{
                             margin: 0;
-                            color: $gray3;
                             padding: 15px 0;
+                            font-size: 14px;
+                            color:$gray2;
                         }
+                        // icon
                         .zp-model-item-icon{
                             margin: 0 auto;
                             padding: 0;
@@ -182,10 +181,10 @@
                                 display: block;
                             }
                         }
+                        // price
                         .zp-model-item-sel{
                             .zp-model-item-left,.zp-model-item-right{
                                 color: #333;
-                                font-size: 15px;
                             }
                             .zp-model-item-left{
                                 line-height: 30px;
@@ -195,6 +194,7 @@
                                 top: 10px;*/
                             }
                         }
+                        // 特色
                         .zp-model-item-content{
                             margin: 0;
                             padding: 0;
@@ -204,12 +204,14 @@
                                 color: $danger;
                             }
                         }
+                        // apply按钮
                         .zp-model-item-option{
                             margin: 0;
                             padding: 0;
                             .zp-model-item-apply{
                                 width: 100px;
                                 height: 32px;
+                                font-size: 16px;    
                                 border-radius: 1px;
                                 outline: none;
                                 cursor: pointer;
@@ -223,9 +225,11 @@
                                 }
                             }
                         }
+                        // 按钮下的一段话
                         .zp-model-item-des{
                             margin: 0;
                             padding: 0;
+                            font-size: 16px;   
                             color: $gray2;
                             padding: 15px 0;
                             line-height: 1.5;
@@ -243,14 +247,13 @@
                 }
             }
         }
+        // footer
         .zp-bottom{
             width: 100%;
             height: 200px;
             overflow: hidden;
-            background-image: url(../assets/images/zone_bottom.png);
-            background-size: 100%;
-            background-position: center center;
-            background-repeat: no-repeat;
+            background: url(../assets/images/zone_bottom.png) center center no-repeat;
+            background-size: 100% 100%;
             .zp-bottom-mask{
                 padding-top: 80px;
                 .zp-bottom-apply{
