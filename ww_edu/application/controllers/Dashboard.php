@@ -36,6 +36,7 @@ class Dashboard extends MY_Controller
 		$this->load->library('trading_datas_calculate');
 		$data['data']['profit_total'] = $this->trading_datas_calculate->build($mt4, 3)->property('sum', ['profit'])->get_property();
 		$data['data']['profit_today'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->property('sum', ['profit'])->get_property();
+		$data['data']['profit_today'] = $this->trading_datas_calculate->build($mt4, 3)->get_month()->property('sum', ['profit'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);
