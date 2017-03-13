@@ -302,7 +302,7 @@ class Trading_datas_calculate {
     	$array = array_count_values(array_column($datas, $index));
     	array_walk($array, function ($val, $key) use ($enmu){
     		foreach ($enmu as $k) {
-    			echo $K;die;
+    			echo $k;die;
     			if ($key == $k) {
     			# code...
     			}
