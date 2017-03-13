@@ -167,17 +167,17 @@ class Trading_datas_calculate {
     }
 
     //Avg[∑(CloseTime-OpenTime)]
-    public function avg_holding()
+    public function avg_holding($start, $end)
     {
     	$datas = $this->_data;
     	$sum = 0;
     	foreach ($datas as $key => $value) {
     		foreach ($value as $k => $v) {
-    			if($k == 'order_open_time') {
+    			if($k == $start) {
     				$open = $v;
     			}
 
-    			if($k == 'order_close_time') {
+    			if($k == $end) {
     				$close = $v;
     			}
     		}
@@ -188,9 +188,12 @@ class Trading_datas_calculate {
     }
 
     //TimeNow-AccountOpentTime
-    public function transaction_peroid()
+    public function transaction_peroid($index)
     {
-    	return time() - current($this->_data)['order_open_time'];
+    	return time() - current($this->_data)[$index];
     }
+
+    //根号[∑((X-μ)^2)] ? A (A*B) X=Profit μ=Avg(∑Profit) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
+
 
 }
