@@ -301,10 +301,11 @@ class Trading_datas_calculate {
     	if(!empty($data)) $datas = $data;
 
     	$array = array_count_values(array_column($datas, $index));
-    	return array_filter($array, function ($key) {
-    		return $key;
-    	}, ARRAY_FILTER_USE_KEY);
+    	foreach ($array as $key => $value) {
+    		$array['_' . $key] = $value;
+    	}
     	
+    	return $array;
     }
 
 }
