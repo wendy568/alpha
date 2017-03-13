@@ -299,8 +299,17 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
 
     	if(!empty($data)) $datas = $data;
-    	// print_r(array_column($datas, $index));die;
-    	return array_column($datas, $index);
+    	$array = array_count_values(array_column($datas, $index));
+    	array_walk($array, function ($val, $key) use ($enmu){
+    		foreach ($enmu as $k) {
+    			echo $K;die;
+    			if ($key == $k) {
+    			# code...
+    			}
+    		}
+    		
+    		$ratio['_' . $key] = round($val / $count, 2);
+    	});
     }
 
 }
