@@ -1,6 +1,5 @@
 <template>
 	<div class="header-mask">
-		<tip v-show="$store.state.tip.show"></tip>
 		<Login v-if="$store.state.show_login"></Login>
 		<Register v-if="$store.state.show_register"></Register>
 		<div class="header-box">
@@ -19,14 +18,14 @@
 			</ul>
 
 			<div class="header-option">
-				<div class="header-user" v-if="!$store.state.is_online" @click="openLogin">
+				<div class="header-user" v-show="!$store.state.is_online" @click="openLogin">
 					Login in/Register
 				</div>
-				<div class="header-user" v-else @click="openLogin">
+				<router-link class="header-user" v-show="$store.state.is_online" @click="openLogin" to="/personal/profile">
 					{{$store.state.nic_name}}
-				</div>
-				<router-link to="/personal/profile" class="header-face">
-					<img :src="$store.state.user_face" alt="">
+				</router-link>
+				<router-link  class="header-face" @click="openLogin" to="/personal/profile">
+					<img src="../assets/images/photo.jpg" alt="">
 				</router-link>
 				<div class="header-lang">
 					
@@ -43,7 +42,7 @@
 	export default {
 		data() {
 			return {
-				nic_name: 'John Smith',
+				// nic_name: 'John Smith',
 				navs: [
 					{ text: 'Alpha Zone',icon: '', link: '/zone' },
 					{ text: 'Alpha Zone+',icon: 'floor', link: '/zoneplus' },
@@ -59,13 +58,17 @@
 			},
 			'Register': (resolve) => {
 				require(['./Register'], resolve)
-			},
-			tip
+			}
 		},
 		methods: {
 			openLogin() {
-				let self = this
-				self.$store.dispatch('TOGGLELOGIN','on')
+				if(sessionStorage.getItem('token')==''||sessionStorage.getItem('token')==undefined){
+					let self = this
+					self.$store.dispatch('TOGGLELOGIN','on')
+				}else{
+					self.$router.push({path: '/personal/profile'})
+				}
+				
 			}
 		}
 	}
@@ -76,8 +79,9 @@
 	.header-mask{
 		width: 100%;
 		height: $headerheight;
-		background: linear-gradient(90deg, rgba(44,44,44,1) 0%, rgba(17,17,17,1) 100%);
+		background-color:$gray1;
 		overflow: hidden;
+      	position: relative;
 		.header-box{
 			width: 1140px;
 			margin: 0 auto;
@@ -106,8 +110,9 @@
 					font-size: 14px;
 					cursor: pointer;
 					transition: all .2s;
-					&:hover{
+					&:hover,&:focus{
 						background-color: rgba(255,255,255,.2);
+						color: $primary;
 					}
 					.header-nav-icon{
 						float: left;
@@ -118,31 +123,62 @@
 						background-position: center center;
 						background-size: 100%;
 					}
+					
 					.header-nav-text{
 						text-align: center;
 						height: 100%;
 						float: left;
 						line-height: $headerheight;
 					}
-				}
+				}	
 				.header-nav:nth-child(1){
 					.header-nav-icon{
-						background-image: url(../assets/svg/floor.svg);
+						background-image: url(../assets/images/topbar_zone.png);
+					}
+					&:hover,&:focus{
+						.header-nav-icon{
+							background-image: url(../assets/images/topbar_zone_s.png);
+						}
 					}
 				}
 				.header-nav:nth-child(2){
 					.header-nav-icon{
-						background-image: url(../assets/svg/flag.svg);
+						background-image: url(../assets/images/topbar_zone+.png);
+					}
+					&:hover,&:focus{
+						.header-nav-icon{
+							background-image: url(../assets/images/topbar_zone+_s.png);
+						}
 					}
 				}
 				.header-nav:nth-child(3){
 					.header-nav-icon{
-						background-image: url(../assets/svg/tv.svg);
+						background-image: url(../assets/images/topbar_event.png);
+					}
+					&:hover,&:focus{
+						.header-nav-icon{
+							background-image: url(../assets/images/topbar_event_s.png);
+						}
 					}
 				}
 				.header-nav:nth-child(4){
 					.header-nav-icon{
-						background-image: url(../assets/svg/info.svg);
+						background-image: url(../assets/images/topbar_tv.png);
+					}
+					&:hover,&:focus{
+						.header-nav-icon{
+							background-image: url(../assets/images/topbar_tv_s.png);
+						}
+					}
+				}
+				.header-nav:nth-child(5){
+					.header-nav-icon{
+						background-image: url(../assets/images/topbar_about.png);
+					}
+					&:hover,&:focus{
+						.header-nav-icon{
+							background-image: url(../assets/images/topbar_about_s.png);
+						}
 					}
 				}
 			}
@@ -162,7 +198,7 @@
 					padding: 0 10px;
 					box-sizing: border-box;
 					&>img{
-						border: 4px solid #fff;
+						border: 1px solid #fff;
 						border-radius: 50%;
 						width: 30px;
 						height: 30px;

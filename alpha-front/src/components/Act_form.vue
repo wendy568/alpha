@@ -2,11 +2,11 @@
     <div class="af-box">
         <div class="af-dialog">
             <i class="af-close" @click="close">
-				<s class="af-close-line"></s>
-			</i>
-            <div class="af-header">
-                <i class="af-header-icon"></i>
-            </div>
+                <s class="af-close-line"></s>
+            </i>
+            <!-- title -->
+            <div class="af-header"> 活动报名</div>
+            <!-- form -->
             <form class="af-form">
                 <div class="af-name">
                     <label for="name">
@@ -69,17 +69,17 @@
         },
         methods: {
             close() {
-				const self = this
-				self.$store.dispatch('TOGGLEACTFORM','off')
-			},
+                const self = this
+                self.$store.dispatch('TOGGLEACTFORM','off')
+            },
             openPay() {
                 const self = this
                 let formData = new FormData()
-			    formData.append('token',sessionStorage.getItem('token'))
+                formData.append('token',sessionStorage.getItem('token'))
                 formData.append('full_name',self.full_name)
-			    formData.append('phone',self.phone)
-			    formData.append('pro',self.position)
-			    formData.append('organization',self.addr)
+                formData.append('phone',self.phone)
+                formData.append('pro',self.position)
+                formData.append('organization',self.addr)
                 self.$store.dispatch('CHANGEPAYTABLE','event_order')
                 fetch(self.$store.state.api_addr + 'user/update_user_info',{
                     method: 'post',
@@ -96,7 +96,7 @@
         mounted() {
             const self = this
             let formData = new FormData()
-			formData.append('token',sessionStorage.getItem('token'))
+            formData.append('token',sessionStorage.getItem('token'))
             fetch(self.$store.state.api_addr + 'user/user_info_center',{
                 method: 'post',
                 mode: 'cors',
@@ -130,55 +130,45 @@
         .af-dialog{
             position: relative;
             width: 600px;
-            margin: 100px auto;
+            margin: 80px auto;
             background: #fff;
             box-shadow: 0 0 18px rgba(0,0,0,.01);
-            border-radius: 2px;
+            border-radius: 8px;
             .af-close{
-				position: absolute;
-				right: 0;
-				top: -50px;
-				width: 30px;
-				height: 30px;
-				background-image: url(../assets/images/close.png);
-				background-position: center center;
-				background-repeat: no-repeat;
-				background-size: 100% 100%;
-				cursor: pointer;
-				.af-close-line{
-					width: 2px;
-					height: 20px;
-					position: absolute;
-					bottom: -20px;
-					left: 50%;
-					margin-left: -1px;
-					background-color: #fff;
-				}
-				&:hover{
-					color: $gray3;
-				}
-			}
-            .af-header{
-                width: 100%;
-                height: 100px;
-                position: relative;
-                background-image: url(../assets/images/act_form.png);
-                background-size: 100% 100%;
+                position: absolute;
+                right: 0;
+                top: -50px;
+                width: 30px;
+                height: 30px;
+                background-image: url(../assets/images/close.png);
                 background-position: center center;
                 background-repeat: no-repeat;
-                .af-header-icon{
-                    display: block;
+                background-size: 100% 100%;
+                cursor: pointer;
+                .af-close-line{
+                    width: 2px;
+                    height: 20px;
                     position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    background-image: url(../assets/images/act_form_icon.png);
-                    background-size: 40px;
-                    background-position: center center;
-                    background-repeat: no-repeat;
+                    bottom: -20px;
+                    left: 50%;
+                    margin-left: -1px;
+                    background-color: #fff;
+                }
+                &:hover{
+                    color: $gray3;
                 }
             }
+            .af-header{
+                width: 100%;
+                overflow: hidden;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 100px;
+                color:$gray1;
+            }
             .af-form{
-                padding: 30px 70px;
+                padding: 0 70px 30px;
                 .af-name,.af-phone,.af-email,.af-address,.af-position,.af-cost{
                     padding-bottom: 20px;
                     overflow: hidden;

@@ -141,21 +141,6 @@
 	export default {
 		data() {
 			return {
-				location: [
-					{ value: 'shanghai', text: 'shanghai' },
-					{ value: 'beijing', text: 'beijing' },
-					{ value: 'chengdu', text: 'chengdu' }
-				],
-				period: [
-					{ value: '一个月', text: '一个月' },
-					{ value: '三个月', text: '三个月' },
-					{ value: '半年', text: '半年' }
-				],
-				model: [
-					{ value: '1', text: '1' },
-					{ value: '2', text: '2' },
-					{ value: '3', text: '3' }
-				],
 				datas: [
 					{ name: 'Total Desk',count: 9587,icon: 'desk' },
 					{ name: 'Setties',count: 955,icon: 'flag' },
@@ -488,6 +473,7 @@
 								color: $gray1;
 								font-size: 14px;
 								overflow: hidden;
+								height: 52px;
 							}
 							.video-item-data{
 								color: $gray3;
@@ -636,6 +622,7 @@
 								float: left;
 								width: 24px;
 								height: 24px;
+								margin-left: -4px;
 								background:url(../assets/images/alpha_icon_apply_date.png) center center no-repeat;
 								background-size:50% 50%;
 							}
@@ -649,6 +636,7 @@
 								float: left;
 								width: 24px;
 								height: 24px;
+								margin-left: -4px;
 								background:url(../assets/images/alpha_icon_apply_location.png) center center no-repeat;
 								background-size:50% 50%;
 							}

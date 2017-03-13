@@ -317,12 +317,12 @@
                     }
                     &:nth-child(2){
                         .ap-types-item-icon{
-                            background-image: url(../assets/images/paypal.png);
+                            background-image: url(../assets/images/alpha_icon_pay_paypal.png);
                         }
                     }
                     &:last-child{
                         .ap-types-item-icon{
-                            background-image: url(../assets/images/visa.png);
+                            background-image: url(../assets/images/alpha_icon_pay_ddtransfer.png);
                         }
                     }
                 }
