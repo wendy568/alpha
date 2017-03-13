@@ -42,4 +42,23 @@ class Dashboard extends MY_Controller
 	
 		encode_json($response,$data);
 	}
+
+	public function trading_evaluating()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$this->load->database();
+		$this->load->helper('json');
+		// $this->load->helper('time_zone');
+		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
+		$this->load->model('TradingAnalysis');
+
+		$mt4 = $this->TradingAnalysis->export_mt4_datas();
+		$this->load->library('trading_datas_calculate');
+		$data['data']['profit_total'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('variance', ['profit'])->get_property();
+
+		$response = array('archive' => array('status' => 0 ,'message' =>''));
+	
+		encode_json($response,$data);
+	}
 }
