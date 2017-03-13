@@ -300,16 +300,14 @@ class Trading_datas_calculate {
 
     	if(!empty($data)) $datas = $data;
     	$array = array_count_values(array_column($datas, $index));
-    	array_walk($array, function ($val, $key) use ($enmu){
-    		foreach ($enmu as $k) {
-    			echo $key;die;
-    			if ($key == $k) {
-    			# code...
-    			}
-    		}
-    		
-    		$ratio['_' . $key] = round($val / $count, 2);
-    	});
+    	// array_walk($array, function ($val, $key) use ($enmu){
+    	// 	foreach ($enmu as $k) {
+    	// 		if ($key == $k) {
+    	// 		# code...
+    	// 		}
+    	// 	}
+    	// });
+    	print_r($array);
     }
 
 }
