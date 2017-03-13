@@ -202,7 +202,7 @@
 						border-radius: 50%;
 						width: 30px;
 						height: 30px;
-						margin-top: 15px;
+						margin-top: 20px;
 						display: inline-block;
 						background-color: #fff;
 						box-sizing: border-box;

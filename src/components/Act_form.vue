@@ -125,7 +125,7 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(220,235,250,.9);
+        background: rgba(1,1,1,.5);
         z-index: 999;
         .af-dialog{
             position: relative;
