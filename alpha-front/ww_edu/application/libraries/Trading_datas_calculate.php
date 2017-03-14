@@ -219,6 +219,7 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	$avg = $this->property('avg', ['profit', $this->_data]);
     	$sum = 0;
+    	print_r($avg);die;
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == 'profit') {
