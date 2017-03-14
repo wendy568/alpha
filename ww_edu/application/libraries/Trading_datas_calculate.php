@@ -23,7 +23,7 @@ class Trading_datas_calculate {
 	private $trading_count = 0;
 	private $this_month;
 	private $this_year;
-	private $week = '';
+	public $week = '';
 	private $time_filter_definition = 'order_close_time';
 
 	public function build($import_datas, $month = null, $year = null)
