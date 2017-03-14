@@ -107,6 +107,10 @@ class Trading_datas_calculate {
 					if ($k == 'order_close_time' && $v >= $start && $v <= $end) {
 						$result[$val][] = $value;
 					} 
+
+					if(!isset($result[$val])) {
+						$result[$val] = [];
+					}
 				}
 			}
 		}
