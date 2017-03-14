@@ -186,7 +186,7 @@ class Trading_datas_calculate {
     }
 
     //Avg[∑(CloseTime-OpenTime)]
-    public function avg_holding($start, $end)
+    public function avg_deviation($start, $end)
     {
     	$datas = $this->_data;
     	$sum = 0;
@@ -213,14 +213,14 @@ class Trading_datas_calculate {
     }
 
     //根号[∑((X-μ)^2)] ? A (A*B) X=Profit μ=Avg(∑Profit) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
-    public function variance()
+    public function variance($index)
     {
     	$datas = $this->_data;
-    	$avg = call_user_func_array([$this, 'avg'], ['profit', $this->_data]);
+    	$avg = call_user_func_array([$this, 'avg'], [$index, $this->_data]);
     	$sum = 0;
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($k == 'profit') {
+				if ($k == $index) {
 					$sum += pow(($v - $avg), 2);
 				}
 			}
@@ -243,6 +243,19 @@ class Trading_datas_calculate {
 		return count($datas);
     }
 
+    private function count_negative($index)
+    {
+    	$datas = $this->_data;
+    	foreach ($datas as $key => $value) {
+			foreach ($value as $k => $v) {
+				if ($k == $index && $v > 0) {
+					unset($datas[$key]);
+				}
+			}
+		}
+		return count($datas);
+    }
+
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
     public function accuracy($index)
     {
@@ -253,6 +266,20 @@ class Trading_datas_calculate {
     public function ability($index)
     {
     	return $this->accuracy($index) * $this->avg($index, $this->_data);
+    }
+
+    //Count(OrderNo(OrderType=0))/Count(OrderNO(OrderType=1))
+    public function single_ratio($index, $enum = [])
+    {
+    	$datas = $this->_data;
+    	array_walk_recursive($datas, function ($val, $key) use ($enum, $index){
+    		foreach ($enum as $value) {
+    			if ($key == $index && $val == $value) {
+	    			$enum[$value] += 1;
+	    		}
+    		}
+    	});
+    	print_r($enum);
     }
 
 }
