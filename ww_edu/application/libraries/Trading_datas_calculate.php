@@ -230,24 +230,23 @@ class Trading_datas_calculate {
 
     }
 
-    private function count_positive()
+    private function count_positive($index)
     {
     	$datas = $this->_data;
-    	$sum = 0;
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($k == 'profit' && $v > 0) {
-					$sum += $sum;
+				if ($k == $index && $v < 0) {
+					unset($datas[$key]);
 				}
 			}
 		}
-		print_r($sum);
+		return count($datas);
     }
 
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
     public function operating_accuracy()
     {
-
+    	return $this->count_positive('profit');
     }
 
 }
