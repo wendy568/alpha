@@ -48,6 +48,8 @@ class Trading_datas_calculate {
 			$this->this_year = getdate()['year'];
 		}
 
+		$this->trading_count = count($this->_data);
+		
 		return $this;
 	}
 
@@ -127,12 +129,6 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
-	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
-    public function trading_count()
-    {
-    	$this->trading_count = count($this->_data);
-    }
-
     public function get_one_by_one($callback, $param)
     {
     	foreach ($this->oneByone as $key => $value) {
@@ -181,6 +177,7 @@ class Trading_datas_calculate {
     		}
     		$sum += $close - $open;
     	}
+    	print_r($this->trading_count());
     	return $sum / $this->trading_count();
     }
 
