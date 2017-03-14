@@ -28,7 +28,7 @@ class Trading_datas_calculate {
 
 	private $this_year;
 
-	private $today;
+	private $this_day;
 	
 	private $time_filter_definition = 'order_close_time';
 
@@ -46,7 +46,7 @@ class Trading_datas_calculate {
 
 		$this->this_year = getdate()['year'];
 
-		$this->today = getdate()[0];
+		$this->this_day = getdate()['mday'];
 
 		$this->trading_count = count($this->_data);
 
@@ -68,8 +68,15 @@ class Trading_datas_calculate {
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($k == $this->time_filter_definition && getdate($v)['mon'] != $this->this_month) {
-					unset($datas[$key]);
+				
+				if ($k == $this->time_filter_definition) {
+					$year = date('Y', $v);
+					$month = date('m', $v);
+					$day = date('d', $v);
+					if ($year != $this->this_year && $month != $this->this_month && $day != $this->this_day) {
+						unset($datas[$key]);
+					}
+					
 				}
 			}
 		}
@@ -163,7 +170,6 @@ class Trading_datas_calculate {
     //Avg[∑(CloseTime-OpenTime)]
     public function avg_holding()
     {
-    	print_r(getdate(1489024831)[0]);die;
     	$datas = $this->_data;
     	$sum = 0;
     	foreach ($datas as $key => $value) {
