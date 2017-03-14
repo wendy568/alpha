@@ -180,9 +180,8 @@ class Trading_datas_calculate {
     			$sum += $val;
     		}
     	});
-    	print_r($sum);die;
-    	$avg = $sum / $this->count;
 
+    	$avg = $sum / $this->count;
     	return $avg;
     }
 
@@ -217,7 +216,8 @@ class Trading_datas_calculate {
     public function risk_level()
     {
     	$datas = $this->_data;
-    	$avg = $this->property('avg', ['profit', $this->_data]);
+    	$avg = call_user_func_array([$this, 'avg'], ['profit', $this->_data]);
+    	print_r($avg);die;
     	$sum = 0;
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
