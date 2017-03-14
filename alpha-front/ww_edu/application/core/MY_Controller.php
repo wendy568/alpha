@@ -24,6 +24,7 @@ class MY_Controller extends CI_Controller
 		$this->load->database();
 		$this->load->model('login');
 		$data = $this->login->get_trading_account($this->get_bytoken($token));
+		print_r($data);die;
 		return $data;
 	}
 
