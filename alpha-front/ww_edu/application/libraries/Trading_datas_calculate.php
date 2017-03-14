@@ -68,13 +68,12 @@ class Trading_datas_calculate {
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				
 				if ($k == $this->time_filter_definition) {
 					$year = date('Y', $v);
 					$month = date('m', $v);
 					$day = date('d', $v);
+					echo 12313;
 					if ($year != $this->this_year && $month != $this->this_month && $day != $this->this_day) {
-						echo 123123;
 						unset($datas[$key]);
 					}
 					
