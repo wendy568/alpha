@@ -27,12 +27,14 @@ class Trading_datas_calculate {
 	private $this_month;
 
 	private $this_year;
+
+	private $today;
 	
 	private $time_filter_definition = 'order_close_time';
 
 	public $week = '';
 
-	public function build($import_datas, $month = null, $year = null)
+	public function build($import_datas, $month = null)
 	{
 		$this->_data = $import_datas;
 
@@ -42,11 +44,9 @@ class Trading_datas_calculate {
 			$this->this_month = getdate()['mon'];
 		}
 
-		if ($year !== null) {
-			$this->this_year = $year;
-		} else {
-			$this->this_year = getdate()['year'];
-		}
+		$this->this_year = getdate()['year'];
+
+		$this->today = getdate()[0];
 
 		$this->trading_count = count($this->_data);
 
@@ -63,14 +63,14 @@ class Trading_datas_calculate {
 		return $this->property;
 	}
 
-	public function get_year()
+	public function get_day()
 	{
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($k == $this->time_filter_definition && getdate($v)['year'] != $this->this_year) {
+				if ($k == $this->time_filter_definition && getdate($v)['mon'] != $this->this_month) {
 					unset($datas[$key]);
-				}	
+				}
 			}
 		}
 
@@ -163,6 +163,7 @@ class Trading_datas_calculate {
     //Avg[∑(CloseTime-OpenTime)]
     public function avg_holding()
     {
+    	print_r(getdate(1489024831)[0]);die;
     	$datas = $this->_data;
     	$sum = 0;
     	foreach ($datas as $key => $value) {
