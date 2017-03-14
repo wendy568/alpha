@@ -63,7 +63,6 @@ class Trading_datas_calculate {
 	public function count()
 	{
 		$this->count = count($this->_data);
-		print_r($this->count);die;
 		return $this;
 	}
 
@@ -207,7 +206,7 @@ class Trading_datas_calculate {
     		}
     	});
 
-    	$avg = $sum / $this->count;
+    	$avg = ($this->count) ? $sum / $this->count : 0;
     	return $avg;
     }
 
@@ -229,7 +228,7 @@ class Trading_datas_calculate {
     		$sum += $close - $open;
     	}
 
-    	return floor($sum / $this->count);
+    	return ($this->count) ? floor($sum / $this->count) : 0;
     }
 
     //TimeNow-AccountOpentTime
@@ -292,7 +291,8 @@ class Trading_datas_calculate {
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
     public function accuracy($index)
     {
-    	return  round($this->count_positive($index) / $this->count, 4);
+    	$accuracy = ($this->count) ? $this->count_positive($index) / $this->count : 0;
+    	return  round($accuracy, 4);
     }
 
     //(A*B) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
@@ -310,7 +310,7 @@ class Trading_datas_calculate {
     	$ratio = [];
     	$array = array_count_values(array_column($datas, $index));
     	array_walk($array, function ($val, $key) use (&$ratio, $count){
-    		$ratio['_' . $key] = round($val / $count, 2);
+    		$ratio['_' . $key] = ($count) ? round($val / $count, 2) : 0;
     	});
 
     	return $ratio;
