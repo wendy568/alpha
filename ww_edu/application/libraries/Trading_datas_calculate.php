@@ -137,7 +137,13 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-		print_r($result);
+
+		if(empty($result)) {
+			foreach ($week as $val) {
+				$result[$val] = [];
+			}
+		}
+
 		$this->oneByone = $result;
 		return $this;
 	}
@@ -161,7 +167,6 @@ class Trading_datas_calculate {
 
     public function get_one_by_one($callback, $param)
     {
-
     	foreach ($this->oneByone as $key => $value) {
     		if (!empty($value)) {
     			$param['data'] = $value;
