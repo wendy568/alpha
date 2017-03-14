@@ -49,7 +49,7 @@ class Trading_datas_calculate {
 		}
 
 		$this->trading_count = count($this->_data);
-		
+
 		return $this;
 	}
 
@@ -177,8 +177,8 @@ class Trading_datas_calculate {
     		}
     		$sum += $close - $open;
     	}
-    	print_r($this->trading_count());
-    	return $sum / $this->trading_count();
+
+    	return $sum / $this->trading_count;
     }
 
     //TimeNow-AccountOpentTime
