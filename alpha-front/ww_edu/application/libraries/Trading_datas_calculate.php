@@ -65,6 +65,9 @@ class Trading_datas_calculate {
 
 	public function get_day()
 	{
+		echo $this->this_year;
+		echo $this->this_month;
+		echo $this->this_day;
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
