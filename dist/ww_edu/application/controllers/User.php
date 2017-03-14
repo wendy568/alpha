@@ -89,7 +89,7 @@ class User extends MY_Controller
 					'verify' => $time
 				);
 			$list = array(
-					'replaceName' => $first_name,
+					'replaceName' => 'customer',
 					'replaceUrl' => $const->alphatrader['base']['site'].'?'.http_build_query($query)
 				);
 			array_walk($list, function ($item, $key) use (&$file){
