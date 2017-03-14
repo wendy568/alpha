@@ -175,6 +175,7 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	$avg = 0;
     	$sum = 0;
+    	echo 12313131;die;
     	array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
     		if ($key == $index) {
     			$sum += $val;
@@ -219,7 +220,6 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	$avg = $this->property('avg', ['profit', $this->_data]);
     	$sum = 0;
-    	print_r($avg);die;
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == 'profit') {
