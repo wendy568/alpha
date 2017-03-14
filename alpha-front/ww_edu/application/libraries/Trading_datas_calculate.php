@@ -90,6 +90,7 @@ class Trading_datas_calculate {
 	public function get_week()
 	{
 		$datas = $this->_data;
+		$result = [];
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
 		$week = time_zone::build()->get_week();
@@ -104,7 +105,7 @@ class Trading_datas_calculate {
 					$start = mktime(00, 00, 00, $month, $day, $year);
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					if ($k == 'order_close_time' && $v >= $start && $v <= $end) {
-						print_r($v);
+						$result[$val] = $value;
 					}
 				}
 			}
