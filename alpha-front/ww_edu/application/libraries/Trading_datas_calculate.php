@@ -269,11 +269,16 @@ class Trading_datas_calculate {
     }
 
     //Count(OrderNo(OrderType=0))/Count(OrderNO(OrderType=1))
-    public function single_ratio($index, $enum = [])
+    public function single_ratio($index)
     {
     	$datas = $this->_data;
-    	
-    	return array_count_values(array_column($datas, $index));
+    	$count = $this->count;
+    	$ratio = [];
+    	array_walk(array_count_values(array_column($datas, $index)), function ($val, $key) use (&$ratio, $count){
+    		$ratio['_' . $key] = floor($val / $count);
+    	});
+
+    	return $ratio;
     }
 
 }
