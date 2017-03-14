@@ -136,6 +136,7 @@ class Trading_datas_calculate {
     public function get_one_by_one($callback, $param)
     {
     	foreach ($this->week as $key => $value) {
+    		$param['data'] = $value;
     		$result[$key] = call_user_func_array([$this, $callback], $param);
     	}
 
@@ -148,10 +149,12 @@ class Trading_datas_calculate {
     	return $this;
     }
 
-    private function sum($index)
+    private function sum($index, $data = [])
     {
+    	$datas = $this->_data;
+    	if(isset($data)) $datas = $data;
     	$sum = 0;
-    	array_walk_recursive($this->_data, function ($val, $key) use (&$sum, $index){
+    	array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
     		if ($key == $index) {
     			$sum += $val;
     		}
