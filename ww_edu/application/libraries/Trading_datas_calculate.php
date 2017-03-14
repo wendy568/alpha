@@ -22,7 +22,7 @@ class Trading_datas_calculate {
 
 	private $_property = [];
 
-	private $trading_count = 0;
+	private $count = 0;
 
 	private $this_month;
 
@@ -32,7 +32,7 @@ class Trading_datas_calculate {
 	
 	private $time_filter_definition = 'order_close_time';
 
-	public $week = '';
+	public $oneByone = '';
 
 	public function build($import_datas, $month = null)
 	{
@@ -48,8 +48,6 @@ class Trading_datas_calculate {
 
 		$this->this_day = (getdate()['mday'] < 10) ? '0' . getdate()['mday'] : getdate()['mday'];
 
-		$this->trading_count = count($this->_data);
-
 		return $this;
 	}
 
@@ -61,6 +59,11 @@ class Trading_datas_calculate {
 	public function get_property()
 	{
 		return $this->property;
+	}
+
+	public function count()
+	{
+		$this->count = count($this->_data);
 	}
 
 	public function get_day()
@@ -166,6 +169,22 @@ class Trading_datas_calculate {
     	return $sum;
     }
 
+    private function avg($index, $data = [])
+    {
+    	$datas = $this->_data;
+    	$avg = 0;
+    	$sum = 0;
+    	array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
+    		if ($key == $index) {
+    			$sum += $val;
+    		}
+    	});
+
+    	$avg = $sum / $this->count;
+
+    	return $avg;
+    }
+
     //Avg[∑(CloseTime-OpenTime)]
     public function avg_holding($start, $end)
     {
@@ -184,7 +203,7 @@ class Trading_datas_calculate {
     		$sum += $close - $open;
     	}
 
-    	return floor($sum / $this->trading_count);
+    	return floor($sum / $this->count);
     }
 
     //TimeNow-AccountOpentTime
@@ -194,6 +213,21 @@ class Trading_datas_calculate {
     }
 
     //根号[∑((X-μ)^2)] ? A (A*B) X=Profit μ=Avg(∑Profit) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
+    public function risk_level()
+    {
+    	$datas = $this->_data;
+    	$avg = $this->property('avg', ['profit', $this->_data]);
+    	$sum = 0;
+    	foreach ($datas as $key => $value) {
+			foreach ($value as $k => $v) {
+					if ($k == 'profit') {
+						$sum += pow(($v - $avg), 2);
+					}
+			}
+		}
 
+		return sqrt($sum);
+
+    }
 
 }
