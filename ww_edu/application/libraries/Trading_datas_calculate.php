@@ -272,14 +272,14 @@ class Trading_datas_calculate {
     public function single_ratio($index, $enum = [])
     {
     	$datas = $this->_data;
-    	array_walk_recursive($datas, function ($val, $key) use ($enum, $index){
+    	array_walk_recursive($datas, function ($val, $key) use (&$enum, $index){
     		foreach ($enum as $value) {
     			if ($key == $index && $val == $value) {
 	    			$enum[$value] += 1;
 	    		}
     		}
     	});
-    	print_r($enum);
+    	return $enum;
     }
 
 }
