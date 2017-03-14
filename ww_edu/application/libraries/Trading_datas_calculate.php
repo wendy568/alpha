@@ -184,7 +184,7 @@ class Trading_datas_calculate {
     {
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
-    	print_r($datas);die;
+
     	$sum = 0;
     	array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
     		if ($key == $index) {
