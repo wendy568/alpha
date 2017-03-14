@@ -25,7 +25,7 @@ class Trading_datas_calculate {
 	private $this_year;
 	private $week = '';
 	private $time_filter_definition = 'order_close_time';
-	
+
 	public function build($import_datas, $month = null, $year = null)
 	{
 		$this->_data = $import_datas;
@@ -91,7 +91,6 @@ class Trading_datas_calculate {
 
 	public function get_week()
 	{
-		echo date('Y-m-d', 1489389043);
 		$datas = $this->_data;
 		$result = [];
 		$instance = & get_instance();
