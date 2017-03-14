@@ -273,9 +273,7 @@ class Trading_datas_calculate {
     {
     	$datas = $this->_data;
     	
-    	return array_filter(array_column($datas, $index), function ($val, $key) {
-    		return $val;
-    	}, ARRAY_FILTER_USE_KEY);
+    	return array_count_values(array_column($datas));
     }
 
 }
