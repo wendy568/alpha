@@ -217,18 +217,16 @@ class Trading_datas_calculate {
     {
     	$datas = $this->_data;
     	$avg = call_user_func_array([$this, 'avg'], ['profit', $this->_data]);
-    	print_r($avg);die;
     	$sum = 0;
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == 'profit') {
-					print_r($avg);
-					// $sum += pow(($v - $avg), 2);
+					$sum += pow(($v - $avg), 2);
 				}
 			}
 		}
 
-		// return sqrt($sum);
+		return sqrt($sum);
 
     }
 
