@@ -127,52 +127,52 @@ $(document).ready(function() {
 		scaleColor:false
     });
 	
-    // Morris.Line({
-    //     element: 'line-example',
-    //     data: [
-    //         { y: '2006', a: 50, b: 40 },
-    //         { y: '2007', a: 65,  b: 55 },
-    //         { y: '2008', a: 50,  b: 40 },
-    //         { y: '2009', a: 75,  b: 65 },
-    //         { y: '2010', a: 50,  b: 40 },
-    //         { y: '2011', a: 75,  b: 65 },
-    //         { y: '2012', a: 100, b: 90 }
-    //     ],
-    //     xkey: 'y',
-    //     ykeys: ['a', 'b'],
-    //     labels: ['Series A', 'Series B'],
-    //     lineColors:['#0aa699','#d1dade'],
-    // });
+    Morris.Line({
+        element: 'line-example',
+        data: [
+            { y: '2006', a: 50, b: 40 },
+            { y: '2007', a: 65,  b: 55 },
+            { y: '2008', a: 50,  b: 40 },
+            { y: '2009', a: 75,  b: 65 },
+            { y: '2010', a: 50,  b: 40 },
+            { y: '2011', a: 75,  b: 65 },
+            { y: '2012', a: 100, b: 90 }
+        ],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Series A', 'Series B'],
+        lineColors:['#0aa699','#d1dade'],
+    });
     
-    // Morris.Area({
-    //     element: 'area-example',
-    //     data: [
-    //         { y: '2006', a: 100, b: 90 },
-    //         { y: '2007', a: 75,  b: 65 },
-    //         { y: '2008', a: 50,  b: 40 },
-    //         { y: '2009', a: 75,  b: 65 },
-    //         { y: '2010', a: 50,  b: 40 },
-    //         { y: '2011', a: 75,  b: 65 },
-    //         { y: '2012', a: 100, b: 90 }
-    //     ],
-    //     xkey: 'y',
-    //     ykeys: ['a', 'b'],
-    //     labels: ['Series A', 'Series B'],
-    //     lineColors:['#0090d9','#b7c1c5'],
-    //     lineWidth:'0',
-    //     grid:'false',
-    //     fillOpacity:'0.5'
-    // });
+    Morris.Area({
+        element: 'area-example',
+        data: [
+            { y: '2006', a: 100, b: 90 },
+            { y: '2007', a: 75,  b: 65 },
+            { y: '2008', a: 50,  b: 40 },
+            { y: '2009', a: 75,  b: 65 },
+            { y: '2010', a: 50,  b: 40 },
+            { y: '2011', a: 75,  b: 65 },
+            { y: '2012', a: 100, b: 90 }
+        ],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Series A', 'Series B'],
+        lineColors:['#0090d9','#b7c1c5'],
+        lineWidth:'0',
+        grid:'false',
+        fillOpacity:'0.5'
+    });
     
-    // Morris.Donut({
-    //     element: 'donut-example',
-    //     data: [
-    //         {label: "Download Sales", value: 12},
-    //         {label: "In-Store Sales", value: 30},
-    //         {label: "Mail-Order Sales", value: 20}
-    //     ],
-    //     colors:['#60bfb6','#91cdec','#eceff1']
-    // });
+    Morris.Donut({
+        element: 'donut-example',
+        data: [
+            {label: "Download Sales", value: 12},
+            {label: "In-Store Sales", value: 30},
+            {label: "Mail-Order Sales", value: 20}
+        ],
+        colors:['#60bfb6','#91cdec','#eceff1']
+    });
 
     $('#mysparkline').sparkline([4,3,3,1,4,3,2,2,3], {
         type: 'line', 
@@ -227,38 +227,38 @@ $(document).ready(function() {
     });
     
     var seriesData = [ [], []];
-    // var random = new Rickshaw.Fixtures.RandomData(50);
+    var random = new Rickshaw.Fixtures.RandomData(50);
 
     for (var i = 0; i < 50; i++) {
-        // random.addData(seriesData);
+        random.addData(seriesData);
     }
 
-    // graph = new Rickshaw.Graph( {
-    //     element: document.querySelector("#updatingChart"),
-    //     height: 200,
-    //     renderer: 'area',
-    //     series: [
-    //         {
-    //             data: seriesData[0],
-    //             color: 'rgba(0,144,217,0.51)',
-    //             name:'DB Server'
-    //         },{
-    //             data: seriesData[1],
-    //             color: '#eceff1',
-    //             name:'Web Server'
-    //         }
-    //     ]
-    // } );
-    // var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-    //     graph: graph
-    // });
+    graph = new Rickshaw.Graph( {
+        element: document.querySelector("#updatingChart"),
+        height: 200,
+        renderer: 'area',
+        series: [
+            {
+                data: seriesData[0],
+                color: 'rgba(0,144,217,0.51)',
+                name:'DB Server'
+            },{
+                data: seriesData[1],
+                color: '#eceff1',
+                name:'Web Server'
+            }
+        ]
+    } );
+    var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+        graph: graph
+    });
 
-    // setInterval( function() {
-    //     random.removeData(seriesData);
-    //     random.addData(seriesData);
-    //     graph.update();
+    setInterval( function() {
+        random.removeData(seriesData);
+        random.addData(seriesData);
+        graph.update();
 
-    // },1000);
+    },1000);
     
     //Bar Chart  - Jquert flot
     

@@ -1,3 +1,6 @@
+// 项目请求根地址
+window.alpha_host='http://120.25.211.159/ww_edu/';
+
 (function($) {
     'use strict';
     var alpha = function() {
@@ -119,7 +122,6 @@
         //     }, 400);
         // });
         $('.tab .controller .remove').click(function () {
-            alert('点我干嘛？');
             $(this).parent().parent().addClass('animated fadeOut');
             $(this).parent().parent().attr('id', 'id_remove');
             setTimeout(function () {
