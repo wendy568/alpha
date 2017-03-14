@@ -4616,7 +4616,7 @@ form legend,
 /*------------------------------------------------------------------
 [8. Message and Notification]
 */
-.alert {
+/*.alert {
   color: #ce8f22;
   background-color: #fffcee;
   background-image: none;
@@ -4707,7 +4707,7 @@ form legend,
 }
 .alert-block {
   padding: 15px 19px 15px 17px;
-}
+}*/
 .popover-content .notification-messages {
   padding: 15px 18px 15px;
 }
