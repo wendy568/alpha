@@ -64,7 +64,8 @@ class User extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 
-		$nic_name = $this->input->get_post('nic_name', TRUE);
+		$first_name = $this->input->get_post('first_name', TRUE);
+		$last_name = $this->input->get_post('last_name', TRUE);
 		// $username = $this->input->get_post('username', TRUE);
 		$email = $this->input->get_post('email', TRUE);
 		$password = $this->input->get_post('password', TRUE);
@@ -74,7 +75,7 @@ class User extends MY_Controller
 		$this->load->model('login');
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data = array();
-		$this->login->register($email, md5($password), $nic_name, $response, $data);
+		$this->login->register($email, md5($password), $first_name, $last_name, $response, $data);
 		if($response['archive']['status'] === 0)
 		{
 			$str = $this->encode($email);
@@ -88,7 +89,7 @@ class User extends MY_Controller
 					'verify' => $time
 				);
 			$list = array(
-					'replaceName' => $nic_name,
+					'replaceName' => $first_name,
 					'replaceUrl' => $const->alphatrader['base']['site'].'?'.http_build_query($query)
 				);
 			array_walk($list, function ($item, $key) use (&$file){
