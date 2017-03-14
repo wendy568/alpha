@@ -7,6 +7,15 @@ class ZoneAndPluses extends CI_Model
         parent::__construct();
     }
 
+    function zonePlus_list()
+    {
+    	$map = 'SELECT * 
+    			FROM zone_plus';
+    	
+    	$result = $this->db->query($map)->result_array();
+    	return $result;
+    }
+
     function zone_list($start, $limit)
     {
 		$start = $start?$start:0;

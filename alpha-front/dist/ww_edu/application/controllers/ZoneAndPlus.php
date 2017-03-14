@@ -18,6 +18,20 @@ class ZoneAndPlus extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function zonePlus_list()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+			
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('ZoneAndPluses');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->ZoneAndPluses->zonePlus_list();
+	
+		encode_json($response,$data);
+	}
+
 	public function zone_list()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
