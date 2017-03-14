@@ -21,6 +21,12 @@ class Dashboard extends MY_Controller
 		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('sum', ['profit'])->get_property();
 		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
 		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('transaction_peroid', ['order_open_time'])->get_property();
+
+		$data['last_trading_count'] = 0;
+		$data['last_profit'] = 0;
+		$data['last_avg_holding_time'] = 0;
+		$data['last_transaction_peroid'] = 0;
+		
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);
