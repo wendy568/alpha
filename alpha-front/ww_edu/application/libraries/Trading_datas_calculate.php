@@ -288,7 +288,7 @@ class Trading_datas_calculate {
 		}
 
 		$this->_data = $datas;
-		return $this->_data;
+		return $this;
     }
 
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
