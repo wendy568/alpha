@@ -276,7 +276,7 @@ class Trading_datas_calculate {
 		return count($datas);
     }
 
-    private function count_negative($index)
+    private function save_to_count_negative($index)
     {
     	$datas = $this->_data;
     	foreach ($datas as $key => $value) {
