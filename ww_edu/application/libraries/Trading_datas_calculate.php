@@ -150,10 +150,10 @@ class Trading_datas_calculate {
     	return $sum;
     }
 
-    public function property($index = 'profit', $callback)
+    public function property($callback, $param)
     {
     	
-    	$this->property[$index] = call_user_func_array([$this, $callback], [$index]);
+    	$this->property = call_user_func_array([$this, $callback], $param);
     	return $this;
     }
 
