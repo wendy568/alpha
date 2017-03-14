@@ -213,7 +213,7 @@ class Trading_datas_calculate {
     }
 
     //根号[∑((X-μ)^2)] ? A (A*B) X=Profit μ=Avg(∑Profit) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
-    public function risk_level()
+    public function variance()
     {
     	$datas = $this->_data;
     	$avg = call_user_func_array([$this, 'avg'], ['profit', $this->_data]);
@@ -227,6 +227,26 @@ class Trading_datas_calculate {
 		}
 
 		return sqrt($sum);
+
+    }
+
+    private function count_positive()
+    {
+    	$datas = $this->_data;
+    	$sum = 0;
+    	foreach ($datas as $key => $value) {
+			foreach ($value as $k => $v) {
+				if ($k == 'profit' && $v > 0) {
+					$sum += $sum;
+				}
+			}
+		}
+		print_r($sum);
+    }
+
+    //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
+    public function operating_accuracy()
+    {
 
     }
 
