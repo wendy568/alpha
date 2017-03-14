@@ -9,6 +9,7 @@ class TradingAnalysis extends CI_Model
 
     function export_mt4_datas($finency_proc = null)
     {
+        print_r($finency_proc);die;
         if(isset($finency_proc)) $where .= " AND order_symbol={$finency_proc}";
     	$map = "SELECT * 
     			FROM mt4_export_datas
