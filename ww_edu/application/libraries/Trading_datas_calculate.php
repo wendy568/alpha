@@ -1,6 +1,5 @@
 <?php  
 /**
- 
  	MT4 Order Datas
 
 	order_no: 订单号
@@ -230,6 +229,13 @@ class Trading_datas_calculate {
 
     }
 
+    //trading 专属方法,数据意义不明所以
+    public function frequency($callback, $param)
+    {
+    	$denominator = call_user_func_array([$this, $callback], $param);
+    	return $this->count / $denominator;
+    }
+
     private function count_positive($index)
     {
     	$datas = $this->_data;
@@ -269,7 +275,7 @@ class Trading_datas_calculate {
     }
 
     //Count(OrderNo(OrderType=0))/Count(OrderNO(OrderType=1))
-    public function single_ratio($index)
+    public function percent_ratio($index)
     {
     	$datas = $this->_data;
     	$count = $this->count;
@@ -280,6 +286,12 @@ class Trading_datas_calculate {
     	});
 
     	return $ratio;
+    }
+
+    public function ratio($index)
+    {
+    	$datas = $this->_data;
+    	return $array = array_count_values(array_column($datas, $index));
     }
 
 }
