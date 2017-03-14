@@ -50,9 +50,9 @@ class Trading_datas_calculate {
 		return $this->_data;
 	}
 
-	public function get_property($prop)
+	public function get_property()
 	{
-		return $this->property[$prop];
+		return $this->property;
 	}
 
 	public function get_year()
@@ -127,7 +127,7 @@ class Trading_datas_calculate {
     	$this->trading_count = count($this->_data);
     }
 
-    public function profit_one_by_one($data, $time = null, $index = 'profit')
+    public function profit_one_by_one()
     {
     	isset($time) OR $time = array_keys($data);
 
@@ -150,17 +150,23 @@ class Trading_datas_calculate {
     	return $sum;
     }
 
-    public function profit()
+    public function property($index = 'profit', $callback)
+    {
+    	
+    	$this->property[$index] = call_user_func_array([$this, $callback], [$index]);
+    	return $this;
+    }
+
+    private function sum($index)
     {
     	$sum = 0;
     	array_walk_recursive($this->_data, function ($val, $key) use (&$sum){
-    		if ($key == 'profit') {
+    		if ($key == $index) {
     			$sum += $val;
     		}
     	});
 
-    	$this->property['profit'] = $sum;
-    	return $this;
+    	return $sum;
     }
 
     //Avg[∑(CloseTime-OpenTime)]
