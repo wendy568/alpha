@@ -134,7 +134,7 @@ class Trading_datas_calculate {
     	if (is_array($time)) {
     		$result = [];
     		foreach ($time as $key => $value) {
-    			$result[$key] = $this->profit($value, '1');
+    			$result[$key] = $this->profit_one_by_one($value, '1');
     		}
 
     		return $result;
