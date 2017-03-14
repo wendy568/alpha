@@ -18,13 +18,13 @@ class Dashboard extends MY_Controller
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account);
 		$this->load->library('trading_datas_calculate');
 		$data['data']['trading_count'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('get_count', [])->get_property();
-		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('sum', ['profit'])->get_property();
-		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
-		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('transaction_peroid', ['order_open_time'])->get_property();
-
 		$data['data']['last_trading_count'] = "100% Higher";
+		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('sum', ['profit'])->get_property();
 		$data['data']['last_profit'] = "100% Higher";
+		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
 		$data['data']['last_avg_holding_time'] = "100% Higher";
+
+		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('transaction_peroid', ['order_open_time'])->get_property();
 		$data['data']['last_transaction_peroid'] = "100% Higher";
 
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
