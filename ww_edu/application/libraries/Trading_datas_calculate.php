@@ -246,7 +246,7 @@ class Trading_datas_calculate {
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
     public function operating_accuracy()
     {
-    	return $this->count_positive('profit');
+    	return  $this->count_positive('profit') / $this->count;
     }
 
 }
