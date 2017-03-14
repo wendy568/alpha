@@ -118,6 +118,7 @@ class Trading_datas_calculate {
 		}
 
 		$this->week = $result;
+		// print_r(count($re))
 		return $this;
 	}
 
