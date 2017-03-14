@@ -127,26 +127,28 @@ class Trading_datas_calculate {
     	$this->trading_count = count($this->_data);
     }
 
-    public function profit_one_by_one($data, $one_by_one, $index = 'profit')
+    public function profit_one_by_one($array, $index = NULL)
     {
-    	if (isset($one_by_one)) {
-    		$result = [];
-    		foreach ($one_by_one as $key => $value) {
-    			$result[$key] = $this->profit($value);
-    		}
 
-    		return $result;
-    	}
+	isset($index) OR $index = array_keys($array);
+	// print_r($array);
+	if (is_array($index))
+	{
+		$output = array();
+		foreach ($index as $key)
+		{
+			$output[$key] = _fetch_from_array($array, $key);
+		}
 
-    	$sum = 0;
-    	array_walk_recursive($data, function ($val, $key) use (&$sum){
-    		if ($key == $index) {
-    			$sum += $val;
-    		}
-    	});
+		return $output;
+	}
 
-    	$this->onebyone['profit'] = $sum;
-    	return $this;
+	if (isset($array[$index]))
+	{
+		return $array[$index].'CQ';
+	} else {
+		return false;
+	}
     }
 
     public function profit()
