@@ -175,13 +175,12 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	$avg = 0;
     	$sum = 0;
-    	echo 12313131;die;
     	array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
     		if ($key == $index) {
     			$sum += $val;
     		}
     	});
-
+    	print_r($sum);die;
     	$avg = $sum / $this->count;
 
     	return $avg;
