@@ -23,7 +23,8 @@ class Trading_datas_calculate {
 	private $trading_count = 0;
 	private $this_month;
 	private $this_year;
-
+	private $week = '';
+	private $time_filter_definition;
 	public function build($import_datas, $month = null, $year = null)
 	{
 		$this->_data = $import_datas;
@@ -58,7 +59,7 @@ class Trading_datas_calculate {
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($k == 'order_close_time' && getdate($v)['year'] != $this->this_year) {
+				if ($k == $this->time_filter_definition && getdate($v)['year'] != $this->this_year) {
 					unset($datas[$key]);
 				}	
 			}
@@ -75,7 +76,7 @@ class Trading_datas_calculate {
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($k == 'order_close_time' && getdate($v)['mon'] != $this->this_month) {
+				if ($k == $this->time_filter_definition && getdate($v)['mon'] != $this->this_month) {
 					unset($datas[$key]);
 				}
 			}
@@ -105,7 +106,7 @@ class Trading_datas_calculate {
 					$day = $slice[2];
 					$start = mktime(00, 00, 00, $month, $day, $year);
 					$end = mktime(23, 59, 59, $month, $day, $year);
-					if ($k == 'order_close_time' && $v >= $start && $v <= $end) {
+					if ($k == $this->time_filter_definition && $v >= $start && $v <= $end) {
 						$result[$val][] = $value;
 					} 
 
@@ -115,7 +116,9 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-		print_r($result);
+
+		$this->week = $result;
+		return $this;
 	}
 
 	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
@@ -126,6 +129,9 @@ class Trading_datas_calculate {
 
     public function profit()
     {
+    	if (isset($this->week)) {
+    		# code...
+    	}
     	$sum = 0;
     	array_walk_recursive($this->_data, function ($val, $key) use (&$sum){
     		if ($key == 'profit') {
