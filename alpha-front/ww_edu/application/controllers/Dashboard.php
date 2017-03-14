@@ -7,7 +7,7 @@ class Dashboard extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
-		$mem_id = $this->get_bytoken($token);
+		$account = $this->get_bytoken($token);
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -32,7 +32,7 @@ class Dashboard extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
-		$mem_id = $this->get_bytoken($token);
+		$account = $this->get_bytoken($token);
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -57,7 +57,7 @@ class Dashboard extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
-		$mem_id = $this->get_bytoken($token);
+		$account = $this->get_bytoken($token);
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -82,7 +82,7 @@ class Dashboard extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
-		$mem_id = $this->get_bytoken($token);
+		$account = $this->get_bytoken($token);
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -90,7 +90,7 @@ class Dashboard extends MY_Controller
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
 		$this->load->model('TradingAnalysis');
 
-		$mt4 = $this->TradingAnalysis->export_mt4_datas($finency_proc, $account);
+		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc);
 		$this->load->library('trading_datas_calculate');
 		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('percent_ratio', ['order_type'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
