@@ -19,12 +19,18 @@
 class Trading_datas_calculate {
 
 	private $_data = [];
+
 	private $_property = [];
+
 	private $trading_count = 0;
+
 	private $this_month;
+
 	private $this_year;
-	public $week = '';
+	
 	private $time_filter_definition = 'order_close_time';
+
+	public $week = '';
 
 	public function build($import_datas, $month = null, $year = null)
 	{
@@ -127,32 +133,17 @@ class Trading_datas_calculate {
     	$this->trading_count = count($this->_data);
     }
 
-    public function profit_one_by_one()
+    public function get_one_by_one($callback, $param)
     {
-    	isset($time) OR $time = array_keys($data);
-
-    	if (is_array($time)) {
-    		$result = [];
-    		foreach ($time as $key => $value) {
-    			$result[$key] = $this->profit_one_by_one($value, '1');
-    		}
-
-    		return $result;
+    	foreach ($this->week as $key => $value) {
+    		$result[$key] = call_user_func_array([$this, $callback], $param);
     	}
 
-    	$sum = 0;
-    	array_walk_recursive($data, function ($val, $key) use (&$sum){
-    		if ($key == $index) {
-    			$sum += $val;
-    		}
-    	});
-
-    	return $sum;
+    	return $result;
     }
 
     public function property($callback, $param)
     {
-    	
     	$this->property = call_user_func_array([$this, $callback], $param);
     	return $this;
     }
