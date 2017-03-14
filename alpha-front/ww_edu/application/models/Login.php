@@ -87,6 +87,19 @@ class Login extends CI_Model
 		}
 
 	}
+function get_trading_account($uid)
+{
+	$map = 'SELECT account  
+			FROM trading_account
+			WHERE uid="'.$uid.'"';
+	
+	$result = $this->db->query($map)->row_array();
+	return isset($result['account']) ? $result['account'] : null;
+}
+	function get_trading_account($uid)
+	{
+
+	}
 
 	function get_bytoken_id($token)
 	{

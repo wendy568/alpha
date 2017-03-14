@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
 		$this->load->model('login');
-		$data = $this->login->get_trading_account($token);
+		$data = $this->login->get_trading_account($this->get_bytoken($token));
 		return $data;
 	}
 
