@@ -130,9 +130,11 @@ class Trading_datas_calculate {
     public function profit()
     {
     	if (isset($this->week)) {
-    		echo 123;
+    		foreach ($this->week as $key => $value) {
+    			print_r($value);
+    		}
     	}
-    	
+
     	$sum = 0;
     	array_walk_recursive($this->_data, function ($val, $key) use (&$sum){
     		if ($key == 'profit') {
