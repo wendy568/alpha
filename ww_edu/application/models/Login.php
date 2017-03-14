@@ -95,7 +95,6 @@ class Login extends CI_Model
 				WHERE uid="'.$uid.'"';
 		
 		$result = $this->db->query($map)->row_array();
-		print_r($result);die;
 		return isset($result['account']) ? $result['account'] : null;
 	}
 
