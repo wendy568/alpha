@@ -178,7 +178,7 @@ class Trading_datas_calculate {
     		$sum += $close - $open;
     	}
 
-    	return $sum / $this->trading_count;
+    	return floor($sum / $this->trading_count);
     }
 
     //TimeNow-AccountOpentTime
