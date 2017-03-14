@@ -66,7 +66,7 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
-	public function get_count()
+	private function get_count()
 	{
 		return $this->count;
 	}
