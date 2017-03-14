@@ -153,6 +153,7 @@ class Trading_datas_calculate {
     {
     	$datas = $this->_data;
     	if(isset($data)) $datas = $data;
+
     	$sum = 0;
     	array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
     		if ($key == $index) {
@@ -166,7 +167,21 @@ class Trading_datas_calculate {
     //Avg[∑(CloseTime-OpenTime)]
     public function avg_holding()
     {
+    	$datas = $this->_data;
+    	foreach ($datas as $key => $value) {
+    		foreach ($value as $k => $v) {
+    			if($k == 'order_open_time') {
+    				$open = $v;
+    			}
 
+    			if($k == 'order_close_time') {
+    				$close = $v;
+    			}
+    		}
+    		echo $open;
+    		echo "<br>";
+    		echo $close;
+    	}
     }
 
     //TimeNow-AccountOpentTime
