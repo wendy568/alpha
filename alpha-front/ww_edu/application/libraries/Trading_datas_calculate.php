@@ -183,6 +183,7 @@ class Trading_datas_calculate {
     private function sum($index, $data = [])
     {
     	$datas = $this->_data;
+    	print_r($datas);die;
     	if(!empty($data)) $datas = $data;
 
     	$sum = 0;
