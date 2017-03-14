@@ -110,7 +110,7 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-		
+		print_r($result);
 	}
 
 	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
