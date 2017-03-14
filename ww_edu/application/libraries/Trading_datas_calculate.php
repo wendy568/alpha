@@ -179,7 +179,7 @@ class Trading_datas_calculate {
     				$close = $v;
     			}
     		}
-    		$sum += $close - $open;
+    		$sum = $close - $open;
     	}
     	echo $sum;
     }
