@@ -168,7 +168,7 @@ class Trading_datas_calculate {
     public function avg_holding()
     {
     	$datas = $this->_data;
-    	static $sum = 0;
+    	$sum = 0;
     	foreach ($datas as $key => $value) {
     		foreach ($value as $k => $v) {
     			if($k == 'order_open_time') {
@@ -181,7 +181,7 @@ class Trading_datas_calculate {
     		}
     		$sum += $close - $open;
     	}
-    	echo $sum;
+    	return $sum / $this->trading_count();
     }
 
     //TimeNow-AccountOpentTime
