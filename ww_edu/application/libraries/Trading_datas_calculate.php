@@ -137,7 +137,7 @@ class Trading_datas_calculate {
 		$output = array();
 		foreach ($index as $key)
 		{
-			$output[$key] = _fetch_from_array($array, $key);
+			$output[$key] = $this->profit_one_by_one($array, $key);
 		}
 
 		return $output;
