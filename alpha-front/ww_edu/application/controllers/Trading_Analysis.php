@@ -45,6 +45,7 @@ class Trading_Analysis extends MY_Controller
 		$data['data']['profit_total'] = $this->trading_datas_calculate->build($mt4, 3)->property('sum', ['profit'])->get_property();
 		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('get_count', [])->get_property();
 		$data['data']['loss'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->count()->property('get_count', [])->get_property();
+		$data['data']['loss2'] = $this->trading_datas_calculate->build($mt4, 3)->property('get_count', [])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);
