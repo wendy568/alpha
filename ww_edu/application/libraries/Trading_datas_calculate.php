@@ -274,7 +274,8 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	$count = $this->count;
     	$ratio = [];
-    	array_walk(array_count_values(array_column($datas, $index)), function ($val, $key) use ($count){
+    	$array = array_count_values(array_column($datas, $index));
+    	array_walk($array, function ($val, $key) use (&$ratio, $count){
 
     		$ratio['_' . $key] = floor($val / $count);
     	});
