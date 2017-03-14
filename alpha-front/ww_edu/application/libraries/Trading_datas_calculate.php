@@ -137,6 +137,7 @@ class Trading_datas_calculate {
     {
     	foreach ($this->week as $key => $value) {
     		$param['data'] = $value;
+    		$param['asd'] = null;
     		$result[$key] = call_user_func_array([$this, $callback], $param);
     	}
 
