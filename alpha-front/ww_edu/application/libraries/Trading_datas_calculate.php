@@ -286,7 +286,7 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-
+		print_r($datas);
 		$this->_data = $datas;
 		return $this;
     }
