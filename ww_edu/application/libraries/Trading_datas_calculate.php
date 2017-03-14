@@ -276,7 +276,7 @@ class Trading_datas_calculate {
 		return count($datas);
     }
 
-    private function saveCountPositive($index)
+    public function saveCountPositive($index)
     {
     	$datas = $this->_data;
     	foreach ($datas as $key => $value) {
@@ -286,7 +286,7 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-		
+
 		$this->_data = $datas;
 		return $this->_data;
     }
