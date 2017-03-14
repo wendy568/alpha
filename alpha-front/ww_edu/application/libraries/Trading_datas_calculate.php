@@ -333,6 +333,7 @@ class Trading_datas_calculate {
 
     	$array = array_count_values(array_column($datas, $index));
     	foreach ($array as $key => $value) {
+    		print_r($key);
     		$array['_' . $key] = $value;
     		unset($array[$key]);
     	}
