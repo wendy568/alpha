@@ -105,7 +105,7 @@ class Trading_datas_calculate {
 					$start = mktime(00, 00, 00, $month, $day, $year);
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					if ($k == 'order_close_time' && $v >= $start && $v <= $end) {
-						$result[$val] = $value;
+						$result[$val][] = $value;
 					}
 				}
 			}
