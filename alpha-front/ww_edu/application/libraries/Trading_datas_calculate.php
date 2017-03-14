@@ -222,6 +222,7 @@ class Trading_datas_calculate {
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 					if ($k == 'profit') {
+						print_r($v);
 						$sum += pow(($v - $avg), 2);
 					}
 			}
