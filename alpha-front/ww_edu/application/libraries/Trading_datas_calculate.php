@@ -78,6 +78,7 @@ class Trading_datas_calculate {
 					echo $year;
 					echo $month;
 					echo $day;
+					die;
 					if ($year != $this->this_year && $month != $this->this_month && $day != $this->this_day) {
 						unset($datas[$key]);
 					}
