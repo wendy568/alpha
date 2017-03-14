@@ -123,7 +123,7 @@ class Trading_datas_calculate {
 			}
 		}
 
-		$this->week = $result;
+		$this->oneByone = $result;
 		return $this;
 	}
 
@@ -135,7 +135,7 @@ class Trading_datas_calculate {
 
     public function get_one_by_one($callback, $param)
     {
-    	foreach ($this->week as $key => $value) {
+    	foreach ($this->oneByone as $key => $value) {
     		$param['data'] = $value;
     		$result[$key] = call_user_func_array([$this, $callback], $param);
     	}
@@ -168,6 +168,7 @@ class Trading_datas_calculate {
     public function avg_holding()
     {
     	$datas = $this->_data;
+    	$sum = 0;
     	foreach ($datas as $key => $value) {
     		foreach ($value as $k => $v) {
     			if($k == 'order_open_time') {
@@ -178,10 +179,9 @@ class Trading_datas_calculate {
     				$close = $v;
     			}
     		}
-    		echo $open;
-    		echo "<br>";
-    		echo $close;
+    		$sum += $close - $open;
     	}
+    	echo $sum;
     }
 
     //TimeNow-AccountOpentTime
