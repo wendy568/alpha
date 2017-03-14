@@ -103,9 +103,13 @@ class Trading_datas_calculate {
 					$month = $slice[1];
 					$day = $slice[2];
 					$start = mktime(00, 00, 00, $month, $day, $year);
+					print_r(date('Y-m-d', $start));
 					$end = mktime(23, 59, 59, $month, $day, $year);
+					print_r(date('Y-m-d', $end));
 					if ($k == 'order_close_time' && $v >= $start && $v <= $end) {
 						$result[$val][] = $value;
+					} else {
+						$result[$val][] = null;
 					}
 				}
 			}
