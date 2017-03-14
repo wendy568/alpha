@@ -39,14 +39,14 @@ class Trading_datas_calculate {
 		$this->_data = $import_datas;
 
 		if ($month !== null) {
-			$this->this_month = $month;
+			$this->this_month = ($month < 10) ? '0' . $month : $month;
 		} else {
-			$this->this_month = getdate()['mon'];
+			$this->this_month = (getdate()['mon'] < 10) ? '0' . getdate()['mon'] : getdate()['mon'];
 		}
 
 		$this->this_year = getdate()['year'];
 
-		$this->this_day = getdate()['mday'];
+		$this->this_day = (getdate()['mday'] < 10) ? '0' . getdate()['mday'] : getdate()['mday'];
 
 		$this->trading_count = count($this->_data);
 
