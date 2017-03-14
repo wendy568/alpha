@@ -65,9 +65,6 @@ class Trading_datas_calculate {
 
 	public function get_day()
 	{
-		echo $this->this_year;
-		echo $this->this_month;
-		echo $this->this_day;
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
@@ -75,11 +72,8 @@ class Trading_datas_calculate {
 					$year = date('Y', $v);
 					$month = date('m', $v);
 					$day = date('d', $v);
-					echo $year;
-					echo $month;
-					echo $day;
-					die;
-					if ($year != $this->this_year && $month != $this->this_month && $day != $this->this_day) {
+
+					if ($year == $this->this_year && $month == $this->this_month && $day != $this->this_day) {
 						unset($datas[$key]);
 					}
 				}
@@ -122,7 +116,7 @@ class Trading_datas_calculate {
 				foreach ($week as $val) {
 					$slice = explode('-', $val);
 					$year = $slice[0];
-					$month = $slice[1];
+					$month = $slice[1]; 
 					$day = $slice[2];
 					$start = mktime(00, 00, 00, $month, $day, $year);
 					$end = mktime(23, 59, 59, $month, $day, $year);
