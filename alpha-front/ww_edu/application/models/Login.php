@@ -87,9 +87,10 @@ class Login extends CI_Model
 		}
 
 	}
-	
+
 	function get_trading_account($uid)
 	{
+		print_r($uid);die;
 		$map = 'SELECT account  
 				FROM trading_account
 				WHERE uid="'.$uid.'"';
