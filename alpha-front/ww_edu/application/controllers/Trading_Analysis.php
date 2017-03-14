@@ -73,4 +73,27 @@ class Trading_Analysis extends MY_Controller
 	
 		encode_json($response,$data);
 	}
+
+	public function numberOfTran()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$token = $this->input->get_post('token', TRUE);
+		$finency_proc = $this->input->get_post('finency_proc', TRUE);
+		$account = $this->get_bytoken($token);
+
+		$this->load->database();
+		$this->load->helper('json');
+		// $this->load->helper('time_zone');
+		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
+		$this->load->model('TradingAnalysis');
+
+		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc);
+		$this->load->library('trading_datas_calculate');
+
+		$data['data']['profit_week'] = $this->trading_datas_calculate->build($mt4, 3)->get_week()->property('get_one_by_one', ['sum', ['profit']])->get_property();
+		$response = array('archive' => array('status' => 0 ,'message' =>''));
+	
+		encode_json($response,$data);
+	}
 }
