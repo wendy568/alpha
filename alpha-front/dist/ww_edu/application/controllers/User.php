@@ -163,7 +163,8 @@ class User extends MY_Controller
 		$datas = $this->input->post();
 		$datas['mem_id'] = $this->get_bytoken($token);
 		$datas['id'] = $this->get_bytoken($token);
-		if(!empty($datas['name'])) $datas['name'] = addslashes($datas['name']);
+		if(!empty($datas['first_name'])) $datas['first_name'] = addslashes($datas['first_name']);
+		if(!empty($datas['last_name'])) $datas['last_name'] = addslashes($datas['last_name']);
 		if(!empty($datas['content'])) $datas['content'] = addslashes($datas['content']);
 		if(!empty($datas['title'])) $datas['title'] = addslashes($datas['title']);
 		if(!empty($datas['describe'])) $datas['describe'] = addslashes($datas['describe']);
