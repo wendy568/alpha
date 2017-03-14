@@ -90,12 +90,12 @@ class Login extends CI_Model
 
 	function get_trading_account($uid)
 	{
-		print_r($uid);die;
 		$map = 'SELECT account  
 				FROM trading_account
 				WHERE uid="'.$uid.'"';
 		
 		$result = $this->db->query($map)->row_array();
+		print_r($result);die;
 		return isset($result['account']) ? $result['account'] : null;
 	}
 
