@@ -89,6 +89,7 @@ class Trading_datas_calculate {
 
 	public function get_week()
 	{
+		echo date('Y-m-d', 1489389043);
 		$datas = $this->_data;
 		$result = [];
 		$instance = & get_instance();
