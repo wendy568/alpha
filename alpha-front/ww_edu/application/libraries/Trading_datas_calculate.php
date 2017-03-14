@@ -160,7 +160,7 @@ class Trading_datas_calculate {
     private function sum($index)
     {
     	$sum = 0;
-    	array_walk_recursive($this->_data, function ($val, $key) use (&$sum){
+    	array_walk_recursive($this->_data, function ($val, $key) use (&$sum, $index){
     		if ($key == $index) {
     			$sum += $val;
     		}
