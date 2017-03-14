@@ -11,7 +11,7 @@ class TradingAnalysis extends CI_Model
     {
     	$map = "SELECT * 
     			FROM mt4_export_datas
-    			WHERE order_symbol='USDCAD'";
+    			WHERE order_symbol='USDJPY'";
     	
     	$result = $this->db->query($map)->result_array();
     	return $result;
