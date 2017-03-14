@@ -276,17 +276,19 @@ class Trading_datas_calculate {
 		return count($datas);
     }
 
-    private function save_to_count_negative($index)
+    private function saveCountPositive($index)
     {
     	$datas = $this->_data;
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($k == $index && $v > 0) {
+				if ($k == $index && $v < 0) {
 					unset($datas[$key]);
 				}
 			}
 		}
-		return count($datas);
+		
+		$this->_data = $datas;
+		return $this->_data;
     }
 
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
