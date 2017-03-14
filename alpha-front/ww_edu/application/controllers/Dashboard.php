@@ -68,6 +68,10 @@ class Dashboard extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
+		$token = $this->input->get_post('token', TRUE);
+		$finency_proc = $this->input->get_post('finency_proc', TRUE);
+		$mem_id = $this->get_bytoken($token);
+
 		$this->load->database();
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
