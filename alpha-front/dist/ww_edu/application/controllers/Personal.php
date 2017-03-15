@@ -428,7 +428,7 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		header("Location: http://120.25.211.159/#/tv_list?go=zone_plus_order");
+		$this->jquery_href("Location: http://120.25.211.159/#/tv_list?go=zone_plus_order");
 		die;
 		// $this->load->model('personals');
 		// ob_start();
