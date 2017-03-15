@@ -140,15 +140,14 @@ class Trading_datas_calculate {
 	public function put_in()
 	{
 		$this->_data = [];
-		 $index = 0;
+		$index = 0;
 		foreach ($this->oneByone as $key => $value) {
 			if (!empty($value)) {
 				foreach ($value as $k => $v) {
-					print_r($v);die;
-					$this->_data[$index][$k] = $v;
+					$this->_data[$index] = $v;
+					$index += 1;
 				}
-				print_r($index);
-				$index += 1;
+				
 			}
 		}
 
