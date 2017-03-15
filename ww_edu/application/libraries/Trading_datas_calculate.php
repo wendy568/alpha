@@ -137,6 +137,16 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
+	public function put_in()
+	{
+		$this->_data = [];
+		foreach ($this->oneByone as $key => $value) {
+			$this->_data[] = $value;
+		}
+
+		return $this;
+	}
+
     public function get_one_by_one($callback, $param)
     {
     	foreach ($this->oneByone as $key => $value) {
