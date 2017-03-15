@@ -15,13 +15,12 @@ class TradingAnalysis extends CI_Model
         if(isset($start_time) OR isset($end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
             $end_time = ($end_time) ? $end_time : $now;
-            echo $end_time;
             $where .= " AND (order_close_time>{$start_time} AND order_close_time<{$end_time}";
         }
     	$map = "SELECT * 
     			FROM mt4_export_datas
     			WHERE {$where}";
-    	
+    	echo $map;
     	$result = $this->db->query($map)->result_array();
     	return $result;
     }
