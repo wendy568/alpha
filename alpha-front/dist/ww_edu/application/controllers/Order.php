@@ -109,15 +109,15 @@ class Order extends MY_Controller
 
 		$alipayNotify = new AlipayNotify($alipay_config);
 		$verify_result = $alipayNotify->verifyReturn();
-		ob_start();
+		// ob_start();
 		if($verify_result) {
 			$url = $this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
-			echo 'success';
+			// echo 'success';
 		} else {
-			echo "fail";
+			// echo "fail";
 		}
 		header("Location: {$url}");
-		ob_end_flush();
+		// ob_end_flush();
 	}
 
 	public function pay_order($trade_status, $status, $out_trade_no)
