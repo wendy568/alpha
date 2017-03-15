@@ -142,10 +142,10 @@ class Trading_datas_calculate {
 		$this->_data = [];
 		foreach ($this->oneByone as $key => $value) {
 			if (!empty($value)) {
-				print_r($value);die;
+				$this->_data[] = $value;
 			}
 		}
-
+		print_r($this->_data);die;
 		return $this;
 	}
 
