@@ -154,7 +154,7 @@ class Dashboard extends MY_Controller
 		$this->load->library('trading_datas_calculate');
 		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->property('putInNewCol', ['align_time', 'order_close_time', 'align_top'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
-
+		print_r(getdate(1489572351));
 		encode_json($response,$data);
 	}
 }
