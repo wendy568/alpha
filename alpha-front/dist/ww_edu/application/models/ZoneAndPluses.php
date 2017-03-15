@@ -13,6 +13,9 @@ class ZoneAndPluses extends CI_Model
     			FROM zone_plus';
     	
     	$result = $this->db->query($map)->result_array();
+    	foreach ($result as $key => $value) {
+			$result[$key]['status'] = json_decode($result[$key]['status']);
+		}
     	return $result;
     }
 
