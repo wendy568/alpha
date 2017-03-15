@@ -172,6 +172,6 @@ class Dashboard extends MY_Controller
 			$sum2 += pow(($value - ($sum / $count)), 2);
 		}
 
-		print_r(sqrt(($sum2/$count)));
+		print_r(round(sqrt(($sum2/$count))), 2);
 	}
 }
