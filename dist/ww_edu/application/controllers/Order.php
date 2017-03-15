@@ -115,7 +115,7 @@ class Order extends MY_Controller
 		} else {
 			echo "fail";
 		}
-		$this->jquery_sleep($url);
+		$this->jquery_href($url);
 	}
 
 	public function pay_order($trade_status, $status, $out_trade_no)
