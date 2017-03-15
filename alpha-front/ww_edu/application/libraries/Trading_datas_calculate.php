@@ -31,6 +31,8 @@ class Trading_datas_calculate {
 	
 	private $time_filter_definition = 'order_close_time';
 
+	private $unix_time;
+
 	public $oneByone = '';
 
 	public function build($import_datas, $month = null)
@@ -46,6 +48,8 @@ class Trading_datas_calculate {
 		$this->this_year = getdate()['year'];
 
 		$this->this_day = (getdate()['mday'] < 10) ? '0' . getdate()['mday'] : getdate()['mday'];
+
+		$this->unix_time = time();
 
 		return $this;
 	}
@@ -112,7 +116,8 @@ class Trading_datas_calculate {
 	public function getNextOrLastTime($start, $nextOrLast, $time = null)
 	{
 		$time = ($time) ? $time : time();
-		return date('Y-m-d', strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day"));
+		//date('Y-m-d', strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day"))
+		return strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
 	}
 
 	public function get_week()
