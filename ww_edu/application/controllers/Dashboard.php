@@ -152,7 +152,7 @@ class Dashboard extends MY_Controller
 		$mt4 = $this->TradingAnalysis->news();
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'time';
-		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->property('putInNewCol', ['align_time', 'order_close_time', 'align_top'])->get_property();
+		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->property('putInNewCol', ['align_time', 'time', 'align_top'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 
 		encode_json($response,$data);
