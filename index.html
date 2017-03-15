@@ -41,13 +41,12 @@
                                     </div>
                                     <div class="tiles-title text-white">TODAY'S TRADING COUNTS </div>
                                     <div class="widget-stats m-b-10">
-                                        <span class="item-count animate-number semi-bold" data-value="456" data-animation-duration="700">0</span>
+                                        <span class="item-count animate-number semi-bold"></span>
                                     </div>
                                     <div class="description">
                                         <i class="icon-custom-up"></i>
-                                        <span class="text-white mini-description ">2% Higher
-                                            <span class="blend">than last month</span>
-                                        </span>
+                                        <span class="text-white mini-description hight"></span>
+                                        <span class="blend mini-description">than last month</span>
                                     </div>
                                 </div>
                             </div>
@@ -62,13 +61,12 @@
                                     </div>
                                     <div class="tiles-title text-black">TODAY'S PEOFITS</div>
                                     <div class="widget-stats m-b-10">
-                                        <span class="item-count animate-number semi-bold" data-value="2545" data-animation-duration="700">0</span>
+                                        <span class="item-count animate-number semi-bold"></span>
                                     </div>
                                     <div class="description">
                                         <i class="icon-custom-up"></i>
-                                        <span class="text-white mini-description ">4% higher
-                                            <span class="blend">than last month</span>
-                                        </span>
+                                        <span class="text-white mini-description hight"></span>
+                                        <span class="blend mini-description">than last month</span>
                                     </div>
                                 </div>
                             </div>
@@ -83,13 +81,12 @@
                                 </div>
                                 <div class="tiles-title text-black">TODAY'S HODING TIME</div>
                                 <div class="widget-stats m-b-10">
-                                    <span class="item-count animate-number semi-bold" data-value="17H 12M" data-animation-duration="700">0</span>
+                                    <span class="item-count animate-number semi-bold"></span>H
                                 </div>
                                 <div class="description">
                                     <i class="icon-custom-up"></i>
-                                    <span class="text-white mini-description ">4% higher
-                                        <span class="blend">than last month</span>
-                                    </span>
+                                    <span class="text-white mini-description hight"></span>
+                                    <span class="blend mini-description">than last month</span>
                                 </div>
                             </div>
                           </div>
@@ -104,13 +101,12 @@
                                 </div>
                                 <div class="tiles-title text-black">OVERALL SALES </div>
                                 <div class="widget-stats m-b-10">
-                                    <span class="item-count animate-number semi-bold" data-value="24DAYS" data-animation-duration="700">0</span>
+                                    <span class="item-count animate-number semi-bold"></span>Days
                                 </div>
                                 <div class="description">
                                     <i class="icon-custom-up"></i>
-                                    <span class="text-white mini-description ">4% higher
-                                        <span class="blend">than last month</span>
-                                    </span>
+                                    <span class="text-white mini-description hight"></span>
+                                    <span class="blend mini-description">than last month</span>
                                 </div>
                             </div>
                           </div>
@@ -165,7 +161,7 @@
                                             <div class="col-sm-6">
                                                 <p class="text-c3">Risk Management Level</p>
                                                 <span class="text-error pull-left">SLEVEL</span>
-                                                <span class="label label-important pull-right">-318.24</span>
+                                                <span class="label label-important pull-right"></span>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -801,30 +797,42 @@
         <script src="common/js/common.js" type="text/javascript"></script>
         <script src="assets/js/charts.js" type="text/javascript"></script>
         <script  type="text/javascript">
-           // card hove
-           $('.card').hover(function(){
-              $(this).toggleClass('bounceIn');
-           });
+            // card hove
+            $('.card').hover(function(){
+                $(this).toggleClass('bounceIn');
+            });
 
             (function () {
-              /*
-               * description 首页正文卡片数据栏
-               *
-               * */
-                requestUrl('post','dashboard/previews_since_today',{},function (data) {
-                    var avgHoldTimeOfH = Math.floor(data.avg_holding_time/60/60);
-                    var avgHoldTimeOfM = Math.ceil((data.avg_holding_time - avgHoldTimeOfH * 3600)/60);
+                // description 首页正文卡片数据栏--------------------------------------------------------
+                $.alpha.request_Url('post','dashboard/previews_since_today',{},function (data) {
+                    var avgHoldTimeOfH = Math.floor(data.data.avg_holding_time/60/60);
+                    var avgHoldTimeOfM = Math.ceil((data.data.avg_holding_time - avgHoldTimeOfH * 3600)/60);
                     avgHoldTimeOfM = avgHoldTimeOfM > 60 ? (avgHoldTimeOfM - 60 && avgHoldTimeOfH + 1) : avgHoldTimeOfM;
                     var avgHoldTime = (avgHoldTimeOfH > 1 ? avgHoldTimeOfH + 'H' : '') + (avgHoldTimeOfM > 0 && avgHoldTimeOfM < 60 ? avgHoldTimeOfM + 'M' : '');
 
-                    $('.card .animate-number').eq(0).attr('dataValue',data.trading_count);
-                    $('.card .animate-number').eq(1).attr('dataValue',data.profit);
-                    $('.card .animate-number').eq(2).attr('dataValue',avgHoldTime);
-                    $('.card .animate-number').eq(3).attr('dataValue',data.transaction_peroid);
-                })
+                    var transactionPeroid= Math.floor(data.data.transaction_peroid/60/60/24) ;
+
+                    $('.card .animate-number').eq(0).html(data.data.trading_count);
+                    $('.card .animate-number').eq(1).html(data.data.profit);
+                    $('.card .animate-number').eq(2).html(avgHoldTime);
+                    $('.card .animate-number').eq(3).html(transactionPeroid);
+
+                    $('.hight').eq(0).html(data.data.last_trading_count);
+                    $('.hight').eq(1).html(data.data.last_profit);
+                    $('.hight').eq(2).html(data.data.last_avg_holding_time);
+                    $('.hight').eq(3).html(data.data.last_transaction_peroid);
+                });
+
+
+                // synthesizing data 综合数据接口----------------------------------------------------------------------------
+                $.alpha.request_Url('post','dashboard/trading_evaluating',{},function(data){
+                   $('.chart .label-important').eq(0).html(data.data.risk_management_level);
+                   $('.chart .label-important').eq(1).html(data.data.operating_frequecy);
+                   $('.chart .label-info').eq(0).html(data.data.operating_accuracy);
+                   $('.chart .label-info').eq(1).html(data.data.trading_ability);
+                });
+
             })();
-
-
         </script>
     </body>
 </html>
