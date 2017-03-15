@@ -121,7 +121,7 @@ class Order extends MY_Controller
 	public function pay_order($trade_status, $status, $out_trade_no)
 	{		
 		header( 'Access-Control-Allow-Origin:*' );
-
+		print_r($trade_status);print_r($out_trade_no);
 		preg_match_all( '/[a-zA-Z]+/', $out_trade_no ,$array);
 		if($array[0][0] == 'AE') $table = 'event_order';
 		if($array[0][0] == 'AZ') $table = 'tr_fl_order';
