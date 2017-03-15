@@ -109,6 +109,7 @@ class Order extends MY_Controller
 
 		$alipayNotify = new AlipayNotify($alipay_config);
 		$verify_result = $alipayNotify->verifyReturn();
+		ob_start();
 		if($verify_result) {
 			$url = $this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
 			echo 'success';
@@ -116,7 +117,8 @@ class Order extends MY_Controller
 			echo "fail";
 		}
 		sleep(2);
-		$this->jquery_href($url);
+
+		header("Location: {$url}");
 	}
 
 	public function pay_order($trade_status, $status, $out_trade_no)
@@ -143,7 +145,7 @@ class Order extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
-		return "http://120.25.211.159/#/tv_list?go={$go}";
+		return "http://120.25.211.159/#/personal/order?go={$go}";
 	}
 
 	public function is_payment()
