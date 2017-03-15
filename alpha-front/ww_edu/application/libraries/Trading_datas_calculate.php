@@ -118,12 +118,14 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
-	private function putInNewCol($callback, $index = 'position')
+	private function putInNewCol($callback, $index, $newIndex = 'position')
 	{
 		foreach ($this->_data as $key => $value) {
 				foreach ($value as $k => $v) {
-					if($callback) $value[$index] = call_user_func_array([$this, $callback], [$v]);
-					$this->_data[$key] = $value;
+					if ($k == $index) {
+						if($callback) $value[$newIndex] = call_user_func_array([$this, $callback], [$v]);
+						$this->_data[$key] = $value;
+					}
 				}
 		}
 
@@ -226,16 +228,12 @@ class Trading_datas_calculate {
 
     private function align_time($value)
     {
-    	$datas = $this->oneByone;
     	$time = date('G');
 		if($time == date('G', $value)){
 			return 1;
 		} else {
 			return 0;
-		}
-
-		return $this->oneByone = $datas;
-    	
+		}    	
     }
 
     private function sum($index, $data = [])
