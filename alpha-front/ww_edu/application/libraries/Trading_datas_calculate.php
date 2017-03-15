@@ -143,6 +143,7 @@ class Trading_datas_calculate {
 		$index = 0;
 		array_walk_recursive($this->oneByone, function ($val, $key) use ($index){
 			if (!empty($val)) {
+				print_r($val);
 				$this->_data[$index][$key] = $val;
 				$index += 1;
 			}
