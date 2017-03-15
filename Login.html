@@ -23,15 +23,15 @@
                     <div class="tiles no-margin text-black tab-content">
                         <!-- login -->
                         <div role="tabpanel" class="tab-pane active" id="tab_login">
-                            <form class="animated fadeIn validate" id="form_id" name="">
+                            <form class="animated fadeIn " id="form_id" name="">
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
-                                    <div class="col-md-12">
+                                    <div class="col-md-8">
                                         <label for="">* Your email</label>
-                                        <input class="form-control" name="email" placeholder="zhangsan@qq.com" type="email" required>
+                                        <input class="form-control" name="email" placeholder="zhangsan@qq.com" type="email" required >
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-8">
                                         <label for="">* Password</label>
-                                        <input class="form-control" name="pwd" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12">
+                                        <input class="form-control" name="pwd" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12" >
                                     </div>
 
                                 </div>
@@ -45,7 +45,7 @@
                         </div>
                         <!-- register -->
                         <div role="tabpanel" class="tab-pane" id="tab_register">
-                            <form class="animated fadeIn validate" id="" name="">
+                            <form class="animated fadeIn" id="" name="">
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
                                     <div class="col-md-6 col-sm-6">
 
@@ -60,27 +60,27 @@
                                     </div>
                                 </div>
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
-                                    <div class="col-md-12">
+                                    <div class="col-md-8">
 
                                         <label for="">* Your email</label>
                                         <input name="email" class="form-control" placeholder="zhangsan@qq.com" type="email" required>
                                     </div>
                                 </div>
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
-                                    <div class="col-md-12">
+                                    <div class="col-md-8">
 
                                         <label for="">* Password</label>
                                         <input name="pwd" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12">
                                     </div>
                                 </div>
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
-                                    <div class="col-md-12">
+                                    <div class="col-md-8">
                                         <label for="">* Password Again</label>
                                         <input name="pwdAgain" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12">
                                     </div>
                                 </div>
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
-                                    <div class="col-md-12">
+                                    <div class="col-md-8">
                                         <label for="">Invite Code</label>
 
                                         <input class="form-control" id="login_pass" name="inviteCode" placeholder="2E334G" type="text" required>
@@ -156,6 +156,9 @@
             //     });
             // });
             $(function () {
+                var emailReg=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                var pwdReg = /^[A-Za-z0-9]{6,12}$/;
+
                 // Login
                 $('#btn-login').click(function () {
                     sessionStorage.setItem('alpha_token','');
@@ -180,8 +183,42 @@
                       });
                     }else{
                         // 提示表单验证
+                        if(!email){
+                            $.alpha.props($('#tab_login [name="email"]').parent(),'right','Not Empty!');
+                        }
+                        if(!pwd){
+                            $.alpha.props($('#tab_login [name="pwd"]').parent(),'right','Not Empty!');
+                        }
                     }
+                });
 
+                $('[name="email"]').change(function () {
+                    if(emailReg.test($(this).val())){
+                        $.alpha.props($(this).parent(),'none');
+                    }else{
+                        $.alpha.props($(this).parent(),'right','Mailbox verification is not legal!');
+                    }
+                });
+                $('[name="pwd"]').change(function () {
+                    if(pwdReg.test($(this).val())){
+                        $.alpha.props($(this).parent(),'none');
+                    }else{
+                        $.alpha.props($(this).parent(),'right','Don\'t match the rules!');
+                    }
+                });
+                $('[name="pwdAgain"]').change(function () {
+                    if($(this).val() === $('#tab_register [name="pwd"]').val()){
+                        $.alpha.props($(this).parent(),'none');
+                    }else{
+                        $.alpha.props($(this).parent(),'right','Inconsistent password!');
+                    }
+                });
+                $('[name="firstName"]').change(function () {
+                    if($(this).val()){
+                        $.alpha.props($(this).parent(),'none');
+                    }else{
+                        $.alpha.props($(this).parent(),'right','Not Empty!');
+                    }
                 });
 
                 // Register
@@ -215,6 +252,15 @@
                         });
                     }else{
                         // 提示表单验证
+                        if(!email){
+                          $.alpha.props($('#tab_register [name="email"]').parent(),'right','Not Empty!');
+                        }
+                        if(!pwd){
+                          $.alpha.props($('#tab_register [name="pwd"]').parent(),'right','Not Empty!');
+                        }
+                        if(!firstName){
+                          $.alpha.props($('#tab_register [name="firstName"]').parent(),'right','Not Empty!');
+                        }
                     }
 
                 });

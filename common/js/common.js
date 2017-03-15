@@ -515,18 +515,43 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         });
     };
 
-    // form notification
-    alpha.prototype.props = function (target, direction, msg) {
-        if(target){
-            var box = $('<div style="position: relative;width: auto;height: auto;"></div>');
-
+    /*
+    * decription form-item-notification rules
+    *
+    * @param target the target to show the tooltip (PS: the element of input can't be the target instance of its parent node)
+    *
+    * @param direction the direction that target shows
+    *
+    * @param msg the message to show
+    * */
+    alpha.prototype.props = function (target, direction,msg) {
+        if(direction == 'up'){
+          $(target).addClass('form-item-notification-up').attr('data-tooltip',msg);
+        }else if(direction == 'right'){
+          $(target).addClass('form-item-notification-right').attr('data-tooltip',msg);
+        }else if(direction == 'down'){
+          $(target).addClass('form-item-notification-down').attr('data-tooltip',msg);
+        }else if(direction == 'left'){
+          $(target).addClass('form-item-notification-left').attr('data-tooltip',msg);
+        }else{
+          $(target).removeClass('form-item-notification-up').removeAttr('data-tooltip');
+          $(target).removeClass('form-item-notification-right').removeAttr('data-tooltip');
+          $(target).removeClass('form-item-notification-down').removeAttr('data-tooltip');
+          $(target).removeClass('form-item-notification-left').removeAttr('data-tooltip');
         }
     };
 
     // notification
     alpha.prototype.notification = function (type,msg) {
         var cType = type || 'information';
-    }
+        var $nof = $('<div class="notification animation nof-'+cType+'">' +
+          '<span class="fa fa-circle-o nof-head"></span><span>'+msg+'</span></div>');
+        $('body').append($nof);
+        $nof.animate({'right':0},700);
+        setTimeout(function () {
+            $nof.remove();
+        },3000);
+    };
 
     $.alpha = new alpha();
     $.alpha.Constructor = alpha;
