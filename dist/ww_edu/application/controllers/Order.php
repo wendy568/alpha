@@ -131,9 +131,19 @@ class Order extends MY_Controller
 		$data = array();
 		if($trade_status == 'TRADE_FINISHED') {
 			$this->orders->pay_order($out_trade_no, $status, $table);
+			$this->where_shall_i_redirect_to($table);
 	    } else if ($trade_status == 'TRADE_SUCCESS') {
 	    	$this->orders->pay_order($out_trade_no, $status, $table);
+	    	$this->where_shall_i_redirect_to($table);
 	    } 
+	}
+
+	public function where_shall_i_redirect_to($go)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$this->jquery_sleep("http://120.25.211.159/#/personal/order/{$go}");
+	
 	}
 
 	public function is_payment()
