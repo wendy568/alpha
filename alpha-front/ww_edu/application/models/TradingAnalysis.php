@@ -11,7 +11,7 @@ class TradingAnalysis extends CI_Model
     {
         $where = "1=1";
         $now = time();
-        
+        echo $end_time;
         if(isset($finency_proc)) $where .= " AND order_symbol='{$finency_proc}'";
         if(isset($start_time) OR isset($end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
