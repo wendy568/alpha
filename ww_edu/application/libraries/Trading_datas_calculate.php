@@ -142,7 +142,7 @@ class Trading_datas_calculate {
 		$this->_data = [];
 		foreach ($this->oneByone as $key => $value) {
 			if (!empty($value)) {
-				$this->_data[] = $value;
+				print_r($value);die;
 			}
 		}
 
@@ -233,7 +233,6 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	$avg = call_user_func_array([$this, 'avg'], [$index, $this->_data]);
     	$sum = 0;
-    	print_r($this->_data);
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == $index) {
