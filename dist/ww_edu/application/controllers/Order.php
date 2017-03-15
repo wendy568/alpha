@@ -116,9 +116,9 @@ class Order extends MY_Controller
 		} else {
 			echo "fail";
 		}
-		sleep(2);
-
+		sleep(1);
 		header("Location: {$url}");
+		ob_end_flush();
 	}
 
 	public function pay_order($trade_status, $status, $out_trade_no)
