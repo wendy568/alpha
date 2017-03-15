@@ -115,6 +115,7 @@ class Order extends MY_Controller
 		} else {
 			echo "fail";
 		}
+		sleep(2);
 		$this->jquery_href($url);
 	}
 
