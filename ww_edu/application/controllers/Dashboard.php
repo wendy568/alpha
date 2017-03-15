@@ -166,7 +166,7 @@ class Dashboard extends MY_Controller
 		foreach ($a as $key => $value) {
 			$sum += $value;
 		}
-
+		print_r($sum);
 		$sum2 = 0;
 		foreach ($a as $key => $value) {
 			$sum += pow(($value - $sum), 2);
