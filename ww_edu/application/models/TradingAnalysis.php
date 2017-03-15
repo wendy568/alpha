@@ -52,7 +52,7 @@ class TradingAnalysis extends CI_Model
     {
         $where = "1=1";
         $now = time();
-        $a='';
+        $a=null;
         var_dump(isset($a));
         if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
