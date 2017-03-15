@@ -119,7 +119,7 @@ class Dashboard extends MY_Controller
 		$mt4 = $this->TradingAnalysis->calendar($start_time, $end_time);
 		$this->load->library('trading_datas_calculate');
 		// $data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->count()->get_result();
-		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('getNextOrLastTime', ['+7', '+6'])->get_property();
+		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('getNextOrLastTime', ['+7', '+6', 1489968000])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
