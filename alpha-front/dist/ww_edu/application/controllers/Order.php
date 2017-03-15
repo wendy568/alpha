@@ -104,19 +104,18 @@ class Order extends MY_Controller
 		$alipay_config['cacert'] = getcwd().'/cacert.pem';
 
 		$this->load->database();
+		$this->load->helper('json');
 		$this->load->model('orders');
 		$data = array();
-
+		$data['url'] = $this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
 		$alipayNotify = new AlipayNotify($alipay_config);
 		$verify_result = $alipayNotify->verifyReturn();
 		if($verify_result) {
-			$url = $this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
-			// echo 'success';
+			$response = array('archive' => array('status' => 0,'message' =>'suecess'));
 		} else {
-			// echo "fail";
+			$response = array('archive' => array('status' => 112,'message' =>'failed'));
 		}
-		$this->jquery_href("{$url}");
-		// ob_end_flush();
+		encode_json($response,$data);
 	}
 
 	public function pay_order($trade_status, $status, $out_trade_no)
@@ -143,7 +142,7 @@ class Order extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
-		return "http://120.25.211.159/#/tv_list?go={$go}";
+		return "http://120.25.211.159/#/personal/order?order_list={$go}";
 	}
 
 	public function is_payment()
