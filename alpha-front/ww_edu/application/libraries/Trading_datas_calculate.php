@@ -151,7 +151,6 @@ class Trading_datas_calculate {
 			}
 		}
 
-		print_r($this->_data);die;
 		return $this;
 	}
 
