@@ -160,7 +160,7 @@ class Dashboard extends MY_Controller
 
 	function test()
 	{
-		$a = [];
+		$a = [-99,0,0,0,0,110,7];
 		$count = count($a);
 		$sum = 0;
 		foreach ($a as $key => $value) {
