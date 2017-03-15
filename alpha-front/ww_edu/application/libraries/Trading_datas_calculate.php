@@ -146,7 +146,7 @@ class Trading_datas_calculate {
 				foreach ($value as $k => $v) {
 					$this->_data[$index][$k] = $v;
 				}
-				
+				print_r($index);
 				$index += 1;
 			}
 		}
