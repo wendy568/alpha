@@ -428,10 +428,7 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$s = 'AZP148872846212510';
-		$pat =' /^[A-Za-z]+$/';
-		 preg_match_all( '/[a-zA-Z]+/', $s ,$array);
-		 print_r($array[0][0]);
+		header("Location: {$url}");
 		die;
 		// $this->load->model('personals');
 		// ob_start();
