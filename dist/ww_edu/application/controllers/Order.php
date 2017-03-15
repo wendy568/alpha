@@ -107,8 +107,7 @@ class Order extends MY_Controller
 		$this->load->helper('json');
 		$this->load->model('orders');
 		$data = array();
-		print_r($this->input->get_post('trade_status', TRUE));
-		print_r($this->input->get_post('out_trade_no', TRUE));
+	
 		$data['url'] = $this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
 		$alipayNotify = new AlipayNotify($alipay_config);
 		$verify_result = $alipayNotify->verifyReturn();
