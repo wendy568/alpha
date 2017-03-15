@@ -112,7 +112,7 @@ class Trading_datas_calculate {
 	public function getNextOrLastTime($start, $nextOrLast, $time = null)
 	{
 		$time = ($time) ? $time : time();
-		return date('Y-m-d', date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day") . " {$nextOrLast} day"));
+		return date('Y-m-d', strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day") . " {$nextOrLast} day")));
 	}
 
 	public function get_week()
