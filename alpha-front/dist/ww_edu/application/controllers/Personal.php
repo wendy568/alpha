@@ -234,7 +234,7 @@ class Personal extends MY_Controller
 				'verify' => $time
 			);
 		$list = array(
-				'replaceUrl' => $const->alphatrader['base']['site'].'?'.http_build_query($query)
+				'replaceUrl' => $const->alphatrader['base']['_pwd_site'].'?'.http_build_query($query)
 			);
 		array_walk($list, function ($item, $key) use (&$file){
 			$file = str_replace($key, $item, $file);

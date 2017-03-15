@@ -107,11 +107,10 @@ class Order extends MY_Controller
 		$this->load->helper('json');
 		$this->load->model('orders');
 		$data = array();
-	
-		$data['url'] = $this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
 		$alipayNotify = new AlipayNotify($alipay_config);
 		$verify_result = $alipayNotify->verifyReturn();
 		if($verify_result) {
+			$data['url'] = $this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
 			$response = array('archive' => array('status' => 0,'message' =>'suecess'));
 		} else {
 			$response = array('archive' => array('status' => 112,'message' =>'failed'));
@@ -142,8 +141,12 @@ class Order extends MY_Controller
 	public function where_shall_i_redirect_to($go)
 	{
 		header( 'Access-Control-Allow-Origin:*' );
-		
-		return "http://120.25.211.159/#/personal/order?order_list={$go}";
+
+		$this->load->helper('constants');
+		$const = constants::build();
+
+		$site = $const->alphatrader['base']['base_site'];
+		return "{$site}/#/personal/order?order_list={$go}";
 	}
 
 	public function is_payment()
