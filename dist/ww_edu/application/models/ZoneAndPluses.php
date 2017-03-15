@@ -9,7 +9,7 @@ class ZoneAndPluses extends CI_Model
 
     function zonePlus_list()
     {
-    	$map = 'SELECT * 
+    	$map = 'SELECT id, name, location, status
     			FROM zone_plus';
     	
     	$result = $this->db->query($map)->result_array();
