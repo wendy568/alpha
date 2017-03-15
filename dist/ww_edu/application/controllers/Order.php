@@ -116,8 +116,8 @@ class Order extends MY_Controller
 		} else {
 			echo "fail";
 		}
-		// header("Location: {$url}");
-		// ob_end_flush();
+		header("Location: {$url}");
+		ob_end_flush();
 	}
 
 	public function pay_order($trade_status, $status, $out_trade_no)
@@ -144,7 +144,7 @@ class Order extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
-		return "http://120.25.211.159/#/personal/order?go={$go}";
+		return "http://120.25.211.159/#/tv_list?go={$go}";
 	}
 
 	public function is_payment()
