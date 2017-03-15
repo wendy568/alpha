@@ -150,11 +150,12 @@ class Dashboard extends MY_Controller
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
 		$this->load->model('TradingAnalysis');
 
-		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc);
+		$mt4 = $this->TradingAnalysis->news($account, $finency_proc);
 		$this->load->library('trading_datas_calculate');
+		$this->trading_datas_calculate->time_filter_definition = 'time';
 		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->property('putInNewCol', ['align_time', 'order_close_time', 'align_top'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
-		print_r(getdate(1489572351));
+
 		encode_json($response,$data);
 	}
 }
