@@ -79,7 +79,7 @@
                 // self.form.price = price
                 self.$store.dispatch('CHANGEZONETYPE',2)
                 if(!sessionStorage.getItem('token')){
-                    self.$store.dispatch('TOGGLETIP',self.$store.state.tip.login)
+                    self.$store.dispatch('TOGGLELOGIN','on')
                 }else{
                     self.$store.dispatch('TOGGLEZONEPFORM','on')
                 }

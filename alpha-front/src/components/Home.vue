@@ -36,11 +36,11 @@
 				</div>
 			</div>
 			<ul class="video-list">
-				<li class="video-item" v-for="item in videos">
+				<li class="video-item" v-for="item in videos" @click="viewVideo(item.id)">
 					<img class="video-item-img" :src="item.image" alt="">
 					<div class="video-item-mask">
 						<!-- 视频开始按钮 -->
-						<span class="video-item-play" @click="viewVideo(item.id)"></span>
+						<span class="video-item-play" ></span>
 						<!-- 视频时长 -->
 						<span class="video-item-time">{{item.length}}</span>
 					</div>
@@ -105,7 +105,7 @@
 							{{item.place}}
 						</p>
 
-						<button @click="openActForm" class="event-item-btn"> Apply </button>
+						<button @click="openActForm" class="btn-primary"> Apply </button>
 					</div>
 
 					<span class="event-item-status badge-success">{{item.status}}</span>
@@ -154,8 +154,8 @@
 					{ month: '8',day: '12',image: '../assets/images/act2.jpg',name: 'N+X炒鸡路演|攀谈会：风口上的网红经济',des: '当老牌网红遭遇新晋小生',length: '2016-10-23 12:00 至 2016-10-24 18:00',place: 'SOHO 北京-银河 1层',status: '报名中' }
 				],
 				zone_list: [
-					{ name: 'ZONE',des: 'Take control of your Business account and learn how to manage your team',link: '/zone' },
-					{name: 'ZONE+',des: 'Take control of your Business account and learn how to manage your team',link: '/zoneplus' }
+					{ name: 'ZONE',des: 'Profession Environment Advanced Equipment Best Communication Space',link: '/zone' },
+					{name: 'ZONE+',des: 'Improve Rapidly Online and Offline Service Theory combined with practice',link: '/zoneplus' }
 				]
 			}
 		},
@@ -212,7 +212,7 @@
 				if(sessionStorage.getItem('token')) {
 					self.$store.dispatch('TOGGLEACTFORM','on')
 				}else{
-					self.$store.dispatch('TOGGLETIP','No Token')
+					self.$store.dispatch('TOGGLELOGIN','on')
 				}
 			}
 		}
@@ -256,11 +256,10 @@
 						overflow: hidden;
 						height: 460px;
 						.zone-item-mask{
-							width: 270px;
-							height: 260px;
-							overflow: hidden;
+							width: 100%;
+							height: 100%;
 							text-align: center;
-							padding: 100px 150px;
+							padding: 100px 185px;
 							box-sizing: border-box;
 							transition: all .35s;
 							.zone-item-name{
@@ -288,8 +287,6 @@
 							background:url(../assets/images/alpha_image_index_zone.png)  center center no-repeat;
 							background-size: 100%;
 							.zone-item-mask{
-								width: 100%;
-								height: 100%;
 								background:rgba(211,184,139,.8);
 								color: #fff;
 								&:hover{
@@ -324,8 +321,6 @@
 							background:url(../assets/images/alpha_image_index_zone+.png) center center no-repeat;
 							background-size: 100%;
 							.zone-item-mask{
-								width: 100%;
-								height: 100%;
 								color: $primary;
 								background: rgba(0,0,0,.8);
 								&:hover{
@@ -351,6 +346,7 @@
 										&:hover{
 											background: $primary;
 											color: rgba(0,0,0,.5);
+											transition: all .4s; 
 										}
 									}
 								}
@@ -402,7 +398,7 @@
 				
 			}
 			.video-list{
-				width: 1150px;
+				width: $boxwidth + 40;
 				position: relative;
 				left: -10px;
 				margin: 0 auto;
@@ -411,10 +407,17 @@
 				padding: 0;
 				.video-item{
 					position: relative;
-					width: 25%;
-					padding: 0 10px;
+					width: $boxwidth/4 - 15;
+					margin-left: 10px;
+					margin-right: 10px;
+					margin-bottom: 20px;
+					cursor: pointer;
 					float: left;
 					box-sizing: border-box;
+					transition: all .35s;
+					&:hover{
+                        box-shadow: 0 0 15px rgba(0,0,0,.18);
+                    }
 					.video-item-img{
 						float: left;
 						width: 100%;
@@ -473,6 +476,10 @@
 								font-size: 14px;
 								overflow: hidden;
 								height: 52px;
+								&:hover{
+									color:$primary;
+									transition: all .2s; 
+								}
 							}
 							.video-item-data{
 								color: $gray3;
@@ -582,7 +589,7 @@
 					height: 160px;
 					overflow: hidden;
 					margin-bottom: 35px;
-					position: relative;
+					position: relative;	
 					.event-item-img{
 						float: left;
 						width: 270px;
@@ -607,6 +614,10 @@
 							font-size: 16px;
 							color: #343c4d;;
 							padding-bottom: 20px;
+							&:hover{
+								color:$primary;
+								transition: all .2s; 
+							}
 						}
 						.event-item-info-des{
 							margin: 0;
@@ -639,19 +650,6 @@
 								background:url(../assets/images/alpha_icon_apply_location.png) center center no-repeat;
 								background-size:50% 50%;
 							}
-						}
-
-						.event-item-btn{
-							outline: none;
-							border: none;
-							background-color: #cdb083;
-							color: #fff;
-							text-align: center;
-							padding: 7px 20px;
-							border-radius: 2px;
-							position: absolute;
-							bottom: 0;
-							cursor: pointer;
 						}
 					}
 					.event-item-status{

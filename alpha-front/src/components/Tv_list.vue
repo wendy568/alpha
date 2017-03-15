@@ -177,6 +177,10 @@
 								font-size: 14px;
 								overflow: hidden;
 								max-height: 16px;
+								&:hover{
+									color:$primary;
+									transition:all .3s;
+								}
 							}
 							.tl-item-data{
 								color: $gray3;

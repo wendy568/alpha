@@ -31,8 +31,9 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Roboto",sans-serif;
+      font-family: "Roboto","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
       position: relative;
+      font-weight: 200;
     }
     ul{
       list-style-type: none;

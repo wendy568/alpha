@@ -82,7 +82,7 @@
                     </span>
                 </div>
                 <div class="zpf-btns">
-                    <button @click="openPay" class="zpf-submit" type="button">
+                    <button @click="openPay" class="zpf-submit btn-primary" type="button">
                         Next
                     </button>
                 </div>
@@ -139,24 +139,26 @@
 					format: 'YYYY-MM-DD',
 					placeholder: 'Start Date',
 					inputStyle: {
-					'display': 'inline-block',
-					'padding': '0px 10px',
-					'height': '40px',
-					'box-sizing': 'border-box',
-					'line-height': '40px',
-					'font-size': '14px',
-					'border': '2px solid #fff',
-					'margin-right': '20px',
-					'overflow': 'hidden',
-					'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 0.2)'
+    					'display': 'inline-block',
+                        'padding': '0px 10px',
+                        'height': '40px',
+                        'width': '320px',
+                        'box-sizing': 'border-box',
+                        'border-radius': '2px',
+                        'line-height': '40px',
+                        'font-size': '14px',
+                        'background-color': '#fff',
+                        'border':' 1px solid #e5e6ea',
+                        'margin-right': '20px',
+                        'overflow': 'hidden'
 					},
 					color: {
-					header: '#666',
-					headerText: '#fff'
+    					header: '#666',
+    					headerText: '#fff'
 					},
 					buttons: {
-					ok: 'Ok',
-					cancel: 'Cancel'
+    					ok: 'Ok',
+    					cancel: 'Cancel'
 					},
 					overlayOpacity: 0.5, // 0.5 as default 
 					dismissible: true // as true as default 
@@ -362,19 +364,9 @@
                     width: 100%;
                     margin:30px 0;
                     .zpf-submit{
-                        outline: none;
-                        border: none;
                         margin: 0 auto;
                         display: block;
-                        background: $primary;
-                        color: #fff;
-                        width: 100px;
-                        height: 36px;
-                        line-height: 36px;
-                        text-align: center;
-                        font-size: 14px;
-                        cursor: pointer;
-                        border-radius: 4px;
+                        position: relative;
                     }
                 }
                 

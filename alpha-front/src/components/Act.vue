@@ -53,7 +53,7 @@
 						<p class="act-item-info-place">
 							{{item.location}}
 						</p>
-						<button class="act-item-btn" @click="pay(item.id,item.price)">
+						<button class="btn-primary" @click="pay(item.id,item.price)">
 							Apply
 						</button>
 					</div>
@@ -121,7 +121,7 @@
 					self.$store.dispatch('CHANGEACTID',id)
 					self.$store.dispatch('TOGGLEACTDETAIL','on')
 				}else{
-					self.$store.dispatch('TOGGLETIP','No Token')
+					self.$store.dispatch('TOGGLELOGIN','on')
 				}
 				
 			}
@@ -269,6 +269,10 @@
 							font-size: 16px;
 							color: #343c4d;;
 							padding-bottom: 20px;
+							&:hover{
+								color:$primary;
+								transition:all .3s;
+							}
 						}
 						.act-item-info-des{
 							margin: 0;
@@ -282,21 +286,7 @@
 							margin: 0;
 							padding-bottom: 15px;
 						}
-
-						.act-item-btn{
-							outline: none;
-							border: none;
-							background-color: $primary;
-							color: #fff;
-							text-align: center;
-							padding: 7px 20px;
-							border-radius: 2px;
-							position: absolute;
-							bottom: 0;
-							cursor: pointer;
-						}
 					}
-
 				}
 			}
 		}

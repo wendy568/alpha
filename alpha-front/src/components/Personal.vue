@@ -61,10 +61,7 @@
 
 <style lang="scss">
 	@import '../css/alpha.scss';
-	.active{
-		color: $primary !important;
-		border-bottom: 2px solid $primary;
-	}
+	
 	.per-box{
 		float: left;
 		width: 100%;
@@ -129,6 +126,10 @@
 						}
 						&:hover{
 							color: $primary;
+						}
+						.active{
+							color: $primary !important;
+							border-bottom: 2px solid $primary;
 						}
 						.per-tabs-item-icon{
 							width: 18px;

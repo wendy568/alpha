@@ -113,7 +113,7 @@
 <style lang="scss">
 	@import '../css/alpha.scss';
 	.login-mask{
-		position: fixed;
+		position: absolute;
 		left: 0;
 		top: 0;
 		width: 100%;
