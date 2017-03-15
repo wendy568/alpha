@@ -140,13 +140,16 @@ class Trading_datas_calculate {
 	public function put_in()
 	{
 		$this->_data = [];
-		$index = 0;
-		array_walk_recursive($this->oneByone, function ($val, $key) use (&$index){
-			// if (!empty($val)) {
-				$this->_data[$index][$key] = $val;
+		static $index = 0;
+		foreach ($this->oneByone as $key => $value) {
+			if (!empty($value)) {
+				foreach ($value as $k => $v) {
+					$this->_data[$index][$k] = $v;
+				}
+				
 				$index += 1;
-			// }
-		});
+			}
+		}
 
 		print_r($this->_data);die;
 		return $this;
