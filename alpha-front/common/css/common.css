@@ -9756,3 +9756,11 @@ body.rtl .footer-widget {
 .nof-error{
   color:#967FDA;
 }
+
+/*index.html-----------------------------------------------------------*/
+.card:hover{
+  transform: scale(1.1);
+}
+.card{
+  transition: all 0.6s;
+}
