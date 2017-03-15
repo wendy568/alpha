@@ -233,11 +233,10 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	$avg = call_user_func_array([$this, 'avg'], [$index, $this->_data]);
     	$sum = 0;
+    	print_r($this->_data);
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == $index) {
-					print_r($v);
-					print_r($avg);
 					$sum += pow(($v - $avg), 2);
 				}
 			}
