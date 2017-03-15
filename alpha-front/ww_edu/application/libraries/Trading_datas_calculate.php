@@ -113,7 +113,7 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
-	public function setUnixTime($start, $nextOrLast, $time = null)
+	public function setUnixTime($start, $nextOrLast = '+0', $time = null)
 	{
 		$time = ($time) ? $time : time();
 		//date('Y-m-d', strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day"))
