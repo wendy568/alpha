@@ -141,7 +141,6 @@ class Dashboard extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		$finency_proc = $this->input->get_post('finency_proc', TRUE);
 		$account = $this->get_trading_account($token);
 
 		$this->load->database();
@@ -150,7 +149,7 @@ class Dashboard extends MY_Controller
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
 		$this->load->model('TradingAnalysis');
 
-		$mt4 = $this->TradingAnalysis->news($account, $finency_proc);
+		$mt4 = $this->TradingAnalysis->news($account);
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'time';
 		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->property('putInNewCol', ['align_time', 'order_close_time', 'align_top'])->get_property();
