@@ -116,7 +116,6 @@ class Order extends MY_Controller
 		} else {
 			echo "fail";
 		}
-		sleep(1);
 		header("Location: {$url}");
 		ob_end_flush();
 	}
