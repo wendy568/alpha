@@ -110,11 +110,12 @@ class Order extends MY_Controller
 		$alipayNotify = new AlipayNotify($alipay_config);
 		$verify_result = $alipayNotify->verifyReturn();
 		if($verify_result) {
-			$this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
+			$url = $this->pay_order($this->input->get_post('trade_status', TRUE), 1, $this->input->get_post('out_trade_no', TRUE));
 			echo 'success';
 		} else {
 			echo "fail";
 		}
+		$this->jquery_sleep($url);
 	}
 
 	public function pay_order($trade_status, $status, $out_trade_no)
@@ -131,19 +132,17 @@ class Order extends MY_Controller
 		$data = array();
 		if($trade_status == 'TRADE_FINISHED') {
 			$this->orders->pay_order($out_trade_no, $status, $table);
-			$this->where_shall_i_redirect_to($table);
 	    } else if ($trade_status == 'TRADE_SUCCESS') {
 	    	$this->orders->pay_order($out_trade_no, $status, $table);
-	    	$this->where_shall_i_redirect_to($table);
 	    } 
+	    return $this->where_shall_i_redirect_to($table);
 	}
 
 	public function where_shall_i_redirect_to($go)
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
-		$this->jquery_sleep("http://120.25.211.159/#/tv_list?go={$go}");
-	
+		return "http://120.25.211.159/#/tv_list?go={$go}";
 	}
 
 	public function is_payment()
