@@ -81,6 +81,7 @@ class time_zone{
 	public function get_week($time = null)
 	{
 		$date = getdate($time);
+		print_r($date);
 		$dates = [];
 		$this_month = ($date['mon'] < 10) ? '0' . $date['mon'] : $date['mon'];
 		$this_year = $date['year'];
