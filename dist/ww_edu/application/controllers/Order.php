@@ -142,7 +142,7 @@ class Order extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
-		$this->jquery_sleep("http://120.25.211.159/#/personal/order/{$go}");
+		$this->jquery_sleep("http://120.25.211.159/#/tv_list?go={$go}");
 	
 	}
 
