@@ -141,7 +141,9 @@ class Trading_datas_calculate {
 	{
 		$this->_data = [];
 		foreach ($this->oneByone as $key => $value) {
-			$this->_data[] = $value;
+			if (!empty($value)) {
+				$this->_data[] = $value;
+			}
 		}
 
 		return $this;
