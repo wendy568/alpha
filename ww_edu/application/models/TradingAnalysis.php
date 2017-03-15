@@ -48,4 +48,24 @@ class TradingAnalysis extends CI_Model
         return $result;
     }
 
+    function news($start_time = null, $end_time = null)
+    {
+        $where = "1=1";
+        $now = time();
+
+        if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
+            $start_time = ($start_time) ? $start_time : 0;
+            $end_time = ($end_time) ? $end_time : $now;
+            $where .= " AND (time_en>{$start_time} AND time_en<{$end_time})";
+        }
+
+        $map = "SELECT title, `desc`, `time` 
+                FROM news
+                WHERE {$where}";
+
+        $result = $this->db->query($map)->result_array();
+
+        return $result;
+    }
+
 }
