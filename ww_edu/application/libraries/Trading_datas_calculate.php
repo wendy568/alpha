@@ -29,11 +29,11 @@ class Trading_datas_calculate {
 
 	private $this_day;
 	
-	private $time_filter_definition = 'order_close_time';
+	public $time_filter_definition = 'order_close_time';
 
 	private $unix_time;
 
-	public $oneByone = '';
+	private $oneByone = '';
 
 	public function build($import_datas, $month = null)
 	{
@@ -57,6 +57,11 @@ class Trading_datas_calculate {
 	public function get_result()
 	{
 		return $this->_data;
+	}
+
+	public function getWeekResult()
+	{
+		return $this->oneByone;
 	}
 
 	public function get_property()
@@ -117,7 +122,7 @@ class Trading_datas_calculate {
 	{
 		$time = ($time) ? $time : time();
 		//date('Y-m-d', strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day"))
-		return strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
+		$this->unix_time = strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
 	}
 
 	public function get_week()
@@ -126,7 +131,7 @@ class Trading_datas_calculate {
 		$result = [];
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
-		$week = time_zone::build()->get_week();
+		$week = time_zone::build()->get_week($this->unix_time);
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				foreach ($week as $val) {
