@@ -30,7 +30,7 @@
                     <p class="zone-item-count">
                         count:{{item.num}}
                     </p>
-                    <button @click="pay(item.id,item.price,item.location)" class="zone-item-apply" :class="{ 'zone-item-apply-off': item.status === '暂未开放' }">
+                    <button @click="pay(item.id,item.price,item.location)" class="zone-item-apply btn-primary" :class="{ 'zone-item-apply-off': item.status === '暂未开放' }">
                         Apply
                     </button>
                 </div>
@@ -46,10 +46,6 @@
         data() {
             return {
                 zone_list: [
-                    // { title: 'vue2.0 yufa bianhua',img: '',status: '租赁中',place: 'OXFORD RD.MANCHESTER M13 9PL',count: 20 },
-                    // { title: 'vue2.0 yufa bianhua',img: '',status: '租赁中',place: 'OXFORD RD.MANCHESTER M13 9PL',count: 20 },
-                    // { title: 'vue2.0 yufa bianhua',img: '',status: '暂未开放',place: 'OXFORD RD.MANCHESTER M13 9PL',count: 20 },
-                    // { title: 'vue2.0 yufa bianhua',img: '',status: '租赁中',place: 'OXFORD RD.MANCHESTER M13 9PL',count: 20 }
                 ]
             }
         },
@@ -65,7 +61,7 @@
 					self.$store.dispatch('CHANGEZPID',id)
                     self.$store.dispatch('TOGGLEZPFORM','on')
 				}else{
-					self.$store.dispatch('TOGGLETIP',self.$store.state.tip.login)
+					self.$store.dispatch('TOGGLELOGIN','on')
 				}
 			}
         },
@@ -217,6 +213,10 @@
                         font-weight: bold;
                         padding: 20px 0 15px 0;
                         margin: 0;
+                        &:hover{
+                            color:$primary;
+                            transition: all .4s; 
+                        }
                     }
                     .zone-item-place{
                         padding: 0 0 15px 0;
@@ -231,18 +231,7 @@
                         color: $gray2;
                     }
                     .zone-item-apply{
-                        position: absolute;
                         right: 0;
-                        bottom: 0;
-                        width: 80px;
-                        height: 32px;
-                        border-radius: 1px;
-                        background: $primary;
-                        color: #fff;
-                        outline: none;
-                        border: none;
-                        font-size: 14px;
-                        cursor: pointer;
                     }
                     .zone-item-apply-off{
                         background: rgba(0,0,0,.5);

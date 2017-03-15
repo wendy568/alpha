@@ -27,7 +27,7 @@
                 </li>
             </ul>
             <div class="ap-next">
-                <router-link class="ap-next-btn" @click="openBack($store.state.pay_info.price)" to="/payBack">
+                <router-link class="ap-next-btn " @click="openBack($store.state.pay_info.price)" to="/payBack">
                     Next
                 </router-link>
             </div>
@@ -343,6 +343,7 @@
                     color: #fff;
                     background: $primary;
                     cursor: pointer;
+                    text-decoration: none;
                 }
             }
         }

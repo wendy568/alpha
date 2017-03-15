@@ -13,17 +13,25 @@
 					<p class="register-error">
 						{{error}}
 					</p>
-					<input v-model="nic" @change="checkNic" class="register-nic" type="text" placeholder="Nickname">
+					<!-- 注册邮箱 -->
 					<input v-model="email" @change="checkEmail" class="register-email" type="text" placeholder="Email">
+					<!-- 设置密码 -->
                     <div class="register-pwd">
                         <input v-if="show_pwd" @change="checkPwd" id="reg-pwd" class="register-pwd-input" type="text" placeholder="Password" v-model="pwd">
                         <input v-else @change="checkPwd" id="reg-pwd" class="register-pwd-input" type="password" placeholder="Password" v-model="pwd">
                         <label @click="togglepwd" for="reg-pwd" class="register-pwd-label" :class="{ 'register-pwd-visible': show_pwd }"></label>
                     </div>
+                    <div class="register-pwd">
+                        <input v-if="show_pwd" @change="checkPwd" id="reg-pwd" class="register-pwd-input" type="text" placeholder="Password" v-model="cpwd">
+                        <input v-else @change="checkPwd" id="reg-pwd" class="register-pwd-input" type="password" placeholder="Confirm Password" v-model="cpwd">
+                        <label @click="togglepwd" for="reg-pwd" class="register-pwd-label" :class="{ 'register-pwd-visible': show_pwd }"></label>
+                    </div>
+					<!-- radio -->
 					<div class="register-options">
 						<input class="register-checkbox checkbox" id="remmenber" name="remmenber" type="checkbox">
 						<label class="register-label" for="remmenber">View and accept Alpha terms of service</label>
 					</div>
+					<!-- Register -->
 					<button @click="register" class="register-submit">Register</button>
 					<p class="register-extra">
 						Existing account?
@@ -41,9 +49,9 @@
 		data() {
 			return {
                 show_pwd: false,
-				nic: '',
 				email: '',
 				pwd: '',
+				cpwd: '',
 				error: ''
 			}
 		},
@@ -66,27 +74,6 @@
                 self.show_pwd = !self.show_pwd
 
             },
-			checkNic() {
-				const self = this
-				const reg = /((?=[\x21-\x7e]+)[^A-Za-z0-9])/
-				let len = 0
-				for(let i = 0; i < self.nic.length; i ++) {
-					if(self.nic.charCodeAt(i) > 127 || self.nic.charCodeAt(i) === 94) {
-						len += 2
-					}else{
-						len ++
-					}
-				}
-				if(self.nic == '') {
-					self.error = 'Nickname cannot be empty'
-				}else if(reg.test(self.nic)){
-					self.error = 'Nickname cannot contain special symbols'
-				}else if(len > 20){
-					self.error = 'Nickname length can not be greater than 20 characters'
-				}else{
-					self.error = ''
-				}
-			},
 			checkEmail() {
 				const self = this
 				const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
@@ -94,26 +81,28 @@
 					self.error = 'E-mail cannot be empty'
 				}else if(!reg.test(self.email)){
 					self.error = 'Incorrect E-mail format'
-				}else{
+				}else if(self.pwd !== self.cpwd){
 					self.error = ''
 				}
 			},
 			checkPwd() {
 				const self = this
 				const reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/
-				if(self.pwd == '') {
+				if(self.pwd && self.cpwd == '') {
 					self.error = 'Password cannot be empty'
-				}else if(!reg.test(self.pwd)){
+				}else if(!reg.test(self.pwd)&&!reg.test(self.cpwd)){
 					self.error = 'Password for 8-16 bit numbers and English combinations'
+				}else if(self.pwd !== self.cpwd){
+					self.error = 'Password must agree and confirm password'
 				}else{
-					self.error = ''
+					self.error=''
 				}
 			},
 			register() {
 				const self = this
 				let formData = new FormData()
 				formData.append('email',self.email)
-				formData.append('nic_name',self.nic)
+				// formData.append('first_name',self.first)
 				formData.append('password',self.pwd)
 				fetch(self.$store.state.api_addr + 'user/register',{
 					method: 'post',
@@ -123,14 +112,15 @@
 					if(res.ok) {
 						res.json().then((json) => {
 							if(json.archive.status === 0) {
-								sessionStorage.setItem('token',json.data.token)
+								// sessionStorage.setItem('token',json.data.token)
 								let user = {
-									nic_name: self.nic,
+									// first_name: self.first,
 									email: self.email
 								}
 								self.$store.dispatch('TOGGLEONLINE','on')
 								self.$store.dispatch('STORAGEUSERINFO',user)
-								self.close()
+								self.error = 'To register, please login'
+								// self.close()
 							}else{
 								self.error = 'Registration failed, please register again'
 							}
@@ -145,7 +135,7 @@
 <style lang="scss">
 	@import '../css/alpha.scss';
 	.register-mask{
-		position: fixed;
+		position: absolute;
 		left: 0;
 		top: 0;
 		width: 100%;
@@ -222,7 +212,7 @@
 						height: 40px;
 						line-heiht: 40px;
 					}
-					.register-nic{
+					.register-first{
 						float: left;
 						width: 100%;
 						height: 36px;
@@ -263,6 +253,7 @@
                             text-align: center;
                             border-radius: 5px;
                             box-sizing: border-box;
+                            margin-bottom: 15px;
                         }
                         .register-pwd-label{
                             position: absolute;

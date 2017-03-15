@@ -18,18 +18,36 @@
 			</ul>
 
 			<div class="header-option">
+				<!-- 登录信息 -->
 				<div class="header-user" v-show="!$store.state.is_online" @click="openLogin">
 					Login in/Register
 				</div>
-				<router-link class="header-user" v-show="$store.state.is_online" @click="openLogin" to="/personal/profile">
+				<!-- <router-link class="header-user" v-show="$store.state.is_online" @click="openLogin" to="/personal/profile">
 					{{$store.state.nic_name}}
-				</router-link>
-				<router-link  class="header-face" @click="openLogin" to="/personal/profile">
-					<img src="../assets/images/photo.jpg" alt="">
-				</router-link>
-				<div class="header-lang">
-					
-				</div>
+				</router-link> -->
+				<!-- 头像 -->
+				<a  class="header-face" @click="openLogin" >
+					<img src="../assets/images/user_hover.png"  v-if="!$store.state.is_online" alt="">
+					<img src="../assets/images/photo.jpg"  v-else alt="">
+					<!-- 退出登录 -->
+					<ul class="exit" v-show="$store.state.is_online">
+						<li>
+							<router-link v-for="item in personal" :to="item.link">
+								<i class="icon"></i>
+								{{item.text}}
+							</router-link>
+						</li>
+						<li>
+							<a  @click="exit">
+								<i class="icon"></i>
+								exit
+							</a>
+						</li>
+					</ul>
+				</a>
+				<!-- 中英文切换 -->
+				<div class="header-lang"></div>
+				
 			</div>
 		</div>
 	</div>
@@ -49,6 +67,11 @@
 					{ text: 'Alpha Event',icon: 'event', link: '/act' },
 					{ text: 'Alpha Tv',icon: 'tv', link: '/tv_list' },
 					{ text: 'About Us',icon: 'about', link: '' }
+				],
+				personal:[
+					{text:'Userinfo',link: '/personal/profile'},
+					{text:'My Profile',link: '/personal/favorite'},
+					{text:'My Order',link: '/personal/order'}
 				]
 			}
 		},
@@ -60,15 +83,40 @@
 				require(['./Register'], resolve)
 			}
 		},
+		mounted(){
+			const self = this
+			// console.log($store.state.nic_name)
+			// let formData = new FormData()
+			// if(sessionStorage.getItem('token')){
+			// 	formData.append('token',sessionStorage.getItem('token'))
+			// 	fetch(state.api_addr + 'user/user_layout_info',{
+			// 		mode: 'cors',
+			// 		method: 'post',
+			// 		body: formData
+			// 	}).then((res) => {
+			// 		res.ok && res.json().then((json) => {
+			// 			if(json.archive.status === 0) {
+							
+			// 			}else{
+							
+			// 			}
+			// 		})
+			// 	})
+			// }
+		},
 		methods: {
 			openLogin() {
 				if(sessionStorage.getItem('token')==''||sessionStorage.getItem('token')==undefined){
 					let self = this
 					self.$store.dispatch('TOGGLELOGIN','on')
 				}else{
-					self.$router.push({path: '/personal/profile'})
+
 				}
-				
+			},
+			exit(){
+				let self = this
+				self.$store.dispatch('UNLOADUSERINFO')
+				self.$router.push({path:'/' })
 			}
 		}
 	}
@@ -78,10 +126,8 @@
 	@import '../css/alpha.scss';
 	.header-mask{
 		width: 100%;
-		height: $headerheight;
 		background-color:$gray1;
-		overflow: hidden;
-      	position: relative;
+		height: $headerheight;
 		.header-box{
 			width: 1140px;
 			margin: 0 auto;
@@ -122,6 +168,7 @@
 						background-repeat: no-repeat;
 						background-position: center center;
 						background-size: 100%;
+						color: rgba(255, 255, 255,.7);
 					}
 					
 					.header-nav-text{
@@ -188,6 +235,7 @@
 				color: $primary;
 				line-height: $headerheight;
 				font-size: 14px;
+				position: relative;
 				.header-user{
 					float: left;
 					padding: 0 8px;
@@ -197,6 +245,20 @@
 					float: left;
 					padding: 0 10px;
 					box-sizing: border-box;
+					position: relative;
+					height: $headerheight;
+					&:after{
+						content: "";
+						display: block;
+						clear:both;
+					}
+					&:hover{
+						background-color:$gray1;
+					}
+					&:hover .exit{
+						transition:all .5s;
+						display: block;
+					}
 					&>img{
 						border: 1px solid #fff;
 						border-radius: 50%;
@@ -206,6 +268,84 @@
 						display: inline-block;
 						background-color: #fff;
 						box-sizing: border-box;
+					}
+					.exit{
+						width: 120px;
+						position: absolute;
+						z-index: 1000;
+						background-color:$gray1;
+						top:50px;
+						left:-90px;
+						padding:10px;
+						line-height: 25px;
+						display: none;
+						li{	
+							width: 120px;
+							a{
+								color: #fff;
+								text-decoration: none;
+								padding: 15px 5px;
+								float: left;
+								
+								.icon{
+									width: 20px;
+									height: 20px;
+									float: left;
+									margin: 0 10px;
+								}
+								&:hover{
+									color:$primary;
+								}
+								&:nth-child(1){
+									.icon{
+										background: url(../assets/images/user.png) center center no-repeat;
+										background-size: 100%;
+									}
+									&:hover{
+										.icon{
+											background: url(../assets/images/user_hover.png) center center no-repeat;
+											background-size: 100%;
+										}
+									}
+								}
+								&:nth-child(2){
+									.icon{
+										background: url(../assets/images/favorite.png) center center no-repeat;
+										background-size: 100%;
+									}
+									&:hover{
+										.icon{
+											background: url(../assets/images/favorite_hover.png) center center no-repeat;
+											background-size: 100%;
+										}
+									}
+								}
+								&:nth-child(3){
+									.icon{
+										background: url(../assets/images/order.png) center center no-repeat;
+										background-size: 100%;
+									}
+									&:hover{
+										.icon{
+											background: url(../assets/images/order_hover.png) center center no-repeat;
+											background-size: 100%;
+										}
+									}
+								}
+								&:nth-child(4){
+									.icon{
+										background: url(../assets/images/topbar_signout.png) center center no-repeat;
+										background-size: 100%;
+									}
+									&:hover{
+										.icon{
+											background: url(../assets/images/topbar_signout_h.png) center center no-repeat;
+											background-size: 100%;
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 				.header-lang{

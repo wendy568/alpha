@@ -100,6 +100,7 @@ const mutations = {
 		sessionStorage.removeItem('nic_name')
 		sessionStorage.removeItem('user_email')
 		sessionStorage.removeItem('user_face')
+		sessionStorage.removeItem('token')
 	},
 	TOGGLEONLINE (state,value) {
 		if(value == "on"){

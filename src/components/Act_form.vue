@@ -47,7 +47,7 @@
                     </span>
                 </div>
                 <div class="af-btns">
-                    <button @click="openPay" class="af-submit" type="button">
+                    <button @click="openPay" class="af-submit btn-primary" type="button">
                         Next
                     </button>
                 </div>
@@ -209,19 +209,9 @@
                     width: 100%;
                     padding-top: 30px;
                     .af-submit{
-                        outline: none;
-                        border: none;
                         margin: 0 auto;
                         display: block;
-                        background: $primary;
-                        color: #fff;
-                        width: 100px;
-                        height: 36px;
-                        line-height: 36px;
-                        text-align: center;
-                        font-size: 14px;
-                        cursor: pointer;
-                        border-radius: 4px;
+                        position: relative;
                     }
                 }
                 

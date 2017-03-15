@@ -10,7 +10,7 @@
 				<div class="tp-publish-box">
 					<textarea class="tp-edit" v-model="reply_message" cols="30" rows="10" placeholder="Add a public comment…"></textarea>
 					<p class="tp-publish-btns">
-						<span class="tp-publish-comment" @click="replyHigh">Publish</span>
+						<span class="tp-publish-comment btn-primary" @click="replyHigh">Publish</span>
 					</p>	
 				</div>
 			</div>
@@ -92,7 +92,7 @@
 			replyHigh () {
 				const self = this
 				if(!sessionStorage.getItem('token')){
-					self.$store.dispatch('TOGGLETIP',self.$store.state.tip.login)
+					self.$store.dispatch('TOGGLELOGIN','on')
 					return 
 				}
 				if(self.reply_message == "" || self.reply_message == null || self.reply_message == undefined ){
@@ -221,14 +221,8 @@
 					.tp-publish-btns{
 						overflow: hidden;
 						.tp-publish-comment{
-							color: #fff;
-							padding: 4px 12px;
-							text-align: center;
-							font-size: 14px;
 							float: right;
-							cursor: pointer;
-							background-color: $primary;
-							margin-left: 10px;
+							position: relative;
 						}
 					}	
 				}
