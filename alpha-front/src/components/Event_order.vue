@@ -75,44 +75,6 @@
 					self.$refs.pay_deal.style.display = 'none'
 				},500)
 			}
-			location.href.split('?')[1] && sessionStorage.setItem('handle_params2',location.href.split('?')[1])
-			location.href.split('?')[1] && showPayDeal()
-			location.href.split('?')[1] && fetch(self.$store.state.api_addr + 'order/handler_order?' + sessionStorage.getItem('handle_params2'),{
-				method: 'get'
-			}).then((res) => {
-				res.ok && res.json().then((json) => {
-					sessionStorage.setItem('payment_token',json.payment_token)
-					switch(json.archive.status){
-						case 0:
-							let formData = new FormData()
-							formData.append('token',sessionStorage.getItem('token'))
-							formData.append('status',1)
-							formData.append('payment_token',sessionStorage.getItem('payment_token'))
-							fetch(self.$store.state.api_addr + 'order/event_order?' + sessionStorage.getItem('handle_params2'),{
-								method: 'post',
-								mode: 'cors',
-								body: formData
-							}).then((res) => {
-								self.$store.dispatch('TOGGLETIP','Pay success')
-							})
-							break;
-						case 112:
-							let formData2 = new FormData()
-							formData.append('token',sessionStorage.getItem('token'))
-							formData.append('status',2)
-							formData.append('payment_token',sessionStorage.getItem('payment_token'))
-							fetch(self.$store.state.api_addr + 'order/event_order?' + sessionStorage.getItem('handle_params2'),{
-								method: 'post',
-								mode: 'cors',
-								body: formData2
-							}).then((res) => {
-
-							})
-							break;
-					}
-				})
-			})
-
 			formData.append('token',sessionStorage.getItem('token'))
 			formData.append('start',0)
 			formData.append('limit',20)

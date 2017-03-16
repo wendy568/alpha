@@ -32,67 +32,25 @@
         },
         mounted() {
             const self = this
-            let formData = new FormData()
-            function success() {
-                self.success= true
-                setTimeout(function() {
-                    self.$router.push({path: '/order/event_order'})
-                },300)
-            }
-            location.href.split('?')[1] && sessionStorage.setItem('handle_params2',location.href.split('?')[1])
-            location.href.split('?')[1] && showPayDeal()
-            location.href.split('?')[1] && fetch(self.$store.state.api_addr + 'order/handler_order?' + sessionStorage.getItem('handle_params2'),{
+            sessionStorage.setItem('test',window.location.search)
+            console.log(window.location.search)
+            fetch(self.$store.state.api_addr + 'order/handler_order'+sessionStorage.setItem('test'),{
                 method: 'get'
             }).then((res) => {
                 res.ok && res.json().then((json) => {
                     sessionStorage.setItem('payment_token',json.payment_token)
                     switch(json.archive.status){
                         case 0:
-                            let formData = new FormData()
-                            formData.append('token',sessionStorage.getItem('token'))
-                            formData.append('status',1)
-                            formData.append('payment_token',sessionStorage.getItem('payment_token'))
-                            fetch(self.$store.state.api_addr + 'order/pay_order?' + sessionStorage.getItem('handle_params2'),{
-                                method: 'post',
-                                mode: 'cors',
-                                body: formData
-                            }).then((res) => {
-                                self.$store.dispatch('TOGGLETIP','Pay success')
-                            })
-                            break;
+                            self.$store.dispatch('TOGGLETIP','Pay success')
                         case 112:
-                            let formData2 = new FormData()
-                            formData.append('token',sessionStorage.getItem('token'))
-                            formData.append('status',2)
-                            formData.append('payment_token',sessionStorage.getItem('payment_token'))
-                            fetch(self.$store.state.api_addr + 'order/pay_order?' + sessionStorage.getItem('handle_params2'),{
-                                method: 'post',
-                                mode: 'cors',
-                                body: formData2
-                            }).then((res) => {
-
-                            })
-                            break;
+                            self.$store.dispatch('TOGGLETIP','Pay failed')
                     }
-                })
-            })
-
-            formData.append('token',sessionStorage.getItem('token'))
-            formData.append('start',0)
-            formData.append('limit',20)
-            fetch(self.$store.state.api_addr + 'activity/activity_order_list',{
-                mode: 'cors',
-                method: 'post',
-                body: formData
-            }).then((res) => {
-                res.ok && res.json().then((json) => {
-                    self.orders = json.data
                 })
             })
         },
         methods:{
            paySucc(){
-                self.$router.push({path: '/order/event_order'})
+                self.$router.push({path:self.$store.state.api_addr+'/personal/order/event_order'})
            },
            payFail(){
                 self.$store.dispatch('TOGGLEACTPAY','on')
