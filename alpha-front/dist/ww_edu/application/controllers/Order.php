@@ -146,7 +146,7 @@ class Order extends MY_Controller
 		$const = constants::build();
 
 		$site = $const->alphatrader['base']['base_site'];
-		return "{$site}/#/personal/order?order_list={$go}";
+		return "{$site}/#/personal/order/{$go}";
 	}
 
 	public function is_payment()
