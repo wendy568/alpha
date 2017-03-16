@@ -10,9 +10,9 @@
             <form class="af-form">
                 <div class="af-name">
                     <label for="name">
-                        Name
+                        FirstName
                     </label>
-                    <input v-model="full_name" id="name" type="text" placeholder="Example: John">
+                    <input v-model="first_name" id="name" type="text" placeholder="Example: John">
                 </div>
                 <div class="af-phone">
                     <label for="phone">
@@ -62,7 +62,7 @@
             return {
                 email: '',
                 phone: '',
-                full_name: '',
+                first_name: '',
                 addr: '',
                 position: ''
             }
@@ -76,7 +76,7 @@
                 const self = this
                 let formData = new FormData()
                 formData.append('token',sessionStorage.getItem('token'))
-                formData.append('full_name',self.full_name)
+                formData.append('first_name',self.first_name)
                 formData.append('phone',self.phone)
                 formData.append('pro',self.position)
                 formData.append('organization',self.addr)
@@ -87,7 +87,8 @@
                     body: formData
                 }).then((res) => {
                     res.ok && res.json().then((json) => {
-                        json.archive.status === 0 && self.$store.dispatch('TOGGLEACTPAY','on');self.$store.dispatch('TOGGLEACTFORM','off')
+                        json.archive.status === 0 && self.$store.dispatch('TOGGLEACTPAY','on')
+                        self.$store.dispatch('TOGGLEACTFORM','off')
                     })
                 })
                 
@@ -105,7 +106,7 @@
                 res.ok && res.json().then((json) => {
                     self.email = json.data.email
                     self.phone = json.data.phone
-                    self.full_name = json.data.full_name
+                    self.first_name = json.data.first_name
                     self.position = json.data.pro
                     self.addr = json.data.organization
                 })
@@ -120,7 +121,7 @@
     $afheight: 36px;
 
     .af-box{
-        position: fixed;
+        position: absolute;
         left: 0;
         top: 0;
         width: 100%;

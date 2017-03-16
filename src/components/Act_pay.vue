@@ -27,9 +27,9 @@
                 </li>
             </ul>
             <div class="ap-next">
-                <router-link class="ap-next-btn " @click="openBack($store.state.pay_info.price)" to="/payBack">
+                <button class="ap-next-btn " @click="openBack($store.state.pay_info.price)">
                     Next
-                </router-link>
+                </button>
             </div>
         </div>
 
@@ -72,7 +72,7 @@
             },
             failedPay() {
                 const self = this
-                self.$router.push({path: '/personal/order'})
+                self.show_payconfirm = false
             },
             checkPay() {
                 const self = this
@@ -89,7 +89,8 @@
                         switch(json.archive.status){
                             case 0:
                                 self.$store.dispatch('TOGGLETIP','Payment success')
-                                self.close()
+                                self.$router.push({path:'/personal/order/event_order'})
+                                self.$store.dispatch('TOGGLEACTPAY','off')
                             case 113:
                                 self.$store.dispatch('TOGGLETIP','Payment failed')
                         }
@@ -99,12 +100,13 @@
             openBack(price) {
                 const self = this
                 let formData = new FormData()
-                formData.append('token',sessionStorage.getItem('token'))
                 formData.append('event_id',self.$store.state.act_id)
-                formData.append('price',price)
-                formData.append('table',self.$store.state.pay_table)
                 formData.append('num',1)
+                formData.append('price',price)
                 formData.append('payment',1)
+                formData.append('token',sessionStorage.getItem('token'))
+                formData.append('info',self.$store.state.pay_info)
+                formData.append('table','event_order')
                 self.show_payconfirm = !self.show_payconfirm
                 fetch(self.$store.state.api_addr + 'order/create_order',{
                     mode: 'cors',
@@ -122,7 +124,6 @@
                             
                             window.open(self.$store.state.api_addr + 'payment/alipay?WIDout_trade_no=' + sessionStorage.getItem('order_no') + '&WIDsubject=chenqitest&currency=GBP&WIDtotal_fee=' + price)
 
-                                self.$router.push({path:'/payBack'})
                         }else if(json.archive.status === 400){
 
                         }
@@ -136,7 +137,7 @@
 <style scoped lang="scss">
     @import '../css/alpha.scss';
     .ap-box{
-        position: fixed;
+        position: absolute;
         left: 0;
         top: 0;
         width: 100%;

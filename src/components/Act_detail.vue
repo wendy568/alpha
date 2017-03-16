@@ -1,43 +1,41 @@
 <template>
-    <div class="ad-box">
-        <div class="ad-dialog">
-
-            <i class="ad-close" @click="close">
-				<s class="ad-close-line"></s>
-			</i>
-
+    <div class="ad-mask">
+        <div class="ad-box">
+            <act-form v-if="$store.state.show_actform"></act-form>
+            <act-pay v-if="$store.state.show_actpay"></act-pay>
+            <!-- 活动图 -->
             <div class="ad-banner">
-                <img class="ad-banner-img" src="" alt="">
+                <!-- 图片 -->
+                <img class="ad-banner-img" src="../assets/images/235422423983351494.png" alt="">
+                <!-- 状态 -->
                 <div class="ad-banner-mask">
-                    <span class="ad-status">
-                        {{detail.status}}
-                    </span>
+                    <span class="ad-status">{{detail.status}}</span>
                 </div>
-                <button class="ad-banner-submit" @click="openEnroll">
-                    Apply Now
-                </button>
+                <!-- 遮罩 -->
+                <div class="shade">
+                    <span>6 DAYS 13 HOURS 48 MIN</span>
+                    <button class="ad-banner-submit" @click="openEnroll"> Apply Now </button>
+                </div>
             </div>
+            <!-- 活动内容 -->
             <div class="ad-content">
-                <h3 class="ad-title">
-                    {{detail.name}}
-                </h3>
-                <p class="ad-des">
-                    description:{{detail.desribe}}
-                </p>
-                <p class="ad-time">
-                    {{detail.start}} 至 {{detail.end}}
-                </p>
+                <!-- title -->
+                <h3 class="ad-title">{{detail.name}}</h3>
+                <!-- 活动描述 -->
+                <p class="ad-des"> description:{{detail.desribe}}</p>
+                <!-- 时间 -->
+                <p class="ad-time"> {{detail.start}} 至 {{detail.end}}</p>
+                <!-- 地点 -->
                 <p class="ad-place">
                     <i class="ad-place-icon"></i>
                     {{detail.place}}
                 </p>
+                <!-- 活动详情 -->
                 <div class="ad-detail">
-                    <p class="ad-detail-title">
-                        Activity Detail
-                    </p>
-                    <p class="ad-detail-content">
-                        {{detail.desribe}}
-                    </p>
+                    <!-- title -->
+                    <p class="ad-detail-title"> Activity Detail</p>
+                    <!-- 内容 -->
+                    <p class="ad-detail-content"> {{detail.desribe}}</p>
                 </div>
             </div>
         </div>
@@ -81,10 +79,18 @@
 				let self = this
 				self.$store.dispatch('TOGGLEACTDETAIL','off')
 			},
-            openEnroll() {
+            openEnroll(id,price) {
                 let self = this
                 self.$store.dispatch('TOGGLEACTFORM','on')
                 self.$store.dispatch('TOGGLEACTDETAIL','off')
+            }
+        },
+        components: {
+            'act-form' (resolve) {
+                require(['./Act_form'], resolve)
+            },
+            'act-pay' (resolve) {
+                require(['./Act_pay'], resolve)
             }
         }
     }
@@ -92,18 +98,15 @@
 
 <style scoped lang="scss">
     @import '../css/alpha.scss';
-    .ad-box{
-        position: absolute;
-        left: 0;
-        top: 0;
+    .ad-mask{
         width: 100%;
-        height: 100%;
-        background: rgba(1,1,1,.5);
-        z-index: 999;
-        .ad-dialog{
-            position: relative;
-            width: 900px;
-            margin: 100px auto;
+        overflow: hidden;
+        background: #f3f6f8;
+        position: relative;
+        .ad-box{
+            width: 960px;
+            overflow: hidden;
+            margin: 30px auto ;
             background: #fff;
             .ad-close{
 				position: absolute;
@@ -131,64 +134,65 @@
 			}
             .ad-banner{
                 width: 100%;
-                height: 400px;
+                height: 540px;
                 position: relative;
                 .ad-banner-img{
                     width: 100%;
                     height: 100%;
                 }
-                .ad-banner-mask{
-                    width: 100%;
-                    height: 100%;
+                .ad-status{
                     position: absolute;
-                    left: 0;
-                    top: 0;
-                    background: rgba(0,0,0,.18);
-                    .ad-status{
-                        position: absolute;
-                        left: 20px;
-                        top: 20px;
-                        width: 80px;
-                        height: 30px;
-                        font-size: 14px;
-                        background: $success;
-                        color: #fff;
-                        border-radius: 2px;
-                        line-height: 30px;
-                        text-align: center;
-                    }
-                }
-                .ad-banner-submit{
-                    position: absolute;
-                    right: 30px;
-                    bottom: -18px;
-                    width: 100px;
-                    height: 36px;
-                    text-align: center;
-                    line-height: 36px;
-                    border-radius: 18px;
-                    background: $primary;
-                    color: #fff;
+                    left: 20px;
+                    top: 20px;
+                    width: 80px;
+                    height: 30px;
                     font-size: 14px;
-                    outline: none;
-                    border: none;
-                    cursor: pointer;
+                    background: $success;
+                    color: #fff;
+                    border-radius: 2px;
+                    line-height: 30px;
+                    text-align: center;
+                }
+                .shade{
+                    width: 100%;
+                    height: 50px;
+                    background-color: rgba(0,0,0,.5);
+                    position: absolute;
+                    top:490px;
+                    line-height: 50px;
+                    span{
+                        font-size: 16px;
+                        color:#fff;
+                        margin-left: 40px;
+                        float: left;
+                    }
+                    .ad-banner-submit{
+                        float: right;
+                        width: 120px;
+                        height: 50px;
+                        text-align: center;
+                        background: $primary;
+                        color: #fff;
+                        font-size: 16px;
+                        outline: none;
+                        border: none;
+                        cursor: pointer;
+                    }
                 }
             }
             .ad-content{
                 width: 100%;
                 box-sizing: border-box;
-                padding: 30px 40px;
+                padding: 20px 40px;
                 .ad-title{
                     color: $gray1;
                     font-size: 24px;
                     font-weight: bold;
-                    padding-bottom: 10px;
                     margin: 0;
                 }
                 .ad-des{
                     margin: 0;
-                    padding: 10px 0;
+                    margin: 20px 0;
                     color: $gray2;
                     font-size: 14px;
                 }

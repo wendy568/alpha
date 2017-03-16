@@ -172,9 +172,8 @@
 				padding: 80px 50px 0 50px;
 				box-sizing: border-box;
 				.login-logo{
-					background-image: url(../assets/images/logo.png);
-					background-repeat: no-repeat;
-					background-position: center center;
+					background: url(../assets/images/alpha_logo.png) center center no-repeat;
+					background-size: 50%;
 					width: 100%;
 					height: 40px;
 				}

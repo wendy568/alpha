@@ -17,7 +17,14 @@ const routes = [
 		component: (resolve) => {
 			require(['../components/Act'], resolve)
 		},
-		name: 'act'
+		name: 'act',
+	},
+	{
+		path: '/act_detail', 
+		component: (resolve) => {
+			require(['../components/Act_detail'], resolve)
+		},
+		name: 'act_detail'
 	},
 	{
 		path: '/tv_detail',
@@ -70,7 +77,27 @@ const routes = [
 				path: 'order', 
 				component: (resolve) => {
 					require(['../components/Order'], resolve)
-				} 
+				},
+				children:[
+					{
+						path: 'event_order', 
+						component: (resolve) => {
+							require(['../components/Event_order'], resolve)
+						}
+					},
+					{
+						path: 'tr_fl_order', 
+						component: (resolve) => {
+							require(['../components/Tr_fl_order'], resolve)
+						}
+					},
+					{
+						path: 'zone_plus_order', 
+						component: (resolve) => {
+							require(['../components/Zone_plus_order'], resolve)
+						}
+					}
+				] 
 			}
 		]
 	},

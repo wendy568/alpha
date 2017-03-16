@@ -26,7 +26,6 @@
 	export default {
 		data() {
 			return {
-				// user_face: '',
 				nic_name: '',
 				tabs: [
 					{ title: 'profile',icon: '../assets/images/user.png', link: '/personal/profile' },
@@ -36,25 +35,6 @@
 			}
 		},
 		mounted() {
-			const self = this
-			// console.log($store.state.nic_name)
-			// let formData = new FormData()
-			// if(sessionStorage.getItem('token')){
-			// 	formData.append('token',sessionStorage.getItem('token'))
-			// 	fetch(state.api_addr + 'user/user_layout_info',{
-			// 		mode: 'cors',
-			// 		method: 'post',
-			// 		body: formData
-			// 	}).then((res) => {
-			// 		res.ok && res.json().then((json) => {
-			// 			if(json.archive.status === 0) {
-
-			// 			}else{
-							
-			// 			}
-			// 		})
-			// 	})
-			// }
 		}
 	}
 </script>
