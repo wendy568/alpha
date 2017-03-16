@@ -44,9 +44,9 @@
                 </div>
                 <div class="zpf-name">
                     <label for="name">
-                        Name
+                        FirstName
                     </label>
-                    <input id="name" v-model="full_name" type="text" placeholder="Example: John">
+                    <input id="name" v-model="first_name" type="text" placeholder="Example: John">
                 </div>
                 <div class="zpf-phone">
                     <label for="phone">
@@ -99,7 +99,7 @@
             return {
                 location: 1,
                 price: 0.00,
-                full_name: '',
+                first_name: '',
                 phone: '',
                 period: '',
                 email: '',
@@ -200,7 +200,7 @@
                 res.ok && res.json().then((json) => {
                     self.email = json.data.email
                     self.phone = json.data.phone
-                    self.full_name = json.data.full_name
+                    self.first_name = json.data.first_name
                     self.position = json.data.pro
                     self.addr = json.data.organization
                 })
@@ -218,7 +218,7 @@
                 self.$store.dispatch('TOGGLEACTPAY','on')
                 self.$store.dispatch('TOGGLEZPFORM','off')
                 formData.append('token',sessionStorage.getItem('token'))
-                formData.append('full_name',self.full_name)
+                formData.append('first_name',self.first_name)
 			    formData.append('phone',self.phone)
 			    formData.append('pro',self.position)
 			    formData.append('organization',self.addr)

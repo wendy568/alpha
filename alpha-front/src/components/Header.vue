@@ -22,9 +22,6 @@
 				<div class="header-user" v-show="!$store.state.is_online" @click="openLogin">
 					Login in/Register
 				</div>
-				<!-- <router-link class="header-user" v-show="$store.state.is_online" @click="openLogin" to="/personal/profile">
-					{{$store.state.nic_name}}
-				</router-link> -->
 				<!-- 头像 -->
 				<a  class="header-face" @click="openLogin" >
 					<img src="../assets/images/user_hover.png"  v-if="!$store.state.is_online" alt="">
@@ -60,7 +57,6 @@
 	export default {
 		data() {
 			return {
-				// nic_name: 'John Smith',
 				navs: [
 					{ text: 'Alpha Zone',icon: '', link: '/zone' },
 					{ text: 'Alpha Zone+',icon: 'floor', link: '/zoneplus' },
@@ -71,7 +67,7 @@
 				personal:[
 					{text:'Userinfo',link: '/personal/profile'},
 					{text:'My Profile',link: '/personal/favorite'},
-					{text:'My Order',link: '/personal/order'}
+					{text:'My Order',link: '/personal/order/event_order'}
 				]
 			}
 		},
@@ -84,25 +80,7 @@
 			}
 		},
 		mounted(){
-			const self = this
-			// console.log($store.state.nic_name)
-			// let formData = new FormData()
-			// if(sessionStorage.getItem('token')){
-			// 	formData.append('token',sessionStorage.getItem('token'))
-			// 	fetch(state.api_addr + 'user/user_layout_info',{
-			// 		mode: 'cors',
-			// 		method: 'post',
-			// 		body: formData
-			// 	}).then((res) => {
-			// 		res.ok && res.json().then((json) => {
-			// 			if(json.archive.status === 0) {
-							
-			// 			}else{
-							
-			// 			}
-			// 		})
-			// 	})
-			// }
+			
 		},
 		methods: {
 			openLogin() {
@@ -116,6 +94,7 @@
 			exit(){
 				let self = this
 				self.$store.dispatch('UNLOADUSERINFO')
+				self.$store.state.is_online=false
 				self.$router.push({path:'/' })
 			}
 		}

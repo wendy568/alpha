@@ -1,9 +1,7 @@
 <template>
 	<div class="act-mask">
 		<div class="act-box">
-			<act-detail v-if="$store.state.show_actdetail"></act-detail>
-			<act-form v-if="$store.state.show_actform"></act-form>
-			<act-pay v-if="$store.state.show_actpay"></act-pay>
+			
 			<div class="act-header">
 				<div class="act-header-mask">
 					<div class="act-header-title">
@@ -72,9 +70,6 @@
 					status: '进行中'
 				},
 				list: [
-					// { month: '8',day: '12',image: '../assets/images/act1.jpg',title: 'N+X炒鸡路演|攀谈会：风口上的网红经济',des: '当老牌网红遭遇新晋小生',length: '2016-10-23 12:00 至 2016-10-24 18:00',place: 'SOHO 北京-银河 1层',status: '报名中' },
-					// { month: '8',day: '12',image: '../assets/images/act2.jpg',title: 'N+X炒鸡路演|攀谈会：风口上的网红经济',des: '当老牌网红遭遇新晋小生',length: '2016-10-23 12:00 至 2016-10-24 18:00',place: 'SOHO 北京-银河 1层',status: '报名中' },
-					// { month: '8',day: '12',image: '../assets/images/act3.jpg',title: 'N+X炒鸡路演|攀谈会：风口上的网红经济',des: '当老牌网红遭遇新晋小生',length: '2016-10-23 12:00 至 2016-10-24 18:00',place: 'SOHO 北京-银河 1层',status: '已结束' }
 				],
 				start: 0,
 				limit: 10
@@ -119,22 +114,10 @@
 				if(sessionStorage.getItem('token')){
 					self.$store.dispatch('CHANGEPAYINFO',price)
 					self.$store.dispatch('CHANGEACTID',id)
-					self.$store.dispatch('TOGGLEACTDETAIL','on')
+					self.$router.push({path: '/act_detail',query: { id: id, price : price }})
 				}else{
 					self.$store.dispatch('TOGGLELOGIN','on')
 				}
-				
-			}
-		},
-		components: {
-			'act-detail' (resolve) {
-				require(['./Act_detail'], resolve)
-			},
-			'act-form' (resolve) {
-				require(['./Act_form'], resolve)
-			},
-			'act-pay' (resolve) {
-				require(['./Act_pay'], resolve)
 			}
 		}
 	}
@@ -145,7 +128,7 @@
 	.act-mask{
 		width: 100%;
 		overflow: hidden;
-	    position: relative;
+	    // position: relative;
 		.act-box{
 			width: 1140px;
 			overflow: hidden;

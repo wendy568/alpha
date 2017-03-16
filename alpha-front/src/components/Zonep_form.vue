@@ -42,9 +42,9 @@
                 </div>
                 <div class="zpf-name">
                     <label for="name">
-                        Name
+                        FirstName
                     </label>
-                    <input id="name" v-model="full_name" type="text" placeholder="Example: John">
+                    <input id="name" v-model="first_name" type="text" placeholder="Example: John">
                 </div>
                 <div class="zpf-phone">
                     <label for="phone">
@@ -97,7 +97,7 @@
             return {
                 local: 1,
                 price: 0.00,
-                full_name: '',
+                first_name: '',
                 phone: '',
                 period: '',
                 email: '',
@@ -138,6 +138,7 @@
 					format: 'YYYY-MM-DD',
 					placeholder: 'Start Date',
 					inputStyle: {
+                    'width': '100%',
 					'display': 'inline-block',
 					'padding': '0px 10px',
 					'height': '40px',
@@ -197,7 +198,7 @@
                 res.ok && res.json().then((json) => {
                     self.email = json.data.email
                     self.phone = json.data.phone
-                    self.full_name = json.data.full_name
+                    self.first_name = json.data.first_name
                     self.position = json.data.pro
                     self.addr = json.data.organization
                 })
@@ -240,7 +241,7 @@
                 self.$store.dispatch('TOGGLEACTPAY','on')
                 self.$store.dispatch('TOGGLEZPFORM','off')
                 formData.append('token',sessionStorage.getItem('token'))
-                formData.append('full_name',self.full_name)
+                formData.append('first_name',self.first_name)
 			    formData.append('phone',self.phone)
 			    formData.append('pro',self.position)
 			    formData.append('organization',self.addr)
@@ -342,26 +343,17 @@
                         float: left;
                         overflow: hidden;
                     }
-                    input{
+                    input,select{
                         width: 70%;
                         border: 1px solid $gray5;
                         border-radius: 3px;
                         padding-left: 10px;
                         box-sizing: border-box;
+                        height: $zpfheight;
                         line-height: $zpfheight;
                         outline: none;
                         float: left;
-                    }
-                    select{
-                        width: 70%;
-                        height: 40px;
-                        border: 1px solid $gray5;
-                        border-radius: 3px;
-                        padding-left: 10px;
-                        box-sizing: border-box;
-                        line-height: $zpfheight;
-                        outline: none;
-                        float: left;
+                        background-color:#fff; 
                     }
                     span{
                         float: left;

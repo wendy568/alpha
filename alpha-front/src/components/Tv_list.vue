@@ -12,26 +12,28 @@
 							{{item.length}}
 						</span>
 					</div>
-					<div class="tl-item-info">
-						<div class="tl-item-top">
-							<p class="tl-item-title">
+					<div class="video-item-info">
+						<div class="video-item-top">
+							<p class="video-item-title">
 								{{item.name}}
 							</p>
-							<p class="tl-item-data">
-								<span class="tl-item-author">
-									{{item.author}}
+							<p class="video-item-data">
+								<span class="create_time">
+									<i></i>
+									{{item.create_time}}
 								</span>
-								<span class="tl-item-comment">
-									{{item.comment_count}}
-								</span>
-								<span class="tl-item-like">
+								<span class="video-item-like" >
+									<i @click="item.like++"></i>
 									{{item.like}}
 								</span>
+								<span class="video-item-comment">
+									<i></i>
+									{{item.comment_count}}
+								</span>
+								
 							</p>
 						</div>
-						<div class="tl-item-bottom">
-							{{item.create_time}}
-						</div>
+						
 					</div>
 				</li>
 			</ul>
@@ -163,49 +165,74 @@
 							background-color: rgba(0,0,0,.5);
 						}
 					}
-					.tl-item-info{
+					.video-item-info{
 						width: 100%;
 						float: left;
 						border: 1px solid $gray5;
 						box-sizing: border-box;
-						.tl-item-top{
+						.video-item-top{
 							box-sizing: border-box;
-							padding: 20px 10px 0px 10px;
-							.tl-item-title{
+							padding: 10px 10px 0px 10px;
+							height: 75px;
+							.video-item-title{
 								margin: 0;
 								color: $gray1;
 								font-size: 14px;
 								overflow: hidden;
-								max-height: 16px;
+								height: 52px;
 								&:hover{
 									color:$primary;
-									transition:all .3s;
+									transition: all .2s; 
 								}
 							}
-							.tl-item-data{
+							.video-item-data{
 								color: $gray3;
 								font-size: 12px;
-								overflow: hidden;
-								.tl-item-author{
+								height: 24px;
+								margin:3px 0;
+								line-height: 24px;
+								.create_time{
+									height: 24px;
+									width: 160px;
+									line-height: 24px;
 									float: left;
+									color: $gray3;
+									box-sizing: border-box;
+									font-size: 12px;
+									i{
+										float: left;
+										width: 24px;
+										height: 24px;
+										background:url(../assets/images/video_list_time.png) left center no-repeat;
+										background-size:50% 50%;
+									}
 								}
-								.tl-item-comment{
-									float: left;
-								}
-								.tl-item-like{
+								.video-item-comment{
 									float: right;
+									i{
+										float: left;
+										width: 24px;
+										height: 24px;
+										background:url(../assets/images/video_list_comment.png) center center no-repeat;
+										background-size:50% 50%;
+									}
+								}
+								.video-item-like{
+									float: right;
+									i{
+										float: left;
+										width: 24px;
+										height: 24px;
+										background:url(../assets/images/video_list_like.png) center center no-repeat;
+										background-size:50% 50%;
+										&:hover,&:focus{
+											background:url(../assets/images/video_list_like_s.png) center center no-repeat;
+											background-size:50% 50%;
+											cursor: pointer;
+										}
+									}
 								}
 							}
-						}
-						.tl-item-bottom{
-							border-top: 1px solid $gray5;
-							height: 30px;
-							width: 100%;
-							line-height: 30px;
-							padding: 0 10px;
-							color: $gray3;
-							box-sizing: border-box;
-							font-size: 12px;
 						}
 					}
 				}

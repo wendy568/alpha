@@ -20,7 +20,7 @@ const state = {
 		location: '',
 		price: ''
 	},
-	pay_table: 'event_order',
+	// pay_table: 'event_order',
 	zone_type: '',
 	pay_info: {
 		price: 0.01,
@@ -53,7 +53,7 @@ const state = {
 		}
 	],
 	user_face: sessionStorage.getItem('user_face') == 'undefined' ? '../assets/images/portrait.jpg' : sessionStorage.getItem('user_face'),
-	nic_name: sessionStorage.getItem('nic_name') ? sessionStorage.getItem('nic_name') : 'visitor'
+	first_name: sessionStorage.getItem('first_name') ? sessionStorage.getItem('first_name') : 'visitor'
 }
 
 const mutations = {
@@ -83,10 +83,10 @@ const mutations = {
 	// 	console.log(state.show_alipay)
 	// },
 	STORAGEUSERINFO (state,user) {
-		state.nic_name = user.nic_name
+		state.first_name = user.first_name
 		state.user_email = user.email
 		state.user_face = user.face
-		sessionStorage.setItem('nic_name',state.nic_name)
+		sessionStorage.setItem('first_name',state.first_name)
 		sessionStorage.setItem('user_email',state.user_email)
 		sessionStorage.setItem('user_face',state.user_face)
 	},
@@ -94,10 +94,10 @@ const mutations = {
 		state.pay_table = value
 	},
 	UNLOADUSERINFO (state) {
-		state.nic_name = ''
+		state.first_name = ''
 		state.user_email = ''
 		state.user_face = ''
-		sessionStorage.removeItem('nic_name')
+		sessionStorage.removeItem('first_name')
 		sessionStorage.removeItem('user_email')
 		sessionStorage.removeItem('user_face')
 		sessionStorage.removeItem('token')
@@ -206,7 +206,7 @@ const actions = {
 					body: formData
 				}).then((res) => {
 					res.ok && res.json().then((json) => {
-						if(json.archive.status === 0) {
+						if(sessionStorage.getItem('token')) {
 							commit('TOGGLEONLINE',true)
 							resolve()
 						}else{

@@ -180,7 +180,6 @@
                         position: absolute;
                         left: 0;
                         top: 0;
-                        background: rgba(0,0,0,.18);
                         .zone-item-status-on,.zone-item-status-off{
                             position: absolute;
                             left: 10px;
