@@ -256,10 +256,11 @@
         .zpf-dialog{
             position: relative;
             width: 600px;
-            margin: 100px auto;
             background: #fff;
             box-shadow: 0 0 18px rgba(0,0,0,.01);
             border-radius: 8px;
+            top: 15%;
+            margin:0 auto;
             .zpf-close{
 				position: absolute;
 				right: 0;

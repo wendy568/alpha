@@ -283,6 +283,7 @@
             background: #fff;
             box-shadow: 0 0 18px rgba(0,0,0,.01);
             border-radius: 8px;
+            top:35px;
             .zpf-close{
 				position: absolute;
 				right: 0;
