@@ -131,10 +131,10 @@
         .af-dialog{
             position: relative;
             width: 600px;
-            margin: 80px auto;
             background: #fff;
             box-shadow: 0 0 18px rgba(0,0,0,.01);
             border-radius: 8px;
+            margin:120px auto;
             .af-close{
                 position: absolute;
                 right: 0;
