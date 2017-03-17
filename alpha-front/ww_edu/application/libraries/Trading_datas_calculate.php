@@ -118,6 +118,18 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
+	private function putInNewCol($callback, $index = 'position')
+	{
+		foreach ($this->datas as $key => $value) {
+				foreach ($value as $k => $v) {
+					if($callback) $value[$index] = call_user_func_array([$this, $callback], [$v]);
+					$this->datas[$key] = $value;
+				}
+		}
+
+		return $this;
+	}
+
 	public function setUnixTime($start, $nextOrLast = '+0', $time = null)
 	{
 		$time = (isset($time) && $time) ? $time : time();
@@ -185,7 +197,6 @@ class Trading_datas_calculate {
 					$this->_data[$index] = $v;
 					$index += 1;
 				}
-				
 			}
 		}
 
