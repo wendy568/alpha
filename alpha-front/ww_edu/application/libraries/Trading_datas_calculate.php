@@ -126,7 +126,7 @@ class Trading_datas_calculate {
 					$this->_data[$key] = $value;
 				}
 		}
-		print_r($this->_data);
+
 		return $this;
 	}
 
