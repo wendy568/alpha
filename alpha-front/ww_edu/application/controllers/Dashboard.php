@@ -16,7 +16,7 @@ class Dashboard extends MY_Controller
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account);
-		print_r($mt4);
+
 		$this->load->library('trading_datas_calculate');
 		$data['data']['trading_count'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('get_count', [])->get_property();
 		$data['data']['last_trading_count'] = "100% Higher";
