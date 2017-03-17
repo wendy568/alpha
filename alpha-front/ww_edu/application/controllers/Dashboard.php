@@ -153,6 +153,7 @@ class Dashboard extends MY_Controller
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc);
 		$this->load->library('trading_datas_calculate');
 		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->count()->property('putInNewCol', ['align_time', 'align_top'])->get_property();
+		echo 123;
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
