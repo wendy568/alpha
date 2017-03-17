@@ -1,16 +1,23 @@
 /* Webarch Admin Dashboard 
 /* This JS is Only DEMO Purposes 
 -----------------------------------------------------------------*/	
+(function(){
+    $.alpha.request_Url('post','dashboard/profit_statistics',{},function(data){
+        $('.wrapper .item-count').eq(0).html('$' + data.data.profit_total);
+        $('.wrapper .item-count').eq(1).html('$' + data.data.profit_month);
+        $('.wrapper .item-count').eq(2).html('$' + data.data.profit_today);
+    });
+})();
 // 折线图的样式
 $(document).ready(function() {		
-	// var d2 = [ [1, 30],
- //            [2, 20],
- //            [3, 10],
- //            [4, 30],
- //            [5, 15],
- //            [6, 25],
- //            [7, 40]
-	// ];
+	var d2 = [ [1, 30],
+            [2, 20],
+            [3, 10],
+            [4, 30],
+            [5, 15],
+            [6, 25],
+            [7, 40]
+	];
 	var d1 = [
             [1, 30],
             [2, 30],
@@ -31,7 +38,7 @@ $(document).ready(function() {
 			},
 			color:['#735f87']
 		},{ 
-            label: ["04.24","04.25","04.26","04.27","04.28","04.29"],
+            label: ["04.24"],
 			data: d1, 
 			animator: {steps: 60, duration: 1000, start:0}, 		
 			lines: {lineWidth:2},	
