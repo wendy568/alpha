@@ -120,10 +120,10 @@ class Trading_datas_calculate {
 
 	private function putInNewCol($callback, $index = 'position')
 	{
-		foreach ($this->datas as $key => $value) {
+		foreach ($this->_data as $key => $value) {
 				foreach ($value as $k => $v) {
 					if($callback) $value[$index] = call_user_func_array([$this, $callback], [$v]);
-					$this->datas[$key] = $value;
+					$this->_data[$key] = $value;
 				}
 		}
 
