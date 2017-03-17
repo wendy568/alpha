@@ -32,15 +32,14 @@
         },
         mounted() {
             const self = this
-            sessionStorage.setItem('test',window.location.search)
-            console.log(window.location.search)
-            fetch(self.$store.state.api_addr + 'order/handler_order'+sessionStorage.setItem('test'),{
+            fetch(location.href.substring(0,24)+'order/handler_order?'+location.href.split('?')[1],{
                 method: 'get'
             }).then((res) => {
+                console.log(location.href.substring(0,24)+'order/handler_order?'+location.href.split('?')[1])
                 res.ok && res.json().then((json) => {
-                    sessionStorage.setItem('payment_token',json.payment_token)
                     switch(json.archive.status){
                         case 0:
+                            console.log(json.archive.status)
                             self.$store.dispatch('TOGGLETIP','Pay success')
                         case 112:
                             self.$store.dispatch('TOGGLETIP','Pay failed')
