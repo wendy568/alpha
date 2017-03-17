@@ -86,6 +86,7 @@
 						res.json().then((json) => {
 							if(json.archive.status === 0) {
 								sessionStorage.setItem('token',json.data.token)
+								localStorage.setItem('token',json.data.token)
 								let user = {
 									nic_name: json.data.nic_name,
 									email: self.email
@@ -102,8 +103,10 @@
 				})
 				if(self.isRemmenber === true) {
 					localStorage.setItem('email',escape(self.email))
+					localStorage.setItem('token',escape(json.data.token))
 				}else{
 					localStorage.removeItem('email')
+					localStorage.removeItem('token')
 				}
 			}
 		}

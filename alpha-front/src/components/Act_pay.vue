@@ -78,7 +78,7 @@
                 const self = this
                 let formData = new FormData()
                 formData.append('token',sessionStorage.getItem('token'))
-                formData.append('table',self.$store.state.pay_table)
+                formData.append('table','event_order')
                 formData.append('out_trade_no',sessionStorage.getItem('order_no'))
                 fetch(self.$store.state.api_addr + 'order/is_payment',{
                     method: 'post',
@@ -105,7 +105,7 @@
                 formData.append('price',price)
                 formData.append('payment',1)
                 formData.append('token',sessionStorage.getItem('token'))
-                formData.append('info',self.$store.state.pay_info)
+                formData.append('info','activity_detail')
                 formData.append('table','event_order')
                 self.show_payconfirm = !self.show_payconfirm
                 fetch(self.$store.state.api_addr + 'order/create_order',{

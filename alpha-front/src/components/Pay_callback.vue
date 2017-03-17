@@ -32,11 +32,12 @@
         },
         mounted() {
             const self = this
+            localStorage.getItem(token)
             fetch(location.href.substring(0,24)+'order/handler_order?'+location.href.split('?')[1],{
                 method: 'get'
             }).then((res) => {
-                console.log(location.href.substring(0,24)+'order/handler_order?'+location.href.split('?')[1])
                 res.ok && res.json().then((json) => {
+                    sessionStorage.setItem('payment_token',json.payment_token)
                     switch(json.archive.status){
                         case 0:
                             console.log(json.archive.status)
