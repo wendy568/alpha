@@ -32,12 +32,10 @@
         },
         mounted() {
             const self = this
-            localStorage.getItem(token)
             fetch(location.href.substring(0,24)+'order/handler_order?'+location.href.split('?')[1],{
                 method: 'get'
             }).then((res) => {
                 res.ok && res.json().then((json) => {
-                    sessionStorage.setItem('payment_token',json.payment_token)
                     switch(json.archive.status){
                         case 0:
                             console.log(json.archive.status)
@@ -50,7 +48,7 @@
         },
         methods:{
            paySucc(){
-                self.$router.push({path:self.$store.state.api_addr+'/personal/order/event_order'})
+                self.$router.push({path:location.href.substring(0,24)+'/personal/order/event_order'})
            },
            payFail(){
                 self.$store.dispatch('TOGGLEACTPAY','on')
