@@ -127,7 +127,7 @@ class Trading_datas_calculate {
 				}
 		}
 
-		return $this;
+		return $this->_data;
 	}
 
 	public function setUnixTime($start, $nextOrLast = '+0', $time = null)
