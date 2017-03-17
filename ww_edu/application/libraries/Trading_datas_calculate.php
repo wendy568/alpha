@@ -80,7 +80,7 @@ class Trading_datas_calculate {
 		return $this->count;
 	}
 
-	public function get_day()
+	public function get_day($callback = null , $index = 'position')
 	{
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
@@ -125,7 +125,7 @@ class Trading_datas_calculate {
 		$this->unix_time = strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
 	}
 
-	public function get_week($callback = null, $index = null)
+	public function get_week($callback = null, $index = 'position')
 	{
 		$datas = $this->_data;
 		$result = [];
@@ -143,7 +143,6 @@ class Trading_datas_calculate {
 					$day = $slice[2];
 					$start = mktime(00, 00, 00, $month, $day, $year);
 					$end = mktime(23, 59, 59, $month, $day, $year);
-					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
 						if($callback) $value[$index] = call_user_func_array([$this, $callback], [$v]);
 						$result[$month . '.' . $day][] = $value;
