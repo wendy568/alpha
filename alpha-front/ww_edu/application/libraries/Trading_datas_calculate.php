@@ -66,6 +66,11 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
+	private function get_count()
+	{
+		return $this->count;
+	}
+
 	public function get_day()
 	{
 		$datas = $this->_data;
