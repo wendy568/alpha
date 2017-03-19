@@ -4,9 +4,6 @@ class Dashboard extends MY_Controller
 	public function previews_since_today()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
-	
-		$xxxx = $this->input->get_post('xxxx', TRUE);
-		$yyyy = $this->input->get_post('yyyy', TRUE);
 		
 		$this->load->database();
 		$this->load->helper('json');
@@ -20,6 +17,25 @@ class Dashboard extends MY_Controller
 		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('sum', ['profit'])->get_property();
 		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
 		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('transaction_peroid', ['order_open_time'])->get_property();
+		$response = array('archive' => array('status' => 0 ,'message' =>''));
+	
+		encode_json($response,$data);
+	}
+
+	public function profit_statistics()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$this->load->database();
+		$this->load->helper('json');
+		// $this->load->helper('time_zone');
+		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
+		$this->load->model('TradingAnalysis');
+
+		$mt4 = $this->TradingAnalysis->export_mt4_datas();
+		$this->load->library('trading_datas_calculate');
+		$data['data']['profit_total'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('sum', ['profit'])->get_property();
+
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);
