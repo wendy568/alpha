@@ -18,6 +18,7 @@ class Dashboard extends MY_Controller
 		$this->load->library('trading_datas_calculate');
 		$data['data']['trading_count'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('get_count', [])->get_property();
 		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('sum', ['profit'])->get_property();
+		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);
