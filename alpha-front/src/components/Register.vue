@@ -1,5 +1,6 @@
 <template>
 	<div class="register-mask">
+		<div class="model" @click="close"> </div>
 		<div class="register-box">
 			<i class="register-close" @click="close">
 				<s class="register-close-line"></s>
@@ -142,6 +143,12 @@
 		height: 100%;
 		background: rgba(0,0,0,.6);
 		z-index: 1;
+		.model{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index:100;
+        }
 		.register-box{
 			position: absolute;
 			left: 50%;
@@ -152,7 +159,7 @@
 			background: #fff;
 			border-radius: 2px;
 			box-shadow: 0 0 10px rgba(0,0,0,.18);
-			z-index: 1003;
+			z-index: 2000;
             color: $gray3;
 			.register-close{
 				position: absolute;

@@ -1,5 +1,6 @@
 <template>
 	<div class="login-mask">
+		<div class="model" @click="close"> </div>
 		<div class="login-box">
 			<i class="login-close" @click="close">
 				<s class="login-close-line"></s>
@@ -123,6 +124,12 @@
 		height: 100%;
 		background: rgba(0,0,0,.6);
 		z-index: 1;
+		.model{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index:100;
+        }
 		.login-box{
 			position: absolute;
 			left: 50%;

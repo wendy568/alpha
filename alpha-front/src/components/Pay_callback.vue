@@ -32,7 +32,7 @@
         },
         mounted() {
             const self = this
-            fetch(location.href.substring(0,24)+'order/handler_order?'+location.href.split('?')[1],{
+            fetch(self.$store.state.api_addr+'order/handler_order?'+location.href.split('?')[1],{
                 method: 'get'
             }).then((res) => {
                 res.ok && res.json().then((json) => {
@@ -48,7 +48,7 @@
         },
         methods:{
            paySucc(){
-                self.$router.push({path:location.href.substring(0,24)+'/personal/order/event_order'})
+                self.$router.push({path:self.$store.state.api_addr+'/personal/order/event_order'})
            },
            payFail(){
                 self.$store.dispatch('TOGGLEACTPAY','on')
