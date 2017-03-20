@@ -10,16 +10,16 @@
                 Check my order
             </span>
         </div>
-        <div class="payBack-fail" v-else>
+        <!-- <div class="payBack-fail" v-else> -->
             <!-- 图标 -->
-            <i class="pic"></i>
+            <!-- <i class="pic"></i> -->
             <!-- 文字 -->
-            <div class="text">pay fail!</div>
+            <!-- <div class="text">pay fail!</div> -->
             <!-- 跳转到myorder -->
-            <span class="link" @click="payFail">
+           <!--  <span class="link" @click="payFail">
                 Check my order
             </span>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -36,13 +36,12 @@
                 method: 'get'
             }).then((res) => {
                 res.ok && res.json().then((json) => {
-                    switch(json.archive.status){
-                        case 0:
-                            console.log(json.archive.status)
-                            self.success=true
-                        case 112:
-                            self.success=false
-                    }
+                    // switch(json.archive.status){
+                    //     case 0:
+                    //         console.log(json.archive.status)
+                    //     case 112:
+                            
+                    // }
                 })
             })
         },
