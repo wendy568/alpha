@@ -14,7 +14,7 @@
                 <!-- 遮罩 -->
                 <div class="shade">
                     <span>6 DAYS 13 HOURS 48 MIN</span>
-                    <button class="ad-banner-submit" @click="openEnroll"> Apply Now </button>
+                    <el-button class="ad-banner-submit" @click="openEnroll"> Apply Now </el-button>
                 </div>
             </div>
             <!-- 活动内容 -->
@@ -81,8 +81,13 @@
 			},
             openEnroll(id,price) {
                 let self = this
-                self.$store.dispatch('TOGGLEACTFORM','on')
-                self.$store.dispatch('TOGGLEACTDETAIL','off')
+                if(sessionStorage.getItem('token')){
+                    self.$store.dispatch('TOGGLEACTFORM','on')
+                    self.$store.dispatch('TOGGLEACTDETAIL','off')
+                }else{
+                    self.$store.dispatch('TOGGLELOGIN','on')
+                }
+                
             }
         },
         components: {

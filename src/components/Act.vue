@@ -111,13 +111,9 @@
 		methods: {
 			pay(id,price) {
 				const self = this
-				if(sessionStorage.getItem('token')){
-					self.$store.dispatch('CHANGEPAYINFO',price)
-					self.$store.dispatch('CHANGEACTID',id)
-					self.$router.push({path: '/act_detail',query: { id: id, price : price }})
-				}else{
-					self.$store.dispatch('TOGGLELOGIN','on')
-				}
+				self.$store.dispatch('CHANGEPAYINFO',price)
+				self.$store.dispatch('CHANGEACTID',id)
+				self.$router.push({path: '/act_detail',query: { id: id, price : price }})
 			}
 		}
 	}

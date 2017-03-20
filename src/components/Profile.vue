@@ -3,13 +3,13 @@
         <form class="pro-form">
             <div class="pro-nic">
                 <label for="nic">
-                    Nickname
+                    Firstname
                 </label>
                 <input @change="checkNic" name="nic" class="input-small" type="text" placeholder="如：用户001" v-model="nic" required/>
             </div>
             <div class="pro-name">
                 <label for="name">
-                    Name
+                    LastName
                 </label>
                 <input @change="checkFullName" name="name" class="input-small" type="text" placeholder="如：用户001" v-model="full_name" required/>
             </div>
@@ -67,7 +67,7 @@
         },
         mounted() {
             const self = this
-            self.nic = self.$store.state.nic_name
+            self.nic = self.$store.state.first_name
             self.email = self.$store.state.email
         },
         methods: {

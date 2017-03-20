@@ -1,12 +1,14 @@
 <template>
-    <div class="af-box">
+    <div class="af-box"   >
+        <div class="model" @click="close"> </div>
         <div class="af-dialog">
+            <!-- 关闭符号 -->
             <i class="af-close" @click="close">
                 <s class="af-close-line"></s>
             </i>
             <!-- title -->
             <div class="af-header"> 活动报名</div>
-            <!-- form -->
+            <!-- form 表单-->
             <form class="af-form">
                 <div class="af-name">
                     <label for="name">
@@ -95,6 +97,9 @@
             }
         },
         mounted() {
+            // this.$msgbox({
+            //     closeOnClickModal:true
+            // })
             const self = this
             let formData = new FormData()
             formData.append('token',sessionStorage.getItem('token'))
@@ -128,6 +133,12 @@
         height: 100%;
         background: rgba(1,1,1,.5);
         z-index: 999;
+        .model{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index:100;
+        }
         .af-dialog{
             position: relative;
             width: 600px;
@@ -135,6 +146,7 @@
             box-shadow: 0 0 18px rgba(0,0,0,.01);
             border-radius: 8px;
             margin:120px auto;
+            z-index:2000;
             .af-close{
                 position: absolute;
                 right: 0;

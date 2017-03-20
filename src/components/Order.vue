@@ -8,7 +8,7 @@
 		<div class="order-header">
 			<ul class="order-title">
 				<li v-for="item in tabs">
-					<router-link :to="item.link" >{{item.title}}</router-link>
+					<router-link  active-class="active" :to="item.link" >{{item.title}}</router-link>
 				</li>
 			</ul>
 			<input class="order-search" type="text" placeholder="输入活动名称">
@@ -78,9 +78,12 @@
 					a{
 						color:$gray1;
 						text-decoration: none;
-						&:hover,&:focus{
-							color:$primary;
-						}
+					}
+					&:hover,&:focus{
+						color:$primary;
+					}
+					.active{
+						color: $primary !important;
 					}
 				}
 			}

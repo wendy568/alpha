@@ -1,5 +1,6 @@
 <template>
     <div class="zpf-box">
+        <div class="model" @click="close"> </div>
         <div class="zpf-dialog">
             <i class="zpf-close" @click="close">
                 <s class="zpf-close-line"></s>
@@ -276,6 +277,12 @@
         height: 100%;
         background: rgba(1,1,1,.5);
         z-index: 999;
+        .model{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index:100;
+        }
         .zpf-dialog{
             position: relative;
             width: 600px;
@@ -284,6 +291,7 @@
             box-shadow: 0 0 18px rgba(0,0,0,.01);
             border-radius: 8px;
             top:35px;
+            z-index: 2000;
             .zpf-close{
 				position: absolute;
 				right: 0;

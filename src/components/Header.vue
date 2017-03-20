@@ -9,12 +9,14 @@
 			</router-link>
 
 			<ul class="header-navs">
-				<router-link class="header-nav" v-for="item in navs" :to="item.link">
+				<li active-class="active">
+					<router-link class="header-nav"   v-for="item in navs" :to="item.link">
 					<i class="header-nav-icon"></i>
 					<span class="header-nav-text">
 						{{item.text}}
 					</span>
 				</router-link>
+				</li>
 			</ul>
 
 			<div class="header-option">
@@ -35,7 +37,7 @@
 							</router-link>
 						</li>
 						<li>
-							<a  @click="exit">
+							<a  @click="exit" style="color:red">
 								<i class="icon"></i>
 								exit
 							</a>
@@ -62,7 +64,7 @@
 					{ text: 'Alpha Zone+',icon: 'floor', link: '/zoneplus' },
 					{ text: 'Alpha Event',icon: 'event', link: '/act' },
 					{ text: 'Alpha Tv',icon: 'tv', link: '/tv_list' },
-					{ text: 'About Us',icon: 'about', link: '' }
+					{ text: 'About Us',icon: 'about', link: '/about' }
 				],
 				personal:[
 					{text:'Userinfo',link: '/personal/profile'},
@@ -127,6 +129,9 @@
 				overflow: hidden;
 				margin: 0;
 				float: left;
+				.active{
+					color: $primary !important;
+				}
 				.header-nav{
 					float: left;
 					padding: 0 20px;
@@ -156,7 +161,7 @@
 						float: left;
 						line-height: $headerheight;
 					}
-				}	
+				}
 				.header-nav:nth-child(1){
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_zone.png);
