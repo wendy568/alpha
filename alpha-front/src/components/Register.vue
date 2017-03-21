@@ -136,7 +136,7 @@
 <style lang="scss">
 	@import '../css/alpha.scss';
 	.register-mask{
-		position: absolute;
+		position: fixed;
 		left: 0;
 		top: 0;
 		width: 100%;

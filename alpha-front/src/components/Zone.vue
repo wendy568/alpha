@@ -130,7 +130,6 @@
 <style scoped lang="scss">
     @import '../css/alpha.scss';
     .zone-box{
-        position: relative;
         width: 100%;
         overflow: hidden;
         .zone-info{

@@ -270,13 +270,14 @@
     $zpfheight: 36px;
 
     .zpf-box{
-        position: absolute;
+        position: fixed;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
         background: rgba(1,1,1,.5);
         z-index: 999;
+        overflow: scroll;
         .model{
             position: absolute;
             width: 100%;
@@ -285,12 +286,11 @@
         }
         .zpf-dialog{
             position: relative;
+            margin:120px auto;
             width: 600px;
-            margin: 100px auto;
             background: #fff;
             box-shadow: 0 0 18px rgba(0,0,0,.01);
             border-radius: 8px;
-            top:35px;
             z-index: 2000;
             .zpf-close{
 				position: absolute;
