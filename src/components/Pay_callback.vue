@@ -6,7 +6,7 @@
             <!-- 文字 -->
             <div class="text">pay success!</div>
             <!-- 跳转到myorder -->
-            <a :href="url" class="link" @click="paySucc">
+            <a :href="url" target="_blank" class="link">
                 Check my order
             </a>
         </div>
@@ -51,13 +51,6 @@
             })
         },
         methods:{
-            // paySucc(){
-            //     console.log(self)
-            //     self.$router.push({path: self.url})
-            // },
-            // payFail(){
-            //     self.$store.dispatch('TOGGLEACTPAY','on')
-            // }
         }
     }
 </script>
