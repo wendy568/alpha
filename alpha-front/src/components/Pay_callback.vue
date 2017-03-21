@@ -36,21 +36,21 @@
                 method: 'get'
             }).then((res) => {
                 res.ok && res.json().then((json) => {
-                    // switch(json.archive.status){
-                    //     case 0:
-                    //         console.log(json.archive.status)
-                    //     case 112:
-                            
-                    // }
+                    switch(json.archive.status){
+                        case 0:
+                            self.$store.dispatch('TOGGLETIP','Pay success')
+                            break;
+                        case 112:
+                            self.$store.dispatch('TOGGLETIP','Pay failed')
+                            break;
+                    }
                 })
             })
         },
         methods:{
            paySucc(){
-                if(json.archive.status==0){
-
-                    self.$router.push({path:json.archive.url})
-                }
+                self.$router.push({path: '/'+json.archive.url.split("#/")[1]})
+                // json.archive.url.split("#")[1]
            },
            payFail(){
                 self.$store.dispatch('TOGGLEACTPAY','on')
