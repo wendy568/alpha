@@ -6,9 +6,9 @@
             <!-- 文字 -->
             <div class="text">pay success!</div>
             <!-- 跳转到myorder -->
-            <span class="link" @click="paySucc">
+            <a :href="url" class="link" @click="paySucc">
                 Check my order
-            </span>
+            </a>
         </div>
         <!-- <div class="payBack-fail" v-else> -->
             <!-- 图标 -->
@@ -51,13 +51,13 @@
             })
         },
         methods:{
-            paySucc(){
-                console.log(self)
-                self.$router.push({path: self.url})
-            },
-            payFail(){
-                self.$store.dispatch('TOGGLEACTPAY','on')
-            }
+            // paySucc(){
+            //     console.log(self)
+            //     self.$router.push({path: self.url})
+            // },
+            // payFail(){
+            //     self.$store.dispatch('TOGGLEACTPAY','on')
+            // }
         }
     }
 </script>
