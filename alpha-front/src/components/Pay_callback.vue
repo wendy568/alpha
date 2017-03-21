@@ -49,7 +49,7 @@
         },
         methods:{
            paySucc(){
-                self.$router.push({path: '/'+json.archive.url.split("#/")[1]})
+                self.$router.push({path: '/'+json.url.split("#/")[1]})
                 // json.archive.url.split("#")[1]
            },
            payFail(){
