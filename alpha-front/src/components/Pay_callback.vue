@@ -36,6 +36,7 @@
                 method: 'get'
             }).then((res) => {
                 res.ok && res.json().then((json) => {
+                    console.log(json)
                     switch(json.archive.status){
                         case 0:
                             self.$store.dispatch('TOGGLETIP','Pay success')
@@ -49,8 +50,12 @@
         },
         methods:{
            paySucc(){
-                self.$router.push({path: '/'+json.url.split("#/")[1]})
-                // json.archive.url.split("#")[1]
+                console.log(json)
+                if(json.archive.status == 0){
+                    // self.$router.push({path: '/'+json.url.split("#/")[1]})
+                    // self.$router.push({path: json.archive.url})
+                    self.$router.push({path: json.url})
+                }
            },
            payFail(){
                 self.$store.dispatch('TOGGLEACTPAY','on')
