@@ -27,8 +27,8 @@
     export default {
         data() {
             return {
-                success:true,
-                url:''
+                success:true
+                // url:''1
             }
         },
         mounted() {
@@ -41,7 +41,7 @@
                     switch(json.archive.status){
                         case 0:
                             self.$store.dispatch('TOGGLETIP','Pay success')
-                            self.url=json.url
+                            // self.url=json.url
                             break;
                         case 112:
                             self.$store.dispatch('TOGGLETIP','Pay failed')
@@ -51,11 +51,10 @@
             })
         },
         methods:{
-           paySucc(){
-                console.log(json)
-                console.log(123)
+           paySucc(json){
+                console.log(self.url)
                 if(json.archive.status == 0){
-                    self.$router.push({path: self.url})
+                    self.$router.push({path: json.url})
                 }
            },
            payFail(){
