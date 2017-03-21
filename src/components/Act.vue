@@ -124,7 +124,6 @@
 	.act-mask{
 		width: 100%;
 		overflow: hidden;
-	    position: relative;
 		.act-box{
 			width: 1140px;
 			overflow: hidden;

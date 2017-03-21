@@ -1,6 +1,6 @@
 <template>
     <div class="ap-box">
-        // <iframe name="alipay" id="alipay" src="" frameborder="0" v-show="$store.state.show_alipay"></iframe>
+        <iframe name="alipay" id="alipay" src="" frameborder="0" v-show="$store.state.show_alipay"></iframe>
         <div class="ap-dialog">
             <i class="ap-close" @click="close">
 				<s class="ap-close-line"></s>

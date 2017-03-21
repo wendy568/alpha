@@ -97,7 +97,6 @@
     .zp-box{
         width: 100%;
         overflow: hidden;
-        position: relative;
         .zp-top{
             background: url(../assets/images/act_banner.jpg) top center no-repeat;
             background-size: 100%;

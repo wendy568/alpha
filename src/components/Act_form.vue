@@ -126,7 +126,7 @@
     $afheight: 36px;
 
     .af-box{
-        position: absolute;
+        position: fixed;
         left: 0;
         top: 0;
         width: 100%;
@@ -145,7 +145,7 @@
             background: #fff;
             box-shadow: 0 0 18px rgba(0,0,0,.01);
             border-radius: 8px;
-            margin:120px auto;
+            margin:90px auto;
             z-index:2000;
             .af-close{
                 position: absolute;
