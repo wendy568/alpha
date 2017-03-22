@@ -6,7 +6,7 @@
             <!-- 文字 -->
             <div class="text">pay success!</div>
             <!-- 跳转到myorder -->
-            <a :href="url" target="_blank" class="link">
+            <a :href="url" target="_parent" class="link">
                 Check my order
             </a>
         </div>

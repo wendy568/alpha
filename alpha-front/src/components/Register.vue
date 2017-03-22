@@ -113,15 +113,13 @@
 					if(res.ok) {
 						res.json().then((json) => {
 							if(json.archive.status === 0) {
-								// sessionStorage.setItem('token',json.data.token)
+								sessionStorage.setItem('token',json.data.token)
 								let user = {
-									// first_name: self.first,
 									email: self.email
 								}
-								self.$store.dispatch('TOGGLEONLINE','on')
 								self.$store.dispatch('STORAGEUSERINFO',user)
-								self.error = 'To register, please login'
-								// self.close()
+								self.error = 'Registration is successful, please login'
+								self.$store.dispatch('TOGGLELOGIN','on')
 							}else{
 								self.error = 'Registration failed, please register again'
 							}
@@ -135,6 +133,7 @@
 
 <style lang="scss">
 	@import '../css/alpha.scss';
+	@import '../css/animate.css';
 	.register-mask{
 		position: fixed;
 		left: 0;

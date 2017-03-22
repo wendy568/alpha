@@ -9,9 +9,9 @@
 			</router-link>
 
 			<ul class="header-navs">
-				<li active-class="active">
+				<li class="bb">
 					<router-link class="header-nav"   v-for="item in navs" :to="item.link">
-						<i class="header-nav-icon"></i>
+						<span class="header-nav-icon "></span>
 						<span class="header-nav-text">
 							{{item.text}}
 						</span>
@@ -129,9 +129,6 @@
 				overflow: hidden;
 				margin: 0;
 				float: left;
-				.active{
-					color: $primary !important;
-				}
 				.header-nav{
 					float: left;
 					padding: 0 20px;
@@ -140,7 +137,7 @@
 					font-size: 14px;
 					cursor: pointer;
 					transition: all .2s;
-					&:hover,&:focus{
+					&:hover{
 						background-color: rgba(255,255,255,.2);
 						color: $primary;
 					}
@@ -162,21 +159,26 @@
 						line-height: $headerheight;
 					}
 				}
+				// .bb{
+				// 	color: $primary;
+				// }
 				.header-nav:nth-child(1){
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_zone.png);
 					}
-					&:hover,&:focus{
+					&:hover,&:active{
+						color: $primary;
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_zone_s.png);
 						}
 					}
+					
 				}
 				.header-nav:nth-child(2){
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_zone+.png);
 					}
-					&:hover,&:focus{
+					&:active{
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_zone+_s.png);
 						}
@@ -186,7 +188,7 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_event.png);
 					}
-					&:hover,&:focus{
+					&:visited{
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_event_s.png);
 						}
@@ -196,7 +198,7 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_tv.png);
 					}
-					&:hover,&:focus{
+					&:active{
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_tv_s.png);
 						}
