@@ -89,10 +89,12 @@
                         switch(json.archive.status){
                             case 0:
                                 self.$store.dispatch('TOGGLETIP','Payment success')
-                                // self.$router.push({path:'/personal/order/event_order'})
+                                // self.show_payconfirm = false
                                 self.$store.dispatch('TOGGLEACTPAY','off')
+                                // self.$router.push({path:'/personal/order/event_order'})
                             case 113:
                                 self.$store.dispatch('TOGGLETIP','Payment failed')
+                                // self.$router.push({path:'/personal/order/event_order'})
                         }
                     })
                 })

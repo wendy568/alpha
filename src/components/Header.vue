@@ -11,11 +11,11 @@
 			<ul class="header-navs">
 				<li active-class="active">
 					<router-link class="header-nav"   v-for="item in navs" :to="item.link">
-					<i class="header-nav-icon"></i>
-					<span class="header-nav-text">
-						{{item.text}}
-					</span>
-				</router-link>
+						<i class="header-nav-icon"></i>
+						<span class="header-nav-text">
+							{{item.text}}
+						</span>
+					</router-link>
 				</li>
 			</ul>
 
