@@ -87,16 +87,15 @@
 						res.json().then((json) => {
 							if(json.archive.status === 0) {
 								sessionStorage.setItem('token',json.data.token)
-								localStorage.setItem('token',json.data.token)
+								// localStorage.setItem('token',json.data.token)
 								let user = {
-									nic_name: json.data.nic_name,
 									email: self.email
 								}
 								self.$store.dispatch('TOGGLEONLINE','on')
 								self.$store.dispatch('STORAGEUSERINFO',user)
 								self.close()
 							}else{
-								self.error = 'Login failed, please LOGIN again'
+								self.error = 'Account or password is wrong!'
 								self.pwd = ''
 							}
 						})
@@ -133,14 +132,15 @@
 		.login-box{
 			position: absolute;
 			left: 50%;
-			top: 160px;
+			top: 110px;
 			width: 700px;
 			height: 420px;
 			margin-left: -350px;
 			background: #fff;
 			border-radius: 2px;
 			box-shadow: 0 0 10px rgba(0,0,0,.18);
-			z-index: 1003;
+			z-index: 2000;
+			color: $gray3;
 			.login-close{
 				position: absolute;
 				right: 15px;
