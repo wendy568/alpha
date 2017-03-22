@@ -78,7 +78,7 @@
                 const self = this
                 let formData = new FormData()
                 formData.append('token',sessionStorage.getItem('token'))
-                formData.append('table','event_order')
+                formData.append('table',self.$store.state.pay_table)
                 formData.append('out_trade_no',sessionStorage.getItem('order_no'))
                 fetch(self.$store.state.api_addr + 'order/is_payment',{
                     method: 'post',
@@ -89,7 +89,7 @@
                         switch(json.archive.status){
                             case 0:
                                 self.$store.dispatch('TOGGLETIP','Payment success')
-                                self.$router.push({path:'/personal/order/event_order'})
+                                // self.$router.push({path:'/personal/order/event_order'})
                                 self.$store.dispatch('TOGGLEACTPAY','off')
                             case 113:
                                 self.$store.dispatch('TOGGLETIP','Payment failed')
@@ -106,7 +106,7 @@
                 formData.append('payment',1)
                 formData.append('token',sessionStorage.getItem('token'))
                 formData.append('info',self.activity_detail)
-                formData.append('table','event_order')
+                formData.append('table',self.$store.state.pay_table)
                 self.show_payconfirm = !self.show_payconfirm
                 fetch(self.$store.state.api_addr + 'order/create_order',{
                     mode: 'cors',
