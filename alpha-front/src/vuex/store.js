@@ -20,7 +20,7 @@ const state = {
 		location: '',
 		price: ''
 	},
-	pay_table: 'event_order',
+	pay_table: 'tr_fl_order',
 	zone_type: '',
 	pay_info: {
 		price: 0.01,
