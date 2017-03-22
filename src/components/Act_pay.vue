@@ -137,7 +137,7 @@
 <style scoped lang="scss">
     @import '../css/alpha.scss';
     .ap-box{
-        position: absolute;
+        position: fixed;
         left: 0;
         top: 0;
         width: 100%;
