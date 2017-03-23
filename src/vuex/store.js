@@ -133,6 +133,12 @@ const mutations = {
 			state.show_register = true
 		}
 	},
+	// // 点赞
+	// TOGGLELIKE (state,vlaue){
+	// 	if(value ==='no'){
+	// 		state.show_register = true
+	// 	}
+	// }
 	CHANGEACTID (state,id) {
 		state.act_id = id
 	},
@@ -188,8 +194,17 @@ const mutations = {
 		}
 	},
 	TOGGLEPAYSTATUS(state,value) {
-		if(value && value === 'alipay') {
-			state.pay_types[0].status = !state.pay_types[0].status
+		if(value === '支付宝') {
+			state.pay_types[0].status = true
+			state.pay_types[1].status = false
+			state.pay_types[2].status = false
+		}else if(value === 'Paypal'){
+			state.pay_types[0].status = false
+			state.pay_types[1].status = true
+		}else if(value === 'DD转账'){
+			state.pay_types[0].status = false
+			state.pay_types[1].status = false
+			state.pay_types[2].status = true
 		}
 	}
 }

@@ -142,7 +142,6 @@
                         background: rgba(255,255,255,.98);
                         float: left;
                         box-sizing: border-box;
-                        cursor: pointer;
                         &:first-child{
                             margin-right: 40px;
                         }

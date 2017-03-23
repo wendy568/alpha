@@ -9,10 +9,10 @@
 			</router-link>
 
 			<ul class="header-navs">
-				<li class="bb">
-					<router-link class="header-nav"   v-for="item in navs" :to="item.link">
+				<li class="active" @click="actvie">
+					<router-link class="header-nav "   v-for="item in navs" :to="item.link" >
 						<span class="header-nav-icon "></span>
-						<span class="header-nav-text">
+						<span class="header-nav-text ">
 							{{item.text}}
 						</span>
 					</router-link>
@@ -25,11 +25,11 @@
 					Login in/Register
 				</div>
 				<!-- 头像 -->
-				<a  class="header-face" @click="openLogin" >
+				<a  class="header-face" @click="openLogin" v-show="$store.state.is_online">
 					<img src="../assets/images/user_hover.png"  v-if="!$store.state.is_online" alt="">
 					<img src="../assets/images/photo.jpg"  v-else alt="">
 					<!-- 退出登录 -->
-					<ul class="exit" v-show="$store.state.is_online">
+					<ul class="exit">
 						<li>
 							<router-link v-for="item in personal" :to="item.link">
 								<i class="icon"></i>
@@ -45,7 +45,13 @@
 					</ul>
 				</a>
 				<!-- 中英文切换 -->
-				<div class="header-lang"></div>
+				<div class="header-lang">
+					<ul class="lang">
+						<li v-for="item in lang">
+							<span>{{item.text}}</span>
+						</li>
+					</ul>
+				</div>
 				
 			</div>
 		</div>
@@ -70,6 +76,10 @@
 					{text:'Userinfo',link: '/personal/profile'},
 					{text:'My Profile',link: '/personal/favorite'},
 					{text:'My Order',link: '/personal/order/event_order'}
+				],
+				lang:[
+					{text:'English'},
+					{text:'中文'}
 				]
 			}
 		},
@@ -98,6 +108,10 @@
 				self.$store.dispatch('UNLOADUSERINFO')
 				self.$store.state.is_online=false
 				self.$router.push({path:'/' })
+			},
+			actvie(){
+				let self = this
+				self.toggleClass('selected');
 			}
 		}
 	}
@@ -149,7 +163,7 @@
 						background-repeat: no-repeat;
 						background-position: center center;
 						background-size: 100%;
-						color: rgba(255, 255, 255,.7);
+						opacity: 0.7;
 					}
 					
 					.header-nav-text{
@@ -159,26 +173,24 @@
 						line-height: $headerheight;
 					}
 				}
-				// .bb{
-				// 	color: $primary;
-				// }
+				.active{
+					color: $primary;
+				}
 				.header-nav:nth-child(1){
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_zone.png);
 					}
-					&:hover,&:active{
-						color: $primary;
+					&:hover,.selected{
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_zone_s.png);
 						}
 					}
-					
 				}
 				.header-nav:nth-child(2){
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_zone+.png);
 					}
-					&:active{
+					&:hover{
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_zone+_s.png);
 						}
@@ -188,7 +200,7 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_event.png);
 					}
-					&:visited{
+					&:hover{
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_event_s.png);
 						}
@@ -198,7 +210,7 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_tv.png);
 					}
-					&:active{
+					&:hover{
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_tv_s.png);
 						}
@@ -208,7 +220,7 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_about.png);
 					}
-					&:hover,&:focus{
+					&:hover{
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_about_s.png);
 						}
@@ -233,14 +245,7 @@
 					box-sizing: border-box;
 					position: relative;
 					height: $headerheight;
-					&:after{
-						content: "";
-						display: block;
-						clear:both;
-					}
-					&:hover{
-						background-color:$gray1;
-					}
+					transform:all .5s;
 					&:hover .exit{
 						transition:all .5s;
 						display: block;
@@ -268,7 +273,7 @@
 						li{	
 							width: 120px;
 							a{
-								color: #fff;
+								color: rgba(255,255,255,.7);
 								text-decoration: none;
 								padding: 15px 5px;
 								float: left;
@@ -285,48 +290,48 @@
 								&:nth-child(1){
 									.icon{
 										background: url(../assets/images/user.png) center center no-repeat;
-										background-size: 100%;
+										background-size: 80%;
 									}
 									&:hover{
 										.icon{
 											background: url(../assets/images/user_hover.png) center center no-repeat;
-											background-size: 100%;
+											background-size: 80%;
 										}
 									}
 								}
 								&:nth-child(2){
 									.icon{
 										background: url(../assets/images/favorite.png) center center no-repeat;
-										background-size: 100%;
+										background-size: 80%;
 									}
 									&:hover{
 										.icon{
 											background: url(../assets/images/favorite_hover.png) center center no-repeat;
-											background-size: 100%;
+											background-size: 80%;
 										}
 									}
 								}
 								&:nth-child(3){
 									.icon{
 										background: url(../assets/images/order.png) center center no-repeat;
-										background-size: 100%;
+										background-size: 80%;
 									}
 									&:hover{
 										.icon{
 											background: url(../assets/images/order_hover.png) center center no-repeat;
-											background-size: 100%;
+											background-size: 80%;
 										}
 									}
 								}
 								&:nth-child(4){
 									.icon{
 										background: url(../assets/images/topbar_signout.png) center center no-repeat;
-										background-size: 100%;
+										background-size: 80%;
 									}
 									&:hover{
 										.icon{
 											background: url(../assets/images/topbar_signout_h.png) center center no-repeat;
-											background-size: 100%;
+											background-size: 80%;
 										}
 									}
 								}
@@ -343,6 +348,32 @@
 					background-size: 100%;
 					background-position: center center;
 					background-repeat: no-repeat;
+					position: relative;
+					&:hover .lang{
+						transition:all .5s;
+						display: block;
+					}
+					.lang{
+						padding: 0;
+						width: 100px;
+						overflow: hidden;
+						background-color: $gray1;
+						position: absolute;
+						top:56px;
+						left:-78px;
+						display: none;
+						li{
+							line-height: 25px;
+							border-radius: 12px;
+							margin:10px 10px;
+							text-align: center;
+							cursor: pointer;
+							&:hover{
+								color:$gray1;
+								background-color: $primary;
+							}
+						}
+					}
 				}
 			}
 		}	

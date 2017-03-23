@@ -39,7 +39,7 @@
 					</div>
 
 					<div class="act-item-info">
-						<h3 class="act-item-info-title">
+						<h3 class="act-item-info-title" @click="pay(item.id,item.price)">
 							{{item.name}}
 						</h3>
 						<p class="act-item-info-des">
@@ -247,6 +247,7 @@
 							font-size: 16px;
 							color: #343c4d;;
 							padding-bottom: 20px;
+							cursor: pointer;
 							&:hover{
 								color:$primary;
 								transition:all .3s;
