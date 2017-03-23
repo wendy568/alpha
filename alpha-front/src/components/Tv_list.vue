@@ -14,11 +14,11 @@
 					</div>
 					<div class="video-item-info">
 						<div class="video-item-top">
-							<p class="video-item-title">
+							<p class="video-item-title" @click="viewVideo(item.class_id)">
 								{{item.name}}
 							</p>
 							<p class="video-item-data">
-								<span class="create_time">
+								<span class="create_time" >
 									<i></i>
 									{{item.create_time}}
 								</span>
@@ -115,7 +115,6 @@
 					margin-left: 10px;
 					margin-right: 10px;
 					margin-bottom: 20px;
-					cursor: pointer;
 					float: left;
 					box-sizing: border-box;
 					transition: all .35s;
@@ -180,6 +179,7 @@
 								font-size: 14px;
 								overflow: hidden;
 								height: 52px;
+								cursor: pointer;
 								&:hover{
 									color:$primary;
 									transition: all .2s; 

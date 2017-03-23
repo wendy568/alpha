@@ -167,7 +167,7 @@
                 }
                 .zone-item-img-box{
                     width: 100%;
-                    height: 400px;
+                    height: 320px;
                     position: relative;
                     .zone-item-img{
                         width: 100%;

@@ -36,9 +36,9 @@
 				</div>
 			</div>
 			<ul class="video-list">
-				<li class="video-item" v-for="item in videos" @click="viewVideo(item.id)">
+				<li class="video-item" v-for="item in videos" >
 					<img class="video-item-img" :src="item.image" alt="">
-					<div class="video-item-mask">
+					<div class="video-item-mask" @click="viewVideo(item.id)">
 						<!-- 视频开始按钮 -->
 						<span class="video-item-play" ></span>
 						<!-- 视频时长 -->
@@ -54,8 +54,12 @@
 									<i></i>
 									{{item.create_time}}
 								</span>
-								<span class="video-item-like" >
-									<i @click="item.like++"></i>
+								<span class="video-item-like" @click="toggleLike(item.id)" v-if="isLike">
+									<i class="unlike"></i>
+									{{item.like}}
+								</span>
+								<span class="video-item-like" @click="toggleLike(item.id)" v-else>
+									<i class="like"></i>
 									{{item.like}}
 								</span>
 								<span class="video-item-comment">
@@ -83,14 +87,14 @@
 			<ul class="event-list">
 				<li class="event-item" v-for="item in events">
 			
-					<div class="event-item-img">
+					<div class="event-item-img" @click="openActForm">
 						<div class="event-item-img-mask">
 							<img src="" alt="">
 						</div>
 					</div>
 
 					<div class="event-item-info">
-						<h3 class="event-item-info-title">
+						<h3 class="event-item-info-title" @click="openActForm">
 							{{item.name}}
 						</h3>
 						<p class="event-item-info-des">
@@ -112,7 +116,6 @@
 
 				</li>
 			</ul>
-
 		</div>
 
 		<div class="home-header-datas">
@@ -156,7 +159,8 @@
 				zone_list: [
 					{ name: 'ZONE',des: 'Profession Environment Advanced Equipment Best Communication Space',link: '/zone' },
 					{name: 'ZONE+',des: 'Improve Rapidly Online and Offline Service Theory combined with practice',link: '/zoneplus' }
-				]
+				],
+				isLike:true
 			}
 		},
 		mounted() {
@@ -209,11 +213,12 @@
 			},
 			openActForm() {
 				const self = this
-				if(sessionStorage.getItem('token')) {
-					self.$store.dispatch('TOGGLEACTFORM','on')
-				}else{
-					self.$store.dispatch('TOGGLELOGIN','on')
-				}
+				self.$router.push({path: '/act_detail'})
+			},
+			toggleLike(id) {
+				const self = this
+				self.isLike = !self.isLike
+				console.log(id)
 			}
 		}
 	}
@@ -411,7 +416,6 @@
 					margin-left: 10px;
 					margin-right: 10px;
 					margin-bottom: 20px;
-					cursor: pointer;
 					float: left;
 					box-sizing: border-box;
 					transition: all .35s;
@@ -476,6 +480,7 @@
 								font-size: 14px;
 								overflow: hidden;
 								height: 52px;
+								cursor: pointer;
 								&:hover{
 									color:$primary;
 									transition: all .2s; 
@@ -515,17 +520,25 @@
 								}
 								.video-item-like{
 									float: right;
-									i{
+									cursor: pointer;
+									.unlike{
 										float: left;
 										width: 24px;
 										height: 24px;
 										background:url(../assets/images/video_list_like.png) center center no-repeat;
 										background-size:50% 50%;
-										&:hover,&:focus{
+										&:hover{
 											background:url(../assets/images/video_list_like_s.png) center center no-repeat;
 											background-size:50% 50%;
 											cursor: pointer;
 										}
+									}
+									.like{
+										float: left;
+										width: 24px;
+										height: 24px;
+										background:url(../assets/images/video_list_like_s.png) center center no-repeat;
+										background-size:50% 50%;
 									}
 								}
 							}
@@ -594,6 +607,7 @@
 						float: left;
 						width: 270px;
 						height: 100%;
+						cursor: pointer;
 						.event-item-img-mask{
 							background-color: #999;
 							width: 100%;
@@ -614,6 +628,7 @@
 							font-size: 16px;
 							color: #343c4d;;
 							padding-bottom: 20px;
+							cursor: pointer;
 							&:hover{
 								color:$primary;
 								transition: all .2s; 

@@ -14,7 +14,7 @@
                 <!-- 遮罩 -->
                 <div class="shade">
                     <span>6 DAYS 13 HOURS 48 MIN</span>
-                    <el-button class="ad-banner-submit" @click="openEnroll"> Apply Now </el-button>
+                    <button class="ad-banner-submit" @click="openEnroll"> Apply Now </button>
                 </div>
             </div>
             <!-- 活动内容 -->
