@@ -430,7 +430,7 @@ class Personal extends MY_Controller
 	{
 		$AccountNumber = $this->input->get_post('AccountNumber', TRUE);
 		$amount = $this->input->get_post('amount', TRUE);
-		print_r($AccountNumber);
+		echo ($AccountNumber);
 		die;
 		// $this->load->model('personals');
 		// ob_start();
