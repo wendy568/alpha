@@ -428,7 +428,9 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$this->jquery_href("http://120.25.211.159/#/tv_list?go=zone_plus_order");
+		$AccountNumber = $this->input->get_post('AccountNumber', TRUE);
+		$amount = $this->input->get_post('amount', TRUE);
+		print_r($AccountNumber);
 		die;
 		// $this->load->model('personals');
 		// ob_start();
