@@ -54,26 +54,19 @@
 									<i></i>
 									{{item.create_time}}
 								</span>
-								<span class="video-item-like" @click="toggleLike(item.id)" v-if="isLike">
-									<i class="unlike"></i>
+								<!-- <span class="video-item-like">
+									<i :class="{active:isActive}" class="unlike"></i>
 									{{item.like}}
-								</span>
-								<span class="video-item-like" @click="toggleLike(item.id)" v-else>
-									<i class="like"></i>
-									{{item.like}}
-								</span>
+								</span> -->
 								<span class="video-item-comment">
 									<i></i>
 									{{item.comment_count}}
 								</span>
-								
 							</p>
 						</div>
-						
 					</div>
 				</li>
 			</ul>
-
 		</div>
 		<!-- event -->
 		<div class="event-box">
@@ -160,7 +153,7 @@
 					{ name: 'ZONE',des: 'Profession Environment Advanced Equipment Best Communication Space',link: '/zone' },
 					{name: 'ZONE+',des: 'Improve Rapidly Online and Offline Service Theory combined with practice',link: '/zoneplus' }
 				],
-				isLike:true
+				isActive:false
 			}
 		},
 		mounted() {
@@ -214,11 +207,6 @@
 			openActForm() {
 				const self = this
 				self.$router.push({path: '/act_detail'})
-			},
-			toggleLike(id) {
-				const self = this
-				self.isLike = !self.isLike
-				console.log(id)
 			}
 		}
 	}
@@ -518,29 +506,22 @@
 										background-size:50% 50%;
 									}
 								}
-								.video-item-like{
-									float: right;
-									cursor: pointer;
-									.unlike{
-										float: left;
-										width: 24px;
-										height: 24px;
-										background:url(../assets/images/video_list_like.png) center center no-repeat;
-										background-size:50% 50%;
-										&:hover{
-											background:url(../assets/images/video_list_like_s.png) center center no-repeat;
-											background-size:50% 50%;
-											cursor: pointer;
-										}
-									}
-									.like{
-										float: left;
-										width: 24px;
-										height: 24px;
-										background:url(../assets/images/video_list_like_s.png) center center no-repeat;
-										background-size:50% 50%;
-									}
-								}
+								// .video-item-like{
+								// 	float: right;
+								// 	cursor: pointer;
+								// 	.unlike{
+								// 		float: left;
+								// 		width: 24px;
+								// 		height: 24px;
+								// 		background:url(../assets/images/video_list_like.png) center center no-repeat;
+								// 		background-size:50% 50%;
+								// 		&:hover,&.active{
+								// 			background:url(../assets/images/video_list_like_s.png) center center no-repeat;
+								// 			background-size:50% 50%;
+								// 			cursor: pointer;
+								// 		}
+								// 	}
+								// }
 							}
 						}
 					}

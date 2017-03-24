@@ -9,8 +9,8 @@
 			</div>
 			<div class="per-tabs-box">
 				<ul class="per-tabs">
-					<li class="per-tabs-item" v-for="item in tabs">
-						<router-link active-class="active" :to="item.link" style="color: #fff;text-decoration: none;" >
+					<li >
+						<router-link class="per-tabs-item" v-for="item in tabs" :class="{active:isActive}" :to="item.link" style="color: #fff;text-decoration: none;" >
 							<i class="per-tabs-item-icon"></i>
 							<span class="per-tabs-item-title">{{item.title}}</span>
 						</router-link>
@@ -31,7 +31,8 @@
 					{ title: 'profile',icon: '../assets/images/user.png', link: '/personal/profile' },
 					{ title: 'video',icon: '../assets/images/favorite.png', link: '/personal/favorite' },
 					{ title: 'order',icon: '../assets/images/order.png', link: '/personal/order' }
-				]
+				],
+				isActive:false
 			}
 		},
 		mounted() {
@@ -107,10 +108,6 @@
 						&:hover{
 							color: $primary;
 						}
-						.active{
-							color: $primary !important;
-							border-bottom: 2px solid $primary;
-						}
 						.per-tabs-item-icon{
 							width: 18px;
 							height: 18px;
@@ -127,30 +124,42 @@
 						}
 					}
 					.per-tabs-item:nth-child(1){
-						&:hover{
+						&:hover,&.active{
+							color: $primary !important;
 							.per-tabs-item-icon{
 								background-image: url(../assets/images/user_hover.png);
 							}	
+						}
+						&.active{
+							border-bottom: 2px solid $primary;
 						}
 						.per-tabs-item-icon{
 							background-image: url(../assets/images/user.png);
 						}
 					}
 					.per-tabs-item:nth-child(2){
-						&:hover{
+						&:hover,&.active{
+							color: $primary !important;
 							.per-tabs-item-icon{
 								background-image: url(../assets/images/favorite_hover.png);
 							}	
+						}
+						&.active{
+							border-bottom: 2px solid $primary;
 						}
 						.per-tabs-item-icon{
 							background-image: url(../assets/images/favorite.png);
 						}
 					}
 					.per-tabs-item:nth-child(3){
-						&:hover{
+						&:hover,&.active{
+							color: $primary !important;
 							.per-tabs-item-icon{
 								background-image: url(../assets/images/order_hover.png);
 							}	
+						}
+						&.active{
+							border-bottom: 2px solid $primary;
 						}
 						.per-tabs-item-icon{
 							background-image: url(../assets/images/order.png);
