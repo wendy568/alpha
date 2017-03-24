@@ -264,7 +264,7 @@
                     background: transparent;
                     color: #fff;
                     outline: none;
-                    cursor: pointer;
+                    // cursor: pointer;
                 }
             }
         }
