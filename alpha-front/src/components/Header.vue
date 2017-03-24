@@ -9,8 +9,9 @@
 			</router-link>
 
 			<ul class="header-navs">
-				<li class="active" @click="actvie">
-					<router-link class="header-nav "   v-for="item in navs" :to="item.link" >
+				<li >
+					<router-link class="header-nav "  :class='{active:isActvie}'
+					v-for="item in navs" :to="item.link" >
 						<span class="header-nav-icon "></span>
 						<span class="header-nav-text ">
 							{{item.text}}
@@ -80,7 +81,8 @@
 				lang:[
 					{text:'English'},
 					{text:'中文'}
-				]
+				],
+				isActvie:false
 			}
 		},
 		components: {
@@ -108,10 +110,6 @@
 				self.$store.dispatch('UNLOADUSERINFO')
 				self.$store.state.is_online=false
 				self.$router.push({path:'/' })
-			},
-			actvie(){
-				let self = this
-				self.toggleClass('selected');
 			}
 		}
 	}
@@ -146,7 +144,8 @@
 				.header-nav{
 					float: left;
 					padding: 0 20px;
-					color: rgba(255,255,255,.7);
+					color:#fff;
+					opacity: 0.7;
 					height: 100%;
 					font-size: 14px;
 					cursor: pointer;
@@ -173,14 +172,12 @@
 						line-height: $headerheight;
 					}
 				}
-				.active{
-					color: $primary;
-				}
 				.header-nav:nth-child(1){
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_zone.png);
 					}
-					&:hover,.selected{
+					&:hover,&.active{
+						color:$primary;
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_zone_s.png);
 						}
@@ -190,7 +187,8 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_zone+.png);
 					}
-					&:hover{
+					&:hover,&.active{
+						color:$primary;
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_zone+_s.png);
 						}
@@ -200,7 +198,8 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_event.png);
 					}
-					&:hover{
+					&:hover,&.active{
+						color:$primary;
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_event_s.png);
 						}
@@ -210,7 +209,8 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_tv.png);
 					}
-					&:hover{
+					&:hover,&.active{
+						color:$primary;
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_tv_s.png);
 						}
@@ -220,7 +220,8 @@
 					.header-nav-icon{
 						background-image: url(../assets/images/topbar_about.png);
 					}
-					&:hover{
+					&:hover,&.active{
+						color:$primary;
 						.header-nav-icon{
 							background-image: url(../assets/images/topbar_about_s.png);
 						}
