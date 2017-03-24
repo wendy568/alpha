@@ -82,7 +82,7 @@
 			
 					<div class="event-item-img" @click="openActForm">
 						<div class="event-item-img-mask">
-							<img src="" alt="">
+							<img src="../assets/images/act1.jpg" alt="">
 						</div>
 					</div>
 
@@ -127,6 +127,10 @@
 					</li>
 				</ul>
 			</div>
+		</div>
+
+		<div class="copyright">
+			<div class="text">上海alpha科技股份有限公司&copy版权所有，沪ICP备139475427号</div>
 		</div>
 
 	</div>
@@ -594,6 +598,10 @@
 							width: 100%;
 							height: 100%;
 							border-radius: 2px;
+							img{
+								width: 100%;
+								height: 100%;
+							}
 						}
 					}
 					.event-item-info{
@@ -662,17 +670,18 @@
 			overflow: hidden;
 			margin: 0 auto;
 			border-top: 1px solid $gray5;
+			background: url(../assets/images/index_statistic_bg.png);
+			background-size: 100% 100%;
 			.home-header-data{
 				overflow: hidden;
 				box-sizing: border-box;
-				width: $contentwidth;
+				width:100%;
 				height: 220px;
 				color: #fff;
-				margin: 0 auto;
+				background-color: rgba(0,0,0,.95);
 				.home-header-data-box{
 					position: relative;
-					left: -12%;
-					width: 124%;
+					width: $contentwidth;
 					height: 100%;
 					margin: 0 auto;
 					padding: 0;
@@ -680,6 +689,9 @@
 						float: left;
 						width: 25%;
 						padding-top: 40px;
+						&:hover{
+							transform: rotateX(10deg);
+						}
 						.home-header-data-item-icon{
 							width: 100%;
 							float: left;
@@ -707,7 +719,7 @@
 							text-align: center;
 						}
 						.home-header-data-name{
-							color: $gray2;
+							color: $primary;
 							width: 100%;
 							font-size: 14px;
 							float: left;
@@ -748,6 +760,17 @@
 				}
 				
 				
+			}
+		}
+		.copyright{
+			width: 100%;
+			background-color: $gray1;
+			height: 30px;
+			.text{
+				font-size: 12px;
+				color: #454f4f;
+				text-align: center;
+				line-height: 30px;
 			}
 		}
 	}

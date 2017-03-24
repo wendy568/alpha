@@ -150,9 +150,9 @@
 					font-size: 14px;
 					cursor: pointer;
 					transition: all .2s;
-					&:hover{
-						background-color: rgba(255,255,255,.2);
+					&:hover,&.active{
 						color: $primary;
+						opacity: 1;
 					}
 					.header-nav-icon{
 						float: left;
@@ -162,7 +162,6 @@
 						background-repeat: no-repeat;
 						background-position: center center;
 						background-size: 100%;
-						opacity: 0.7;
 					}
 					
 					.header-nav-text{
@@ -173,14 +172,14 @@
 					}
 				}
 				.header-nav:nth-child(1){
-					.header-nav-icon{
-						background-image: url(../assets/images/topbar_zone.png);
-					}
 					&:hover,&.active{
-						color:$primary;
 						.header-nav-icon{
+							opacity: 1;
 							background-image: url(../assets/images/topbar_zone_s.png);
 						}
+					}
+					.header-nav-icon{
+						background-image: url(../assets/images/topbar_zone.png);
 					}
 				}
 				.header-nav:nth-child(2){
