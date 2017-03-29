@@ -6,189 +6,106 @@
                 <s class="zpf-close-line"></s>
             </i>
             <div class="zpf-header">Zone+申请</div>
+
+            <!-- 表单 -->
             <form class="zpf-form">
-                <div class="zpf-place">
-                    <label for="place">
-                        Place
-                    </label>
-                    <select disabled v-model="local" name="place" id="">
-                        <option v-for="item in places" :value="item.value">
-                            {{item.text}}
-                        </option>
-                    </select>
+                <!-- 选择套餐 -->
+                <div class="sale-type">
+                    <label for="name" class="title"> Zone+类型 </label>
+                    <div  class="choose"  @click="cModel($event)" :class="{'active':show_one}">
+                        <i class="icon"></i>
+                        <span class="text" id="Lodon">Prop-Trading普通</span>
+                        <input class="btn-default-out" type="button" >
+                    </div>
+                    <div  class="choose"  @click="cModel($event)" :class="{'active':show_two}">
+                        <i class="icon"></i>
+                        <span class="text" id="Shanghai">Prop-Trading高级</span>
+                        <input class="btn-default-out" type="button" >
+                    </div>
+                    <div  class="choose"   @click="cModel($event)" :class="{'active':show_three}">
+                        <i class="icon"></i>
+                        <span class="text" id="Manchester">Algo-Trading普通</span>
+                        <input class="btn-default-out" type="button" >
+                    </div>
+                    <div  class="choose"   @click="cModel($event)" :class="{'active':show_four}">
+                        <i class="icon"></i>
+                        <span class="text" id="Chengdu">Algo-Trading高级</span>
+                        <input class="btn-default-out" type="button" >
+                    </div>
                 </div>
-                <div class="zpf-date">
-                    <label for="date">
-                        Start Date
-                    </label>
-                    <date-picker class="zpf-date-input" :date="startTime" :option="option" :limit="limit"></date-picker>
+                <div class="info">
+                    <label for="name" class="title"> Name </label>
+                    <input id="name" class="content" v-model="first_name" type="text" placeholder="Example: John">
                 </div>
-                <div class="zpf-period">
-                    <label for="period">
-                        Period
-                    </label>
-                    <select disabled id="period" v-model="period">
-						<option disabled="true">Period</option>
-						<option v-for="item in periods" :value="item.value">{{item.text}}</option>
-					</select>
+                <div class="info">
+                    <label for="phone" class="title">Phone</label>
+                    <input id="phone" class="content" v-model="phone" type="text" placeholder="Example: 18988889999">
                 </div>
-                <div class="zpf-type">
-                    <label for="type">
-                        Model
-                    </label>
-                    <select id="type" v-model="model" @change="cModel">
-						<option disabled="true">Model</option>
-						<option v-for="item in models" :value="item.value">{{item.text}}</option>
-					</select>
+                <div class="info">
+                    <label for="email" class="title"> E-mail</label>
+                    <input id="email" class="content" v-model="email" type="text" placeholder="Example: alpha@gmail.com">
                 </div>
-                <div class="zpf-name">
-                    <label for="name">
-                        FirstName
-                    </label>
-                    <input id="name" v-model="first_name" type="text" placeholder="Example: John">
+                <div class="info">
+                    <label for="position" class="title">交易平台</label>
+                    <input id='position' class="content" type="text" v-model="tradingplatform" placeholder="若无则可不填">
                 </div>
-                <div class="zpf-phone">
-                    <label for="phone">
-                        Phone
-                    </label>
-                    <input id="phone" v-model="phone" type="text" placeholder="Example: 18988889999">
-                </div>
-                <div class="zpf-email">
-                    <label for="email">
-                        E-mail
-                    </label>
-                    <input id="email" v-model="email" type="text" placeholder="Example: alpha@gmail.com">
-                </div>
-                <div class="zpf-address">
-                    <label for="address">
-                        Company
-                    </label>
-                    <input id='address' v-model="addr" type="text" placeholder="Example: Alpha co">
-                </div>
-                <div class="zpf-position">
-                    <label for="position">
-                        交易平台
-                    </label>
-                    <input id='position' type="text" placeholder="若无则可不填">
-                </div>
-                
-                <div class="zpf-cost">
-                    <label for="cost">
-                        Fee
-                    </label>
-                    <span>
-                        ￡{{price}}
-                    </span>
-                </div>
-                <div class="zpf-btns">
-                    <button @click="openPay" class="zpf-submit btn-primary" type="button">
-                        Next
-                    </button>
+                <div class="info">
+                    <label for="cost" class="title">Package Fee</label>
+                    <span class="price">￡{{price}} </span>
                 </div>
             </form>
+            <!-- 默认选择的地址 -->
+            <div class="adr"  >
+                <!-- 地点 -->
+                <div class="row" >
+                    <label class="title">地点:</label>
+                    <input class="content" disabled="disabled" v-model="location">
+                </div>
+                <!-- 开始日期 -->
+                <div class="row">
+                    <label class="title">开始日期:</label>
+                    <input class="content" disabled="disabled" v-model="start">
+                </div>
+                <!-- 周期 -->
+                <div class="row" >
+                    <label class="title">周期:</label>
+                    <input class="content" disabled="disabled" v-model="period">
+                </div>
+            </div> 
+            <!-- next -->
+            <div class="zpf-btns">
+                <button @click="openPay" class="zpf-submit" type="button">Next </button>
+            </div> 
         </div>
         
     </div>
 </template>
 
 <script>
-    import Datepicker from 'vue-datepicker'
     export default {
         data() {
             return {
-                local: 1,
-                price: 0.00,
+                model: '',
                 first_name: '',
                 phone: '',
-                period: '',
                 email: '',
-                addr: '',
-                model: '',
-                price: 0,
-                places: [
-                    { text: 'Lodon', value: 1 },
-                    { text: 'Shanghai', value: 2 },
-                    { text: 'Manchester', value: 3 },
-                    { text: 'Chengdu', value: 4 }
-                ],
-                periods: [
-					{ value: '1', text: 'one month' },
-					{ value: '2', text: 'two month' },
-					{ value: '3', text: 'three month' },
-					{ value: '4', text: 'four month' },
-					{ value: '5', text: 'five month' },
-					{ value: '6', text: 'six month' }
-				],
-                models: [
-					{ value: '1', text: 'prop普通' },
-					{ value: '2', text: 'prop高级' },
-					{ value: '3', text: 'algo普通' },
-					{ value: '4', text: 'algo高级' }
-				],
-                // for Vue 2.0 
-				startTime: {
-					time: ''
-				},
-				endtime: {
-					time: ''
-				},
-				option: {
-					type: 'day',
-					week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-					month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-					format: 'YYYY-MM-DD',
-					placeholder: 'Start Date',
-					inputStyle: {
-                    'width': '100%',
-					'display': 'inline-block',
-					'padding': '0px 10px',
-					'height': '40px',
-					'box-sizing': 'border-box',
-					'line-height': '40px',
-					'font-size': '14px',
-					'border': '2px solid #fff',
-					'margin-right': '20px',
-					'overflow': 'hidden',
-					'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 0.2)'
-					},
-					color: {
-					header: '#666',
-					headerText: '#fff'
-					},
-					buttons: {
-					ok: 'Ok',
-					cancel: 'Cancel'
-					},
-					overlayOpacity: 0.5, // 0.5 as default 
-					dismissible: true // as true as default 
-				},
-				timeoption: {
-					type: 'min',
-					week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-					month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-					format: 'YYYY-MM-DD HH:mm'
-				},
-				multiOption: {
-					type: 'multi-day',
-					week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
-					month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-					format:"YYYY-MM-DD HH:mm"
-				},
-				limit: [{
-					type: 'weekday',
-					available: [1, 2, 3, 4, 5]
-				},
-				{
-					type: 'fromto',
-					from: '2016-02-01',
-					to: '2016-02-20'
-				}]
+                price: 0.01,
+                tradingplatform:'',
+                location:'',
+                location_num:'',
+                start:'',
+                period:'',
+                period_num:'',
+                show_one:true,
+                show_two:false,
+                show_three:false,
+                show_four:false,
+                startTime:'2017-6-30',
+                zonep_type:''
             }
         },
         mounted() {
             const self = this
-            self.local = self.$store.state.zone_forms.location
-            self.$store.state.zone_type == 1 && ( show_model = true )
             let formData = new FormData()
 			formData.append('token',sessionStorage.getItem('token'))
             fetch(self.$store.state.api_addr + 'user/user_info_center',{
@@ -197,38 +114,83 @@
                 body: formData
             }).then((res) => {
                 res.ok && res.json().then((json) => {
-                    self.email = json.data.email
-                    self.phone = json.data.phone
                     self.first_name = json.data.first_name
+                    self.phone = json.data.phone
+                    self.email = json.data.email
                     self.position = json.data.pro
-                    self.addr = json.data.organization
+                    self.tradingplatform = json.data.tradingplatform
                 })
             })
+            self.start='2017-6-30'
+            self.price=0.01
+            self.location_num=1
+            self.period_num=1
+            self.zonep_type='1:1'
+            if(self.$store.state.zoneplus_forms.location==1){
+                self.location='Lodon'
+                self.period='one month'
+            }else if(self.$store.state.zoneplus_forms.location==2){
+                self.location='Shanghai'
+                self.period='two month'
+            }else if(self.$store.state.zoneplus_forms.location==3){
+                self.location='Manchester'
+                self.period='three month'
+            }else{
+                self.location='Chengdu'
+                self.period='four month'
+            }
+            
         },
         methods: {
-            cModel() {
+            cModel(e) {
                 const self = this
-                let model = self.model
-                if(model == 1) {
-                    self.local = 3
-                    self.period = 3
-                    self.price = 0.01
-                    self.$store.dispatch('CHANGEZPPAY',0.01/self.period)
-                }else if(model == 2) {
-                    self.local = 3
-                    self.price = 0.02
-                    self.period = 3
-                    self.$store.dispatch('CHANGEZPPAY',0.02/self.period)
-                }else if(model == 3) {
-                    self.local = 3
-                    self.price = 0.01
-                    self.period = 3
-                    self.$store.dispatch('CHANGEZPPAY',0.01/self.period)
-                }else{
-                    self.local = 3
-                    self.price = 0.02
-                    self.period = 3
-                    self.$store.dispatch('CHANGEZPPAY',0.02/self.period)
+                const target = e.target
+                self.start='2017-6-30'
+                self.location=target.id
+                if(target.id == 'Lodon'){
+                    self.show_one=true
+                    self.show_two=false
+                    self.show_three=false
+                    self.show_four=false
+                    self.period='one month' 
+                    self.price=0.01
+                    self.location_num=1
+                    self.period_num=1
+                    self.zonep_type='1:1'
+                    self.$store.dispatch('CHANGEZONEPPAY',0.01)
+                }else if(target.id == 'Shanghai'){
+                    self.show_one=false
+                    self.show_two=true
+                    self.show_three=false
+                    self.show_four=false
+                    self.period='two month' 
+                    self.price=0.02
+                    self.location_num=2
+                    self.period_num=2
+                    self.zonep_type='1:2'
+                    self.$store.dispatch('CHANGEZONEPPAY',0.02)
+                }else if(target.id == 'Manchester'){
+                    self.show_one=false
+                    self.show_two=false
+                    self.show_three=true
+                    self.show_four=false
+                    self.period='three month' 
+                    self.price=0.01
+                    self.location_num=3
+                    self.period_num=3
+                    self.zonep_type='2:1'
+                    self.$store.dispatch('CHANGEZONEPPAY',0.01)
+                }else {
+                    self.show_one=false
+                    self.show_two=false
+                    self.show_three=false
+                    self.show_four=true
+                    self.period='four month' 
+                    self.price=0.02
+                    self.location_num=4
+                    self.period_num=4
+                    self.zonep_type='2:2'
+                    self.$store.dispatch('CHANGEZONEPPAY',0.02)
                 }
             },
             close() {
@@ -238,9 +200,9 @@
             openPay() {
                 let self = this
                 let formData = new FormData()
-                self.$store.dispatch('CHANGEZPPAY',self.$store.state.pay_info.price*self.period)
+                self.$store.dispatch('CHANGEZONEPPAY',self.$store.state.pay_info.price)
                 self.$store.dispatch('TOGGLEACTPAY','on')
-                self.$store.dispatch('TOGGLEZPFORM','off')
+                self.$store.dispatch('TOGGLEZONEPFORM','off')
                 formData.append('token',sessionStorage.getItem('token'))
                 formData.append('first_name',self.first_name)
 			    formData.append('phone',self.phone)
@@ -253,13 +215,30 @@
                     body: formData
                 }).then((res) => {
                     res.ok && res.json().then((json) => {
-                        json.archive.status === 0 && self.$store.dispatch('TOGGLEACTPAY','on');self.$store.dispatch('TOGGLEZONEPFORM','off')
+                        switch(json.archive.status){
+                            case 0:
+                                let formData = new FormData()
+                                formData.append('location',self.location_num)
+                                console.log(self.location_num)
+                                formData.append('start',self.startTime)
+                                console.log(self.startTime)
+                                formData.append('limit',self.period_num)
+                                console.log(self.period_num)
+                                formData.append('zonep_type',self.zonep_type)
+                                console.log(self.zonep_type)
+                                fetch(self.$store.state.api_addr + 'ZoneAndPlus/made_zone_info',{
+                                    method: 'post',
+                                    mode: 'cors',
+                                    body: formData
+                                }).then((res) => {
+                                    self.$store.dispatch('TOGGLEACTPAY','on')
+                                    self.$store.dispatch('TOGGLEZPFORM','off')
+                                })
+                                break;
+                        }
                     })
                 })
             }
-        },
-        components: {
-            'date-picker': Datepicker
         }
     }
 </script>
@@ -312,9 +291,6 @@
 					margin-left: -1px;
 					background-color: #fff;
 				}
-				&:hover{
-					color: $gray3;
-				}
 			}
             .zpf-header{
                width: 100%;
@@ -324,27 +300,17 @@
                 text-align: center;
                 line-height: 100px;
                 color:$gray1;
-                .zpf-header-icon{
-                    display: block;
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    background-image: url(../assets/images/act_form_icon.png);
-                    background-size: 40px;
-                    background-position: center center;
-                    background-repeat: no-repeat;
-                }
             }
             .zpf-form{
-                padding: 0 70px 30px;
-                .zpf-place,.zpf-date,.zpf-period,.zpf-type,.zpf-name,.zpf-phone,.zpf-email,.zpf-address,.zpf-position,.zpf-combo,.zpf-cost{
-                    padding-bottom: 20px;
+                padding: 0 60px 10px;
+                .info{
+                    padding-bottom: 10px;
                     overflow: hidden;
-                    label{
-                        width: 20%;
+                    font-size: 14px;
+                    .title{
+                        width: 21%;
                         color: $gray1;
-                        font-size: 14px;
-                        font-weight: 600;
+                        font-weight:bold;
                         box-sizing: border-box;
                         padding-right: 10px;
                         line-height: $zpfheight;
@@ -352,47 +318,146 @@
                         float: left;
                         overflow: hidden;
                     }
-                    input,select{
+                    .content{
                         width: 70%;
                         border: 1px solid $gray5;
                         border-radius: 3px;
                         padding-left: 10px;
                         box-sizing: border-box;
-                        height: $zpfheight;
                         line-height: $zpfheight;
+                        color:$gray2;
                         outline: none;
                         float: left;
-                        background-color:#fff; 
                     }
-                    span{
+                    .price{
                         float: left;
                         line-height: $zpfheight;
                         width: 50%;
                         color: $danger;
                         font-weight: 900;
                     }
-                    .zpf-date-input{
-                        width: 70%;
-                        .cov-datepicker{
-                            width: 100% !important;
-                            box-sizing: border-box;
-                            padding-left: 10px;
+                    
+                }
+                .sale-type{
+                    padding-bottom: 20px;
+                    overflow: hidden;
+                    font-size: 14px;
+                    .title{
+                        width: 21%;
+                        color: $gray1;
+                        font-weight:bold;
+                        box-sizing: border-box;
+                        padding-right: 10px;
+                        line-height: 80px;
+                        text-align: right;
+                        float: left;
+                        overflow: hidden;
+                    }
+                    .choose{
+                        float: left;
+                        width: 160px;
+                        margin-right: 10px;
+                        height: 40px;
+                        margin-top: 5px;
+                        z-index:1000;
+                        .btn-default-out{
+                            width: 160px;
+                            height: 40px;
+                            float: left;
+                            z-index:1;
+                            border-radius: 7px;
+                            position: relative;
+                            border:1px solid $gray5;
                         }
+                        .text{
+                            width: 100%;
+                            position: absolute;
+                            line-height: 38px;
+                            padding-left: 23px;
+                            z-index: 800;
+                            cursor: pointer;
+                            float: left;
+                        }
+                        .icon{
+                            width: 21px;
+                            height: 18px;
+                            float: left;
+                            margin-left: 138px;
+                            margin-top: 1px;
+                            position: absolute;
+                            background:url(../assets/images/alert_zoneplus_selected.png) no-repeat;
+                            background-size: 100% 100%;
+                            transition: all .2s;
+                            z-index:500; 
+                            display: none;
+                        }
+                        &.active{
+                            .icon{
+                                display: block;
+                            }
+                            .btn-default-out{
+                                background-color: $success;
+                            }
+                            .text{
+                                color:#fff;
+                            }
+                        } 
                     }
                 }
                 .zpf-cost{
                     padding: 0;
                 }
-                .zpf-btns{
-                    width: 100%;
-                    padding-top: 30px;
-                    .zpf-submit{
-                        margin: 0 auto;
-                        display: block;
-                        position: relative;
+            }
+            .adr{
+                width: 100%;
+                overflow: hidden;
+                background:#fcfbf9;
+                .row{
+                     width: 100%;
+                     height: 40px;
+                     color:$primary;
+                     .title{
+                        width: 27%;
+                        font-weight:bold;
+                        box-sizing: border-box;
+                        padding-right: 10px;
+                        line-height: 40px;
+                        text-align: right;
+                        float: left;
+                        overflow: hidden;
+                    }
+                    .content{
+                        width: 70%;
+                        padding-left: 10px;
+                        box-sizing: border-box;
+                        line-height: $zpfheight;
+                        outline: none;
+                        float: left;
+                        border:none;
+                        cursor: default;
+                        background:#fcfbf9;
+                        color:$primary;
                     }
                 }
-                
+            }
+            .zpf-btns{
+                width: 100%;
+                padding: 20px 0 40px;
+                .zpf-submit{
+                    outline: none;
+                    border: none;
+                    margin: 0 auto;
+                    display: block;
+                    background: $primary;
+                    color: #fff;
+                    width: 100px;
+                    height: 36px;
+                    line-height: 36px;
+                    text-align: center;
+                    font-size: 14px;
+                    cursor: pointer;
+                    border-radius: 4px;
+                }
             }
         }
     }

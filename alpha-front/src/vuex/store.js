@@ -13,6 +13,7 @@ const state = {
 	show_actdetail: false,
 	show_actform: false,
 	show_actpay: false,
+	show_alert:false,
 	// show_alipay: false,
 	show_zpform: false,
 	show_zonepform: false,
@@ -20,8 +21,13 @@ const state = {
 		location: '',
 		price: ''
 	},
+	zoneplus_forms: {
+		location: '',
+		price: ''
+	},
 	pay_table: 'tr_fl_order',
 	zone_type: '',
+	zoneplus_type: '',
 	pay_info: {
 		price: 0.01,
 		name: '',
@@ -34,6 +40,7 @@ const state = {
 	},
 	act_id: 0,
 	zp_id: 0,
+	zonep_id:0,
 	user_email: sessionStorage.getItem('user_email') ? sessionStorage.getItem('user_email') : '',
 	pay_types: [
 		{
@@ -64,8 +71,14 @@ const mutations = {
 	CHANGEZONEINFO (state,value) {
 		state.zone_forms.location = value
 	},
+	CHANGEZONEPLUSINFO (state,value) {
+		state.zoneplus_forms.location = value
+	},
 	CHANGEZONETYPE (state,value) {
 		state.zone_type = value
+	},
+	CHANGEZONEPLUSTYPE (state,value) {
+		state.zoneplus_type = value
 	},
 	CHANGEPAYINFO (state,value) {
 		state.pay_info = {
@@ -122,6 +135,15 @@ const mutations = {
 			state.show_register = false
 		}
 	},
+	TOGGLEALERT (state,value) {
+		if(value === 'on'){
+			state.show_alert = true
+		}else if(value === 'off'){
+			state.show_alert = false
+		}else{
+			state.show_alert = !state.show_alert
+		}
+	},
 	TOGGLEREGISTER (state,value) {
 		if(value === 'on'){
 			state.show_register = true
@@ -139,7 +161,13 @@ const mutations = {
 	CHANGEZPID (state,id) {
 		state.zp_id = id
 	},
+	CHANGEZONEPID (state,id) {
+		state.zonep_id = id
+	},
 	CHANGEZPPAY (state,price) {
+		state.pay_info.price = price
+	},
+	CHANGEZONEPPAY (state,price) {
 		state.pay_info.price = price
 	},
 	TOGGLEACTDETAIL (state,value) {
@@ -242,9 +270,21 @@ const actions = {
 			resolve()
 		})
 	},
+	CHANGEZONEPLUSINFO ({commit},value) {
+		return new Promise((resolve,reject) => {
+			commit('CHANGEZONEPLUSINFO', value)
+			resolve()
+		})
+	},
 	CHANGEZONETYPE ({commit},value) {
 		return new Promise((resolve,reject) => {
 			commit('CHANGEZONETYPE', value)
+			resolve()
+		})
+	},
+	CHANGEZONETYPE ({commit},value) {
+		return new Promise((resolve,reject) => {
+			commit('CHANGEZONEPLUSTYPE', value)
 			resolve()
 		})
 	},
@@ -257,6 +297,12 @@ const actions = {
 	CHANGEZPPAY ({commit},price) {
 		return new Promise((resolve,reject) => {
 			commit("CHANGEZPPAY", price)
+			resolve()
+		})
+	},
+	CHANGEZONEPPAY ({commit},price) {
+		return new Promise((resolve,reject) => {
+			commit("CHANGEZONEPPAY", price)
 			resolve()
 		})
 	},
@@ -295,6 +341,12 @@ const actions = {
 			resolve()	
 		})
 	},
+	TOGGLEALERT ({commit},value) {
+		return new Promise((resolve,reject) => {
+			commit("TOGGLEALERT", value)
+			resolve()	
+		})
+	},
 	TOGGLEREGISTER ({commit},value) {
 		return new Promise((resolve,reject) => {
 			commit("TOGGLEREGISTER", value)
@@ -309,6 +361,11 @@ const actions = {
 	CHANGEZPID ({commit},id) {
 		return new Promise((resolve,reject) => {
 			commit("CHANGEZPID", id)
+		})
+	},
+	CHANGEZONEPID ({commit},id) {
+		return new Promise((resolve,reject) => {
+			commit("CHANGEZONEPID", id)
 		})
 	},
 	TOGGLEACTDETAIL ({commit},value) {

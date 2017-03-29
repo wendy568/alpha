@@ -74,40 +74,43 @@
 				}
 			},
 			login() {
-				const self = this
-				let formData = new FormData()
-				formData.append('email',self.email)
-				formData.append('password',self.pwd)
-				fetch(self.$store.state.api_addr + 'user/login',{
-					method: 'post',
-					mode: 'cors',
-					body: formData
-				}).then((res) => {
-					if(res.ok) {
-						res.json().then((json) => {
-							if(json.archive.status === 0) {
-								sessionStorage.setItem('token',json.data.token)
-								// localStorage.setItem('token',json.data.token)
-								let user = {
-									email: self.email
+				if(!self.username || !self.pwd){
+                    alert('账号密码不能为空！')
+                }else{
+                	const self = this
+					let formData = new FormData()
+					formData.append('email',self.email)
+					formData.append('password',self.pwd)
+					fetch(self.$store.state.api_addr + 'user/login',{
+						method: 'post',
+						mode: 'cors',
+						body: formData
+					}).then((res) => {
+						if(res.ok) {
+							res.json().then((json) => {
+								if(json.archive.status === 0) {
+									sessionStorage.setItem('token',json.data.token)
+									let user = {
+										email: self.email
+									}
+									self.$store.dispatch('TOGGLEONLINE','on')
+									self.$store.dispatch('STORAGEUSERINFO',user)
+									self.close()
+								}else{
+									self.error = 'Account or password is wrong!'
+									self.pwd = ''
 								}
-								self.$store.dispatch('TOGGLEONLINE','on')
-								self.$store.dispatch('STORAGEUSERINFO',user)
-								self.close()
-							}else{
-								self.error = 'Account or password is wrong!'
-								self.pwd = ''
-							}
-						})
-					}	
-				})
-				if(self.isRemmenber === true) {
-					localStorage.setItem('email',escape(self.email))
-					localStorage.setItem('token',escape(json.data.token))
-				}else{
-					localStorage.removeItem('email')
-					localStorage.removeItem('token')
-				}
+							})
+						}	
+					})
+					if(self.isRemmenber === true) {
+						localStorage.setItem('email',escape(self.email))
+						localStorage.setItem('token',escape(json.data.token))
+					}else{
+						localStorage.removeItem('email')
+						localStorage.removeItem('token')
+					}
+                }
 			}
 		}
 	}

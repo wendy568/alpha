@@ -52,9 +52,6 @@
         methods: {
             pay(id,price,location) {
 				const self = this
-                // self.form.order = 0
-                // self.form.location = location
-                // self.form.price = price
                 self.$store.dispatch('CHANGEZONEINFO',location)
 				if(sessionStorage.getItem('token')){
 					self.$store.dispatch('CHANGEPAYINFO',price)
