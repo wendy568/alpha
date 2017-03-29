@@ -230,7 +230,22 @@
                     body: formData
                 }).then((res) => {
                     res.ok && res.json().then((json) => {
-                        json.archive.status === 0 && self.$store.dispatch('TOGGLEACTPAY','on');self.$store.dispatch('TOGGLEZPFORM','off')
+                        switch(json.archive.status){
+                            case 0:
+                                let formData = new FormData()
+                                formData.append('location',self.location)
+                                formData.append('start',self.startTime)
+                                formData.append('limit',self.period)
+                                fetch(self.$store.state.api_addr + 'ZoneAndPlus/made_zone_info',{
+                                    method: 'post',
+                                    mode: 'cors',
+                                    body: formData
+                                }).then((res) => {
+                                    self.$store.dispatch('TOGGLEACTPAY','on')
+                                    self.$store.dispatch('TOGGLEZPFORM','off')
+                                })
+                                break;
+                        }
                     })
                 })
             }

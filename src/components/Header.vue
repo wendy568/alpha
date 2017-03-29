@@ -10,7 +10,7 @@
 
 			<ul class="header-navs">
 				<li >
-					<router-link class="header-nav "  :class='{active:isActvie}'
+					<router-link class="header-nav "  :class='{active:isActive}'
 					v-for="item in navs" :to="item.link" >
 						<span class="header-nav-icon "></span>
 						<span class="header-nav-text ">
@@ -82,7 +82,7 @@
 					{text:'English'},
 					{text:'中文'}
 				],
-				isActvie:false
+				isActive:false
 			}
 		},
 		components: {

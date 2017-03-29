@@ -16,11 +16,11 @@
                 </div>
                 <!-- apply -->
                 <ul class="zp-model">
-                    <li class="zp-model-item" v-for="item in models">
+                    <li class="zp-model-item" v-for="item in zonePlus_list">
                         <!-- 标题 -->
-                        <h3 class="zp-model-item-title"> {{item.title}}</h3>
+                        <h3 class="zp-model-item-title"> {{item.name}}-trading Model</h3>
                         <!--介绍 -->
-                        <p class="zp-model-item-intro">{{item.intro}}</p>
+                        <p class="zp-model-item-intro">引领自营交易从开始到顶峰的培养模式</p>
                         <!-- icon -->
                         <p class="zp-model-item-icon">
                             <span class="zp-model-item-icon-img"></span>
@@ -32,19 +32,19 @@
                         </p>
                         <!-- 特色 -->
                         <div class="zp-model-item-content">
-                            <p>{{item.content1}}</p>
-                            <p>{{item.content2}}</p>
-                            <p>{{item.content3}}</p>
-                            <p>{{item.content4}}<span>[仅限高级]</span></p>
-                            <p>{{item.content5}}<span>[仅限高级]</span></p>
+                            <p>Alpha Zone线下18课时专业培训计划</p>
+                            <p>Alpah TV线上课程专业视频指导</p>
+                            <p>Alpah Zone相应服务及活动</p>
+                            <p>有机会成为自营交易员<span>[仅限高级]</span></p>
+                            <p>有机会获得顶尖金融机构推荐名额<span>[仅限高级]</span></p>
                         </div>
                         <!-- apply按钮 -->
                         <p class="zp-model-item-option">
-                            <button class="zp-model-item-apply" @click="pay"> Apply </button>
+                            <button class="zp-model-item-apply" @click="pay(item.id,item.location)"> Apply </button>
                         </p>
                         <!-- 按钮下的一段话 -->
                         <p class="zp-model-item-des">
-                            {{item.des}}
+                            自营模式是一种现代电子交易形式，公司或金融机构使用自己的资本和资产负债表在自己的账户上进行交易。公司和金融机构提供一个专业系统额资金账户，帮助交易员成长。交易员自己不需要寻找介乎或资金，有公司自己承担所有的交易收益或亏损
                         </p>
                     </li>
                 </ul>
@@ -65,23 +65,36 @@
     export default {
         data() {
             return {
-                models: [
-                    { mode: 'prop',title: 'Prop-trading Model',intro: '引领自营交易从开始到顶峰的培养模式',price: 999.00,content1: 'Alpha Zone线下18课时专业培训计划',content2: 'Alpah TV线上课程专业视频指导',content3: 'Alpah Zone相应服务及活动',content4: '有机会成为自营交易员',content5: '有机会获得顶尖金融机构推荐名额',des: '自营模式是一种现代电子交易形式，公司或金融机构使用自己的资本和资产负债表在自己的账户上进行交易。公司和金融机构提供一个专业系统额资金账户，帮助交易员成长。交易员自己不需要寻找介乎或资金，有公司自己承担所有的交易收益或亏损' },
-                    { mode: 'algo',title: 'Algo-trading Model',intro: '引领自营交易从开始到顶峰的培养模式',price: 999.00,content1: 'Alpha Zone线下18课时专业培训计划',content2: 'Alpah TV线上课程专业视频指导',content3: 'Alpah Zone相应服务及活动',content4: '有机会成为自营交易员',content5: '有机会获得顶尖金融机构推荐名额',des: '自营模式是一种现代电子交易形式，公司或金融机构使用自己的资本和资产负债表在自己的账户上进行交易。公司和金融机构提供一个专业系统额资金账户，帮助交易员成长。交易员自己不需要寻找介乎或资金，有公司自己承担所有的交易收益或亏损' }
+                zonePlus_list: [
+                    // { id:1,name: 'prop',title: 'Prop-trading Model',intro: '引领自营交易从开始到顶峰的培养模式',price:0.01,content1: 'Alpha Zone线下18课时专业培训计划',content2: 'Alpah TV线上课程专业视频指导',content3: 'Alpah Zone相应服务及活动',content4: '有机会成为自营交易员',content5: '有机会获得顶尖金融机构推荐名额',des: '自营模式是一种现代电子交易形式，公司或金融机构使用自己的资本和资产负债表在自己的账户上进行交易。公司和金融机构提供一个专业系统额资金账户，帮助交易员成长。交易员自己不需要寻找介乎或资金，有公司自己承担所有的交易收益或亏损',location:1 },
+                    // { id:2,name: 'algo',title: 'Algo-trading Model',intro: '引领自营交易从开始到顶峰的培养模式',price: 0.02,content1: 'Alpha Zone线下18课时专业培训计划',content2: 'Alpah TV线上课程专业视频指导',content3: 'Alpah Zone相应服务及活动',content4: '有机会成为自营交易员',content5: '有机会获得顶尖金融机构推荐名额',des: '自营模式是一种现代电子交易形式，公司或金融机构使用自己的资本和资产负债表在自己的账户上进行交易。公司和金融机构提供一个专业系统额资金账户，帮助交易员成长。交易员自己不需要寻找介乎或资金，有公司自己承担所有的交易收益或亏损',location:2}
                 ]
             }
         },
+        mounted(){
+            const self = this
+            let formData = new FormData()
+            fetch(self.$store.state.api_addr + 'ZoneAndPlus/zonePlus_list',{
+                method: 'post',
+                mode: 'cors',
+                body: formData
+            }).then((res) => {
+                res.ok && res.json().then((json) => {
+                    if(json.archive.status === 0 ) {
+                        self.zonePlus_list= json.data
+                    }
+                })
+            })
+        },
         methods: {
-            pay() {
+            pay(id,location) {
                 const self = this
-                // self.form.order = 0
-                // self.form.location = location
-                // self.form.price = price
-                self.$store.dispatch('CHANGEZONETYPE',2)
+                self.$store.dispatch('CHANGEZONEPLUSINFO',location)
                 if(!sessionStorage.getItem('token')){
                     self.$store.dispatch('TOGGLELOGIN','on')
                 }else{
                     self.$store.dispatch('TOGGLEZONEPFORM','on')
+                    self.$store.dispatch('CHANGEZONEPID',id)
                 }
             }
         },
