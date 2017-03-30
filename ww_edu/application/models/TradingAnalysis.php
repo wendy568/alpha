@@ -35,7 +35,7 @@ class TradingAnalysis extends CI_Model
             $end_time = ($end_time) ? $end_time : $now;
             $where .= " AND (time_en>{$start_time} AND time_en<{$end_time})";
         }
-        $map = "SELECT * 
+        $map = "SELECT time_en AS `Time`, country AS `Currency`, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance
                 FROM calendar
                 WHERE {$where}";
 
