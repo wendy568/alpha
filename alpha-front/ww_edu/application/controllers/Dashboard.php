@@ -103,7 +103,7 @@ class Dashboard extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function calender()
+	public function calendar()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
@@ -116,7 +116,7 @@ class Dashboard extends MY_Controller
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
 		$this->load->model('TradingAnalysis');
 
-		$mt4 = $this->TradingAnalysis->calender($start_time, $end_time);
+		$mt4 = $this->TradingAnalysis->calendar($start_time, $end_time);
 		$this->load->library('trading_datas_calculate');
 		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('percent_ratio', ['order_type'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
