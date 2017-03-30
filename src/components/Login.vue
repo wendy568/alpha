@@ -74,10 +74,8 @@
 				}
 			},
 			login() {
-				if(!self.username || !self.pwd){
-                    alert('账号密码不能为空！')
-                }else{
-                	const self = this
+				const self = this
+				if(self.email || self.pwd){
 					let formData = new FormData()
 					formData.append('email',self.email)
 					formData.append('password',self.pwd)
@@ -110,7 +108,9 @@
 						localStorage.removeItem('email')
 						localStorage.removeItem('token')
 					}
-                }
+				}else{
+					self.error = 'Password cannot be empty！'
+				}
 			}
 		}
 	}
