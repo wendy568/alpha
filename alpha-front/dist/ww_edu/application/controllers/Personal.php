@@ -429,7 +429,7 @@ class Personal extends MY_Controller
 	public function test()
 	{
 		$row = 1;
-		if (($handle = fopen(getcwd()."/2102085730.csv", "r")) !== FALSE) {
+		if (($handle = fopen(getcwd()."/2102077628.csv", "r")) !== FALSE) {
 		    while (($data = fgetcsv($handle, 1000, "|")) !== FALSE) {
 		        $num = count($data);
 		        print_r($data);
