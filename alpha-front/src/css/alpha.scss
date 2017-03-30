@@ -64,6 +64,7 @@ $font: #88909f;
 	color: #464b4f;
 	width: 100px;
 	height: 32px;
+	padding: 7px 20px;
 	box-sizing: border-box;
 }
 
@@ -137,7 +138,7 @@ $font: #88909f;
 }
 
 .btn-default-out {
-	width: 100px;
+	width: 90px;
     height: 32px;
     font-size: 12px;    
     border-radius: 3px;
@@ -147,10 +148,6 @@ $font: #88909f;
     background: transparent;
     border: 1px solid $gray3;
     transition: all .2s;
-    &:hover{
-        color: #fff;
-        background: $success;    
-    }
 }
 
 .btn-success-out {

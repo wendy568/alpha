@@ -22,10 +22,6 @@
 										<i></i>
 										{{item.create_time}}
 									</span>
-									<!-- <span class="video-item-like" >
-										<i @click="item.like++"></i>
-										{{item.like}}
-									</span> -->
 									<span class="video-item-comment">
 										<i></i>
 										{{item.comment_count}}

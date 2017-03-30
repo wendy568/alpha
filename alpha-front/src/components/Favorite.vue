@@ -4,16 +4,11 @@
             <span class="fav-title">
 				所有视频
 			</span>
-			<input class="fav-search" type="text" placeholder="输入视频名称">
-            <button class="fav-delete">
-                <i class="fav-delete-icon"></i>
-                <span>删除</span>
-            </button>
         </div>
         <div class="fav-list">
             <ul class="fav-list-box">
 				<li class="fav-item" v-for="item in video_list">
-					<img class="fav-item-img" src="" alt="">
+					<img class="fav-item-img" :src="item.image" alt="">
 					<div class="fav-item-mask">
 						<span class="fav-item-play" @click="viewVideo(item.class_id)">
 							
@@ -27,29 +22,27 @@
 							<p class="fav-item-tifave">
 								{{item.name}}
 							</p>
-							<p class="fav-item-data">
-								<span class="fav-item-author">
-									{{item.author}}
-								</span>
-								<span class="fav-item-comment">
-									{{item.comment_count}}
-								</span>
-								<span class="fav-item-like">
-									{{item.like}}
-								</span>
-							</p>
 						</div>
 						<div class="fav-item-bottom">
 							<span class="fav-item-create">
 								{{item.create_time}}
 							</span>
-							<span @click="toggleSelectItem($key,$event)" class="fav-item-mark">
-
-							</span>
+							<span @click="delete_fa" class="fav-item-mark"></span>
 						</div>
 					</div>
 				</li>
 			</ul>
+        </div>
+		<!-- alert -->
+        <div class="alert" v-if="confirm">
+        	<div class="alert-box">
+        		<img src="../assets/images/alert_delete_icon.png" alt="" class="title-img">
+        		<p class="message">确认取消收藏吗？</p>
+        		<p class="btn">
+        			<button class="btn-default-out" @click="confirm_del">确认</button>
+        			<button class="btn-default-out"  @click="confirm=false">关闭</button>
+        		</p>
+        	</div>
         </div>
     </div>
 </template>
@@ -58,17 +51,9 @@
     export default {
         data() {
             return {
-                video_list: [
-                    // { name: 'NEW YEAR UI BUNDLE',length: '35:30',author: 'john smith',comment_count: 56,like: 456,create_time: '2 mins ago' },
-					// { name: 'NEW YEAR UI BUNDLE',length: '35:30',author: 'john smith',comment_count: 56,like: 456,create_time: '2 mins ago' },
-					// { name: 'NEW YEAR UI BUNDLE',length: '35:30',author: 'john smith',comment_count: 56,like: 456,create_time: '2 mins ago' },
-					// { name: 'NEW YEAR UI BUNDLE',length: '35:30',author: 'john smith',comment_count: 56,like: 456,create_time: '2 mins ago' },
-					// { name: 'NEW YEAR UI BUNDLE',length: '35:30',author: 'john smith',comment_count: 56,like: 456,create_time: '2 mins ago' },
-					// { name: 'NEW YEAR UI BUNDLE',length: '35:30',author: 'john smith',comment_count: 56,like: 456,create_time: '2 mins ago' },
-					// { name: 'NEW YEAR UI BUNDLE',length: '35:30',author: 'john smith',comment_count: 56,like: 456,create_time: '2 mins ago' },
-					// { name: 'NEW YEAR UI BUNDLE',length: '35:30',author: 'john smith',comment_count: 56,like: 456,create_time: '2 mins ago' }
-                ],
-				delete_ids: []
+                video_list: [],
+				delete_ids: [],
+				confirm:false
             }
         },
 		mounted() {
@@ -78,7 +63,64 @@
 			 	headers: {
 			 		'Content-Type': 'application/x-www-form-urlencoded'
 			 	},
-			 	body: 'limit=' + 8 + '&start=' + 0 + '&token=' + sessionStorage.getItem('token')
+			 	body: 'date_limit' + 1 + '&token=' + sessionStorage.getItem('token')
+			}).then((res) => {
+				res.ok && res.json().then((json) => {
+						self.video_list = json.data
+						for(let i = 0;i < self.video_list.length;i ++){
+							if(self.video_list[i].image !== null || self.video_list[i].image !== "" || self.video_list[i].image !== undefined){
+								self.video_list[i].image = self.$store.state.api_addr + 'upload/' + self.video_list[i].image[0] + 'm_' + self.video_list[i].image[1]	
+							}else{
+								self.video_list[i].image = 'http://content.jwplatform.com/thumbs/' + self.video_list[i].source + '-320.jpg'	
+							}
+						}				
+					})
+				}
+			)
+			fetch(self.$store.state.api_addr + 'video/follow_videos_list',{
+			 	method: 'post',
+			 	headers: {
+			 		'Content-Type': 'application/x-www-form-urlencoded'
+			 	},
+			 	body: 'date_limit' + 2 + '&token=' + sessionStorage.getItem('token')
+			}).then((res) => {
+				res.ok && res.json().then((json) => {
+						self.video_list = json.data
+						for(let i = 0;i < self.video_list.length;i ++){
+							if(self.video_list[i].image !== null || self.video_list[i].image !== "" || self.video_list[i].image !== undefined){
+								self.video_list[i].image = self.$store.state.api_addr + 'upload/' + self.video_list[i].image[0] + 'm_' + self.video_list[i].image[1]	
+							}else{
+								self.video_list[i].image = 'http://content.jwplatform.com/thumbs/' + self.video_list[i].source + '-320.jpg'	
+							}
+						}				
+					})
+				}
+			)
+			fetch(self.$store.state.api_addr + 'video/follow_videos_list',{
+			 	method: 'post',
+			 	headers: {
+			 		'Content-Type': 'application/x-www-form-urlencoded'
+			 	},
+			 	body: 'date_limit' + 3 + '&token=' + sessionStorage.getItem('token')
+			}).then((res) => {
+				res.ok && res.json().then((json) => {
+						self.video_list = json.data
+						for(let i = 0;i < self.video_list.length;i ++){
+							if(self.video_list[i].image !== null || self.video_list[i].image !== "" || self.video_list[i].image !== undefined){
+								self.video_list[i].image = self.$store.state.api_addr + 'upload/' + self.video_list[i].image[0] + 'm_' + self.video_list[i].image[1]	
+							}else{
+								self.video_list[i].image = 'http://content.jwplatform.com/thumbs/' + self.video_list[i].source + '-320.jpg'	
+							}
+						}				
+					})
+				}
+			)
+			fetch(self.$store.state.api_addr + 'video/follow_videos_list',{
+			 	method: 'post',
+			 	headers: {
+			 		'Content-Type': 'application/x-www-form-urlencoded'
+			 	},
+			 	body: 'date_limit' + 4 + '&token=' + sessionStorage.getItem('token')
 			}).then((res) => {
 				res.ok && res.json().then((json) => {
 						self.video_list = json.data
@@ -110,9 +152,13 @@
 				}
 				self.$router.push({path: '/tv_detail',query: { id: id }})
 			},
-			toggleSelectItem(key,e) {
+			delete_fa() {
 				const self = this
-				e.target.style.backgroundImage = 'url(../assets/images/checkbox.png)'
+				self.confirm=!self.confirm
+
+			},
+			confirm_del(){
+				
 			}
 		}
     }
@@ -122,6 +168,7 @@
     @import '../css/alpha.scss';
     .fav-box{
         width: $boxwidth;
+        position: relative;
         .fav-header{
             width: 100%;
 			overflow: hidden;
@@ -260,7 +307,12 @@
 								color: $gray1;
 								font-size: 14px;
 								overflow: hidden;
-								max-height: 16px;
+								height: 52px;
+								cursor: pointer;
+								&:hover{
+									color:$primary;
+									transition: all .2s; 
+								}
 							}
 							.fav-item-data{
 								color: $gray3;
@@ -295,14 +347,55 @@
 								height: 16px;
 								position: relative;
 								top: 7px;
-								background-image: url(../assets/images/check.png);
+								background: url(../assets/images/checkbox.png) no-repeat;
 								background-size: 100%;
-								background-repeat: no-repeat;
+								border:1px solid $primary;
 							}
 						}
 					}
 				}
 			}
+        }
+        .alert{
+        	position: fixed;
+            left: 0;
+            top: 0;
+        	width: 100%;
+        	height: 100%;
+        	background: rgba(0,0,0,.7);
+        	.alert-box{
+        		position: absolute;
+        		width: 400px;
+        		height: 230px;
+        		background-color: #fff;
+        		left: 50%;
+        		top:30%;
+        		margin-left: -200px;
+        		.title-img{
+        			width: 50px;
+        			height: 50px;
+        			margin: 30px auto;
+        			display: block;
+        		}
+        		.message{
+    				text-align: center;
+    				color: $gray1;
+    				font-size: 16px;
+    			}
+    			.btn{
+    				padding-left: 100px;
+    				font-size: 14px;
+    				color: $gray3;
+    				margin:10px 0;
+    				.btn-default-out{
+    					&:hover{
+    						color:#fff;
+    						background-color:$primary; 
+    						border:1px solid $primary;
+    					}
+    				}
+    			}
+        	}
         }
     }
 </style>

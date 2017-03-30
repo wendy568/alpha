@@ -5,13 +5,13 @@
                 <label for="nic">
                     Firstname
                 </label>
-                <input @change="checkNic" name="nic" class="input-small" type="text" placeholder="如：用户001" v-model="nic" required/>
+                <input @change="checkNic" name="nic" class="input-small" type="text" placeholder="如：用户001" v-model="first_name" required/>
             </div>
             <div class="pro-name">
                 <label for="name">
                     LastName
                 </label>
-                <input @change="checkFullName" name="name" class="input-small" type="text" placeholder="如：用户001" v-model="full_name" required/>
+                <input @change="checkFullName" name="name" class="input-small" type="text" placeholder="如：用户001" v-model="last_name" required/>
             </div>
             <div class="pro-phone">
                 <label for="phone">
@@ -23,7 +23,7 @@
                 <label for="email">
                     E-mail
                 </label>
-                <input @change="checkEmail" name="email" class="input-large" type="email" placeholder="flyme@163.com" v-model="email" required/>
+                <input @change="checkEmail" name="email" class="input-large" type="email" placeholder="flyme@163.com" v-model="email" disabled />
             </div>
             <div class="pro-pwd">
                 <label for="pwd">
@@ -57,8 +57,8 @@
     export default {
         data() {
             return {
-                nic: '',
-                full_name: '',
+                first_name: '',
+                last_name: '',
                 phone: '',
                 email: '',
                 pwd: '',
@@ -67,14 +67,27 @@
         },
         mounted() {
             const self = this
-            self.nic = self.$store.state.first_name
-            self.email = self.$store.state.email
+            let formData = new FormData()
+            formData.append('token',sessionStorage.getItem('token'))
+            fetch(self.$store.state.api_addr + 'user/user_info_center',{
+                method: 'post',
+                mode: 'cors',
+                body: formData
+            }).then((res) => {
+                res.ok && res.json().then((json) => {
+                    self.first_name = json.data.first_name
+                    self.phone = json.data.phone
+                    self.email = json.data.email
+                    self.position = json.data.pro
+                    self.tradingplatform = json.data.tradingplatform
+                })
+            })
         },
         methods: {
             reset() {
                 const self = this
-                self.nic = ''
-                self.name = ''
+                self.first_name = ''
+                self.last_name = ''
                 self.phone = ''
                 self.email = ''
                 self.pwd = ''
@@ -101,16 +114,16 @@
 				const self = this
 				const reg = /((?=[\x21-\x7e]+)[^A-Za-z0-9])/
 				let len = 0
-				for(let i = 0; i < self.nic.length; i ++) {
-					if(self.nic.charCodeAt(i) > 127 || self.nic.charCodeAt(i) === 94) {
+				for(let i = 0; i < self.first_name.length; i ++) {
+					if(self.first_name.charCodeAt(i) > 127 || self.first_name.charCodeAt(i) === 94) {
 						len += 2
 					}else{
 						len ++
 					}
 				}
-				if(self.nic == '') {
+				if(self.first_name == '') {
 					self.error = 'Nickname cannot be empty'
-				}else if(reg.test(self.nic)){
+				}else if(reg.test(self.first_name)){
 					self.error = 'Nickname cannot contain special symbols'
 				}else if(len > 20){
 					self.error = 'Nickname length can not be greater than 20 characters'

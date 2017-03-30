@@ -16,10 +16,6 @@
 						<i class="tvi-header-comment-icon"></i> 
 						<span>{{detail.message_count}}</span>
 					</span>
-					<span class="tvi-header-like" @click="like">
-						<i class="tvi-header-like-icon" :class="{ 'liked': is_like }"></i> 
-						<span>{{detail.like}}</span>
-					</span>
 					<span class="tvi-header-star" @click="follow" :class="{ 'subscribed': is_follow }">
 						<i class="tvi-header-star-icon" :class="{ 'subed': is_sub }"></i>
 						<span>{{detail.follow_count}}</span>
@@ -63,33 +59,6 @@
 				document.body.scrollTop = 650
 				document.getElementsByClassName('tp-edit')[0].focus()
 			},
-			like () {
-				const self = this
-				if(!sessionStorage.getItem('token')){
-					self.$store.dispatch('TOGGLETIP',self.$store.state.tip.login)
-					return
-				}
-				
-				let formData = new FormData()
-				formData.append('class_id',self.$route.query.id)
-				formData.append('token',sessionStorage.getItem('token'))
-				fetch(self.$store.state.api_addr + 'video/like',{
-					mode: 'cors',
-					method: 'post',
-					body: formData
-				}).then((res) => {
-					res.ok && res.json().then((json) => {
-						switch(json.archive.status){
-							case 0:
-								self.is_like = !self.is_like
-								self.is_like === false ? self.$set( self.detail,'like',self.detail.like - 0 - 1 ) : self.$set( self.detail,'like',self.detail.like - 0 + 1 )
-								break;
-							case 400:
-								break;
-						}
-					})
-				})
-			},
 			follow () {
 				const self = this
 				if(!sessionStorage.getItem('token')){
@@ -131,42 +100,6 @@
 					self.detail.source = '//content.jwplatform.com/players/' + json.data.source + '-T351KaXB.html'
 				})
 			})
-//优先加载视频信息
-			// self.$http.post(self.$store.state.api_addr + 'index.php/video/videos_detail',{ class_id: self.$route.query.id },{
-			// 	emulateJSON: true
-			// }).then((res) => {
-			// 	self.title = res.data.data.name
-			// 	self.nic_name = res.data.data.nic_name
-			// 	self.create_time = res.data.data.create_time
-			// 	self.views = res.data.data.views
-			// 	self.like_count = res.data.data.like
-			// 	self.follow_count = res.data.data.follow_count
-			// 	self.play_id = res.data.data.id
-			// 	self.message_count = res.data.data.message_count
-			// 	self.from_id = res.data.data.from_id
-			// 	self.describe = res.data.data.describe || "No introduction"
-			// 	self.source = '//content.jwplatform.com/players/' + res.data.data.source + '-T351KaXB.html'
-				
-			// 	if (self.$store.state.is_online) {
-			// 		self.$http.post(self.$store.state.api_addr + 'index.php/video/is_like_follow',{ class_id: self.$route.query.id,token: sessionStorage.getItem('token') },{
-			// 			emulateJSON: true
-			// 		}).then((res) => {
-			// 			if(res.data.archive.status == 400){
-			// 				return
-			// 			}
-			// 			res.data.data.like.is_like == "1" ? self.is_like = true : self.is_like = false
-		 	// 		})
-
-		 	// 		self.$http.post(self.$store.state.api_addr + 'index.php/personal/is_follow',{ mem_id: self.from_id,token: sessionStorage.getItem('token') },{
-			// 			emulateJSON: true
-			// 		}).then((res) => {
-			// 			if(res.data.archive.status == 400){
-			// 				return
-			// 			}
-			// 			res.data.data.is_follow == "yes" ? self.is_follow = true : self.is_follow = false
-			// 		})
-			// 	}
-			// })
 		}
 	}
 </script>
