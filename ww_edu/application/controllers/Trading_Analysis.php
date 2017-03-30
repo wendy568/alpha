@@ -114,7 +114,7 @@ class Trading_Analysis extends MY_Controller
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
 		$account = $this->get_trading_account($token);
-
+		echo $account;
 		$this->load->database();
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
