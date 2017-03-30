@@ -26,7 +26,7 @@ class TradingAnalysis extends CI_Model
     	return $result;
     }
 
-    function calender($start_time = null, $end_time = null)
+    function calendar($start_time = null, $end_time = null)
     {
         $where = "1=1";
         $now = time();
@@ -36,7 +36,7 @@ class TradingAnalysis extends CI_Model
             $where .= " AND (time_en>{$start_time} AND time_en<{$end_time})";
         }
         $map = "SELECT * 
-                FROM calender
+                FROM calendar
                 WHERE {$where}";
 
         $result = $this->db->query($map)->result_array();
