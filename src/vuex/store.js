@@ -41,7 +41,6 @@ const state = {
 	act_id: 0,
 	zp_id: 0,
 	zonep_id:0,
-	user_email: sessionStorage.getItem('user_email') ? sessionStorage.getItem('user_email') : '',
 	pay_types: [
 		{
 			"icon": "../assets/images/alipay.png",
@@ -59,8 +58,9 @@ const state = {
 			"status": false
 		}
 	],
-	user_face: sessionStorage.getItem('user_face') == 'undefined' ? '../assets/images/portrait.jpg' : sessionStorage.getItem('user_face'),
-	first_name: sessionStorage.getItem('first_name') ? sessionStorage.getItem('first_name') : 'visitor'
+	// user_face: sessionStorage.getItem('user_face') == 'undefined' ? '../assets/images/portrait.jpg' : sessionStorage.getItem('user_face'),
+	first_name: sessionStorage.getItem('first_name') ? sessionStorage.getItem('first_name') : 'visitor',
+	user_email: sessionStorage.getItem('user_email') ? sessionStorage.getItem('user_email') : ''
 }
 
 const mutations = {
