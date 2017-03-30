@@ -9,6 +9,7 @@ class TradingAnalysis extends CI_Model
 
     function export_mt4_datas($account = null, $finency_proc = null, $start_time = null, $end_time = null)
     {
+        $where = "account='{$account}'";
         $now = time();
         if(isset($finency_proc)) $where .= " AND order_symbol='{$finency_proc}'";
         if(isset($start_time) OR isset($end_time)) {
@@ -18,8 +19,7 @@ class TradingAnalysis extends CI_Model
         }
     	$map = "SELECT * 
     			FROM mt4_export_datas
-    			WHERE account='{$account}' 
-                AND {$where}";
+    			WHERE {$where}";
 
     	$result = $this->db->query($map)->result_array();
     	return $result;
