@@ -22,7 +22,7 @@ class TradingAnalysis extends CI_Model
     			WHERE {$where}";
 
     	$result = $this->db->query($map)->result_array();
-        print_r($return);
+        print_r($result);
     	return $result;
     }
 
