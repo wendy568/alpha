@@ -137,8 +137,8 @@ class Trading_datas_calculate {
 						$result[$month . '.' . $day][] = $value;
 					} 
 
-					if(!isset($result[$val])) {
-						$result[$month . '.' . $day] = [];
+					// if(!isset($result[$val])) {
+					// 	$result[$month . '.' . $day] = [];
 					}
 				}
 			}
