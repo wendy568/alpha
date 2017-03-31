@@ -11,7 +11,7 @@
 					<router-link  active-class="active" :to="item.link" >{{item.title}}</router-link>
 				</li>
 			</ul>
-			<input class="order-search" type="text" placeholder="输入活动名称">
+			<!-- <input class="order-search" type="text" placeholder="输入活动名称"> -->
 		</div>
 		<router-view class="order-body"></router-view>
 	</div>
@@ -87,18 +87,18 @@
 					}
 				}
 			}
-			.order-search{
-				float: right;
-				width: 200px;
-				height: 32px;
-				border: 1px solid $gray5;
-				color: $gray3;
-				padding: 0 15px;
-				line-height: 32px;
-				border-radius: 3px;
-				outline: none;
-				box-sizing: border-box;
-			}
+			// .order-search{
+			// 	float: right;
+			// 	width: 200px;
+			// 	height: 32px;
+			// 	border: 1px solid $gray5;
+			// 	color: $gray3;
+			// 	padding: 0 15px;
+			// 	line-height: 32px;
+			// 	border-radius: 3px;
+			// 	outline: none;
+			// 	box-sizing: border-box;
+			// }
 		}
 		.order-body{
 			width: $boxwidth;
