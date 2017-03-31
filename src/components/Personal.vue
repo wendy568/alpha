@@ -30,7 +30,7 @@
 				tabs: [
 					{ title: 'profile',icon: '../assets/images/user.png', link: '/personal/profile' },
 					{ title: 'video',icon: '../assets/images/favorite.png', link: '/personal/favorite' },
-					{ title: 'order',icon: '../assets/images/order.png', link: '/personal/order' }
+					{ title: 'order',icon: '../assets/images/order.png', link: '/personal/order/event_order' }
 				],
 				isActive:false
 			}
