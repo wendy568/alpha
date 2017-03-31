@@ -109,6 +109,13 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
+	public function getWeekOneByOne()
+	{
+		foreach ($variable as $key => $value) {
+			# code...
+		}
+	}
+
 	public function get_week()
 	{
 		$datas = $this->_data;
@@ -127,7 +134,7 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
-						$result[$val][] = $value;
+						$result[$month . '.' . $day][] = $value;
 					} 
 
 					if(!isset($result[$val])) {
