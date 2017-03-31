@@ -52,8 +52,8 @@ class Order extends MY_Controller
 			$data['data'] = $this->orders->create_order_for_trading_floor($from_id, $event_id, $price, $table, $payment, $num, $info);
 		} elseif ($table == 'event_order') {
 			$data['data'] = $this->orders->create_order($from_id, $event_id, $price, $table, $payment, $num, $info);
-		} elseif ($table == 'zone_plus_order') {
-			$data['data'] = $this->orders->create_order_for_zone_plus($from_id, $event_id, $price, $table, $payment, $num, $info);
+		} elseif ($table == 'alpha_trader_order') {
+			$data['data'] = $this->orders->create_order_for_alpha_trader($from_id, $event_id, $price, $table, $payment, $num, $info);
 		}
 		
 	
@@ -125,7 +125,7 @@ class Order extends MY_Controller
 		preg_match_all( '/[a-zA-Z]+/', $out_trade_no ,$array);
 		if($array[0][0] == 'AE') $table = 'event_order';
 		if($array[0][0] == 'AZ') $table = 'tr_fl_order';
-		if($array[0][0] == 'AZP') $table = 'zone_plus_order';
+		if($array[0][0] == 'AZP') $table = 'alpha_trader_order';
 		
 		$this->load->database();
 		$this->load->model('orders');

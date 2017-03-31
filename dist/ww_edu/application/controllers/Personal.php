@@ -433,9 +433,7 @@ class Personal extends MY_Controller
 		    while (($data = fgetcsv($handle, 1000, "|")) !== FALSE) {
 		        $num = count($data);
 		        print_r($data);
-		        // for ($c=0; $c < $num; $c++) {
-		        //     echo $data[$c] . "<br />\n";
-		        // }
+		        
 		    }
 		    fclose($handle);
 		}
