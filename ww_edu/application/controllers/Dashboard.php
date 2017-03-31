@@ -118,7 +118,7 @@ class Dashboard extends MY_Controller
 
 		$mt4 = $this->TradingAnalysis->calendar($start_time, $end_time);
 		$this->load->library('trading_datas_calculate');
-		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4, 3)->count()->get_result();
+		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->count()->get_result();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
