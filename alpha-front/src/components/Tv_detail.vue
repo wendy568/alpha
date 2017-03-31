@@ -63,9 +63,9 @@
 			return {
 				face: '../assets/images/portrait.jpg',
 				recommend_list: [
-					{ image: '../assets/images/act1.jpg',views: 4561,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' },
-					{ image: '../assets/images/act2.jpg',views: 1151,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' },
-					{ image: '../assets/images/act3.jpg',views: 8416,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' }
+					// { image: '../assets/images/act1.jpg',views: 4561,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' },
+					// { image: '../assets/images/act2.jpg',views: 1151,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' },
+					// { image: '../assets/images/act3.jpg',views: 8416,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' }
 				],
 				reply_message: ''
 			}
@@ -118,7 +118,7 @@
 												'</div>' + 
 												'<div class="tpc-item-right">' +
 													'<p class="tpc-item-header">' + 
-														'<span class="tpc-item-name">' + self.$store.state.nic_name + '</span>' +	
+														'<span class="tpc-item-name">' + self.$store.state.first_name + '</span>' +	
 													'</p>' +
 													'<p class="tpc-item-content">' + self.reply_message + '</p>' + 
 												'</div>' +

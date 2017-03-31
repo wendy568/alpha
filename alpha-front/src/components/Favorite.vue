@@ -30,20 +30,21 @@
 							<span @click="delete_fa" class="fav-item-mark"></span>
 						</div>
 					</div>
+					<!-- alert -->
+			        <div class="alert" v-if="confirm">
+			        	<div class="alert-box">
+			        		<img src="../assets/images/alert_delete_icon.png" alt="" class="title-img">
+			        		<p class="message">确认取消收藏吗？</p>
+			        		<p class="btn">
+			        			<button class="btn-default-out" @click="confirm_del(item.id)">确认</button>
+			        			<button class="btn-default-out"  @click="confirm=false">关闭</button>
+			        		</p>
+			        	</div>
+			        </div>
 				</li>
 			</ul>
         </div>
-		<!-- alert -->
-        <div class="alert" v-if="confirm">
-        	<div class="alert-box">
-        		<img src="../assets/images/alert_delete_icon.png" alt="" class="title-img">
-        		<p class="message">确认取消收藏吗？</p>
-        		<p class="btn">
-        			<button class="btn-default-out" @click="confirm_del">确认</button>
-        			<button class="btn-default-out"  @click="confirm=false">关闭</button>
-        		</p>
-        	</div>
-        </div>
+		
     </div>
 </template>
 
@@ -63,7 +64,7 @@
 			 	headers: {
 			 		'Content-Type': 'application/x-www-form-urlencoded'
 			 	},
-			 	body: 'date_limit' + 1 + '&token=' + sessionStorage.getItem('token')
+			 	body: 'date_limit=' + 1 + '&token=' + sessionStorage.getItem('token')
 			}).then((res) => {
 				res.ok && res.json().then((json) => {
 						self.video_list = json.data
@@ -82,7 +83,7 @@
 			 	headers: {
 			 		'Content-Type': 'application/x-www-form-urlencoded'
 			 	},
-			 	body: 'date_limit' + 2 + '&token=' + sessionStorage.getItem('token')
+			 	body: 'date_limit=' + 2 + '&token=' + sessionStorage.getItem('token')
 			}).then((res) => {
 				res.ok && res.json().then((json) => {
 						self.video_list = json.data
@@ -101,7 +102,7 @@
 			 	headers: {
 			 		'Content-Type': 'application/x-www-form-urlencoded'
 			 	},
-			 	body: 'date_limit' + 3 + '&token=' + sessionStorage.getItem('token')
+			 	body: 'date_limit=' + 3 + '&token=' + sessionStorage.getItem('token')
 			}).then((res) => {
 				res.ok && res.json().then((json) => {
 						self.video_list = json.data
@@ -120,7 +121,7 @@
 			 	headers: {
 			 		'Content-Type': 'application/x-www-form-urlencoded'
 			 	},
-			 	body: 'date_limit' + 4 + '&token=' + sessionStorage.getItem('token')
+			 	body: 'date_limit=' + 4 + '&token=' + sessionStorage.getItem('token')
 			}).then((res) => {
 				res.ok && res.json().then((json) => {
 						self.video_list = json.data
@@ -157,8 +158,28 @@
 				self.confirm=!self.confirm
 
 			},
-			confirm_del(){
-				
+			confirm_del(id){
+				const self = this
+				let formData = new FormData()
+				formData.append('class_id',id)
+				formData.append('token',sessionStorage.getItem('token'))
+				fetch(self.$store.state.api_addr + 'video/follow_video',{
+					mode: 'cors',
+					method: 'post',
+					body: formData
+				}).then((res) => {
+					res.ok && res.json().then((json) => {
+						switch(json.archive.status) {
+							case 0:
+								self.video_list.splice(id, 1);
+								self.confirm=!self.confirm
+								self.$router.push({path: '/personal/favorite'})
+								break;
+							case 400:
+								break;
+						}
+					})
+				})
 			}
 		}
     }
