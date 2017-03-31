@@ -7,7 +7,7 @@ class Orders extends CI_Model
         parent::__construct();
     }
 
-    function create_order_for_zone_plus($mem_id, $zone_plus_id, $price, $table, $payment, $num, $info)
+    function create_order_for_alpha_trader($mem_id, $al_tr_id, $price, $table, $payment, $num, $info)
     {
 		$result = array();
 		$info_col = (isset($info) && $info) ? ",info" : null;
@@ -16,7 +16,7 @@ class Orders extends CI_Model
 		$order_no = 'AZP'.time().mt_rand(100,999).$mem_id;
 		$create_time = date('Y-m-d H:i:s', time());
 		$payment = isset($payment) ? $payment : 0;
-		$map = "INSERT ${table}(mem_id,zone_plus_id,order_no,price,status,create_time,payment,num{$info_col}) VALUES('".$mem_id."','".$zone_plus_id."','".$order_no."','".$price."','".$status."','".$create_time."','".$payment."','".$num."'{$info_value})";
+		$map = "INSERT ${table}(mem_id,al_tr_id,order_no,price,status,create_time,payment,num{$info_col}) VALUES('".$mem_id."','".$al_tr_id."','".$order_no."','".$price."','".$status."','".$create_time."','".$payment."','".$num."'{$info_value})";
 		$this->db->query($map);
 	    $result['event_order_id'] = $this->db->insert_id();   
 	    $result['event_order_no'] = $order_no;

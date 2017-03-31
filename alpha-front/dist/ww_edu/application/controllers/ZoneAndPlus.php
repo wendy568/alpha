@@ -67,7 +67,7 @@ class ZoneAndPlus extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function zone_plus_order_list()
+	public function alpha_trader_order_list()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 	
@@ -80,7 +80,7 @@ class ZoneAndPlus extends MY_Controller
 		$this->load->model('ZoneAndPluses');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->ZoneAndPluses->zone_plus_order_list($mem_id, $start, $limit);
+		$data['data'] = $this->ZoneAndPluses->alpha_trader_order_list($mem_id, $start, $limit);
 	
 		encode_json($response,$data);
 	}
@@ -101,7 +101,7 @@ class ZoneAndPlus extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function zone_plus_order_detail()
+	public function alpha_trader_order_detail()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 	
@@ -112,7 +112,7 @@ class ZoneAndPlus extends MY_Controller
 		$this->load->model('ZoneAndPluses');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->ZoneAndPluses->zone_plus_order_detail($order_no);
+		$data['data'] = $this->ZoneAndPluses->alpha_trader_order_detail($order_no);
 	
 		encode_json($response,$data);
 	}

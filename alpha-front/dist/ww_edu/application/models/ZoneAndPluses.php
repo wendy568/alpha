@@ -10,7 +10,7 @@ class ZoneAndPluses extends CI_Model
     function zonePlus_list()
     {
     	$map = 'SELECT id, name, location, status
-    			FROM zone_plus';
+    			FROM alpha_trader';
     	
     	$result = $this->db->query($map)->result_array();
     	foreach ($result as $key => $value) {
@@ -52,14 +52,14 @@ class ZoneAndPluses extends CI_Model
 		return $result;
 	}
 
-	function zone_plus_order_list($mem_id, $start, $limit)
+	function alpha_trader_order_list($mem_id, $start, $limit)
 	{
-		$map = "SELECT  zpo.id AS order_id, tf.id AS zone_plus_id, zpo.order_no, zpo.mem_id, tf.location, tf.`describe`, zpo.num, zpo.price AS order_total_price, zpo.status AS order_status, tf.image, zpo.create_time 
-				FROM zone_plus_order zpo
+		$map = "SELECT  ato.id AS order_id, tf.id AS al_tr_id, ato.order_no, ato.mem_id, tf.location, tf.`describe`, ato.num, ato.price AS order_total_price, ato.status AS order_status, tf.image, ato.create_time 
+				FROM alpha_trader_order ato
 				LEFT JOIN trading_floor tf 
-				ON tf.id=zpo.zone_plus_id
-				WHERE zpo.mem_id=".$mem_id." 
-				ORDER BY zpo.id DESC 
+				ON tf.id=ato.al_tr_id
+				WHERE ato.mem_id=".$mem_id." 
+				ORDER BY ato.id DESC 
 				LIMIT {$start},{$limit}";
 		
 		$result = $this->db->query($map)->result_array();
@@ -83,12 +83,12 @@ class ZoneAndPluses extends CI_Model
 		return $result;
 	}
 
-	function zone_plus_order_detail($order_no)
+	function alpha_trader_order_detail($order_no)
 	{
-		$map = 'SELECT zp.id AS zp_id, zp.name, zp.price, zpo.info, zpo.create_time, zpo.order_no, zpo.payment 
-				FROM zone_plus_order zpo
-				LEFT JOIN zone_plus zp
-				ON zp.id=zpo.zone_plus_id 
+		$map = 'SELECT at.id AS at_id, at.name, at.price, ato.info, ato.create_time, ato.order_no, ato.payment 
+				FROM alpha_trader_order ato
+				LEFT JOIN alpha_trader at
+				ON at.id=ato.al_tr_id 
 				WHERE order_no="'.$order_no.'"';
 		
 		$result = $this->db->query($map)->row_array();
