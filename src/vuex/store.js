@@ -58,7 +58,7 @@ const state = {
 			"status": false
 		}
 	],
-	// user_face: sessionStorage.getItem('user_face') == 'undefined' ? '../assets/images/portrait.jpg' : sessionStorage.getItem('user_face'),
+	user_face: sessionStorage.getItem('user_face') == 'undefined' ? '../assets/images/portrait.jpg' : sessionStorage.getItem('user_face'),
 	first_name: sessionStorage.getItem('first_name') ? sessionStorage.getItem('first_name') : 'visitor',
 	user_email: sessionStorage.getItem('user_email') ? sessionStorage.getItem('user_email') : ''
 }
