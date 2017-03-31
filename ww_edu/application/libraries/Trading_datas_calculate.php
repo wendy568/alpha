@@ -138,12 +138,13 @@ class Trading_datas_calculate {
 					} 
 
 					if(!isset($result[$val])) {
+						print_r($result[$val]);
 						$result[$month . '.' . $day] = [];
 					}
 				}
 			}
 		}
-		print_r($result);
+
 		if(empty($result)) {
 			foreach ($week as $val) {
 				$result[$val] = [];
