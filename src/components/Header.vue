@@ -68,7 +68,7 @@
 			return {
 				navs: [
 					{ text: 'Alpha Zone',icon: '', link: '/zone' },
-					{ text: 'Alpha Zone+',icon: 'floor', link: '/zoneplus' },
+					{ text: 'Alpha Trader',icon: 'floor', link: '/zoneplus' },
 					{ text: 'Alpha Event',icon: 'event', link: '/act' },
 					{ text: 'Alpha Tv',icon: 'tv', link: '/tv_list' },
 					{ text: 'About Us',icon: 'about', link: '/about' }
