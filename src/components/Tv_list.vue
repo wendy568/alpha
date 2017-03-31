@@ -213,21 +213,6 @@
 											background-size:50% 50%;
 										}
 									}
-									.video-item-like{
-										float: right;
-										i{
-											float: left;
-											width: 24px;
-											height: 24px;
-											background:url(../assets/images/video_list_like.png) center center no-repeat;
-											background-size:50% 50%;
-											&:hover,&:focus{
-												background:url(../assets/images/video_list_like_s.png) center center no-repeat;
-												background-size:50% 50%;
-												cursor: pointer;
-											}
-										}
-									}
 								}
 							}
 						}
