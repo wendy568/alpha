@@ -444,12 +444,11 @@ class Personal extends MY_Controller
 			);	
 		if (($handle = fopen(getcwd()."/2102077628.csv", "r")) !== FALSE) {
 		    while (($data = fgetcsv($handle, 1000, "|")) !== FALSE) {
-		    	array_walk($data, function ($val, $key) use ($mt4_format) {
-		    		print_r($val);
-		    	});
+		    	$datas[] = array_combine($mt4_format, $data);
 		    }
 		    fclose($handle);
 		}
+		print_r($datas);
 		die;
 		// $this->load->model('personals');
 		// ob_start();
