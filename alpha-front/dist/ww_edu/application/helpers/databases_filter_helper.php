@@ -24,7 +24,7 @@ class databases_filter{
                 $v = NULL;
             }
         });
-        print_r($cols);
+
         try{
             array_walk_recursive($cols, function (&$val, $key) use ($datas){
                 if(@strlen($datas[$key]) > 0)
@@ -39,7 +39,7 @@ class databases_filter{
     }
 
     function filter_blank(&$data)
-    {
+    {print_r($data);
     	foreach ($data as $key => &$value) {
             foreach ($value as $k => &$v) {
                 if(!strlen($value[$k]) > 0) {
