@@ -119,6 +119,7 @@ class Admins extends CI_Model
 
 	function add($cols, &$response)
 	{	
+		print_r($cols);
 		$message = '';
 		$status = 0;
 		array_walk($cols, function($val, $key) use (&$message){
