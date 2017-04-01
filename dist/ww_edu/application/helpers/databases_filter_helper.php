@@ -39,7 +39,7 @@ class databases_filter{
     }
 
     function filter_blank(&$data)
-    {
+    {print_r($data);
     	foreach ($data as $key => &$value) {
             foreach ($value as $k => &$v) {
                 if(!strlen($value[$k]) > 0) {
