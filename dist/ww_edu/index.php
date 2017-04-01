@@ -54,7 +54,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
-	ini_set("auto_detect_line_endings", true);
+	ini_set("auto_detect_line_endings", false);
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
