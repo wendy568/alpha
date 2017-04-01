@@ -449,7 +449,8 @@ class Personal extends MY_Controller
 		    	// array_walk($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
 		    	// 	$datas[$i][$mt4_format[$key]] = $val;
 		    	// });
-		    	$datas[] = array_combine($mt4_format, $data);
+		    	print_r($data);
+		    	// $datas[] = array_combine($mt4_format, $data);
 		    	// $i++;
 		    }
 		    fclose($handle);
