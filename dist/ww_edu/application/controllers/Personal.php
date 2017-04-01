@@ -447,8 +447,7 @@ class Personal extends MY_Controller
 		    while (($data = fgetcsv($handle, 0, "|")) !== FALSE) {
 		    	static $i=0;
 		    	array_walk($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
-		    		// if($v)
-		    		$datas[$i][$mt4_format[$key]] = $val;
+		    		if(isset($val)) $datas[$i][$mt4_format[$key]] = $val;	
 		    	});
 		    	// $datas[] = array_combine($mt4_format, $data);
 		    	$i++;
