@@ -446,7 +446,7 @@ class Personal extends MY_Controller
 			print_r();
 		    while (($data = fgetcsv($handle, 1000, "|")) !== FALSE) {
 		    	array_walk($data, function ($val, $key) use ($mt4_format) {
-		    		print_r($val);
+		    		// print_r($val);
 		    	});
 		    }
 		    fclose($handle);
