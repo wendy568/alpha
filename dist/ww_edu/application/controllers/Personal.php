@@ -466,8 +466,8 @@ class Personal extends MY_Controller
 			$dfdb->set_query($cols, $value)
 			     ->filter_blank($cols)
 				 ->insert_complete($cols);
-		
-			$this->admins->add($cols, $response);
+			print_r($cols);
+			// $this->admins->add($cols, $response);
 		}
 		die;
 		// $this->load->model('personals');
