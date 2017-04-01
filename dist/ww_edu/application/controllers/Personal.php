@@ -463,12 +463,11 @@ class Personal extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$cols = array('mt4_export_datas');
 		foreach ($datas as $value) {
-			print_r($value);
-			// $dfdb->set_query($cols, $datas)
-			//      ->filter_blank($cols)
-			// 	 ->insert_complete($cols);
+			$dfdb->set_query($cols, $value)
+			     ->filter_blank($cols)
+				 ->insert_complete($cols);
 		
-			// $this->admins->add($cols, $response);
+			$this->admins->add($cols, $response);
 		}
 		die;
 		// $this->load->model('personals');
