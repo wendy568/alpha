@@ -24,7 +24,7 @@ class databases_filter{
                 $v = NULL;
             }
         });
-
+        print_r($cols);
         try{
             array_walk_recursive($cols, function (&$val, $key) use ($datas){
                 if(@strlen($datas[$key]) > 0)
