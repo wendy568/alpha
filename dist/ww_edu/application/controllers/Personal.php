@@ -443,10 +443,9 @@ class Personal extends MY_Controller
 				'profit'
 			);	
 		if (($handle = fopen(getcwd()."/2102077628.csv", "r")) !== FALSE) {
-			print_r();
 		    while (($data = fgetcsv($handle, 1000, "|")) !== FALSE) {
 		    	array_walk($data, function ($val, $key) use ($mt4_format) {
-		    		// print_r($val);
+		    		print_r($val);
 		    	});
 		    }
 		    fclose($handle);
