@@ -444,7 +444,7 @@ class Personal extends MY_Controller
 		);	
 
 		if (($handle = fopen(getcwd()."/2102077628.csv", "r")) !== FALSE) {
-			print_r(array_map(['fgetcsv',getcwd()."/2102077628.csv", "r"]));
+			print_r(array_map('fgetcsv',getcwd()."/2102077628.csv", "r"));
 		    // while (($data = fgetcsv($handle, 1000, "|")) !== FALSE) {
 		    //     print_r($data);
 		    // }
