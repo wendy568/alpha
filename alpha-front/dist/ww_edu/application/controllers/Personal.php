@@ -445,23 +445,15 @@ class Personal extends MY_Controller
 		$datas = [];
 		if (($handle = fopen(getcwd()."/2102077628.csv", "r")) !== FALSE) {
 		    while (($data = fgetcsv($handle, 0, "|")) !== FALSE) {
-		    	// static $i=0;
-		    	// array_walk($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
-		    	// 	$datas[$i][$mt4_format[$key]] = $val;
-		    	// });
-		    	$datas[] = $data;
+		    	static $i=0;
+		    	array_walk($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
+		    		// if($v)
+		    		$datas[$i][$mt4_format[$key]] = $val;
+		    	});
 		    	// $datas[] = array_combine($mt4_format, $data);
-		    	// $i++;
+		    	$i++;
 		    }
 		    fclose($handle);
-		    $num = count($datas);
-		    $bool = empty($datas[$num-1]) ? 0 : 1;print_r($bool);die;
-		    static $i = 0;
-	    	array_walk_recursive($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
-	    		$datas[$i][$mt4_format[$key]] = $val;
-	    	});
-	    	$datas[] = array_combine($mt4_format, $data);
-	    	$i++;
 		}
 		print_r($datas);
 		die;
