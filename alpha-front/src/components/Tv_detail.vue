@@ -34,18 +34,16 @@
 						</span>
 					</div>
 					<div class="tp-suggest-box">
-						<router-link class="tp-suggest-title" @click="view(item.class_id)" :to="{ path: '/tv_detail',query: { id: item.class_id } }">{{item.name}}</router-link>
+						<router-link class="tp-suggest-title" @click="view(item.class_id)" :to="{ path: '/tv_detail',query: { id: item.class_id } }">{{item.name}}
+						</router-link>
 						<div class="tp-suggest-options">
 							<div class="tp-suggest-views">
 								<i class="tp-suggest-views-icon"></i>
-								<span>{{item.views}}</span>	
+								<span class="num">{{item.views}}</span>	
 							</div>
 							<div class="tp-suggest-other">
 								<i class="tp-suggest-comment-icon"></i>
-								<span class="tp-suggest-comment-text">{{item.comment_count}}</span>	
-
-								<i class="tp-suggest-like-icon"></i>
-								<span class="tp-suggest-like-text">{{item.like}}</span>
+								<span class="num">{{item.message_count}}</span>	
 							</div>
 						</div>
 					</div>
@@ -62,13 +60,33 @@
 		data () {
 			return {
 				face: '../assets/images/portrait.jpg',
-				recommend_list: [
-					// { image: '../assets/images/act1.jpg',views: 4561,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' },
-					// { image: '../assets/images/act2.jpg',views: 1151,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' },
-					// { image: '../assets/images/act3.jpg',views: 8416,id: 5,title: 'Google Photos now creates share gifs from your videos',like_count: 251,comment_count: 851,length: '34:00' }
-				],
+				recommend_list: [],
 				reply_message: ''
 			}
+		},
+		mounted () {
+			const self = this
+			fetch(self.$store.state.api_addr + 'video/list',{
+			 	method: 'post',
+			 	headers: {
+			 		'Content-Type': 'application/x-www-form-urlencoded'
+			 	},
+			 	body: 'limit=' + 3 + '&start=' + 0 
+			}).then((res) => {
+				if(res.ok){
+					res.json().then((json) => {
+						self.recommend_list = json.data
+						for(let i = 0;i < self.recommend_list.length;i ++){
+							if(self.recommend_list[i].image !== null || self.recommend_list[i].image !== "" || self.recommend_list[i].image !== undefined){
+								self.recommend_list[i].image = self.$store.state.api_addr + 'upload/' + self.recommend_list[i].image[0] + 'm_' + self.recommend_list[i].image[1]	
+							}else{
+								self.recommend_list[i].image = 'http://content.jwplatform.com/thumbs/' + self.recommend_list[i].source + '-320.jpg'	
+							}
+						}				
+					})
+				}
+				
+			})
 		},
 		methods: {
 			viewVideo(id) {
@@ -144,31 +162,8 @@
 				require(['./player_comment'], resolve)
 				// this.show_video = true
 			}
-		},
-		mounted () {
-			const self = this
-			fetch(self.$store.state.api_addr + 'video/list',{
-			 	method: 'post',
-			 	headers: {
-			 		'Content-Type': 'application/x-www-form-urlencoded'
-			 	},
-			 	body: 'limit=' + 3 + '&start=' + 0 
-			}).then((res) => {
-				if(res.ok){
-					res.json().then((json) => {
-						self.recommend_list = json.data
-						for(let i = 0;i < self.recommend_list.length;i ++){
-							if(self.recommend_list[i].image !== null || self.recommend_list[i].image !== "" || self.recommend_list[i].image !== undefined){
-								self.recommend_list[i].image = self.$store.state.api_addr + 'upload/' + self.recommend_list[i].image[0] + 'm_' + self.recommend_list[i].image[1]	
-							}else{
-								self.recommend_list[i].image = 'http://content.jwplatform.com/thumbs/' + self.recommend_list[i].source + '-320.jpg'	
-							}
-						}				
-					})
-				}
-				
-			})
 		}
+		
 	}
 </script>
 
@@ -323,7 +318,7 @@
 									width: 18px;
 									height: 18px;
 								}
-								&>span{
+								.num{
 									display: inline-block;
 									font-size: 12px;
 									vertical-align: text-top;
@@ -334,29 +329,12 @@
 								float: right;
 								.tp-suggest-comment-icon{
 									display: inline-block;
-									background-image: url(../assets/svg/comment.svg);
-									background-repeat: no-repeat;
-									background-position: center center;
+									background: url(../assets/svg/comment.svg) center center no-repeat;
 									background-size: 100%;
 									width: 18px;
 									height: 18px;
 								}
-								.tp-suggest-comment-text{
-									display: inline-block;
-									font-size: 12px;
-									vertical-align: text-top;
-									line-height: 16px;
-								}
-								.tp-suggest-like-icon{
-									display: inline-block;
-									background-image: url(../assets/svg/like.svg);
-									background-repeat: no-repeat;
-									background-position: center center;
-									background-size: 100%;
-									width: 18px;
-									height: 18px;	
-								}
-								.tp-suggest-like-text{
+								.num{
 									display: inline-block;
 									font-size: 12px;
 									vertical-align: text-top;

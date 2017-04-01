@@ -54,13 +54,9 @@
 									<i></i>
 									{{item.create_time}}
 								</span>
-								<!-- <span class="video-item-like">
-									<i :class="{active:isActive}" class="unlike"></i>
-									{{item.like}}
-								</span> -->
 								<span class="video-item-comment">
 									<i></i>
-									{{item.comment_count}}
+									{{item.message_count}}
 								</span>
 							</p>
 						</div>
@@ -118,12 +114,8 @@
 						<p class="home-header-data-item-icon">
 							<i class="home-header-data-icon"></i>
 						</p>
-						<p class="home-header-data-count">
-							{{item.count}}
-						</p>
-						<p class="home-header-data-name">
-							{{item.name}}
-						</p>
+						<p class="home-header-data-count">{{item.count}}</p>
+						<p class="home-header-data-name">{{item.name}}</p>
 					</li>
 				</ul>
 			</div>
@@ -147,8 +139,7 @@
 					{ name: 'Trader Program',count: 579,icon: 'balloon' },
 					{ name: 'Events',count: 1358,icon: 'count' }
 				],
-				videos: [
-				],
+				videos: [],
 				events: [
 					{ month: '8',day: '12',image: '../assets/images/act1.jpg',name: 'N+X炒鸡路演|攀谈会：风口上的网红经济',des: '当老牌网红遭遇新晋小生',length: '2016-10-23 12:00 至 2016-10-24 18:00',place: 'SOHO 北京-银河 1层',status: '报名中' },
 					{ month: '8',day: '12',image: '../assets/images/act2.jpg',name: 'N+X炒鸡路演|攀谈会：风口上的网红经济',des: '当老牌网红遭遇新晋小生',length: '2016-10-23 12:00 至 2016-10-24 18:00',place: 'SOHO 北京-银河 1层',status: '报名中' }

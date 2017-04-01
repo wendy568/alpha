@@ -10,8 +10,7 @@
 
 			<ul class="header-navs">
 				<li >
-					<router-link class="header-nav "  :class='{active:isActive}'
-					v-for="item in navs" :to="item.link" >
+					<router-link class="header-nav "  :class='{active:isActive}' v-for="item in navs" :to="item.link" >
 						<span class="header-nav-icon "></span>
 						<span class="header-nav-text ">
 							{{item.text}}
