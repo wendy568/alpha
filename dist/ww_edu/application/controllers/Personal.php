@@ -447,7 +447,7 @@ class Personal extends MY_Controller
 		    	try {
 		    		$datas[] = array_combine($mt4_format, $data);
 		    	} catch(Exception $e) {
-
+		    		echo '123';
 		    	} 
 		    }
 		    fclose($handle);
