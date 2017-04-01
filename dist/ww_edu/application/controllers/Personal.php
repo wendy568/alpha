@@ -428,13 +428,26 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$row = 1;
+		array(
+			'order_no',
+			'account_number',
+			'order_symbol',
+			'order_type',
+			'order_lots',
+			'order_open_price',
+			'order_open_time',
+			'order_close_price',
+			'order_close_time',
+			'order_take_profit',
+			'order_stop_loss',
+			'profit'
+		);	
+
 		if (($handle = fopen(getcwd()."/2102077628.csv", "r")) !== FALSE) {
-		    while (($data = fgetcsv($handle, 1000, "|")) !== FALSE) {
-		        $num = count($data);
-		        print_r($data);
-		        
-		    }
+			print_r(array_map('fgetcsv',array(getcwd()."/2102077628.csv", "r")));
+		    // while (($data = fgetcsv($handle, 1000, "|")) !== FALSE) {
+		    //     print_r($data);
+		    // }
 		    fclose($handle);
 		}
 		die;
