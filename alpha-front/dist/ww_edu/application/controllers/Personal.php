@@ -455,7 +455,7 @@ class Personal extends MY_Controller
 		    }
 		    fclose($handle);
 		    $num = count($datas);
-		    print_r($datas[$num-1]);die;
+		    $bool = empty($datas[$num-1]) ? 0 : 1;print_r($bool);die;
 		    static $i = 0;
 	    	array_walk_recursive($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
 	    		$datas[$i][$mt4_format[$key]] = $val;
