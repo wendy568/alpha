@@ -452,7 +452,7 @@ class Personal extends MY_Controller
 		    }
 		    fclose($handle);
 		}
-		// print_r($datas);
+		print_r($datas);
 		die;
 		// $this->load->model('personals');
 		// ob_start();
