@@ -454,7 +454,20 @@ class Personal extends MY_Controller
 		    }
 		    fclose($handle);
 		}
-		print_r($datas);
+		$this->load->helper('databases_filter');
+		$this->load->database();
+
+		$dfdb = databases_filter::build();
+		$cols = array('mt4_export_datas');
+
+		$dfdb->set_query($cols, $datas)
+		     ->filter_blank($cols)
+			 ->insert_complete($cols);
+
+		$this->load->model('admins');
+		$response = array('archive' => array('status' => 0,'message' =>''));
+
+		$this->admins->add($cols, $response);
 		die;
 		// $this->load->model('personals');
 		// ob_start();
