@@ -452,7 +452,7 @@ class Personal extends MY_Controller
 		    	// $datas[] = array_combine($mt4_format, $data);
 		    	$i++;
 		    }
-		    fclose($handle);1
+		    fclose($handle);
 		}
 
 		$this->load->helper('databases_filter');
