@@ -2,7 +2,7 @@
 
 function encode_json($response, $data, $status = 200, $cached = null, $paras = null, $server = 'localhost')
 {
-	header("Content-type: application/chenqi+json");
+	header("Content-type: application/json");
 	set_status_header($status);
 	
 	$array = array_merge($response,$data);
