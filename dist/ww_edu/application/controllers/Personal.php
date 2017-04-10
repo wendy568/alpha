@@ -428,28 +428,7 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$apikey = '73f1ad78334ea3e8dedfb8f568d8537f';
-		$username='auser';
-		$dealid=1;
-		$apiurl='http://apserveri02:8080/rest/default/qadm/v1/';
-
-
-		$ch = curl_init();
-
-		$headr = array();
-		$headr[] = 'Accept: application/json';
-		$headr[] = 'Content-Type: application/json';
-		$headr[] = 'Authorization '.$apikey.':1';
-
-		curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
-
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_URL,
-		$apiurl."Rsnapshot?filter=dealid=$dealid");
-		$content = curl_exec($ch);
-		echo $content;
-		exit;
-		/************************/
+		$file = $this->input->get_post('file', TRUE);
 		$mt4_format = array(
 				'order_no',
 				'account_number',
@@ -465,7 +444,7 @@ class Personal extends MY_Controller
 				'profit'
 			);	
 		$datas = [];
-		if (($handle = fopen(getcwd()."/2102077628.csv", "r")) !== FALSE) {
+		if (($handle = fopen(getcwd()."/{$file}.csv", "r")) !== FALSE) {
 		    while (($data = fgetcsv($handle, 0, "|")) !== FALSE) {
 		    	static $i=0;
 		    	array_walk($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
