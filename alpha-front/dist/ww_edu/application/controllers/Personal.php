@@ -428,7 +428,6 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		print_r($_COOKIE['name']);die;
 		$file = $this->input->get_post('file', TRUE);
 		$mt4_format = array(
 				'order_no',
