@@ -15,8 +15,7 @@ class Login extends CI_Model
 				WHERE email="'.$email.'"';	
 		$query = $this->db->query($map);
         $result = $query->row_array();
-        // var_dump(is_null($result));die;
-        $result = '';
+
         if(isset($result))
         {
         	$hash = password_hash($result['password'], PASSWORD_BCRYPT);
