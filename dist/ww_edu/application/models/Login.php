@@ -9,7 +9,6 @@ class Login extends CI_Model
 
 	function login($email, $password, &$response, &$data)
 	{
-		print_r($email);die;
 		$result = array();
 		$map = 'SELECT id,password 
 				FROM member 
