@@ -4,7 +4,6 @@ class User extends MY_Controller
 	public function Login()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
-		setcookie("name","value",time()-1);
 		$data = array();
 		// $username = $this->input->get_post('username', TRUE);
 		$email = $this->input->get_post('email', TRUE);
