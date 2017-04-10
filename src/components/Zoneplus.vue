@@ -65,10 +65,7 @@
     export default {
         data() {
             return {
-                zonePlus_list: [
-                    // { id:1,name: 'prop',title: 'Prop-trading Model',intro: '引领自营交易从开始到顶峰的培养模式',price:0.01,content1: 'Alpha Zone线下18课时专业培训计划',content2: 'Alpah TV线上课程专业视频指导',content3: 'Alpah Zone相应服务及活动',content4: '有机会成为自营交易员',content5: '有机会获得顶尖金融机构推荐名额',des: '自营模式是一种现代电子交易形式，公司或金融机构使用自己的资本和资产负债表在自己的账户上进行交易。公司和金融机构提供一个专业系统额资金账户，帮助交易员成长。交易员自己不需要寻找介乎或资金，有公司自己承担所有的交易收益或亏损',location:1 },
-                    // { id:2,name: 'algo',title: 'Algo-trading Model',intro: '引领自营交易从开始到顶峰的培养模式',price: 0.02,content1: 'Alpha Zone线下18课时专业培训计划',content2: 'Alpah TV线上课程专业视频指导',content3: 'Alpah Zone相应服务及活动',content4: '有机会成为自营交易员',content5: '有机会获得顶尖金融机构推荐名额',des: '自营模式是一种现代电子交易形式，公司或金融机构使用自己的资本和资产负债表在自己的账户上进行交易。公司和金融机构提供一个专业系统额资金账户，帮助交易员成长。交易员自己不需要寻找介乎或资金，有公司自己承担所有的交易收益或亏损',location:2}
-                ]
+                zonePlus_list: []
             }
         },
         mounted(){

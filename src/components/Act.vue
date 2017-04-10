@@ -29,12 +29,8 @@
 					<div class="act-item-img">
 						<div class="act-item-img-mask">
 							<img class="act-item-image" :src="item.image" alt="">
-							<span v-if="item.status" class="act-item-stauts">
-								报名中
-							</span>
-							<span v-else class="act-item-stauts">
-								进行中
-							</span>
+							<span v-if="item.status" class="act-item-stauts">报名中</span>
+							<span v-else class="act-item-stauts">进行中</span>
 						</div>
 					</div>
 
