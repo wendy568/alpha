@@ -428,32 +428,16 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$data = 'username=xxx&password=123';
-		$curl = curl_init();  //初始化
-		curl_setopt($curl,CURLOPT_URL,"http://roll.news.sina.com.cn/s/channel.php?ch=01#col=91&spec=&type=&ch=01&k=&offset_page=0&offset_num=0&num=60&asc=&page=1"); //设置访问的网站url
-		curl_setopt($curl,CURLOPT_RETURNTRANSFER,true); //执行之后不直接打印出来
-		// cookie相关设置，这部分设置需要在所有会话开始之前设置
-		date_default_timezone_set('PRC'); //使用cookie时必须先设置时区
-		curl_setopt($curl,CURLOPT_COOKIESESSION,TRUE);
-		curl_setopt($curl,CURLOPT_COOKIELIFE, 'cookiefile');
-		curl_setopt($curl,CURLOPT_COOKIEJAR, 'cookiefile');
-		curl_setopt($curl,CURLOPT_COOKIE, session_name() . '=' . session_id());
-		curl_setopt($curl,CURLOPT_HEADER, 0);
-		curl_setopt($curl,CURLOPT_FOLLOWLOCATION, 1); //这样能够让curl支持页面链接跳转
-		curl_setopt($curl,CURLOPT_POST, 1);
-		curl_setopt($curl,CURLOPT_POSTFIELDS, $data);
-		curl_setopt($curl,CURLOPT_HTTPHEADER, array("application/x-www-form-urlencoded; 
-			charaset=utf-8",
-			"Content-length: ".strlen($data)
-		));
-		curl_exec($curl);  //执行
-		curl_setopt($curl,CURLOPT_URL,"http://roll.news.sina.com.cn/s/channel.php?ch=01#col=91&spec=&type=&ch=01&k=&offset_page=0&offset_num=0&num=60&asc=&page=1"); //设置抓去的网站url
-		curl_setopt($curl,CURLOPT_POST, 0);
-		curl_setopt($curl,CURLOPT_HTTPHEADER, array("Content-type: text/xml")); 
-		$out = curl_exec($curl);  //执行
-		curl_close($curl);
-		echo $out;
-		die;
+		$ch = curl_init();//初始化curl
+		curl_setopt($ch, CURLOPT_URL,'http://roll.news.sina.com.cn/s/channel.php?ch=01#col=91&spec=&type=&ch=01&k=&offset_page=0&offset_num=0&num=60&asc=&page=1');//抓取指定网页
+		curl_setopt($ch, CURLOPT_HEADER, 0);//设置header
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上
+		curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
+		// curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
+		$data = curl_exec($ch);//运行curl
+		// $data = json_decode($data,true);
+		curl_close($ch);
+		print_r($data);die;
 		/***************************************/
 		$file = $this->input->get_post('file', TRUE);
 		$mt4_format = array(
