@@ -107,7 +107,7 @@
                 formData.append('price',price)
                 formData.append('payment',1)
                 formData.append('token',sessionStorage.getItem('token'))
-                formData.append('info',self.activity_detail)
+                formData.append('info',self.Activity_detail)
                 formData.append('table',self.$store.state.pay_table)
                 self.show_payconfirm = !self.show_payconfirm
                 fetch(self.$store.state.api_addr + 'order/create_order',{

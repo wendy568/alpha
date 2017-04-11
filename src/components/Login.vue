@@ -88,10 +88,15 @@
 							res.json().then((json) => {
 								if(json.archive.status === 0) {
 									sessionStorage.setItem('token',json.data.token)
-									// window.document.cookie = 'token' + '=' +json.data.token
-									let user = {
-										email: self.email
+									if(self.isRemmenber === true) {
+										localStorage.setItem('email',escape(self.email))
+										localStorage.setItem('token',escape(json.data.token))
+									}else{
+										localStorage.removeItem('email')
+										localStorage.removeItem('token')
 									}
+									// window.document.cookie = 'token' + '=' +json.data.token
+									let user = {email: self.email}
 									self.$store.dispatch('TOGGLEONLINE','on')
 									self.$store.dispatch('STORAGEUSERINFO',user)
 									self.close()
@@ -102,13 +107,7 @@
 							})
 						}	
 					})
-					if(self.isRemmenber === true) {
-						localStorage.setItem('email',escape(self.email))
-						localStorage.setItem('token',escape(json.data.token))
-					}else{
-						localStorage.removeItem('email')
-						localStorage.removeItem('token')
-					}
+					
 				}else{
 					self.error = 'Password cannot be empty！'
 				}

@@ -8,15 +8,13 @@
                 <!-- 简介 -->
                 <div class="zp-info">
                     <p class="zp-info-content">
-                        <b class="zp-info-content-one">
-                            A
-                        </b>
+                        <b class="zp-info-content-one"> A </b>
                         lpha Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader,Zone is a professoional room invested by Alphatrader
                     </p>
                 </div>
                 <!-- apply -->
                 <ul class="zp-model">
-                    <li class="zp-model-item" v-for="item in zonePlus_list">
+                    <li class="zp-model-item" v-for="item in zonePlus_list" >
                         <!-- 标题 -->
                         <h3 class="zp-model-item-title"> {{item.name}}-trading Model</h3>
                         <!--介绍 -->
@@ -69,7 +67,7 @@
             }
         },
         mounted(){
-            const self = this
+            let self = this
             let formData = new FormData()
             fetch(self.$store.state.api_addr + 'ZoneAndPlus/zonePlus_list',{
                 method: 'post',
@@ -77,9 +75,7 @@
                 body: formData
             }).then((res) => {
                 res.ok && res.json().then((json) => {
-                    if(json.archive.status === 0 ) {
-                        self.zonePlus_list= json.data
-                    }
+                    json.archive.status === 0 && ( self.zonePlus_list = json.data )
                 })
             })
         },
@@ -87,11 +83,11 @@
             pay(id,location) {
                 const self = this
                 self.$store.dispatch('CHANGEZONEPLUSINFO',location)
-                if(!sessionStorage.getItem('token')){
-                    self.$store.dispatch('TOGGLELOGIN','on')
-                }else{
+                if(sessionStorage.getItem('token')){
                     self.$store.dispatch('TOGGLEZONEPFORM','on')
                     self.$store.dispatch('CHANGEZONEPID',id)
+                }else{
+                    self.$store.dispatch('TOGGLELOGIN','on')
                 }
             }
         },
