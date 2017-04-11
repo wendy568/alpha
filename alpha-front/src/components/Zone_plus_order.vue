@@ -67,62 +67,7 @@
 			}
 		},
 		methods: {
-			// toggleOrder(e) {
-			// 	const self = this
-			// 	const target = e.target
-			// 	if(target.id == 'event_order') {
-			// 		self.show_act = true
-			// 		self.show_z = false
-			// 		self.show_zp = false
-			// 		let formData = new FormData()
-			// 		formData.append('token',sessionStorage.getItem('token'))
-			// 		formData.append('start',0)
-			// 		formData.append('limit',20)
-			// 		fetch(self.$store.state.api_addr + 'activity/activity_order_list',{
-			// 			mode: 'cors',
-			// 			method: 'post',
-			// 			body: formData
-			// 		}).then((res) => {
-			// 			res.ok && res.json().then((json) => {
-			// 				self.orders = json.data
-			// 			})
-			// 		})
-			// 	}else if(target.id == 'tr_fl_order') {
-			// 		self.show_z = true
-			// 		self.show_act = false
-			// 		self.show_zp = false
-			// 		let formData = new FormData()
-			// 		formData.append('token',sessionStorage.getItem('token'))
-			// 		formData.append('start',0)
-			// 		formData.append('limit',20)
-			// 		fetch(self.$store.state.api_addr + 'ZoneAndPlus/zone_order_list',{
-			// 			method: 'post',
-			// 			mode: 'cors',
-			// 			body: formData
-			// 		}).then((res) => {
-			// 			res.ok && res.json().then((json) => {
-			// 				self.orders = json.data
-			// 			})
-			// 		})
-			// 	}else{
-			// 		self.show_zp = true
-			// 		self.show_act = false
-			// 		self.show_z = false
-			// 		let formData = new FormData()
-			// 		formData.append('token',sessionStorage.getItem('token'))
-			// 		formData.append('start',0)
-			// 		formData.append('limit',20)
-			// 		fetch(self.$store.state.api_addr + 'ZoneAndPlus/zone_plus_order_list',{
-			// 			method: 'post',
-			// 			mode: 'cors',
-			// 			body: formData
-			// 		}).then((res) => {
-			// 			res.ok && res.json().then((json) => {
-			// 				self.orders = json.data
-			// 			})
-			// 		})
-			// 	}
-			// }
+			
 		},
 		mounted() {
 			const self = this
