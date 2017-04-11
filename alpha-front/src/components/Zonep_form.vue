@@ -147,6 +147,7 @@
                 const target = e.target
                 self.start='2017-6-30'
                 self.location=target.id
+                console.log(self.location)
                 if(target.id == 'Lodon'){
                     self.show_one=true
                     self.show_two=false
@@ -204,6 +205,7 @@
                 self.$store.dispatch('TOGGLEACTPAY','on')
                 self.$store.dispatch('TOGGLEZONEPFORM','off')
                 formData.append('token',sessionStorage.getItem('token'))
+                console.log(sessionStorage.getItem('token'))
                 formData.append('first_name',self.first_name)
 			    formData.append('phone',self.phone)
 			    formData.append('pro',self.position)
