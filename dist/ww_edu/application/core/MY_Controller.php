@@ -41,7 +41,6 @@ class MY_Controller extends CI_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
 		$this->load->model('admins');
-		// print_r($token);
 		$data = $this->admins->get_bytoken($token);
 		return $data;
 	}
