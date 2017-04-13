@@ -100,7 +100,6 @@ class Admin extends MY_Controller
 		// print_r($cols);die;
 		$this->load->database();
 		$this->load->model('admins');
-		print_r($cols);
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = $this->admins->add($cols, $response);
 
