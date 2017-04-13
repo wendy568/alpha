@@ -76,7 +76,7 @@ class Admin extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$datas = $this->input->post();
-		
+
 		$this->get_byadmintoken($token);
 		if(!empty($datas['name'])) $datas['name'] = addslashes($datas['name']);
 		if(!empty($datas['content'])) $datas['content'] = addslashes($datas['content']);
@@ -104,6 +104,7 @@ class Admin extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		// $data['data'] = $this->admins->add($cols, $response);
 
+		$data = '';
 		encode_json($response, $data, 201);
 	}
 
