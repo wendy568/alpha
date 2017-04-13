@@ -428,17 +428,7 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$ch = curl_init();//初始化curl
-		curl_setopt($ch, CURLOPT_URL,'http://roll.news.sina.com.cn/s/channel.php?ch=01#col=91&spec=&type=&ch=01&k=&offset_page=0&offset_num=0&num=60&asc=&page=1');//抓取指定网页
-		curl_setopt($ch, CURLOPT_HEADER, 0);//设置header
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//要求结果为字符串且输出到屏幕上
-		curl_setopt($ch, CURLOPT_POST, 1);//post提交方式
-		// curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
-		$data = curl_exec($ch);//运行curl
-		// $data = json_decode($data,true);
-		curl_close($ch);
-		print_r($data);die;
-		/***************************************/
+		
 		$file = $this->input->get_post('file', TRUE);
 		$mt4_format = array(
 				'order_no',
