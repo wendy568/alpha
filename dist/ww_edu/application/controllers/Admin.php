@@ -102,9 +102,8 @@ class Admin extends MY_Controller
 		$this->load->database();
 		$this->load->model('admins');
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		// $data['data'] = $this->admins->add($cols, $response);
+		$data['data'] = $this->admins->add($cols, $response);
 
-		$data['data'] = '';
 		encode_json($response, $data, 201);
 	}
 
