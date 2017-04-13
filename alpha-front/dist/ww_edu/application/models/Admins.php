@@ -71,7 +71,7 @@ class Admins extends CI_Model
 		$map = 'SELECT `admin_id` 
 				FROM token 
 				WHERE `token`="'.$token.'"';
-		
+		echo 123;
 		$query = $this->db->query($map);
 		$result = $query->row_array();
 		if(!empty($result['admin_id']))
