@@ -129,6 +129,7 @@ class Admins extends CI_Model
 				$status = 39;
 			}
 		});
+		print_r($response);
 		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
 	}
 
