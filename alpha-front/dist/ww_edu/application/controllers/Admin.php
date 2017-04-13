@@ -76,6 +76,7 @@ class Admin extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$datas = $this->input->post();
+		print_r($datas);var_dump($token);die;
 		$this->get_byadmintoken($token);
 		if(!empty($datas['name'])) $datas['name'] = addslashes($datas['name']);
 		if(!empty($datas['content'])) $datas['content'] = addslashes($datas['content']);
