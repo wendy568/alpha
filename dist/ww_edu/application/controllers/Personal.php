@@ -435,7 +435,8 @@ class Personal extends MY_Controller
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->mt4 = $datas;
 		$this->trading_datas_calculate->BuyNo();
-		print_r($this->trading_datas_calculate);
+		// print_r($this->trading_datas_calculate);
+		print_r($this->trading_datas_calculate->BuyNo);
 		die;
 		$file = $this->input->get_post('file', TRUE);
 
