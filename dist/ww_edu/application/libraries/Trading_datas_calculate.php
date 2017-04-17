@@ -18,44 +18,43 @@
  */
 class Trading_datas_calculate{
 
-	private $import_datas = null;
+	private $import_datas = array(
+				'mt4' => array()
+		);
 
-	private $mt4_order_datas = array(
-				'BuyNo' => null,
-				'SellNo' => null,
+	private $Analysis = array(
+				'BuyNo'      => null,
+				'SellNo'     => null,
 				'SingleGain' => null,
 				'Singleloss' => null,
 				'Singlelots' => null,
-				'AvgTime' => null,
-				'AvgGain' => null,
-				'Avgloss' => null,
-				'Period' => null,
-				'GLRatio' => null,
-				'LSRatio' => null,
+				'AvgTime'    => null,
+				'AvgGain'    => null,
+				'Avgloss'    => null,
+				'Period'     => null,
+				'GLRatio'    => null,
+				'LSRatio'    => null,
 				'ProfitLots' => null,
 				'BestSymbol' => null,
 				'RiskManage' => null,
 		);
 
 	public function __get($name){
-        if(isset($this->mt4_order_datas[$name])) {
-            return $this->mt4_order_datas[$name];
-        } elseif(isset($this->import_datas)) {
-        	echo 123;
+        if(isset($this->import_datas[$name])) {
+            return $this->import_datas[$name];
         }
+
         return null;
     }
 
     public function __set($name,$value){
-        if(isset($this->mt4_order_datas[$name])) {
-            $this->mt4_order_datas[$name] = $value;
-        } elseif(isset($this->import_datas)) {
-        	echo 123;
+        if(isset($this->import_datas[$name])) {
+            $this->import_datas[$name] = $value;
         }
     }
 
     public function __isset($name){
-        return isset($this->mt4_order_datas[$name]);
+        return isset($this->import_datas[$name]);
     }
 
     public function BuyNo()
