@@ -44,6 +44,10 @@ class Trading_datas_calculate{
             return $this->import_datas[$name];
         }
 
+        if(isset($this->Analysis[$name])) {
+            return $this->Analysis[$name] = $value;
+        }
+
         return null;
     }
 
@@ -51,15 +55,19 @@ class Trading_datas_calculate{
         if(isset($this->import_datas[$name])) {
             $this->import_datas[$name] = $value;
         }
+
+        if(isset($this->Analysis[$name])) {
+            $this->Analysis[$name] = $value;
+        }
     }
 
     public function __isset($name){
-        return isset($this->import_datas[$name]);
+        return isset($this->Analysis[$name]);
     }
 
     public function BuyNo()
     {
-    	print_r(count($this->mt4));
-    	return $this;
+    	$this->BuyNo = count($this->mt4);
+    	
     }
 }
