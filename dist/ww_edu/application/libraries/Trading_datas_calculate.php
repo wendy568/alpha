@@ -13,7 +13,7 @@
 	order_stop_loss: 止损
 	profit:盈利
  */
-class TradingDatasCalculate
+class Trading_datas_calculate
 {
 	private $calculate_datas;
 
