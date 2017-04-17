@@ -59,6 +59,7 @@ class Trading_datas_calculate{
 
     public function BuyNo()
     {
+    	print_r(count($this->mt4));
     	return $this;
     }
 }
