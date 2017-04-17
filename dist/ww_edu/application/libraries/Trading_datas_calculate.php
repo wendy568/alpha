@@ -65,8 +65,8 @@ class Trading_datas_calculate{
         return isset($this->analysis[$name]);
     }
 
-    public function buy_no()
-    {
-    	$this->buy_count = 123;
-    }
+    // public function buy_no()
+    // {
+    // 	$this->buy_count = 123;
+    // }
 }
