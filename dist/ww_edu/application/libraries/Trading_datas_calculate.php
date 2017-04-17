@@ -23,20 +23,20 @@ class Trading_datas_calculate{
 		);
 
 	private $analysis = array(
-				'BuyNo'      => null,
-				'SellNo'     => null,
-				'SingleGain' => null,
-				'Singleloss' => null,
-				'Singlelots' => null,
-				'AvgTime'    => null,
-				'AvgGain'    => null,
-				'Avgloss'    => null,
-				'Period'     => null,
-				'GLRatio'    => null,
-				'LSRatio'    => null,
-				'ProfitLots' => null,
-				'BestSymbol' => null,
-				'RiskManage' => null,
+				'buy_count'      => null,
+				'sell_count'     => null,
+				'single_gain' => null,
+				'single_loss' => null,
+				'single_lots' => null,
+				'avg_time'    => null,
+				'avg_gain'    => null,
+				'avg_loss'    => null,
+				'period'     => null,
+				'gl_ratio'    => null,
+				'ls_ratio'    => null,
+				'profit_lots' => null,
+				'best_symbol' => null,
+				'risk_manage' => null,
 		);
 
 	public function __get($name){
@@ -65,8 +65,8 @@ class Trading_datas_calculate{
         return isset($this->analysis[$name]);
     }
 
-    public function BuyNo()
+    public function buy_no()
     {
-    	$this->BuyNo = count($this->mt4);
+    	$this->buy_count = count($this->mt4);
     }
 }
