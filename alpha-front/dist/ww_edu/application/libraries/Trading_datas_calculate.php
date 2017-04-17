@@ -23,15 +23,15 @@ class Trading_datas_calculate{
 	// 	);
 
 	private $analysis = array(
-				'buy_count'      => null,
-				'sell_count'     => null,
+				'buy_count'   => null,
+				'sell_count'  => null,
 				'single_gain' => null,
 				'single_loss' => null,
 				'single_lots' => null,
 				'avg_time'    => null,
 				'avg_gain'    => null,
 				'avg_loss'    => null,
-				'period'     => null,
+				'period'      => null,
 				'gl_ratio'    => null,
 				'ls_ratio'    => null,
 				'profit_lots' => null,
