@@ -44,6 +44,6 @@ class Trading_datas_calculate{
 
     public function buy_no()
     {
-    	$this->buy_count = count($mt4);
+    	$this->buy_count = count($this->mt4);
     }
 }
