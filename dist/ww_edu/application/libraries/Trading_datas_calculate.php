@@ -18,57 +18,35 @@
  */
 class Trading_datas_calculate{
 
-	// private $import_datas = array(
-	// 			'mt4' => array()
-	// 	);
+	private $mt4;
 
-	private $analysis = array(
-				'buy_count'   => null,
-				'sell_count'  => null,
-				'single_gain' => null,
-				'single_loss' => null,
-				'single_lots' => null,
-				'avg_time'    => null,
-				'avg_gain'    => null,
-				'avg_loss'    => null,
-				'period'      => null,
-				'gl_ratio'    => null,
-				'ls_ratio'    => null,
-				'profit_lots' => null,
-				'best_symbol' => null,
-				'risk_manage' => null,
-		);
+	private $buy_count;
+	private $sell_count;
+	private $single_gain;
+	private $single_loss;
+	private $single_lots;
+	private $avg_time;
+	private $avg_gain;
+	private $avg_loss;
+	private $period;
+	private $gl_ratio;
+	private $ls_ratio;
+	private $profit_lots;
+	private $best_symbol;
+	private $risk_manage;
 
-	public function __get($name){
-        // if(isset($this->import_datas[$name])) {
-        //     return $this->import_datas[$name];
-        // }
+	public function __construct($import_datas)
+	{
+		if ($import_datas['type'] == 'mt4') {
+			unset($import_datas['type']);
+			$this->mt4 = $import_datas;
+		}
+	}
 
-        if(isset($this->analysis[$name])) {
-        	var_dump($name);
-            return $this->analysis[$name] = $value;
-        }
 
-        return null;
+
+    public function buy_no()
+    {
+    	$this->buy_count = count($mt4);
     }
-
-    public function __set($name,$value){
-        // if(isset($this->import_datas[$name])) {
-        //     $this->import_datas[$name] = $value;
-        // }
-
-        if(isset($this->analysis[$name])) {
-        	var_dump($name);
-            $this->analysis[$name] = $value;
-        }
-    }
-
-    public function __isset($name){
-        return isset($this->analysis[$name]);
-    }
-
-    // public function buy_no()
-    // {
-    // 	$this->buy_count = 123;
-    // }
 }
