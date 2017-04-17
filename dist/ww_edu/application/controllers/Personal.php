@@ -433,7 +433,6 @@ class Personal extends MY_Controller
 		$datas = $this->TradingAnalysis->export_mt4_datas();
 
 		$this->load->library('trading_datas_calculate', array('data' => $datas, 'type' => 'mt4'));
-		$this->trading_datas_calculate->mt4 = $datas;
 		$this->trading_datas_calculate->buy_no();
 		print_r($this->trading_datas_calculate);
 		die;
