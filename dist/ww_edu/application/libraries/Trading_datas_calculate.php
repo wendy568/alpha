@@ -18,9 +18,9 @@
  */
 class Trading_datas_calculate{
 
-	private $import_datas = array(
-				'mt4' => array()
-		);
+	// private $import_datas = array(
+	// 			'mt4' => array()
+	// 	);
 
 	private $analysis = array(
 				'buy_count'      => null,
