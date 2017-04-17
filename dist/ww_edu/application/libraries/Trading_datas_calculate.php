@@ -22,7 +22,7 @@ class Trading_datas_calculate{
 				'mt4' => array()
 		);
 
-	private $Analysis = array(
+	private $analysis = array(
 				'BuyNo'      => null,
 				'SellNo'     => null,
 				'SingleGain' => null,
@@ -44,8 +44,8 @@ class Trading_datas_calculate{
             return $this->import_datas[$name];
         }
 
-        if(isset($this->Analysis[$name])) {
-            return $this->Analysis[$name] = $value;
+        if(isset($this->analysis[$name])) {
+            return $this->analysis[$name] = $value;
         }
 
         return null;
@@ -56,18 +56,18 @@ class Trading_datas_calculate{
             $this->import_datas[$name] = $value;
         }
 
-        if(isset($this->Analysis[$name])) {
-            $this->Analysis[$name] = $value;
+        if(isset($this->analysis[$name])) {
+            $this->analysis[$name] = $value;
         }
     }
 
     public function __isset($name){
-        return isset($this->Analysis[$name]);
+        return isset($this->analysis[$name]);
     }
 
     public function BuyNo()
     {
     	$this->BuyNo = count($this->mt4);
-    	
+
     }
 }
