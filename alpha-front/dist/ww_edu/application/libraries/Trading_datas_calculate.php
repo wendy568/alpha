@@ -53,14 +53,13 @@ class Trading_datas_calculate{
     }
 
     public function __set($name,$value){
-    	// var_dump($name);
         if(isset($this->import_datas[$name])) {
-        	var_dump($name);
             $this->import_datas[$name] = $value;
         }
 
         if(isset($this->analysis[$name])) {
-        	// var_dump($name);
+        	var_dump($name);
+        	var_dump($value);
             $this->analysis[$name] = $value;
         }
     }
