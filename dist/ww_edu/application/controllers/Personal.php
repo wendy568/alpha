@@ -428,9 +428,6 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$token = $this->input->get_post('token', TRUE);
-		$datas = $this->input->post();
-		print_r($datas);var_dump($token);die;
 		$file = $this->input->get_post('file', TRUE);
 
 		$mt4_format = array(
