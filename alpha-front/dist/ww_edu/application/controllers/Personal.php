@@ -429,7 +429,7 @@ class Personal extends MY_Controller
 	public function test()
 	{
 		$this->load->database();
-		$this->load->model('TradingAnalysis.php');
+		$this->load->model('TradingAnalysis');
 		$data = $this->TradingAnalysis->export_mt4_datas();
 		print_r($data);
 		die;
