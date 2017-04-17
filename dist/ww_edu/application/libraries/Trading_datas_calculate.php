@@ -55,6 +55,7 @@ class Trading_datas_calculate{
     public function __set($name,$value){
     	var_dump($name);
         if(isset($this->import_datas[$name])) {
+        	var_dump($name);
             $this->import_datas[$name] = $value;
         }
 
