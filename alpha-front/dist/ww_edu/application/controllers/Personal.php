@@ -431,7 +431,7 @@ class Personal extends MY_Controller
 		$this->load->database();
 		$this->load->model('TradingAnalysis.php');
 		$data = $this->TradingAnalysis->export_mt4_datas();
-		print_r($data)
+		print_r($data);
 		die;
 		$file = $this->input->get_post('file', TRUE);
 
