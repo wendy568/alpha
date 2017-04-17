@@ -23,7 +23,7 @@ class Trading_datas_calculate{
 		);
 
 	private $analysis = array(
-				'buyno'      => null,
+				'BuyNo'      => null,
 				'SellNo'     => null,
 				'SingleGain' => null,
 				'Singleloss' => null,
@@ -67,6 +67,6 @@ class Trading_datas_calculate{
 
     public function BuyNo()
     {
-    	$this->buyno = count($this->mt4);
+    	$this->BuyNo = count($this->mt4);
     }
 }
