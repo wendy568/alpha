@@ -437,7 +437,7 @@ class Personal extends MY_Controller
 		$this->trading_datas_calculate->SellNo = '123';
 		$this->trading_datas_calculate->BuyNo();
 		// print_r($this->trading_datas_calculate);
-		print_r($this->trading_datas_calculate->analysis);
+		print_r($this->trading_datas_calculate);
 		die;
 		$file = $this->input->get_post('file', TRUE);
 
