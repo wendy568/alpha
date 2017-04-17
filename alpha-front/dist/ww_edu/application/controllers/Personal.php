@@ -428,14 +428,14 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$this->load->database();
-		$this->load->model('TradingAnalysis');
-		$datas = $this->TradingAnalysis->export_mt4_datas();
+		// $this->load->database();
+		// $this->load->model('TradingAnalysis');
+		// $datas = $this->TradingAnalysis->export_mt4_datas();
 
-		$this->load->library('trading_datas_calculate');
-		$this->trading_datas_calculate->mt4 = $datas;
-		print_r($this->trading_datas_calculate);
-		die;
+		// $this->load->library('trading_datas_calculate');
+		// $this->trading_datas_calculate->mt4 = $datas;
+		// print_r($this->trading_datas_calculate);
+		// die;
 		$file = $this->input->get_post('file', TRUE);
 
 		$mt4_format = array(
