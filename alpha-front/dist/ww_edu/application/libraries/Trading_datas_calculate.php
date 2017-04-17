@@ -38,12 +38,9 @@ class Trading_datas_calculate{
 	public function __construct($import_datas)
 	{
 		if ($import_datas['type'] == 'mt4') {
-			unset($import_datas['type']);
-			$this->mt4 = $import_datas;
+			$this->mt4 = $import_datas['data'];
 		}
 	}
-
-
 
     public function buy_no()
     {
