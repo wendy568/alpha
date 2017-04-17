@@ -40,7 +40,7 @@ class Trading_datas_calculate{
 		);
 
 	public function __get($name){
-		// var_dump($name);
+		var_dump($name);
         if(isset($this->import_datas[$name])) {
             return $this->import_datas[$name];
         }
@@ -53,7 +53,6 @@ class Trading_datas_calculate{
     }
 
     public function __set($name,$value){
-    	var_dump($name);
         if(isset($this->import_datas[$name])) {
             $this->import_datas[$name] = $value;
         }
