@@ -59,6 +59,7 @@ class Trading_datas_calculate{
         }
 
         if(isset($this->analysis[$name])) {
+        	var_dump($name);
             $this->analysis[$name] = $value;
         }
     }
