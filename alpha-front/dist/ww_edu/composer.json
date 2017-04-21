@@ -1,6 +1,0 @@
-{
-	"require": {
-		"phpunit/phpunit": "5.6.3",
-		"blablacar/memcached-client": "@stable"
-	}
-}
