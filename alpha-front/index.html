@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Alpha-v2.0</title>
+        <link href="assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
+        <link href="webarch/css/webarch.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    </head>
+        
+    <body class="">
+        <!-- navbar -->
+        <div class="header navbar navbar-inverse ">
+            <div class="navbar-inner">
+                <!-- sidebar top -->
+                <div class="header-seperation">
+                    <!-- 响应式隐藏菜单 左侧-->
+                    <ul class="nav pull-left notifcation-center visible-xs visible-sm">
+                        <li class="dropdown">
+                            <a href="#main-menu" data-webarch="toggle-left-side">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- LOGO -->
+                    <a href="index.html">
+                        <img src="assets/img/logo.png" class="logo" alt="" data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png"  />
+                    </a>
+                    <!-- 主页和邮箱 -->
+                    <ul class="nav pull-right notifcation-center">
+                        <!-- 主页 -->
+                        <li class="dropdown hidden-xs hidden-sm">
+                            <a href="index.html" class="dropdown-toggle active" data-toggle="">
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <!-- 邮箱 -->
+                        <li class="dropdown hidden-xs hidden-sm">
+                            <a href="email.html" class="dropdown-toggle">
+                                <i class="fa fa-envelope-o"></i><span class="badge badge-important">2</span>
+                            </a>
+                        </li>
+                        <li class="dropdown visible-xs visible-sm">
+                            <a href="#" data-webarch="toggle-right-side">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- navbar-->
+                <div class="header-quick-nav">
+                    <!-- navbar left-->
+                    <div class="pull-left">
+                        <ul class="nav quick-section">
+                            <li class="quicklinks">
+                                <a href="#" class="" id="layout-condensed-toggle">
+                                    <i class="fa fa-reorder"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav quick-section">
+                            <li class="quicklinks  m-r-10">
+                                <a href="#" class="">
+                                    <i class="fa fa-refresh"></i>
+                                </a>
+                            </li>
+                            <li class="m-r-10 input-prepend inside search-form no-boarder" >
+                                <span class="add-on" > <i class="fa fa-search"></i></span>
+                                <input name="" type="text" class="no-boarder" placeholder="Search Dashboard" style="width:250px;">
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="notification-list" style="display:none">
+                        <div style="width:300px">
+                            <div class="notification-messages info">
+                                <div class="user-profile">
+                                  <img src="assets/img/profiles/d.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">
+                                </div>
+                                <div class="message-wrapper">
+                                  <div class="heading">
+                                    David Nester - Commented on your wall
+                                  </div>
+                                  <div class="description">
+                                    Meeting postponed to tomorrow
+                                  </div>
+                                  <div class="date pull-left">
+                                    A min ago
+                                  </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="notification-messages danger">
+                                <div class="iconholder">
+                                  <i class="icon-warning-sign"></i>
+                                </div>
+                                <div class="message-wrapper">
+                                  <div class="heading">
+                                    Server load limited
+                                  </div>
+                                  <div class="description">
+                                    Database server has reached its daily capicity
+                                  </div>
+                                  <div class="date pull-left">
+                                    2 mins ago
+                                  </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="notification-messages success">
+                                <div class="user-profile">
+                                    <img src="assets/img/profiles/h.jpg" alt="" data-src="assets/img/profiles/h.jpg" data-src-retina="assets/img/profiles/h2x.jpg" width="35" height="35">
+                                </div>
+                                <div class="message-wrapper">
+                                    <div class="heading"> You haveve got 150 messages</div>
+                                    <div class="description">150 newly unread messages in your inbox </div>
+                                    <div class="date pull-left"> An hour ago </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- navbar right -->
+                    <div class="pull-right">
+                        <ul class="nav quick-section ">
+                            <!-- 邮箱 -->
+                            <li class="dropdown hidden-xs hidden-sm">
+                                <a href="email.html" class="dropdown-toggle" data-webarch="toggle-right-side">
+                                    <i class="fa fa-envelope-o"></i><span class="badge badge-important">2</span>
+                                </a>
+                                 <div class="simple-chat-popup chat-menu-toggle hide">
+                                    <div class="simple-chat-popup-arrow"></div>
+                                    <div class="simple-chat-popup-inner">
+                                        <div style="width:100px">
+                                            <div class="semi-bold">David Nester</div>
+                                            <div class="message">Hey you there </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- section -->
+        <div class="page-container row-fluid ">
+            <!-- sidebar left-->
+            <div class="page-sidebar " id="main-menu">
+                <div class="page-sidebar-wrapper scroller scrollbar-dynamic" id="main-menu-wrapper">
+                    <!-- 用户头像信息 -->
+                    <div class="user-info-wrapper sm">
+                        <!-- 头像 -->
+                        <div class="profile-wrapper sm">
+                            <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" />
+                        </div>
+                        <!-- 姓名、登录状态 -->
+                        <div class="user-info sm">
+                            <div class="username"><span class="semi-bold">Welcome</span></div>
+                            <div class="username">John <span class="semi-bold">Smith</span></div>
+                            <div class="status">Status
+                                <div class="status-icon green"></div> online    
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BROWSE    -->
+                    <p class="menu-title sm">BROWSE 
+                        <span class="pull-right">
+                            <a href="javascript:;">
+                                <i class="fa fa-refresh"></i>
+                            </a>
+                        </span>
+                    </p>
+                    <!-- 链接列表 -->
+                    <ul>    
+                        <!-- index -->
+                        <li class="start  open active "> 
+                            <a href="index.html">
+                                <i class="fa fa-home"></i> 
+                                <span class="title">Index</span> 
+                                <span class="badge badge-important pull-right">5</span>
+                            </a>
+                        </li>
+                        <!-- Tra Management -->
+                        <li>
+                            <a href="javascript:;"> 
+                                <i class="fa fa-legal"></i>
+                                <span class="title">Tra Management</span> 
+                                <span class=" fa fa-angle-left pull-right "></span> 
+                            </a>
+                            <ul class="sub-menu">
+                                <li> 
+                                    <a href="theme_coporate.html">Trading Statistics </a> 
+                                </li>
+                                <li> 
+                                    <a href="theme_simple.html">Tools</a> 
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- tv -->
+                        <li>
+                            <a href="email.html"> 
+                                <i class="fa fa-tv"></i> 
+                                <span class="title">TV</span> 
+                            </span>
+                            </a>
+                        </li>
+                        <!-- order -->
+                        <li>
+                            <a href="javascript:;"> 
+                                <i class="fa fa-file-text"></i> 
+                                <span class="title">Order</span> 
+                            </a>
+                        </li>
+                        <!-- help -->
+                        <li>
+                            <a href="javascript:;"> 
+                                <i class="fa fa-question-circle"></i> 
+                                <span class="title">Help</span> 
+                            </a>
+                        </li>
+                        <!-- table -->
+                        <li>
+                            <a href="javascript:;"> 
+                                <i class="fa fa-th-large"></i>
+                                <span class="title">Table</span> 
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="side-bar-widgets">
+                        <p class="menu-title sm">Themes 
+                            <span class="pull-right">
+                                <a href="#" class="create-folder"> 
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </span>
+                        </p>
+                        <ul class="folders">
+                          <li>
+                            <a href="#">
+                                <i class="fa fa-circle-o"></i>  white
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                                <i class="fa fa-circle-o"></i> block 
+                            </a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="scrollup">Scroll</a>
+            <!-- exit -->
+            <div class="footer-widget">
+                <div class="progress transparent progress-small no-radius no-margin">
+                  <div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="79%" style="width: 79%;"></div>
+                </div>
+                <div class="pull-right">
+                    <div class="details-status"> 
+                        <span class="animate-number" data-value="86" data-animation-duration="560">86</span>% 
+                    </div>
+                    <a href="lockscreen.html">
+                        <i class="fa fa-power-off"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- section content -->
+            <div class="page-content">
+                <div class="content sm-gutter">
+                    <!-- 面包屑导航 -->
+                    <ul class="breadcrumb">
+                        <li> <p>Index</p> </li>
+                    </ul>
+                    <!-- 卡片 -->
+                    <div class="row">
+                        <!-- 456 -->
+                        <div class=" col-md-6 col-lg-3 m-b-30">
+                            <div class="tiles blue">
+                                <div class="tiles-body">
+                                    <div class="controller">
+                                        <a href="javascript:;" class="reload"></a>
+                                        <a href="javascript:;" class="remove"></a>
+                                    </div>
+                                    <div class="tiles-title text-white">TODAY'S TRADING COUNTS </div>
+                                    <div class="widget-stats">
+                                        <div class="wrapper transparent">
+                                             <span class="item-count animate-number semi-bold" data-value="456" data-animation-duration="700">0</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+                                        <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="64.8%"></div>
+                                    </div>
+                                    <div class="description"> 
+                                        <i class="icon-custom-up"></i>
+                                        <span class="text-white mini-description ">2% Higher 
+                                            <span class="blend">than last month</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2545 -->
+                        <div class=" col-md-6  col-lg-3 m-b-30">
+                            <div class="tiles green">
+                                <div class="tiles-body">
+                                    <div class="controller">
+                                        <a href="javascript:;" class="reload"></a>
+                                        <a href="javascript:;" class="remove"></a>
+                                    </div>
+                                    <div class="tiles-title text-black">TODAY'S PEOFITS</div>
+                                    <div class="widget-stats">
+                                        <div class="wrapper transparent">
+                                            <span class="item-count animate-number semi-bold" data-value="2545," data- animation-duration="700">0</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+                                        <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="54%"></div>
+                                    </div>
+                                    <div class="description"> 
+                                        <i class="icon-custom-up"></i>
+                                        <span class="text-white mini-description ">4% higher 
+                                            <span class="blend">than last month</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 17 -->
+                        <div class=" col-md-6 col-lg-3  m-b-30">
+                          <div class="tiles red">
+                            <div class="tiles-body">
+                                <div class="controller">
+                                    <a href="javascript:;" class="reload"></a>
+                                    <a href="javascript:;" class="remove"></a>
+                                </div>
+                                <div class="tiles-title text-black">TODAY'S HODING TIME</div>
+                                <div class="widget-stats">
+                                    <div class="wrapper transparent">
+                                        <span class="item-count animate-number semi-bold" data-value="17H 12M" data-animation-duration="700">0</span>
+                                    </div>
+                                </div>
+                                <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+                                    <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="90%"></div>
+                                </div>
+                                <div class="description"> 
+                                    <i class="icon-custom-up"></i>
+                                    <span class="text-white mini-description ">4% higher 
+                                        <span class="blend">than last month</span>
+                                    </span>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- 24DAY -->
+                        <div class=" col-md-6 col-lg-3  m-b-30">
+                          <div class="tiles purple">
+                            <div class="tiles-body">
+                                <div class="controller">
+                                    <a href="javascript:;" class="reload"></a>
+                                    <a href="javascript:;" class="remove"></a>
+                                </div>
+                                <div class="tiles-title text-black">OVERALL SALES </div>
+                                <div class="widget-stats">
+                                    <div class="wrapper transparent">
+                                        <span class="item-count animate-number semi-bold" data-value="24DAYS" data-animation-duration="700">0</span>
+                                    </div>
+                                </div>
+                                <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+                                    <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="64.8%"></div>
+                                </div>
+                                <div class="description"> 
+                                    <i class="icon-custom-up"></i>
+                                    <span class="text-white mini-description ">4% higher 
+                                        <span class="blend">than last month</span>
+                                    </span>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- 数据分析图 -->
+                    <div class="row m-b-30">
+                        <!-- 折线图 -->
+                        <div class="col-lg-5 col-md-6">
+                            <div class="grid simple">
+                                <div class="grid-body no-border">
+                                    <div class="row no-margin">
+                                         <div class="widget-stats" style="float: left;">
+                                            <div class="wrapper transparent">
+                                                <span class="item-title">You've earned</span> <span class="item-count animate-number semi-bold" data-value="21,854 USD" data-animation-duration="700">0</span>
+                                            </div>
+                                        </div>
+                                         <div class="widget-stats " style="float: right;">
+                                            <div class="wrapper last" >
+                                                <span class="item-title">THIS MONTH</span> <span class="item-count animate-number semi-bold" data-value="$8545" data-animation-duration="700">0</span>
+                                            </div>
+                                        </div>
+                                         <div class="widget-stats" style="float: right;">
+                                            <div class="wrapper transparent">
+                                                <span class="item-title">Today</span> <span class="item-count animate-number semi-bold" data-value="$451" data-animation-duration="700">0</span>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div id="placeholder" class="demo-placeholder" style="width:100%;height:240px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 柱状图 -->
+                        <div class="col-lg-5 col-md-6">
+                            <div class="grid simple">
+                                <div class="grid-body no-border">
+                                  <div class="row-fluid">
+                                    <h4>SYNTHESIZING DATA</h4>
+                                    <br>
+                                    <div id="stacked-ordered-chart" style="height:250px"></div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 圆形图 -->
+                        <div class="col-lg-2 col-md-6">
+                            <div class="grid simple">
+                                <div class="grid-body no-border">
+                                    <h4>LONG SHORT RATIO</h4>  <br>
+                                    <div id="ram-usage" class="easy-pie-custom" data-percent="43.1">
+                                        <span class="easy-pie-percent">USD/CHF</span>
+                                    </div>
+                                    <div class="row yun">
+                                        <div class="col-sm-12">
+                                            <i class="fa fa-chevron-circle-left"></i>
+                                            <span>USD/CHF</span>
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 交易指数和交易日志 -->
+                    <div class="row">
+                        <!-- 外汇数据 -->
+                        <div class="col-lg-8 col-md-12">
+                            <div class="grid simple">
+                                <div class="grid-title no-border">
+                                    <i class="fa fa-chevron-circle-left"></i>
+                                    <i class="fa fa-chevron-circle-right"></i>
+                                </div>
+                                <div class="grid-body no-border">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 外汇新闻 -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="grid simple">
+                                <div class="grid-title no-border">
+                                    <h4 class="text-white">
+                                    <i class="fa fa-newspaper-o"></i>
+                                    <span>FOREX NEWS</span>
+                                    <span class="text-error text-right">2017年7月</span>
+                                    </h4>
+                                </div>
+                                <div class="grid-body no-border">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 实时指数 -->
+                    <!-- 视频 -->
+                </div>
+            </div>
+            <!-- sidebar right -->
+            <div class="chat-window-wrapper">
+                <div id="main-chat-wrapper" class="inner-content">
+                    <div class="chat-window-wrapper scroller scrollbar-dynamic" id="chat-users">
+                        <div class="chat-header">
+                          <div class="pull-left">
+                            <input type="text" placeholder="search">
+                          </div>
+                          <div class="pull-right">
+                            <a href="#" class="">
+                              <div class="iconset top-settings-dark "></div>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="chat-window-wrapper" id="messages-wrapper" style="display:none">
+                        <div class="chat-header">
+                          <div class="pull-left">
+                            <input type="text" placeholder="search">
+                          </div>
+                          <div class="pull-right">
+                            <a href="#" class="">
+                              <div class="iconset top-settings-dark "></div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="chat-messages-header">
+                          <div class="status online"></div><span class="semi-bold">Jane Smith(Typing..)</span>
+                          <a href="#" class="chat-back"><i class="icon-custom-cross"></i></a>
+                        </div>
+                        <div class="chat-messages scrollbar-dynamic clearfix">
+                          <div class="inner-scroll-content clearfix">
+                            <div class="sent_time">Yesterday 11:25pm</div>
+                            <div class="user-details-wrapper ">
+                              <div class="user-profile">
+                                <img src="assets/img/profiles/d.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">
+                              </div>
+                              <div class="user-details">
+                                <div class="bubble">
+                                  Hello, You there?
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="sent_time off">Yesterday 11:25pm</div>
+                            </div>
+                            <div class="user-details-wrapper ">
+                              <div class="user-profile">
+                                <img src="assets/img/profiles/d.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">
+                              </div>
+                              <div class="user-details">
+                                <div class="bubble">
+                                  How was the meeting?
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="sent_time off">Yesterday 11:25pm</div>
+                            </div>
+                            <div class="user-details-wrapper ">
+                              <div class="user-profile">
+                                <img src="assets/img/profiles/d.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">
+                              </div>
+                              <div class="user-details">
+                                <div class="bubble">
+                                  Let me know when you free
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="sent_time off">Yesterday 11:25pm</div>
+                            </div>
+                            <div class="sent_time ">Today 11:25pm</div>
+                            <div class="user-details-wrapper pull-right">
+                              <div class="user-details">
+                                <div class="bubble sender">
+                                  Let me know when you free
+                                </div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <div class="sent_time off">Sent On Tue, 2:45pm</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="chat-input-wrapper" style="display:none">
+                          <textarea id="chat-message-input" rows="1" placeholder="Type your message"></textarea>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- script -->
+        <script src="assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="webarch/js/webarch.js" type="text/javascript"></script>
+        <script src="assets/js/charts.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-flot/jquery.flot.animator.min.js"></script>
+        <script src="assets/plugins/jquery-flot/jquery.flot.js"></script>
+        <script src="assets/plugins/jquery-easy-pie-chart/js/jquery.easypiechart.min.js"></script>
+        <script src="assets/plugins/jquery-sparkline/jquery-sparkline.js"></script>
+    </body>
+</html>
