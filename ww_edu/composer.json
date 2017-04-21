@@ -1,0 +1,6 @@
+{
+	"require": {
+		"blablacar/memcached-client": "@stable",
+		"payments/alipay": "dev-master"
+	}
+}

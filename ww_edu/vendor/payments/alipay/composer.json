@@ -1,0 +1,18 @@
+{
+    "name": "payments/alipay",
+    "description": "common,function,library,ext",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chen Qi",
+            "email": "7chnqe22@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Alipay\\": "Alipay"
+        }
+    }
+}

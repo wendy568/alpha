@@ -1,0 +1,98 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "cec3e8e5f8e7f56c7652d7849fd41e26",
+    "packages": [
+        {
+            "name": "blablacar/memcached-client",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blablacar/memcached-client.git",
+                "reference": "50b4d9a6cffec23fe2376da9c733a8ccda782a10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blablacar/memcached-client/zipball/50b4d9a6cffec23fe2376da9c733a8ccda782a10",
+                "reference": "50b4d9a6cffec23fe2376da9c733a8ccda782a10",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "fabpot/php-cs-fixer": "~1.5",
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Blablacar": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Dolbeau",
+                    "homepage": "http://odolbeau.fr/"
+                }
+            ],
+            "description": "BlaBlarCar Memcached client",
+            "keywords": [
+                "client",
+                "memcache"
+            ],
+            "time": "2015-03-09T13:45:04+00:00"
+        },
+        {
+            "name": "payments/alipay",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chenqidage/payments.git",
+                "reference": "80f58fbffdca90d2bc436f640c790192220c10eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chenqidage/payments/zipball/80f58fbffdca90d2bc436f640c790192220c10eb",
+                "reference": "80f58fbffdca90d2bc436f640c790192220c10eb",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Alipay\\": "Alipay"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chen Qi",
+                    "email": "7chnqe22@gmail.com"
+                }
+            ],
+            "description": "common,function,library,ext",
+            "time": "2017-02-24 07:31:31"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "blablacar/memcached-client": 0,
+        "payments/alipay": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
