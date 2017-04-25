@@ -5,29 +5,30 @@ Theme : Default
 Generated From LESS
 [Table of contents]
 
-1. Layouts
-2. Icons
-3. Horizontal Menu
-4. Typography
-5. Misc
-6. Form Elements
-7. Portlets
-8. Message and Notification
-9. Tiles
-10. Buttons
-11. Tabs & Accordians
-12. Sliders
-13. Tables
-14. Datatables
-15. Charts
-16. User Profile
-17. Vector Map
-18. Error Page
-19. Timeline
-20. Search Results
+1. Layouts 布局
+2. Icons 图标
+3. Horizontal Menu 水平菜单
+4. Typography 排印
+5. Misc 混杂
+6. Form Elements 表单元素
+7. Portlets 组件
+8. Message and Notification 信息和通知
+9. Tiles 瓷砖
+10. Buttons 按钮
+11. Tabs & Accordians 手风琴
+12. Sliders  
+13. Tables 表格
+14. Datatables 日期表格
+15. Charts 图标
+16. User Profile 用户资料
+17. Vector Map 矢量地图
+18. Error Page 错误页
+19. Timeline 时间线
+20. Search Results 搜索结果
 21. RTL
-22. Print
-23. Slider
+22. Print 打印
+23. Slider 滑块
+24. text-color 字体颜色
 -------------------------------------------------------------------*/
 /*!
 * direction.less v0.1.0
@@ -2070,7 +2071,6 @@ you can use the generic selector below, but it's slower:
 h1,h2,h3,h4,h5,h6 {
   margin: 10px 0;
   font-family: 'Roboto';
-  /*font-weight: 300;*/
   color: #505458;
 }
 h1 {
@@ -2130,10 +2130,6 @@ label.inline {
 label.done {
   color: #0090d9 !important;
   text-decoration: line-through;
-}
-ul > li {
-  padding-left: 6px;
-  line-height: 20px;
 }
 ul.progress-list {
   list-style: none;
@@ -4365,7 +4361,7 @@ form legend,
 }
 .input-prepend.inside .add-on:first-child,
 .input-prepend .btn:first-child {
-  background-color: #000;
+  background-color: #1b1e24;
   border: 1px solid #e5e9ec;
   position: relative;
   left: 3px;
@@ -4934,7 +4930,7 @@ form legend,
   padding: 0px !important;
 }
 .grid.simple .grid-title {
-  padding: 14px 15px 7px 15px;
+  padding: 15px;
   border-bottom: 1px solid #eee;
   color: #282323 !important;
   background-color: #20252b;
@@ -4971,7 +4967,6 @@ form legend,
     background-color: #1C2026;
     padding: 30px;
     border: 1px solid #dddddd;
-    color: #6f7b8a;
     overflow: hidden;   
     box-sizing: border-box;
 }
@@ -4987,7 +4982,6 @@ form legend,
 }
 .grid.simple .grid-body.no-border {
     border: 0px;
-  /*padding-top: 1px;*/
 }
 .grid.simple .grid-body h4 {
     color: #fff;
@@ -5049,7 +5043,6 @@ form legend,
   font-weight: 400;
   margin: 0;
   padding: 0;
-  /*margin-bottom: 7px;*/
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -5137,6 +5130,7 @@ form legend,
   margin-top: 6px;
   float: right;
 }
+
 .grid-body {
   padding: 0;
 }
@@ -5246,6 +5240,23 @@ form legend,
   font-family: 'Material Icons';
   content: "\E5CF";
   font-size: 16px;
+}
+/*外汇数据模块*/
+.module{
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    background-color: #272c32;
+    border-radius: 8px;
+    margin:0 4px;
+    padding: 15px 0;
+}
+.module:hover,
+.module:active{
+    background-color: #1CBD9D;
+}
+.link:hover{
+    cursor: pointer;
 }
 /*------------------------------------------------------------------
 [8. Message and Notification]
@@ -5721,7 +5732,7 @@ form legend,
   font-weight: 500;
 }
 .tiles .tiles-body {
-  padding: 19px 18px 15px 24px;
+  padding: 15px;
 }
 .tiles .controller {
   position: relative;
@@ -7175,7 +7186,6 @@ code:hover {
   border-top: 1px solid #e8edf1;
   padding: 10px 12px;
   font-size: 12px;
-  text-transform: uppercase;
 }
 .table th.medium-cell {
   width: 112px;
@@ -7192,7 +7202,6 @@ code:hover {
 .table td {
   border-top: 1px solid #e8edf1;
   vertical-align: top;
-  padding: 11px 12px !important;
   color: #576475;
   font-size: 13px;
 }
@@ -7228,14 +7237,6 @@ code:hover {
 th {
   text-align: left;
 }
-.table > thead > tr > th,
-.table > tbody > tr > th,
-.table > tfoot > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > td,
-.table > tfoot > tr > td {
-  padding: 12px;
-}
 .table th input[type="radio"],
 input[type="checkbox"],
 .table td input[type="radio"],
@@ -7268,11 +7269,11 @@ input[type="checkbox"] {
 }
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  border-top: 1px solid #e8edf1;
+  /*border-top: 1px solid #e8edf1;*/
 }
 .table-striped tbody > tr:nth-child(2n+1) > td,
 .table-striped tbody > tr:nth-child(2n+1) > th {
-  background-color: #ecf0f2;
+  background-color: #1C2026;
   border: none;
 }
 .table-striped tbody > tr > td {
@@ -8002,10 +8003,12 @@ input[type="checkbox"] {
 [19. Timeline]
 */
 .cbp_tmtimeline {
-  margin: 30px 0 0 0;
-  padding: 0;
-  list-style: none;
-  position: relative;
+    height: 393px;
+    overflow: hidden;
+    margin: 10px 0 0 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
 }
 .cbp_tmtimeline li {
   position: relative;
@@ -8015,8 +8018,8 @@ input[type="checkbox"] {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 10px;
-  background: #f2f4f6;
+  width: 2px;
+  background: #24282E;
   left: 20%;
   margin-left: -10px;
 }
@@ -8028,111 +8031,35 @@ input[type="checkbox"] {
   font-family: 'Roboto';
   text-align: right;
 }
-.cbp_tmtimeline > li .cbp_tmtime .date {
-  font-size: 1.2em;
-  color: #505458;
-  margin-bottom: 5px;
-  display: block;
-}
 .cbp_tmtimeline > li .cbp_tmtime .time {
-  font-size: 1.5em;
+  font-size: 1em;
   color: #505458;
   display: block;
 }
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
   color: #505458;
 }
+.cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
+  background: #1C2026;
+}
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel:after {
   border-right-color: #ffffff;
 }
 .cbp_tmtimeline > li .cbp_tmlabel {
-  margin: 0 0 15px 25%;
+  margin: 0 0 0 25%;
+  background: #1C2026;
+  font-size: 13px;
   line-height: 1.4;
   position: relative;
 }
-.cbp_tmtimeline > li .cbp_tmlabel h2 {
-  margin-top: 0px;
-  padding: 0 0 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-}
-.cbp_tmtimeline > li .cbp_tmlabel:after {
-  right: 100%;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  border-right-color: #ffffff;
-  border-width: 10px;
-  top: 10px;
-}
 .cbp_tmtimeline > li .cbp_tmicon {
-  width: 20px;
-  height: 20px;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 22px;
-  -webkit-font-smoothing: antialiased;
+  width: 32px;
   position: absolute;
-  color: #7c8694;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 0 0 8px #ffffff;
   text-align: center;
-  left: 23%;
-  top: 0;
+  left: 20%;
+  top: -4px;
   margin: 0 0 0 -25px;
   font-size: 1.3em;
-}
-.cbp_tmtimeline > li .cbp_tmicon.success {
-  background: #0090d9;
-  box-shadow: 0 0 0 8px #2ba3df;
-  color: #ffffff;
-}
-.cbp_tmtimeline > li .cbp_tmicon.primary {
-  background: #0aa699;
-  box-shadow: 0 0 0 8px #33b5aa;
-  color: #ffffff;
-}
-.cbp_tmtimeline > li .cbp_tmicon.warning {
-  background: #fbb05e;
-  box-shadow: 0 0 0 8px #fcbd79;
-  color: #ffffff;
-}
-.cbp_tmtimeline > li .cbp_tmicon.danger {
-  background: #f35958;
-  box-shadow: 0 0 0 8px #455a70;
-  color: #ffffff;
-}
-.cbp_tmtimeline > li .cbp_tmicon.info {
-  background: #1f3853;
-  box-shadow: 0 0 0 8px #455a70;
-  color: #ffffff;
-}
-.cbp_tmtimeline .action-links {
-  margin: 4px 0 0;
-  list-style: none;
-  font-size: 13px;
-  padding: 0;
-  float: left;
-}
-.cbp_tmtimeline .action-links li {
-  display: inline;
-  float: left;
-  position: relative;
-  padding-left: 0px;
-  padding-right: 8px;
-  color: #8b91a0;
-}
-.cbp_tmtimeline .action-links li:after {
-  color: #999999;
-  content: "•";
-  padding-left: 8px;
-}
-.cbp_tmtimeline .action-links li:last-child:after {
-  content: "";
 }
 /* Media Queries */
 @media screen and (max-width: 47.2em) {
@@ -10139,4 +10066,17 @@ body.rtl .footer-widget {
     transition-delay: 0s;
     -webkit-backface-visibility: hidden;
   }
+}
+/*----------------------------------24.text-color----------------------------------*/
+.text-c1{
+  color:#fff;
+}
+.text-c2{
+  color: #e5e9ec;
+}
+.text-c3{
+  color: #8b91a0;
+}
+.text-c4{
+  color: #a8adb2;
 }
