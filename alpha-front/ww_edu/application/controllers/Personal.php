@@ -428,10 +428,16 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		// echo date_default_timezone_get();die;
-		$winter = new DateTime(date('Y-m-d H:i:s', time()), new DateTimeZone('Europe/London'));
+		$shanghaitime = new DateTimeZone("Asia/Shanghai");
+		$shanghai = new DateTime("now", $shanghaitime);
+		$timeOffset = $shanghaitime->getOffset($shanghai);
+		var_dump($timeOffset);die;
+		$date1 = new DateTime('2017-03-01');
+		$date2 = new DateTime('2017-04-02');
 
-		echo $winter->getOffset() . "\n";die;
+		$diff = $date1->diff($date2);
+
+		echo "{$diff->m} months and {$diff->d} days.";die;
 		$this->load->database();
 		$this->load->model('TradingAnalysis');
 		$datas = $this->TradingAnalysis->export_mt4_datas();
