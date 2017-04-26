@@ -428,12 +428,11 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$date1 = new DateTime('2017-03-01');
-$date2 = new DateTime('2017-04-02');
+		$winter = new DateTime('2010-12-21', new DateTimeZone('America/New_York'));
+		$summer = new DateTime('2008-06-21', new DateTimeZone('America/New_York'));
 
-$diff = $date1->diff($date2);
-
-echo "{$diff->m} months and {$diff->d} days.";die;
+		echo $winter->getOffset() . "\n";
+		echo $summer->getOffset() . "\n";die;
 		$this->load->database();
 		$this->load->model('TradingAnalysis');
 		$datas = $this->TradingAnalysis->export_mt4_datas();
