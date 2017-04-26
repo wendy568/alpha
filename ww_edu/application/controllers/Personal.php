@@ -429,7 +429,7 @@ class Personal extends MY_Controller
 	public function test()
 	{
 		// echo date_default_timezone_get();die;
-		$winter = new DateTime(date('Y-m-d H-i-s', time()), new DateTimeZone('Europe/London'));
+		$winter = new DateTime(date('Y-m-d H:i:s', time()), new DateTimeZone('Europe/London'));
 
 		echo $winter->getOffset() . "\n";die;
 		$this->load->database();
