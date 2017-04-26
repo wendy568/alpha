@@ -4826,7 +4826,7 @@ form legend,
 }
 .grid.box .grid-title {
   padding: 8px 10px 2px 10px;
-  border-bottom: 1px solid #eee;
+  /*border-bottom: 1px solid #eee;*/
   color: #ffffff !important;
   margin-bottom: 0px;
 }
@@ -4930,12 +4930,10 @@ form legend,
   padding: 0px !important;
 }
 .grid.simple .grid-title {
-  padding: 15px;
-  border-bottom: 1px solid #eee;
+  padding: 15px 30px;
   color: #282323 !important;
   background-color: #20252b;
   margin-bottom: 0px;
-  border: 1px solid #dddddd;
   border-bottom: 0px;
 }
 .grid.simple .grid-title > .actions > .btn > i {
@@ -4966,7 +4964,6 @@ form legend,
 .grid.simple .grid-body {
     background-color: #1C2026;
     padding: 30px;
-    border: 1px solid #dddddd;
     overflow: hidden;   
     box-sizing: border-box;
 }
@@ -5011,22 +5008,22 @@ form legend,
     border-left: 4px solid #0090d9;
     border-top: none !important;
 }
-.grid.simple.horizontal.red .grid-title {
+.grid.simple.horizontal.red .grid-body {
     border-top: 4px solid #f35958;
 }
-.grid.simple.horizontal.yellow .grid-title {
+.grid.simple.horizontal.yellow .grid-body {
     border-top: 4px solid #ffb848;
 }
-.grid.simple.horizontal.green .grid-title {
+.grid.simple.horizontal.green .grid-body {
     border-top: 4px solid #0aa699;
 }
-.grid.simple.horizontal.purple .grid-title {
+.grid.simple.horizontal.purple .grid-body {
     border-top: 4px solid #852b99;
 }
-.grid.simple.horizontal.grey .grid-title {
+.grid.simple.horizontal.grey .grid-body {
     border-top: 4px solid #555555;
 }
-.grid.simple.horizontal.light-grey .grid-title {
+.grid.simple.horizontal.light-grey .grid-body {
     border-top: 4px solid #aaa;
 }
 .grid:after,
@@ -5035,7 +5032,6 @@ form legend,
 }
 .grid-title {
   margin-bottom: 15px;
-  border-bottom: 1px solid #eee;
 }
 .grid-title h4 {
   display: inline-block;
@@ -5249,7 +5245,7 @@ form legend,
     background-color: #272c32;
     border-radius: 8px;
     margin:0 4px;
-    padding: 15px 0;
+    padding: 12px 0;
 }
 .module:hover,
 .module:active{
@@ -5257,6 +5253,10 @@ form legend,
 }
 .link:hover{
     cursor: pointer;
+}
+.small-grid{
+    display: inline-block;
+    margin-right: 30px;
 }
 /*------------------------------------------------------------------
 [8. Message and Notification]
@@ -7177,13 +7177,17 @@ code:hover {
 /*------------------------------------------------------------------
 [13. Tables]
 */
+.table{
+    overflow: hidden;
+    display: block;
+}
 .table > thead > tr > th {
   border-bottom: 0px;
   font-size: 12px;
   letter-spacing: 0.07em;
 }
 .table th {
-  border-top: 1px solid #e8edf1;
+  border: none !important;
   padding: 10px 12px;
   font-size: 12px;
 }
@@ -7200,7 +7204,7 @@ code:hover {
   background-color: #ffffff;
 }
 .table td {
-  border-top: 1px solid #e8edf1;
+  border: none !important;
   vertical-align: top;
   color: #576475;
   font-size: 13px;
@@ -7267,10 +7271,10 @@ input[type="checkbox"] {
 .table-condensed th .checkbox {
   margin-left: 4px;
 }
-.table > tbody > tr > td,
+/*.table > tbody > tr > td,
 .table > tfoot > tr > td {
-  /*border-top: 1px solid #e8edf1;*/
-}
+  border-top: 1px solid #e8edf1;
+}*/
 .table-striped tbody > tr:nth-child(2n+1) > td,
 .table-striped tbody > tr:nth-child(2n+1) > th {
   background-color: #1C2026;
