@@ -428,6 +428,7 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
+		echo date_default_timezone_get();die;
 		$winter = new DateTime('2017-04-26', new DateTimeZone('Asia/Shanghai'));
 		$summer = new DateTime('2017-06-21', new DateTimeZone('Asia/Shanghai'));
 
