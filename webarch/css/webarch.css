@@ -2203,7 +2203,9 @@ blockquote.pull-right small:after {
   content: "";
 }
 .logo {
-  margin: 18px 14px;
+  margin: 10px 14px;
+  width: 150px;
+  height: 40px;
 }
 .normal {
   font-weight: normal;
@@ -4826,7 +4828,7 @@ form legend,
 }
 .grid.box .grid-title {
   padding: 8px 10px 2px 10px;
-  /*border-bottom: 1px solid #eee;*/
+  border-bottom: 1px solid #eee;
   color: #ffffff !important;
   margin-bottom: 0px;
 }
@@ -5007,24 +5009,6 @@ form legend,
 .grid.simple.vertical.blue {
     border-left: 4px solid #0090d9;
     border-top: none !important;
-}
-.grid.simple.horizontal.red .grid-body {
-    border-top: 4px solid #f35958;
-}
-.grid.simple.horizontal.yellow .grid-body {
-    border-top: 4px solid #ffb848;
-}
-.grid.simple.horizontal.green .grid-body {
-    border-top: 4px solid #0aa699;
-}
-.grid.simple.horizontal.purple .grid-body {
-    border-top: 4px solid #852b99;
-}
-.grid.simple.horizontal.grey .grid-body {
-    border-top: 4px solid #555555;
-}
-.grid.simple.horizontal.light-grey .grid-body {
-    border-top: 4px solid #aaa;
 }
 .grid:after,
 .grid:before {
@@ -5255,8 +5239,50 @@ form legend,
     cursor: pointer;
 }
 .small-grid{
-    display: inline-block;
-    margin-right: 30px;
+    clear: both;
+    margin-top: 0px;
+    padding: 0px;
+    padding: 0px !important;
+    width: 9%;
+    display:inline-block;
+    margin:0 30px 30px 0; 
+}
+.small-grid .body{
+    background-color: #2b2d31;
+    padding: 15px;
+    overflow: hidden;   
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    height: 60px;
+    text-align: center;
+}
+.small-grid .foot{
+    color: #282323 !important;
+    background-color: #2f3135;
+    margin-bottom: 0px;
+    border-bottom: 0px;
+    height: 30px;
+    font-size:1rem;
+    line-height: 30px;
+    text-align: center;
+}
+.horizontal-red {
+    border-top: 4px solid #f35958;
+}
+.horizontal-yellow{
+    border-top: 4px solid #ffb848;
+}
+.horizontal-green{
+    border-top: 4px solid #0aa699;
+}
+.horizontal-purple{
+    border-top: 4px solid #852b99;
+}
+.horizontal-grey{
+    border-top: 4px solid #555555;
+}
+.horizontal-light-grey{
+    border-top: 4px solid #aaa;
 }
 /*------------------------------------------------------------------
 [8. Message and Notification]
@@ -10083,4 +10109,46 @@ body.rtl .footer-widget {
 }
 .text-c4{
   color: #a8adb2;
+}
+
+.index-video{
+    background-color:#1c2026;
+}
+.index-video .video-box{
+    position: relative;
+}
+video{
+    width: 100%;
+    height: 100%;
+}
+.btn-play{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -29px;
+    margin-top: -29px;
+    width: 58px;
+    height: 58px;
+    cursor: pointer;
+}
+.index-video .video-intr{
+    padding: 40px 30px;
+}
+.index-video .video-btn{
+    width: 100%;
+    height: 50px;
+    text-align: bottom;
+    background:-webkit-linear-gradient(left,#9B28EE,#E95469);
+    margin-bottom:0;
+}
+.index-video .video-btn span{
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+.event img{
+  width: 100%;
+  height:420px;
+ 
 }
