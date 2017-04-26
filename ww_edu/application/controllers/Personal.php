@@ -428,7 +428,7 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$winter = new DateTime('2017-12-21', new DateTimeZone('Asia/Shanghai'));
+		$winter = new DateTime('2017-04-26', new DateTimeZone('Asia/Shanghai'));
 		$summer = new DateTime('2017-06-21', new DateTimeZone('Asia/Shanghai'));
 
 		echo $winter->getOffset() . "\n";
