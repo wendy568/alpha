@@ -429,7 +429,7 @@ class Personal extends MY_Controller
 	public function test()
 	{
 		$date1 = new DateTime('2017-03-01');
-		$date2 = new DateTime('2017-04-02');
+		$date2 = new DateTime('2017-05-02');
 
 		$diff = $date1->diff($date2);
 
