@@ -1,7 +1,5 @@
 (function($) {
-
     'use strict';
-
     var Webarch = function() {
         this.VERSION = "2.8.0";
         this.AUTHOR = "Revox";
@@ -231,12 +229,12 @@
         if($('body').hasClass('open-menu-right')){
             $('body').removeClass('open-menu-right');
             timer= setTimeout(function(){
-                $('.chat-window-wrapper').removeClass('visible');
+                $('.notice-box').removeClass('visible');
             }, 300);
         }
         else{ 
             clearTimeout(timer);
-            $('.chat-window-wrapper').addClass('visible');
+            $('.notice-box').addClass('visible');
             $('body').addClass('open-menu-right');
         }        
     }
