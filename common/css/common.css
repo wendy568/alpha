@@ -5087,8 +5087,7 @@ form legend,
     display: inline-block;
     background-color: #272c32;
     border-radius: 8px;
-    margin:0 4px;
-    padding: 12px 0;
+    padding:15px;
 }
 .module:hover,
 .module:active{
@@ -5097,31 +5096,20 @@ form legend,
 .link:hover{
     cursor: pointer;
 }
-.small-grid{
-    clear: both;
-    margin-top: 0px;
-    padding: 0px;
-    padding: 0px !important;
-    width: 9%;
-    display:inline-block;
-    margin:0 30px 30px 0; 
-}
-.small-grid .body{
+.item .body{
     background-color: #2b2d31;
     padding: 15px;
     overflow: hidden;   
     box-sizing: border-box;
-    font-size: 1.2rem;
     height: 60px;
     text-align: center;
 }
-.small-grid .foot{
+.item .foot{
     color: #282323 !important;
     background-color: #2f3135;
     margin-bottom: 0px;
     border-bottom: 0px;
     height: 30px;
-    font-size:1rem;
     line-height: 30px;
     text-align: center;
 }
@@ -9972,13 +9960,16 @@ body.rtl .footer-widget {
 
 .index-video{
     background-color:#1c2026;
+    height: 340px;
+    position: relative;
+    width: 100%;
 }
 .index-video .video-box{
     position: relative;
 }
 video{
     width: 100%;
-    height: 100%;
+    height: 340px !important;
 }
 .btn-play{
     position: absolute;
@@ -9991,13 +9982,15 @@ video{
     cursor: pointer;
 }
 .index-video .video-intr{
-    padding: 40px 30px;
+    padding:20px 30px ;
 }
 .index-video .video-btn{
     width: 100%;
-    height: 50px;
+    height: 40px;
     background:-webkit-linear-gradient(left,#9B28EE,#E95469);
     bottom:0;
+    position: absolute;
+    top:300px;
 }
 .index-video .video-btn span{
     display: block;
@@ -10005,34 +9998,42 @@ video{
     line-height: 50px;
     cursor: pointer;
 }
+.event{
+    width: 100%;
+    height:340px;
+    position: relative;
+    z-index: 1;
+}
 .event img{
   width: 100%;
-  height:420px;
+  height:100%;
   position: relative;
   z-index: 1
 }
-.event-title{
+.shade{
+  width: 100%;
+  height:340px;
   position: absolute;
   z-index: 1000;
   top:0px;
-  left:0px; 
+}
+.shade .event-title{
   font-size: 16px;
   color: #fff;
+  width: 35%;
   height: 30px;
   background: #0AA699;
   line-height: 30px;
   padding: 0 10px;
 }
-.event-foot{
-  position: absolute;
-  z-index:1000;
-  top:284px;
-  left: 0px;
+.shade .event-foot{
   width: 100%;
   overflow: hidden;
   padding: 20px 30px;
+  position: absolute;
+  top:192px;
 }
-.event-time{
+.shade .event-foot .event-time{
   display:inline-block;
   font-size: 12px;
   padding: 5px 10px;
