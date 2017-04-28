@@ -8,7 +8,7 @@
         <link href="assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
-        <link href="webarch/css/webarch.css" rel="stylesheet" type="text/css" />
+        <link href="common/css/common.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
     </head>
         
@@ -416,10 +416,12 @@
                             <div class="grid simple">
                                 <div class="grid-body chart no-border">
                                   <div class="row-fluid">
-                                    <h4>SYNTHESIZING DATA</h4>
+                                    <h4>
+                                        <i class="fa fa-line-chart"></i>
+                                        SYNTHESIZING DATA
+                                    </h4>
                                     <br>
                                     <div id="stacked-ordered-chart" style="height:250px">
-                                        <canvas id="c15" width="600" height="250"></canvas>
                                     </div>
                                   </div>
                                 </div>
@@ -429,7 +431,7 @@
                         <div class="col-lg-2 col-md-6  m-b-30">
                             <div class="grid simple">
                                 <div class="grid-body chart no-border">
-                                    <h4>LONG SHORT RATIO</h4>  <br>
+                                    <h4><i class="fa fa-pie-chart"></i> LONG SHORT RATIO</h4>  <br>
                                     <div id="ram-usage" class="easy-pie-custom" data-percent="43.1">
                                         <span class="easy-pie-percent">USD/CHF</span>
                                     </div>
@@ -564,8 +566,8 @@
                                     <table class="table no-margin" style="height: 360px;">
                                         <thead>
                                             <tr>
-                                                <th style="width:1%">Time</th>
-                                                <th style="width:3%">Curency</th>
+                                                <th style="width:2%">Time</th>
+                                                <th style="width:2%">Curency</th>
                                                 <th style="width:22%">Event</th>
                                                 <th style="width:2%">Actual</th>
                                                 <th style="width:2%">Forecast</th>
@@ -577,7 +579,52 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_chf.png" alt="">
+                                                </td>
+                                                <td class="v-align-middle">
+                                                    <span class="muted">Redesign project template</span>
+                                                </td>
+                                                <td class="v-align-middle">0.4% </td>
+                                                <td class="v-align-middle">0.5%</td>
+                                                <td class="v-align-middle">0.3%</td>
+                                                <td class="v-align-middle">
+                                                    <i class="fa fa-signal"></i>Hign
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="v-align-middle"> 00:00</td>
+                                                <td class="v-align-middle">
+                                                    <img src="./assets/img/country_aud.png" alt="">
+                                                </td>
+                                                <td class="v-align-middle">
+                                                    <span class="muted">Redesign project template</span>
+                                                </td>
+                                                <td class="v-align-middle">0.4% </td>
+                                                <td class="v-align-middle">0.5%</td>
+                                                <td class="v-align-middle">0.3%</td>
+                                                <td class="v-align-middle">
+                                                    <i class="fa fa-signal"></i>Hign
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="v-align-middle"> 00:00</td>
+                                                <td class="v-align-middle">
+                                                    <img src="./assets/img/country_cny.png" alt="">
+                                                </td>
+                                                <td class="v-align-middle">
+                                                    <span class="muted">Redesign project template</span>
+                                                </td>
+                                                <td class="v-align-middle">0.4% </td>
+                                                <td class="v-align-middle">0.5%</td>
+                                                <td class="v-align-middle">0.3%</td>
+                                                <td class="v-align-middle">
+                                                    <i class="fa fa-signal"></i>Hign
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="v-align-middle"> 00:00</td>
+                                                <td class="v-align-middle">
+                                                    <img src="./assets/img/country_eur.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -591,7 +638,7 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_gbp.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -605,7 +652,7 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_jpy.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -619,7 +666,7 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_nzd.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -633,7 +680,7 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_usd.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -647,7 +694,7 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_usd.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -661,7 +708,7 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_aud.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -675,7 +722,7 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_chf.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -689,49 +736,7 @@
                                             <tr>
                                                 <td class="v-align-middle"> 00:00</td>
                                                 <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
-                                                </td>
-                                                <td class="v-align-middle"><span class="muted">Redesign project template</span>
-                                                </td>
-                                                <td class="v-align-middle">0.4% </td>
-                                                <td class="v-align-middle">0.5%</td>
-                                                <td class="v-align-middle">0.3%</td>
-                                                <td class="v-align-middle">
-                                                    <i class="fa fa-signal"></i>Hign
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="v-align-middle"> 00:00</td>
-                                                <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
-                                                </td>
-                                                <td class="v-align-middle"><span class="muted">Redesign project template</span>
-                                                </td>
-                                                <td class="v-align-middle">0.4% </td>
-                                                <td class="v-align-middle">0.5%</td>
-                                                <td class="v-align-middle">0.3%</td>
-                                                <td class="v-align-middle">
-                                                    <i class="fa fa-signal"></i>Hign
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="v-align-middle"> 00:00</td>
-                                                <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
-                                                </td>
-                                                <td class="v-align-middle"><span class="muted">Redesign project template</span>
-                                                </td>
-                                                <td class="v-align-middle">0.4% </td>
-                                                <td class="v-align-middle">0.5%</td>
-                                                <td class="v-align-middle">0.3%</td>
-                                                <td class="v-align-middle">
-                                                    <i class="fa fa-signal"></i>Hign
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="v-align-middle"> 00:00</td>
-                                                <td class="v-align-middle">
-                                                    <i class="fa fa-money"></i>
+                                                    <img src="./assets/img/country_eur.png" alt="">
                                                 </td>
                                                 <td class="v-align-middle"><span class="muted">Redesign project template</span>
                                                 </td>
@@ -858,104 +863,68 @@
                         <div class="col-lg-4 col-md-12">
                             <div class="event">
                                 <img src="./assets/img/dashboard_event_demo_img.png" alt="" class="img-responsive">
-                                <!-- <div class="event-title">
-                                    In  progress
+                                <div class="event-title">
+                                    <span>In  progress</span>   
                                 </div>
-                                <div class="event-time">
-                                    <i  class="fa fa-clock-o"></i>2017-2-22 Monday
-                                </div> -->
+                                <div class="event-foot">
+                                    <div class="event-time text-c3">
+                                        <i  class="fa fa-clock-o"></i> 2017-2-22 Monday
+                                    </div>
+                                    <h4 class="text-c1">US Dollar Losing Fed Life Gambles vs Pisk</h4>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- sidebar right -->
-            <div class="chat-window-wrapper">
-                <div id="main-chat-wrapper" class="inner-content">
-                    <div class="chat-window-wrapper scroller scrollbar-dynamic" id="chat-users">
-                        <div class="chat-header">
-                          <div class="pull-left">
-                            <input type="text" placeholder="search">
-                          </div>
-                          <div class="pull-right">
-                            <a href="#" class="">
-                              <div class="iconset top-settings-dark "></div>
-                            </a>
-                          </div>
-                        </div>
+            <!-- sidebar right notice-->
+            <div class="notice-box">
+                <div  class="inner-content scroller scrollbar-dynamic">
+                    <div class="notice-header">
+                        <input type="text" placeholder="search" >
+                        <a href="#" class="pull-right">
+                            <div class="iconset top-settings-dark"></div>
+                        </a>
                     </div>
-                    <div class="chat-window-wrapper" id="messages-wrapper" style="display:none">
-                        <div class="chat-header">
-                          <div class="pull-left">
-                            <input type="text" placeholder="search">
-                          </div>
-                          <div class="pull-right">
-                            <a href="#" class="">
-                              <div class="iconset top-settings-dark "></div>
-                            </a>
-                          </div>
+                    <!-- notice -->
+                    <div class="notice fadeIn">
+                        <!-- date -->
+                        <div class="notice-date">
+                            <div class="pull-left day-num text-c2">08.APR</div><span class="day"></span> Monday
+                            <i class="fa fa-plus pull-right"></i>
                         </div>
-                        <div class="clearfix"></div>
-                        <div class="chat-messages-header">
-                          <div class="status online"></div><span class="semi-bold">Jane Smith(Typing..)</span>
-                          <a href="#" class="chat-back"><i class="icon-custom-cross"></i></a>
+                        <!-- notice content -->
+                        <div class="notice-content">
+                            <div class="user-details-wrapper">
+                                <!-- title -->
+                                <div class="notice-title">
+                                    <div class="pull-left">12:00</div>
+                                    <div class="status-icon green pull-right"></div>
+                                </div>
+                                <!-- body -->
+                                <div class="notice-body">
+                                    <h5>The problem you submitted a new reply <span>&gt;&gt;</span> </h5>
+                                </div>
+                            </div>
+                            <div class="user-details-wrapper" data-chat-status="busy" data-chat-user-pic="assets/img/profiles/d.jpg" data-chat-user-pic-retina="assets/img/profiles/d2x.jpg" data-user-name="David Nester">
+                                <div class="user-profile">
+                                    <img src="assets/img/profiles/c.jpg" alt="" data-src="assets/img/profiles/c.jpg" data-src-retina="assets/img/profiles/c2x.jpg" width="35" height="35">
+                                </div>
+                                <div class="user-details">
+                                    <div class="user-name"> David Nester </div>
+                                    <div class="user-more"> Busy, Do not disturb </div>
+                                </div>
+                                <div class="user-details-status-wrapper">
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="user-details-count-wrapper">
+                                    <div class="status-icon red"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
                         </div>
-                        <div class="chat-messages scrollbar-dynamic clearfix">
-                          <div class="inner-scroll-content clearfix">
-                            <div class="sent_time">Yesterday 11:25pm</div>
-                            <div class="user-details-wrapper ">
-                              <div class="user-profile">
-                                <img src="assets/img/profiles/d.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">
-                              </div>
-                              <div class="user-details">
-                                <div class="bubble">
-                                  Hello, You there?
-                                </div>
-                              </div>
-                              <div class="clearfix"></div>
-                              <div class="sent_time off">Yesterday 11:25pm</div>
-                            </div>
-                            <div class="user-details-wrapper ">
-                              <div class="user-profile">
-                                <img src="assets/img/profiles/d.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">
-                              </div>
-                              <div class="user-details">
-                                <div class="bubble">
-                                  How was the meeting?
-                                </div>
-                              </div>
-                              <div class="clearfix"></div>
-                              <div class="sent_time off">Yesterday 11:25pm</div>
-                            </div>
-                            <div class="user-details-wrapper ">
-                              <div class="user-profile">
-                                <img src="assets/img/profiles/d.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">
-                              </div>
-                              <div class="user-details">
-                                <div class="bubble">
-                                  Let me know when you free
-                                </div>
-                              </div>
-                              <div class="clearfix"></div>
-                              <div class="sent_time off">Yesterday 11:25pm</div>
-                            </div>
-                            <div class="sent_time ">Today 11:25pm</div>
-                            <div class="user-details-wrapper pull-right">
-                              <div class="user-details">
-                                <div class="bubble sender">
-                                  Let me know when you free
-                                </div>
-                              </div>
-                              <div class="clearfix"></div>
-                              <div class="sent_time off">Sent On Tue, 2:45pm</div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="chat-input-wrapper" style="display:none">
-                          <textarea id="chat-message-input" rows="1" placeholder="Type your message"></textarea>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
@@ -966,7 +935,7 @@
         <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="webarch/js/webarch.js" type="text/javascript"></script>
+        <script src="common/js/common.js" type="text/javascript"></script>
         <script src="assets/js/charts.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery-flot/jquery.flot.animator.min.js"></script>
@@ -974,28 +943,6 @@
         <script src="assets/plugins/jquery-easy-pie-chart/js/jquery.easypiechart.min.js"></script>
         <script src="assets/plugins/jquery-sparkline/jquery-sparkline.js"></script>
         <script  type="text/javascript">
-            // chart
-            var c = new Chart(c15, {
-                type: 'bar',  //统计图的类型
-                data: {
-                  labels: ['部门1','部门2','部门3','部门4','部门5'], //X轴
-                  datasets: [{
-                    label: '2015年度销售总结',
-                    data: [350, 200,400, 550, 300]
-                  }]
-                },     //统计数据
-                options: {
-                  responsive: false,    //禁用响应式功能
-                  scales: {
-                    yAxes: [{
-                      ticks: {
-                        beginAtZero: true  //Y轴值从0开始
-                      }
-                    }]
-                  }
-                }   //图表的选项
-              });
-            
             // video-----------------------------------------------------------------------
             var btn = document.querySelector('.btn-play');
             var myVideo = document.getElementById("indexVideo");
