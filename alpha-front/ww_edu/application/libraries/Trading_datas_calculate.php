@@ -146,7 +146,11 @@ class Trading_datas_calculate {
 
 		if(empty($result)) {
 			foreach ($week as $val) {
-				$result[$val] = [];
+				$slice = explode('-', $val);
+				$year = $slice[0];
+				$month = $slice[1]; 
+				$day = $slice[2];
+				$result[$month . '.' . $day] = [];
 			}
 		}
 
