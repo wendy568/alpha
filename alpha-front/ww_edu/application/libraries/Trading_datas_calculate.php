@@ -109,7 +109,7 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
-	public function getNextOrLastTime($start, $nextOrLast, $time)
+	public function getNextOrLastTime($start, $nextOrLast, $time = null)
 	{
 		$time = ($time) ? $time : time();
 		return date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day") . " {$nextOrLast} day");
