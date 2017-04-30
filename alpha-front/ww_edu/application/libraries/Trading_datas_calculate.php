@@ -109,11 +109,10 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
-	public function getWeekOneByOne()
+	public function getNextOrLastTime($start, $nextOrLast, $time)
 	{
-		foreach ($variable as $key => $value) {
-			# code...
-		}
+		$time = ($time) ? $time : time();
+		return date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day") . " {$nextOrLast} day");
 	}
 
 	public function get_week()
