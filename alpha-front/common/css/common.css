@@ -991,6 +991,7 @@ body.boxed-layout .footer-widget {
   font-weight: 600;
   letter-spacing: 0.2px;
   height: 25px;
+  margin-bottom: 48px;
 }
 .notice-date .day-num{
     border-radius: 20px;
@@ -1018,25 +1019,27 @@ body.boxed-layout .footer-widget {
 .notice-box .notice-content ul.groups > li > a:hover {
   text-decoration: none;
 }
-.notice-box .user-details-wrapper {
+.notice-content .notice-card {
   display: block;
-  margin: 8px;
-  padding: 10px;
-  border-radius: 3px;
+  border-radius: 8px;
+  background: #34383d;
+  margin-bottom: 20px;
 }
-.notice-box.user-details-wrapper .status-icon {
-  margin-right: 0px;
+.notice-card .card-title{
+  width: 100%;
+  height: 30px;
+  background: #44484e;
+  padding:0 20px;
+  border-radius: 8px 8px 0 0; 
+  line-height: 30px;  
 }
-.notice-box .user-details-wrapper.active {
-  background-color: #372b32;
+.notice-card .card-body{
+  width: 100%;
+  overflow: hidden;
+  padding:20px;
 }
-.notice-box .user-details-wrapper.active:hover {
-  background-color: #482f36;
-  cursor: pointer;
-}
-.notice-box .user-details-wrapper:hover {
-  background-color: #22262e;
-  cursor: pointer;
+.notice-box .notice-card .status-icon {
+  margin-top:5px !important;
 }
 .notice-box .user-details-wrapper > .user-profile {
   display: inline-block;
@@ -1046,32 +1049,6 @@ body.boxed-layout .footer-widget {
   overflow: hidden;
   width: 35px;
   margin-right: 13px;
-}
-.notice-box .user-details-wrapper > .user-details {
-  display: inline-block;
-  float: left;
-}
-.notice-box .user-details-wrapper > .user-details > .user-name {
-  display: block;
-  color: #ffffff;
-}
-.notice-box .user-details-wrapper > .user-details > .user-more {
-  display: block;
-  color: #747b89;
-  font-size: 11px;
-  width: 120px;
-}
-
-.notice-box .user-details-status-wrapper {
-  display: inline-block;
-  float: left;
-  min-width: 32px;
-  margin-top: 8px;
-}
-.notice-box .user-details-count-wrapper {
-  display: inline-block;
-  float: left;
-  margin-top: 8px;
 }
 .sidr {
   background-color: #1b1e24;
@@ -1533,8 +1510,7 @@ body.boxed-layout .footer-widget {
   background: url('../img/icon/status.png') no-repeat;
   position: relative;
   display: inline-block;
-  margin-right: 10px;
-  top: 2px;
+  top: 4px;
 }
 .status-icon.green {
   background-position: -1px -1px;
@@ -5081,20 +5057,18 @@ form legend,
   font-size: 16px;
 }
 /*外汇数据模块*/
-.module{
-    width: 70px;
-    height: 70px;
-    display: inline-block;
-    background-color: #272c32;
-    border-radius: 8px;
-    padding:15px;
-}
-.module:hover,
-.module:active{
-    background-color: #1CBD9D;
-}
 .link:hover{
     cursor: pointer;
+}
+.carousel-inner .date{
+    border-radius: 8px;
+    background-color: #272c32;
+    padding:8px;
+    margin-right: 20px;
+}
+.carousel-inner .date:hover,
+.carousel-inner .date:active{
+    background-color: #1CBD9D;
 }
 .item .body{
     background-color: #2b2d31;
@@ -9956,6 +9930,9 @@ body.rtl .footer-widget {
 }
 .text-c4{
   color: #a8adb2;
+}
+.text-block{
+  color:#000;
 }
 
 .index-video{
