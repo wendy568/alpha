@@ -86,11 +86,15 @@ class time_zone{
 			$year = $slice[0];
 			$month = $slice[1];
 				
-			for ($i=1; $i <= 7; $i++) { 
-				if (($slice[2] - (7 - $date['mday'] - $i) <= $slice[2]) {
-					# code...
+			for ($i = 1; $i <= 7; $i++) { 
+				$j = 1;
+				if (($slice[2] - (7 - $date['mday'] - $i)) <= $slice[2]) {
+					$day = $slice[2] - (7 - $date['mday'] - $i);
+				} else {
+					$day = $j;
+					$j++;
 				}
-				$day = $slice[2] - (7 - $date['mday'] - $i);
+				
 				echo $day;
 			}
 			// return mktime(00, 00, 00, $month, $day, $year);
