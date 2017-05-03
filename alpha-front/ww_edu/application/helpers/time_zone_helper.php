@@ -92,7 +92,7 @@ class time_zone{
 					$day = $slice[2] - (7 - $date['mday'] - $i);
 				} else {
 					$day = $j;
-					$month += $month;
+					$month = $month + 1;
 					$j++;
 				}
 				
