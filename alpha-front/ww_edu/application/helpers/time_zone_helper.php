@@ -81,6 +81,7 @@ class time_zone{
 	public function get_week()
 	{
 		$date = getdate();
+		$dates = [];
 		if($date['mday'] < 7) {
 			$slice = explode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day')));
 			$year = $slice[0];
@@ -94,9 +95,10 @@ class time_zone{
 					$j++;
 				}
 				
-				echo $day;
+				$dates[] = "{$year}-{$month}-{$day}";
 			}
-			// return mktime(00, 00, 00, $month, $day, $year);
+			print_r($dates);
+			return $dates;
 		} elseif ($date['mday'] >= 7) {
 			$year = date("Y");
 			$month = date("m");
