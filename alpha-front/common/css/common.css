@@ -991,13 +991,18 @@ body.boxed-layout .footer-widget {
   font-weight: 600;
   letter-spacing: 0.2px;
   height: 25px;
-  margin-bottom: 48px;
 }
 .notice-date .day-num{
     border-radius: 20px;
     background: #32363D;
     padding: 2px 15px;  
     margin-right: 10px;
+}
+.notice-timeline{
+    height: 48px;
+    width: 100%;
+    border-left:3px solid #30353D;
+    margin-left: 40px;
 }
 .notice-box .notice-content {
   display: block;
@@ -5063,8 +5068,8 @@ form legend,
 .carousel-inner .date{
     border-radius: 8px;
     background-color: #272c32;
-    padding:8px;
-    margin-right: 20px;
+    padding:12px 0;
+    margin-right:3%;
 }
 .carousel-inner .date:hover,
 .carousel-inner .date:active{
@@ -5086,6 +5091,13 @@ form legend,
     height: 30px;
     line-height: 30px;
     text-align: center;
+}
+.inner-row{
+    height: 70px;
+    overflow: hidden;
+}
+.inner-col{
+  height: 100%;
 }
 .horizontal-red {
     border-top: 4px solid #f35958;
