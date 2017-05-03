@@ -1,6 +1,6 @@
 (function($) {
     'use strict';
-    var Webarch = function() {
+    var alpha = function() {
         this.VERSION = "2.8.0";
         this.AUTHOR = "Revox";
         this.SUPPORT = "support@revox.io";
@@ -20,7 +20,7 @@
         this.color_info="#3b4751";
     }
     // Set environment vars
-    Webarch.prototype.initHorizontalMenu = function() {
+    alpha.prototype.initHorizontalMenu = function() {
         $('.horizontal-menu .bar-inner > ul > li').on('click', function () {
             $(this).toggleClass('open').siblings().removeClass('open');
 
@@ -32,19 +32,19 @@
          }
     }
     // Tooltip
-    Webarch.prototype.initTooltipPlugin = function() {
+    alpha.prototype.initTooltipPlugin = function() {
         $.fn.tooltip && $('[data-toggle="tooltip"]').tooltip();
     }
     // Popover
-    Webarch.prototype.initPopoverPlugin = function() {
+    alpha.prototype.initPopoverPlugin = function() {
         $.fn.popover && $('[data-toggle="popover"]').popover();
     }
     // Retina Images
-    Webarch.prototype.initUnveilPlugin = function() {
+    alpha.prototype.initUnveilPlugin = function() {
         $.fn.unveil && $("img").unveil();
     }
     // Auto Scroll Up
-    Webarch.prototype.initScrollUp = function() {
+    alpha.prototype.initScrollUp = function() {
         $('[data-webarch="scrollup"]').click(function () {
             $("html, body").animate({
                 scrollTop: 0
@@ -60,7 +60,7 @@
         });
     }
     // Portlet / Panel Tools
-    Webarch.prototype.initPortletTools = function() {
+    alpha.prototype.initPortletTools = function() {
         var $this = this;
         $('.grid .tools a.remove').on('click', function () {
             var removable = jQuery(this).parents(".grid");
@@ -135,7 +135,7 @@
         });
     }
     // Scrollbar Plugin
-    Webarch.prototype.initScrollBar = function(){
+    alpha.prototype.initScrollBar = function(){
         $.fn.scrollbar && $('.scroller').each(function () {
             var h = $(this).attr('data-height');
             $(this).scrollbar({
@@ -150,7 +150,7 @@
         });
     }
     // Sidebar
-    Webarch.prototype.initSideBar = function(){
+    alpha.prototype.initSideBar = function(){
         var sidebar = $('.page-sidebar');
         var sidebarWrapper = $('.page-sidebar .page-sidebar-wrapper');
         sidebar.find('li > a').on('click', function (e) {
@@ -194,7 +194,7 @@
         $.fn.scrollbar && sidebarWrapper.scrollbar();
     }
     // Sidebar Toggler
-    Webarch.prototype.initSideBarToggle = function(){
+    alpha.prototype.initSideBarToggle = function(){
         var $this = this;
         $('[data-webarch="toggle-left-side"]').on('touchstart click', function (e) {
             e.preventDefault();
@@ -206,7 +206,7 @@
         });
     }
     // Left Side Bar / Chat view
-    Webarch.prototype.toggleLeftSideBar = function(){
+    alpha.prototype.toggleLeftSideBar = function(){
         var timer;
         if($('body').hasClass('open-menu-left')){
             $('body').removeClass('open-menu-left');
@@ -224,7 +224,7 @@
         }
     }
     // Right Side Bar / Mobile
-    Webarch.prototype.toggleRightSideBar = function(){
+    alpha.prototype.toggleRightSideBar = function(){
         var timer;
         if($('body').hasClass('open-menu-right')){
             $('body').removeClass('open-menu-right');
@@ -239,7 +239,7 @@
         }        
     }
     // Util Functions
-    Webarch.prototype.initUtil = function(){
+    alpha.prototype.initUtil = function(){
         $('[data-height-adjust="true"]').each(function () {
             var h = $(this).attr('data-elem-height');
             $(this).css("min-height", h);
@@ -312,7 +312,7 @@
         });
     }
     // Progress bar animation
-    Webarch.prototype.initProgress = function(){
+    alpha.prototype.initProgress = function(){
         $('[data-init="animate-number"], .animate-number').each(function () {
             var data = $(this).data();
             $(this).animateNumbers(data.value, true, parseInt(data.animationDuration, 10));
@@ -323,7 +323,7 @@
         });
     }
     // Select2 Plugin
-    Webarch.prototype.initSelect2Plugin = function() {
+    alpha.prototype.initSelect2Plugin = function() {
         $.fn.select2 && $('[data-init-plugin="select2"]').each(function() {
             $(this).select2({
                 minimumResultsForSearch: ($(this).attr('data-disable-search') == 'true' ? -1 : 1)
@@ -335,7 +335,7 @@
         });
     }
     // Form Elements
-    Webarch.prototype.initFormElements = function(){
+    alpha.prototype.initFormElements = function(){
         $(".inside").children('input').blur(function () {
             $(this).parent().children('.add-on').removeClass('input-focus');
         });
@@ -361,7 +361,7 @@
         });
     }
     // Validation Plugin
-    Webarch.prototype.initValidatorPlugin = function() {
+    alpha.prototype.initValidatorPlugin = function() {
         $.validator && $.validator.setDefaults({
             errorPlacement: function(error, element) {
                 var parent = $(element).closest('.form-group');
@@ -399,7 +399,7 @@
         $('.validate').validate();
     }
     // Block UI
-    Webarch.prototype.blockUI = function(el){
+    alpha.prototype.blockUI = function(el){
         $(el).block({
             message: '<div class="loading-animator"></div>',
             css: {
@@ -414,11 +414,11 @@
             }
         });
     }
-    Webarch.prototype.unblockUI = function(el){
+    alpha.prototype.unblockUI = function(el){
         $(el).unblock();
     }
     // Call initializers
-    Webarch.prototype.init = function() {
+    alpha.prototype.init = function() {
         // init layout
         this.initSideBar();
         this.initSideBarToggle();
@@ -438,8 +438,8 @@
 
     }
 
-    $.Webarch = new Webarch();
-    $.Webarch.Constructor = Webarch;
+    $.alpha = new alpha();
+    $.alpha.Constructor = alpha;
 
 })(window.jQuery);
 
@@ -567,6 +567,6 @@ $(document).ready(function () {
 $(function() {
     'use strict';
     // Initialize layouts and plugins
-    $.Webarch.init();
+    $.alpha.init();
 });
 
