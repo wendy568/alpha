@@ -85,13 +85,17 @@ class time_zone{
 			$slice = explode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day')));
 			$year = $slice[0];
 			$month = $slice[1];
-			$day = $slice[2] - (7 - $date['mday'] - 1);
-			return mktime(00, 00, 00, $month, $day, $year);
+				
+			for ($i=1; $i <= 7; $i++) { 
+				$day = $slice[2] - (7 - $date['mday'] - $i);
+				echo $day;
+			}
+			// return mktime(00, 00, 00, $month, $day, $year);
 		} elseif ($date['mday'] >= 7) {
 			$year = date("Y");
 			$month = date("m");
 			$day = 7 - ($date['mday'] - 1);
-			echo $day;
+			return mktime(00, 00, 00, $month, $day, $year);
 		}
 	}
 
