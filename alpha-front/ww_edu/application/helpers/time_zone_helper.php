@@ -87,6 +87,9 @@ class time_zone{
 			$month = $slice[1];
 				
 			for ($i=1; $i <= 7; $i++) { 
+				if (($slice[2] - (7 - $date['mday'] - $i) <= $slice[2]) {
+					# code...
+				}
 				$day = $slice[2] - (7 - $date['mday'] - $i);
 				echo $day;
 			}
