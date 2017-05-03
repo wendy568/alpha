@@ -87,14 +87,14 @@ class time_zone{
 			$slice = explode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day')));
 			$year = $slice[0];
 			$month = $slice[1];
-			$j = 1;
+			$j = 0;
 			for ($i = 1; $i <= 7; $i++) { 
 				if (($slice[2] - (7 - $date['mday'] - $i)) <= $slice[2]) {
 					$day = $slice[2] - (7 - $date['mday'] - $i);
 				} else {
+					$j = $j + 1;
 					$day = '0' . $j;
 					$month = $this_month;
-					$j++;
 				}
 				
 				$dates[] = "{$year}-{$month}-{$day}";
