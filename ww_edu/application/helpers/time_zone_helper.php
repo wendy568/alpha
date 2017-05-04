@@ -85,7 +85,7 @@ class time_zone{
 			$slice = explode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day')));
 			$year = $slice[0];
 			$month = $slice[1];
-			$day = 7-$slice[2]-1;
+			$day = $slice[2]-(7-$date['mday']-1);
 			echo $day;
 		}
 	}
