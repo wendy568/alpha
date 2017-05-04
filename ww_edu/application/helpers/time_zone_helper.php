@@ -82,7 +82,7 @@ class time_zone{
 	{
 		$date = getdate();
 		if($date['mday'] < 7) {
-			echo date('Y-m-d', strtotime(date('Y-m-01', strtotime(time())) . ' -1 day'));
+			echo date('Y-m-d');
 		}
 	}
 
