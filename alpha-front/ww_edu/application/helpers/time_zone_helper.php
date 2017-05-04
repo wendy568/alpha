@@ -82,12 +82,8 @@ class time_zone{
 	{
 		$date = getdate();
 		if($date['mday'] < 7) {
-			$year = date('Y', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day'));
-			$month = date('m', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day'));
-			$day = date('d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day'));
-			echo date('Y-m-d H:i:s', mktime(00,00,00,$month,$day,$year));
-			echo "<br>";
-			echo mktime(23,59,59,$month,$day,$year);
+			$slice = implode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day')));
+			print_r($slice);
 		}
 	}
 
