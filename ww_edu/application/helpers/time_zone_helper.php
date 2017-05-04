@@ -99,7 +99,7 @@ class time_zone{
 				
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
-			print_r($dates);
+			print_r(date('Y-m-d', strtotime('2017-5-5')));
 			return $dates;
 
 		} elseif ($date['mday'] >= 7) {
