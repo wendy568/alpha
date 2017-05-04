@@ -428,19 +428,36 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$date1 = new DateTime('2017-03-01');
-		$date2 = new DateTime('2017-05-01');
+		// define the SOAP client using the url for the service
+		$client = new soapclient('http://www.xignite.com/xCalendar.asmx?WSDL');
 
-		$diff = $date1->diff($date2);
+		// create an array of parameters 
+		$param = array(
+		               "ForDate" => "5/2/2017");
 
-		echo "{$diff->m} months and {$diff->d} days.";die;
-		$this->load->database();
-		$this->load->model('TradingAnalysis');
-		$datas = $this->TradingAnalysis->export_mt4_datas();
+		// add authentication info
+		$xignite_header = new SoapHeader('http://www.xignite.com/services/',
+		     "Header", array("Username" => "YOUR_TOKEN"));
+		$client->__setSoapHeaders(array($xignite_header));
 
-		$this->load->library('trading_datas_calculate', array('data' => $datas, 'type' => 'mt4'));
-		$this->trading_datas_calculate->buy_no();
-		print_r($this->trading_datas_calculate);
+		// call the service, passing the parameters and the name of the operation 
+		$result = $client->GetEventsForDate($param);
+		// assess the results 
+		if (is_soap_fault($result)) {
+		     echo '<h2>Fault</h2><pre>';
+		     print_r($result);
+		     echo '</pre>';
+		} else {
+		     echo '<h2>Result</h2><pre>';
+		     print_r($result);
+		     echo '</pre>';
+		}
+		// print the SOAP request 
+		echo '<h2>Request</h2><pre>' . htmlspecialchars($client->__getLastRequest(), ENT_QUOTES) . '</pre>';
+		// print the SOAP request Headers 
+		echo '<h2>Request Headers</h2><pre>' . htmlspecialchars($client->__getLastRequestHeaders(), ENT_QUOTES) . '</pre>';
+		// print the SOAP response 
+		echo '<h2>Response</h2><pre>' . htmlspecialchars($client->__getLastResponse(), ENT_QUOTES) . '</pre>';
 		die;
 		$file = $this->input->get_post('file', TRUE);
 
