@@ -30,12 +30,36 @@ class ComposerStaticInit5bb658a3111bcfcba66f54d21ca8e41a
         ),
     );
 
+    public static $classMap = array (
+        'XMLSchema' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.xmlschema.php',
+        'nusoap_base' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.nusoap_base.php',
+        'nusoap_client' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soapclient.php',
+        'nusoap_client_mime' => __DIR__ . '/..' . '/fergusean/nusoap/lib/nusoapmime.php',
+        'nusoap_fault' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soap_fault.php',
+        'nusoap_parser' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soap_parser.php',
+        'nusoap_server' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soap_server.php',
+        'nusoap_server_mime' => __DIR__ . '/..' . '/fergusean/nusoap/lib/nusoapmime.php',
+        'nusoap_wsdlcache' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.wsdlcache.php',
+        'nusoap_xmlschema' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.xmlschema.php',
+        'nusoapservermime' => __DIR__ . '/..' . '/fergusean/nusoap/lib/nusoapmime.php',
+        'soap_fault' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soap_fault.php',
+        'soap_parser' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soap_parser.php',
+        'soap_server' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soap_server.php',
+        'soap_transport_http' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soap_transport_http.php',
+        'soapclient' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soapclient.php',
+        'soapclientmime' => __DIR__ . '/..' . '/fergusean/nusoap/lib/nusoapmime.php',
+        'soapval' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.soap_val.php',
+        'wsdl' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.wsdl.php',
+        'wsdlcache' => __DIR__ . '/..' . '/fergusean/nusoap/lib/class.wsdlcache.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit5bb658a3111bcfcba66f54d21ca8e41a::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit5bb658a3111bcfcba66f54d21ca8e41a::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit5bb658a3111bcfcba66f54d21ca8e41a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit5bb658a3111bcfcba66f54d21ca8e41a::$classMap;
 
         }, null, ClassLoader::class);
     }
