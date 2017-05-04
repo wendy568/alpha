@@ -434,7 +434,7 @@ class Personal extends MY_Controller
 		$proxyport = isset($_POST['proxyport']) ? $_POST['proxyport'] : '';
 		$proxyusername = isset($_POST['proxyusername']) ? $_POST['proxyusername'] : '';
 		$proxypassword = isset($_POST['proxypassword']) ? $_POST['proxypassword'] : '';
-		$client = new nusoap_client('http://www.xignite.com/xCalendar.asmx?WSDL', true);
+		$client = new nusoap_client('http://www.xignite.com/xCalendar.asmx?WSDL', true, $proxyhost, $proxyport, $proxyusername, $proxypassword);
 		$param = array(
                "ForDate" => "5/2/2017");
 		$result = $client->call('GetEventsForToday', array('parameters' => $param), '', '', false, true);
