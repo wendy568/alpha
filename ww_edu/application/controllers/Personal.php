@@ -430,7 +430,8 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		new nusoap_client('http://www.xignite.com/xCalendar.asmx?WSDL');
+		$client = new nusoap_client('http://www.xignite.com/xCalendar.asmx?WSDL');
+		print_r($client);
 		die;
 		$file = $this->input->get_post('file', TRUE);
 
