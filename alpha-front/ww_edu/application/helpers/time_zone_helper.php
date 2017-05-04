@@ -83,7 +83,10 @@ class time_zone{
 		$date = getdate();
 		if($date['mday'] < 7) {
 			$slice = explode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day')));
-			print_r($slice);
+			$year = $slice[0];
+			$month = $slice[1];
+			$day = 7-$slice[2]-1;
+			echo $day;
 		}
 	}
 
