@@ -86,7 +86,7 @@ class time_zone{
 			$year = $slice[0];
 			$month = $slice[1];
 			$day = $slice[2]-(7-$date['mday']-1);
-			echo $day;
+			echo date('Y-m-d H:i:s', mktime(00,00,00,$month,$day,$year));
 		}
 	}
 
