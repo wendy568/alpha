@@ -85,7 +85,7 @@ class time_zone{
 			$year = date('Y', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day'));
 			$month = date('m', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day'));
 			$day = date('d', strtotime(date('Y-m-01', strtotime(date('Y-m-d'))) . ' -1 day'));
-			echo date('Y-m-d', mktime(00,00,00,$month,$day,$year));
+			echo date('Y-m-d H:i:s', mktime(00,00,00,$month,$day,$year));
 			echo "<br>";
 			echo mktime(23,59,59,$month,$day,$year);
 		}
