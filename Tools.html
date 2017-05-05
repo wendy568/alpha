@@ -483,8 +483,62 @@
                                     </div>
                                 </div>
                                 <!-- body -->
-                                <div class="grid-body no-border" style="height: 420px;">
+                                <div class="grid-body no-border">
+                                    <!-- 筛选栏 -->
+                                    <div class="screen panel">
+                                        <div class="screen-a">
+                                            <span>ALL</span>
+                                        </div>
+                                        <a href="javascript;" class="screen-b">
+                                            <img src="assets/img/country_cny.png" alt="">
+                                            <span>CNY</span>
+                                        </a>
+                                        <a href="javascript;" class="screen-b">
+                                            <img src="assets/img/country_eur.png" alt="">
+                                            <span>EUR</span>
+                                        </a>
+                                        <a href="javascript;" class="screen-b">
+                                            <img src="assets/img/country_jpy.png" alt="">
+                                            <span>JPY</span>
+                                        </a>
+                                        <a href="javascript;" class="screen-b">
+                                            <img src="assets/img/country_chf.png" alt="">
+                                            <span>CHF</span>
+                                        </a>
+                                        <a href="javascript;" class="screen-b">
+                                            <img src="assets/img/country_usd.png" alt="">
+                                            <span>USD</span>
+                                        </a>
+                                        <a href="javascript;" class="screen-b">
+                                            <img src="assets/img/country_gbp.png" alt="">
+                                            <span>GBP</span>
+                                        </a>
+                                        <a href="javascript;" class="screen-b">
+                                            <img src="assets/img/country_nzd.png" alt="">
+                                            <span>NZD</span>
+                                        </a>
+                                        <a href="javascript;" class="screen-b">
+                                            <img src="assets/img/country_aud.png" alt="">
+                                            <span>AUD</span>
+                                        </a>
+                                    </div>
+                                    <!-- table -->
                                     <div class="panel-group" id="accordion" data-toggle="collapse">
+                                        <!-- table-head -->
+                                        <div class="table-head panel">
+                                            <ul class="row no-margin no-padding">
+                                                <li class="col-sm-1">Time</li>
+                                                <li class="col-sm-1">Currency </li>
+                                                <li class="col-sm-2">Event</li>
+                                                <li class="col-sm-1">Actual</li>
+                                                <li class="col-sm-1">Forecast</li>
+                                                <li class="col-sm-1">Previous</li>
+                                                <li class="col-sm-2">Anticipation impact</li>
+                                                <li class="col-sm-2">Actual impact</li>
+                                                <li class="col-sm-1">Importance </li>
+                                            </ul> 
+                                        </div>
+                                        <!-- table-body -->
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <p class="panel-title">
@@ -494,14 +548,14 @@
                                                             <li class="col-sm-1">
                                                                 <img src="./assets/img/country_chf.png" alt="">
                                                             </li>
-                                                            <li class="col-sm-3">
-                                                                <span class="muted">Redesign project template</span>
+                                                            <li class="col-sm-2">
+                                                                <span>Redesign project template</span>
                                                             </li>
                                                             <li class="col-sm-1">0.4%</li>
                                                             <li class="col-sm-1">0.5%</li>
                                                             <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-1">JPR</li>
-                                                            <li class="col-sm-1">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
                                                             <li class="col-sm-1">
                                                                 <i class="fa fa-signal"></i>Hign
                                                             </li>
@@ -518,20 +572,20 @@
                                         <div class="panel">
                                             <div class="panel-heading">
                                                 <p class="panel-title">
-                                                    <a class="" data-toggle="collapse" data-parent="#accordion"  href="#collapseTwo">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"  href="#collapseTwo">
                                                         <ul class="row no-margin no-padding">
                                                             <li class="col-sm-1">00:00</li>
                                                             <li class="col-sm-1">
                                                                 <img src="./assets/img/country_aud.png" alt="">
                                                             </li>
-                                                            <li class="col-sm-3">
-                                                                <span class="muted">Redesign project template</span>
+                                                            <li class="col-sm-2">
+                                                                <span >Redesign project template</span>
                                                             </li>
                                                             <li class="col-sm-1">0.4%</li>
                                                             <li class="col-sm-1">0.5%</li>
                                                             <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-1">JPR</li>
-                                                            <li class="col-sm-1">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
                                                             <li class="col-sm-1">
                                                                 <i class="fa fa-signal"></i>Hign
                                                             </li>
@@ -539,7 +593,7 @@
                                                     </a>
                                                 </p>
                                             </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse in">
+                                            <div id="collapseTwo" class="panel-collapse collapse">
                                                 <div class="panel-body">
                                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ratione quo alias fugit maiores enim odio amet, harum provident necessitatibus, error eveniet iste non voluptatibus dolore rem voluptates deleniti quos?
                                                 </div>
@@ -554,14 +608,14 @@
                                                             <li class="col-sm-1">
                                                                 <img src="./assets/img/country_eur.png" alt="">
                                                             </li>
-                                                            <li class="col-sm-3">
-                                                                <span class="muted">Redesign project template</span>
+                                                            <li class="col-sm-2">
+                                                                <span>Redesign project template</span>
                                                             </li>
                                                             <li class="col-sm-1">0.4%</li>
                                                             <li class="col-sm-1">0.5%</li>
                                                             <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-1">JPR</li>
-                                                            <li class="col-sm-1">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
                                                             <li class="col-sm-1">
                                                                 <i class="fa fa-signal"></i>Hign
                                                             </li>
@@ -570,6 +624,126 @@
                                                 </p>
                                             </div>
                                             <div id="collapseThree" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel">
+                                            <div class="panel-heading">
+                                                <p class="panel-title">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseD">
+                                                        <ul class="row no-margin no-padding">
+                                                            <li class="col-sm-1">00:00</li>
+                                                            <li class="col-sm-1">
+                                                                <img src="./assets/img/country_gbp.png" alt="">
+                                                            </li>
+                                                            <li class="col-sm-2">
+                                                                <span>Redesign project template</span>
+                                                            </li>
+                                                            <li class="col-sm-1">0.4%</li>
+                                                            <li class="col-sm-1">0.5%</li>
+                                                            <li class="col-sm-1">0.6%</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-1">
+                                                                <i class="fa fa-signal"></i>Hign
+                                                            </li>
+                                                        </ul> 
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div id="collapseD" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel">
+                                            <div class="panel-heading">
+                                                <p class="panel-title">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"  href="#collapseE">
+                                                        <ul class="row no-margin no-padding">
+                                                            <li class="col-sm-1">00:00</li>
+                                                            <li class="col-sm-1">
+                                                                <img src="./assets/img/country_jpy.png" alt="">
+                                                            </li>
+                                                            <li class="col-sm-2">
+                                                                <span >Redesign project template</span>
+                                                            </li>
+                                                            <li class="col-sm-1">0.4%</li>
+                                                            <li class="col-sm-1">0.5%</li>
+                                                            <li class="col-sm-1">0.6%</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-1">
+                                                                <i class="fa fa-signal"></i>Hign
+                                                            </li>
+                                                        </ul> 
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div id="collapseE" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ratione quo alias fugit maiores enim odio amet, harum provident necessitatibus, error eveniet iste non voluptatibus dolore rem voluptates deleniti quos?
+                                                </div>
+                                              </div>
+                                        </div>
+                                        <div class="panel">
+                                            <div class="panel-heading">
+                                                <p class="panel-title">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseF">
+                                                        <ul class="row no-margin no-padding">
+                                                            <li class="col-sm-1">00:00</li>
+                                                            <li class="col-sm-1">
+                                                                <img src="./assets/img/country_nzd.png" alt="">
+                                                            </li>
+                                                            <li class="col-sm-2">
+                                                                <span>Redesign project template</span>
+                                                            </li>
+                                                            <li class="col-sm-1">0.4%</li>
+                                                            <li class="col-sm-1">0.5%</li>
+                                                            <li class="col-sm-1">0.6%</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-1">
+                                                                <i class="fa fa-signal"></i>Hign
+                                                            </li>
+                                                        </ul> 
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div id="collapseF" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel">
+                                            <div class="panel-heading">
+                                                <p class="panel-title">
+                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseG">
+                                                        <ul class="row no-margin no-padding">
+                                                            <li class="col-sm-1">00:00</li>
+                                                            <li class="col-sm-1">
+                                                                <img src="./assets/img/country_usd.png" alt="">
+                                                            </li>
+                                                            <li class="col-sm-2">
+                                                                <span>Redesign project template</span>
+                                                            </li>
+                                                            <li class="col-sm-1">0.4%</li>
+                                                            <li class="col-sm-1">0.5%</li>
+                                                            <li class="col-sm-1">0.6%</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-2">JPR</li>
+                                                            <li class="col-sm-1">
+                                                                <i class="fa fa-signal"></i>Hign
+                                                            </li>
+                                                        </ul> 
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div id="collapseG" class="panel-collapse collapse">
                                                 <div class="panel-body">
                                                     Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
                                                 </div>

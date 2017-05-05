@@ -36,9 +36,6 @@ Generated From LESS
 li{
     list-style-type:none; 
 }
-a{
-    
-}
 /*[1. Layouts]*/
 :-moz-placeholder {
     color: '#333843';
@@ -10078,4 +10075,44 @@ video{
     top:220px;
     left: 30px;
  }
- 
+.grid-body .panel-heading:hover{
+    background: #2a2e36;
+    border-radius: 8px;
+}
+.grid-body .panel-heading a,
+.grid-body .panel-heading a:hover,
+.grid-body .panel-heading a:focus,
+.grid-body .panel-heading a:active{
+    color:#fff;
+}
+.grid-body .table-head{
+    padding: 10px 15px;
+    color:#8b91a0;
+    font-size: 12px;
+}
+.panel-collapse{
+    background: #2a2e36;
+    border-radius: 8px;
+}
+.screen{
+    width: 100%;
+    font-size: 12px;
+    color:#fff;
+    padding:0 15px;
+}
+.screen-a{
+    display: inline-block;
+    margin-right: 15px;
+}
+.screen-b{
+    color:#fff;
+    padding: 8px;
+}
+.screen-b:hover,
+.screen-b:active,
+.screen-b:focus{
+    color:#8b91a0;
+    border-bottom:1px solid #8b91a0;
+    background: url(assets/img/tool_pulldown.png) no-repeat bottom center;
+    background-size: 50%;
+}
