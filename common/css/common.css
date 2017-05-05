@@ -5063,10 +5063,13 @@ form legend,
     cursor: pointer;
 }
 .carousel-inner .date{
+    width:10%;
+    display: inline-block;
     border-radius: 8px;
     background-color: #272c32;
     padding:12px 0;
     margin-right:3%;
+    cursor: pointer;
 }
 .carousel-inner .date:hover,
 .carousel-inner .date:active{
@@ -7836,9 +7839,7 @@ input[type="checkbox"] {
 [19. Timeline]
 */
 .cbp_tmtimeline {
-    height: 393px;
     overflow: hidden;
-    margin: 10px 0 0 0;
     padding: 0;
     list-style: none;
     position: relative;
@@ -7853,16 +7854,14 @@ input[type="checkbox"] {
   bottom: 0;
   width: 2px;
   background: #24282E;
-  left: 20%;
+  left: 10%;
   margin-left: -10px;
 }
 .cbp_tmtimeline > li .cbp_tmtime {
   display: block;
-  width: 25%;
-  padding-right: 100px;
   position: absolute;
   font-family: 'Roboto';
-  text-align: right;
+  margin-right: 10px;
 }
 .cbp_tmtimeline > li .cbp_tmtime .time {
   font-size: 1em;
@@ -7879,7 +7878,7 @@ input[type="checkbox"] {
   border-right-color: #ffffff;
 }
 .cbp_tmtimeline > li .cbp_tmlabel {
-  margin: 0 0 0 25%;
+  margin: 0 0 0 12%;
   background: #1C2026;
   font-size: 13px;
   line-height: 1.4;
@@ -7889,7 +7888,7 @@ input[type="checkbox"] {
   width: 32px;
   position: absolute;
   text-align: center;
-  left: 20%;
+  left: 10%;
   top: -4px;
   margin: 0 0 0 -25px;
   font-size: 1.3em;
@@ -10102,11 +10101,15 @@ video{
 }
 .screen-a{
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 14px;
+    color:#fff;
+}
+.screen-a i{
+    margin-right: 5px;
 }
 .screen-b{
     color:#fff;
-    padding: 8px;
+    padding: 8px 5px;
 }
 .screen-b:hover,
 .screen-b:active,
@@ -10114,5 +10117,4 @@ video{
     color:#8b91a0;
     border-bottom:1px solid #8b91a0;
     background: url(assets/img/tool_pulldown.png) no-repeat bottom center;
-    background-size: 50%;
 }
