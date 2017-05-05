@@ -318,7 +318,7 @@ class User extends MY_Controller
 		$this->load->helper('databases_filter');
 		$this->load->helper('set_source');
 		$image = null;
-		print_r($datas);
+
 		if(!empty($datas['width']) && !empty($datas['height'])) $image = get_image($datas['width'], $datas['height'], "{$datas['file_path']}");
 		if($image) $datas['image'] = addslashes(json_encode(array("{$datas['file_path']}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
 
