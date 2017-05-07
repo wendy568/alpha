@@ -128,7 +128,6 @@ class Trading_datas_calculate {
 	public function get_week()
 	{
 		$datas = $this->_data;
-		print_r($datas);
 		$result = [];
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
