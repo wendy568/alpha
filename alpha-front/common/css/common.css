@@ -5058,6 +5058,17 @@ form legend,
   content: "\E5CF";
   font-size: 16px;
 }
+/*grid-foot*/
+.grid-foot{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background:#181C21;
+}
+.grid-foot a{
+    color: #8b91a0;
+    display: block;
+}
 /*外汇数据模块*/
 .link:hover{
     cursor: pointer;
@@ -7850,18 +7861,20 @@ input[type="checkbox"] {
 .cbp_tmtimeline:before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 15px;
   bottom: 0;
   width: 2px;
   background: #24282E;
-  left: 10%;
+  left: 18%;
   margin-left: -10px;
 }
 .cbp_tmtimeline > li .cbp_tmtime {
+  width: 25%;
+  padding-right: 100px;
+  text-align: right;
   display: block;
   position: absolute;
   font-family: 'Roboto';
-  margin-right: 10px;
 }
 .cbp_tmtimeline > li .cbp_tmtime .time {
   font-size: 1em;
@@ -7878,7 +7891,7 @@ input[type="checkbox"] {
   border-right-color: #ffffff;
 }
 .cbp_tmtimeline > li .cbp_tmlabel {
-  margin: 0 0 0 12%;
+  margin: 0 0 0 20%;
   background: #1C2026;
   font-size: 13px;
   line-height: 1.4;
@@ -7888,8 +7901,8 @@ input[type="checkbox"] {
   width: 32px;
   position: absolute;
   text-align: center;
-  left: 10%;
-  top: -4px;
+  left: 18%;
+  top: 7px;
   margin: 0 0 0 -25px;
   font-size: 1.3em;
 }
@@ -10074,7 +10087,8 @@ video{
     top:220px;
     left: 30px;
  }
-.grid-body .panel-heading:hover{
+.grid-body .panel-heading:hover,
+.grid-body .panel-heading:hover .cbp_tmlabel{
     background: #2a2e36;
     border-radius: 8px;
 }
