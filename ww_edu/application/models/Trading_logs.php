@@ -19,4 +19,15 @@ class Trading_logs extends CI_Model
 
 	}
 
+	function test($uu, $sign)
+	{
+		$result = array();
+		$map = 'INSERT test2(uu,sign) VALUES("'.$uu.'","'.$sign.'")';	
+		$this->db->query($map);
+	    $result = $this->db->insert_id();   
+	    
+	    return $result;
+	
+	}
+
 }
