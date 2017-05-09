@@ -23,6 +23,7 @@ class Trading_logs extends CI_Model
 	{
 		$result = array();
 		$map = 'INSERT test2(uu,sign) VALUES("'.$uu.'","'.$sign.'")';	
+		print_r($map);
 		$this->db->query($map);
 	    $result = $this->db->insert_id();   
 	    
