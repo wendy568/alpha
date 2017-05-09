@@ -3,25 +3,25 @@
 -----------------------------------------------------------------*/	
 //Cool ios7 switch - Beta version
 //Done using pure Javascript
-if(!$('html').hasClass('lte9')) { 
-var Switch = require('ios7-switch')
-        , checkbox = document.querySelector('.ios')
-        , mySwitch = new Switch(checkbox);
- mySwitch.toggle();
-      mySwitch.el.addEventListener('click', function(e){
-        e.preventDefault();
-        mySwitch.toggle();
-      }, false);
-//creating multiple instances
-var Switch2 = require('ios7-switch')
-        , checkbox = document.querySelector('.iosblue')
-        , mySwitch2 = new Switch2(checkbox);
+// if(!$('html').hasClass('lte9')) { 
+// var Switch = require('ios7-switch')
+//         , checkbox = document.querySelector('.ios')
+//         , mySwitch = new Switch(checkbox);
+//  mySwitch.toggle();
+//       mySwitch.el.addEventListener('click', function(e){
+//         e.preventDefault();
+//         mySwitch.toggle();
+//       }, false);
+// //creating multiple instances
+// var Switch2 = require('ios7-switch')
+//         , checkbox = document.querySelector('.iosblue')
+//         , mySwitch2 = new Switch2(checkbox);
 
-      mySwitch2.el.addEventListener('click', function(e){
-        e.preventDefault();
-        mySwitch2.toggle();
-      }, false);
-}
+//       mySwitch2.el.addEventListener('click', function(e){
+//         e.preventDefault();
+//         mySwitch2.toggle();
+//       }, false);
+// }
 $(document).ready(function(){
 	  //Dropdown menu - select2 plug-in
 	  $("#source").select2();

@@ -118,6 +118,13 @@
                 $('#id_remove_temp_id').remove();
             }, 400);
         });
+        $('.tab .controller .remove').click(function () {
+            $(this).parent().parent().addClass('animated fadeOut');
+            $(this).parent().parent().attr('id', 'id_remove');
+            setTimeout(function () {
+                $('#id_remove').remove();
+            }, 400);
+        });
         if (!jQuery().sortable) {
             return;
         }
