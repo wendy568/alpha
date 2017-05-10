@@ -100,4 +100,5 @@ $a = &load_class('A');
 $b = &load_class('B');
 
 $test = &get_instance();
+print_r($test);
 $test->hi();
