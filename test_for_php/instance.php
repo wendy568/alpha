@@ -101,4 +101,4 @@ $b = &load_class('B');
 new instance();
 $test = &get_instance();
 // print_r($test);
-$test->->hi();
+$test->a->hi();
