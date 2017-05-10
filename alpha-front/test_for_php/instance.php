@@ -80,25 +80,25 @@ function &get_instance()
 	return instance::get_instance();
 }
 
-// class A
-// {
-// 	function hi()
-// 	{
-// 		echo ' Hi ';
-// 	}
-// }
+class A
+{
+	function hi()
+	{
+		echo ' Hi ';
+	}
+}
 
-// class B
-// {
-// 	function name()
-// 	{
-// 		echo ' Chenqi ';
-// 	}
-// }
+class B
+{
+	function name()
+	{
+		echo ' Chenqi ';
+	}
+}
 
-// $a = &load_class('A');
-// $b = &load_class('B');
+$a = &load_class('A');
+$b = &load_class('B');
 
 $test = &get_instance();
 // print_r(is_loaded());
-$test->hi();
+$test->A->hi();
