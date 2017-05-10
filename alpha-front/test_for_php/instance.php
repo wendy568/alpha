@@ -1,6 +1,6 @@
 <?php
 
-class CI_Controller {
+class instance {
 
 	/**
 	 * Reference to the singleton
@@ -25,9 +25,6 @@ class CI_Controller {
 		{
 			$this->$var =& load_class($class);
 		}
-
-		$this->load =& load_class('Loader', 'core');
-		$this->load->initialize();
 	}
 
 	// --------------------------------------------------------------------
@@ -45,11 +42,62 @@ class CI_Controller {
 
 }
 
-function &get_instance()
+function &load_class($class, $param = null)
 {
-	return CI_Controller::get_instance();
+
+	static $_classes = array();
+
+	// Does the class exist? If so, we're done...
+	if (isset($_classes[$class]))
+	{
+		return $_classes[$class];
+	}
+
+	// Keep track of what we just loaded
+	is_loaded($class);
+
+	$_classes[$class] = isset($param)
+		? new $name($param)
+		: new $name();
+	return $_classes[$class];
+	
 }
 
-$test = &get_instance();
+function &is_loaded($class = '')
+{
+	static $_is_loaded = array();
 
-print_r($test);
+	if ($class !== '')
+	{
+		$_is_loaded[strtolower($class)] = $class;
+	}
+
+	return $_is_loaded;
+}
+
+function &get_instance()
+{
+	return instance::get_instance();
+}
+
+class A
+{
+	function hi()
+	{
+		echo ' Hi ';
+	}
+}
+
+class B
+{
+	function name()
+	{
+		echo ' Chenqi ';
+	}
+}
+
+$a = &load_class('A');
+$b = &load_class('B');
+
+$test = &get_instance();
+$test->hi();
