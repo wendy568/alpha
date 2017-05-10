@@ -566,7 +566,10 @@ $(document).ready(function () {
         $(this).removeClass('hide-top-content-header');
         if(!$('body').hasClass('extended-layout'))
         $(this).find('#main-menu').removeClass('mini');
-    };    
+    };
+    $.fn.toggleTradingDetail = function () {
+        $.Webarch.toggleClass('hide');
+    }; 
 
 })(jQuery);
 
@@ -577,3 +580,8 @@ $(function() {
     $.alpha.init();
 });
 
+// view tradingdetail
+ $('.view').click(function(){
+        $('#tradingDetail').toggleClass('hide');
+    }
+);
