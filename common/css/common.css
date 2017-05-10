@@ -5332,6 +5332,7 @@ form legend,
   background-image: none;
   box-shadow: none;
   filter: none;
+  margin-bottom: 10px;
 }
 .progress.no-radius {
   border-radius: 0px;
@@ -5346,7 +5347,7 @@ form legend,
   height: 2px;
 }
 .progress.progress-large {
-  height: 20px;
+  height: 12px;
 }
 .progress-bar {
   box-shadow: none;
@@ -5384,7 +5385,11 @@ form legend,
   background-image: none;
 }
 .progress-bar-black {
-  background-color: #1b1e24;
+  background-color: #33373c;
+  background-image: none;
+}
+.progress-bar-purple {
+  background-color: #735f87;
   background-image: none;
 }
 .progress-info .bar,
@@ -10263,4 +10268,35 @@ video{
     line-height: 1.42857143;
     color: #a8adb2;
     white-space: nowrap;
+}
+.date-to{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 35px;
+}
+.view{
+    font-size: 14px;
+    height: 32px;
+    width: 100px;
+    border: 1px solid #8b91a0;
+    line-height: 32px;
+    padding: 0 5px;
+    border-radius: 5px;
+    background-color: #20252B;
+}
+.view:hover,
+.view:active,
+.view:focus{
+    background-color: #fff;
+    color:#8b91a0;
+}
+.align{
+    display: inline-block;
+    width: 49%;
+}
+.preview{
+    position: relative;
+}
+.preview td:hover #tradingDetail:first-child{
+    position: absolute;
 }
