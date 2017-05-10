@@ -57,8 +57,8 @@ function &load_class($class, $param = null)
 	is_loaded($class);
 
 	$_classes[$class] = isset($param)
-		? new $name($param)
-		: new $name();
+		? new $class($param)
+		: new $class();
 	return $_classes[$class];
 	
 }
