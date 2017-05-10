@@ -82,6 +82,11 @@ function &get_instance()
 
 class A
 {
+	function __contruct()
+	{
+
+	}
+
 	function hi()
 	{
 		echo ' Hi ';
@@ -90,6 +95,11 @@ class A
 
 class B
 {
+	function __contruct()
+	{
+
+	}
+	
 	function name()
 	{
 		echo ' Chenqi ';
