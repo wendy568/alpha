@@ -96,8 +96,8 @@ function &get_instance()
 // 	}
 // }
 
-$a = &load_class('A');
-$b = &load_class('B');
+// $a = &load_class('A');
+// $b = &load_class('B');
 
 $test = &get_instance();
 // print_r(is_loaded());
