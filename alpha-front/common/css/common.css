@@ -53,6 +53,12 @@ li{
 .placeholder {
     color: '#333843';
 }
+a,
+a:hover,
+a:avtive,
+a:focus{
+  color:#fff;
+}
 html {
     font-size: 100%;
     height: 100%;
@@ -4641,8 +4647,10 @@ form legend,
   padding: 0px;
 }
 .grid .yun{
-  position: absolute;
-  bottom: 30px
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    width: 65%;
 }
 .grid.form-grid .grid-body {
   padding-bottom: 0 !important;
@@ -7250,20 +7258,26 @@ input[type="checkbox"] {
 .easy-pie-custom {
     position: absolute;
     display: inline-block;
-    width: 110px;
-    height: 110px;
+    width: 65%;
+    height: 50%;
     margin: 0 auto;
     text-align: center;
 }
 .easy-pie-custom canvas {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    margin-left: -55px;
+    margin-top: -55px;
 }
 .easy-pie-percent {
-  display: inline-block;
-  line-height: 110px;
-  z-index: 2;
+    margin-left: -39px;
+    position: absolute;
+    display: inline-block;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
 }
 .easy-pie-percent :after {
   content: '%';
@@ -9941,12 +9955,13 @@ body.rtl .footer-widget {
     position: relative;
     width: 100%;
 }
-.index-video .video-box{
-    position: relative;
+.index-video video{
+    display: block;
+    margin: 0 auto;
+    height: 340px;
 }
-video{
-    width: 100%;
-    height: 340px !important;
+.index-video .video-intr{
+    background-color: #1c2026;
 }
 .btn-play{
     position: absolute;
@@ -9961,15 +9976,17 @@ video{
 .index-video .video-intr{
     padding:20px 30px ;
 }
-.index-video .video-btn{
+.all-tv .video-intr{
+    padding: 40px;
+}
+.video-btn{
     width: 100%;
     height: 40px;
     background:-webkit-linear-gradient(left,#9B28EE,#E95469);
     bottom:0;
     position: absolute;
-    top:300px;
 }
-.index-video .video-btn span{
+.video-btn span{
     display: block;
     text-align: center;
     line-height: 50px;
@@ -10025,9 +10042,6 @@ video{
   padding:0;
   height: 100%;
   width: 100%;
-}
-.page-content .tools-content {
-    padding: 40px 30px;
 }
 .module{
     list-style-type:none; 
@@ -10181,7 +10195,9 @@ video{
 }
 
 /*-------------------------tradingstatistic.css-------------------------------------*/
-.page-content .trading-content{
+.page-content .trading-content,
+.page-content .tv-content,
+.page-content .tools-content{
     padding:30px;
 }
 .tab-page{
@@ -10299,4 +10315,107 @@ video{
 }
 .preview td:hover #tradingDetail:first-child{
     position: absolute;
+}
+
+/*tv----------------------------------*/
+.tvbar{
+    background: #2A2E36;
+    background: #;
+    padding-left: 20px;
+    height: 50px;
+    margin-top: 60px;
+    line-height: 50px;
+}
+.all-tv{
+  height: 450px;
+  background-color: #2A2E36;
+  width: 100%;
+  position: relative;
+  border-radius: 8px;
+}
+.tv-preview video{
+  height:450px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+.ad{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    margin-left: -50%;
+    margin-top: -225px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.all-tv .video-intr{
+    background-color: #2A2E36;
+}
+.overall{
+  width: 120px;
+  height: 120px;
+  background-color: #323640;
+  border-radius: 8px;
+  padding-top:2px;
+  text-align: center;
+  margin-top: 30px;
+  display: inline-block;
+}
+.bk-img{
+  width: 100%;
+  height: 190px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: relative;
+}
+.tv-date{
+  position: absolute;
+  height: 30px;
+  top:160px;
+  left: 0;
+  background-color:rgba(0,0,0,.5);
+  width: 100%;
+  padding: 0 15px;
+  padding-right: 30px; 
+}
+.tv-des{
+  height: 60px;
+  background-color: #2a2e36;
+  padding:2px 15px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.tv-btn{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+.tv-play{
+    width: 100%;
+    height: 288px;
+    background: -webkit-linear-gradient(top,rgba(155,40,238,.5)0%,rgba(233,84,105,.5)100%);
+    border-radius: 8px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.tv-play .video-btn{
+    width: 100%;
+    height: 40px;
+    background: -webkit-linear-gradient(top,rgba(155,40,238,.5)0%,rgba(233,84,105,.5)100%);
+    bottom: 0;
+    position: absolute;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.tv-play .video-btn a{
+    text-align: center;
+    display: block;
+    line-height: 36px;
 }
