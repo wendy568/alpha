@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Security procedures
  * ------------------------------------------------------
  */
-echo 123;
+
 if ( ! is_php('5.4'))
 {
 	ini_set('magic_quotes_runtime', 0);
