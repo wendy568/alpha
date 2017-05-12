@@ -417,7 +417,7 @@ class Trading_datas_calculate {
     			if ($k == $index && $v > 0) {
     				$sum += 1;
     			} elseif($k == $index && $v < 0) {
-    				$count[] = $sum;
+    				if($sum) $count[] = $sum;
     				$sum = 0;
     			}
     		}
