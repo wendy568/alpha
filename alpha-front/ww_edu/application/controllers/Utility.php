@@ -48,9 +48,9 @@ class Utility extends MY_Controller
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
 
-		$cols = $this->trading_log->init()
+		$cols = $this->trading_log->init($datas)
 								  ->create_time()
-								  ->format($datas)
+								  ->format()
 					              ->property('user_addslashes')
 					              ->add();
 
