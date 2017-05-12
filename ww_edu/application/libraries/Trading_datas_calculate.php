@@ -162,13 +162,13 @@ class Trading_datas_calculate {
 						$result[$year . '.' . $month . '.' . $day][] = $value;
 					} 
 
-					if(!isset($result[$month . '.' . $day])) {
+					if(!isset($result[$year . '.' . $month . '.' . $day])) {
 						$result[$year . '.' . $month . '.' . $day] = [];
 					}
 				}
 			}
 		}
-		print_r($result);
+
 		if(empty($result)) {
 			foreach ($week as $val) {
 				$slice = explode('-', $val);
