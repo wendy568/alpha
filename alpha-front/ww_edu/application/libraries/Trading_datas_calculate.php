@@ -416,16 +416,14 @@ class Trading_datas_calculate {
     		foreach ($value as $k => $v) {
     			if ($k == $index && $v > 0) {
     				$sum1 = $sum2 + 1;
-    			} else {
+    			} elseif($k == $index && $v < 0) {
     				$sum1 = $sum2 - 1;
-    			}
-    			if ($sum1 != $sum2) {
-    				var_dump($v);
     			}
     		}
     		$sum2++;
     	}
-
+    	var_dump($sum1);
+    	var_dump($sum2);
     }
 
 }
