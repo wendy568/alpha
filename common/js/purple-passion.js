@@ -22,11 +22,8 @@
     echarts.registerTheme('purple-passion', {
         "color": [
             "#9b8bba",
-            "#e098c7",
-            "#8fd3e8",
-            "#71669e",
-            "#cc70af",
-            "#7cb4cc"
+            "#0090d9",
+            "#f35958"
         ],
         "backgroundColor": "#1c2026",
         "textStyle": {},
@@ -193,11 +190,8 @@
             "smooth": true,
             "color": [
                 "#9b8bba",
-                "#e098c7",
-                "#8fd3e8",
-                "#71669e",
-                "#cc70af",
-                "#7cb4cc"
+                "#0090d9",
+                "#f35958"
             ],
             "label": {
                 "normal": {
@@ -279,10 +273,9 @@
                 }
             },
             "splitLine": {
-                "show": false,
+                "show": true,
                 "lineStyle": {
                     "color": [
-                        "#eeeeee",
                         "#333333"
                     ]
                 }
@@ -291,7 +284,7 @@
                 "show": true,
                 "areaStyle": {
                     "color": [
-                        "rgba(250,250,250,0.05)",
+                        "rgba(200,200,200,0.02)",
                         "rgba(200,200,200,0.02)"
                     ]
                 }
@@ -317,10 +310,9 @@
                 }
             },
             "splitLine": {
-                "show": false,
+                "show": true,
                 "lineStyle": {
                     "color": [
-                        "#eeeeee",
                         "#333333"
                     ]
                 }
@@ -329,7 +321,7 @@
                 "show": true,
                 "areaStyle": {
                     "color": [
-                        "rgba(250,250,250,0.05)",
+                        "rgba(200,200,200,0.02)",
                         "rgba(200,200,200,0.02)"
                     ]
                 }
@@ -355,10 +347,9 @@
                 }
             },
             "splitLine": {
-                "show": false,
+                "show": true,
                 "lineStyle": {
                     "color": [
-                        "#eeeeee",
                         "#333333"
                     ]
                 }
@@ -367,7 +358,7 @@
                 "show": true,
                 "areaStyle": {
                     "color": [
-                        "rgba(250,250,250,0.05)",
+                        "rgba(200,200,200,0.02)",
                         "rgba(200,200,200,0.02)"
                     ]
                 }
@@ -393,10 +384,9 @@
                 }
             },
             "splitLine": {
-                "show": false,
+                "show": true,
                 "lineStyle": {
                     "color": [
-                        "#eeeeee",
                         "#333333"
                     ]
                 }
@@ -405,7 +395,7 @@
                 "show": true,
                 "areaStyle": {
                     "color": [
-                        "rgba(250,250,250,0.05)",
+                        "rgba(200,200,200,0.02)",
                         "rgba(200,200,200,0.02)"
                     ]
                 }
@@ -423,7 +413,7 @@
         },
         "legend": {
             "textStyle": {
-                "color": "#cccccc"
+                "color": "#eeeeee"
             }
         },
         "tooltip": {
