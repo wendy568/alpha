@@ -3,7 +3,7 @@ namespace Core;
 
 class Common
 {
-	public static function &loaded_classes($class, $path)
+	public static function &loaded_classes($class, $path, $param = null)
 	{
 
 		static $_classes = array();
@@ -15,7 +15,7 @@ class Common
 
 		$name = str_replace('\\', '/', $path) . '/' . $class;
 		if (file_exists(realpath($name . EXT))) {
-			var_dump(require_once "{$name}" . EXT);
+			require_once "{$name}" . EXT;
 		}else{
 			exit("HAVE NOT SUCH FILE IN SYSTEM");
 		}

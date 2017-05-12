@@ -12,7 +12,7 @@ class Container
 		static::$_container = $this;
 
 		array_walk(Common::is_loaded(), function ($val, $key) {
-			$this->$key = &Common::loaded_classes($val);
+			$this->$val = &Common::loaded_classes($val,$key);
 		});
 	}
 
