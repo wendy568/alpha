@@ -2,11 +2,12 @@
 
 class Trading_log extends sql_operation
 {
-	public function init()
+	public function init($array)
 	{
+		$this->_data = $array;
 		$this->_data['table'] = 'trading_log';
 		$this->_data['u_time'] = time();
-		
+
 		return $this;
 	}
 

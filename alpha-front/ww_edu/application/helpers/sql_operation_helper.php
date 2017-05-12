@@ -41,7 +41,6 @@ abstract class sql_operation
 
 	public function add($file = null)
 	{	
-		print_r($this->_data);
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
