@@ -14,8 +14,9 @@ class Common
 		}
 
 		$name = str_replace('\\', '/', $path) . '/' . $class;
-		print_r($name);
+		
 		if (file_exists(realpath($name . EXT))) {
+			print_r($name);
 			require_once "{$name}" . EXT;
 		}else{
 			exit("HAVE NOT SUCH FILE IN SYSTEM");
