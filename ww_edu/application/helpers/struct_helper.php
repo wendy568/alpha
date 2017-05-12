@@ -2,6 +2,23 @@
 
 trait struct
 {
+
+	public function get_property()
+	{
+		return $this->property;
+	}
+	
+	public function count()
+	{
+		$this->count = count($this->_data);
+		return $this;
+	}
+
+	protected function get_count()
+	{
+		return $this->count;
+	}
+
 	public function getWeekResult()
 	{
 		return $this->oneByone;
