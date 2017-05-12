@@ -49,6 +49,7 @@ abstract class sql_operation
 
 		if(!empty($this->width) && !empty($this->height)) $image = get_image($this->width, $this->height, "{$this->file_path}");
 		if($image) $this->_data[$image] = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
+		print_r($this->_data);die;
 		$dfdb = databases_filter::build();
 		$cols = array($this->table);
 
