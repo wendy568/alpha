@@ -9,7 +9,7 @@ class Trading_logs extends CI_Model
 
 	function tradingLogList($uid = null)
 	{
-		$where = "account_number='{$uid}'";
+		$where = "uid='{$uid}'";
 		$result = array();
 		$map = "SELECT *  
 				FROM trading_log 
