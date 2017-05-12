@@ -48,7 +48,7 @@ class Utility extends MY_Controller
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
 
-		$cols = $this->trading_log->format($datas)->init()-create_time()->property('user_addslashes')->add();
+		$cols = $this->trading_log->format($datas)->init()-create_time()->update_time()->property('user_addslashes')->add();
 
 		$this->load->model('users');
 		$response = array('archive' => array('status' => 0,'message' =>''));
