@@ -416,13 +416,13 @@ class Trading_datas_calculate {
     		foreach ($value as $k => $v) {
     			if ($k == $index && $v > 0) {
     				$sum += 1;
-    				var_dump($sum);
     			} elseif($k == $index && $v < 0) {
     				$count[] = $sum;
     				$sum = 0;
     			}
     		}
     	}
+    	$count[] = $sum;
     	var_dump($count);
     }
 
