@@ -7,28 +7,18 @@ class Trading_logs extends CI_Model
         parent::__construct();
     }
 
-	function show_trading_logs()
+	function tradingLogList($uid = null)
 	{
+		$where = "account_number='{$uid}'";
 		$result = array();
-		$map = 'SELECT *  
-				FROM trading_log';	
+		$map = "SELECT *  
+				FROM trading_log 
+				WHERE $where";	
 		$query = $this->db->query($map);
         $result = $query->result_array();
         
         return $result;
 
-	}
-
-	function test($uu, $sign)
-	{
-		$result = array();
-		$map = 'INSERT test2(uu,sign) VALUES("'.$uu.'","'.$sign.'")';	
-		print_r($map);
-		$this->db->query($map);
-	    $result = $this->db->insert_id();   
-	    
-	    return $result;
-	
 	}
 
 }
