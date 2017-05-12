@@ -80,8 +80,8 @@
       $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
         if(data.archive.status == 0){
           var billData = [];
-          billData[0] = {name:'BUY',value:data.data.percent_ratio._0};
-          billData[1] = {name:'SELL',value:data.data.percent_ratio._1};
+          billData[0] = {name:'BUY',value:data.data.percent_ratio._0 * 100};
+          billData[1] = {name:'SELL',value:data.data.percent_ratio._1 * 100};
           pieChart.setOption({
             series:[{
               name: 'bill',
