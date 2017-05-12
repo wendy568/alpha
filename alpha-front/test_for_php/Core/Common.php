@@ -29,7 +29,7 @@ class Common
 		
 	}
 
-	public static function &is_loaded()
+	public static function &is_loaded($class = '')
 	{
 		static $_is_loaded = array();
 
