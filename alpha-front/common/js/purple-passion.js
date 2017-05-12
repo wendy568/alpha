@@ -43,7 +43,7 @@
             },
             "lineStyle": {
                 "normal": {
-                    "width": "3"
+                    "width": "3",
                 }
             },
             "symbolSize": "7",
