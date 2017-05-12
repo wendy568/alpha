@@ -5,6 +5,8 @@ class Trading_log extends sql_operation
 	public function init()
 	{
 		$this->_data['table'] = 'trading_log';
+		$this->_data['u_time'] = time();
+		
 		return $this;
 	}
 
@@ -16,10 +18,4 @@ class Trading_log extends sql_operation
 		return $this;
 	}
 
-	public function update_time()
-	{
-		$this->_data['u_time'] = time();
-
-		return $this;
-	}
 }
