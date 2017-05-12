@@ -4567,7 +4567,7 @@ form legend,
     cursor: pointer;
 }
 .carousel-inner .date:hover,
-.carousel-inner .date:active{
+.carousel-inner .date.active{
     background-color: #1CBD9D;
 }
 .item .col{
@@ -9772,5 +9772,6 @@ body.rtl .footer-widget {
   -o-transition: all 0.5s;
 }
 
-.date.active{
-}
+/*.calendar-tab-content{*/
+  /*height: 322px;*/
+/*}*/
