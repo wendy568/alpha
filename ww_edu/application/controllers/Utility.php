@@ -68,7 +68,7 @@ class Utility extends MY_Controller
 		$this->load->helper('encapsulation');
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
-
+		$this->trading_log->test();die;
 		$cols = $this->trading_log->init($datas)
 								  ->create_time()
 								  ->format()
