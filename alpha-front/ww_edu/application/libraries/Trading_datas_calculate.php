@@ -248,7 +248,7 @@ class Trading_datas_calculate {
     		}
     	});
 
-    	return $sum;
+    	return round($sum, 2);
     }
 
     private function avg($index, $data = [])
