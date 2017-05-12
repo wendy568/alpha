@@ -419,11 +419,13 @@ class Trading_datas_calculate {
     			} else {
     				$sum1 = $sum2 - 1;
     			}
+    			if ($sum1 != $sum2) {
+    				var_dump($v);
+    			}
     		}
     		$sum2++;
     	}
-    	var_dump($sum1);
-    	var_dump($sum2);
+
     }
 
 }
