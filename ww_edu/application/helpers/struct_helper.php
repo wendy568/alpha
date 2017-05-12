@@ -2,12 +2,11 @@
 
 trait struct
 {
-
 	public function getWeekResult()
 	{
 		return $this->oneByone;
 	}
-	
+
 	public function build($import_datas, $month = null)
 	{
 		$this->_data = $import_datas;
@@ -75,6 +74,12 @@ trait struct
 		}
 
 		$this->oneByone = $result;
+		return $this;
+	}
+
+	public function property($callback, $param)
+	{
+		$this->property = call_user_func_array([$this, $callback], $param);
 		return $this;
 	}
 }
