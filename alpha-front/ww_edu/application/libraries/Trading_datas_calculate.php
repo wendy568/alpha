@@ -308,7 +308,7 @@ class Trading_datas_calculate {
 			}
 		}
 
-		return round(sqrt($sum), 2);
+		return round(($sum), 2);
 
     }
 
