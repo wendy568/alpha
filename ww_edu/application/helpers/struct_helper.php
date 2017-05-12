@@ -2,8 +2,7 @@
 
 trait struct
 {
-	protected $_data;
-	
+
 	public function get_property()
 	{
 		return $this->property;
@@ -95,7 +94,7 @@ trait struct
 		return $this;
 	}
 
-	public function property($callback, $param)
+	public function property($callback, $param = null)
 	{
 		$this->property = call_user_func_array([$this, $callback], $param);
 		return $this;
