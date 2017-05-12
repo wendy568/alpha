@@ -52,7 +52,7 @@ class Utility extends MY_Controller
 
 		$logs = $this->trading_logs->tradingLogList($uid);
 
-		$this->trading_log->build($logs)->get_week();
+		$data['data']['logs'] = $this->trading_log->build($logs)->get_week()->getWeekResult();
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
 	

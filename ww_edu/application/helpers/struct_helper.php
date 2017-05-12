@@ -2,6 +2,12 @@
 
 trait struct
 {
+
+	public function getWeekResult()
+	{
+		return $this->oneByone;
+	}
+	
 	public function build($import_datas, $month = null)
 	{
 		$this->_data = $import_datas;
