@@ -2,12 +2,12 @@
 
 trait struct
 {
-
+	protected $_data;
 	public function get_property()
 	{
 		return $this->property;
 	}
-	
+
 	public function count()
 	{
 		$this->count = count($this->_data);
