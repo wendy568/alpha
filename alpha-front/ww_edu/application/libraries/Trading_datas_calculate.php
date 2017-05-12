@@ -303,8 +303,6 @@ class Trading_datas_calculate {
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == $index) {
-					var_dump($v);
-					var_dump($avg);
 					$sum += pow(($v - $avg), 2);
 				}
 			}
