@@ -43,7 +43,7 @@ class Utility extends MY_Controller
 		$uid = $this->get_bytoken($token);
 		$left_right = $this->input->get_post('left_right', TRUE);
 		$time_node = $this->input->get_post('time_node', TRUE);
-		
+
 		$start = '+3';
 		$nextOrLast = '+0';
 		if($left_right == 'left') {
@@ -64,7 +64,7 @@ class Utility extends MY_Controller
 		$logs = $this->trading_logs->tradingLogList($uid);
 
 		$data['data']['trading_logs'] = $this->trading_log->build($logs)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week()->getWeekResult();
-
+		$data['data']['OverAll'] = $this->trading_log->build($logs)->count()->property('get_count', [])->get_property();
 		$response = array('archive' => array('status' => 0,'message' =>''));
 	
 		encode_json($response,$data);
