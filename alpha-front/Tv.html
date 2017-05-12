@@ -146,10 +146,13 @@
                             </a>
                             <ul class="sub-menu">
                                 <li> 
-                                    <a href="TradingStatistic.html"><i class="fa fa-bar-chart"></i>Trading Statistics </a> 
+                                    <a href="TradingStatistic.html"><i class="fa fa-bar-chart"></i> Trading Statistics </a> 
                                 </li>
                                 <li> 
-                                    <a href="Tools.html"><i class="fa fa-suitcase"></i>Tools</a> 
+                                    <a href="Tools.html"><i class="fa fa-suitcase"></i> Tools</a> 
+                                </li>
+                                <li> 
+                                    <a href="Trading_History.html"><i class="fa fa-suitcase"></i> Trading history</a> 
                                 </li>
                             </ul>
                         </li>
@@ -324,6 +327,7 @@
                 </div>
                 <div class="tv-content">
                 	<p>All Tv</p>
+                    <!-- tv -->
                 	<div class="row no-margin all-tv m-b-30">
                         <!-- video-box -->
                         <div class="col-lg-8 col-sm-12 no-padding tv-preview" style="height: 450px;"> 
@@ -360,12 +364,13 @@
                             </div>
                         </div>
                 	</div>
-                    <div class="row m-b-30">
-                        <div class="col-lg-3 tv-small">
-                            <img src="assets/img/tv-small.png" alt="" class="bk-img">
+                    <!-- tv-small -->
+                    <ul class="row m-b-30 no-padding">
+                        <li class="col-lg-3 tv-small">
+                            <img src="assets/img/dem0_img01.png" alt="" class="bk-img">
                             <!-- 遮罩 -->
                             <div class="tv-date">
-                                <h6>12'23</h6>
+                                <h6 class="text-c3">12'23</h6>
                             </div>
                             <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
                             <div class="tv-des">
@@ -373,15 +378,15 @@
                             </div>
                             <div class="tv-play hide">
                                 <div class="video-btn">
-                                    <a class="text-c1 semi-bold">Play</a>
+                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#myModal">Play</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 tv-small">
-                            <img src="assets/img/tv-small.png" alt="" class="bk-img">
+                        </li>
+                        <li class="col-lg-3 tv-small">
+                            <img src="assets/img/dem0_img02.png" alt="" class="bk-img">
                             <!-- 遮罩 -->
                             <div class="tv-date">
-                                <h6>12'23</h6>
+                                <h6 class="text-c3">12'23</h6>
                             </div>
                             <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
                             <div class="tv-des">
@@ -389,15 +394,15 @@
                             </div>
                             <div class="tv-play hide">
                                 <div class="video-btn">
-                                    <a class="text-c1 semi-bold">Play</a>
+                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#myModal">Play</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 tv-small">
-                            <img src="assets/img/tv-small.png" alt="" class="bk-img">
+                        </li>
+                        <li class="col-lg-3 tv-small">
+                            <img src="assets/img/dem0_img03.png" alt="" class="bk-img">
                             <!-- 遮罩 -->
                             <div class="tv-date">
-                                <h6>12'23</h6>
+                                <h6 class="text-c3">12'23</h6>
                             </div>
                             <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
                             <div class="tv-des">
@@ -405,15 +410,15 @@
                             </div>
                             <div class="tv-play hide">
                                 <div class="video-btn">
-                                    <a class="text-c1 semi-bold">Play</a>
+                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#myModal">Play</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 tv-small">
-                            <img src="assets/img/tv-small.png" alt="" class="bk-img">
+                        </li>
+                        <li class="col-lg-3 tv-small">
+                            <img src="assets/img/dem0_img04.png" alt="" class="bk-img">
                             <!-- 遮罩 -->
                             <div class="tv-date">
-                                <h6>12'23</h6>
+                                <h6 class="text-c3">12'23</h6>
                             </div>
                             <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
                             <div class="tv-des">
@@ -421,7 +426,75 @@
                             </div>
                             <div class="tv-play hide">
                                 <div class="video-btn">
-                                    <a class="text-c1 semi-bold">Play</a>
+                                    <span href="" class="text-c1 semi-bold" data-toggle="modal" data-target="#myModal">Play</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <video id="tv" src="./assets/res/birds.mp4"  controls loop height="600">您的浏览器不支持VIDEO标签</video>
+                                    <!-- <img class="btn-play img-responsive" src="./assets/img/dashboard_tv_play.png" alt=""> -->
+                                </div>
+                                <div class="modal-body">
+                                   <h3 class="text-c1 semi-bold">Facebook lanuches Yaren</h3>
+                                   <h5 class="text-c3">If you're able to spend less time the office by working remotely or living fiexible hours,you should be able to  be productive it will frequently.
+                                    <span class="text-error">show more&gt;&gt;</span>
+                                   </h5>
+                                   <textarea name="" id="comment" cols="120" rows="4" placeholder="say someing"></textarea>
+                                   <p class="m-t-10 m-b-30">
+                                        <span><i class="fa fa-user-circle"></i>Evan</span>
+                                        <button class="btn btn-black pull-right">Publish</button>
+                                   </p>
+
+                                   <ul class="no-padding">
+                                       <li class="row comment">
+                                           <div class="col-xs-1 text-center">
+                                               <img src="assets/img/profiles/c.jpg" alt="" class="favicon"> 
+                                           </div>
+                                           <div class="col-xs-11">
+                                               <p class="no-margin">
+                                                   <span class="text-info">Justin Bieber</span>
+                                                   <span class="text-c3">2017-5-12 21:47:58</span>
+                                               </p>
+                                               <p class="text-c2 no-margin">linke a rolling strone</p>
+                                           </div>
+                                       </li>
+                                       <li class="row comment">
+                                           <div class="col-xs-1 text-center">
+                                               <img src="assets/img/profiles/d.jpg" alt="" class="favicon"> 
+                                           </div>
+                                           <div class="col-xs-11">
+                                               <p class="no-margin">
+                                                   <span class="text-info">Marry</span>
+                                                   <span class="text-c3">2017-5-12 21:47:58</span>
+                                               </p>
+                                               <p class="text-c2 no-margin">linke a rolling strone</p>
+                                           </div>
+                                       </li>
+                                   </ul>
+                                </div>
+                                <div class="tooltips">
+                                    <ul class="no-padding">
+                                        <li class="comments-icon purple">
+                                            <a href="#comment" class="text-c1">
+                                                <i class="fa fa-comment"></i>
+                                                <p>6</p>
+                                            </a>
+                                        </li>
+                                        <li class="comments-icon blue">
+                                            <a href="" class="text-c1">
+                                                <i class="fa fa-heart"></i>
+                                                <p>88</p>
+                                            </a>
+                                        </li>
+                                       <!--  <li class="comments-icon black">
+                                            <i class="fa fa-close"></i>
+                                        </li> -->
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -466,8 +539,8 @@
               ad.style.display = 'block';
             }
 
-            $('.tv-small').hover(function(){
-                $('.tv-play').toggleClass('hide');
+           $('.tv-small').hover(function(){
+                $(this).children('.tv-play').toggleClass('hide').fadeToggle(3000);
             });
         </script>
     </body>
