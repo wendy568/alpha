@@ -2,7 +2,24 @@
 
 trait struct
 {
+	protected $_data = [];
 
+	protected $_property = [];
+
+	protected $count = 0;
+
+	protected $this_month;
+
+	protected $this_year;
+
+	protected $this_day;
+	
+	public $time_filter_definition = '';
+
+	protected $unix_time;
+
+	protected $oneByone = '';
+	
 	public function get_property()
 	{
 		return $this->property;
