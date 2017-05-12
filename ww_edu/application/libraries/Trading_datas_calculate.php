@@ -263,7 +263,7 @@ class Trading_datas_calculate {
     	});
 
     	$avg = ($this->count) ? $sum / $this->count : 0;
-    	return $avg;
+    	return round($avg, 2);
     }
 
     //Avg[∑(CloseTime-OpenTime)]
