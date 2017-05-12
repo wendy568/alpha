@@ -9588,6 +9588,7 @@ body.rtl .footer-widget {
   transform: translate(-50%);
   -webkit-transform: translate(-50%);
   -moz-transform:  translate(-50%);
+  -o-transform:  translate(-50%);
 }
 .form-item-notification-up::before{
   content: '';
@@ -9662,6 +9663,7 @@ body.rtl .footer-widget {
   transform: translate(-50%);
   -webkit-transform: translate(-50%);
   -moz-transform:  translate(-50%);
+  -o-transform:  translate(-50%);
 }
 .form-item-notification-down::before{
   content: '';
@@ -9760,7 +9762,13 @@ body.rtl .footer-widget {
 /*index.html-----------------------------------------------------------*/
 .card:hover{
   transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
 }
 .card{
   transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
 }
