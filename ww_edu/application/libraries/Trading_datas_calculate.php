@@ -347,6 +347,20 @@ class Trading_datas_calculate {
 		return $this;
     }
 
+    public function saveCountNegative($index)
+    {
+    	$datas = $this->_data;
+    	foreach ($datas as $key => $value) {
+			foreach ($value as $k => $v) {
+				if ($k == $index && $v > 0) {
+					unset($datas[$key]);
+				}
+			}
+		}
+		$this->_data = $datas;
+		return $this;
+    }
+
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
     public function accuracy($index)
     {
