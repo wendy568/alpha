@@ -151,7 +151,7 @@ class Trading_Analysis extends MY_Controller
 		$data['data']['Net_profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('sum', ['profit'])->get_property();
 		$data['data']['Average_Profits'] = $this->trading_datas_calculate->build($mt4, 3)->saveCountPositive('profit')->count()->property('avg', ['profit'])->get_property();
 		$data['data']['Average_Loss'] = $this->trading_datas_calculate->build($mt4, 3)->saveCountNegative('profit')->count()->property('avg', ['profit'])->get_property();
-		$data['data']['Maximum_Consecutive_Profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('percent_ratio', ['order_type'])->get_property();
+		$data['data']['Maximum_Consecutive_Profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('Consecutive', ['profit'])->get_property();
 		$data['data']['Avg_holding_Time'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
 		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('variance', ['profit'])->get_property();
 
