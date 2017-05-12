@@ -8797,11 +8797,11 @@ body.rtl .footer-widget {
 .country_jpy{height:16px;width:22px;background-position:0 0;}
 .country_gbp{height:16px;width:22px;background-position:-22px 0;}
 .country_usd{height:16px;width:22px;background-position:-44px 0;}
-.country_nzd{height:16px;width:22px;background-position:-88px 0;}
-.country_chf{height:16px;width:22px;background-position:-110px 0;}
-.country_aud{height:16px;width:22px;background-position:-132px 0;}
-.country_eur{height:16px;width:22px;background-position:-154px 0;}
-.country_cny{height:16px;width:22px;background-position:-176px 0;}
+.country_nzd{height:16px;width:22px;background-position:-66px 0;}
+.country_chf{height:16px;width:22px;background-position:-88px 0;}
+.country_aud{height:16px;width:22px;background-position:-110px 0;}
+.country_eur{height:16px;width:22px;background-position:-132px 0;}
+.country_cny{height:16px;width:22px;background-position:-154px 0;}
 /*--------------------------------tools---------------------------------------------*/
 .toolbar{
   width: 100%;

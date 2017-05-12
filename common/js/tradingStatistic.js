@@ -45,7 +45,7 @@
                 currData.push(cur);
             }
 
-             var lineChart = echarts.init(document.getElementById('lineChart'),'purple-passion');
+            var lineChart = echarts.init(document.getElementById('lineChart'),'purple-passion');
             var option = {
                 title: {},
                 tooltip : {
@@ -64,8 +64,8 @@
                     }
                 },
                 grid: {
-                    left: '3%',
-                    right: '4%',
+                    left: '2%',
+                    right: '5%',
                     bottom: '3%',
                     containLabel: true
                 },
@@ -96,6 +96,62 @@
             };
             // 使用刚指定的配置项和数据显示图表。
             lineChart.setOption(option);
+		}
+	});
+
+	// 柱状图 交易买卖手数
+	$.alpha.request_Url('post','Trading_Analysis/numberOfTransations',{},function(data){
+		if(data.archive.status == 0){
+			var data=data.data.numbers_ratio;
+			console.log(data);
+			var key = [];
+			 for(var i in data){
+			 	key.push(i.substring(5,10));
+			 }
+
+			var barChart = echarts.init(document.getElementById('barChart'),'purple-passion');
+			var option = {
+			    tooltip : {
+			        trigger: 'axis',
+			        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+			            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+			        }
+			    },
+			    legend: {},
+			    grid: {
+			        left: '3%',
+			        right: '4%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis : [
+			        {
+			            type : 'category',
+			            data : key
+			        }
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value'
+			        }
+			    ],
+			    series : [
+			    	{
+			            name:'联盟广告',
+			            type:'bar',
+			            stack: '广告',
+			            data:[220, 182, 191, 234, 290, 330, 310]
+			        },
+			        {
+			            name:'邮件营销',
+			            type:'bar',
+			            stack: '广告',
+			            data:[120, 132, 101, 134, 90, 230, 210]
+			        },
+			        
+			    ]
+			};
+			barChart.setOption(option);
 		}
 	});
 
