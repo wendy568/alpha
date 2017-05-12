@@ -1,7 +1,37 @@
 <?php
 class Utility extends MY_Controller
 {
-	
+	public function week_news()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$token = $this->input->get_post('token', TRUE);
+		$account = $this->get_trading_account($token);
+		$left_right = $this->input->get_post('left_right', TRUE);
+		$time_node = $this->input->get_post('time_node', TRUE);
+
+		$start = '+3';
+		$nextOrLast = '+0';
+		if($left_right == 'left') {
+			$start = '-1';
+		} elseif($left_right == 'right') {
+			$start = '+1';
+			$nextOrLast = '+6';
+		}
+
+		$this->load->database();
+		$this->load->helper('json');
+		// $this->load->helper('time_zone');
+		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
+		$this->load->model('TradingAnalysis');
+
+		$mt4 = $this->TradingAnalysis->news();
+		$this->load->library('trading_datas_calculate');
+		$this->trading_datas_calculate->time_filter_definition = 'time_en';
+		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week()->getWeekResult();
+		$response = array('archive' => array('status' => 0 ,'message' =>''));
+		encode_json($response,$data);
+	}
 }
 
 
