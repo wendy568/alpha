@@ -3,7 +3,7 @@ namespace Core;
 
 class Common
 {
-	public static function &loaded_classes($class)
+	public static function &loaded_classes($class, $path)
 	{
 
 		static $_classes = array();
