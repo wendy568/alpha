@@ -8,7 +8,7 @@ class Register
 	public static function Autoload(Common $loader)
 	{
 		$required_classes = [
-			'app' => ['Core\Container' => 'Container'],
+			'app' => ['Core' => 'Container'],
 			];
 		array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
 				$temp = &$loader::loaded_classes($val, $key);
