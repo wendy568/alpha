@@ -802,11 +802,6 @@
             var lineChart = echarts.init(document.getElementById('lineChart'));
             var option = {
                 title: {
-                    // text: '堆叠区域图',
-                    // "textStyle": {
-                    //     "color": "#ffffff"
-                    // },
-                },
                 tooltip : {
                     trigger: 'axis',
                     axisPointer: {
@@ -817,8 +812,6 @@
                     }
                 },
                 legend: {
-                    // data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
-                },
                 toolbox: {
                     feature: {
                         saveAsImage: {}
@@ -835,8 +828,23 @@
                     textStyle: {
                         color:'#fff'
                     }
-                }
-                xAxis : [
+                },
+                axisLine: {
+                    show:true,
+                    lineStyle:{
+                        color:'#fff'
+                    }
+                },
+                splitLine: {
+                    show:true,
+                    interval:0,
+                    lineStyle: {
+                        color: ['#33373c'],   
+                        type: 'solid'
+                    }
+
+                },
+                xAxis: [
                     {
                         type : 'category',
                         boundaryGap : false,
