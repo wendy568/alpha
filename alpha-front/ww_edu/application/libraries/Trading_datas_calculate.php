@@ -419,7 +419,7 @@ class Trading_datas_calculate {
     				var_dump($v);
     				$sum1 += 1;
     			} elseif($k == $index && $v < 0) {
-    				$sum1 = 0;
+    				$sum1 = 1;
     			}
     		}
     		$sum2++;
