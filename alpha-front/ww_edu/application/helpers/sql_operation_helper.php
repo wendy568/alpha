@@ -2,11 +2,10 @@
 
 abstract class sql_operation
 {
-	protected $_data;
+	protected $_data = [];
 
-	public function format($array)
+	public function format()
 	{
-		$this->_data = $array;
 		foreach ($this->_data as $key => $value) {
 			$this->$key = $value;
 		}
