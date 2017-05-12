@@ -23,8 +23,8 @@ class Common
 		static::is_loaded($class, $path);
 
 		$_classes[$class] = isset($param)
-			? new $name($param)
-			: new $name();
+			? new $class($param)
+			: new $class();
 		return $_classes[$class];
 		
 	}
