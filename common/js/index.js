@@ -107,6 +107,37 @@
 
     var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
     pieChart.setOption({
+        tooltip: {
+            trigger: 'item',
+            formatter: "{b}: {d}%"
+        },
+        series: [
+            {
+                name:'bill',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '16',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                      show: false
+                    }
+                },
+                data:[]
+            }
+        ]
       tooltip: {
         trigger: 'item',
         formatter: "{b}: {d}%"

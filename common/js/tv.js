@@ -37,7 +37,6 @@
     $.alpha.request_Url('post','video/list',{'limit':4,'start':1},function(data){
         var list_html="";
         $.each(data.data,function(i,data){
-            console.log(data);
             var li = document.createElement('li');
 
             $(li).addClass('col-lg-3 tv-small m-b-40')
