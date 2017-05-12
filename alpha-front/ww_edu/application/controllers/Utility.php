@@ -51,6 +51,7 @@ class Utility extends MY_Controller
 		$this->load->library('trading_log');
 
 		$logs = $this->trading_logs->tradingLogList($uid);
+		print_r($logs);
 		$this->trading_log->build($log)->get_week();
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
