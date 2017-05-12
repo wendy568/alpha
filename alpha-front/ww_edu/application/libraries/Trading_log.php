@@ -3,7 +3,9 @@
 class Trading_log extends sql_operation
 {
 	use struct;
-	
+
+	public $time_filter_definition = 'c_time';
+
 	public function init($array)
 	{
 		$this->_data = $array;

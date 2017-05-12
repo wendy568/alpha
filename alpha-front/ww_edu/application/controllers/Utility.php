@@ -49,9 +49,10 @@ class Utility extends MY_Controller
 		$this->load->helper('struct');
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
-		
-		$this->trading_log->test();die;
-		$data['data'] = $this->trading_logs->tradingLogList($uid);
+
+		$logs = $this->trading_logs->tradingLogList($uid);
+		$this->trading_log->get_week();
+
 		$response = array('archive' => array('status' => 0,'message' =>''));
 	
 		encode_json($response,$data);
