@@ -14,12 +14,10 @@ trait struct
 
 	protected $this_day;
 	
-	public $time_filter_definition = '';
-
 	protected $unix_time;
 
 	protected $oneByone = '';
-	
+
 	public function get_property()
 	{
 		return $this->property;
