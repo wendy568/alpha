@@ -5,6 +5,13 @@
       'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
       'AUG','DXY','COPPER','NGAS','UKOIL','USOIL','AUS200','HKG50','HKH40','JPN225','NAS100',
       'SPX500','UK100','US30'];
+	
+	// 监听货币选项卡加载数据
+	$('.page-content .tabs li.tab').on('click',function (e) {
+      e.stopPropagation();
+      $(this).siblings('li.tab').removeClass('active').addClass('active');
+      var curBill = $(this).find('.currency').text();
+  });
 
 	// 交易数据计算
 	function getTraData(bill){
@@ -98,6 +105,60 @@
             lineChart.setOption(option);
 		}
 	});
+  
+  // synthesizing data 环形图----------------------------------------------------------------------------
+  var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
+  pieChart.setOption({
+    tooltip: {
+      trigger: 'item',
+      formatter: "{b}: {d}%"
+    },
+    series: [
+      {
+        name:'bill',
+        type:'pie',
+        radius: ['50%', '70%'],
+        avoidLabelOverlap: false,
+        label: {
+          normal: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            show: true,
+            textStyle: {
+              fontSize: '16',
+              fontWeight: 'bold'
+            }
+          }
+        },
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        data:[]
+      }
+    ]
+  });
+  
+  function getPieData(bill) {
+    bill = bill.replace('/','');
+    $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
+      if(data.archive.status == 0){
+        var billData = [];
+        billData[0] = {name:'BUY',value:data.data.percent_ratio._0 * 100};
+        billData[1] = {name:'SELL',value:data.data.percent_ratio._1 * 100};
+        pieChart.setOption({
+          series:[{
+            name: 'bill',
+            data: billData
+          }]
+        });
+      }
+    });
+  }
+  
 
 	// 柱状图 交易买卖手数
 	$.alpha.request_Url('post','Trading_Analysis/numberOfTransations',{},function(data){
