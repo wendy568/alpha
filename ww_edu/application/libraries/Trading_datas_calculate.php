@@ -406,4 +406,22 @@ class Trading_datas_calculate {
     	return $array;
     }
 
+    public function Consecutive($index, $data = null)
+    {
+    	$datas = $this->_data;
+    	if($data) $datas = $data;
+    	$sum1 = 0;
+    	$sum2 = 0;
+    	foreach ($datas as $key => $value) {
+    		foreach ($value as $k => $v) {
+    			if ($k == $index && $v > 0) {
+    				$sum1 = $sum2 + 1;
+    				$sum2++;
+    			}
+    		}
+    	}
+    	var_dump($sum1);
+    	var_dump($sum2);
+    }
+
 }
