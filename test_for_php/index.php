@@ -1,13 +1,12 @@
 <?php
 
-
 define('EXT', '.php');
 
 require_once 'Autoload' . '/' . 'Register' . EXT;
-var_dump(require_once 'Core' . '/' . 'Common' . EXT);
+require_once 'Core' . '/' . 'Common' . EXT;
 
-use Autoload\Register;
-use Core\Common;
+// use Autoload\Register;
+// use Core\Common;
 
 Register::Autoload(new Common());
 // new app(new activeRussian('ChenQi', 27));
