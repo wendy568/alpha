@@ -7,6 +7,7 @@ class Trading_log extends sql_operation
 		$this->_data = $array;
 		$this->_data['table'] = 'trading_log';
 		$this->_data['u_time'] = time();
+		$this->_data['update_time'] = date('Y-m-d H:i:s', time());
 
 		return $this;
 	}
