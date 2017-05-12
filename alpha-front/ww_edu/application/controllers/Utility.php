@@ -45,9 +45,12 @@ class Utility extends MY_Controller
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('trading_logs');
+		$this->load->helper('encapsulation');
+		$this->load->helper('sql_operation');
+		$this->load->library('trading_log');
+
 		$data['data'] = $this->trading_logs->tradingLogList($uid);
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		
 	
 		encode_json($response,$data);
 	}
@@ -62,6 +65,7 @@ class Utility extends MY_Controller
 
 		$this->load->database();
 		$this->load->helper('json');
+		$this->load->helper('encapsulation');
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
 
@@ -89,6 +93,7 @@ class Utility extends MY_Controller
 
 		$this->load->database();
 		$this->load->helper('json');
+		$this->load->helper('encapsulation');
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
 
