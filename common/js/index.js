@@ -90,7 +90,7 @@
                     areaStyle: {normal: {}},
                     data:currData
                 },
-            
+
             ]
         };
         // 使用刚指定的配置项和数据显示图表。
@@ -105,7 +105,7 @@
       'XAG/USD','DXY','COP/PER','NG/AS','UK/OIL','US/OIL','AUS200','HKG50','HKH40','JPN225','NAS100',
       'SPX500','UK100','US30'];
 
-    var pieChart = echarts.init(document.getElementById('ram-usage'));
+    var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
     pieChart.setOption({
       tooltip: {
         trigger: 'item',
