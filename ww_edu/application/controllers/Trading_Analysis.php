@@ -148,7 +148,7 @@ class Trading_Analysis extends MY_Controller
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
 		$this->load->library('trading_datas_calculate');
-		$data['data']['Net_profit'] = $this->trading_datas_calculate->build($mt4, 4)->get_month()->count()->property('sum', ['profit'])->get_property();
+		$data['data']['Net_profit'] = $this->trading_datas_calculate->build($mt4, 3)->get_month()->count()->property('sum', ['profit'])->get_property();
 		$data['data']['Average_Profits'] = $this->trading_datas_calculate->build($mt4, 3)->saveCountPositive('profit')->count()->property('avg', ['profit'])->get_property();
 		$data['data']['Average_Loss'] = $this->trading_datas_calculate->build($mt4, 3)->saveCountNegative('profit')->count()->property('avg', ['profit'])->get_property();
 		$data['data']['Maximum_Consecutive_Profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('percent_ratio', ['order_type'])->get_property();
