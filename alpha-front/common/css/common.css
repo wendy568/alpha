@@ -4955,7 +4955,6 @@ textarea:focus{
 .controller a.remove {
   background-position: -66px -9px;
   height: 10px;
-  top: -5px;
   width: 10px;
   cursor: pointer;
 }
@@ -4967,7 +4966,6 @@ textarea:focus{
 .tiles .controller a.reload {
   background-position: -37px -38px;
   height: 10px;
-  top: -5px;
   width: 12px;
 }
 .tiles .controller a.expand {
@@ -4985,7 +4983,6 @@ textarea:focus{
 .controller a:hover.remove {
   background-position: -66px -38px;
   height: 10px;
-  top: -5px;
   width: 10px;
 }
 .tiles .controller a:hover.config {
@@ -4996,7 +4993,6 @@ textarea:focus{
 .tiles .controller a:hover.reload {
   background-position: -38px -9px;
   height: 10px;
-  top: -5px;
   width: 12px;
 }
 .tiles .controller a:hover.expand {
