@@ -47,7 +47,7 @@ class Utility extends MY_Controller
 		$this->load->helper('json');
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
-		print_r($datas);
+
 		$cols = $this->trading_log->init($datas)
 								  ->create_time()
 								  ->format()
