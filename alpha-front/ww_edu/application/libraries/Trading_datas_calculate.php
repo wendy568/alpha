@@ -159,11 +159,11 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
 						if($callback) $value[$index] = call_user_func_array([$this, $callback], [$v]);
-						$result[$month . '.' . $day][] = $value;
+						$result[$year . '.' . $month . '.' . $day][] = $value;
 					} 
 
 					if(!isset($result[$month . '.' . $day])) {
-						$result[$month . '.' . $day] = [];
+						$result[$year . '.' . $month . '.' . $day] = [];
 					}
 				}
 			}
@@ -175,7 +175,7 @@ class Trading_datas_calculate {
 				$year = $slice[0];
 				$month = $slice[1]; 
 				$day = $slice[2];
-				$result[$month . '.' . $day] = [];
+				$result[$year . '.' . $month . '.' . $day] = [];
 			}
 		}
 

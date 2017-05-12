@@ -17,4 +17,20 @@ class Home extends MY_Controller
 	
 		encode_json($response,$data);
 	}
+
+	public function initialization()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$this->load->helper('json');
+		$this->load->helper('constants');
+
+		$const = constants::build();
+		$initialization = $const->alphatrader['initialization'];
+
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = [];
+	
+		encode_json($response,$data);
+	}
 }
