@@ -15,12 +15,12 @@ class Common
 
 		$name = str_replace('\\', '/', $path) . '/' . $class;
 		if (file_exists(realpath($name . EXT))) {
-			require_once "{$name}" . EXT;
+			var_dump(require_once "{$name}" . EXT);
 		}else{
 			exit("HAVE NOT SUCH FILE IN SYSTEM");
 		}
 
-		static::is_loaded($class);
+		static::is_loaded($class, $path);
 
 		$_classes[$class] = isset($param)
 			? new $name($param)
@@ -29,13 +29,13 @@ class Common
 		
 	}
 
-	public static function &is_loaded($class = '')
+	public static function &is_loaded($class = '', $path = '')
 	{
 		static $_is_loaded = array();
 
 		if ($class !== '')
 		{
-			$_is_loaded[strtolower($class)] = $class;
+			$_is_loaded[$path] = $class;
 		}
 
 		return $_is_loaded;
