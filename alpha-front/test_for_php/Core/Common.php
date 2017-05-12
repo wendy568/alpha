@@ -14,14 +14,13 @@ class Common
 		}
 
 		$name = str_replace('\\', '/', $path) . '/' . $class;
-		print_r(realpath($name . EXT));
 		if (file_exists(realpath($name . EXT))) {
 			require_once "{$name}" . EXT;
 		}else{
 			exit("HAVE NOT SUCH FILE IN SYSTEM");
 		}
 
-		is_loaded($class);
+		static::is_loaded($class);
 
 		$_classes[$class] = isset($param)
 			? new $name($param)
