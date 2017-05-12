@@ -40,7 +40,7 @@ abstract class sql_operation
 		return $this;
 	}
 
-	public function add($image = null)
+	public function add($file = null)
 	{	
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
@@ -48,8 +48,8 @@ abstract class sql_operation
 		$image = null;
 
 		if(!empty($this->width) && !empty($this->height)) $image = get_image($this->width, $this->height, "{$this->file_path}");
-		if($image) $this->_data[$image] = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
-		print_r($this->_data);die;
+		if($image) $this->_data[$file] = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
+
 		$dfdb = databases_filter::build();
 		$cols = array($this->table);
 
@@ -60,16 +60,15 @@ abstract class sql_operation
 		return $cols;
 	}
 
-	public function update($image = null)
+	public function update($file = null)
 	{
-
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
 		$image = null;
 
 		if(!empty($this->width) && !empty($this->height)) $image = get_image($this->width, $this->height, "{$this->file_path}");
-		if($image) $this->_data[$image] = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
+		if($image) $this->_data[$file] = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
 
 		$dfdb = databases_filter::build();
 		$cols = array($this->table);
