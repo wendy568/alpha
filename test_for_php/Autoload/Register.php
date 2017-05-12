@@ -10,7 +10,7 @@ class Register
 		$required_classes = [
 			'app' => ['Core\Container' => 'Container'],
 			];
-		array_walk_recursive($required_classes, function ($val, $key){
+		array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
 				$temp = &$loader::loaded_classes($val, $key);
 			});
 	}
