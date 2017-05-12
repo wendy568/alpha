@@ -5310,8 +5310,7 @@ h4.custom-line-height {
 }
 .btn {
   display: inline-block;
-  padding: 9px 12px;
-  padding-top: 7px;
+  padding: 3px 12px;
   margin-bottom: 0;
   font-size: 14px;
   line-height: 20px;
@@ -8799,14 +8798,14 @@ body.rtl .footer-widget {
     display: inline-block;
     vertical-align: middle;
 }
-.country_jpy{height:30px;width:40px;background-position:0 0;}
-.country_gbp{height:30px;width:40px;background-position:-44px 0;}
-.country_usd{height:30px;width:40px;background-position:-88px 0;}
-.country_nzd{height:30px;width:40px;background-position:-132px 0;}
-.country_chf{height:30px;width:40px;background-position:-176px 0;}
-.country_aud{height:30px;width:40px;background-position:-220px 0;}
-.country_eur{height:30px;width:40px;background-position:-264px 0;}
-.country_cny{height:30px;width:40px;background-position:-308px 0;}
+.country_jpy{height:16px;width:22px;background-position:0 0;}
+.country_gbp{height:16px;width:22px;background-position:-22px 0;}
+.country_usd{height:16px;width:22px;background-position:-44px 0;}
+.country_nzd{height:16px;width:22px;background-position:-88px 0;}
+.country_chf{height:16px;width:22px;background-position:-110px 0;}
+.country_aud{height:16px;width:22px;background-position:-132px 0;}
+.country_eur{height:16px;width:22px;background-position:-154px 0;}
+.country_cny{height:16px;width:22px;background-position:-176px 0;}
 /*--------------------------------tools---------------------------------------------*/
 .toolbar{
   width: 100%;
