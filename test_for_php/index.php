@@ -5,7 +5,7 @@ define('EXT', '.php');
 require_once 'Autoload' . '/' . 'Register' . EXT;
 require_once 'Core' . '/' . 'Common' . EXT;
 
-// use Autoload\Register;
+use Autoload\Register;
 // use Core\Common;
 
 Register::Autoload(new Common());
