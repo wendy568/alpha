@@ -410,8 +410,8 @@ class Trading_datas_calculate {
     {
     	$datas = $this->_data;
     	if($data) $datas = $data;
-    	$sum1 = 0;
-    	$sum2 = 0;
+    	$sum1 = 1;
+    	$sum2 = 1;
     	foreach ($datas as $key => $value) {
     		foreach ($value as $k => $v) {
     			if ($k == $index && $v > 0) {
