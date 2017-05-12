@@ -20,7 +20,7 @@ trait struct
 
 		return $this;
 	}
-	
+
 	public function setUnixTime($start, $nextOrLast = '+0', $time = null)
 	{
 		$time = (isset($time) && $time) ? $time : time();
@@ -31,7 +31,6 @@ trait struct
 	public function get_week($callback = null, $index = 'position')
 	{
 		$datas = $this->_data;
-		print_r($datas);die;
 		$result = [];
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
