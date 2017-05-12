@@ -158,7 +158,6 @@ class Trading_datas_calculate {
 					$start = mktime(00, 00, 00, $month, $day, $year);
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
-						var_dump($v);
 						if($callback) $value[$index] = call_user_func_array([$this, $callback], [$v]);
 						$result[$year . '.' . $month . '.' . $day][] = $value;
 					} 
@@ -169,7 +168,7 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-
+		print_r($result);
 		if(empty($result)) {
 			foreach ($week as $val) {
 				$slice = explode('-', $val);
