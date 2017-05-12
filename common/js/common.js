@@ -376,44 +376,44 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             $(this).parent().addClass('input-focus');
         });
     }
-    // Validation Plugin
-    alpha.prototype.initValidatorPlugin = function() {
-        $.validator && $.validator.setDefaults({
-            errorPlacement: function(error, element) {
-                var parent = $(element).closest('.form-group');
-                if (parent.hasClass('form-group-default')) {
-                    parent.addClass('has-error');
-                    error.insertAfter(parent);
-                } else {
-                    error.insertAfter(element);
-                }
-            },
-            onfocusout: function(element) {
-                var parent = $(element).closest('.form-group');
-                if ($(element).valid()) {
-                    parent.removeClass('has-error');
-                    parent.next('.error').remove();
-                }
-            },
-            onkeyup: function(element) {
-                var parent = $(element).closest('.form-group');
-                if ($(element).valid()) {
-                    $(element).removeClass('error');
-                    parent.removeClass('has-error');
-                    parent.next('label.error').remove();
-                    parent.find('label.error').remove();
-                } else {
-                    parent.addClass('has-error');
-                }
-            },
-            success: function (label, element) {
-                // var parent = $(element).parent('.input-with-icon');
-                // parent.removeClass('error-control').addClass('success-control');
-            },
-        });
+    // // Validation Plugin
+    // alpha.prototype.initValidatorPlugin = function() {
+    //     $.validator && $.validator.setDefaults({
+    //         errorPlacement: function(error, element) {
+    //             var parent = $(element).closest('.form-group');
+    //             if (parent.hasClass('form-group-default')) {
+    //                 parent.addClass('has-error');
+    //                 error.insertAfter(parent);
+    //             } else {
+    //                 error.insertAfter(element);
+    //             }
+    //         },
+    //         onfocusout: function(element) {
+    //             var parent = $(element).closest('.form-group');
+    //             if ($(element).valid()) {
+    //                 parent.removeClass('has-error');
+    //                 parent.next('.error').remove();
+    //             }
+    //         },
+    //         onkeyup: function(element) {
+    //             var parent = $(element).closest('.form-group');
+    //             if ($(element).valid()) {
+    //                 $(element).removeClass('error');
+    //                 parent.removeClass('has-error');
+    //                 parent.next('label.error').remove();
+    //                 parent.find('label.error').remove();
+    //             } else {
+    //                 parent.addClass('has-error');
+    //             }
+    //         },
+    //         success: function (label, element) {
+    //             // var parent = $(element).parent('.input-with-icon');
+    //             // parent.removeClass('error-control').addClass('success-control');
+    //         },
+    //     });
 
-        $('.validate').validate();
-    }
+    //     $('.validate').validate();
+    // }
     // Block UI
     alpha.prototype.blockUI = function(el){
         $(el).block({
@@ -449,7 +449,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         this.initScrollBar();
         this.initTooltipPlugin();
         this.initPopoverPlugin();
-        this.initValidatorPlugin();
+        // this.initValidatorPlugin();
         this.initUtil();
 
     }

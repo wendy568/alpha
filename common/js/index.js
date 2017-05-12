@@ -31,6 +31,72 @@
         $('.chart .label-info').eq(1).html(data.data.trading_ability);
       }
     });
+    //折线图
+    $.alpha.request_Url('post','dashboard/profit_statistics',{},function(data){
+        var date=data.data.profit_week;
+        var key=[];
+        var currData=[];
+
+        for(var i in date){
+            key.push(i);
+            var cur = 0;
+            cur = !date[i] ? 0 : date[i];
+            currData.push(cur);
+        }
+
+        var lineChart = echarts.init(document.getElementById('lineChart'),'purple-passion');
+        var option = {
+            title: {},
+            tooltip : {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985',
+                    }
+                }
+            },
+            legend: {},
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type : 'category',
+                    boundaryGap : false,
+                    data : key,
+                    textStyle : {
+                        color: '#fff'
+                    },
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'profit_week',
+                    type:'line',
+                    areaStyle: {normal: {}},
+                    data:currData
+                },
+            
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        lineChart.setOption(option);
+
+    });
 
     // synthesizing data 瓶状图----------------------------------------------------------------------------
     var billCount = ['AUD/USD','EUR/USD','GBP/USD','NZD/USD','USD/CAD','USD/CHF','USD/CNH','USD/JPY',
