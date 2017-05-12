@@ -1,9 +1,9 @@
 <?php  
-namespace Core\Loader;
+namespace Core;
 
 class Common
 {
-	public static function &loaded_classes($class, $path)
+	public static function &loaded_classes($class)
 	{
 
 		static $_classes = array();
