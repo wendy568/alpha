@@ -41,13 +41,13 @@ class Utility extends MY_Controller
 	
 		$token = $this->input->get_post('token', TRUE);
 		$datas = $this->input->post();
-		$datas['from_id'] = $this->get_bytoken($token);
+		$datas['uid'] = $this->get_bytoken($token);
 
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
-
+		print_r($datas);
 		$cols = $this->trading_log->init($datas)
 								  ->create_time()
 								  ->format()
