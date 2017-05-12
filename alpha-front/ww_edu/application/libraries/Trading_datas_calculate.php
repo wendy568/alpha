@@ -415,9 +415,8 @@ class Trading_datas_calculate {
     	foreach ($datas as $key => $value) {
     		foreach ($value as $k => $v) {
     			if ($k == $index && $v > 0) {
-
     				$sum += 1;
-    				print_r($sum);
+    				var_dump($sum);
     			} elseif($k == $index && $v < 0) {
     				$count[] = $sum;
     				$sum = 1;
