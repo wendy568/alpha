@@ -2,6 +2,8 @@
 
 class Trading_log extends sql_operation
 {
+	use struct;
+	
 	public function init($array)
 	{
 		$this->_data = $array;
