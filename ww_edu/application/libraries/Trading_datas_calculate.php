@@ -308,8 +308,8 @@ class Trading_datas_calculate {
 			}
 		}
 
-		$avg_sum = ($this->count) ? $sum / $this->count : 0;
-		return round(sqrt($avg_sum), 2);
+		$sqrt_sum = ($this->count) ? $sum / $this->count : 0;
+		return round(sqrt($sqrt_sum), 2);
 
     }
 
