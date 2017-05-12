@@ -63,8 +63,9 @@ class Utility extends MY_Controller
 
 		$logs = $this->trading_logs->tradingLogList($uid);
 
-		$data['data']['trading_logs'] = $this->trading_log->build($logs)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week()->getWeekResult();
 		$data['data']['OverAll'] = $this->trading_log->build($logs)->count()->property('get_count', [])->get_property();
+		$data['data']['trading_logs'] = $this->trading_log->build($logs)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week()->getWeekResult();
+
 		$response = array('archive' => array('status' => 0,'message' =>''));
 	
 		encode_json($response,$data);
