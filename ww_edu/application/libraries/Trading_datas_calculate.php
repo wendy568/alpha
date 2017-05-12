@@ -424,7 +424,7 @@ class Trading_datas_calculate {
     	}
 
     	if($sum !== 0 && $sum !== 1) $count[] = $sum;
-    	var_dump($count);
+    	var_dump(sort($count));
     }
 
 }
