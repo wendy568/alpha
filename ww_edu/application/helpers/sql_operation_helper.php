@@ -4,11 +4,6 @@ abstract class sql_operation
 {
 	protected $_data = [];
 
-	public function test()
-	{
-		echo 'hello';
-	}
-	
 	public function format()
 	{
 		foreach ($this->_data as $key => $value) {
