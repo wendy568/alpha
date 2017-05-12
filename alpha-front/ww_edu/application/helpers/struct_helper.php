@@ -2,6 +2,25 @@
 
 trait struct
 {
+	public function build($import_datas, $month = null)
+	{
+		$this->_data = $import_datas;
+
+		if ($month !== null) {
+			$this->this_month = ($month < 10) ? '0' . $month : $month;
+		} else {
+			$this->this_month = (getdate()['mon'] < 10) ? '0' . getdate()['mon'] : getdate()['mon'];
+		}
+
+		$this->this_year = getdate()['year'];
+
+		$this->this_day = (getdate()['mday'] < 10) ? '0' . getdate()['mday'] : getdate()['mday'];
+
+		$this->unix_time = time();
+
+		return $this;
+	}
+	
 	public function setUnixTime($start, $nextOrLast = '+0', $time = null)
 	{
 		$time = (isset($time) && $time) ? $time : time();
