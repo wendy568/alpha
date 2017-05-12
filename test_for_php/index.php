@@ -1,7 +1,7 @@
 <?php
 
 
-define(EXT, '.php');
+define('EXT', '.php');
 
 require_once 'Autoload' . '/' . 'Register.php';
 require_once 'Core' . '/' . 'Common.php';
