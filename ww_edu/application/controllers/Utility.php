@@ -35,6 +35,23 @@ class Utility extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function tradingLogList()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$token = $this->input->get_post('token', TRUE);
+		$uid = $this->get_bytoken($token);
+		
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('trading_logs');
+		$data['data'] = $this->trading_logs->tradingLogList($uid);
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		
+	
+		encode_json($response,$data);
+	}
+
 	public function addTradingLog()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
