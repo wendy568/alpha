@@ -29,7 +29,7 @@ class Utility extends MY_Controller
 
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'time';
-		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week()->getWeekResult();
+		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week()->getWeekResult();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
