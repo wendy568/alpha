@@ -1,11 +1,12 @@
 <?php
 
-use Autoload\Register;
 
 define(EXT, '.php');
 
 require_once 'Autoload' . '/' . 'Register.php';
 require_once 'Core' . '/' . 'Common.php';
+
+use Autoload\Register;
 
 
 Register::Autoload(new Common());
