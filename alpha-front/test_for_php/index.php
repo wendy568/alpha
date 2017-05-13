@@ -9,4 +9,5 @@ use Autoload\Register;
 use Core\Common;
 
 (new Register(new Common()))->Autoload();
-new App(new activeRussian('ChenQi', 27));
+print_r(Container::is_loaded());
+// new App(new activeRussian('ChenQi', 27));
