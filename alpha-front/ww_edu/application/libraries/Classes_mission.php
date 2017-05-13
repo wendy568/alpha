@@ -40,7 +40,7 @@ class Classes_mission
 		foreach ($this->category as $key => $value) {
 			foreach ($this->homework as $k => $v) {
 				if ($k == $key) {	
-					print_r($k);print_r($key);
+					print_r($this->homework);print_r($key);die;
 				}
 			}
 		}
