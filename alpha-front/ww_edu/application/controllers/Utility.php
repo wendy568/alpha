@@ -23,7 +23,6 @@ class Utility extends MY_Controller
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->news();
