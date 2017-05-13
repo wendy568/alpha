@@ -17,9 +17,9 @@ class Common
 		if (file_exists(realpath($name . EXT))) {
 			require_once "{$name}" . EXT;
 		}else{
-			exit("HAVE NOT SUCH FILE IN SYSTEM");
+			exit("HAVE NOT SUCH {$name} IN SYSTEM");
 		}
-
+		new $class();die;
 		static::is_loaded($class, $path);
 
 		$_classes[$class] = isset($param)
