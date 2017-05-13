@@ -37,6 +37,7 @@ class Trading_datas_calculate extends Encapsulation{
 
     protected function sum($index, $data = [])
     {
+    	print_r($this->_data);
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
 
