@@ -17,6 +17,8 @@
  */
 class Trading_datas_calculate extends Encapsulation{
 
+	public $time_filter_definition = 'order_close_time';
+	
     protected function sum($index, $data = [])
     {
     	$datas = $this->_data;
