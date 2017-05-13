@@ -16,9 +16,9 @@ abstract class sql_operation
 
 	protected function user_addslashes($index)
 	{
-		print_r($index);die;
+		
 		isset($index) OR $index = array_keys($this->_data);
-
+print_r($index);die;
 		if (is_array($index)) {
 			$output = array();
 			foreach ($index as $key) {
