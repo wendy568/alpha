@@ -1,5 +1,41 @@
 (function(){
+    // 选择货币
+    $('.dropdown-menu li').click(function(){
+        var currText=$(this).children('a').text();
+        var currId=$(this).children('a').attr('href');
+        var currLiHtml="";
+        currLiHtml +=
+        `<li class="tab active">
+            <a href="#1">
+                <span class="currency">${currText}</span>
+                <div class="controller">
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+            </a>
+        </li>`;
+        $('.last-tab').before(currLiHtml);
+        $(this).remove(); 
+    });
+    // 日期筛选
+    $('.input-append.date').datepicker({
+                autoclose: true,
+                todayHighlight: true
+       });
+     
+     $('#dp5').datepicker();
+     
+     $('#sandbox-advance').datepicker({
+            format: "dd/mm/yyyy",
+            startView: 1,
+            daysOfWeekDisabled: "3,4",
+            autoclose: true,
+            todayHighlight: true
+    });
+     
+    $('.my-colorpicker-control').colorpicker();
 
+
+    // 货币种类
 	var billCount = ['AUD/USD','EUR/USD','GBP/USD','NZD/USD','USD/CAD','USD/CHF','USD/CNH','USD/JPY',
       'AUD/CAD','AUD/CHF','AUD/JPY','AUD/NZD','CAD/CHF','CAD/JPY','CHF/JPY','EUR/AUD','EUR/CAD','EUR/CHF',
       'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
@@ -170,7 +206,6 @@
 			 	key.push(i.substring(5,10));
 
 			 	var x = data[i];
-			 	console.log(x);
 				buy.push(x && x._0 ? x._0 : 0);
 				sell.push(x && x._1 ? x._1 : 0);
 			}
