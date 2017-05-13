@@ -48,7 +48,8 @@ function &loaded_interfaceAbstracts($class, $path)
 
 	is_loaded($class, $path);
 
-	return;
+	$_classes[$class] = '\\' . $path . '\\' . $class;
+	return $_classes[$class];
 }
 
 function &is_loaded($class = '', $path = '')
