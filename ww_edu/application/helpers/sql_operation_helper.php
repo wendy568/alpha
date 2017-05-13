@@ -16,9 +16,8 @@ abstract class sql_operation
 
 	protected function user_addslashes($index)
 	{
-		
 		isset($index) OR $index = array_keys($this->_data);
-print_r($index);die;
+		
 		if (is_array($index)) {
 			$output = array();
 			foreach ($index as $key) {
@@ -43,6 +42,7 @@ print_r($index);die;
 
 	public function add()
 	{	
+		print_r($this->_data);die;
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
