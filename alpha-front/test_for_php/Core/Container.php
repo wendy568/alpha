@@ -12,7 +12,7 @@ class Container
 		array_walk(is_loaded(), function ($val, $key) {
 			$this->$val = &\Core\loaded_classes($val, $key);
 		});
-		print_r($this);
+		print_r(12313);
 	}
 
 	public static function &locker()
