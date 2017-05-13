@@ -17,7 +17,7 @@ abstract class sql_operation
 	protected function user_addslashes($index)
 	{
 		isset($index) OR $index = array_keys($this->_data);
-		
+
 		if (is_array($index)) {
 			$output = array();
 			foreach ($index as $key) {
@@ -48,7 +48,8 @@ abstract class sql_operation
 		$instance->load->helper('set_source');
 		$image = null;
 
-		if(!empty($this->width) && !empty($this->height)) $image = get_image($this->width, $this->height, "{$this->file_path}");
+		if(!empty($this->width) && !empty($this->height)) echo 123;die;$image = get_image($this->width, $this->height, "{$this->file_path}");
+		print_r($image);
 		if($image) $this->image = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
 		$dfdb = databases_filter::build();
 		$cols = array($this->table);
