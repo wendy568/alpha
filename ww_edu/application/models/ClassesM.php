@@ -23,7 +23,7 @@ class ClassesM extends CI_Model
 
 		$query = $this->db->query($map);
         $result['mission'] = $query->row_array();
-
+        print_r($result);
     	return $result;
     }
 
