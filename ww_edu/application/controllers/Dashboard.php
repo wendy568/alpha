@@ -185,7 +185,9 @@ class Dashboard extends MY_Controller
 			['Trading Score' => 60, 'Learning Report' => 1],
 			['Trading Score' => 60, 'Profitable Period' => 3]
 		];
-
-		print_r(json_encode($homework));
+		foreach ($homework as $key => $value) {
+			print_r(json_encode($value));
+		}
+			
 	}
 }
