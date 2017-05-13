@@ -1,7 +1,7 @@
 <?php  
-namespace acme;
+namespace App;
 
-use acme\russian;
+use App\russian;
 
 class activeRussian extends russian{
 	public function age()
