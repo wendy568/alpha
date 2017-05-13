@@ -22,9 +22,9 @@ class Common
 		}
 
 		static::is_loaded($class, $path);
-		new core\Container();die;
-		$instance = '\\' . $path . '\\' . $class();
 
+		$instance = '\\' . $path . '\\' . $class();
+		print_r($instance);die;
 		$_classes[$class] = isset($param)
 			? new $instance($param)
 			: new $instance();
