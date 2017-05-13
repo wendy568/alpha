@@ -48,6 +48,9 @@ class Common
 		}else{
 			exit("HAVE NOT SUCH {$name} IN SYSTEM");
 		}
+
+		$_classes[$class] = '\\' . $path . '\\' . $class;
+		return $_classes[$class];
 	}
 
 	public static function &is_loaded($class = '', $path = '')
