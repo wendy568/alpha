@@ -1,5 +1,5 @@
 <?php  
-namespace Public;
+namespace Kernel;
 
 interface TestInterFace{
 	public function test();
