@@ -24,8 +24,8 @@ class Common
 		static::is_loaded($class, $path);
 
 		$_classes[$class] = isset($param)
-			? new $class($param)
-			: new $class();
+			? new $path . '\\' . $class($param)
+			: new $path . '\\' . $class();
 		return $_classes[$class];
 		
 	}
@@ -36,7 +36,7 @@ class Common
 
 		if ($class !== '')
 		{
-			$_is_loaded[$path] = $class;
+			$_is_loaded[$path . '\\' . $class] = $class;
 		}
 
 		return $_is_loaded;
