@@ -10,6 +10,7 @@ class Register
 	public function __construct(Common $loader)
 	{
 		$this->_loader = $loader;
+		$this->loaded_interfaceAbstracts();
 	}
 
 	public function Autoload()
