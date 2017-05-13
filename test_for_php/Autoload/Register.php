@@ -47,8 +47,8 @@ class Register
 						 ],
 			];
 
-			array_walk_recursive($interfaceAbstract, function ($val, $key) use ($loader) {
-					$interfaceAbstracts = &$loader::loaded_interfaceAbstracts($key, $val);
-				});
+		array_walk_recursive($interfaceAbstract, function ($val, $key) use ($loader) {
+				$interfaceAbstracts = &$loader::loaded_interfaceAbstracts($key, $val);
+			});
 	}
 }
