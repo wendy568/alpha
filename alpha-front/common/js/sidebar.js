@@ -39,7 +39,7 @@ document.writeln("                        <li>");
 document.writeln("                            <a href=\'TradingStatistic.html\'> ");
 document.writeln("                                <i class=\'fa fa-legal\'></i>");
 document.writeln("                                <span class=\'title\'> Tra Management</span> ");
-document.writeln("                                <span class=\' fa fa-angle-right pull-right m-t-5\'></span> ");
+document.writeln("                                <span class=\' fa fa-angle-left pull-right m-t-5\'></span> ");
 document.writeln("                            </a>");
 document.writeln("                            <ul class=\'sub-menu\'>");
 document.writeln("                                <li> ");
