@@ -24,7 +24,7 @@ class Common
 		static::is_loaded($class, $path);
 
 		$instance = '\\' . $path . '\\' . $class;
-		print_r($instance);die;
+
 		$_classes[$class] = isset($param)
 			? new $instance($param)
 			: new $instance();
