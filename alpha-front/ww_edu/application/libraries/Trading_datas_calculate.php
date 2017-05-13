@@ -34,8 +34,8 @@ class Trading_datas_calculate extends Encapsulation{
 	protected $unix_time;
 
 	protected $oneByone = '';
-	
-    private function sum($index, $data = [])
+
+    protected function sum($index, $data = [])
     {
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
@@ -50,7 +50,7 @@ class Trading_datas_calculate extends Encapsulation{
     	return round($sum, 2);
     }
 
-    private function avg($index, $data = [])
+    protected function avg($index, $data = [])
     {
     	$datas = $this->_data;
     	$avg = 0;
