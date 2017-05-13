@@ -19,14 +19,14 @@ class Register
 
 		$required_classes = [
 			'core'    => [
-							'Container'   => 'Core'
+							'Container'     => 'Core'
 						 ],
 			'kernel'  => [
-							'App' => 'Kernel',
+							'App'           => 'Kernel',
 						 ],
 		    'App'     => [
-		    				'activeRussian'    => 'App',
-		    			    'russian'    => 'App'
+		    				'activeRussian' => 'App',
+		    			    'russian'       => 'App'
 		    			 ],
 			];
 
@@ -40,15 +40,15 @@ class Register
 		$loader = $this->_loader;
 		$interfaceAbstract = [
 			'kernel'  => [
-							'Kernel' => 'AppInterface', 
-							'Kernel' => 'FactoryAbstract',
-							'Kernel' => 'WebInterFace',
-							'Kernel' => 'TestInterFace'
+							'AppInterface'    => 'Kernel', 
+							'FactoryAbstract' => 'Kernel',
+							'WebInterFace'    => 'Kernel',
+							'TestInterFace'   => 'Kernel'
 						 ],
 			];
 
 			array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
-					$interfaceAbstracts = &$loader::loaded_interfaceAbstracts($val, $key);
+					$interfaceAbstracts = &$loader::loaded_interfaceAbstracts($key, $val);
 				});
 	}
 }
