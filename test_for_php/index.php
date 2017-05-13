@@ -14,5 +14,5 @@ function &instance(){
 	return Container::locker();
 }
 print_r(\Core\is_loaded());
-// print_r(instance());
+print_r(instance());
 // new App(new activeRussian('ChenQi', 27));
