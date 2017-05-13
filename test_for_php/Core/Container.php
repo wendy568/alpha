@@ -7,15 +7,16 @@ class Container
 
 	public function __contruct()
 	{
-		static::$_container = $this;
+		self::$_container = $this;
 
 		array_walk(is_loaded(), function ($val, $key) {
 			$this->$val = &\Core\loaded_classes($val, $key);
 		});
+		print_r($this);
 	}
 
 	public static function &locker()
 	{
-		return Container::$_container;
+		return self::$_container;
 	}
 }
