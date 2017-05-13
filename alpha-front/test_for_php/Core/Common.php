@@ -1,10 +1,9 @@
 <?php  
 namespace Core;
-
+use Core\Container;
 class Common
 {
-	use Core\Container;
-
+	
 	public static function &loaded_classes($class, $path, $param = null)
 	{
 
