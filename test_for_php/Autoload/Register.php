@@ -10,7 +10,7 @@ class Register
 	public function __construct(Common $loader)
 	{
 		$this->_loader = $loader;
-		// $this->loaded_interfaceAbstracts();
+		$this->loaded_interfaceAbstracts();
 	}
 
 	public function Autoload()
@@ -21,13 +21,13 @@ class Register
 			'core'    => [
 							'Container'     => 'Core'
 						 ],
-			'kernel'  => [
-							'App'           => 'Kernel',
-						 ],
-		    'App'     => [
-		    				'activeRussian' => 'App',
-		    			    'russian'       => 'App'
-		    			 ],
+			// 'kernel'  => [
+			// 				'App'           => 'Kernel',
+			// 			 ],
+		    // 'App'     => [
+		    // 				'activeRussian' => 'App',
+		    // 			    'russian'       => 'App'
+		    // 			 ],
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
@@ -40,10 +40,10 @@ class Register
 		$loader = $this->_loader;
 		$interfaceAbstract = [
 			'kernel'  => [
-							'TestInterFace'   => 'Kernel',
+							// 'TestInterFace'   => 'Kernel',
 							'AppInterface'    => 'Kernel', 
 							'FactoryAbstract' => 'Kernel',
-							'WebInterFace'    => 'Kernel',
+							// 'WebInterFace'    => 'Kernel',
 						 ],
 			];
 
