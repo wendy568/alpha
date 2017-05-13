@@ -5,12 +5,13 @@ use Core\Common;
 
 class Register
 {
+
 	public static function Autoload(Common $loader)
 	{
 		$required_classes = [
-			'app'    => ['Core'   => 'Container'],
-			'public' => ['Public' => 'AppInterface', 
-						 'Public' => 'app'],
+			'core'    => ['Core'   => 'Container'],
+			'kernel' => ['Kernel' => 'AppInterface', 
+						 'Kernel' => 'app'],
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) use ($loader) {

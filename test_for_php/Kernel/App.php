@@ -1,9 +1,9 @@
 <?php  
 
-namespace Public;
-use Public\AppInterface;
+namespace Kernel;
+use Kernel\AppInterface;
 
-class app
+class App
 {
 
 	protected $app;
