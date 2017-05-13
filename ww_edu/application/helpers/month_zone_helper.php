@@ -43,8 +43,6 @@ function sort_recursive(&$array)
 
 function _fetch_from_array($array, $index = NULL)
 {
-	static $n = 0;
-
 	isset($index) OR $index = array_keys($array);
 	// print_r($array);
 	if (is_array($index))
@@ -52,7 +50,6 @@ function _fetch_from_array($array, $index = NULL)
 		$output = array();
 		foreach ($index as $key)
 		{
-			$n++;
 			$output[$key] = _fetch_from_array($array, $key);
 		}
 
