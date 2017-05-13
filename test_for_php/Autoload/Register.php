@@ -12,6 +12,7 @@ class Register
 			'core'    => ['Core'   => 'Container'],
 			'kernel'  => ['Kernel' => 'AppInterface', 
 						  'Kernel' => 'App'],
+		    'App'     => ['App'    => 'activeRussian'],
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
