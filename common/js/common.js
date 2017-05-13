@@ -1,13 +1,9 @@
 // 项目请求根地址
 window.alpha_host='http://120.25.211.159/ww_edu/';
 
-
 (function($) {
     'use strict';
     var alpha = function() {
-        this.VERSION = "2.8.0";
-        this.AUTHOR = "Revox";
-        this.SUPPORT = "support@revox.io";
         this.$body = $('body');
         //COLORS
         this.color_green="#27cebc";
@@ -376,44 +372,6 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             $(this).parent().addClass('input-focus');
         });
     }
-    // // Validation Plugin
-    // alpha.prototype.initValidatorPlugin = function() {
-    //     $.validator && $.validator.setDefaults({
-    //         errorPlacement: function(error, element) {
-    //             var parent = $(element).closest('.form-group');
-    //             if (parent.hasClass('form-group-default')) {
-    //                 parent.addClass('has-error');
-    //                 error.insertAfter(parent);
-    //             } else {
-    //                 error.insertAfter(element);
-    //             }
-    //         },
-    //         onfocusout: function(element) {
-    //             var parent = $(element).closest('.form-group');
-    //             if ($(element).valid()) {
-    //                 parent.removeClass('has-error');
-    //                 parent.next('.error').remove();
-    //             }
-    //         },
-    //         onkeyup: function(element) {
-    //             var parent = $(element).closest('.form-group');
-    //             if ($(element).valid()) {
-    //                 $(element).removeClass('error');
-    //                 parent.removeClass('has-error');
-    //                 parent.next('label.error').remove();
-    //                 parent.find('label.error').remove();
-    //             } else {
-    //                 parent.addClass('has-error');
-    //             }
-    //         },
-    //         success: function (label, element) {
-    //             // var parent = $(element).parent('.input-with-icon');
-    //             // parent.removeClass('error-control').addClass('success-control');
-    //         },
-    //     });
-
-    //     $('.validate').validate();
-    // }
     // Block UI
     alpha.prototype.blockUI = function(el){
         $(el).block({
@@ -443,30 +401,15 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         this.initScrollUp();
         this.initProgress();
         this.initFormElements();
-        // init plugins
         this.initSelect2Plugin();
         this.initUnveilPlugin();
         this.initScrollBar();
         this.initTooltipPlugin();
         this.initPopoverPlugin();
-        // this.initValidatorPlugin();
         this.initUtil();
 
     }
-
-    /*
-     * description Common ajax request
-     *
-     * @param type post , get , or put method
-     *
-     * @param url request url
-     *
-     * @param data request parameter
-     *
-     * @param fn callback function
-     *
-     * */
-
+    // common ajax request
     alpha.prototype.request_Url = function (type, url, data, fn) {
 
         // 每次请求都会带上token信息
@@ -515,15 +458,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         });
     };
 
-    /*
-    * decription form-item-notification rules
-    *
-    * @param target the target to show the tooltip (PS: the element of input can't be the target instance of its parent node)
-    *
-    * @param direction the direction that target shows
-    *
-    * @param msg the message to show
-    * */
+   // props
     alpha.prototype.props = function (target, direction,msg) {
         if(direction == 'up'){
           $(target).addClass('form-item-notification-up').attr('data-tooltip',msg);
@@ -555,6 +490,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
 
     $.alpha = new alpha();
     $.alpha.Constructor = alpha;
+
 })(window.jQuery);
 
 // DEMO STUFF
@@ -687,12 +623,25 @@ $(function() {
     $.alpha.init();
 });
 
-// view tradingdetail
- $('.view').click(function(){
-        $('#tradingDetail').toggleClass('hide');
-    }
-);
+// END--------------------------------------------------------------------
+
+// common  datepicker--------------------------------------------------------------
+$('.input-append.date').datepicker({
+            autoclose: true,
+            todayHighlight: true
+   });
+ 
+ $('#dp5').datepicker();
+ 
+ $('#sandbox-advance').datepicker({
+        format: "dd/mm/yyyy",
+        startView: 1,
+        daysOfWeekDisabled: "3,4",
+        autoclose: true,
+        todayHighlight: true
+});
+ 
+$('.my-colorpicker-control').colorpicker();
 
 
-//******************************* Bind Functions Jquery-form  OPTIONS  ***************
 
