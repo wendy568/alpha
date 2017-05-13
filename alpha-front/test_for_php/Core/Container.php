@@ -1,8 +1,6 @@
 <?php
 namespace Core;
 
-use Core\Common;
-
 class Container
 {
 	private static $_container;
@@ -12,7 +10,7 @@ class Container
 		static::$_container = $this;
 
 		array_walk(is_loaded(), function ($val, $key) {
-			$this->$val = &loaded_classes($val, $key);
+			$this->$val = &\Core\loaded_classes($val, $key);
 		});
 	}
 
