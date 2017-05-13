@@ -19,19 +19,19 @@ class Register
 
 		$required_classes = [
 			'core'    => [
-							'Core'   => 'Container'
+							'Container'   => 'Core'
 						 ],
 			'kernel'  => [
-							'Kernel' => 'App',
+							'App' => 'Kernel',
 						 ],
 		    'App'     => [
-		    				'App'    => 'activeRussian',
-		    			    'App'    => 'russian'
+		    				'activeRussian'    => 'App',
+		    			    'russian'    => 'App'
 		    			 ],
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
-				$classes = &$loader::loaded_classes($val, $key);
+				$classes = &$loader::loaded_classes($key, $val);
 			});
 	}
 
