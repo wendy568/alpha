@@ -18,7 +18,7 @@ function &loaded_classes($class, $path, $param = null)
 		exit("HAVE NOT SUCH {$name} IN SYSTEM");
 	}
 
-	static::is_loaded($class, $path);
+	is_loaded($class, $path);
 
 	$instance = '\\' . $path . '\\' . $class;
 
