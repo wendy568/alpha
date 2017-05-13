@@ -20,11 +20,9 @@ function &loaded_classes($class, $path, $param = null)
 
 	is_loaded($class, $path);
 
-	$instance = '\\' . $path . '\\' . $class;
-	print_r($instance);
 	$_classes[$class] = isset($param)
-		? new $instance($param)
-		: new $instance();
+		? new $class($param)
+		: new $class();
 	return $_classes[$class];
 	
 }
@@ -48,7 +46,7 @@ function &loaded_lib($class, $path)
 
 	is_loaded($class, $path);
 
-	$_classes[$class] = '\\' . $path . '\\' . $class;
+	$_classes[$class] = $path;
 	return $_classes[$class];
 }
 
@@ -69,7 +67,7 @@ function &loaded_interfaceAbstracts($class, $path)
 		exit("HAVE NOT SUCH {$name} IN SYSTEM");
 	}
 
-	$_classes[$class] = '\\' . $path . '\\' . $class;
+	$_classes[$class] = $path;
 	return $_classes[$class];
 }
 
@@ -79,7 +77,7 @@ function &is_loaded($class = '', $path = '')
 
 	if ($class !== '')
 	{
-		$_is_loaded['\\' . $path . '\\' . $class] = $class;
+		$_is_loaded[$class] = $path;
 	}
 
 	return $_is_loaded;
