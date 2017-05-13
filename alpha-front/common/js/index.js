@@ -20,7 +20,6 @@
         $('.hight').eq(3).html(data.data.last_transaction_peroid);
       }
     });
-   
 
     //折线图
     $.alpha.request_Url('post','dashboard/profit_statistics',{},function(data){
