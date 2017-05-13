@@ -5,8 +5,10 @@ define('EXT', '.php');
 require_once 'Autoload' . '/' . 'Register' . EXT;
 require_once 'Core' . '/' . 'Common' . EXT;
 
+use App\activeRussian;
 use Autoload\Register;
 use Core\Container;
+use Kernel\App;
 
 new Register();
 print_r(new Container());
