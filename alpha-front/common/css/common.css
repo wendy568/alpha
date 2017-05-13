@@ -2,7 +2,6 @@
 /*------------------------------------------------------------------
 1. Layouts 布局
 2. Icons 图标
-3. Horizontal Menu 水平菜单
 4. Typography 排印
 5. Misc 混杂
 6. Form Elements 表单元素
@@ -68,7 +67,6 @@ body {
     font-weight: normal;
     height: 100%;
     -webkit-font-smoothing: antialiased;
-    /*width: 1920px;*/
 }
 body.condense-menu .header-seperation {
     display: none;
@@ -1533,12 +1531,7 @@ body.boxed-layout .footer-widget {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="icon-custom-"] {
-*/
+
 .icon-custom-refresh,
 .icon-custom-up,
 .icon-custom-ui,
@@ -1644,8 +1637,27 @@ you can use the generic selector below, but it's slower:
 .icon-custom-alert:before {
   content: "\e017";
 }
-/*------------------------------------------------------------------[3. Horizontal Menu]---------------------------------------*/
-
+/*左右箭头*/
+.calendar{
+  width: 26px;
+  height: 26px;
+}
+.calendar2x{
+  width: 40px;
+  height: 40px;
+}
+.calendar_left{
+    background: url(../img/calendar_left.png) no-repeat;
+    display: inline-block;
+    background-size: 100%;
+    cursor: pointer;
+}
+.calendar_right{
+    background: url(../img/calendar_right.png) no-repeat;
+    display: inline-block;
+    background-size: 100%;
+    cursor: pointer;
+}
 /*------------------------------------------------------------------[4. Typography]-----------------------------------------------*/
 .h-ribbon {
   width: 100%;
@@ -4131,6 +4143,11 @@ form legend,
     text-align: center;
     width: 65%;
 }
+.grid .yun span{
+    display: inline-block;
+    height: 26px;
+    vertical-align: bottom;
+}
 .grid.form-grid .grid-body {
   padding-bottom: 0 !important;
 }
@@ -4828,47 +4845,6 @@ form legend,
   font-weight: bold;
   color: #505458 !important;
   text-align: center;
-}
-#tvModal .modal {
-  border-radius: 3px;
-  background: rgba(0,0,0,.8);
-}
-#tvModal .modal-dialog{
-  width: 1080px;
-  margin:60px auto;
-}
-#tvModal .modal-content {
-  border: 0;
-  width: 1080px;
-  background-color: #22262e;
-  border-radius: 8px;
-}
-#tvModal .modal-header {
-  text-align: center;
-  height: 600px;
-  padding: 0;
-  border:none;
-}
-#tvModal .modal-header p {
-  color: #8b91a0;
-}
-#tvModal .modal-body {
-  background-color: #22262e;
-  padding: 30px;
-}
-textarea{
-  border:none;
-}
-textarea:focus{
-  background-color: #2d3138;
-  border:1px solid #2d3138;
-}
-#tvModal .modal-footer {
-  border-top: none;
-  box-shadow: none;
-  background-color: #F3F5F6;
-  margin-top: 0;
-  text-align: right;
 }
 .dropdown-menu.pull-right {
   right: 0;
@@ -9205,21 +9181,6 @@ body.rtl .footer-widget {
   color:#Fff;
   border-radius: 8px;
 }
-.modal-dialog{
-  position: relative;
-}
-#tvModal .modal-dialog .purple{
-    background-color: rgba(115,95,135,1);
-}
-#tvModal .modal-dialog .blue{
-    background-color: rgba(0,144,217,1);
-}
-#tvModal .modal-dialog .green{
-    background-color: rgba(10,166,153,1);
-}
-#tvModal .modal-dialog .black{
-    background-color: rgba(42,46,54,1);
-}
 
 /*tradinghistroy---------------------------*/
 .table-border tbody tr{
@@ -9253,7 +9214,6 @@ body.rtl .footer-widget {
 }
 /*log----------------------------------------------------*/
 .log{
-  /*width: 100%;*/
   overflow: hidden;
   border-radius: 8px;
   background-color: #fff;
@@ -9263,7 +9223,6 @@ body.rtl .footer-widget {
   height: 80px;
 }
 .log-body{
-  /*width: 100%;*/
   overflow: hidden;
   padding: 0 30px 20px;
   background-color: #fff;
@@ -9767,7 +9726,3 @@ body.rtl .footer-widget {
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
 }
-
-/*.calendar-tab-content{*/
-  /*height: 322px;*/
-/*}*/
