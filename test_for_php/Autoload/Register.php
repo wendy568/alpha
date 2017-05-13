@@ -5,19 +5,23 @@ use Core\Common;
 
 class Register
 {
+	private $_loader;
 
-	public static function Autoload(Common $loader)
+	public function __construct(Common $loader)
 	{
+		$this->_loader = $loader;
+	}
+
+	public function Autoload()
+	{
+		$loader = $this->_loader;
+
 		$required_classes = [
 			'core'    => [
 							'Core'   => 'Container'
 						 ],
 			'kernel'  => [
-							'Kernel' => 'AppInterface', 
 							'Kernel' => 'App',
-							// 'Kernel' => 'FactoryAbstract',
-							// 'Kernel' => 'WebInterFace',
-							// 'Kernel' => 'TestInterFace'
 						 ],
 		    'App'     => [
 		    				'App'    => 'activeRussian',
@@ -26,7 +30,24 @@ class Register
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
-				$temp = &$loader::loaded_classes($val, $key);
+				$classes = &$loader::loaded_classes($val, $key);
 			});
+	}
+
+	private function loaded_interfaceAbstracts()
+	{
+		$loader = $this->_loader;
+		$interfaceAbstract = [
+			'kernel'  => [
+							'Kernel' => 'AppInterface', 
+							'Kernel' => 'FactoryAbstract',
+							'Kernel' => 'WebInterFace',
+							'Kernel' => 'TestInterFace'
+						 ],
+			];
+
+			array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
+					$interfaceAbstracts = &$loader::loaded_interfaceAbstracts($val, $key);
+				});
 	}
 }

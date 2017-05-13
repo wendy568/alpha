@@ -8,5 +8,6 @@ require_once 'Core' . '/' . 'Common' . EXT;
 use Autoload\Register;
 use Core\Common;
 
-Register::Autoload(new Common());
+(new Register(new Common()))->loaded_interfaceAbstracts();
+(new Register(new Common()))->Autoload();
 new App(new activeRussian('ChenQi', 27));

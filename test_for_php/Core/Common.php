@@ -32,6 +32,24 @@ class Common
 		
 	}
 
+	public static function &loaded_interfaceAbstracts($class, $path)
+	{
+
+		static $_classes = array();
+
+		if (isset($_classes[$class]))
+		{
+			return $_classes[$class];
+		}
+
+		$name = str_replace('\\', '/', $path) . '/' . $class;
+		if (file_exists(realpath($name . EXT))) {
+			require_once "{$name}" . EXT;
+		}else{
+			exit("HAVE NOT SUCH {$name} IN SYSTEM");
+		}
+	}
+
 	public static function &is_loaded($class = '', $path = '')
 	{
 		static $_is_loaded = array();
