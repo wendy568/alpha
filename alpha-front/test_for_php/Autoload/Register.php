@@ -10,8 +10,8 @@ class Register
 	{
 		$required_classes = [
 			'core'    => ['Core'   => 'Container'],
-			'kernel' => ['Kernel' => 'AppInterface', 
-						 'Kernel' => 'App'],
+			'kernel'  => ['Kernel' => 'AppInterface', 
+						  'Kernel' => 'App'],
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) use ($loader) {
