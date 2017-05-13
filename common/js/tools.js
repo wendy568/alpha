@@ -10,7 +10,7 @@
     });
 
     // 选择添加工具
-    $('.dropdown-menu>li').click(function(){
+    $('.dropdown-menu .link').click(function(){
         var tool_iClass=$(this).find('i').attr('class');
         var tool_pText=$(this).children('p').text();
         function initToolHtml(){
@@ -164,5 +164,5 @@
         $('.calendar-tab-content').remove();
         getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right');
     });
-    
+
 })();

@@ -89,62 +89,21 @@
                 <!-- content -->
                 <div class="tools-content sm-gutter tab-content">
                     <!---calendar 财经日历-->
-                    <div id="calendar" class="row m-b-30 tab-pane active">
+                    <div id="calendar" class="row m-b-30 tab-pane active En-calendar">
                         <!-- calendar -->
                         <div class="col-sm-12">
                             <div class="grid simple">
                                 <!-- title -->
                                 <div class="grid-title no-border " style="height: 100px;">
                                     <div class="carousel-inner">
-                                        <a href="" class="col-sm-1 text-center"> 
-                                            <i class="calendar2x calendar_left m-t-15 text-c3" style="line-height: 70px;"></i>
+                                        <a class="col-sm-1 text-center" style="cursor: pointer;">
+                                            <i class="calendar2x calendar_left text-c3 m-t-15" style="line-height: 70px;"></i>
                                         </a>
-                                        <ul class="no-margin no-padding col-sm-10" >
-                                            <li class="date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="inner-col item date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="inner-col item  date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="inner-col item   date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="inner-col item   date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
+                                        <ul class="no-margin no-padding col-sm-10 calendar-tab" >
+
                                         </ul>
-                                        <a href="" class="col-sm-1 text-center"> 
-                                            <i class="calendar2x calendar_right m-t-15 text-c3" style="line-height: 70px;"></i>
+                                        <a class="col-sm-1 text-center" style="cursor: pointer;">
+                                            <i class="calendar2x calendar_right text-c3 m-t-15" style="line-height: 70px;"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -206,261 +165,20 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- table -->
-                                    <div class="panel-group" id="accordion" data-toggle="collapse">
+                                    <div class="panel-group  scroller scrollbar-hidden"  data-height="360px" id="accordion" data-toggle="collapse" style="height: 360px;overflow: hidden;">
                                         <!-- table-head -->
                                         <div class="table-head panel">
                                             <ul class="row no-margin no-padding">
                                                 <li class="col-sm-1">Time</li>
                                                 <li class="col-sm-1">Currency </li>
-                                                <li class="col-sm-2">Event</li>
+                                                <li class="col-sm-6">Event</li>
                                                 <li class="col-sm-1">Actual</li>
                                                 <li class="col-sm-1">Forecast</li>
                                                 <li class="col-sm-1">Previous</li>
-                                                <li class="col-sm-2">Anticipation impact</li>
-                                                <li class="col-sm-2">Actual impact</li>
-                                                <li class="col-sm-1">Importance </li>
-                                            </ul> 
+                                                <li class="col-sm-1 text-right">Importance </li>
+                                            </ul>
                                         </div>
                                         <!-- table-body -->
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <p class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                        <ul class="row no-margin no-padding">
-                                                            <li class="col-sm-1">00:00</li>
-                                                            <li class="col-sm-1">
-                                                                <i class="country_img country_eur"></i>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                <span>Redesign project template</span>
-                                                            </li>
-                                                            <li class="col-sm-1">0.4%</li>
-                                                            <li class="col-sm-1">0.5%</li>
-                                                            <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-success">bullish</span>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-success">bullish</span>
-                                                            </li>
-                                                            <li class="col-sm-1">
-                                                                <i class="status-icon red"></i>
-                                                            </li>
-                                                        </ul> 
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div id="collapseOne" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <p class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"  href="#collapseTwo">
-                                                        <ul class="row no-margin no-padding">
-                                                            <li class="col-sm-1">00:00</li>
-                                                            <li class="col-sm-1">
-                                                                <i class="country_img country_cny"></i>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                <span >Redesign project template</span>
-                                                            </li>
-                                                            <li class="col-sm-1">0.4%</li>
-                                                            <li class="col-sm-1">0.5%</li>
-                                                            <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-important">Bearish</span>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                ---------
-                                                            </li>
-                                                            <li class="col-sm-1">
-                                                                <i class="status-icon red"></i>
-                                                            </li>
-                                                        </ul> 
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div id="collapseTwo" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ratione quo alias fugit maiores enim odio amet, harum provident necessitatibus, error eveniet iste non voluptatibus dolore rem voluptates deleniti quos?
-                                                </div>
-                                              </div>
-                                        </div>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <p class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                                        <ul class="row no-margin no-padding">
-                                                            <li class="col-sm-1">00:00</li>
-                                                            <li class="col-sm-1">
-                                                                <i class="country_img country_chf"></i>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                <span>Redesign project template</span>
-                                                            </li>
-                                                            <li class="col-sm-1">0.4%</li>
-                                                            <li class="col-sm-1">0.5%</li>
-                                                            <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-important">Bearish</span>
-                                                                </li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-important">Bearish</span>
-                                                            </li>
-                                                            <li class="col-sm-1">
-                                                                <i class="status-icon red"></i>
-                                                            </li>
-                                                        </ul> 
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div id="collapseThree" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <p class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseD">
-                                                        <ul class="row no-margin no-padding">
-                                                            <li class="col-sm-1">00:00</li>
-                                                            <li class="col-sm-1">
-                                                                <i class="country_img country_gbp"></i>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                <span>Redesign project template</span>
-                                                            </li>
-                                                            <li class="col-sm-1">0.4%</li>
-                                                            <li class="col-sm-1">0.5%</li>
-                                                            <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-2">
-                                                                --------
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-important">Bearish</span>
-                                                            </li>
-                                                            <li class="col-sm-1">
-                                                                <i class="status-icon green"></i>
-                                                            </li>
-                                                        </ul> 
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div id="collapseD" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                  Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <p class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"  href="#collapseE">
-                                                        <ul class="row no-margin no-padding">
-                                                            <li class="col-sm-1">00:00</li>
-                                                            <li class="col-sm-1">
-                                                                <i class="country_img country_jpy"></i>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                <span >Redesign project template</span>
-                                                            </li>
-                                                            <li class="col-sm-1">0.4%</li>
-                                                            <li class="col-sm-1">0.5%</li>
-                                                            <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-success">bullish</span>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                ---------
-                                                            </li>
-                                                            <li class="col-sm-1">
-                                                                <i class="status-icon green"></i>
-                                                            </li>
-                                                        </ul> 
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div id="collapseE" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor ratione quo alias fugit maiores enim odio amet, harum provident necessitatibus, error eveniet iste non voluptatibus dolore rem voluptates deleniti quos?
-                                                </div>
-                                              </div>
-                                        </div>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <p class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseF">
-                                                        <ul class="row no-margin no-padding">
-                                                            <li class="col-sm-1">00:00</li>
-                                                            <li class="col-sm-1">
-                                                                <i class="country_img country_nzd"></i>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                <span>Redesign project template</span>
-                                                            </li>
-                                                            <li class="col-sm-1">0.4%</li>
-                                                            <li class="col-sm-1">0.5%</li>
-                                                            <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-success">bullish</span>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-success">bullish</span>
-                                                            </li>
-                                                            <li class="col-sm-1">
-                                                                <i class="status-icon green"></i>
-                                                            </li>
-                                                        </ul> 
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div id="collapseF" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="panel">
-                                            <div class="panel-heading">
-                                                <p class="panel-title">
-                                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseG">
-                                                        <ul class="row no-margin no-padding">
-                                                            <li class="col-sm-1">00:00</li>
-                                                            <li class="col-sm-1">
-                                                                <i class="country_img country_usd"></i>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                <span>Redesign project template</span>
-                                                            </li>
-                                                            <li class="col-sm-1">0.4%</li>
-                                                            <li class="col-sm-1">0.5%</li>
-                                                            <li class="col-sm-1">0.6%</li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-success">bullish</span>
-                                                            </li>
-                                                            <li class="col-sm-2">
-                                                                JPR <span class=" label label-success">bullish</span>
-                                                            </li>
-                                                            <li class="col-sm-1">
-                                                                <i class="status-icon green"></i>
-                                                            </li>
-                                                        </ul> 
-                                                    </a>
-                                                </p>
-                                            </div>
-                                            <div id="collapseG" class="panel-collapse collapse">
-                                                <div class="panel-body">
-                                                    Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
