@@ -8968,14 +8968,12 @@ body.rtl .footer-widget {
 }
 .tab-page{
   width: 100%;
-  height: 60px;
   margin-top: 60px;
 }
 .tabs{
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 60px;
     background-color: #1c2026;
     cursor: pointer;
 }
