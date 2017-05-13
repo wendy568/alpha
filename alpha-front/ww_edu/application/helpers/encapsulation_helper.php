@@ -14,7 +14,7 @@ abstract class Encapsulation
 
 	protected $this_day;
 	
-	public $time_filter_definition = 'order_close_time';
+	public $time_filter_definition = '';
 
 	protected $unix_time;
 
