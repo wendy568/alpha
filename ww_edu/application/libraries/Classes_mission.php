@@ -37,17 +37,24 @@ class Classes_mission
 
 	public function get_mission_complete()
 	{
-		$category = [];
+		$method = [];
 		$homework = [];
-		array_walk_recursive($this->category, function ($val, $key) use (&$category) {
-			$category[] = $key;
-		});
 
 		array_walk($this->homework, function ($val, $key) use (&$homework) {
 			$homework[] = $key;
 		});
 
-		print_r(array_intersect($category, $homework));
+		array_walk_recursive($this->category, function ($val, $key) use (&$method, $homework) {
+			foreach ($homework as $value) {
+				if ($value == $key) {
+					$method[] = $val;
+				}
+			}
+		});
+
+		
+
+		print_r($method);
 	}
 
 	private function viewVideo()
