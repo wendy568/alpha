@@ -9724,3 +9724,51 @@ body.rtl .footer-widget {
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
 }
+
+/*TradingStatistic.html-----------------------------------------------------------*/
+
+.bill-select{
+  overflow-y: scroll !important;
+  height: 260px;
+}
+.bill-select::-webkit-scrollbar-track
+{
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.bill-select::-webkit-scrollbar
+{
+  width: 5px;
+  background-color: transparent;
+}
+
+.bill-select::-webkit-scrollbar-thumb
+{
+  border-radius: 5px;
+  background-color: rgba(161, 178, 189,.3);
+}
+@-moz-document url-prefix(http://),url-prefix(https://) {
+  /* 滚动条颜色 */
+  scrollbar {
+    background: rgba(161, 178, 189,.3) !important;
+  }
+  /* 滚动条按钮颜色 */
+  thumb,scrollbarbutton {
+    -moz-appearance: none !important;
+    background-color: rgb(0,0,255) !important;
+  }
+  /* 鼠标悬停时按钮颜色 */
+  
+  thumb:hover,scrollbarbutton:hover {
+    -moz-appearance: none !important;
+  }
+  /* 隐藏上下箭头 */
+  scrollbarbutton {
+    display: none !important;
+  }
+  /* 纵向滚动条宽度 */
+  scrollbar[orient="vertical"] {
+    width: 5px !important;
+  }
+}
