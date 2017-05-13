@@ -29,7 +29,7 @@ function &loaded_classes($class, $path, $param = null)
 	
 }
 
-function &loaded_interfaceAbstracts($class, $path)
+function &loaded_lib($class, $path)
 {
 
 	static $_classes = array();
@@ -47,6 +47,27 @@ function &loaded_interfaceAbstracts($class, $path)
 	}
 
 	is_loaded($class, $path);
+
+	$_classes[$class] = '\\' . $path . '\\' . $class;
+	return $_classes[$class];
+}
+
+function &loaded_interfaceAbstracts($class, $path)
+{
+
+	static $_classes = array();
+
+	if (isset($_classes[$class]))
+	{
+		return $_classes[$class];
+	}
+
+	$name = str_replace('\\', '/', $path) . '/' . $class;
+	if (file_exists(realpath($name . EXT))) {
+		require_once "{$name}" . EXT;
+	}else{
+		exit("HAVE NOT SUCH {$name} IN SYSTEM");
+	}
 
 	$_classes[$class] = '\\' . $path . '\\' . $class;
 	return $_classes[$class];
