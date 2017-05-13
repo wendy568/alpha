@@ -20,83 +20,84 @@
         $('.hight').eq(3).html(data.data.last_transaction_peroid);
       }
     });
+   
+
+    //折线图
+    $.alpha.request_Url('post','dashboard/profit_statistics',{},function(data){
+        if(data.archive.status == 0){
+            var date=data.data.profit_week;
+            var key=[];
+            var currData=[];
+
+            for(var i in date){
+                key.push(i);
+                var cur = 0;
+                cur = !date[i] ? 0 : date[i];
+                currData.push(cur);
+            }
+
+            var lineChart = echarts.init(document.getElementById('lineChart'),'purple-passion');
+            var option = {
+                title: {},
+                tooltip : {
+                    trigger: 'axis',
+                    axisPointer: {
+                      type: 'cross',
+                      label: {
+                        backgroundColor: '#6a7985',
+                      }
+                    }
+                },
+                legend: {},
+                toolbox: {
+                    feature: {
+                      saveAsImage: {}
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                      type : 'category',
+                      boundaryGap : false,
+                      data : key,
+                      textStyle : {
+                        color: '#fff'
+                      },
+                    }
+                ],
+                yAxis : [
+                    {
+                      type : 'value'
+                    }
+                ],
+                series : [
+                    {
+                      name:'profit',
+                      type:'line',
+                      areaStyle: {normal: {}},
+                      data:currData
+                    },
+
+                ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            lineChart.setOption(option);
+        }
+    });
 
 
-    // synthesizing data 综合数据接口----------------------------------------------------------------------------
+    // synthesizing data 条形图----------------------------------------------------------------------------
     $.alpha.request_Url('post','dashboard/trading_evaluating',{},function(data){
       if(data.archive.status == 0){
         $('.chart .label-important').eq(0).html(data.data.risk_management_level);
         $('.chart .label-important').eq(1).html(data.data.operating_frequecy);
         $('.chart .label-info').eq(0).html(data.data.operating_accuracy);
         $('.chart .label-info').eq(1).html(data.data.trading_ability);
-      }
-    });
-
-    //折线图
-    $.alpha.request_Url('post','dashboard/profit_statistics',{},function(data){
-      if(data.archive.status == 0){
-        var date=data.data.profit_week;
-        var key=[];
-        var currData=[];
-
-        for(var i in date){
-          key.push(i);
-          var cur = 0;
-          cur = !date[i] ? 0 : date[i];
-          currData.push(cur);
-        }
-
-        var lineChart = echarts.init(document.getElementById('lineChart'),'purple-passion');
-        var option = {
-          title: {},
-          tooltip : {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'cross',
-              label: {
-                backgroundColor: '#6a7985',
-              }
-            }
-          },
-          legend: {},
-          toolbox: {
-            feature: {
-              saveAsImage: {}
-            }
-          },
-          grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
-          },
-          xAxis: [
-            {
-              type : 'category',
-              boundaryGap : false,
-              data : key,
-              textStyle : {
-                color: '#fff'
-              },
-            }
-          ],
-          yAxis : [
-            {
-              type : 'value'
-            }
-          ],
-          series : [
-            {
-              name:'profit_week',
-              type:'line',
-              areaStyle: {normal: {}},
-              data:currData
-            },
-
-          ]
-        };
-        // 使用刚指定的配置项和数据显示图表。
-        lineChart.setOption(option);
       }
     });
 
@@ -181,6 +182,7 @@
         $('.yun span').text(billCount[preIndex]);
     });
 
+
     // synthesizing data 财经日历----------------------------------------------------------------------------
     var firstDate = 0;
     var weeks = ['SUN','MON','TUE','WEN','THUR','FRI','SAT'];
@@ -214,6 +216,52 @@
       });
     }
 
-  getCalendarData();
+    getCalendarData();
+
+
+    //市场资讯
+    $.alpha.request_Url('post','Dashboard/news',{},function(data){
+        if (data.archive.status == 0) {
+            var newDate=new Date();
+            newDate.setTime(data.data.date * 1000);
+            var newsMon=newDate.toDateString();
+            $('#newsMon').html(newsMon);
+
+            var news_html="";
+
+            $.each(data.data.news,function(i,data){
+                var newDate=new Date();
+                newDate.setTime(data.time * 1000);
+                var newsTime=newDate.toTimeString().substring(0,5);
+
+                news_html +=
+                `<li class="panel">
+                    <div class="panel-heading">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#news${i}">
+                            <time class="cbp_tmtime" datetime="18:30">
+                                <span class="time">${newsTime}</span>
+                            </time>
+                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                            <div class="cbp_tmlabel">
+                                <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">
+                                    <p class="m-t-5 text-c2"> ${data.title} </p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div id="news${i}" class="panel-collapse collapse">
+                         <div class="panel-body">
+                            ${data.desc}
+                        </div>
+                    </div>  
+                </li>`;
+                $('.cbp_tmtimeline').html(news_html);
+            });
+        }
+    });
+
+    // 轮播数据
+
 
 })();
