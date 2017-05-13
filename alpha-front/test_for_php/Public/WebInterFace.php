@@ -1,8 +1,8 @@
 <?php  
-namespace app;
+namespace Public;
 
-use app\TestInterFace;
-use app\AppInterFace;
+use Public\TestInterFace;
+use Public\AppInterFace;
 
 interface WebInterFace extends TestInterFace, AppInterFace{
 	

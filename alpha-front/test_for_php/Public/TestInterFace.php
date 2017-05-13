@@ -1,5 +1,5 @@
 <?php  
-namespace app;
+namespace Public;
 
 interface TestInterFace{
 	public function test();

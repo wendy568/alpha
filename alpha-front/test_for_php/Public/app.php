@@ -1,7 +1,7 @@
 <?php  
 
-namespace app;
-use app\AppInterface;
+namespace Public;
+use Public\AppInterface;
 
 class app
 {
@@ -16,6 +16,6 @@ class app
 
 	public function speak()
 	{
-		echo 'i\m a app';
+		echo 'i\m a Public One';
 	}
 }
