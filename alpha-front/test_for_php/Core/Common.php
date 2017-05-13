@@ -11,13 +11,6 @@ function &loaded_classes($class, $path, $param = null)
 		return $_classes[$class];
 	}
 
-	// $name = str_replace('\\', '/', $path) . '/' . $class;
-	// if (file_exists(realpath($name . EXT))) {
-	// 	require_once "{$name}" . EXT;
-	// }else{
-	// 	exit("HAVE NOT SUCH {$name} IN SYSTEM");
-	// }
-
 	is_loaded($class, $path);
 	$instance  = '\\' . $path .'\\' . $class;
 	$_classes[$class] = isset($param)
