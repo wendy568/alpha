@@ -3,7 +3,7 @@
 class Classes
 {
 	use date_format;
-	
+
 	private $category = [
 				['Video Learning'],
 				['Article learning'],
@@ -34,8 +34,6 @@ class Classes
 		$this->homework = $homework;
 		return $this;
 	}
-
-	public function 
 
 	private function viewVideo()
 	{
