@@ -157,7 +157,7 @@
 
     getPieData($('.yun span').text());
 
-    $('.yun a').eq(0).click(function (e) {
+    $('.yun i').eq(0).click(function (e) {
         e.stopPropagation();
         var curBillType = $('.yun span').text();
         var curIndex = billCount.indexOf(curBillType);
@@ -166,7 +166,7 @@
         $('.yun span').text(billCount[preIndex]);
     });
 
-    $('.yun a').eq(1).click(function (e) {
+    $('.yun i').eq(1).click(function (e) {
         e.stopPropagation();
         var curBillType = $('.yun span').text();
         var curIndex = billCount.indexOf(curBillType);
@@ -326,27 +326,21 @@
                 var newsTime=newDate.toTimeString().substring(0,5);
 
                 news_html +=
-                `<li class="panel">
-                    <div class="panel-heading">
-                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#news${i}">
-                            <time class="cbp_tmtime" datetime="18:30">
-                                <span class="time">${newsTime}</span>
-                            </time>
-                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
-                            <div class="cbp_tmlabel">
-                                <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">
-                                    <p class="m-t-5 text-c2"> ${data.title} </p>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div id="news${i}" class="panel-collapse collapse">
-                         <div class="panel-body">
-                            ${data.desc}
-                        </div>
-                    </div>
-                </li>`;
+                '<li class="panel">'+
+                '<div class="panel-heading">'+
+                '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#news'+i+'">'+
+                '<time class="cbp_tmtime" datetime="18:30">'+
+                '<span class="time">'+newsTime+'</span>'+
+                '</time>'+
+                '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>'+
+                '<div class="cbp_tmlabel">'+
+                '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">'+
+                '<p class="m-t-5 text-c2">' +data.title+ '</p>'+
+                '</div>'+
+                '<div class="clearfix"></div>'+
+                '</div></a></div>'+
+                    '<div id="news'+i+'" class="panel-collapse collapse">'+
+                         '<div class="panel-body">'+ data.desc+'</div></div></li>';
                 $('.cbp_tmtimeline').html(news_html);
             });
         }
