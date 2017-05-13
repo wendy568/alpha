@@ -179,7 +179,7 @@
     // synthesizing data 财经日历----------------------------------------------------------------------------
     var dateList = [];
     var weeks = ['SUN','MON','TUE','WEN','THUR','FRI','SAT'];
-    function getCalendarData(firstDate,direction) {
+    function getCalendarData(firstDate,direction,fn) {
         var date = {
             left_right : direction || '',
             time_node : firstDate || ''
@@ -291,23 +291,32 @@
                     $('#accordion').append($content);
                 });
             }
+            fn && fn(data);
         });
     }
     getCalendarData();
     
-    $('.En-calendar .carousel-inner>a').eq(0).click(function (e) {
+    $('.En-calendar .carousel-inner>a').eq(0).find('input').click(function (e) {
         e.stopPropagation();
-        var lastDate = dateList[0].replace('.','-').replace('.','-');
+        var $this = $(this);
+        var lastDate = dateList.length && dateList[0].replace('.','-').replace('.','-');
         $('.En-calendar .calendar-tab').empty();
         $('.calendar-tab-content').remove();
-        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left');
+        $this.prop('disabled',true);
+        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left',function () {
+            $this.prop('disabled',false);
+        });
     });
-    $('.En-calendar .carousel-inner>a').eq(1).click(function (e) {
+    $('.En-calendar .carousel-inner>a').eq(1).find('input').click(function (e) {
         e.stopPropagation();
-        var lastDate = dateList[6].replace('.','-').replace('.','-');
+        var lastDate = dateList.length && dateList[6].replace('.','-').replace('.','-');
+        var $this = $(this);
         $('.En-calendar .calendar-tab').empty();
         $('.calendar-tab-content').remove();
-        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right');
+        $this.prop('disabled',true);
+        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right',function () {
+            $this.prop('disabled',false);
+        });
     });
 
     //市场资讯
