@@ -168,7 +168,8 @@ class Dashboard extends MY_Controller
 
 	function test()
 	{
-		var_dump(isset(0));
+		$a = 0;
+		var_dump(isset($a));
 		print_r(array_diff([1,2,3,4],[]));die;
 		$homework = [
 			['Video Learning' => [1, 2, 3, 4], 'Article learning' => [1, 2, 3, 4]],
