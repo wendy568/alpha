@@ -34,7 +34,7 @@ abstract class sql_opration
 
 	public function property($callback)
 	{
-		return $this->_data = call_user_func_array($callback, $this->_data)
+		return $this->_data = call_user_func_array($callback, $this->_data);
 	}
 
 	public function insert()
