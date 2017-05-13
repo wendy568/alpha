@@ -1,6 +1,6 @@
 <?php  
 
-abstract class sql_opration
+abstract class sql_operation
 {
 	protected $_data;
 
