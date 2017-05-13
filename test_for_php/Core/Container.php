@@ -7,6 +7,7 @@ class Container
 
 	public function __contruct()
 	{
+		echo 12313;
 		self::$_container = $this;
 
 		array_walk(is_loaded(), function ($val, $key) {
