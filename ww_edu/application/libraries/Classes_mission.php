@@ -2,7 +2,7 @@
 
 class Classes_mission
 {
-	use date_format;
+	use date_format, struct;
 
 	private $category = [
 				['Video Learning'],
@@ -39,6 +39,5 @@ class Classes_mission
 	{
 		return array_diff($this->mission, $this->homework);
 	}
-
 
 }

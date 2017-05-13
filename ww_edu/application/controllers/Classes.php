@@ -13,12 +13,13 @@ class Classes extends MY_Controller
 		$this->load->helper('json');
 		$this->load->model('ClassesM');
 		$this->load->helper('format');
+		$this->load->helper('struct');
 		$this->load->library('classes_mission');
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$original = $this->ClassesM->current_stage($uid);
 		$data['data']['current_stage'] = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		$data['data']['process'] = $this->classes_mission->init($data['data']['current_stage'], $this->classes_mission->jsonDecode($original['mission']['homework']))->viewVideo();
+		$data['data']['process'] = $this->classes_mission->init($data['data']['current_stage'], $this->classes_mission->jsonDecode($original['mission']['homework']))->property('viewVideo')->get_property();
 		encode_json($response,$data);
 	}
 
