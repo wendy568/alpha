@@ -19,10 +19,10 @@ function &loaded_classes($class, $path, $param = null)
 	// }
 
 	is_loaded($class, $path);
-
+	$instance  = '\\' . $path .'\\' . $class;
 	$_classes[$class] = isset($param)
-		? new $class($param)
-		: new $class();
+		? new $instance($param)
+		: new $instance();
 	return $_classes[$class];
 	
 }
