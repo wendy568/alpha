@@ -10,7 +10,7 @@ class Container
 	public function __contruct()
 	{
 		static::$_container = $this;
-		
+		print_r(Common::is_loaded);
 		array_walk(Common::is_loaded(), function ($val, $key) {
 			$this->$val = &Common::loaded_classes($val, $key);
 		});
