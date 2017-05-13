@@ -42,13 +42,13 @@ abstract class sql_operation
 
 	public function add()
 	{	
+		print_r($_data);die;
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
 		$image = null;
 
 		if(!empty($this->width) && !empty($this->height)) $image = get_image($this->width, $this->height, "{$this->file_path}");
-		print_r($image);die;
 		if($image) $this->image = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
 		$dfdb = databases_filter::build();
 		$cols = array($this->table);
