@@ -46,8 +46,8 @@ class Classes_mission
 		array_walk($this->homework, function ($val, $key) use (&$homework) {
 			$homework[] = $key;
 		});
-		print_r($category);
-		print_r($homework);
+
+		print_r(array_diff($category, $homework));
 	}
 
 	private function viewVideo()
