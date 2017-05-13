@@ -1,5 +1,5 @@
 <?php  
-// namespace Core;
+namespace Core;
 
 function &loaded_classes($class, $path, $param = null)
 {
