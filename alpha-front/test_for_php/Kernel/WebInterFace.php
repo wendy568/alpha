@@ -1,8 +1,8 @@
 <?php  
-namespace Public;
+namespace Kernel;
 
-use Public\TestInterFace;
-use Public\AppInterFace;
+use Kernel\TestInterFace;
+use Kernel\AppInterFace;
 
 interface WebInterFace extends TestInterFace, AppInterFace{
 	

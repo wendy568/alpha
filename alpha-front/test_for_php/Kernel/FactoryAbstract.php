@@ -1,5 +1,5 @@
 <?php  
-namespace Public;
+namespace Kernel;
 
 
 abstract class FactoryAbstract{
