@@ -22,7 +22,7 @@ class Common
 		}
 
 		static::is_loaded($class, $path);
-		new \core\Container();die;
+		new core\Container();die;
 		$instance = '\\' . $path . '\\' . $class();
 
 		$_classes[$class] = isset($param)
