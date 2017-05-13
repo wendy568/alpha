@@ -11,7 +11,7 @@ use Core\Container;
 use Kernel\App;
 
 new Register();
-print_r(new Container());
+(new Container())->aa();
 
 function &instance(){
 	return Container::locker();
@@ -19,4 +19,4 @@ function &instance(){
 print_r(\Core\is_loaded());
 $app = &instance();
 // print_r($app->russian);
-new App(new activeRussian('ChenQi', 27));
+// new App(new activeRussian('ChenQi', 27));
