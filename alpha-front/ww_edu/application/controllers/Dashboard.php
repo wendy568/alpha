@@ -149,10 +149,12 @@ class Dashboard extends MY_Controller
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
 		$this->load->model('TradingAnalysis');
 
+		$date = getdate();
 		$mt4 = $this->TradingAnalysis->news();
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'time';
 		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 5)->get_month()->get_result();
+		$data['data']['date'] = $date['year']. '.' . $date['mon'] . '.' . $date['mday'];
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 
 		encode_json($response,$data);
