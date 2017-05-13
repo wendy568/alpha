@@ -8789,19 +8789,19 @@ body.rtl .footer-widget {
 }
 /*货币图标*/
 .country_img{
-    background:url(../img/icon/img.png)  no-repeat;
+    background:url(../img/Spirits_country.png)  no-repeat;
     position: relative;
     display: inline-block;
     vertical-align: middle;
 }
-.country_jpy{height:16px;width:22px;background-position:0 0;}
-.country_gbp{height:16px;width:22px;background-position:-22px 0;}
-.country_usd{height:16px;width:22px;background-position:-44px 0;}
-.country_nzd{height:16px;width:22px;background-position:-66px 0;}
-.country_chf{height:16px;width:22px;background-position:-88px 0;}
-.country_aud{height:16px;width:22px;background-position:-110px 0;}
-.country_eur{height:16px;width:22px;background-position:-132px 0;}
-.country_cny{height:16px;width:22px;background-position:-154px 0;}
+.country_jpy{height:27px;width:44px;background-position:0 0;}
+.country_gbp{height:27px;width:44px;background-position:-53px 0;}
+.country_usd{height:27px;width:44px;background-position:-103px 0;}
+.country_nzd{height:27px;width:44px;background-position:-153px 0;}
+.country_chf{height:27px;width:44px;background-position:-203px 0;}
+.country_aud{height:27px;width:44px;background-position:-253px 0;}
+.country_eur{height:27px;width:44px;background-position:-303px 0;}
+.country_cny{height:27px;width:44px;background-position:-353px 0;}
 /*--------------------------------tools---------------------------------------------*/
 .toolbar{
   width: 100%;
