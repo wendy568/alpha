@@ -34,6 +34,28 @@ class Utility extends MY_Controller
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
+
+	public function addTradingLog()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$token = $this->input->get_post('token', TRUE);
+		$datas = $this->input->post();
+		$datas['from_id'] = $this->get_bytoken($token);
+		
+		$this->load->database();
+		$this->load->helper('help');
+		$this->load->helper('sql_operation');
+		$this->load->library('trading_log');
+
+		$cols = $this->trading_log->format($datas)->add();
+		print_r($cols);
+		$this->load->model('users');
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->users->add($cols, $response);
+	
+		encode_json($response,$data);
+	}
 }
 
 
