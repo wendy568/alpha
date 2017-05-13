@@ -10,6 +10,8 @@ abstract class sql_operation
 		foreach ($this->_data as $key => $value) {
 			$this->$key = $value;
 		}
+
+		return $this;
 	}
 
 	protected function add_addslashes($index)
