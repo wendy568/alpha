@@ -1,8 +1,6 @@
 <?php
 namespace Autoload;
 
-use Core\Common;
-
 class Register
 {
 
@@ -43,7 +41,7 @@ class Register
 			];
 
 		array_walk_recursive($interfaceAbstract, function ($val, $key) {
-				$interfaceAbstracts = &loaded_interfaceAbstracts($key, $val);
+				$interfaceAbstracts = &\core\loaded_interfaceAbstracts($key, $val);
 			});
 	}
 }
