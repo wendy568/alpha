@@ -9,7 +9,7 @@ use Autoload\Register;
 use Core\Container;
 
 (new Register())->Autoload();
-
+print_r(\Core\is_loaded());
 function &instance(){
 	return Container::locker();
 }
