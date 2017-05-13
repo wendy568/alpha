@@ -44,7 +44,7 @@ class Utility extends MY_Controller
 		$datas['from_id'] = $this->get_bytoken($token);
 		
 		$this->load->database();
-		$this->load->helper('help');
+		$this->load->helper('json');
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
 
