@@ -13,12 +13,13 @@ class Trading_logs extends CI_Model
 		$result = array();
 		$map = "SELECT *  
 				FROM trading_log 
-				WHERE $where";	
+				WHERE $where 
+				ORDER BY DESC";	
+
 		$query = $this->db->query($map);
         $result = $query->result_array();
         
         return $result;
-
 	}
 
 }
