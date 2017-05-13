@@ -7,17 +7,17 @@ class Classes_mission
 	private $category = [
 				['Video Learning' => 'viewVideo'],
 				['Article learning' => 'viewArticle'],
-				['Place your order', 'Make Transactions', 'Make Transaction 1', 'Make Transaction 2'],
-				['4 style trade'],
-				['take profits/stop loss'],
-				['Trade all kinds products', 'Task 2 - 10 different products', '5 tradable products'],
-				['Trading Record'],
-				['Learning Report'],
-				['Trading Score'],
-				['Task 1 - 2 different markets'],
-				['Produce a module'],
-				['Risk Management Level'],
-				['Profitable Period']
+				['Place your order' => '', 'Make Transactions' => '', 'Make Transaction 1' => '', 'Make Transaction 2' => ''],
+				['4 style trade' => ''],
+				['take profits/stop loss' => ''],
+				['Trade all kinds products' => '', 'Task 2 - 10 different products' => '', '5 tradable products' => ''],
+				['Trading Record' => ''],
+				['Learning Report' => ''],
+				['Trading Score' => ''],
+				['Task 1 - 2 different markets' => ''],
+				['Produce a module' => ''],
+				['Risk Management Level' => ''],
+				['Profitable Period' => '']
 			];
 
 	private $mission;
@@ -39,11 +39,11 @@ class Classes_mission
 	{
 		$category = [];
 		$homework = [];
-		array_walk_recursive($this->category, function ($val, $key) use(&$category){
+		array_walk_recursive($this->category, function ($val, $key) use (&$category) {
 			$category[] = $key;
 		});
 
-		array_walk_recursive($this->homework, function ($val, $key) use(&$homework){
+		array_walk_recursive($this->homework, function ($val, $key) use (&$homework) {
 			$homework[] = $key;
 		});
 		print_r($category);
