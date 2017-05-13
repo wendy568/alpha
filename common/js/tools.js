@@ -16,14 +16,14 @@
         function initToolHtml(){
             var tool_html='';
             
-            tool_html+= `<li class="module">`;
-            tool_html+=     `<a href="#`+tool_pText+`" role="tab" data-toggle="tab">`;
-            tool_html+=         `<div class="module-icon">`;
-            tool_html+=             `<i class="`+tool_iClass+`"></i>`;
-            tool_html+=         `</div>`;
-            tool_html+=         `<p class="text-center text-c4">`+tool_pText+`</p>`;
-            tool_html+=     `</a>`;
-            tool_html+= `</li>`;
+            tool_html+= '<li class="module">';
+            tool_html+=     '<a href="#`+tool_pText+`" role="tab" data-toggle="tab">';
+            tool_html+=         '<div class="module-icon">';
+            tool_html+=             '<i class="'+tool_iClass+'"></i>';
+            tool_html+=         '</div>';
+            tool_html+=         '<p class="text-center text-c4">'+tool_pText+'</p>';
+            tool_html+=     '</a>';
+            tool_html+= '</li>';
 
             return tool_html;
         };
@@ -34,7 +34,7 @@
     // synthesizing data 财经日历----------------------------------------------------------------------------
     var dateList = [];
     var weeks = ['SUN','MON','TUE','WEN','THUR','FRI','SAT'];
-    function getCalendarData(firstDate,direction) {
+    function getCalendarData(firstDate,direction,fn) {
         var date = {
             left_right : direction || '',
             time_node : firstDate || ''
@@ -146,6 +146,7 @@
                     $('#accordion').append($content);
                 });
             }
+            fn && fn(data);
         });
     }
     getCalendarData();
