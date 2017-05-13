@@ -21,7 +21,7 @@ abstract class sql_operation
 		if (is_array($index)) {
 			$output = array();
 			foreach ($index as $key) {
-				$output[$key] = _fetch_from_array($this->_data, $key);
+				$output[$key] = $this->user_addslashes($key);
 			}
 
 			return $output;
