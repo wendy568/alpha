@@ -168,18 +168,24 @@ class Dashboard extends MY_Controller
 
 	function test()
 	{
-		$a = [-99,0,0,0,0,110,7];
-		$count = count($a);
-		$sum = 0;
-		foreach ($a as $key => $value) {
-			$sum += $value;
-		}
+		$homework = [
+			['Video Learning' => [1, 2, 3, 4], 'Article learning' => [1, 2, 3, 4]],
+			['Video learning' => [1, 2], 'Article learning' => [1, 2], 'Place your order' => 1, '4 style trade' => [1, 2, 3, 4], 'take profits/stop loss' => 2],
+			['Make Transactions' => 20, 'Trade all kinds products'=> 15, 'Trading Record' => 1, 'Learning Report' => 1],
+			['Video Learning' => [1, 2, 3], 'Article learning' => [1, 2, 3], 'Make Transaction 1' => 1, 'Make Transaction 2' => 1],
+			['Video Learning' => [1, 2, 3], 'Article learning' => [1, 2, 3], 'Make Transactions' => 3],
+			['Make Transactions' => 30, 'Task 1 - 2 different markets' => 2, 'Task 2 – 10 different products' => 10, 'Trading Record' => 1, 'Learning Report' => 1],
+			['5 tradable products' => 5, 'Trading Record' => 1],
+			['Produce a module' => 1, 'Learning Report' => 1],
+			['Article learning' => [1, 2, 3], 'Risk Management Level' => 30],
+			['Risk Management Level' => 60, 'Trading Score' => 30, 'Trading Record' => 1],
+			['Video Learning' => [1, 2, 3], 'Article learning' => [1, 2, 3]],
+			['Trading Score' => 60, 'Learning Report' => 1],
+			['Trading Score' => 60, 'Learning Report' => 1],
+			['Trading Score' => 60, 'Learning Report' => 1],
+			['Trading Score' => 60, 'Profitable Period' => 3]
+		];
 
-		$sum2 = 0;
-		foreach ($a as $key => $value) {
-			$sum2 += pow(($value - ($sum / $count)), 2);
-		}
-
-		print_r(round(sqrt(($sum2/$count)) ,2));
+		print_r(json_encode($homework));
 	}
 }
