@@ -17,7 +17,7 @@ abstract class sql_operation
 	protected function user_addslashes($index)
 	{
 		isset($index) OR $index = array_keys($this->_data);
-		print_r($index);die;
+
 		if (is_array($index)) {
 			$output = array();
 			foreach ($index as $key) {
@@ -28,7 +28,6 @@ abstract class sql_operation
 		}
 
 		if(isset($this->_data[$index]) && $this->_data[$index]) {
-
 			return addslashes($this->_data[$index]);
 		} else {
 			return false;
