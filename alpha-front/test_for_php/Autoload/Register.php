@@ -9,7 +9,7 @@ class Register
 		$this->Autoload();
 	}
 
-	public function Autoload()
+	private function Autoload()
 	{
 		$required_classes = [
 			'core'    => [
@@ -20,18 +20,36 @@ class Register
 		    // 			    'russian'       => 'App'
 		    // 			 ],
 		    'kernel'  => [
-		    'WebInterFace'    => 'Kernel',
 		    				'TestInterFace'   => 'Kernel',
 		    				'App'    		  => 'Kernel',
 		    				'AppInterface'    => 'Kernel', 
 		    				'FactoryAbstract' => 'Kernel',
-		    				
+		    				'WebInterFace'    => 'Kernel',
 		    			 ],
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) {
 				$classes = &\Core\loaded_interfaceAbstracts($key, $val);
 			});
+	}
+
+	private function load_core()
+	{
+
+		$required_classes = [
+		    'kernel'  => [
+		    				'AppInterface'    => 'Kernel',
+		    				'TestInterFace'   => 'Kernel',
+		    				'App'    		  => 'Kernel',
+		    				'FactoryAbstract' => 'Kernel',
+		    				'WebInterFace'    => 'Kernel',
+		    			 ],
+			];
+
+		array_walk_recursive($required_classes, function ($val, $key) {
+				$classes = &\Core\loaded_interfaceAbstracts($key, $val);
+			});
+		
 	}
 
 }
