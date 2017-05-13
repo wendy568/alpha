@@ -38,7 +38,7 @@ class Common
 
 		if ($class !== '')
 		{
-			$_is_loaded[$path . '\\' . $class] = $class;
+			$_is_loaded['\\' . $path . '\\' . $class] = $class;
 		}
 
 		return $_is_loaded;
