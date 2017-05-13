@@ -15,21 +15,17 @@ class Register
 			'core'    => [
 							'Container'     => 'Core'
 						 ],
-		    // 'App'     => [
-		    // 				'activeRussian' => 'App',
-		    // 			    'russian'       => 'App'
-		    // 			 ],
+		    'App'     => [
+		    				'russian'       => 'App',
+		    				'activeRussian' => 'App',
+		    			 ],
 		    'kernel'  => [
-		    				'TestInterFace'   => 'Kernel',
 		    				'App'    		  => 'Kernel',
-		    				'AppInterface'    => 'Kernel', 
-		    				'FactoryAbstract' => 'Kernel',
-		    				'WebInterFace'    => 'Kernel',
 		    			 ],
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) {
-				$classes = &\Core\loaded_interfaceAbstracts($key, $val);
+				$classes = &\Core\loaded_lib($key, $val);
 			});
 	}
 
@@ -40,7 +36,6 @@ class Register
 		    'kernel'  => [
 		    				'AppInterface'    => 'Kernel',
 		    				'TestInterFace'   => 'Kernel',
-		    				'App'    		  => 'Kernel',
 		    				'FactoryAbstract' => 'Kernel',
 		    				'WebInterFace'    => 'Kernel',
 		    			 ],
