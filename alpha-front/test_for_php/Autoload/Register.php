@@ -40,10 +40,10 @@ class Register
 		$loader = $this->_loader;
 		$interfaceAbstract = [
 			'kernel'  => [
+							'TestInterFace'   => 'Kernel',
 							'AppInterface'    => 'Kernel', 
 							'FactoryAbstract' => 'Kernel',
 							'WebInterFace'    => 'Kernel',
-							'TestInterFace'   => 'Kernel'
 						 ],
 			];
 
