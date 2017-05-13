@@ -100,6 +100,7 @@
       }
     });
 
+
     // synthesizing data 环形图----------------------------------------------------------------------------
     var billCount = ['AUD/USD','EUR/USD','GBP/USD','NZD/USD','USD/CAD','USD/CHF','USD/CNH','USD/JPY',
       'AUD/CAD','AUD/CHF','AUD/JPY','AUD/NZD','CAD/CHF','CAD/JPY','CHF/JPY','EUR/AUD','EUR/CAD','EUR/CHF',
@@ -140,75 +141,44 @@
                 data:[]
             }
         ]
-      tooltip: {
-        trigger: 'item',
-        formatter: "{b}: {d}%"
-      },
-      series: [
-        {
-          name:'bill',
-          type:'pie',
-          radius: ['50%', '70%'],
-          avoidLabelOverlap: false,
-          label: {
-            normal: {
-              show: false,
-              position: 'center'
-            },
-            emphasis: {
-              show: true,
-              textStyle: {
-                fontSize: '16',
-                fontWeight: 'bold'
-              }
-            }
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data:[]
-        }
-      ]
     });
 
 
     function getPieData(bill) {
-      bill = bill.replace('/','');
-      $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
-        if(data.archive.status == 0){
-          var billData = [];
-          billData[0] = {name:'BUY',value:data.data.percent_ratio._0 * 100};
-          billData[1] = {name:'SELL',value:data.data.percent_ratio._1 * 100};
-          pieChart.setOption({
-            series:[{
-              name: 'bill',
-              data: billData
-            }]
-          });
-        }
-      });
+        bill = bill.replace('/','');
+        $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
+            if(data.archive.status == 0){
+                var billData = [];
+                billData[0] = {name:'BUY',value:data.data.percent_ratio._0 * 100};
+                billData[1] = {name:'SELL',value:data.data.percent_ratio._1 * 100};
+                pieChart.setOption({
+                    series:[{
+                        name: 'bill',
+                        data: billData
+                    }]
+                });
+            }
+        });
     }
 
     getPieData($('.yun span').text());
 
     $('.yun a').eq(0).click(function (e) {
-      e.stopPropagation();
-      var curBillType = $('.yun span').text();
-      var curIndex = billCount.indexOf(curBillType);
-      var preIndex = curIndex <= 0 ? 0 : curIndex - 1;
-      getPieData(billCount[preIndex]);
-      $('.yun span').text(billCount[preIndex]);
+        e.stopPropagation();
+        var curBillType = $('.yun span').text();
+        var curIndex = billCount.indexOf(curBillType);
+        var preIndex = curIndex <= 0 ? 0 : curIndex - 1;
+        getPieData(billCount[preIndex]);
+        $('.yun span').text(billCount[preIndex]);
     });
 
     $('.yun a').eq(1).click(function (e) {
-      e.stopPropagation();
-      var curBillType = $('.yun span').text();
-      var curIndex = billCount.indexOf(curBillType);
-      var preIndex = curIndex >= billCount.length - 1 ? (billCount.length - 1) : curIndex + 1;
-      getPieData(billCount[preIndex]);
-      $('.yun span').text(billCount[preIndex]);
+        e.stopPropagation();
+        var curBillType = $('.yun span').text();
+        var curIndex = billCount.indexOf(curBillType);
+        var preIndex = curIndex >= billCount.length - 1 ? (billCount.length - 1) : curIndex + 1;
+        getPieData(billCount[preIndex]);
+        $('.yun span').text(billCount[preIndex]);
     });
 
     // synthesizing data 财经日历----------------------------------------------------------------------------
