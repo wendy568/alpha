@@ -36,6 +36,13 @@
                 var curBill = $(this).find('.currency').text().replace('/','');
                 var startTime = $('input[name="startTime"]').val();
                 var endTime = $('input[name="endTime"]').val();
+                var param = {
+                  finency_proc : curBill,
+                  start_time : startTime ? new Daste(startTime).getTime()/1000 : null,
+                  end_time : endTime ? new Date(endTime).getTime()/1000 : null
+                };
+  
+                getAllData(param);
             });
             
             $('.last-tab').before($currLiHtml);
@@ -43,8 +50,8 @@
         });
         $(oFragment).append($li);
     });
+    
     $('.dropdown-menu').append($(oFragment));
-	
 	
     // 监听货币选项卡加载数据
     $('.page-content .tabs>.tab').on('click',function (e) {
@@ -54,44 +61,66 @@
         var curBill = $(this).find('.currency').text().replace('/','');
         var startTime = $('input[name="startTime"]').val();
         var endTime = $('input[name="endTime"]').val();
+        var param = {
+            finency_proc : curBill,
+            start_time : startTime ? new Daste(startTime).getTime()/1000 : null,
+            end_time : endTime ? new Date(endTime).getTime()/1000 : null
+        };
+        
+        getAllData(param);
     });
     
-    getTraData({finency_proc:'EUR/USD'});
-    getLossData({finency_proc:'EUR/USD'});
-    gatLineData({finency_proc:'EUR/USD'});
-    getPieData({finency_proc:'EUR/USD'});
-    getBarData({finency_proc:'EUR/USD'});
-    getAllTradingStatistics({finency_proc:'EUR/USD'});
-
-	// 交易数据计算
-	function getTraData(params){
-		$.alpha.request_Url('post','Trading_Analysis/calculator_anytime',params,function(data){
-			if(data.archive.status == 0){
-				$('.risk .label').eq(0).html(data.data.operating_accuracy);
-				$('.risk .label').eq(1).html(data.data.operating_frequecy);
-				$('.risk .label').eq(2).html(data.data.risk_management_level);
-				$('.risk .label').eq(3).html(data.data.trading_ability);
-			}
-		});
-	}
-
-    // 收益净值
-    function getLossData(params){
-    	$.alpha.request_Url('post','Trading_Analysis/profit_loss',params,function(data){
-    		if(data.archive.status == 0){
-    			var total_html="";
-    			total_html +=
-    			`<h4 class="item-count animate-number semi-bold bg-purple">$${data.data.profit_total}</h4>`;
-    			$('.wrapper').html(total_html);
-    		}
-    	});
+    $('.today').click(function (e) {
+        e.stopPropagation();
+        var curBill = $('.page-content .tabs>.tab.active').find('.currency').text().replace('/','');
+        var param = {
+          finency_proc : curBill,
+          start_time : new Date().getTime()/1000,
+          end_time : new Date().getTime()/1000
+        };
+        getAllData(param);
+    });
+    
+    getAllData({finency_proc:'EUR/USD'});
+    
+    function getAllData(param) {
+        getTraData(param);
+        getLossData(param);
+        gatLineData(param);
+        getPieData(param);
+        getBarData(param);
+        getAllTradingStatistics(param);
     }
 
-	// 折线图
+    // 交易数据计算
+    function getTraData(params){
+      $.alpha.request_Url('post','Trading_Analysis/calculator_anytime',params,function(data){
+        if(data.archive.status == 0){
+          $('.risk .label').eq(0).html(data.data.operating_accuracy);
+          $('.risk .label').eq(1).html(data.data.operating_frequecy);
+          $('.risk .label').eq(2).html(data.data.risk_management_level);
+          $('.risk .label').eq(3).html(data.data.trading_ability);
+        }
+      });
+    }
+  
+    // 收益净值
+    function getLossData(params){
+      $.alpha.request_Url('post','Trading_Analysis/profit_loss',params,function(data){
+        if(data.archive.status == 0){
+          var total_html="";
+          total_html +=
+          `<h4 class="item-count animate-number semi-bold bg-purple">$${data.data.profit_total}</h4>`;
+          $('.wrapper').html(total_html);
+        }
+      });
+    }
+
+    // 折线图
     function gatLineData(params){
-    	$.alpha.request_Url('post','Trading_Analysis/profit_curve',params,function(data){
-    		if(data.archive.status == 0){
-    			var date=data.data.profit_week;
+      $.alpha.request_Url('post','Trading_Analysis/profit_curve',params,function(data){
+        if(data.archive.status == 0){
+          var date=data.data.profit_week;
                 var key=[];
                 var currData=[];
 
@@ -154,8 +183,8 @@
                 };
                 // 使用刚指定的配置项和数据显示图表。
                 lineChart.setOption(option);
-    		}
-    	});
+        }
+      });
     }
 
   
@@ -206,75 +235,75 @@
     }
   
 
-	// 柱状图 交易买卖手数
+    // 柱状图 交易买卖手数
     function getBarData(params){
-    	$.alpha.request_Url('post','Trading_Analysis/numberOfTransations',params,function(data){
-    		if(data.archive.status == 0){
-    			var data=data.data.numbers_ratio;
-    			var key = [];
-    			var buy=[];
-    			var sell=[];
+      $.alpha.request_Url('post','Trading_Analysis/numberOfTransations',params,function(data){
+        if(data.archive.status == 0){
+          var data=data.data.numbers_ratio;
+          var key = [];
+          var buy=[];
+          var sell=[];
 
-    			for(var i in data){
-    			 	key.push(i.substring(5,10));
-    			 	var x = data[i];
-    				buy.push(x && x._0 ? x._0 : 0);
-    				sell.push(x && x._1 ? x._1 : 0);
-    			}
-    			
-    			var barChart = echarts.init(document.getElementById('barChart'),'purple-passion');
-    			var option = {
-    			    tooltip : {
-    			        trigger: 'axis',
-    	
-    			        axisPointer : {
-    			            type : 'shadow'
-    			        }
-    			    },
-    			    legend: {},
-    			    grid: {
-    			      
-    			        left: '2%',
-    			        right: '4%',
-    			 
-    			        bottom: '2%',
-    			        containLabel: true,
-    			        height: 250
-    			    },
-    			    xAxis : [
-    			        {
-    			            type : 'category',
-    			            data : key
-    			        }
-    			    ],
-    			    yAxis : [
-    			        {
-    			            type : 'value'
-    			        }
-    			    ],
-    			    series : [
-    			    	{
-    			            name:'买',
-    			            type:'bar',
-    			      
-    			            stack: 1,
-    			            data:buy,
-    			            barWidth:8
-    			        },
-    			        {
-    			            name:'卖',
-    			            type:'bar',
-    			       
-    			            stack: 1,
-    			            data:sell,
-    			            barWidth:8
-    			        }
-    			        
-    			    ]
-    			};
-    			barChart.setOption(option);
-    		}
-    	});
+          for(var i in data){
+            key.push(i.substring(5,10));
+            var x = data[i];
+            buy.push(x && x._0 ? x._0 : 0);
+            sell.push(x && x._1 ? x._1 : 0);
+          }
+          
+          var barChart = echarts.init(document.getElementById('barChart'),'purple-passion');
+          var option = {
+              tooltip : {
+                  trigger: 'axis',
+      
+                  axisPointer : {
+                      type : 'shadow'
+                  }
+              },
+              legend: {},
+              grid: {
+                
+                  left: '2%',
+                  right: '4%',
+           
+                  bottom: '2%',
+                  containLabel: true,
+                  height: 250
+              },
+              xAxis : [
+                  {
+                      type : 'category',
+                      data : key
+                  }
+              ],
+              yAxis : [
+                  {
+                      type : 'value'
+                  }
+              ],
+              series : [
+                {
+                      name:'买',
+                      type:'bar',
+                
+                      stack: 1,
+                      data:buy,
+                      barWidth:8
+                  },
+                  {
+                      name:'卖',
+                      type:'bar',
+                 
+                      stack: 1,
+                      data:sell,
+                      barWidth:8
+                  }
+                  
+              ]
+          };
+          barChart.setOption(option);
+        }
+      });
     }
   
     //  allTradingStatistics  交易数据----------------------------------------------------------------------------
