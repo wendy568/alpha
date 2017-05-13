@@ -46,8 +46,9 @@ function &loaded_interfaceAbstracts($class, $path)
 		exit("HAVE NOT SUCH {$name} IN SYSTEM");
 	}
 
-	$_classes[$class] = '\\' . $path . '\\' . $class;
-	return $_classes[$class];
+	is_loaded($class, $path);
+
+	return;
 }
 
 function &is_loaded($class = '', $path = '')
