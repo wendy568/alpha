@@ -168,7 +168,13 @@ class Dashboard extends MY_Controller
 
 	function test()
 	{
-		print_r(array_diff(['a' => 1,2,3,4],['b' => 1,2,3,4]));die;
+		print_r(array_diff(Array(),Array
+(
+    [0] => 1,
+    [1] => 2,
+    [2] => 3,
+    [3] => 4
+)));die;
 		$homework = [
 			['Video Learning' => [1, 2, 3, 4], 'Article learning' => [1, 2, 3, 4]],
 			['Video learning' => [1, 2], 'Article learning' => [1, 2], 'Place your order' => 1, '4 style trade' => [1, 2, 3, 4], 'take profits/stop loss' => 2],
