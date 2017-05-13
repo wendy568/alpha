@@ -1,37 +1,61 @@
 (function(){
-    // 选择货币
-    $('.dropdown-menu li').click(function(){
-        var currText=$(this).children('a').text();
-        var currId=$(this).children('a').attr('href');
-        var currLiHtml="";
-        currLiHtml +=
-        `<li class="tab active">
-            <a href="#1">
-                <span class="currency">${currText}</span>
-                <div class="controller">
-                    <a href="javascript:;" class="remove"></a>
-                </div>
-            </a>
-        </li>`;
-        $('.last-tab').before(currLiHtml);
-        $(this).remove(); 
-    });
-
 
     // 货币种类
-	var billCount = ['AUD/USD','EUR/USD','GBP/USD','NZD/USD','USD/CAD','USD/CHF','USD/CNH','USD/JPY',
-      'AUD/CAD','AUD/CHF','AUD/JPY','AUD/NZD','CAD/CHF','CAD/JPY','CHF/JPY','EUR/AUD','EUR/CAD','EUR/CHF',
-      'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
-      'AUG','DXY','COPPER','NGAS','UKOIL','USOIL','AUS200','HKG50','HKH40','JPN225','NAS100',
-      'SPX500','UK100','US30'];
-	
-	// 监听货币选项卡加载数据
-	$('.page-content .tabs li.tab').on('click',function (e) {
-        e.stopPropagation();
-        $(this).siblings('li.tab').removeClass('active').addClass('active');
-        var curBill = $(this).find('.currency').text().replace('/','');
-        // var startTime = 
+    var billCount = ['AUD/USD','GBP/USD','NZD/USD','USD/CAD','USD/CHF','USD/CNH','USD/JPY',
+        'AUD/CAD','AUD/CHF','AUD/JPY','AUD/NZD','CAD/CHF','CAD/JPY','CHF/JPY','EUR/AUD','EUR/CAD','EUR/CHF',
+        'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
+        'AUG','DXY','COPPER','NGAS','UKOIL','USOIL','AUS200','HKG50','HKH40','JPN225','NAS100',
+        'SPX500','UK100','US30'];
+    var oFragment = document.createDocumentFragment();
+    
+    $.each(billCount,function (i,item) {
+        var $li = $('<li><a href="#'+i+'">'+item+'</a></li>');
+    
+        // 选择货币
+        $li.click(function(){
+            var currText=$(this).children('a').text();
+            var currId=$(this).children('a').attr('href');
+            var $this = $(this);
+            var $currLiHtml =
+            $(`<li class="tab"><a href="javascript:;">
+                <span class="currency">${currText}</span>
+              <div class="controller"><a href="javascript:;" class="remove"></a></div></a></li>`);
+            
+            $currLiHtml.find('.controller .remove').click(function () {
+              $(this).parent().parent().addClass('animated fadeOut');
+              $(this).parent().parent().attr('id', 'id_remove');
+              setTimeout(function () {
+                $('#id_remove').remove();
+              }, 200);
+              $this.show();
+            });
+            $currLiHtml.click(function (e) {
+                e.stopPropagation();
+                $('.page-content .tabs>.tab').removeClass('active');
+                $(this).addClass('active');
+                var curBill = $(this).find('.currency').text().replace('/','');
+                var startTime = $('input[name="startTime"]').val();
+                var endTime = $('input[name="endTime"]').val();
+            });
+            
+            $('.last-tab').before($currLiHtml);
+            $this.hide();
+        });
+        $(oFragment).append($li);
     });
+    $('.dropdown-menu').append($(oFragment));
+	
+	
+    // 监听货币选项卡加载数据
+    $('.page-content .tabs>.tab').on('click',function (e) {
+        e.stopPropagation();
+        $('.page-content .tabs>.tab').removeClass('active');
+        $(this).addClass('active');
+        var curBill = $(this).find('.currency').text().replace('/','');
+        var startTime = $('input[name="startTime"]').val();
+        var endTime = $('input[name="endTime"]').val();
+    });
+    
     getTraData({finency_proc:'EUR/USD'});
     getLossData({finency_proc:'EUR/USD'});
     gatLineData({finency_proc:'EUR/USD'});
@@ -203,8 +227,8 @@
     			    tooltip : {
     			        trigger: 'axis',
     	
-    			        axisPointer : {     
-    			            type : 'shadow'       
+    			        axisPointer : {
+    			            type : 'shadow'
     			        }
     			    },
     			    legend: {},
@@ -235,7 +259,7 @@
     			      
     			            stack: 1,
     			            data:buy,
-    			            barWidth:8,
+    			            barWidth:8
     			        },
     			        {
     			            name:'卖',
@@ -243,8 +267,8 @@
     			       
     			            stack: 1,
     			            data:sell,
-    			            barWidth:8,
-    			        },
+    			            barWidth:8
+    			        }
     			        
     			    ]
     			};
@@ -263,24 +287,22 @@
         var $aveHoldingtime = $td.eq(4).find('span');
         var $riskManagementLevel = $td.eq(5).find('span').eq(0);
         var $riskManagementLevel_label = $td.eq(5).find('span').eq(1);
-        
-        $.alpha.request_Url('post','Trading_Analysis/long_short_ratio',params,function(data){
-            if(data.archive.status == 0){
-                var time = data.data.Avg_holding_Time;
-                var days = parseInt(time/3600/24);
-                var hours = parseInt(time/3600) - days*24;
-                var min = parseInt(time/60) - hours*60 - days*24*60;
-                var sec = time - hours*60*60 - days*24*60*60 - min*60;
-                
-                $NetProfit.html(data.data.Net_profit >= 0 ? '$'+data.data.Net_profit : '-$' + Math.abs(data.data.Net_profit));
-                $averageProfit.html(data.data.Average_Profits >= 0 ? '$'+data.data.Average_Profits : '-$' + Math.abs(data.data.Average_Profits));
-                $averageLoss.html(data.data.Average_Loss >= 0 ? '$'+data.data.Average_LossAverage_Loss : '-$' + Math.abs(data.data.Average_Loss));
-                $maximunConsecutiveProfit.html(data.data.Maximum_Consecutive_Profit);
-                $aveHoldingtime.html();
-                $riskManagementLevel.html(data.data.risk_management_level);
-                $riskManagementLevel_label.html(days+'days '+hours+'h '+min+'m '+sec+'s');
-            }
+  
+        $.alpha.request_Url('post','Trading_Analysis/allTradingStatistics',params,function(data){
+          if(data.archive.status == 0){
+            var time = data.data.Avg_holding_Time;
+            var days = parseInt(time/3600/24);
+            var hours = parseInt(time/3600) - days*24;
+            var min = parseInt(time/60) - hours*60 - days*24*60;
+            var sec = time - hours*60*60 - days*24*60*60 - min*60;
+            
+            data.data.Net_profit && $NetProfit.html(data.data.Net_profit >= 0 ? '$'+data.data.Net_profit : '-$' + Math.abs(data.data.Net_profit));
+            data.data.Average_Profits && $averageProfit.html(data.data.Average_Profits >= 0 ? '$'+data.data.Average_Profits : '-$' + Math.abs(data.data.Average_Profits));
+            data.data.Average_Loss && $averageLoss.html(data.data.Average_Loss >= 0 ? '$'+data.data.Average_LossAverage_Loss : '-$' + Math.abs(data.data.Average_Loss));
+            data.data.Maximum_Consecutive_Profit && $maximunConsecutiveProfit.html(data.data.Maximum_Consecutive_Profit);
+            time && $aveHoldingtime.html(days+'days '+hours+'h '+min+'m '+sec+'s');
+            data.data.risk_management_level && $riskManagementLevel.html(data.data.risk_management_level);
+          }
         });
     }
-
 })();
