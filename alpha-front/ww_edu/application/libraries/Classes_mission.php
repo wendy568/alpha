@@ -7,7 +7,7 @@ class Classes_mission
 	private $category = [
 				['Video Learning' => 'viewVideo'],
 				['Article learning' => 'viewArticle'],
-				['Place your order' => '', 'Make Transactions' => '', 'Make Transaction 1' => '', 'Make Transaction 2' => ''],
+				['Place your order' => 'trading_count', 'Make Transactions' => 'trading_count', 'Make Transaction 1' => 'trading_count', 'Make Transaction 2' => 'trading_count'],
 				['4 style trade' => ''],
 				['take profits/stop loss' => ''],
 				['Trade all kinds products' => '', 'Task 2 - 10 different products' => '', '5 tradable products' => ''],
