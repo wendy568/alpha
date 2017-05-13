@@ -4,7 +4,7 @@ abstract class sql_opration
 {
 	protected $_data;
 
-	public public function format($array)
+	public function format($array)
 	{
 		$this->_data = $array;
 		foreach ($this->_data as $key => $value) {
