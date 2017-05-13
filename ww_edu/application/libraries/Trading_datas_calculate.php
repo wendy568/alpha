@@ -17,9 +17,26 @@
  */
 class Trading_datas_calculate extends Encapsulation{
 
+	protected $_data = [];
+
+	protected $_property = [];
+
+	protected $count = 0;
+
+	protected $this_month;
+
+	protected $this_year;
+
+	protected $this_day;
+	
+	public $time_filter_definition = 'order_close_time';
+
+	protected $unix_time;
+
+	protected $oneByone = '';
+	
     private function sum($index, $data = [])
     {
-    	print_r($this->_data);
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
 
