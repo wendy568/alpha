@@ -22,6 +22,7 @@ class ClassesM extends CI_Model
 				WHERE id = {$result['personal']['hw_id']}";	
 
 		$query = $this->db->query($map);
+		unset($result['personal']['hw_id']);
         $result['mission'] = $query->row_array();
 
     	return $result;
