@@ -43,7 +43,7 @@ class Classes_mission
 			$category[] = $key;
 		});
 		print_r($this->homework);
-		array_walk_recursive($this->homework, function ($val, $key) use (&$homework) {
+		array_walk($this->homework, function ($val, $key) use (&$homework) {
 			$homework[] = $key;
 		});
 		print_r($homework);
