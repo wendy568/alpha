@@ -187,6 +187,7 @@ class Dashboard extends MY_Controller
 		];
 		foreach ($homework as $key => $value) {
 			print_r(json_encode($value));
+			echo "\n";
 		}
 			
 	}
