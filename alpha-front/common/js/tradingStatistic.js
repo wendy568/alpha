@@ -16,23 +16,7 @@
         $('.last-tab').before(currLiHtml);
         $(this).remove(); 
     });
-    // 日期筛选
-    $('.input-append.date').datepicker({
-                autoclose: true,
-                todayHighlight: true
-       });
-     
-     $('#dp5').datepicker();
-     
-     $('#sandbox-advance').datepicker({
-            format: "dd/mm/yyyy",
-            startView: 1,
-            daysOfWeekDisabled: "3,4",
-            autoclose: true,
-            todayHighlight: true
-    });
-     
-    $('.my-colorpicker-control').colorpicker();
+
 
 
     // 货币种类

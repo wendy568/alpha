@@ -58,42 +58,36 @@
         // video list detail
         $('.tv-content>ul').on('click','.tv-small',function(){
             var vmid=$(this).attr('id');
-            console.log(vmid);
-             $.ajax({
-                type:'POST',
-                url:alpha_host+'video/videos_detail',
-                data:{'class_id':vmid},
-                success:function(videos_detail){
-                    var big_html="";
-                    big_html+=
-                    `<iframe id="tv" src="http://content.jwplatform.com/players/${videos_detail.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>`;
-            
-                    $('.tv-preview').html(big_html);
+            $.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
+                 var big_html="";
+                big_html+=
+                `<iframe id="tv" src="http://content.jwplatform.com/players/${data.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>`;
+        
+                $('.tv-preview').html(big_html);
 
-                    var intr_html="";
-                    intr_html+=
-                        `<div class="video-title">
-                                <i class="fa fa-video-camera text-c2"></i>
-                                <span>${videos_detail.data.create_time}</span>
-                            </div>
-                            <div class="video-body">
-                                <h4 class="text-c2 semi-bold">${videos_detail.data.name}</h4>
-                                <span>${videos_detail.data.describe}</span><br>
-                                <!-- 访问量 -->
-                                <div class="overall">
-                                    <h6 class="text-c3">Overall Visits</h6>
-                                    <h5 class="text-c2">${videos_detail.data.views}</h5>
-                                    <p><i class="fa fa-play text-error"></i></p>
-                                </div>
-                                <!-- 评论数 -->
-                                <div class="overall pull-right">
-                                    <h6 class="text-c3">Comment</h6>
-                                    <h5 class="text-c2">${videos_detail.data.message_count}</h5>
-                                    <p><i class="fa fa-comments text-info"></i></p>
-                                </div>
-                            </div>`;
-                    $('.video-intr').html(intr_html);
-                }
+                var intr_html="";
+                intr_html+=
+                    `<div class="video-title">
+                        <i class="fa fa-video-camera text-c2"></i>
+                        <span>${data.data.create_time}</span>
+                    </div>
+                    <div class="video-body">
+                        <h4 class="text-c2 semi-bold">${data.data.name}</h4>
+                        <span>${data.data.describe}</span><br>
+                        <!-- 访问量 -->
+                        <div class="overall">
+                            <h6 class="text-c3">Overall Visits</h6>
+                            <h5 class="text-c2">${data.data.views}</h5>
+                            <p><i class="fa fa-play text-error"></i></p>
+                        </div>
+                        <!-- 评论数 -->
+                        <div class="overall pull-right">
+                            <h6 class="text-c3">Comment</h6>
+                            <h5 class="text-c2">${data.data.message_count}</h5>
+                            <p><i class="fa fa-comments text-info"></i></p>
+                        </div>
+                    </div>`;
+                $('.video-intr').html(intr_html);
             });
         });
     });
