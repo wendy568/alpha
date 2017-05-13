@@ -16,6 +16,11 @@ class Container
 		print_r(12313);
 	}
 
+	public function aa()
+	{
+		echo 12313;
+	}
+
 	public static function &locker()
 	{
 		return self::$_container;
