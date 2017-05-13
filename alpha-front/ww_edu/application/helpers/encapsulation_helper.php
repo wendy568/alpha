@@ -221,21 +221,6 @@ abstract class Encapsulation
 		}    	
     }
 
-    protected function sum($index, $data = [])
-    {
-    	$datas = $this->_data;
-    	if(!empty($data)) $datas = $data;
-
-    	$sum = 0;
-    	array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
-    		if ($key == $index) {
-    			$sum += $val;
-    		}
-    	});
-
-    	return round($sum, 2);
-    }
-
     protected function count_positive($index)
     {
     	$datas = $this->_data;
