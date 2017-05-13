@@ -6,6 +6,7 @@ class Register
 
 	public function __construct()
 	{
+		$this->load_core();
 		$this->Autoload();
 	}
 
