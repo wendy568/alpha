@@ -15,9 +15,9 @@ class Register
 			'core'    => [
 							'Container'     => 'Core'
 						 ],
-			// 'kernel'  => [
-			// 				'App'           => 'Kernel',
-			// 			 ],
+			'kernel'  => [
+							'App'           => 'Kernel',
+						 ],
 		    // 'App'     => [
 		    // 				'activeRussian' => 'App',
 		    // 			    'russian'       => 'App'
