@@ -20,11 +20,12 @@ class Register
 		    // 			    'russian'       => 'App'
 		    // 			 ],
 		    'kernel'  => [
+		    'WebInterFace'    => 'Kernel',
 		    				'TestInterFace'   => 'Kernel',
 		    				'App'    		  => 'Kernel',
 		    				'AppInterface'    => 'Kernel', 
 		    				'FactoryAbstract' => 'Kernel',
-		    				'WebInterFace'    => 'Kernel',
+		    				
 		    			 ],
 			];
 
