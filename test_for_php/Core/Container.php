@@ -10,7 +10,7 @@ class Container
 		self::$_container = $this;
 
 		array_walk(is_loaded(), function ($val, $key) {
-			$this->$val = &\Core\loaded_classes($val, $key);
+			$this->$key = &\Core\loaded_classes($key, $val);
 		});
 	}
 
