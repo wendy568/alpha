@@ -56,7 +56,7 @@ class Classes_mission
 				}
 			}
 		});
-		var_dump($$this->missionCount);
+		var_dump($this->missionCount);
 		print_r($method);
 	}
 
