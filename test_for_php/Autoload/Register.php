@@ -15,10 +15,10 @@ class Register
 			'core'    => [
 							'Container'     => 'Core'
 						 ],
-		    'App'     => [
-		    				'activeRussian' => 'App',
-		    			    'russian'       => 'App'
-		    			 ],
+		    // 'App'     => [
+		    // 				'activeRussian' => 'App',
+		    // 			    'russian'       => 'App'
+		    // 			 ],
 		    'kernel'  => [
 		    				'TestInterFace'   => 'Kernel',
 		    				'App'    		  => 'Kernel',
