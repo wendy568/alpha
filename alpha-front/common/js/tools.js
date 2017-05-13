@@ -165,4 +165,10 @@
         getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right');
     });
 
+
+    //news--------------------------------------------------------------------------
+    // $('#news').click(function(){
+    // 	alert(OK);
+    // });
+
 })();
