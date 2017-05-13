@@ -18,7 +18,7 @@
 class Trading_datas_calculate extends Encapsulation{
 
 	public $time_filter_definition = 'order_close_time';
-	
+
     protected function sum($index, $data = [])
     {
     	$datas = $this->_data;
@@ -86,7 +86,7 @@ class Trading_datas_calculate extends Encapsulation{
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == $index) {
-					$sum += pow(($v - $avg), 2);
+					$sum += pow((($v / 100000) - ($avg / 100000)), 2);
 				}
 			}
 		}
