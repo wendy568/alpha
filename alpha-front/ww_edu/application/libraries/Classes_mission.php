@@ -42,9 +42,8 @@ class Classes_mission
 		array_walk_recursive($this->category, function ($val, $key) use (&$category) {
 			$category[] = $key;
 		});
+		print_r($this->homework);
 		array_walk_recursive($this->homework, function ($val, $key) use (&$homework) {
-			var_dump($val);
-			var_dump($key);
 			$homework[] = $key;
 		});
 		print_r($homework);
