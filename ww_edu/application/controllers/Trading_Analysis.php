@@ -15,7 +15,6 @@ class Trading_Analysis extends MY_Controller
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
@@ -43,7 +42,6 @@ class Trading_Analysis extends MY_Controller
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
@@ -71,7 +69,6 @@ class Trading_Analysis extends MY_Controller
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
@@ -97,7 +94,6 @@ class Trading_Analysis extends MY_Controller
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
@@ -123,7 +119,6 @@ class Trading_Analysis extends MY_Controller
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
@@ -149,7 +144,6 @@ class Trading_Analysis extends MY_Controller
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
@@ -180,7 +174,6 @@ class Trading_Analysis extends MY_Controller
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
