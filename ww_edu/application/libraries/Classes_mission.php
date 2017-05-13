@@ -37,13 +37,17 @@ class Classes_mission
 
 	public function get_mission_complete()
 	{
-		foreach ($this->category as $key => $value) {
-			foreach ($this->homework as $k => $v) {
-				if ($k == $key) {	
-					print_r($this->homework);print_r($key);die;
-				}
-			}
-		}
+		$category = [];
+		$homework = [];
+		array_walk_recursive($this->category, function ($val, $key) use($category){
+			$category[] = $key;
+		});
+
+		array_walk_recursive($this->homework, function ($val, $key) use($homework){
+			$homework[] = $key;
+		});
+		print_r($category);
+		print_r($homework);
 	}
 
 	private function viewVideo()
