@@ -37,7 +37,8 @@ class Classes_mission
 
 	private function viewVideo()
 	{
-
+		print_r($this->mission['Video Learning']);
+		print_r($this->homework['Video Learning']);
 		return array_diff($this->mission['Video Learning'], $this->homework['Video Learning']);
 	}
 
