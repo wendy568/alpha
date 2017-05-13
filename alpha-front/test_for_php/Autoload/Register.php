@@ -13,13 +13,12 @@ class Register
 	private function Autoload()
 	{
 		$required_classes = [
-			
+			'kernel'  => [
+							'App'    		  => 'Kernel',
+						 ],
 		    'App'     => [
 		    				'russian'       => 'App',
 		    				'activeRussian' => 'App',
-		    			 ],
-		    'kernel'  => [
-		    				'App'    		  => 'Kernel',
 		    			 ],
 		    'core'    => [
 							'Container'     => 'Core'
