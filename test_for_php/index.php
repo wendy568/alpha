@@ -9,4 +9,4 @@ use Autoload\Register;
 use Core\Common;
 
 Register::Autoload(new Common());
-// new app(new activeRussian('ChenQi', 27));
+new App(new activeRussian('ChenQi', 27));
