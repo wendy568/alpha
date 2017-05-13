@@ -19,7 +19,9 @@ class Classes extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$original = $this->ClassesM->current_stage($uid);
 		$data['data']['current_stage'] = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		$data['data']['process'] = $this->classes_mission->init($this->classes_mission->jsonDecode($original['mission']['homework'], $data['data']['current_stage']))->property('viewVideo')->get_property();
+		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
+			print_r($mission);
+		$data['data']['process'] = $this->classes_mission->init($mission, $data['data']['current_stage'])->property('viewVideo')->get_property();
 		encode_json($response,$data);
 	}
 
