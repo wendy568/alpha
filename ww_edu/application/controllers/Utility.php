@@ -42,7 +42,7 @@ class Utility extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$datas = $this->input->post();
 		$datas['from_id'] = $this->get_bytoken($token);
-		die;
+
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('sql_operation');
