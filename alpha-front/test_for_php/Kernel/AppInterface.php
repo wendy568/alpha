@@ -1,6 +1,6 @@
 <?php
 
-namespace Publci;
+namespace Kernel;
 
 interface AppInterface 
 {
