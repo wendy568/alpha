@@ -21,7 +21,8 @@ class TradingAnalysis extends CI_Model
 
     	$map = "SELECT * 
     			FROM mt4_export_datas
-    			WHERE {$where}";
+    			WHERE {$where}
+                ORDER BY id DESC";
 
     	$result = $this->db->query($map)->result_array();
 
@@ -41,7 +42,8 @@ class TradingAnalysis extends CI_Model
 
         $map = "SELECT time_en, time_cn, country AS `Currency`, event AS Event, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance, detail
                 FROM calendar
-                WHERE {$where}";
+                WHERE {$where}
+                ORDER BY id DESC";
 
         $result = $this->db->query($map)->result_array();
 
@@ -61,7 +63,8 @@ class TradingAnalysis extends CI_Model
 
         $map = "SELECT title, `desc`, `time` 
                 FROM news
-                WHERE {$where}";
+                WHERE {$where}
+                ORDER BY id DESC";
 
         $result = $this->db->query($map)->result_array();
 
