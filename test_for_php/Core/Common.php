@@ -3,6 +3,8 @@ namespace Core;
 
 class Common
 {
+	use Core\Container;
+
 	public static function &loaded_classes($class, $path, $param = null)
 	{
 
@@ -19,7 +21,7 @@ class Common
 		}else{
 			exit("HAVE NOT SUCH {$name} IN SYSTEM");
 		}
-		new $class();die;
+
 		static::is_loaded($class, $path);
 
 		$_classes[$class] = isset($param)
