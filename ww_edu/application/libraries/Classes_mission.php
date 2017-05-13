@@ -5,8 +5,8 @@ class Classes_mission
 	use date_format, struct;
 
 	private $category = [
-				['Video Learning'],
-				['Article learning'],
+				['Video Learning' => 'viewVideo'],
+				['Article learning' => 'viewArticle'],
 				['Place your order', 'Make Transactions', 'Make Transaction 1', 'Make Transaction 2'],
 				['4 style trade'],
 				['take profits/stop loss'],
@@ -35,10 +35,29 @@ class Classes_mission
 		return $this;
 	}
 
+	public function get_mission_complete()
+	{
+		foreach ($this->category as $key => $value) {
+			foreach ($this->homework as $k => $v) {
+				if ($k == $key) {	
+					print_r($k);print_r($key);
+				}
+			}
+		}
+	}
+
 	private function viewVideo()
 	{
 		$diff1 = $this->mission['Video Learning'];
 		$diff2 = $this->homework['Video Learning'];
+
+		return empty(array_diff($diff1, $diff2)) ? 1 : 0;
+	}
+
+	private function viewArticle()
+	{
+		$diff1 = $this->mission['Article learning'];
+		$diff2 = $this->homework['Article learning'];
 
 		return empty(array_diff($diff1, $diff2)) ? 1 : 0;
 	}
