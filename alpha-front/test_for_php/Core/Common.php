@@ -22,7 +22,7 @@ class Common
 		}
 
 		static::is_loaded($class, $path);
-
+		print_r( $path . '\\' . $class);
 		$_classes[$class] = isset($param)
 			? new $path . '\\' . $class($param)
 			: new $path . '\\' . $class();
