@@ -20,7 +20,7 @@ class Classes extends MY_Controller
 		$original = $this->ClassesM->current_stage($uid);
 		$data['data']['current_stage'] = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
-			print_r($mission);
+
 		$data['data']['process'] = $this->classes_mission->init($mission, $data['data']['current_stage'])->property('viewVideo')->get_property();
 		encode_json($response,$data);
 	}
