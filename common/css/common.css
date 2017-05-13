@@ -9724,6 +9724,15 @@ body.rtl .footer-widget {
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
 }
+.disabled-box{
+  position: absolute;
+  z-index: 1000;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  cursor: pointer;
+}
 
 /*TradingStatistic.html-----------------------------------------------------------*/
 
@@ -9733,7 +9742,7 @@ body.rtl .footer-widget {
 }
 
 /*兼容ie滚动条*/
-html{
+.bill-select{
   scrollbar-face-color:rgba(161, 178, 189,.3);
   scrollbar-arrow-color:#000;
   scrollbar-track-color:#000;
