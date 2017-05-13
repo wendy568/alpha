@@ -9,12 +9,13 @@ class ClassesM extends CI_Model
 
     function current_stage($uid)
     {
+    	var_dump($uid);
     	$map = 'SELECT homework 
     			FROM homework
     			WHERE uid="'.$uid.'"';
     	
     	$result = $this->db->query($map)->row_array();
-
+    	print_r($result);
     	return $result['homework'];
     }
 
