@@ -14,7 +14,7 @@ abstract class sql_operation
 		return $this;
 	}
 
-	protected function add_addslashes($index)
+	protected function user_addslashes($index)
 	{
 		isset($index) OR $index = array_keys($this->_data);
 
@@ -36,7 +36,8 @@ abstract class sql_operation
 
 	public function property($callback)
 	{
-		return $this->_data = call_user_func_array($callback, $this->_data);
+		$this->_data = call_user_func_array($callback, $this->_data);
+		return $this;
 	}
 
 	public function add()
