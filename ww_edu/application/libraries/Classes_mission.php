@@ -39,7 +39,7 @@ class Classes_mission
 	{
 		$diff1 = $this->mission['Video Learning'];
 		$diff2 = $this->homework['Video Learning'];
-		
+		var_dump($diff2);
 		return array_diff($diff1, $diff2);
 	}
 
