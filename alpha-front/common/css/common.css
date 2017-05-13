@@ -9731,44 +9731,77 @@ body.rtl .footer-widget {
   overflow-y: scroll !important;
   height: 260px;
 }
-.bill-select::-webkit-scrollbar-track
+
+/*兼容ie滚动条*/
+html{
+  scrollbar-face-color:rgba(161, 178, 189,.3);
+  scrollbar-arrow-color:#000;
+  scrollbar-track-color:#000;
+}
+
+/*兼容-webkit内核滚动条*/
+ul::-webkit-scrollbar-track,div::-webkit-scrollbar-track
 {
   border-radius: 5px;
   background-color: transparent;
 }
 
-.bill-select::-webkit-scrollbar
+ul::-webkit-scrollbar,div::-webkit-scrollbar-track
 {
   width: 5px;
   background-color: transparent;
 }
 
-.bill-select::-webkit-scrollbar-thumb
+ul::-webkit-scrollbar-thumb,div::-webkit-scrollbar-track
 {
   border-radius: 5px;
   background-color: rgba(161, 178, 189,.3);
 }
-@-moz-document url-prefix(http://),url-prefix(https://) {
-  /* 滚动条颜色 */
-  scrollbar {
-    background: rgba(161, 178, 189,.3) !important;
+
+/*兼容火狐滚动条*/
+@-moz-document
+url-prefix(http://),
+url-prefix(https://),
+url-prefix(about:),
+url-prefix(chrome://),
+
+url("chrome://browser/content/bookmarks/bookmarksPanel.xul"),
+url("chrome://browser/content/browser.xul"),
+url("chrome://browser/content/history/history-panel.xul")
+{
+  scrollbar{
+    -moz-appearance:none !important;
+    background:transparent !important;
+    width: 5px;
   }
-  /* 滚动条按钮颜色 */
-  thumb,scrollbarbutton {
-    -moz-appearance: none !important;
-    background-color: rgb(0,0,255) !important;
+  scrollbar thumb{
+    -moz-appearance:none !important;
+    background:rgba(161, 178, 189,.3) !important;
+    border:0px !important;
+    border-radius:5px !important;
   }
-  /* 鼠标悬停时按钮颜色 */
   
-  thumb:hover,scrollbarbutton:hover {
-    -moz-appearance: none !important;
+  slider
+  {
+    -moz-appearance:none !important;
+    background:transparent !important;
+    border:0px !important;
   }
-  /* 隐藏上下箭头 */
-  scrollbarbutton {
-    display: none !important;
+  
+  scrollbar[orient="vertical"]{
+    width:5px !important;
   }
-  /* 纵向滚动条宽度 */
-  scrollbar[orient="vertical"] {
-    width: 5px !important;
+  scrollbar[orient="horizontal"]{
+    height:5px !important;
+  }
+  scrollbar[orient="vertical"],scrollbar[orient="horizontal"]{
+    padding:0px !important;
+    border-width:0px !important;
+  }
+  scrollbarbutton[sbattr="scrollbar-up-top"],scrollbarbutton[sbattr="scrollbar-down-top"],
+  scrollbarbutton[sbattr="scrollbar-up-bottom"],scrollbarbutton[sbattr="scrollbar-down-bottom"]
+  {
+    -moz-appearance:none !important;
+    display:none !important;
   }
 }

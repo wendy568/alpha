@@ -17,9 +17,9 @@
             var currId=$(this).children('a').attr('href');
             var $this = $(this);
             var $currLiHtml =
-            $(`<li class="tab"><a href="javascript:;">
-                <span class="currency">${currText}</span>
-              <div class="controller"><a href="javascript:;" class="remove"></a></div></a></li>`);
+            $('<li class="tab"><a href="javascript:;">'+
+                '<span class="currency">'+currText+'</span>'+
+              '<div class="controller"><a href="javascript:;" class="remove"></a></div></a></li>');
             
             $currLiHtml.find('.controller .remove').click(function () {
               $(this).parent().parent().addClass('animated fadeOut');
@@ -108,9 +108,7 @@
     function getLossData(params){
       $.alpha.request_Url('post','Trading_Analysis/profit_loss',params,function(data){
         if(data.archive.status == 0){
-          var total_html="";
-          total_html +=
-          `<h4 class="item-count animate-number semi-bold bg-purple">$${data.data.profit_total}</h4>`;
+          var total_html='<h4 class="item-count animate-number semi-bold bg-purple">$'+data.data.profit_total+'</h4>';
           $('.wrapper').html(total_html);
         }
       });
