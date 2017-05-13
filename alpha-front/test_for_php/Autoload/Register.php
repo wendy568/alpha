@@ -13,9 +13,7 @@ class Register
 	private function Autoload()
 	{
 		$required_classes = [
-			'core'    => [
-							'Container'     => 'Core'
-						 ],
+			
 		    'App'     => [
 		    				'russian'       => 'App',
 		    				'activeRussian' => 'App',
@@ -23,6 +21,9 @@ class Register
 		    'kernel'  => [
 		    				'App'    		  => 'Kernel',
 		    			 ],
+		    'core'    => [
+							'Container'     => 'Core'
+						 ],
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) {
