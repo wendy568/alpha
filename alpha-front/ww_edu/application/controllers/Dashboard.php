@@ -174,7 +174,7 @@ class Dashboard extends MY_Controller
 			['Make Transactions' => 20, 'Trade all kinds products'=> 15, 'Trading Record' => 1, 'Learning Report' => 1],
 			['Video Learning' => [1, 2, 3], 'Article learning' => [1, 2, 3], 'Make Transaction 1' => 1, 'Make Transaction 2' => 1],
 			['Video Learning' => [1, 2, 3], 'Article learning' => [1, 2, 3], 'Make Transactions' => 3],
-			['Make Transactions' => 30, 'Task 1 - 2 different markets' => 2, 'Task 2 – 10 different products' => 10, 'Trading Record' => 1, 'Learning Report' => 1],
+			['Make Transactions' => 30, 'Task 1 - 2 different markets' => 2, 'Task 2 - 10 different products' => 10, 'Trading Record' => 1, 'Learning Report' => 1],
 			['5 tradable products' => 5, 'Trading Record' => 1],
 			['Produce a module' => 1, 'Learning Report' => 1],
 			['Article learning' => [1, 2, 3], 'Risk Management Level' => 30],
