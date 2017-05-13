@@ -11,12 +11,12 @@ use Core\Container;
 use Kernel\App;
 
 new Register();
-(new Container())->aa();
+(new Container())->loading();
 
 function &instance(){
 	return Container::locker();
 }
 print_r(\Core\is_loaded());
 $app = &instance();
-// print_r($app->russian);
+print_r($app->russian);
 // new App(new activeRussian('ChenQi', 27));
