@@ -12,7 +12,7 @@ class Classes extends MY_Controller
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('ClassesM');
-		$this->load->helper('date_format');
+		$this->load->helper('format');
 		$this->load->library('classes_mission');
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
