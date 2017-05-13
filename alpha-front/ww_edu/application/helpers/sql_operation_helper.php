@@ -36,7 +36,7 @@ abstract class sql_operation
 
 	public function property($callback)
 	{
-		$this->_data = call_user_func_array($callback, $this->_data);
+		$this->_data = call_user_func_array($callback, [$this->_data]);
 		return $this;
 	}
 
