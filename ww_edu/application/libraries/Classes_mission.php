@@ -5,19 +5,19 @@ class Classes_mission
 	use date_format, struct;
 
 	private $category = [
-				['Video Learning' => 'viewVideo'],
-				['Article learning' => 'viewArticle'],
-				['Place your order' => 'trading_count', 'Make Transactions' => 'trading_count', 'Make Transaction 1' => 'trading_count', 'Make Transaction 2' => 'trading_count'],
-				['4 style trade' => ''],
-				['take profits/stop loss' => ''],
-				['Trade all kinds products' => '', 'Task 2 - 10 different products' => '', '5 tradable products' => ''],
-				['Trading Record' => ''],
-				['Learning Report' => ''],
-				['Trading Score' => ''],
-				['Task 1 - 2 different markets' => ''],
-				['Produce a module' => ''],
-				['Risk Management Level' => ''],
-				['Profitable Period' => '']
+				['Video Learning' => 'is_view'],
+				['Article learning' => 'is_view'],
+				['Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => 'isCountEnough', 'Make Transaction 2' => 'isCountEnough'],
+				['4 style trade' => 'isCountEnough'],
+				['take profits/stop loss' => 'isCountEnough'],
+				['Trade all kinds products' => 'isCountEnough', 'Task 2 - 10 different products' => 'isCountEnough', '5 tradable products' => 'isCountEnough'],
+				['Trading Record' => 'isCountEnough'],
+				['Learning Report' => 'isCountEnough'],
+				['Trading Score' => 'isCountEnough'],
+				['Task 1 - 2 different markets' => 'isCountEnough'],
+				['Produce a module' => 'isCountEnough'],
+				['Risk Management Level' => 'isCountEnough'],
+				['Profitable Period' => 'isCountEnough']
 			];
 
 	private $mission;
@@ -28,10 +28,15 @@ class Classes_mission
 
 	private $articleId;
 
+	private $complete;
+
+	private $missionCount = 0;
+
 	public function init($mission = null, $homework = null)
 	{
 		$this->mission = $mission;
 		$this->homework = $homework;
+		$this->missionCount = count($mission);
 		return $this;
 	}
 
@@ -39,39 +44,28 @@ class Classes_mission
 	{
 		$method = [];
 		$homework = [];
-		print_r($this->mission);
-		print_r($this->homework);
+
 		array_walk($this->homework, function ($val, $key) use (&$homework) {
-			$homework[] = $key;
+			$homework[$key] = $val;
 		});
 
 		array_walk_recursive($this->category, function ($val, $key) use (&$method, $homework) {
-			foreach ($homework as $value) {
-				if ($value == $key) {
-					$method[] = $val;
+			foreach ($homework as $k => $v) {
+				if ($k == $key) {
+					$method[$val][$k] = $v;
 				}
 			}
 		});
-
-		
-
+		var_dump($missionCount);
 		print_r($method);
 	}
 
-	private function viewVideo()
+	private function is_view()
 	{
 		$diff1 = $this->mission['Video Learning'];
 		$diff2 = $this->homework['Video Learning'];
 
-		return empty(array_diff($diff1, $diff2)) ? 1 : 0;
-	}
-
-	private function viewArticle()
-	{
-		$diff1 = $this->mission['Article learning'];
-		$diff2 = $this->homework['Article learning'];
-
-		return empty(array_diff($diff1, $diff2)) ? 1 : 0;
+		return $this->complete = empty(array_diff($diff1, $diff2)) ? 1 : 0;
 	}
 
 }
