@@ -2,6 +2,8 @@
 
 class Classes
 {
+	use date_format;
+	
 	private $category = [
 				['Video Learning'],
 				['Article learning'],
@@ -18,20 +20,22 @@ class Classes
 				['Profitable Period']
 			];
 
-	private $mission = '';
+	private $mission;
 
-	private $homework = '';
+	private $homework;
 
 	private $videoId;
 
 	private $articleId;
-	
-	public function init($mission, $homework)
+
+	public function init($mission = null, $homework = null)
 	{
 		$this->mission = $mission;
 		$this->homework = $homework;
 		return $this;
 	}
+
+	public function 
 
 	private function viewVideo()
 	{
