@@ -37,7 +37,7 @@ abstract class sql_opration
 		return $this->_data = call_user_func_array($callback, $this->_data);
 	}
 
-	public function insert()
+	public function add()
 	{		
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
@@ -45,7 +45,7 @@ abstract class sql_opration
 		$image = null;
 
 		if(!empty($this->width) && !empty($this->height)) $image = get_image($this->width, $this->height, "{$this->file_path}");
-		if($image) $this->image = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])))
+		if($image) $this->image = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
 		$dfdb = databases_filter::build();
 		$cols = array($this->table);
 
@@ -53,7 +53,7 @@ abstract class sql_opration
 		     ->filter_blank($cols)
 			 ->insert_complete($cols);
 
-		return $cols
+		return $cols;
 	}
 
 	public function update()
@@ -65,7 +65,7 @@ abstract class sql_opration
 		$image = null;
 
 		if(!empty($this->width) && !empty($this->height)) $image = get_image($this->width, $this->height, "{$this->file_path}");
-		if($image) $this->image = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])))
+		if($image) $this->image = addslashes(json_encode(array("{$this->file_path}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
 
 		$dfdb = databases_filter::build();
 		$cols = array($this->table);
