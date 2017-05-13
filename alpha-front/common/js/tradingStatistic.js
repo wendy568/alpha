@@ -46,7 +46,8 @@
             var currData=[];
 
             for(var i in date){
-                key.push(i);
+            
+                key.push(i.substring(5,10));
                 var cur = 0;
                 cur = !date[i] ? 0 : date[i];
                 currData.push(cur);
@@ -74,7 +75,9 @@
                     left: '2%',
                     right: '5%',
                     bottom: '3%',
-                    containLabel: true
+                
+                    containLabel: true,
+                    height:250,
                 },
                 xAxis: [
                     {
@@ -164,26 +167,39 @@
 	$.alpha.request_Url('post','Trading_Analysis/numberOfTransations',{},function(data){
 		if(data.archive.status == 0){
 			var data=data.data.numbers_ratio;
-			console.log(data);
+		
 			var key = [];
-			 for(var i in data){
-			 	key.push(i.substring(5,10));
-			 }
+		
+			var buy=[];
+			var sell=[];
 
+			for(var i in data){
+			 	key.push(i.substring(5,10));
+
+			 	var x = data[i];
+			 	console.log(x);
+				buy.push(x && x._0 ? x._0 : 0);
+				sell.push(x && x._1 ? x._1 : 0);
+			}
+			
 			var barChart = echarts.init(document.getElementById('barChart'),'purple-passion');
 			var option = {
 			    tooltip : {
 			        trigger: 'axis',
-			        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
-			            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+	
+			        axisPointer : {     
+			            type : 'shadow'       
 			        }
 			    },
 			    legend: {},
 			    grid: {
-			        left: '3%',
+			      
+			        left: '2%',
 			        right: '4%',
-			        bottom: '3%',
-			        containLabel: true
+			 
+			        bottom: '2%',
+			        containLabel: true,
+			        height: 250
 			    },
 			    xAxis : [
 			        {
@@ -198,16 +214,22 @@
 			    ],
 			    series : [
 			    	{
-			            name:'联盟广告',
+			      
+			            name:'买',
 			            type:'bar',
-			            stack: '广告',
-			            data:[220, 182, 191, 234, 290, 330, 310]
+			      
+			            stack: 1,
+			            data:buy,
+			            barWidth:8,
 			        },
 			        {
-			            name:'邮件营销',
+			         
+			            name:'卖',
 			            type:'bar',
-			            stack: '广告',
-			            data:[120, 132, 101, 134, 90, 230, 210]
+			       
+			            stack: 1,
+			            data:sell,
+			            barWidth:8,
 			        },
 			        
 			    ]
@@ -217,3 +239,4 @@
 	});
 
 })();
+
