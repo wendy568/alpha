@@ -47,7 +47,7 @@ class Classes_mission
 			$homework[] = $key;
 		});
 
-		print_r(array_diff($category, $homework));
+		print_r(array_intersect($category, $homework));
 	}
 
 	private function viewVideo()
