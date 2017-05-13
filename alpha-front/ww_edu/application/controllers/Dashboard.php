@@ -17,7 +17,7 @@ class Dashboard extends MY_Controller
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account);
 		
-		$this->load->library('Encapsulation');
+		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
 		$data['data']['trading_count'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('get_count', [])->get_property();
 		$data['data']['last_trading_count'] = "100% Higher";
@@ -49,7 +49,7 @@ class Dashboard extends MY_Controller
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account);		
-		$this->load->library('Encapsulation');
+		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
 		$data['data']['profit_total'] = $this->trading_datas_calculate->build($mt4, 3)->property('sum', ['profit'])->get_property();
 		$data['data']['profit_today'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->property('sum', ['profit'])->get_property();
@@ -75,7 +75,7 @@ class Dashboard extends MY_Controller
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account);		
-		$this->load->library('Encapsulation');
+		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
 		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('variance', ['profit'])->get_property();
 		$data['data']['operating_frequecy'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('frequency', ['avg_deviation', ['order_open_time', 'order_close_time']])->get_property();
@@ -101,7 +101,7 @@ class Dashboard extends MY_Controller
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc);		
-		$this->load->library('Encapsulation');
+		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
 		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('percent_ratio', ['order_type'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
@@ -133,7 +133,7 @@ class Dashboard extends MY_Controller
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->calendar();		
-		$this->load->library('Encapsulation');
+		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'time_en';
 		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week('align_time','align_top')->getWeekResult();
@@ -156,7 +156,7 @@ class Dashboard extends MY_Controller
 
 		$date = getdate();
 		$mt4 = $this->TradingAnalysis->news();		
-		$this->load->library('Encapsulation');
+		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'time';
 		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 5)->get_month()->get_result();
