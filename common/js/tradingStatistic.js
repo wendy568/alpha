@@ -10,7 +10,7 @@
 	$('.page-content .tabs li.tab').on('click',function (e) {
       e.stopPropagation();
       $(this).siblings('li.tab').removeClass('active').addClass('active');
-      var curBill = $(this).find('.currency').text();
+      var curBill = $(this).find('.currency').text().replace('/','');
   });
 
 	// 交易数据计算
@@ -110,53 +110,46 @@
 	});
   
   // synthesizing data 环形图----------------------------------------------------------------------------
-  var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
-  pieChart.setOption({
-    tooltip: {
-      trigger: 'item',
-      formatter: "{b}: {d}%"
-    },
-    series: [
-      {
-        name:'bill',
-        type:'pie',
-        radius: ['50%', '70%'],
-        avoidLabelOverlap: false,
-        label: {
-          normal: {
-            show: false,
-            position: 'center'
-          },
-          emphasis: {
-            show: true,
-            textStyle: {
-              fontSize: '16',
-              fontWeight: 'bold'
-            }
-          }
-        },
-        labelLine: {
-          normal: {
-            show: false
-          }
-        },
-        data:[]
-      }
-    ]
-  });
-  
-  function getPieData(bill) {
-    bill = bill.replace('/','');
-    $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
+  function getPieData(params) {
+    $.alpha.request_Url('post','Trading_Analysis/long_short_ratio',params,function(data){
       if(data.archive.status == 0){
         var billData = [];
         billData[0] = {name:'BUY',value:data.data.percent_ratio._0 * 100};
         billData[1] = {name:'SELL',value:data.data.percent_ratio._1 * 100};
+  
+        var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
         pieChart.setOption({
-          series:[{
-            name: 'bill',
-            data: billData
-          }]
+          tooltip: {
+            trigger: 'item',
+            formatter: "{b}: {d}%"
+          },
+          series: [
+            {
+              name:'bill',
+              type:'pie',
+              radius: ['50%', '70%'],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  show: true,
+                  textStyle: {
+                    fontSize: '16',
+                    fontWeight: 'bold'
+                  }
+                }
+              },
+              labelLine: {
+                normal: {
+                  show: false
+                }
+              },
+              data:billData
+            }
+          ]
         });
       }
     });
@@ -237,6 +230,34 @@
 			barChart.setOption(option);
 		}
 	});
-
+  
+  //  allTradingStatistics  交易数据----------------------------------------------------------------------------
+  function getAllTradingStatistics(params) {
+    var $td = $('.all-trading-statistics tbody td');
+    var $NetProfit = $td.eq(0).find('span');
+    var $averageProfit = $td.eq(1).find('span');
+    var $averageLoss = $td.eq(2).find('span');
+    var $maximunConsecutiveProfit = $td.eq(3).find('span');
+    var $aveHoldingtime = $td.eq(4).find('span');
+    var $riskManagementLevel = $td.eq(5).find('span').eq(0);
+    var $riskManagementLevel_label = $td.eq(5).find('span').eq(1);
+    
+    $.alpha.request_Url('post','Trading_Analysis/long_short_ratio',params,function(data){
+      if(data.archive.status == 0){
+        var time = data.data.Avg_holding_Time;
+        var days = parseInt(time/3600/24);
+        var hours = parseInt(time/3600) - days*24;
+        var min = parseInt(time/60) - hours*60 - days*24*60;
+        var sec = time - hours*60*60 - days*24*60*60 - min*60;
+        
+        $NetProfit.html(data.data.Net_profit >= 0 ? '$'+data.data.Net_profit : '-$' + Math.abs(data.data.Net_profit));
+        $averageProfit.html(data.data.Average_Profits >= 0 ? '$'+data.data.Average_Profits : '-$' + Math.abs(data.data.Average_Profits));
+        $averageLoss.html(data.data.Average_Loss >= 0 ? '$'+data.data.Average_LossAverage_Loss : '-$' + Math.abs(data.data.Average_Loss));
+        $maximunConsecutiveProfit.html(data.data.Maximum_Consecutive_Profit);
+        $aveHoldingtime.html();
+        $riskManagementLevel.html(data.data.risk_management_level);
+        $riskManagementLevel_label.html(days+'days '+hours+'h '+min+'m '+sec+'s');
+      }
+    });
+  }
 })();
-
