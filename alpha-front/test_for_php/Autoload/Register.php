@@ -1,9 +1,6 @@
 <?php
 namespace Autoload;
 
-use Core\loaded_classes;
-use Core\loaded_interfaceAbstracts;
-
 class Register
 {
 
@@ -28,7 +25,7 @@ class Register
 			];
 
 		array_walk_recursive($required_classes, function ($val, $key) {
-				$classes = &loaded_classes($key, $val);
+				$classes = &\Core\loaded_classes($key, $val);
 			});
 	}
 
@@ -44,7 +41,7 @@ class Register
 			];
 
 		array_walk_recursive($interfaceAbstract, function ($val, $key) {
-				$interfaceAbstracts = &loaded_interfaceAbstracts($key, $val);
+				$interfaceAbstracts = &\Core\loaded_interfaceAbstracts($key, $val);
 			});
 	}
 }
