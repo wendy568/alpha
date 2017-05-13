@@ -8,7 +8,8 @@ require_once 'Core' . '/' . 'Common' . EXT;
 use Autoload\Register;
 use Core\Container;
 
-(new Register());
+new Register();
+new Container();
 
 function &instance(){
 	return Container::locker();
