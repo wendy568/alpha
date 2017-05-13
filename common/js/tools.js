@@ -31,4 +31,138 @@
         $(this).remove();
     });
 
+    // synthesizing data 财经日历----------------------------------------------------------------------------
+    var dateList = [];
+    var weeks = ['SUN','MON','TUE','WEN','THUR','FRI','SAT'];
+    function getCalendarData(firstDate,direction) {
+        var date = {
+            left_right : direction || '',
+            time_node : firstDate || ''
+        };
+
+        function getFlagOfCountry(country) {
+            var countryClass = '';
+            if(country == 'New Zealand'){
+                countryClass = 'country_nzd';
+            }
+            else if(country == 'Japan'){
+                countryClass = 'country_jpy';
+            }
+            else if(country == 'China'){
+                countryClass = 'country_cny';
+            }
+            else if(country == 'the United States'){
+                countryClass = 'country_usd';
+            }
+            else if(country == 'the United Kingdom'){
+                countryClass = 'country_gbp';
+            }
+            else if(country == 'Australia'){
+                countryClass = 'country_aud';
+            }
+            else if(country == 'Euro'){
+                countryClass = 'country_eur';
+            }
+            else if(country == 'Switzerland'){
+                countryClass = 'country_chf';
+            }
+            else{
+                countryClass = 'country_eur';
+            }
+            return countryClass;
+        }
+        
+        $.alpha.request_Url('post','dashboard/calendar',date,function(data){
+            if(data.archive.status == 0){
+                dateList = [];
+                var isCurDay = false;
+                $.each(data.data.calendar,function (i,item) {
+                    dateList.push(i);
+                    
+                    // 财经日历导航
+                    i = i.replace('.','-').replace('.','-');
+                    var x = i;
+                    var curDay = new Date(i);
+                    var month = curDay.getMonth()+1 < 10 ? '0' + (curDay.getMonth()+1) : curDay.getMonth()+1;
+                    var day = curDay.getDate() < 10 ? '0' + curDay.getDate() : curDay.getDate();
+                    isCurDay = new Date().getDay() == curDay.getDay();
+                    activeClass = isCurDay ? 'active' : '';
+                    var $navBar = $('<li class="date ' + activeClass + '">' +
+                                  '<div class="text-c1 small-text text-center">'+weeks[curDay.getDay()]+'</div>' +
+                                  '<div class="text-c3 text-center">'+ month +'/' + day + '</div></li>');
+                    $navBar.on('click',function (e) {
+                        e.stopPropagation();
+                        $('.calendar-tab li').removeClass('active');
+                        $(this).addClass('active');
+                        var index = $(this).index();
+                        var panels = $('.calendar-tab-content').eq(index).find('.panel');
+                        var scrollTop = 0;
+                        $.each(panels,function (i,panel) {
+                            var isTop = $(panel).attr('data-top').split('_');
+                            if(isTop[0] == 1){
+                                scrollTop = isTop[1]*60;
+                            }
+                        });
+                        $('.calendar-tab-content').hide().eq(index).show().parent().scrollTop(scrollTop);
+                    });
+                    $('.En-calendar .calendar-tab').append($navBar);
+                  
+                    // content
+                    var $content = $('<div class="calendar-tab-content"></div>');
+                    $.each(item,function (i,news) {
+                        var important = news.Importance == 'medium' ? 'blue' : (news.Importance == 'low' ? 'green' : 'red');
+                        var curTime = new Date(parseInt(news.time_en));
+                        var $contentItem = $('<div class="panel" data-top="'+news.align_top+'_'+i+'">'+
+                        '<div class="panel-heading">'+
+                        '<p class="panel-title">'+
+                        '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+'_'+x+'_'+i+'">'+
+                        '<ul class="row no-margin no-padding">'+
+                        '<li class="col-sm-1">'+curTime.getHours()+':'+curTime.getMinutes()+'</li>'+
+                         '<li class="col-sm-1">'+
+                        '<i class="country_img ' + getFlagOfCountry(news.Currency) + '"></i>'+
+                        '</li>'+
+                        '<li class="col-sm-6">'+
+                        '<span>'+news.Event+'</span>'+
+                        '</li>'+
+                        '<li class="col-sm-1">'+news.Actual+'</li>'+
+                        '<li class="col-sm-1">'+news.ForecASt+'</li>'+
+                        '<li class="col-sm-1">'+news.Previous+'</li>'+
+                        '<li class="col-sm-1 text-right">'+
+                        '<i class="status-icon '+ important +'"></i>'+
+                        '</li>'+
+                        '</ul>'+
+                        '</a>'+
+                        '</p>'+
+                        '</div>'+
+                        '<div id="collapse'+'_'+x+'_'+i+'" class="panel-collapse collapse">'+
+                        '<div class="panel-body">'+news.detail+'</div>'+
+                        '</div>'+
+                        '</div>');
+                        
+                        $content.append($contentItem);
+                    });
+                    
+                    isCurDay ? $content.show() : $content.hide();
+                    $('#accordion').append($content);
+                });
+            }
+        });
+    }
+    getCalendarData();
+    
+    $('.En-calendar .carousel-inner>a').eq(0).click(function (e) {
+        e.stopPropagation();
+        var lastDate = dateList[0].replace('.','-').replace('.','-');
+        $('.En-calendar .calendar-tab').empty();
+        $('.calendar-tab-content').remove();
+        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left');
+    });
+    $('.En-calendar .carousel-inner>a').eq(1).click(function (e) {
+        e.stopPropagation();
+        var lastDate = dateList[6].replace('.','-').replace('.','-');
+        $('.En-calendar .calendar-tab').empty();
+        $('.calendar-tab-content').remove();
+        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right');
+    });
+    
 })();
