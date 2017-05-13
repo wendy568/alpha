@@ -14,7 +14,7 @@ class Trading_logs extends CI_Model
 		$map = "SELECT *  
 				FROM trading_log 
 				WHERE $where 
-				ORDER BY DESC";	
+				ORDER BY id DESC";	
 
 		$query = $this->db->query($map);
         $result = $query->result_array();
