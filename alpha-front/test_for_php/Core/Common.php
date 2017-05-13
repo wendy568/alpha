@@ -21,7 +21,7 @@ function &loaded_classes($class, $path, $param = null)
 	is_loaded($class, $path);
 
 	$instance = '\\' . $path . '\\' . $class;
-
+	print_r($instance);
 	$_classes[$class] = isset($param)
 		? new $instance($param)
 		: new $instance();
