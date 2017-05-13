@@ -1,7 +1,7 @@
 <?php
 
 namespace acme;
-use app\AppInterface;
+use Public\AppInterface;
 
  class acme implements AppInterface
  {
