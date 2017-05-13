@@ -14,8 +14,8 @@ class Classes extends MY_Controller
 		$this->load->model('ClassesM');
 		$this->load->library('classes');
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->ClassesM->current_stage($uid);
-	
+		$original = $this->ClassesM->current_stage($uid);
+		$data['data']['current_stage'] = $this->classes->jsonDecode($original);
 		encode_json($response,$data);
 	}
 

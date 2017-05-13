@@ -14,6 +14,7 @@ class ClassesM extends CI_Model
     			WHERE uid="'.$uid.'"';
     	
     	$result = $this->db->query($map)->row_array();
+    	
     	return $result;
     }
 
