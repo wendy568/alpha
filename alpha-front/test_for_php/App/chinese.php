@@ -1,7 +1,7 @@
 <?php
 
 namespace acme;
-use app\AppInterface;
+use Kernel\AppInterface;
 
  class chinese implements AppInterface
  {

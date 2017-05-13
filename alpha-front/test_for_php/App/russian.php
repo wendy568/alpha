@@ -1,9 +1,9 @@
 <?php
-namespace acme;
+namespace App;
 
-use app\FactoryAbstract;
-use app\WebInterFace;
-use app\app;
+use kernel\FactoryAbstract;
+use kernel\WebInterFace;
+use kernel\app;
 
 abstract class russian extends FactoryAbstract implements WebInterFace
 {
