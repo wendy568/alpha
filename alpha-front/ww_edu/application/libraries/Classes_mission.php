@@ -39,7 +39,8 @@ class Classes_mission
 	{
 		$method = [];
 		$homework = [];
-
+		print_r($this->mission);
+		print_r($this->homework);
 		array_walk($this->homework, function ($val, $key) use (&$homework) {
 			$homework[] = $key;
 		});
