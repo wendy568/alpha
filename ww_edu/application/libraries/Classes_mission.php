@@ -10,17 +10,17 @@ class Classes_mission
 				'Video Learning' => 'read',
 				'Video learning' => 'read',
 				'Article learning' => 'read',
-				'Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => '', 'Make Transaction 2' => '',
-				'4 style trade' => 'isCountEnough',
-				'take profits/stop loss' => 'isCountEnough',
-				'Trade all kinds products' => 'isCountEnough', 'Task 2 - 10 different products' => 'isCountEnough', '5 tradable products' => 'isCountEnough',
-				'Trading Record' => 'isCountEnough',
+				'Place your order' => 'record_count', 'Make Transactions' => 'record_count', 'Make Transaction 1' => '', 'Make Transaction 2' => '',
+				'4 style trade' => 'record_count',
+				'take profits/stop loss' => 'record_count',
+				'Trade all kinds products' => 'record_count', 'Task 2 - 10 different products' => 'record_count', '5 tradable products' => 'record_count',
+				'Trading Record' => 'record_count',
 				'Learning Report' => '',
-				'Trading Score' => 'isCountEnough',
-				'Task 1 - 2 different markets' => 'isCountEnough',
+				'Trading Score' => 'ability',
+				'Task 1 - 2 different markets' => 'specCountProc',
 				'Produce a module' => '',
-				'Risk Management Level' => 'isCountEnough',
-				'Profitable Period' => 'isCountEnough'
+				'Risk Management Level' => 'variance',
+				'Profitable Period' => 'sumOneMonth'
 			];
 
 	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
@@ -147,7 +147,7 @@ class Classes_mission
 
 	protected function read($param)
 	{
-
+		print_r($param);
 	}
 
 }
