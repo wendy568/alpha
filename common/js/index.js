@@ -108,6 +108,9 @@
       'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
       'AUG','DXY','COPPER','NGAS','UKOIL','USOIL','AUS200','HKG50','HKH40','JPN225','NAS100',
       'SPX500','UK100','US30'];
+    billCount.sort(function (val1,val2) {
+      return val1.charCodeAt() - val2.charCodeAt();
+    });
     var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
     
     function getPieData(bill) {
@@ -115,13 +118,18 @@
         $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
             if(data.archive.status == 0){
                 var billData = [];
-                billData[0] = {name:'BUY',value:data.data.percent_ratio._0 * 100};
-                billData[1] = {name:'SELL',value:data.data.percent_ratio._1 * 100};
+                billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
+                billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
                 
                 pieChart.setOption({
                   tooltip: {
                     trigger: 'item',
                     formatter: "{b}: {d}%"
+                  },
+                  legend: {
+                    x : 'center',
+                    y : 'bottom',
+                    data:['Long','Short']
                   },
                   series: [
                     {
@@ -131,20 +139,15 @@
                       avoidLabelOverlap: false,
                       label: {
                         normal: {
-                          show: false,
+                          show: true,
                           position: 'center'
                         },
                         emphasis: {
-                          show: true,
+                          show: false,
                           textStyle: {
                             fontSize: '16',
                             fontWeight: 'bold'
                           }
-                        }
-                      },
-                      labelLine: {
-                        normal: {
-                          show: false
                         }
                       },
                       data:billData
