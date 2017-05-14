@@ -34,7 +34,7 @@ class Classes extends MY_Controller
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
-		print_r($is_complete);
+		print_r($is_complete);die;
 		$this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->get_mission_complete();
 		
 		encode_json($response,$data);

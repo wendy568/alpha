@@ -127,9 +127,8 @@ class Classes_mission
 	{
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
-				var_dump($param[$key]);
-				var_dump($value);
 				$this->completeOne[$key] = ($param[$key] >= $value) ? 1 : 0;
+				print_r($this->completeOne);
 				$this->complete += ($param[$key] >= $value) ? 1 : 0;
 			}
 		}
