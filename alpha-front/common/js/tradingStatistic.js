@@ -6,6 +6,9 @@
         'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
         'AUG','DXY','COPPER','NGAS','UKOIL','USOIL','AUS200','HKG50','HKH40','JPN225','NAS100',
         'SPX500','UK100','US30'];
+    billCount.sort(function (val1,val2) {
+      return val1 - val2;
+    });
     var oFragment = document.createDocumentFragment();
     
     $.each(billCount,function (i,item) {
