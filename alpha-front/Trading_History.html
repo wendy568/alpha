@@ -35,25 +35,29 @@
                                 <!--<a href="" class="fa fa-chevron-left"></a>-->
                                 <!--<a href="" class="fa fa-chevron-right"></a>-->
                             <!--</div>-->
-                            <button class="btn btn-white btn-cons" type="button">Today</button>
+                            <button class="btn btn-white btn-cons" id="today" type="button">Today</button>
                         </div>
-                        <div class="col-lg-1 col-md-6 no-padding">
+                        <!--<div class="col-lg-1 col-md-6 no-padding">
                             <select name="" class="text-c2">
+                                <option value="all">  </option>
                                 <option value="closed">Closed</option>
                                 <option value="open">Open</option>
                             </select>
-                        </div>
-                        <div class="col-lg-2 col-md-6 no-padding">
+                        </div>-->
+                        <div class="col-lg-2 col-md-6 no-padding bill-type">
                             <span>Type</span>
-                            <select name="" id="" class="text-c2">
-                                <option value="1">USD/JPY</option>
-                                <option value="2">USD/PZD</option>
-                                <option value="3">JPY/PZD</option>
+                            <select name="" class="text-c2">
+                                <option value="">  </option>
+                                <option value="GBP/AUD">GBP/AUD</option>
+                                <option value="GBP/USD">GBP/USD</option>
+                                <option value="XAU/USD">XAU/USD</option>
+                                <option value="USD/JPY">USD/JPY</option>
                             </select>
                         </div>
-                        <div class="col-lg-2 col-md-6 no-padding">
+                        <div class="col-lg-2 col-md-6 no-padding account">
                             <span class="m-r-10">Account</span>
-                            <select name="" id=""  class="text-c2">
+                            <select name=""  class="text-c2">
+                                <option value="all">  </option>
                                 <option value="">13655258885</option>
                                 <option value="">13852664452</option>
                                 <option value="">15986663244</option>
@@ -83,6 +87,13 @@
                             </div>
                             <div class="clearfix"></div>
                         </div>
+                        <div class="col-lg-2 col-md-6 no-padding">
+                          <!--<div class="paging">-->
+                          <!--<a href="" class="fa fa-chevron-left"></a>-->
+                          <!--<a href="" class="fa fa-chevron-right"></a>-->
+                          <!--</div>-->
+                          <button class="btn btn-white btn-cons" id="search" type="button">Search</button>
+                        </div>
                     </div>
                     <!-- ALL TRADING STATISTICS -->
                     <div class="row">
@@ -96,7 +107,7 @@
                                     </h4>
                                 </div>
                                 <div class="grid-body no-border">
-                                    <table class="table table-border" style="position: relative;">
+                                    <table class="table table-border table-list over-scroll" style="position: relative;">
                                         <thead>
                                             <tr>
                                                 <th style="width: 2%">Product</th>
@@ -104,14 +115,15 @@
                                                 <th style="width: 2%">Open Time</th>
                                                 <th style="width: 2%">Count</th>
                                                 <th style="width: 2%">Direction</th>
-                                                <th style="width: 2%">Price</th>
-                                                <th style="width: 2%">Current price</th>
+                                                <!--当前无接口数据，暂时隐藏-->
+                                                <!--<th style="width: 2%">Price</th>
+                                                <th style="width: 2%">Current price</th>-->
                                                 <th style="width: 2%">Profit</th>
                                                 <th style="width: 2%" class="text-right">Close time</th>
                                             </tr>
                                         </thead>
-                                        <tbody >
-                                            <tr class="m-t-30 preview">
+                                        <tbody>
+                                            <!--<tr class="m-t-30 preview">
                                                 <td>
                                                     <span class="text-c1">USD/JPY</span>
                                                 </td>
@@ -299,18 +311,16 @@
                                                 <td >
                                                     <span class="text-c2">394</span>
                                                 </td>
-                                                <td class="text-error">
+                                                <td>
                                                     <span class="label label-success m-l-5">Buy</span>
                                                 </td>
                                                 <td class="text-error">$236.00</td>
                                                 <td class="text-warning">$246.74</td>
-                                                <td>
-                                                    <span class="text-success">-$394.84</span>
-                                                </td>
+                                                <td class="text-success">-$394.84</td>
                                                 <td class="text-right">
                                                     <span class="text-c2">2017.05.24</span>
                                                 </td>
-                                            </tr>
+                                            </tr>-->
                                         </tbody>
                                     </table>
                                     <div id="chose-title" class="c-title hide">
@@ -335,14 +345,15 @@
                                                 <input id="checkbox5" type="checkbox" value="5" checked="checked">
                                                 <span for="checkbox5">Direction</span>
                                             </li>
-                                            <li>
+                                            <!--当前无接口数据，暂时隐藏-->
+                                            <!--<li>
                                                 <input id="checkbox6" type="checkbox" value="6" checked="checked">
                                                 <span for="checkbox6">Price</span>
                                             </li>
                                             <li>
                                                 <input id="checkbox7" type="checkbox" value="7" checked="checked">
                                                 <span for="checkbox7">Current price</span>
-                                            </li>
+                                            </li>-->
                                             <li>
                                                 <input id="checkbox8" type="checkbox" value="8" checked="checked">
                                                 <span for="checkbox8">Profit</span>
@@ -377,10 +388,108 @@
         <script src="common/js/common.js" type="text/javascript"></script>
 
         <script type="text/javascript">
-            $('.filter').click(function(){
-                $('.c-title').toggleClass('hide');
-            });
-
+            (function () {
+                $('.filter').click(function(){
+                  $('.c-title').toggleClass('hide');
+                });
+                
+                $('.c-title li input').click(function (e) {
+                    e.stopPropagation();
+                    window.event.stopPropagation();
+                    
+                    var isShow =  $(this).prop('checked');
+                    var index = parseInt($(this).val());
+                    var $thead = $('.table thead tr th:nth-child('+index+')');
+                    var $td = $('.table tbody tr td:nth-child('+index+')');
+                    if(isShow){
+                        $thead.show();
+                        $td.show();
+                    }else{
+                        $thead.hide();
+                        $td.hide();
+                    }
+                });
+  
+                getTableData();
+                
+                $('#today').click(function (e) {
+                    e.stopPropagation();
+                    var today = new Date();
+                    var bill = $('.bill-type select').val() || null;
+                    $('.date input').val(today.Format('MM/dd/yyyy'));
+                    getTableData(bill,today.Format('MM/dd/yyyy'),today.Format('MM/dd/yyyy'));
+                });
+  
+                $('#search').click(function (e) {
+                    e.stopPropagation();
+                    var bill = $('.bill-type select').val() || null;
+                    var startTime = $('.date input').eq(0).val();
+                    var endTime = $('.date input').eq(1).val();
+                    getTableData(bill,startTime,endTime);
+                });
+                
+                /*$('.bill-type select').change(function (e) {
+                	  e.stopPropagation();
+                	  var curBill = $(this).val();
+                    $.each($('.table tbody tr'),function (i,tr) {
+                        var bill = $(tr).find('td').eq(0).find('span').html();
+                        if(curBill != 'all'){
+                            bill == curBill ? $(this).show() : $(this).hide();
+                        }else{
+                            $(this).show();
+                        }
+                    });
+                });*/
+  
+                $('.account select').change(function (e) {
+                    e.stopPropagation();
+                    $('.bill-type select').val(' ');
+                    var curAccount = $(this).val();
+                    // todo request
+                });
+                
+                // 获取列表数据
+                function getTableData(bill,startTime,endTime,curPage) {
+                    startTime = startTime ? parseInt((new Date(startTime).getTime())/1000) : null;
+                    endTime = endTime ? parseInt((new Date(endTime).getTime())/1000) : null;
+                    bill && (bill = bill.replace('/',''));
+                    var data = {
+                        finency_proc : bill,
+                        start_time : startTime,
+                        end_time : endTime
+                    };
+                    
+                    $.alpha.request_Url('POST','Trading_Analysis/trading_history',data,function (res) {
+                        if(res.archive.status == 0){
+                        	  var list = res.data.trading_history;
+                            var reg = new RegExp(/^[A-Z]{6}$/);
+                            $('.table tbody').empty();
+                        	  $.each(list,function (i,row) {
+                        	  	  var bill = '';
+                        	  	  var openTime = new Date(parseInt(row.order_open_time)*1000);
+                        	  	  var closeTime = new Date(parseInt(row.order_close_time)*1000);
+                        	  	  if(row.order_symbol.length == 6 && row.order_symbol != 'COPPERssss' && reg.test(row.order_symbol)){
+                                    var x = row.order_symbol.substring(0,3);
+                                    var y = row.order_symbol.substring(3);
+                                    bill = x + '/' + y;
+                                }else{
+                        	  	  	  bill = row.order_symbol;
+                                }
+                                var $td = '';
+                                $td += '<td><span class="text-c1">'+bill+'</span></td>';
+                                $td += '<td><span class="text-c2">'+row.order_no+'</span></td>';
+                                $td += '<td><span class="text-c2">'+openTime.Format("yyyy.MM.dd hh:mm")+'</span></td>';
+                                $td += '<td><span class="text-c2">'+row.order_lots+'</span></td>';
+                                $td += '<td><span class="label label-'+(row.order_type == 1 ? 'important' : 'success')+' m-l-5">'+(row.order_type == 1 ? 'Sell' : 'Buy')+'</span></td>';
+                                $td += '<td class="text-'+(row.profit >= 0 ? 'success' : 'error')+'">'+(row.profit >= 0 ? '$'+row.profit : '-$'+Math.abs(row.profit))+'</td>';
+                                $td += '<td class="text-right"><span class="text-c2">'+closeTime.Format("yyyy.MM.dd")+'</span></td>';
+                                var $tr = $('<tr class="m-t-30 preview local_'+i+'" data-account="'+row.account_number+'">'+$td+'</tr>');
+                                $('.table tbody').append($tr);
+                            });
+                        }
+                    });
+                }
+            })();
         </script>
     </body>
 </html>

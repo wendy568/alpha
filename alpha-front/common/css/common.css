@@ -9751,19 +9751,19 @@ body.rtl .footer-widget {
 }
 
 /*兼容-webkit内核滚动条*/
-ul::-webkit-scrollbar-track,div::-webkit-scrollbar-track
+ul::-webkit-scrollbar-track,.over-scroll::-webkit-scrollbar-track
 {
   border-radius: 5px;
   background-color: transparent;
 }
 
-ul::-webkit-scrollbar,div::-webkit-scrollbar-track
+ul::-webkit-scrollbar,.over-scroll::-webkit-scrollbar
 {
   width: 5px;
   background-color: transparent;
 }
 
-ul::-webkit-scrollbar-thumb,div::-webkit-scrollbar-track
+ul::-webkit-scrollbar-thumb,.over-scroll::-webkit-scrollbar-thumb
 {
   border-radius: 5px;
   background-color: rgba(161, 178, 189,.3);
@@ -9821,4 +9821,10 @@ url("chrome://browser/content/history/history-panel.xul")
 .select-country .selected{
   color:#8b91a0;
   border-bottom:1px solid #8b91a0;
+}
+
+/*history --------------------------------------------------------------------------*/
+.table-list{
+  height: 520px;
+  overflow-y: scroll;
 }
