@@ -34,11 +34,15 @@ class Classes extends MY_Controller
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		$ratio = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
-		print_r($ratio);die;
-		$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
-		print_r($this->classes_mission->init($mission, $personal, $allProcess)->is_complete($is_complete));
-		die;
-		$this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->get_mission_complete();
+
+		if($ratio != 1) {
+			$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+			print_r($is_complete);die;
+			print_r($this->classes_mission->init($mission, $personal, $allProcess)->is_complete($is_complete));
+			die;
+			$this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->get_mission_complete();
+		}
+		
 		
 		encode_json($response,$data);
 	}
