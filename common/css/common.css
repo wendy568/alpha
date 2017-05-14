@@ -26,6 +26,7 @@
 -------------------------------------------------------------------*/
 li{
     list-style-type:none;
+    visibility: visible;
 }
 /*[1. Layouts]*/
 :-moz-placeholder {
@@ -2412,6 +2413,9 @@ span.iconset {
 }
 .m-b-30 {
   margin-bottom: 30px !important;
+}
+.m-b-40 {
+  margin-bottom: 40px !important;
 }
 .m-t-35 {
   margin-top: 35px !important;
