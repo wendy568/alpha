@@ -140,6 +140,21 @@ class Classes_mission
 		}
 	}
 
+	public function intersection($mission, $homework)
+	{
+		foreach ($mission as $key => $value) {
+			if (is_array($value)) {
+				foreach ($value as $k => $v) {
+					if (($k == 'id') && array_diff($homework[$key], $v)) $mission[$key]['is_complete'] = 1;
+				}
+			} 
+
+			if (is_numeric($value)) $homework[$key] . '/' . $value;
+		}
+
+		return $mission;
+	}
+
 	public function is_complete($is)
 	{
 		$this->needRecord = $this->homework;

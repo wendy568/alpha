@@ -87,7 +87,7 @@ class Classes extends MY_Controller
 
 		$data['data']['current_stage'] = $original['personal']['hw_id'];
 		$data['data']['describe'] = $original['mission']['describe'];
-		$data['data']['detail'] = $mission;
+		$data['data']['detail'] = $this->classes_mission->init($mission, $personal, $allProcess)->intersection($mission, $personal);
 		
 		encode_json($response,$data);
 	}
