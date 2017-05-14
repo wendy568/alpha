@@ -125,7 +125,7 @@ class Trading_datas_calculate {
 		$this->unix_time = strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
 	}
 
-	public function get_week()
+	public function get_week($callback = null, $index = null)
 	{
 		$datas = $this->_data;
 		$result = [];
@@ -133,10 +133,7 @@ class Trading_datas_calculate {
 		$instance->load->helper('time_zone');
 		$time_zone = time_zone::build();
 		$week = $time_zone->get_week($this->unix_time);
-		$todayBegin = $time_zone->todayBegin();
-		$todayEnd = $time_zone->todayEnd();
-		var_dump($todayBegin);
-		var_dump($todayEnd);
+
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				foreach ($week as $val) {
@@ -148,10 +145,7 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
-						if ($v > $todayBegin && $v < $todayEnd) {
-							$value['align_top'] = $this->align_time($v);
-						}
-						
+						$value[$index] = call_user_func_array([$this, $callback], $v);
 						$result[$month . '.' . $day][] = $value;
 					} 
 
