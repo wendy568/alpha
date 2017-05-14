@@ -174,8 +174,10 @@
                           window.location.href = 'index.html';
                         }else if(res.archive.status == 101){
                             // 弹出框提示用户名或密码错误
+                            $.alpha.alertBox('Error','Wrong email or wrong password!','#');
                         }else{
                             // 登录失败提示
+                            $.alpha.alertBox('Fail','Login failed!','#');
                         }
                       });
                     }else{
