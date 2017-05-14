@@ -218,13 +218,10 @@ class Trading_datas_calculate {
     	$datas = $this->oneByone;
 
     	$time = date('G');
-		var_dump($time);
-		var_dump(date('G', $value));
 		if($time == date('G', $value)){
 			
 			return 1;
 		} else {
-			echo 1234;
 			return 0;
 		}
 
