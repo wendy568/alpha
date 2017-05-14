@@ -282,8 +282,8 @@ class Trading_datas_calculate {
     //TimeNow-AccountOpentTime
     public function transaction_peroid($index)
     {
-    	var_dump(current($this->_data)[$index]);
-    	return time() - current($this->_data)[$index];
+    	$time = current($this->_data)[$index];
+    	return ($time) ? time() - $time : 0;
     }
 
     //根号[∑((X-μ)^2)] ? A (A*B) X=Profit μ=Avg(∑Profit) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
