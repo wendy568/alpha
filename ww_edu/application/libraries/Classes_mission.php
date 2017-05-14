@@ -73,12 +73,19 @@ class Classes_mission
 	{
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
-				var_dump($key);
 				$this->complete += empty(array_diff($value, $param[$key])) ? 1 : 0;
-			}	
+			}
 		}
-		var_dump($this->complete);die;
-		
+	}
+
+	private function isCountEnough($param)
+	{
+		print_r($param);die;
+		foreach ($this->mission as $key => $value) {
+			if (!empty($param[$key])) {
+				$this->complete += empty(array_diff($value, $param[$key])) ? 1 : 0;
+			}
+		}
 	}
 
 }
