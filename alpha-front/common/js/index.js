@@ -211,9 +211,6 @@
             else if(country == 'Switzerland'){
                 countryClass = 'country_chf';
             }
-            else{
-                countryClass = 'country_eur';
-            }
             return countryClass;
         }
         

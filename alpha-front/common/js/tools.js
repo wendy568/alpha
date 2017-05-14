@@ -50,6 +50,7 @@
             }
             else if(country == 'China'){
                 countryClass = 'country_cny';
+                
             }
             else if(country == 'the United States'){
                 countryClass = 'country_usd';
@@ -65,9 +66,6 @@
             }
             else if(country == 'Switzerland'){
                 countryClass = 'country_chf';
-            }
-            else{
-                countryClass = 'country_eur';
             }
             return countryClass;
         }
@@ -93,6 +91,7 @@
                     $navBar.on('click',function (e) {
                         e.stopPropagation();
                         $('.calendar-tab li').removeClass('active');
+                        $('.select-country .screen-b').removeClass('selected');
                         $(this).addClass('active');
                         var index = $(this).index();
                         var panels = $('.calendar-tab-content').eq(index).find('.panel');
@@ -109,24 +108,24 @@
                   
                     // content
                     var $content = $('<div class="calendar-tab-content"></div>');
-                    $.each(item,function (i,news) {
-                        var important = news.Importance == 'medium' ? 'blue' : (news.Importance == 'low' ? 'green' : 'red');
-                        var curTime = new Date(parseInt(news.time_en));
-                        var $contentItem = $('<div class="panel" data-top="'+news.align_top+'_'+i+'">'+
+                    $.each(item,function (i,row) {
+                        var important = row.Importance == 'medium' ? 'blue' : (row.Importance == 'low' ? 'green' : 'red');
+                        var curTime = new Date(parseInt(row.time_en));
+                        var $contentItem = $('<div class="panel" data-top="'+row.align_top+'_'+i+'">'+
                         '<div class="panel-heading">'+
                         '<p class="panel-title">'+
                         '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+'_'+x+'_'+i+'">'+
                         '<ul class="row no-margin no-padding">'+
                         '<li class="col-sm-1">'+curTime.getHours()+':'+curTime.getMinutes()+'</li>'+
                          '<li class="col-sm-1">'+
-                        '<i class="country_img ' + getFlagOfCountry(news.Currency) + '"></i>'+
+                        '<i class="country_img ' + getFlagOfCountry(row.Currency) + '"></i>'+
                         '</li>'+
                         '<li class="col-sm-6">'+
-                        '<span>'+news.Event+'</span>'+
+                        '<span>'+row.Event+'</span>'+
                         '</li>'+
-                        '<li class="col-sm-1">'+news.Actual+'</li>'+
-                        '<li class="col-sm-1">'+news.ForecASt+'</li>'+
-                        '<li class="col-sm-1">'+news.Previous+'</li>'+
+                        '<li class="col-sm-1">'+row.Actual+'</li>'+
+                        '<li class="col-sm-1">'+row.ForecASt+'</li>'+
+                        '<li class="col-sm-1">'+row.Previous+'</li>'+
                         '<li class="col-sm-1 text-right">'+
                         '<i class="status-icon '+ important +'"></i>'+
                         '</li>'+
@@ -135,7 +134,7 @@
                         '</p>'+
                         '</div>'+
                         '<div id="collapse'+'_'+x+'_'+i+'" class="panel-collapse collapse">'+
-                        '<div class="panel-body">'+news.detail+'</div>'+
+                        '<div class="panel-body">'+row.detail+'</div>'+
                         '</div>'+
                         '</div>');
                         
@@ -173,7 +172,29 @@
             $this.prop('disabled',false);
         });
     });
-
+    
+    // 筛选
+    $('.select-country .screen-b').click(function (e) {
+        e.stopPropagation();
+        $(this).addClass('selected').siblings().removeClass('selected');
+        var $news = $('#accordion .calendar-tab-content').eq($('.calendar-tab li.active').index()).children();
+        var curClass = $(this).find('.country_img').attr('class');
+        if($news.length){
+            $.each($news,function (i,row) {
+              var className = $(row).find('.country_img').attr('class');
+              if(className == curClass){
+                $(row).show();
+              }else{
+                $(row).hide();
+              }
+            });
+        }
+    });
+    $('.select-country .screen-a').click(function (e) {
+        e.stopPropagation();
+        $(this).siblings().removeClass('selected');
+        $('#accordion .calendar-tab-content').eq($('.calendar-tab li.active').index()).children().show();
+    });
 
     //news--------------------------------------------------------------------------
     $('.module').eq(1).click(function(){
@@ -221,7 +242,7 @@
 
 	                    // content
 	                    $.each(data.data.news,function(i,data){
-	                    	
+	                    
 	                    });
 	                });
 	    		}

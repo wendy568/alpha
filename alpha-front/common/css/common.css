@@ -8912,6 +8912,7 @@ body.rtl .footer-widget {
     display: inline-block;
     margin-right: 14px;
     color:#fff;
+    cursor: pointer;
 }
 .screen-a i{
     margin-right: 5px;
@@ -8919,6 +8920,7 @@ body.rtl .footer-widget {
 .screen-b{
     color:#fff;
     padding: 8px 5px;
+    cursor: pointer;
 }
 .screen-b:hover,
 .screen-b:active,
@@ -9813,4 +9815,10 @@ url("chrome://browser/content/history/history-panel.xul")
     -moz-appearance:none !important;
     display:none !important;
   }
+}
+
+/*tools ----------------------------------------------------------------------------*/
+.select-country .selected{
+  color:#8b91a0;
+  border-bottom:1px solid #8b91a0;
 }
