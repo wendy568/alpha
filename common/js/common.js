@@ -114,13 +114,13 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
                 $this.unblockUI(el);
             }, 1000);
         });
-        // $('.tiles .controller .remove').click(function () {
-        //     $(this).parent().parent().parent().parent().addClass('animated fadeOut');
-        //     $(this).parent().parent().parent().parent().attr('id', 'id_remove_temp_id');
-        //     setTimeout(function () {
-        //         $('#id_remove_temp_id').remove();
-        //     }, 400);
-        // });
+        $('.tiles .controller .remove').click(function () {
+            $(this).parent().parent().parent().parent().addClass('animated fadeOut');
+            $(this).parent().parent().parent().parent().attr('id', 'id_remove_temp_id');
+            setTimeout(function () {
+                $('#id_remove_temp_id').remove();
+            }, 400);
+        });
         $('.tab .controller .remove').click(function () {
             $(this).parent().parent().addClass('animated fadeOut');
             $(this).parent().parent().attr('id', 'id_remove');
@@ -128,6 +128,11 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
                 $('#id_remove').remove();
             }, 400);
         });
+
+        $('.alert .alert-head .controller .remove').click(function () {
+           $(this).parent().parent().parent().remove();
+        });
+
         if (!jQuery().sortable) {
             return;
         }
@@ -601,6 +606,30 @@ $(document).ready(function () {
     };
     $.fn.toggleTradingDetail = function () {
         $.Webarch.toggleClass('hide');
+    };
+
+    // alert box
+    window.alertBox = function(title, msg, url){
+        var alert = document.createElement('div');
+        $(alert).attr({
+            id: 'alert_box'
+        });
+        var html = `<div class="alert animated fadeInDown">
+        <div class="alert-head">
+            <i class="fa fa-exclamation"></i>
+            <span>${title}</span>
+            <div class="controller">
+                <a class="remove" id="close_alertBox"></a>
+            </div>
+        </div>
+        <div class="alert-body">
+            <p>${msg}</p>
+            <a href="${url}" class="btn btn-success m-t-30" style="width: 60px;" >OK</a>
+        </div>
+    </div>`;
+        alert.innerHTML = html;
+        $('body').append(alert);
+        return html;
     };
 
 })(jQuery);
