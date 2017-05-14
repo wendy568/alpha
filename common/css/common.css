@@ -13,7 +13,7 @@
 11. Tabs & Accordians 手风琴
 12. Sliders  
 13. Tables 表格
-14. Datatables 日期表格
+14. Datatables 
 15. Charts 图标
 16. User Profile 用户资料
 17. Vector Map 矢量地图
@@ -9145,22 +9145,6 @@ body.rtl .footer-widget {
   position: relative;
   border-radius: 8px;
 }
-.tv-preview video{
-  display: block;
-  margin: 0 auto;
-  position: relative;
-}
-.ad{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 100%;
-    height: 100%;
-    margin-left: -50%;
-    margin-top: -225px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
 .all-tv .video-intr{
     background-color: #2A2E36;
 }
@@ -9216,14 +9200,8 @@ body.rtl .footer-widget {
     left: 0px;
     top:0;
 }
-.tv-play .video-btn{
-    width: 100%;
-    height: 40px;
-    background: -webkit-linear-gradient(top,rgba(155,40,238,.5)0%,rgba(233,84,105,.5)100%);
-    bottom: 0;
-    position: absolute;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+.tv-small{
+    cursor: pointer;
 }
 .comment{
   margin-bottom: 30px;
