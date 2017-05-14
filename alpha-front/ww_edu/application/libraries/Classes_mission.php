@@ -26,7 +26,7 @@ class Classes_mission
 	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
 
 	protected $classes;
-	
+
 	protected $mission;
 
 	protected $homework;
@@ -44,6 +44,12 @@ class Classes_mission
 		$this->homework = $homework;
 		$this->missionCount = count($mission);
 
+		return $this;
+	}
+
+	public function get_distribution()
+	{
+		$this->category = $this->distribution;
 		return $this;
 	}
 
