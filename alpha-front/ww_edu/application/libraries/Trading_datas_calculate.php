@@ -125,7 +125,12 @@ class Trading_datas_calculate {
 		$this->unix_time = strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
 	}
 
-	public function get_week($callback = null, $index = null)
+	private function RETNUll()
+	{
+		return null;
+	}
+
+	public function get_week($callback = 'RETNUll', $index = null)
 	{
 		$datas = $this->_data;
 		$result = [];
