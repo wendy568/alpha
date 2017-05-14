@@ -131,7 +131,7 @@ class time_zone{
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
 
-			return array_reverse($dates);
+			return $this->_date = array_reverse($dates);
 		}
 	}
 
