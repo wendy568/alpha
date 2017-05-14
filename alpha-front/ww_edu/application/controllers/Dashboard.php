@@ -89,7 +89,7 @@ class Dashboard extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
 		$account = $this->get_trading_account($token);
-		
+
 		$this->load->database();
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
@@ -112,7 +112,7 @@ class Dashboard extends MY_Controller
 		$left_right = $this->input->get_post('left_right', TRUE);
 		$time_node = $this->input->get_post('time_node', TRUE);
 
-		$start = '+0';
+		$start = '+2';
 		$nextOrLast = '+0';
 		if($left_right == 'left') {
 			$start = '-1';
