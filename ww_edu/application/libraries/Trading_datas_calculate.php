@@ -217,7 +217,7 @@ class Trading_datas_calculate {
     	
     	$datas = $this->oneByone;
 
-    	$time = strtotime(date('H', time()));
+    	$time = strtotime(date('Y-m-d H:00:00'));
 		var_dump($time);
 		var_dump(strtotime(date('Y-m-d H:00:00', $value)));
 		if($time == strtotime(date('Y-m-d H:00:00', $value))){
