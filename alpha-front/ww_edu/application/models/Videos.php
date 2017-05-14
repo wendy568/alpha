@@ -262,17 +262,17 @@ class Videos extends CI_Model
 		$date_end = '';
 		$date_begin = '';
 		if ($date_limit == 1) {
-			// $date_c = $time_zone->todayBegin()->get_time_zone();
-			$date_begin = date('Y-m-d H:i:s', $time_zone->todayBegin()->get_time_zone());
-			$date_end = date('Y-m-d H:i:s', $time_zone->todayEnd()->get_time_zone());
+			// $date_c = $time_zone->todayBegin();
+			$date_begin = date('Y-m-d H:i:s', $time_zone->todayBegin());
+			$date_end = date('Y-m-d H:i:s', $time_zone->todayEnd());
 		}elseif($date_limit == 2){
-			$date_begin = date('Y-m-d H:i:s', $time_zone->sundayOfTheWeekOfBegin()->get_time_zone());
-			$date_end = date('Y-m-d H:i:s', $time_zone->sundayOfTheWeekOfEnd()->get_time_zone());
+			$date_begin = date('Y-m-d H:i:s', $time_zone->sundayOfTheWeekOfBegin());
+			$date_end = date('Y-m-d H:i:s', $time_zone->sundayOfTheWeekOfEnd());
 		}elseif($date_limit == 3){
-			$date_begin = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfBegin()->get_time_zone());
-			$date_end = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfEnd()->get_time_zone());
+			$date_begin = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfBegin());
+			$date_end = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfEnd());
 		}elseif($date_limit == 4){
-			$date_end = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfBegin()->get_time_zone());
+			$date_end = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfBegin());
 		}
 
 		// echo $date_begin;
@@ -333,17 +333,17 @@ class Videos extends CI_Model
 		$date_end = '';
 		$date_begin = '';
 		if ($date_limit == 1) {
-			// $date_c = $time_zone->todayBegin()->get_time_zone();
-			$date_begin = date('Y-m-d H:i:s', $time_zone->todayBegin()->get_time_zone());
-			$date_end = date('Y-m-d H:i:s', $time_zone->todayEnd()->get_time_zone());
+			// $date_c = $time_zone->todayBegin();
+			$date_begin = date('Y-m-d H:i:s', $time_zone->todayBegin());
+			$date_end = date('Y-m-d H:i:s', $time_zone->todayEnd());
 		}elseif($date_limit == 2){
-			$date_begin = date('Y-m-d H:i:s', $time_zone->sundayOfTheWeekOfBegin()->get_time_zone());
-			$date_end = date('Y-m-d H:i:s', $time_zone->sundayOfTheWeekOfEnd()->get_time_zone());
+			$date_begin = date('Y-m-d H:i:s', $time_zone->sundayOfTheWeekOfBegin());
+			$date_end = date('Y-m-d H:i:s', $time_zone->sundayOfTheWeekOfEnd());
 		}elseif($date_limit == 3){
-			$date_begin = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfBegin()->get_time_zone());
-			$date_end = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfEnd()->get_time_zone());
+			$date_begin = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfBegin());
+			$date_end = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfEnd());
 		}elseif($date_limit == 4){
-			$date_end = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfBegin()->get_time_zone());
+			$date_end = date('Y-m-d H:i:s', $time_zone->lastDayInMonthOfBegin());
 		}
 
 		$where  = ($date_end)?' AND create_time<"'.$date_end.'"':NULL;
