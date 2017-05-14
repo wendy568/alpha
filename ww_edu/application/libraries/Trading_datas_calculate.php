@@ -282,6 +282,7 @@ class Trading_datas_calculate {
     //TimeNow-AccountOpentTime
     public function transaction_peroid($index)
     {
+    	var_dump(current($this->_data)[$index]);
     	return time() - current($this->_data)[$index];
     }
 
