@@ -26,13 +26,11 @@ class Classes_mission
 
 	private $homework;
 
-	private $videoId;
-
-	private $articleId;
-
 	private $complete;
 
 	private $missionCount = 0;
+
+	private $completeOne = [];
 
 	public function init($mission = null, $homework = null)
 	{
@@ -64,9 +62,16 @@ class Classes_mission
 		return $this;
 	}
 
+
+
 	public function complete_ratio()
 	{
 		return $this->complete / $this->missionCount;
+	}
+
+	public function getOneComplete()
+	{
+		return $this->completeOne;
 	}
 
 	public function distributing()
@@ -80,6 +85,7 @@ class Classes_mission
 	{
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
+				$this->completeOne[$key] = 1;
 				$this->complete += empty(array_diff($value, $param[$key])) ? 1 : 0;
 			}
 		}
@@ -89,6 +95,7 @@ class Classes_mission
 	{
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
+				$this->completeOne[$key] = 1;
 				$this->complete += ($param[$key] >= $value) ? 1 : 0;
 			}
 		}
