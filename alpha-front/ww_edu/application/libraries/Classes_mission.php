@@ -47,8 +47,12 @@ class Classes_mission
 	{
 		$result = [];
 		foreach($this->classes as $key => $value) {
-			$this->jsonDecode($value['homework']);
+			foreach ($this->jsonDecode($value['homework']) as $k => $v) {
+				$result[$k] = $v;
+			
+			}
 		}
+		print_r($result);
 	}
 
 	public function get_mission_complete()
