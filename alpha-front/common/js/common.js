@@ -466,12 +466,12 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
      * @param fn callback function
      *
      * */
-    sessionStorage.setItem('token','');
+
     alpha.prototype.request_Url = function (type, url, data, fn) {
 
         // 每次请求都会带上token信息
 
-        data.token = sessionStorage.getItem("token") || '';
+        data.token = sessionStorage.getItem("alpha_token") || '';
 
         return $.ajax({
           type    : type,
@@ -514,6 +514,19 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             event.stopPropagation();
         });
     };
+
+    // form notification
+    alpha.prototype.props = function (target, direction, msg) {
+        if(target){
+            var box = $('<div style="position: relative;width: auto;height: auto;"></div>');
+
+        }
+    };
+
+    // notification
+    alpha.prototype.notification = function (type,msg) {
+        var cType = type || 'information';
+    }
 
     $.alpha = new alpha();
     $.alpha.Constructor = alpha;
