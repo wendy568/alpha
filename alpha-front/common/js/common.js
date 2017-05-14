@@ -594,6 +594,11 @@ $(function() {
 
 (function ($) {
 
+  sessionStorage.setItem('userInfo',{
+    token : '',
+    email : ''
+  });
+
   /*
   * description Common ajax request
   *
@@ -606,10 +611,11 @@ $(function() {
   * @param fn callback function
   *
   * */
-  $.fn.request_Url = function (type, url, data, fn) {
+  window.request_Url = function (type, url, data, fn) {
 
     // 每次请求都会带上token信息
-    data.token = sessionStorage.getItem("userInfo").token;
+    data.token = sessionStorage.getItem("userInfo").token || '';
+
     return $.ajax({
       type    : type,
       url     : alpha_host + url,
@@ -623,3 +629,6 @@ $(function() {
     });
   };
 })(jQuery);
+
+//******************************* Bind Functions Jquery-form alert OPTIONS  ***************
+
