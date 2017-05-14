@@ -125,12 +125,7 @@ class Trading_datas_calculate {
 		$this->unix_time = strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
 	}
 
-	private function RETNUll()
-	{
-		return null;
-	}
-
-	public function get_week($callback = 'RETNUll', $index = null)
+	public function get_week($callback = null, $index = null)
 	{
 		$datas = $this->_data;
 		$result = [];
@@ -150,7 +145,7 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
-						$value[$index] = call_user_func_array([$this, $callback], [$v]);
+						if($callback) $value[$index] = call_user_func_array([$this, $callback], [$v]);
 						$result[$month . '.' . $day][] = $value;
 					} 
 
