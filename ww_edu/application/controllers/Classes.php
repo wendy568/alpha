@@ -27,7 +27,7 @@ class Classes extends MY_Controller
 			if (!empty($mission[$key])) {
 				$ids = implode(',', $mission[$key]);
 				unset($mission[$key][$k]);
-				$mission[$key][] = $this->showData($ids, $value);
+				$mission[$key][] = $this->showData($ids, $value[0], $value[1]);
 			}
 		}
 		$data['data']['current_stage'] = $mission;
@@ -35,7 +35,7 @@ class Classes extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function showData($ids, $table)
+	public function showData($ids, $table, $cols)
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
@@ -44,7 +44,7 @@ class Classes extends MY_Controller
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
 
-		return $this->ClassesM->showData($ids, $table);
+		return $this->ClassesM->showData($ids, $table, $cols);
 	}
 
 	public function All_stages()

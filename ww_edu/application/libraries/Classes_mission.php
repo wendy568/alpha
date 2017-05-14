@@ -20,7 +20,7 @@ class Classes_mission
 				['Profitable Period' => 'isCountEnough']
 			];
 
-	public $showData = ['Video Learning' => 'classes_text', 'Article learning' => 'article'];
+	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
 
 	private $mission;
 
