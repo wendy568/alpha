@@ -22,7 +22,7 @@ class Classes extends MY_Controller
 		$data['data']['current_stage'] = $this->classes_mission->jsonDecode($original['personal']['homework']);
 
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
-		$viewVideo = $this->classes_mission->init($mission, $data['data']['current_stage'])->get_mission_complete();
+		$viewVideo = $this->classes_mission->init($mission, $data['data']['current_stage'])->get_mission_complete()->property('distributing');
 
 		encode_json($response,$data);
 	}

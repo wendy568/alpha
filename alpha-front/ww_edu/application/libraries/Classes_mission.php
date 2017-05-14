@@ -56,16 +56,26 @@ class Classes_mission
 				}
 			}
 		});
-		var_dump($this->missionCount);
-		print_r($method);
+
+		$this->method = $method;
+
+		return $this;
 	}
 
-	private function is_view()
+	public function distributing()
 	{
+		foreach ($this->method as $key => $value) {
+			$result[$key] = call_user_func_array([$this, $key], $value);
+		}
+	}
+
+	private function is_view($param)
+	{
+		print_r($param);die;
 		$diff1 = $this->mission['Video Learning'];
 		$diff2 = $this->homework['Video Learning'];
 
-		return $this->complete = empty(array_diff($diff1, $diff2)) ? 1 : 0;
+		return $this->complete += empty(array_diff($diff1, $diff2)) ? 1 : 0;
 	}
 
 }
