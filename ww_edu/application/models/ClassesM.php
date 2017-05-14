@@ -64,7 +64,7 @@ class ClassesM extends CI_Model
 				FROM '.$table.'
 				WHERE id="'.$ids.'"';
 		
-		$result = $this->db->query($map)->result_array();
+		$result = $this->db->query($map)->row_array();
 		return $result;
 	}
 
