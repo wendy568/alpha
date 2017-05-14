@@ -26,8 +26,8 @@ class Classes extends MY_Controller
 		foreach ($showData as $key => $value) {
 			if (!empty($mission[$key])) {
 				$ids = implode(',', $mission[$key]);
-				unset($mission[$key][$k]);
-				$mission[$key][] = $this->showData($ids, $value[0], $value[1]);
+				unset($mission[$key]);
+				$mission[$key] = $this->showData($ids, $value[0], $value[1]);
 			}
 		}
 		$data['data']['current_stage'] = $mission;
