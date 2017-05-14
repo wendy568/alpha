@@ -64,6 +64,7 @@ class Classes_mission
 
 	public function distributing()
 	{
+		print_r($this->method);
 		foreach ($this->method as $key => $value) {
 			$result[$key] = call_user_func_array([$this, $key], $value);
 		}
