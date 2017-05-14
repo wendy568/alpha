@@ -135,7 +135,8 @@ class Trading_datas_calculate {
 		$week = $time_zone->get_week($this->unix_time);
 		$todayBegin = $time_zone->todayBegin();
 		$todayEnd = $time_zone->todayEnd();
-
+		var_dump($todayBegin);
+		var_dump($todayEnd);
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				foreach ($week as $val) {
