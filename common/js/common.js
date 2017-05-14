@@ -448,9 +448,38 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
 
     }
 
+    /*
+     * description Common ajax request
+     *
+     * @param type post , get , or put method
+     *
+     * @param url request url
+     *
+     * @param data request parameter
+     *
+     * @param fn callback function
+     *
+     * */
+    alpha.prototype.request_Url = function (type, url, data, fn) {
+
+      // 每次请求都会带上token信息
+      data.token = sessionStorage.getItem("userInfo").token || '';
+
+      return $.ajax({
+        type    : type,
+        url     : alpha_host + url,
+        data    : data,
+        success : function(res){
+          fn && fn(res);
+        },
+        error   : function(err) {
+          console.log(err);
+        }
+      });
+    };
+
     $.alpha = new alpha();
     $.alpha.Constructor = alpha;
-
 })(window.jQuery);
 
 // DEMO STUFF
@@ -590,45 +619,5 @@ $(function() {
 );
 
 
-//******************************* Bind Functions Jquery-request OPTIONS  ***************
-
-(function ($) {
-
-  sessionStorage.setItem('userInfo',{
-    token : '',
-    email : ''
-  });
-
-  /*
-  * description Common ajax request
-  *
-  * @param type post , get , or put method
-  *
-  * @param url request url
-  *
-  * @param data request parameter
-  *
-  * @param fn callback function
-  *
-  * */
-  window.request_Url = function (type, url, data, fn) {
-
-    // 每次请求都会带上token信息
-    data.token = sessionStorage.getItem("userInfo").token || '';
-
-    return $.ajax({
-      type    : type,
-      url     : alpha_host + url,
-      data    : data,
-      success : function(res){
-        fn && fn(res);
-      },
-      error   : function(err) {
-        console.log(err);
-      }
-    });
-  };
-})(jQuery);
-
-//******************************* Bind Functions Jquery-form alert OPTIONS  ***************
+//******************************* Bind Functions Jquery-form  OPTIONS  ***************
 

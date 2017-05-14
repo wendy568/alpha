@@ -165,7 +165,7 @@
                         password : pwd
                     };
                     if (email && pwd){
-                      request_Url('POST','user/login',data,function (res) {
+                      $.alpha.request_Url('POST','user/login',data,function (res) {
                         if(res.archive.status == 0){
                           sessionStorage.setItem('userInfo',{
                             token : res.data.token || '',
@@ -201,7 +201,7 @@
                     };
 
                     if (firstName && email && pwd){
-                        request_Url('POST','user/register',data,function (res) {
+                        $.alpha.request_Url('POST','user/register',data,function (res) {
                             if(res.archive.status == 0){
                                 sessionStorage.setItem('userInfo',{
                                     token : res.data.token || '',
