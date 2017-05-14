@@ -82,11 +82,11 @@ class Classes_mission
 		array_walk($this->category, function ($val, $key) use (&$method, $homework) {
 			foreach ($homework as $k => $v) {
 				if ($k == $key) {
-					$method[$val][$k] = $v;
+					if($val) $method[$val][$k] = $v;
 				}
 			}
 		});
-		print_r($method);die;
+
 		$this->method = $method;
 
 		return $this;
