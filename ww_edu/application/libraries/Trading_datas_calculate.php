@@ -139,13 +139,8 @@ class Trading_datas_calculate {
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				foreach ($week as $val) {
-					$slice = explode('-', $val);
-					$year = $slice[0];
-					$month = $slice[1]; 
-					$day = $slice[2];
-					$start = mktime(00, 00, 00, $month, $day, $year);
-					$end = mktime(23, 59, 59, $month, $day, $year);
-					
+					$start = $time_zone->theDayStart($val);
+					$end = $time_zone->theDayEnd($val);
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
 						// if ($v > $todayBegin && $v < $todayEnd) {
 							$value['align_top'] = $this->align_time($v);
