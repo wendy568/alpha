@@ -19,13 +19,15 @@ class Classes extends MY_Controller
 		$original = $this->ClassesM->current_stage($uid);
 
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
-		print_r($mission);die;
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		// foreach ( $this->classes_mission->init($mission, $personal)->showData as $key => $value) {
-		// 	if ($key == ) {
-		// 		# code...
-		// 	}
-		// }
+		foreach ( $this->classes_mission->init($mission, $personal)->showData as $key => $value) {
+			if (!empty($mission[$key])) {
+				foreach ($mission as $k) {
+					$mission[$k] = $this->showData($k, $value);
+				}
+			}
+		}
+		$data['data']['current_stage'] = $mission;
 		$data['data']['complete'] = $this->classes_mission->init($mission, $personal)->get_mission_complete()->property('distributing')->complete_ratio();
 
 		encode_json($response,$data);
