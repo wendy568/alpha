@@ -53,6 +53,7 @@ class Classes_mission
 				$result[$k] = $v;
 			}
 		}
+		print_r(array_diff($this->category, $result));
 		print_r($result);
 	}
 
