@@ -35,7 +35,7 @@ class Classes extends MY_Controller
 		// $this->classes_mission->init($mission, $personal, $allProcess);
 		$data['data']['complete'] = $this->classes_mission->init($mission, $personal, $allProcess)->get_mission_complete()->property('distributing')->complete_ratio();
 		$data['data']['is_complete'] = $this->classes_mission->init($mission, $personal, $allProcess)->get_mission_complete()->property('distributing')->getOneComplete();
-		$showData = $this->classes_mission->init($mission, $personal)->showData;
+		$showData = $this->classes_mission->showData;
 
 		foreach ($showData as $key => $value) {
 			if (!empty($mission[$key])) {
