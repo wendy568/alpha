@@ -225,6 +225,7 @@ class Trading_datas_calculate {
 			var_dump(date('Y-m-d H', $value));
 			return 1;
 		} else {
+			echo 1234;
 			return 0;
 		}
 
