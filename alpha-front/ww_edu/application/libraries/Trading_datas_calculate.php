@@ -220,9 +220,7 @@ class Trading_datas_calculate {
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == $index) {
-					echo '13131131313131313123121313123131312312313123123';
-					echo $time . '-' . $v;
-					echo '13131131313131313123121313123131312312313123123';
+					echo $time . '-' . $v . '|      ';
 					if($time == strtotime(date('Y-m-d H', $v))){
 
 	    				$datas[$key]['align_time'] = 1;
