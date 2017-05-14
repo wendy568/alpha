@@ -54,6 +54,7 @@ class Classes_mission
 	public function get_distribution()
 	{
 		$this->category = $this->distribution;
+		print_r($this->category);die;
 		return $this;
 	}
 
