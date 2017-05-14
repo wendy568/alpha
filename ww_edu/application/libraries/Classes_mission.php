@@ -71,6 +71,7 @@ class Classes_mission
 
 	private function is_view($param)
 	{
+		print_r($this->mission);
 		print_r($param);die;
 		$diff1 = $this->mission['Video Learning'];
 		$diff2 = $this->homework['Video Learning'];
