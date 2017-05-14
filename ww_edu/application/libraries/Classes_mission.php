@@ -78,7 +78,8 @@ class Classes_mission
 	{
 		$method = [];
 		$homework = $this->homework;
-
+		if (!empty($this->needRecord)) $homework = $this->needRecord;
+		
 		array_walk($homework, function ($val, $key) use (&$homework) {
 			$homework[$key] = $val;
 		});
