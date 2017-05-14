@@ -219,8 +219,8 @@ class Trading_datas_calculate {
 
     	$time = date('G');
 		var_dump($time);
-		var_dump(date('G', $value));die;
-		if($time == date('Y-m-d H:00:00', $value)){
+		var_dump(date('G', $value));
+		if($time == date('G', $value)){
 			
 			return 1;
 		} else {
