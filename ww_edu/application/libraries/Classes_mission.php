@@ -7,18 +7,18 @@ class Classes_mission
 	protected $category;
 
 	protected $distribution = [
-				'Video Learning' => 'record',
-				'Video learning' => 'record',
-				'Article learning' => 'record',
+				'Video Learning' => 'read',
+				'Video learning' => 'read',
+				'Article learning' => 'read',
 				'Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => '', 'Make Transaction 2' => '',
 				'4 style trade' => 'isCountEnough',
 				'take profits/stop loss' => 'isCountEnough',
 				'Trade all kinds products' => 'isCountEnough', 'Task 2 - 10 different products' => 'isCountEnough', '5 tradable products' => 'isCountEnough',
 				'Trading Record' => 'isCountEnough',
-				'Learning Report' => 'isCountEnough',
+				'Learning Report' => '',
 				'Trading Score' => 'isCountEnough',
 				'Task 1 - 2 different markets' => 'isCountEnough',
-				'Produce a module' => 'isCountEnough',
+				'Produce a module' => '',
 				'Risk Management Level' => 'isCountEnough',
 				'Profitable Period' => 'isCountEnough'
 			];
@@ -30,6 +30,8 @@ class Classes_mission
 	protected $mission;
 
 	protected $homework;
+
+	public $public_params;
 
 	protected $complete;
 
@@ -86,7 +88,7 @@ class Classes_mission
 				}
 			}
 		});
-		print_r($method);
+
 		$this->method = $method;
 
 		return $this;
@@ -129,6 +131,11 @@ class Classes_mission
 				$this->complete += ($param[$key] >= $value) ? 1 : 0;
 			}
 		}
+	}
+
+	protected function read($param)
+	{
+
 	}
 
 }
