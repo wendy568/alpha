@@ -37,7 +37,7 @@ class Classes extends MY_Controller
 
 		if($ratio != 1) {
 			$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
-			print_r($this->classes_mission->init($mission, $personal, $allProcess)->is_complete($is_complete))->get_mission_complete()->property('distributing');
+			print_r($this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete))->get_mission_complete()->property('distributing');
 			die;
 			$this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->get_mission_complete();
 		}
