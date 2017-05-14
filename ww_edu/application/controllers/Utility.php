@@ -44,7 +44,7 @@ class Utility extends MY_Controller
 		$left_right = $this->input->get_post('left_right', TRUE);
 		$time_node = $this->input->get_post('time_node', TRUE);
 
-		$start = '+3';
+		$start = '+0';
 		$nextOrLast = '+0';
 		if($left_right == 'left') {
 			$start = '-1';
