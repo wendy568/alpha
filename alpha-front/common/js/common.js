@@ -485,6 +485,31 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
 
     $.alpha = new alpha();
     $.alpha.Constructor = alpha;
+
+    // alert box
+    alpha.prototype.alertBox = function(title, msg, url){
+        var alert = document.createElement('div');
+        $(alert).attr({
+            id: 'alert_box'
+        });
+        var html = `<div class="alert animated fadeInDown">
+                        <div class="alert-head">
+                            <i class="fa fa-exclamation"></i>
+                            <span>${title}</span>
+                            <div class="controller">
+                                <a class="remove" id="close_alertBox"></a>
+                            </div>
+                        </div>
+                        <div class="alert-body">
+                            <p>${msg}</p>
+                            <a href="${url}" class="btn btn-success m-t-30" style="width: 60px;" >OK</a>
+                        </div>
+                    </div>`;
+        alert.innerHTML = html;
+        $('body').append(alert);
+        return html;
+    };
+    
 })(window.jQuery);
 
 // DEMO STUFF
