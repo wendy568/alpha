@@ -214,7 +214,7 @@ class Trading_datas_calculate {
     private function align_time($index, $data = [])
     {
     	echo date_default_timezone_get();
-    	print_r(getdate());
+    	print_r(getdate(1494743415));
     	var_dump(time());
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
