@@ -46,14 +46,6 @@
                             </a>
                         </li>
                         <li class="module">
-                            <a href="#quotation" role="tab" data-toggle="tab">
-                                <div class="module-icon">
-                                    <i class="tools_img tool_canlendar"></i>
-                                </div>
-                                <p class="text-center text-c4">Quotation</p>
-                            </a>
-                        </li>
-                        <li class="module">
                             <a href="#log" role="tab" data-toggle="tab">
                                 <div class="module-icon">
                                     <i class="tools_img tool_quotation"></i>
@@ -61,7 +53,15 @@
                                 <p class="text-center text-c4">Log</p>
                             </a>
                         </li>
-                        <li class="module">
+                        <!-- <li class="module">
+                            <a href="#quotation" role="tab" data-toggle="tab">
+                                <div class="module-icon">
+                                    <i class="tools_img tool_canlendar"></i>
+                                </div>
+                                <p class="text-center text-c4">Quotation</p>
+                            </a>
+                        </li> -->
+                        <!-- <li class="module">
                             <div class="module-add-icon dropdown-toggle" data-toggle="dropdown" >
                                 <i class="fa fa-plus fa-2x text-c2" style="margin: 3px 18px;"></i>
                             </div>
@@ -83,7 +83,7 @@
                                     <i class="fa fa-angle-up fa-2x text-center" style="margin:0 25px;"></i>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- content -->
@@ -218,9 +218,9 @@
                     </div>
 
                     <!-- Quotation市场行情数据  -->
-                    <div id="quotation" class="row no-margin tab-pane">
+                    <!-- <div id="quotation" class="row no-margin tab-pane"> -->
                         <!-- 提示 -->
-                        <div class="col-lg-8 col-sm-5 col-xs-12">
+                        <!-- <div class="col-lg-8 col-sm-5 col-xs-12">
                             <p>Color shown indicate the amount change in the express rete for a curreny pair Color shown indicate the amount change in the express rete for a curreny pair</p>
                         </div>
                         <div class="col-lg-4 col-sm-7 col-xs-12 no-padding">
@@ -509,15 +509,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                     
                     <!-- 交易日志 -->
-                    <div id="log" class="row m-b-30 tab-pane">
+                    <div id="log" class="row m-b-30 tab-pane En-log">
                         <div class="col-sm-12 m-b-30">
                             <div class="pull-left">
                                 <strong class="text-c2">ALL TRADING LOGS</strong>
-                                <span class="m-l-5">OverAll <span class="text-success">5</span></span>
+                                <span class="m-l-5">OverAll <span class="text-success"></span></span>
                                 <button class="btn btn-white m-l-20">A week</button>
                                 <div class="input-append date no-padding m-l-30 pull-right" style="width: 100px;">
                                     <input type="text" class="form-control no-boarder" placeholder="Today">
@@ -547,54 +547,15 @@
                                 <!-- title -->
                                 <div class="grid-title no-border " style="height: 100px;">
                                     <div class="carousel-inner">
-                                        <a href="" class="col-sm-1 text-center">
+                                        <a class="col-sm-1 text-center">
+                                            <input type="button" style="display: none" id="preLog"/>
+                                            <label for="preLog" class="disabled-box" ></label>
                                             <i class="calendar2x calendar_left m-t-15 text-c3" style="line-height: 70px;"></i>
                                         </a>
-                                        <ul class="no-margin no-padding col-sm-10" >
-                                            <li class="date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="inner-col item date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="inner-col item  date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="inner-col item   date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                            <li class="inner-col item   date">
-                                                <div class="text-c1 small-text text-center">SUN</div>
-                                                <div class="text-c3 text-center">
-                                                    <span class="large-text ">03</span>/04
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <a href="" class="col-sm-1 text-center">
+                                        <ul class="no-margin no-padding col-sm-10 log-tab"> </ul>
+                                        <a class="col-sm-1 text-center">
+                                            <input type="button" style="display: none" id="nextLog"/>
+                                            <label for="nextLog" class="disabled-box" ></label>
                                             <i class="calendar2x calendar_right m-t-15 text-c3" style="line-height: 70px;"></i>
                                         </a>
                                     </div>
@@ -608,67 +569,8 @@
                                         <i class="status-icon red m-r-20"></i>
                                         <i class="status-icon yellow m-r-20"></i>
                                     </p>
-                                    <div class="row">
-                                        <div class="col-lg-4 ">
-                                            <div class="log">
-                                                <!--log title -->
-                                                <img src="assets/img/log_bg_01.png" alt="" class="log-title">
-                                                <!--log body -->
-                                                <div class="log-body">
-                                                    <h3><i class="status-icon green"></i>Daily Log For Trading</h3>
-                                                    <p class="log-data">2017-05-16 11:00</p>
-                                                    <p class="log-content">
-                                                        Tracks developments in the number and value of outstanding home loans in Australia.Home Loans are a measure of activity in the housing market.The figure,also know as Owner Occupied Housing Loans.
-                                                    </p>
-                                                </div>
-                                                <div class="log-foot hide">
-                                                    <p class="text-center">
-                                                        <i class="fa fa-edit"></i>
-                                                        <a href="#" class="m-l-5 text-c3" data-toggle="modal" data-target="#editModal">Edit</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="log">
-                                                <!--log title -->
-                                                <img src="assets/img/log_bg_02.png" alt="" class="log-title">
-                                                <!--log body -->
-                                                <div class="log-body">
-                                                    <h3><i class="status-icon green"></i>Daily Log For Trading</h3>
-                                                    <p class="log-data">2017-05-16 11:00</p>
-                                                    <p class="log-content">
-                                                        Tracks developments in the number and value of outstanding home loans in Australia.Home Loans are a measure of activity in the housing market.The figure,also know as Owner Occupied Housing Loans.
-                                                    </p>
-                                                </div>
-                                                <div class="log-foot hide">
-                                                    <p class="text-center">
-                                                        <i class="fa fa-edit"></i>
-                                                        <a href="#" class="m-l-5 text-c3" data-toggle="modal" data-target="#editModal">Edit</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="log">
-                                                <!--log title -->
-                                                <img src="assets/img/log_bg_03.png" alt="" class="log-title">
-                                                <!--log body -->
-                                                <div class="log-body">
-                                                    <h3><i class="status-icon green"></i>Daily Log For Trading</h3>
-                                                    <p class="log-data">2017-05-16 11:00</p>
-                                                    <p class="log-content">
-                                                        Tracks developments in the number and value of outstanding home loans in Australia.Home Loans are a measure of activity in the housing market.The figure,also know as Owner Occupied Housing Loans.
-                                                    </p>
-                                                </div>
-                                                <div class="log-foot hide">
-                                                    <p class="text-center" data-toggle="modal" data-target="#editModal">
-                                                        <i class="fa fa-edit"></i>
-                                                        <a href="#" class="m-l-5 text-c3">Edit</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="row logList">
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -687,26 +589,34 @@
                                     <div class="form-group">
                                         <label class="form-label">Subject</label>
                                         <div class="input-with-icon right">
-                                            <input class="form-control" id="form1CardNumber" name="form1CardNumber" type="text" pattern="[0-9]{13,16}" required>
+                                            <input class="form-control" name="title" type="text" required>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Description</label>
-                                        <textarea name="" id="" cols="40" rows="5"></textarea>
+                                        <textarea name="content" cols="40" rows="5"></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="form-label">Mark</label>
                                         <div style="display: inline-block;">
-                                            <i class="status-icon green m-r-20"></i>
-                                            <i class="status-icon red m-r-20"></i>
-                                            <i class="status-icon yellow m-r-20"></i>
-                                            <i class="status-icon blue m-r-20"></i>
+                                            <label class="status-icon green m-r-30" style="z-index: 10000">
+                                                <input type="radio" name="green" class="m-r-20" style="opacity: 0">
+                                            </label>
+                                            <label class="status-icon red m-r-30">
+                                                <input type="radio" name="red" class="m-r-20" style="opacity: 0">
+                                            </label>
+                                            <label class="status-icon yellow m-r-30">
+                                                <input type="radio" name="yellow" class="m-r-20" style="opacity: 0">
+                                            </label>
+                                            <label class="status-icon blue m-r-30">
+                                                <input type="radio" name="blue" class="m-r-20" style="opacity: 0">
+                                            </label>
                                         </div>
                                     </div>
                                     <p class="text-center">
-                                        <button class="btn btn-success" type="submit">Submit</button>
+                                        <button class="btn btn-success submit" type="submit">Submit</button>
                                     </p>
                                 </form>
                             </div>

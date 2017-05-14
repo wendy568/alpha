@@ -1,6 +1,8 @@
 (function () {
 	$('.log').hover(function(){
-        $(this).children('.log-foot').toggleClass('hide');
+        $(this).find('.log-foot').css('visibility','visible');
+    },function(){
+    	$(this).find('.log-foot').css('visibility','hidden');
     });
 
     $('.fa-close').click(function(){
@@ -167,154 +169,303 @@
     });
 
     //news--------------------------------------------------------------------------
-    $('.module').eq(1).click(function(){
-    	var dateList = [];
-    	var weeks = ['SUN','MON','TUE','WEN','THUR','FRI','SAT'];
-    	function getNewsData(firstDate,direction,fn){
-    		var date = {
-	            left_right : direction || '',
-	            time_node : firstDate || ''
-	        };
-	    	$.alpha.request_Url('post','Utility/week_news',date,function(data){
-	    		if(data.archive.status == 0){
-	    			dateList = [];
-	                var isCurDay = false;
-	                $.each(data.data.news,function (i,item) {
-	                    dateList.push(i);
-	                    
-	                    i = i.replace('.','-').replace('.','-');
-	                    var x = i;
-	                    var curDay = new Date(i);
-	                    var month = curDay.getMonth()+1 < 10 ? '0' + (curDay.getMonth()+1) : curDay.getMonth()+1;
-	                    var day = curDay.getDate() < 10 ? '0' + curDay.getDate() : curDay.getDate();
-	                    isCurDay = new Date().getDay() == curDay.getDay();
-	                    activeClass = isCurDay ? 'active' : '';
-	                    var $navBar = $('<li class="date ' + activeClass + '">' +
-	                                  '<div class="text-c1 small-text text-center">'+weeks[curDay.getDay()]+'</div>' +
-	                                  '<div class="text-c3 text-center">'+ month +'/' + day + '</div></li>');
-	                    $navBar.on('click',function (e) {
-	                        e.stopPropagation();
-	                        $('.news-tab li').removeClass('active');
-	                        $(this).addClass('active');
-	                        var index = $(this).index();
-	                        
-	                        $('.news-tab-content').hide().eq(index).show();
-	                    });
-	                    $('.En-news .news-tab').append($navBar);
+	function getNewsData(firstDate,direction,fn){
+		var date = {
+            left_right : direction || '',
+            time_node : firstDate || ''
+        };
+    	$.alpha.request_Url('post','Utility/week_news',date,function(data){
+    		if(data.archive.status == 0){
+    			dateList = [];
+                var isCurDay = false;
+                $.each(data.data.news,function (i,item) {
+                    dateList.push(i);
+                    
+                    i = i.replace('.','-').replace('.','-');
+                    var x = i;
+                    var curDay = new Date(i);
+                    var month = curDay.getMonth()+1 < 10 ? '0' + (curDay.getMonth()+1) : curDay.getMonth()+1;
+                    var day = curDay.getDate() < 10 ? '0' + curDay.getDate() : curDay.getDate();
+                    isCurDay = new Date().getDay() == curDay.getDay();
+                    activeClass = isCurDay ? 'active' : '';
+                    var $navBar = $('<li class="date ' + activeClass + '">' +
+                                  '<div class="text-c1 small-text text-center">'+weeks[curDay.getDay()]+'</div>' +
+                                  '<div class="text-c3 text-center">'+ month +'/' + day + '</div></li>');
+                    $navBar.on('click',function (e) {
+                        e.stopPropagation();
+                        $('.news-tab li').removeClass('active');
+                        $(this).addClass('active');
+                        var index = $(this).index();
+                        
+                        $('.news-tab-content').hide().eq(index).show();
+                    });
+                    $('.En-news .news-tab').append($navBar);
 
-	                    // content
-	                    var oneUl=Math.ceil(item.length/2);
-	                    var $content = $('<div class="news-tab-content"></div>');
-	                    var $leftContent = $('<div class="col-sm-12 col-md-6 newsLeft"></div>');
-	                    var $rightContent = $('<div class="col-sm-12 col-md-6 newsRight"></div>');
-	                    var $contentItem_left = $('<ul class="cbp_tmtimeline"></ul>');
-	                    var $contentItem_right = $('<ul class="cbp_tmtimeline"></ul>');
-	                    var leftItem = '', rightItem = '';
-	                    $.each(item,function(i,data){
-	                    	var newDate=new Date();
-			                newDate.setTime(data.time * 1000);
-			                var newsTime=newDate.toTimeString().substring(0,5);
-			                if(i<oneUl){
-			                	leftItem += '<li class="panel">' +
-                                            '<div class="panel-heading">' +
-                                                '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i +'">' +
-                                                    '<time class="cbp_tmtime" datetime="18:30">' +
-                                                        '<span class="time">'+ newsTime +'</span>' +
-                                                    '</time>' +
-                                                    '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>' +
-                                                    '<div class="cbp_tmlabel">' +
-                                                        '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">' +
-                                                            '<p class="m-t-5 text-c2">' + data.title + '</p>' +
-                                                        '</div>' +
-                                                        '<div class="clearfix"></div>' +
+                    // content
+                    var oneUl=Math.ceil(item.length/2);
+                    var $content = $('<div class="news-tab-content"></div>');
+                    var $leftContent = $('<div class="col-sm-12 col-md-6 newsLeft"></div>');
+                    var $rightContent = $('<div class="col-sm-12 col-md-6 newsRight"></div>');
+                    var $contentItem_left = $('<ul class="cbp_tmtimeline"></ul>');
+                    var $contentItem_right = $('<ul class="cbp_tmtimeline"></ul>');
+                    var leftItem = '', rightItem = '';
+                    $.each(item,function(i,data){
+                    	var newDate=new Date();
+		                newDate.setTime(data.time * 1000);
+		                var newsTime=newDate.toTimeString().substring(0,5);
+		                if(i<oneUl){
+		                	leftItem += '<li class="panel">' +
+                                        '<div class="panel-heading">' +
+                                            '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i +'">' +
+                                                '<time class="cbp_tmtime" datetime="18:30">' +
+                                                    '<span class="time">'+ newsTime +'</span>' +
+                                                '</time>' +
+                                                '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>' +
+                                                '<div class="cbp_tmlabel">' +
+                                                    '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">' +
+                                                        '<p class="m-t-5 text-c2">' + data.title + '</p>' +
                                                     '</div>' +
-                                                '</a>' +
-                                            '</div>' +
-                                            '<div id="collapse'+ i +'" class="panel-collapse collapse">' +
-                                                 '<div class="panel-body">'+ data.desc +'</div>' +
-                                            '</div>' +
-                                        '</li>' ;
-			                }else{
-			                	rightItem += '<li class="panel">' +
-                                    '<div class="panel-heading">' +
-                                        '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i +'">' +
-                                            '<time class="cbp_tmtime" datetime="18:30">' +
-                                                '<span class="time">'+ newsTime +'</span>' +
-                                            '</time>' +
-                                            '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>' +
-                                            '<div class="cbp_tmlabel">' +
-                                                '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">' +
-                                                    '<p class="m-t-5 text-c2">' + data.title + '</p>' +
+                                                    '<div class="clearfix"></div>' +
                                                 '</div>' +
-                                                '<div class="clearfix"></div>' +
+                                            '</a>' +
+                                        '</div>' +
+                                        '<div id="collapse'+ i +'" class="panel-collapse collapse">' +
+                                             '<div class="panel-body">'+ data.desc +'</div>' +
+                                        '</div>' +
+                                    '</li>' ;
+		                }else{
+		                	rightItem += '<li class="panel">' +
+                                '<div class="panel-heading">' +
+                                    '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i +'">' +
+                                        '<time class="cbp_tmtime" datetime="18:30">' +
+                                            '<span class="time">'+ newsTime +'</span>' +
+                                        '</time>' +
+                                        '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>' +
+                                        '<div class="cbp_tmlabel">' +
+                                            '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">' +
+                                                '<p class="m-t-5 text-c2">' + data.title + '</p>' +
                                             '</div>' +
-                                        '</a>' +
-                                    '</div>' +
-                                    '<div id="collapse'+ i +'" class="panel-collapse collapse">' +
-                                         '<div class="panel-body">'+ data.desc +'</div>' +
-                                    '</div>' +
-                                '</li>';
-			                }
-	                    });
-	                    $content.append($leftContent.append($contentItem_left.html(leftItem)));
-	                    $content.append($rightContent.append($contentItem_right.html(rightItem)));
-	                    isCurDay ? $content.show() : $content.hide();
-                    	$('#newsContent').append($content);
-	                });
-	    		}
-	    		fn && fn(data);
-	    	});
-    	}
-    	getNewsData();
-    	$('.En-news .carousel-inner>a').eq(0).find('input').click(function (e) {
-	        e.stopPropagation();
-	        var $this = $(this);
-	        var lastDate = dateList[0].replace('.','-').replace('.','-');
-	        $('.En-news .news-tab').empty();
-	        $('.news-tab-content').remove();
-	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left',function(){
-	        	$this.prop('disabled',false);
-	        });
-	    });
-	    $('.En-news .carousel-inner>a').eq(1).find('input').click(function (e) {
-	        e.stopPropagation();
-	        var $this = $(this);
-	        var lastDate = dateList[6].replace('.','-').replace('.','-');
-	        $('.En-news .news-tab').empty();
-	        $('.news-tab-content').remove();
-	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right',function(){
-	        	$this.prop('disabled',false);
-	        });
-	    });
+                                            '<div class="clearfix"></div>' +
+                                        '</div>' +
+                                    '</a>' +
+                                '</div>' +
+                                '<div id="collapse'+ i +'" class="panel-collapse collapse">' +
+                                     '<div class="panel-body">'+ data.desc +'</div>' +
+                                '</div>' +
+                            '</li>';
+		                }
+                    });
+                    $content.append($leftContent.append($contentItem_left.html(leftItem)));
+                    $content.append($rightContent.append($contentItem_right.html(rightItem)));
+                    isCurDay ? $content.show() : $content.hide();
+                	$('#newsContent').append($content);
+                });
+    		}
+    		fn && fn(data);
+    	});
+	}
+	getNewsData();
+
+	$('.En-news .carousel-inner>a').eq(0).find('input').click(function (e) {
+        e.stopPropagation();
+        var $this = $(this);
+        var lastDate = dateList[0].replace('.','-').replace('.','-');
+        $('.En-news .news-tab').empty();
+        $('.news-tab-content').remove();
+        getNewsData(parseInt((new Date(lastDate).getTime())/1000),'left',function(){
+        	$this.prop('disabled',false);
+        });
+    });
+    $('.En-news .carousel-inner>a').eq(1).find('input').click(function (e) {
+        e.stopPropagation();
+        var $this = $(this);
+        var lastDate = dateList[6].replace('.','-').replace('.','-');
+        $('.En-news .news-tab').empty();
+        $('.news-tab-content').remove();
+        getNewsData(parseInt((new Date(lastDate).getTime())/1000),'right',function(){
+        	$this.prop('disabled',false);
+        });
     });
   
+  	// log-----------------------------------------------------------------------------
+	function getLogData(firstDate,direction,fn){
+		var date = {
+            left_right : direction || '',
+            time_node : firstDate || ''
+        };
+        // logList
+  		$.alpha.request_Url('post','Utility/tradingLogList',date,function(data){
+  			if(data.archive.status == 0){
+    			dateList = [];
+                var isCurDay = false;
+                // overall
+                $('.pull-left .text-success').html(data.data.OverAll);
+
+                $.each(data.data.trading_logs,function (i,item) {
+                    dateList.push(i);
+                    
+                    i = i.replace('.','-').replace('.','-');
+                    var x = i;
+                    var curDay = new Date(i);
+                    var month = curDay.getMonth()+1 < 10 ? '0' + (curDay.getMonth()+1) : curDay.getMonth()+1;
+                    var day = curDay.getDate() < 10 ? '0' + curDay.getDate() : curDay.getDate();
+                    isCurDay = new Date().getDay() == curDay.getDay();
+                    activeClass = isCurDay ? 'active' : '';
+                    var $navBar = $('<li class="date ' + activeClass + '">' +
+                                  '<div class="text-c1 small-text text-center">'+weeks[curDay.getDay()]+'</div>' +
+                                  '<div class="text-c3 text-center">'+ month +'/' + day + '</div></li>');
+                    $navBar.on('click',function (e) {
+                        e.stopPropagation();
+                        $('.log-tab li').removeClass('active');
+                        $(this).addClass('active');
+                        var index = $(this).index();
+                        
+                        $('.log-tab-content').hide().eq(index).show();
+                    });
+                    $('.En-log .log-tab').append($navBar);
+
+                    // content
+                    var $content = $('<div class="log-tab-content"></div>');
+                    var log_html='';
+                    $.each(item,function(i,data){
+                    	if(data.color == "red"){
+                    		titleImg='src="assets/img/log_bg_01.png"';
+                    	}else if(data.color == "yellow"){
+                    		titleImg='src="assets/img/log_bg_02.png"';
+                    	}else if(data.color == "blue"){
+                    		titleImg='src="assets/img/log_bg_03.png"';
+                    	};
+
+                    	log_html +=
+                    	'<div class="col-lg-4 m-b-40">'+
+                            '<div class="log">'+
+                                '<img '+ titleImg +'" alt="" class="log-title">'+
+                                '<div class="log-body">'+
+                                    '<h3>'+
+                                    	'<i class="status-icon '+ data.color +'"></i>'+ data.title +
+                                    '</h3>'+
+                                    '<p class="log-data">'+ data.update_time +'</p>'+
+                                    '<p class="log-content">'+ data.content +'</p>'+
+                                '</div>'+
+                                '<div class="log-foot">'+
+                                    '<p class="text-center">'+
+                                        '<i class="fa fa-edit"></i>'+
+                                        '<a href="#" class="m-l-5 text-c3" data-toggle="modal" data-target="#editModal">Edit</a>'+
+                                    '</p>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>';
+                    	
+                    });
+                    $content.html(log_html);
+                    isCurDay ? $content.show() : $content.hide();
+                   	$('.logList').append($content);
+                });
+    		}
+    		fn && fn(data);
+  		});
+	}
+	getLogData();
+
+	$('.En-log .carousel-inner>a').eq(0).find('input').click(function (e) {
+        e.stopPropagation();
+        var $this = $(this);
+        var lastDate = dateList[0].replace('.','-').replace('.','-');
+        $('.En-log .log-tab').empty();
+        $('.log-tab-content').remove();
+        getLogData(parseInt((new Date(lastDate).getTime())/1000),'left',function(){
+        	$this.prop('disabled',false);
+        });
+    });
+    $('.En-log .carousel-inner>a').eq(1).find('input').click(function (e) {
+        e.stopPropagation();
+        var $this = $(this);
+        var lastDate = dateList[6].replace('.','-').replace('.','-');
+        $('.En-log .log-tab').empty();
+        $('.log-tab-content').remove();
+        getLogData(parseInt((new Date(lastDate).getTime())/1000),'right',function(){
+        	$this.prop('disabled',false);
+        });
+    });
+
+    // logAdd-----------------------------------------------------------------------------
+    var titleReg=/^[A-Za-z0-9]{2,12}$/;	
+    var contentReg=/^[A-Za-z0-9]{10,300}$/;	
+
+    $('[name="title"]').change(function () {
+        if(titleReg.test($(this).val())){
+            $.alpha.props($(this).parent(),'none');
+        }else{
+            $.alpha.props($(this).parent(),'right','Please enter 2-12 characters!');
+        }
+    });
+    $('[name="content"]').change(function () {
+        if(contentReg.test($(this).val())){
+            $.alpha.props($(this).parent(),'none');
+        }else{
+            $.alpha.props($(this).parent(),'right','Please enter at least 10 characters!');
+        }
+    });
+
+
+
+    $('.submit').click(function(){
+    	var title=$('.form-control[name="title"]').val();
+    	var content=$('[name="content"]').val();
+    	var data={
+    		title : title,
+    		content : content
+    	}
+
+    	if(title && content){
+	    	$.alpha.request_Url('post','Utility/addTradingLog',data,function(res){
+	    		if(res.archive.status == 0){
+	    			$.alpha.notification('success','Add Success');
+	    		}else{
+	    			$.alpha.alertBox('Fail','Add Failed');
+	    		}
+	    	});
+    	}else{
+    		if(!title){
+    			$.alpha.props($('.form-control[name="title"]').parent(),'right','Not Empty!');
+    		}
+    		if(!content){
+    			$.alpha.props($('[name="content"]').parent(),'right','Not Empty!');
+    		}
+    	}
+    });
   
-  function getFlagOfCountry(country) {
-    var countryClass = '';
-    if(country == 'New Zealand'){
-      countryClass = 'country_nzd';
-    }
-    else if(country == 'Japan'){
-      countryClass = 'country_jpy';
-    }
-    else if(country == 'China'){
-      countryClass = 'country_cny';
-    }
-    else if(country == 'the United States'){
-      countryClass = 'country_usd';
-    }
-    else if(country == 'the United Kingdom'){
-      countryClass = 'country_gbp';
-    }
-    else if(country == 'Australia'){
-      countryClass = 'country_aud';
-    }
-    else if(country == 'Euro'){
-      countryClass = 'country_eur';
-    }
-    else if(country == 'Switzerland'){
-      countryClass = 'country_chf';
-    }
-    return countryClass;
-  }
+
+
+
+
+
+	function getFlagOfCountry(country) {
+	    var countryClass = '';
+	    if(country == 'New Zealand'){
+	      countryClass = 'country_nzd';
+	    }
+	    else if(country == 'Japan'){
+	      countryClass = 'country_jpy';
+	    }
+	    else if(country == 'China'){
+	      countryClass = 'country_cny';
+	    }
+	    else if(country == 'the United States'){
+	      countryClass = 'country_usd';
+	    }
+	    else if(country == 'the United Kingdom'){
+	      countryClass = 'country_gbp';
+	    }
+	    else if(country == 'Australia'){
+	      countryClass = 'country_aud';
+	    }
+	    else if(country == 'Euro'){
+	      countryClass = 'country_eur';
+	    }
+	    else if(country == 'Switzerland'){
+	      countryClass = 'country_chf';
+	    }
+	    return countryClass;
+	}
 })();
