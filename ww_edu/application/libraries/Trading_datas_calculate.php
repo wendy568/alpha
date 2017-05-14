@@ -131,7 +131,11 @@ class Trading_datas_calculate {
 		$result = [];
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
-		$week = time_zone::build()->get_week($this->unix_time);
+		$time_zone = time_zone::build();
+		$week = $time_zone->get_week($this->unix_time);
+		$todayBegin = $time_zone->todayBegin();
+		$todayEnd = $time_zone->todayEnd();
+
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				foreach ($week as $val) {
@@ -143,7 +147,10 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
-						$value['align_top'] = $this->align_time($v);
+						if ($v > $todayBegin && $v < $todayEnd) {
+							$value['align_top'] = $this->align_time($v);
+						}
+						
 						$result[$month . '.' . $day][] = $value;
 					} 
 
@@ -217,6 +224,8 @@ class Trading_datas_calculate {
     	
     	$datas = $this->oneByone;
     	$time = date('G');
+    	var_dump($time);
+    	var_dump(date('G', $value));
 		if($time == date('G', $value)){
 			return 1;
 		} else {
