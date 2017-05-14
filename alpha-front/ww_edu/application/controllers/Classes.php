@@ -1,6 +1,17 @@
 <?php
 class Classes extends MY_Controller
 {
+
+	public function allProcess()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+			
+		$this->load->database();
+		$this->load->model('ClassesM');
+	
+		return $this->ClassesM->allProcess();
+	
+	}
 	public function current_stage()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
@@ -17,7 +28,7 @@ class Classes extends MY_Controller
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$original = $this->ClassesM->current_stage($uid);
-
+		print_r($this->allProcess);
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
