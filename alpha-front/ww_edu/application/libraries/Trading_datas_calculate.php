@@ -143,6 +143,7 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
+						$value['align_top'] = $this->align_time($v);
 						$result[$month . '.' . $day][] = $value;
 					} 
 
@@ -211,30 +212,19 @@ class Trading_datas_calculate {
     	return $this;
     }
 
-    private function align_time($index, $data = [])
+    private function align_time($value)
     {
-    	$datas = $this->_data;
-    	if(!empty($data)) $datas = $data;
+    	$datas = $this->oneByone;
 
     	$time = strtotime(date('Y-m-d H', time()));
-    	foreach ($datas as $key => $value) {
-			foreach ($value as $k => $v) {
-				if ($k == $index) {
-					echo $time . '-' . $v . '|      ';
-					if($time == strtotime(date('Y-m-d H', $v))){
 
-	    				$datas[$key]['align_time'] = 1;
-	    				break 2;
-	    			}
-				}
-			}
-		}	
-
-		if(!empty($data)) {
-			return $this->oneByone = $datas;
+		if($time == strtotime(date('Y-m-d H', $value))){
+			return 1;
 		} else {
-			return $this->_data = $datas;
+			return 0;
 		}
+
+		return $this->oneByone = $datas;
     	
     }
 
