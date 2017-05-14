@@ -224,6 +224,7 @@ class Trading_datas_calculate {
 					if($time == strtotime(date('Y-m-d H', $v))){
 
 	    				$datas[$key]['align_time'] = 1;
+	    				break 2;
 	    			}
 				}
 			}
