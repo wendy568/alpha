@@ -179,10 +179,9 @@
 	    		if(data.archive.status == 0){
 	    			dateList = [];
 	                var isCurDay = false;
-	                $.each(data.data.calendar,function (i,item) {
+	                $.each(data.data.news,function (i,item) {
 	                    dateList.push(i);
 	                    
-	                    // 财经日历导航
 	                    i = i.replace('.','-').replace('.','-');
 	                    var x = i;
 	                    var curDay = new Date(i);
@@ -195,44 +194,97 @@
 	                                  '<div class="text-c3 text-center">'+ month +'/' + day + '</div></li>');
 	                    $navBar.on('click',function (e) {
 	                        e.stopPropagation();
-	                        $('.calendar-tab li').removeClass('active');
+	                        $('.news-tab li').removeClass('active');
 	                        $(this).addClass('active');
 	                        var index = $(this).index();
-	                        var panels = $('.calendar-tab-content').eq(index).find('.panel');
-	                        var scrollTop = 0;
-	                        $.each(panels,function (i,panel) {
-	                            var isTop = $(panel).attr('data-top').split('_');
-	                            if(isTop[0] == 1){
-	                                scrollTop = isTop[1]*60;
-	                            }
-	                        });
-	                        $('.calendar-tab-content').hide().eq(index).show().parent().scrollTop(scrollTop);
+	                        
+	                        $('.news-tab-content').hide().eq(index).show();
 	                    });
-	                    $('.En-calendar .calendar-tab').append($navBar);
+	                    $('.En-news .news-tab').append($navBar);
 
 	                    // content
-	                    $.each(data.data.news,function(i,data){
-	                    
+	                    var oneUl=Math.ceil(item.length/2);
+	                    var $content = $('<div class="news-tab-content"></div>');
+	                    var $leftContent = $('<div class="col-sm-12 col-md-6 newsLeft"></div>');
+	                    var $rightContent = $('<div class="col-sm-12 col-md-6 newsRight"></div>');
+	                    var $contentItem_left = $('<ul class="cbp_tmtimeline"></ul>');
+	                    var $contentItem_right = $('<ul class="cbp_tmtimeline"></ul>');
+	                    var leftItem = '', rightItem = '';
+	                    $.each(item,function(i,data){
+	                    	var newDate=new Date();
+			                newDate.setTime(data.time * 1000);
+			                var newsTime=newDate.toTimeString().substring(0,5);
+			                if(i<oneUl){
+			                	leftItem += '<li class="panel">' +
+                                            '<div class="panel-heading">' +
+                                                '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i +'">' +
+                                                    '<time class="cbp_tmtime" datetime="18:30">' +
+                                                        '<span class="time">'+ newsTime +'</span>' +
+                                                    '</time>' +
+                                                    '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>' +
+                                                    '<div class="cbp_tmlabel">' +
+                                                        '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">' +
+                                                            '<p class="m-t-5 text-c2">' + data.title + '</p>' +
+                                                        '</div>' +
+                                                        '<div class="clearfix"></div>' +
+                                                    '</div>' +
+                                                '</a>' +
+                                            '</div>' +
+                                            '<div id="collapse'+ i +'" class="panel-collapse collapse">' +
+                                                 '<div class="panel-body">'+ data.desc +'</div>' +
+                                            '</div>' +
+                                        '</li>' ;
+			                }else{
+			                	rightItem += '<li class="panel">' +
+                                    '<div class="panel-heading">' +
+                                        '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i +'">' +
+                                            '<time class="cbp_tmtime" datetime="18:30">' +
+                                                '<span class="time">'+ newsTime +'</span>' +
+                                            '</time>' +
+                                            '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>' +
+                                            '<div class="cbp_tmlabel">' +
+                                                '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5">' +
+                                                    '<p class="m-t-5 text-c2">' + data.title + '</p>' +
+                                                '</div>' +
+                                                '<div class="clearfix"></div>' +
+                                            '</div>' +
+                                        '</a>' +
+                                    '</div>' +
+                                    '<div id="collapse'+ i +'" class="panel-collapse collapse">' +
+                                         '<div class="panel-body">'+ data.desc +'</div>' +
+                                    '</div>' +
+                                '</li>';
+			                }
 	                    });
+	                    $content.append($leftContent.append($contentItem_left.html(leftItem)));
+	                    $content.append($rightContent.append($contentItem_right.html(rightItem)));
+	                    isCurDay ? $content.show() : $content.hide();
+                    	$('#newsContent').append($content);
 	                });
 	    		}
 	    		fn && fn(data);
 	    	});
     	}
     	getNewsData();
-    	$('.En-calendar .carousel-inner>a').eq(0).click(function (e) {
+    	$('.En-news .carousel-inner>a').eq(0).find('input').click(function (e) {
 	        e.stopPropagation();
+	        var $this = $(this);
 	        var lastDate = dateList[0].replace('.','-').replace('.','-');
-	        $('.En-calendar .calendar-tab').empty();
-	        $('.calendar-tab-content').remove();
-	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left');
+	        $('.En-news .news-tab').empty();
+	        $('.news-tab-content').remove();
+	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left',function(){
+	        	$this.prop('disabled',false);
+	        });
 	    });
-	    $('.En-calendar .carousel-inner>a').eq(1).click(function (e) {
+	    $('.En-news .carousel-inner>a').eq(1).find('input').click(function (e) {
 	        e.stopPropagation();
+	        var $this = $(this);
 	        var lastDate = dateList[6].replace('.','-').replace('.','-');
-	        $('.En-calendar .calendar-tab').empty();
-	        $('.calendar-tab-content').remove();
-	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right');
+	        $('.En-news .news-tab').empty();
+	        $('.news-tab-content').remove();
+	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right',function(){
+	        	$this.prop('disabled',false);
+	        });
 	    });
     });
   
