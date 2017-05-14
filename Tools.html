@@ -14,7 +14,7 @@
         <link href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css" />
     </head>
-        
+    
     <body class="">
         <!-- navbar -->
         <script src="common/js/navbar.js" type="text/javascript"></script>
@@ -97,12 +97,16 @@
                                 <div class="grid-title no-border " style="height: 100px;">
                                     <div class="carousel-inner">
                                         <a class="col-sm-1 text-center" style="cursor: pointer;">
+                                            <input type="button" style="display: none" id="preCalendar"/>
+                                            <label for="preCalendar" class="disabled-box" ></label>
                                             <i class="calendar2x calendar_left text-c3 m-t-15" style="line-height: 70px;"></i>
                                         </a>
                                         <ul class="no-margin no-padding col-sm-10 calendar-tab" >
 
                                         </ul>
                                         <a class="col-sm-1 text-center" style="cursor: pointer;">
+                                            <input type="button" style="display: none" id="nextCalendar"/>
+                                            <label for="nextCalendar" class="disabled-box" ></label>
                                             <i class="calendar2x calendar_right text-c3 m-t-15" style="line-height: 70px;"></i>
                                         </a>
                                     </div>
@@ -226,7 +230,7 @@
                                                      <div class="panel-body">
                                                         Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
                                                     </div>
-                                                </div>  
+                                                </div>
                                             </li>
                                             <li class="panel">
                                                 <div class="panel-heading">
@@ -247,7 +251,7 @@
                                                      <div class="panel-body">
                                                         Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
                                                     </div>
-                                                </div>  
+                                                </div>
                                             </li>
                                             <li class="panel">
                                                 <div class="panel-heading">
@@ -268,7 +272,7 @@
                                                      <div class="panel-body">
                                                         Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
                                                     </div>
-                                                </div>  
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -293,7 +297,7 @@
                                                      <div class="panel-body">
                                                         Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
                                                     </div>
-                                                </div>  
+                                                </div>
                                             </li>
                                             <li class="panel">
                                                 <div class="panel-heading">
@@ -314,7 +318,7 @@
                                                      <div class="panel-body">
                                                         Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
                                                     </div>
-                                                </div>  
+                                                </div>
                                             </li>
                                             <li class="panel">
                                                 <div class="panel-heading">
@@ -335,9 +339,9 @@
                                                      <div class="panel-body">
                                                         Click headers to expand/collapse content that is broken into logical sections, much like tabs. Optionally, toggle sections open/closed on mouseover.
                                                     </div>
-                                                </div>  
+                                                </div>
                                             </li>
-                                        </ul>   
+                                        </ul>
                                     </div>
                                 </div>
                                 <!-- foot -->
@@ -461,7 +465,7 @@
                                                     <td class="text-info">37.084</td>
                                                 </tr>
                                             </tbody>
-                                        </table>  
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -678,7 +682,7 @@
                                 <!-- title -->
                                 <div class="grid-title no-border " style="height: 100px;">
                                     <div class="carousel-inner">
-                                        <a href="" class="col-sm-1 text-center"> 
+                                        <a href="" class="col-sm-1 text-center">
                                             <i class="calendar2x calendar_left m-t-15 text-c3" style="line-height: 70px;"></i>
                                         </a>
                                         <ul class="no-margin no-padding col-sm-10" >
@@ -725,7 +729,7 @@
                                                 </div>
                                             </li>
                                         </ul>
-                                        <a href="" class="col-sm-1 text-center"> 
+                                        <a href="" class="col-sm-1 text-center">
                                             <i class="calendar2x calendar_right m-t-15 text-c3" style="line-height: 70px;"></i>
                                         </a>
                                     </div>
@@ -806,7 +810,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="logModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 
+                <div id="logModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -839,12 +843,12 @@
                                     <p class="text-center">
                                         <button class="btn btn-success" type="submit">Submit</button>
                                     </p>
-                                </form>  
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="editModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 
+                <div id="editModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -877,7 +881,7 @@
                                     <p class="text-center">
                                         <button class="btn btn-success" type="submit">Submit</button>
                                     </p>
-                                </form>  
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -892,7 +896,7 @@
         <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
 
         <script src="assets/plugins/jquery-sparkline/jquery-sparkline.js"></script>
-        <script src="assets/plugins/jquery-block-ui/jqueryblockui.min.js" type="text/javascript"></script> 
+        <script src="assets/plugins/jquery-block-ui/jqueryblockui.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>

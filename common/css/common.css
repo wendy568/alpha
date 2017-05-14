@@ -9711,7 +9711,7 @@ body.rtl .footer-widget {
   color:#967FDA;
 }
 
-/*index.html-----------------------------------------------------------*/
+/*index tools-----------------------------------------------------------*/
 .card:hover{
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
@@ -9734,7 +9734,7 @@ body.rtl .footer-widget {
   cursor: pointer;
 }
 
-/*TradingStatistic.html-----------------------------------------------------------*/
+/*TradingStatistic all-----------------------------------------------------------*/
 
 .bill-select{
   overflow-y: scroll !important;
