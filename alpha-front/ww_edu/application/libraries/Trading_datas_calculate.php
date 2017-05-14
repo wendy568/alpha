@@ -216,10 +216,8 @@ class Trading_datas_calculate {
     {
     	
     	$datas = $this->oneByone;
-
     	$time = date('G');
 		if($time == date('G', $value)){
-			
 			return 1;
 		} else {
 			return 0;
