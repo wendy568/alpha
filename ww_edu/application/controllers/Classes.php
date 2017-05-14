@@ -35,8 +35,15 @@ class Classes extends MY_Controller
 	}
 
 	public function showData($ids, $table)
-	{		
-		return $this->classes_mission->showData($ids, $table);
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$this->load->database();
+		$this->load->model('ClassesM');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+
+		return $this->ClassesM->showData($ids, $table);
 	}
 
 	public function All_stages()
