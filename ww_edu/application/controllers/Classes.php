@@ -30,10 +30,11 @@ class Classes extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$original = $this->ClassesM->current_stage($uid);
 		$allProcess = $this->allProcess();
-		$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
-		print_r($is_complete);
+		
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
+		$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+		print_r($is_complete);
 		$this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->get_mission_complete();
 		
 		encode_json($response,$data);
