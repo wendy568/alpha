@@ -22,7 +22,6 @@ class Classes_mission
 				'Risk Management Level' => 'isCountEnough',
 				'Profitable Period' => 'isCountEnough'
 			];
-	protected $classes;
 
 	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
 
@@ -38,13 +37,12 @@ class Classes_mission
 
 	public function init($mission = null, $homework = null, $allProcess = null)
 	{
-		$this->classes = $allProcess;
 		$this->mission = $mission;
 		$this->homework = $homework;
 		$this->missionCount = count($mission);
 
 		$result = [];
-		foreach($this->classes as $key => $value) {
+		foreach($allProcess as $key => $value) {
 			foreach ($this->jsonDecode($value['homework']) as $k => $v) {
 				$v = is_array($v) ? 'is_view' : $v;
 				$v = is_numeric($v) ? 'isCountEnough' : $v;
