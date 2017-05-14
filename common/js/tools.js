@@ -1,4 +1,4 @@
-(function(){
+(function () {
 	$('.log').hover(function(){
         $(this).children('.log-foot').toggleClass('hide');
     });
@@ -169,7 +169,72 @@
 
     //news--------------------------------------------------------------------------
     $('.module').eq(1).click(function(){
-    	alert('OK');
+    	var dateList = [];
+    	var weeks = ['SUN','MON','TUE','WEN','THUR','FRI','SAT'];
+    	function getNewsData(firstDate,direction,fn){
+    		var date = {
+	            left_right : direction || '',
+	            time_node : firstDate || ''
+	        };
+	    	$.alpha.request_Url('post','Utility/week_news',date,function(data){
+	    		if(data.archive.status == 0){
+	    			dateList = [];
+	                var isCurDay = false;
+	                $.each(data.data.calendar,function (i,item) {
+	                    dateList.push(i);
+	                    
+	                    // 财经日历导航
+	                    i = i.replace('.','-').replace('.','-');
+	                    var x = i;
+	                    var curDay = new Date(i);
+	                    var month = curDay.getMonth()+1 < 10 ? '0' + (curDay.getMonth()+1) : curDay.getMonth()+1;
+	                    var day = curDay.getDate() < 10 ? '0' + curDay.getDate() : curDay.getDate();
+	                    isCurDay = new Date().getDay() == curDay.getDay();
+	                    activeClass = isCurDay ? 'active' : '';
+	                    var $navBar = $('<li class="date ' + activeClass + '">' +
+	                                  '<div class="text-c1 small-text text-center">'+weeks[curDay.getDay()]+'</div>' +
+	                                  '<div class="text-c3 text-center">'+ month +'/' + day + '</div></li>');
+	                    $navBar.on('click',function (e) {
+	                        e.stopPropagation();
+	                        $('.calendar-tab li').removeClass('active');
+	                        $(this).addClass('active');
+	                        var index = $(this).index();
+	                        var panels = $('.calendar-tab-content').eq(index).find('.panel');
+	                        var scrollTop = 0;
+	                        $.each(panels,function (i,panel) {
+	                            var isTop = $(panel).attr('data-top').split('_');
+	                            if(isTop[0] == 1){
+	                                scrollTop = isTop[1]*60;
+	                            }
+	                        });
+	                        $('.calendar-tab-content').hide().eq(index).show().parent().scrollTop(scrollTop);
+	                    });
+	                    $('.En-calendar .calendar-tab').append($navBar);
+
+	                    // content
+	                    $.each(data.data.news,function(i,data){
+	                    	
+	                    });
+	                });
+	    		}
+	    		fn && fn(data);
+	    	});
+    	}
+    	getNewsData();
+    	$('.En-calendar .carousel-inner>a').eq(0).click(function (e) {
+	        e.stopPropagation();
+	        var lastDate = dateList[0].replace('.','-').replace('.','-');
+	        $('.En-calendar .calendar-tab').empty();
+	        $('.calendar-tab-content').remove();
+	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left');
+	    });
+	    $('.En-calendar .carousel-inner>a').eq(1).click(function (e) {
+	        e.stopPropagation();
+	        var lastDate = dateList[6].replace('.','-').replace('.','-');
+	        $('.En-calendar .calendar-tab').empty();
+	        $('.calendar-tab-content').remove();
+	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right');
+	    });
     });
 
 })();
