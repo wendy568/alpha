@@ -72,8 +72,10 @@ class Classes_mission
 	private function is_view($param)
 	{
 		foreach ($this->mission as $key => $value) {
-			 $this->complete += empty(array_diff($value, $param[$key])) ? 1 : 0;
-			
+			if (!empty($param[$key])) {
+				var_dump($key);
+				$this->complete += empty(array_diff($value, $param[$key])) ? 1 : 0;
+			}	
 		}
 		var_dump($this->complete);die;
 		
