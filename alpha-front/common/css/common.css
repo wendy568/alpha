@@ -8761,19 +8761,6 @@ body.rtl .footer-widget {
 .all-tv .video-intr{
     padding: 40px;
 }
-.video-btn{
-    width: 100%;
-    height: 40px;
-    background:-webkit-linear-gradient(left,#9B28EE,#E95469);
-    bottom:0;
-    position: absolute;
-}
-.video-btn span{
-    display: block;
-    text-align: center;
-    line-height: 50px;
-    cursor: pointer;
-}
 .shade{
   width: 100%;
   height:340px;
