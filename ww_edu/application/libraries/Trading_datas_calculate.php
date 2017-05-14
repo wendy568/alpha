@@ -214,12 +214,12 @@ class Trading_datas_calculate {
 
     private function align_time($value)
     {
-    	var_dump($time);
-			var_dump(strtotime(date('H', $value)));
+    	
     	$datas = $this->oneByone;
 
     	$time = strtotime(date('H', time()));
-
+var_dump($time);
+			var_dump(strtotime(date('H', $value)));
 		if($time == strtotime(date('H', $value))){
 			
 			return 1;
