@@ -219,7 +219,7 @@ class Trading_datas_calculate {
     	print_r($time);
     	array_walk_recursive($datas, function ($val, $key) use ($index){
     		if ($key == $index) {
-    			echo date('Y-m-d H', $val);
+    			var_dump(date('Y-m-d H', $val));
     		}
     	});
     }
