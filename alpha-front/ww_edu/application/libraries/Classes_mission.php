@@ -150,7 +150,7 @@ class Classes_mission
 
 	protected function read($param)
 	{
-		print_r($param);
+		print_r($this->method);
 	}
 
 }
