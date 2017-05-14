@@ -9,8 +9,8 @@ class Classes_mission
 	protected $distribution = [
 				'Video Learning' => 'record',
 				'Video learning' => 'record',
-				'Article learning' => 'is_view',
-				'Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => 'isCountEnough', 'Make Transaction 2' => 'isCountEnough',
+				'Article learning' => 'record',
+				'Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => '', 'Make Transaction 2' => '',
 				'4 style trade' => 'isCountEnough',
 				'take profits/stop loss' => 'isCountEnough',
 				'Trade all kinds products' => 'isCountEnough', 'Task 2 - 10 different products' => 'isCountEnough', '5 tradable products' => 'isCountEnough',
