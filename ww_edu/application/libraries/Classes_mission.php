@@ -31,7 +31,7 @@ class Classes_mission
 
 	protected $homework;
 
-	public $/*public_params*/;
+	public $public_params;
 
 	protected $complete;
 
