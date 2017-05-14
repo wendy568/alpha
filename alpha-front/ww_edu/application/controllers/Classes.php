@@ -19,6 +19,7 @@ class Classes extends MY_Controller
 		$original = $this->ClassesM->current_stage($uid);
 
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
+		print_r($mission);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		$data['data']['complete'] = $this->classes_mission->init($mission, $personal)->get_mission_complete()->property('distributing')->complete_ratio();
 		$data['data']['is_complete'] = $this->classes_mission->init($mission, $personal)->get_mission_complete()->property('distributing')->getOneComplete();
