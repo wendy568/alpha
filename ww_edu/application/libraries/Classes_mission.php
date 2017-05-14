@@ -145,7 +145,7 @@ class Classes_mission
 			}
 		}
 
-		return $this->needRecord;
+		return $this;
 	}
 
 	protected function read($param)
