@@ -62,6 +62,11 @@ class Classes_mission
 		return $this;
 	}
 
+	public function complete_ratio()
+	{
+		return $this->complete;
+	}
+
 	public function distributing()
 	{
 		foreach ($this->method as $key => $value) {
@@ -83,7 +88,7 @@ class Classes_mission
 		print_r($param);die;
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
-				$this->complete += empty(array_diff($value, $param[$key])) ? 1 : 0;
+				$this->complete += ($param[$key] >= $value) ? 1 : 0;
 			}
 		}
 	}
