@@ -1,6 +1,7 @@
 // 项目请求根地址
 window.alpha_host='http://120.25.211.159/ww_edu/';
 
+
 (function($) {
     'use strict';
     var alpha = function() {
@@ -465,51 +466,59 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
      * @param fn callback function
      *
      * */
+    sessionStorage.setItem('userInfo',{
+      token : '',
+      email : ''
+    });
     alpha.prototype.request_Url = function (type, url, data, fn) {
 
-      // 每次请求都会带上token信息
-      data.token = sessionStorage.getItem("userInfo").token || '';
+        // 每次请求都会带上token信息
+        data.token = sessionStorage.getItem("userInfo").token || '';
 
-      return $.ajax({
-        type    : type,
-        url     : alpha_host + url,
-        data    : data,
-        success : function(res){
-          fn && fn(res);
-        },
-        error   : function(err) {
-          console.log(err);
-        }
+        return $.ajax({
+          type    : type,
+          url     : alpha_host + url,
+          data    : data,
+          success : function(res){
+            fn && fn(res);
+          },
+          error   : function(err) {
+            console.log(err);
+          }
       });
     };
-
-    $.alpha = new alpha();
-    $.alpha.Constructor = alpha;
 
     // alert box
     alpha.prototype.alertBox = function(title, msg, url){
         var alert = document.createElement('div');
-        $(alert).attr({
-            id: 'alert_box'
-        });
-        var html = `<div class="alert animated fadeInDown">
-                        <div class="alert-head">
-                            <i class="fa fa-exclamation"></i>
-                            <span>${title}</span>
-                            <div class="controller">
-                                <a class="remove" id="close_alertBox"></a>
-                            </div>
-                        </div>
-                        <div class="alert-body">
-                            <p>${msg}</p>
-                            <a href="${url}" class="btn btn-success m-t-30" style="width: 60px;" >OK</a>
-                        </div>
-                    </div>`;
+        var html = '<div class="alert animated fadeInDown">' +
+                        '<div class="alert-head">' +
+                            '<i class="fa fa-exclamation"></i>' +
+                            '<span>'+title+'</span>' +
+                            '<div class="controller"><a class="remove remove_alertBox"></a></div></div> <div class="alert-body">' +
+                            '<p>'+msg+'</p> <a href="'+url+'" class="btn btn-success m-t-30 remove_alertBox" style="width: 60px;">OK</a></div></div>';
         alert.innerHTML = html;
+        $(alert).attr({id: 'alert_box'});
         $('body').append(alert);
-        return html;
+        this.closeAlert();
+        return this;
     };
-    
+
+    // close alertBox
+    alpha.prototype.closeAlert = function () {
+        $('.remove_alertBox').on('click',function () {
+            $('#alert_box').remove();
+        });
+        $('body').on('click',function () {
+            $('#alert_box').remove();
+        }).on('click','#alert_box',function (e) {
+            var event = e || window.event;
+            event.stopPropagation();
+        });
+    };
+
+    $.alpha = new alpha();
+    $.alpha.Constructor = alpha;
 })(window.jQuery);
 
 // DEMO STUFF
@@ -631,30 +640,6 @@ $(document).ready(function () {
     };
     $.fn.toggleTradingDetail = function () {
         $.Webarch.toggleClass('hide');
-    };
-
-    // alert box
-    window.alertBox = function(title, msg, url){
-        var alert = document.createElement('div');
-        $(alert).attr({
-            id: 'alert_box'
-        });
-        var html = `<div class="alert animated fadeInDown">
-        <div class="alert-head">
-            <i class="fa fa-exclamation"></i>
-            <span>${title}</span>
-            <div class="controller">
-                <a class="remove" id="close_alertBox"></a>
-            </div>
-        </div>
-        <div class="alert-body">
-            <p>${msg}</p>
-            <a href="${url}" class="btn btn-success m-t-30" style="width: 60px;" >OK</a>
-        </div>
-    </div>`;
-        alert.innerHTML = html;
-        $('body').append(alert);
-        return html;
     };
 
 })(jQuery);
