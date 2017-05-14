@@ -133,6 +133,18 @@ class Classes_mission
 		}
 	}
 
+	public function is_complete($is)
+	{
+		$this->needRecord = $this->homework;
+		foreach ($is as $key => $value) {
+			if ($value == 1) {
+				unset($this->needRecord[$key]);
+			}
+		}
+
+		return $this->needRecord;
+	}
+
 	protected function read($param)
 	{
 
