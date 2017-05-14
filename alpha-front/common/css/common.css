@@ -4887,7 +4887,7 @@ textarea:focus{
   left:50%;
   margin-top: -120px;
   margin-left: -200px;
-  position: relative;
+  position: absolute;
   border-radius: 8px;
   color:#fff;
   font-size: 16px;
@@ -4957,6 +4957,7 @@ textarea:focus{
   height: 10px;
   top: -5px;
   width: 10px;
+  cursor: pointer;
 }
 .tiles .controller a.config {
   background-position: -3px -32px;
