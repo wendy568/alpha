@@ -85,7 +85,7 @@ class Classes_mission
 	{
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
-				$this->completeOne[$key] = 1;
+				$this->completeOne[$key] = empty(array_diff($value, $param[$key])) ? 1 : 0;
 				$this->complete += empty(array_diff($value, $param[$key])) ? 1 : 0;
 			}
 		}
@@ -95,7 +95,7 @@ class Classes_mission
 	{
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
-				$this->completeOne[$key] = 1;
+				$this->completeOne[$key] = ($param[$key] >= $value) ? 1 : 0;
 				$this->complete += ($param[$key] >= $value) ? 1 : 0;
 			}
 		}
