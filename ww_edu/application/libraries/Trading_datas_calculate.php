@@ -220,6 +220,7 @@ class Trading_datas_calculate {
     	$time = strtotime(date('Y-m-d H', time()));
 
 		if($time == strtotime(date('Y-m-d H', $value))){
+			echo 123;
 			var_dump(date('Y-m-d H'));
 			var_dump(date('Y-m-d H', $value));
 			return 1;
