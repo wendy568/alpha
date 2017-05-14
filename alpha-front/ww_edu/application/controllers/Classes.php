@@ -22,7 +22,7 @@ class Classes extends MY_Controller
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		$data['data']['complete'] = $this->classes_mission->init($mission, $personal)->get_mission_complete()->property('distributing')->complete_ratio();
 		$showData = $this->classes_mission->init($mission, $personal)->showData;
-
+		$this->showData('1,2,3', 'classes_text');die;
 		foreach ($showData as $key => $value) {
 			if (!empty($mission[$key])) {
 				// unset($mission[$key]);
