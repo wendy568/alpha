@@ -31,7 +31,7 @@ class Classes_mission
 
 	protected $homework;
 
-	public $public_params;
+	public $/*public_params*/;
 
 	protected $complete;
 
@@ -150,6 +150,8 @@ class Classes_mission
 
 	protected function read($param)
 	{
+		print_r($this->mission);
+		print_r($this->homework);
 		print_r($param);
 	}
 
