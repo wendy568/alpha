@@ -39,6 +39,8 @@ class Classes_mission
 
 	protected $completeOne = [];
 
+	protected $needRecord = [];
+
 	public function init($mission = null, $homework = null, $allProcess = null)
 	{
 		$this->classes = $allProcess;
@@ -75,9 +77,9 @@ class Classes_mission
 	public function get_mission_complete()
 	{
 		$method = [];
-		$homework = [];
+		$homework = $this->homework;
 
-		array_walk($this->homework, function ($val, $key) use (&$homework) {
+		array_walk($homework, function ($val, $key) use (&$homework) {
 			$homework[$key] = $val;
 		});
 
