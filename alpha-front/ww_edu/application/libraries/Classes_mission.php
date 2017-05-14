@@ -64,7 +64,7 @@ class Classes_mission
 
 	public function complete_ratio()
 	{
-		return $this->complete;
+		return $this->complete / $this->missionCount;
 	}
 
 	public function distributing()
