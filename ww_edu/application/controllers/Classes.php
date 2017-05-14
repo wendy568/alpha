@@ -26,6 +26,7 @@ class Classes extends MY_Controller
 		foreach ($showData as $key => $value) {
 			if (!empty($mission[$key])) {
 				foreach ($mission[$key] as $k) {
+					print_r($k);die;
 					$mission[$key][$k] = $this->showData($k, $value);
 				}
 			}
