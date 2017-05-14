@@ -146,7 +146,7 @@ class Classes_mission
 			if (is_array($value)) {
 				var_dump($key);
 				foreach ($value as $k => $v) {
-					if (($k == 'id') && array_diff($homework[$key], $v)) $mission[$key]['is_complete'] = 1;
+					if ($k == 'id' && ($bool = array_search($homework[$key], $v) OR $bool !== false)) $mission[$key]['is_complete'] = 1;
 				}
 			} 
 
