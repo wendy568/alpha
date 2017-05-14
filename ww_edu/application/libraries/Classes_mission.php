@@ -42,6 +42,7 @@ class Classes_mission
 		$this->missionCount = count($mission);
 
 		$result = [];
+		print_r($allProcess);
 		foreach($allProcess as $key => $value) {
 			foreach ($this->jsonDecode($value['homework']) as $k => $v) {
 				$v = is_array($v) ? 'is_view' : $v;
