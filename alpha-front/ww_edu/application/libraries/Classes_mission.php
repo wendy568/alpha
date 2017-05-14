@@ -48,8 +48,9 @@ class Classes_mission
 		$result = [];
 		foreach($this->classes as $key => $value) {
 			foreach ($this->jsonDecode($value['homework']) as $k => $v) {
+				$v = is_array($v) ? 'is_view' : $v;
+				$v = is_numeric($v) ? 'isCountEnough' : $v;
 				$result[$k] = $v;
-			
 			}
 		}
 		print_r($result);
