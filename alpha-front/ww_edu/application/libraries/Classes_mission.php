@@ -54,7 +54,6 @@ class Classes_mission
 	public function get_distribution()
 	{
 		$this->category = $this->distribution;
-		print_r($this->category);die;
 		return $this;
 	}
 
@@ -92,7 +91,7 @@ class Classes_mission
 				}
 			}
 		});
-		print_r($this->category);die;
+
 		$this->method = $method;
 
 		return $this;
@@ -151,7 +150,8 @@ class Classes_mission
 
 	protected function read($param)
 	{
-		print_r($param);
+		print_r(123);
+		print_r($this->category);
 	}
 
 }
