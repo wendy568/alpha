@@ -125,6 +125,8 @@ class Classes_mission
 
 	protected function isCountEnough($param)
 	{
+		$a = 0;
+		var_dump(isset($a));var_dump(!empty($a));
 		foreach ($this->mission as $key => $value) {
 			if (isset($param[$key])) {
 				print_r($param[$key]);
