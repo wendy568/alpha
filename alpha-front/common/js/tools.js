@@ -151,19 +151,27 @@
     }
     getCalendarData();
     
-    $('.En-calendar .carousel-inner>a').eq(0).click(function (e) {
+    $('.En-calendar .carousel-inner>a').eq(0).find('input').click(function (e) {
         e.stopPropagation();
+        var $this = $(this);
         var lastDate = dateList[0].replace('.','-').replace('.','-');
         $('.En-calendar .calendar-tab').empty();
         $('.calendar-tab-content').remove();
-        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left');
+        $this.prop('disabled',true);
+        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'left',function () {
+            $this.prop('disabled',false);
+        });
     });
-    $('.En-calendar .carousel-inner>a').eq(1).click(function (e) {
+    $('.En-calendar .carousel-inner>a').eq(1).find('input').click(function (e) {
         e.stopPropagation();
+        var $this = $(this);
         var lastDate = dateList[6].replace('.','-').replace('.','-');
         $('.En-calendar .calendar-tab').empty();
         $('.calendar-tab-content').remove();
-        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right');
+        $this.prop('disabled',true);
+        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right',function () {
+            $this.prop('disabled',false);
+        });
     });
 
 
