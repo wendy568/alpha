@@ -218,9 +218,9 @@ class Trading_datas_calculate {
     	$datas = $this->oneByone;
 
     	$time = date('G');
-		var_dump($time);die;
-		var_dump(strtotime(date('Y-m-d H:00:00', $value)));
-		if($time == strtotime(date('Y-m-d H:00:00', $value))){
+		var_dump($time);
+		var_dump(date('G', $value));die;
+		if($time == date('Y-m-d H:00:00', $value)){
 			
 			return 1;
 		} else {
