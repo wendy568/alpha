@@ -150,8 +150,7 @@ class Classes_mission
 
 	protected function read($param)
 	{
-		print_r(123);
-		print_r($this->category);
+		print_r($param);
 	}
 
 }
