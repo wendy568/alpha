@@ -150,7 +150,10 @@ class Classes_mission
 				}
 			} 
 
-			if (is_numeric($value)) $$mission[$key] = $homework[$key] . '/' . $value;
+			if (is_numeric($value)){
+				print_r($key);
+				$$mission[$key] = $homework[$key] . '/' . $value;
+			}
 		}
 
 		return $mission;
