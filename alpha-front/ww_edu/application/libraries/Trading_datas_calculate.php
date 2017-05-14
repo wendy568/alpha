@@ -215,15 +215,13 @@ class Trading_datas_calculate {
     {
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
-    	print_r(time());
-    	print_r(getdate());
+
     	$time = strtotime(date('Y-m-d H:i:s', time()));
-    	var_dump(date('Y-m-d H:i:s', strtotime(date('Y-m-d H:i:s', time()))));
-    	var_dump($time);
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == $index) {
 					if($time == strtotime(date('Y-m-d H', $v))){
+						echo 13131131313131313123121313123131312312313123123;
 	    				$datas[$key]['align_time'] = 1;
 	    			}
 				}
