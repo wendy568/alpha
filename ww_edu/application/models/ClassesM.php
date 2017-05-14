@@ -68,7 +68,6 @@ class ClassesM extends CI_Model
 		$result = $this->db->query($map)->result_array();
 		foreach ($result as $key => $value) 
         {
-            $result[$key]['face'] = json_decode($result[$key]['face']);
             $result[$key]['image'] = json_decode($result[$key]['image']);
         }
 		return $result;
