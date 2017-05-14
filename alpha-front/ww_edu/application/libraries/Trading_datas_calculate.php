@@ -150,7 +150,7 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
-						$value[$index] = call_user_func_array([$this, $callback], $v);
+						$value[$index] = call_user_func_array([$this, $callback], [$v]);
 						$result[$month . '.' . $day][] = $value;
 					} 
 
