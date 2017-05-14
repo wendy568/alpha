@@ -213,10 +213,11 @@ class Trading_datas_calculate {
 
     private function align_time($index, $data = [])
     {
+    	echo date_default_timezone_get();
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
     	$time = date('Y-m-d H:i:s', time());
-    	print_r($time);
+    	var_dump($time);
     	array_walk_recursive($datas, function ($val, $key) use ($index){
     		if ($key == $index) {
     			var_dump(date('Y-m-d H', $val));
