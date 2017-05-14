@@ -62,7 +62,7 @@ class ClassesM extends CI_Model
 	{
 		$map = 'SELECT * 
 				FROM '.$table.'
-				WHERE in ('.$ids.')';
+				WHERE id IN('.$ids.')';
 		
 		$result = $this->db->query($map)->result_array();
 		return $result;
