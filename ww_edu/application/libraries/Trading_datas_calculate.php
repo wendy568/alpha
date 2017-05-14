@@ -214,7 +214,8 @@ class Trading_datas_calculate {
 
     private function align_time($value)
     {
-    	print_r(getdate());
+    	var_dump(date('Y-m-d H'));
+    	var_dump(date('Y-m-d H', $value));
     	$datas = $this->oneByone;
 
     	$time = strtotime(date('Y-m-d H', time()));
