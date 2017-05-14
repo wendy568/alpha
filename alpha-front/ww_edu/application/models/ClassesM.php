@@ -58,9 +58,10 @@ class ClassesM extends CI_Model
 
 	}
 
-	function showData($ids, $table)
+	function showData($ids, $table, $cols)
 	{
-		$map = 'SELECT * 
+		$cols = ($cols) ? $cols : '*';
+		$map = 'SELECT '.$cols.' 
 				FROM '.$table.'
 				WHERE id IN('.$ids.')';
 		
