@@ -28,7 +28,7 @@ class Classes extends MY_Controller
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$original = $this->ClassesM->current_stage($uid);
-		print_r($this->allProcess);
+		print_r($this->allProcess());
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
