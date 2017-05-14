@@ -44,7 +44,6 @@ class Classes_mission
 		$result = [];
 
 		foreach($allProcess as $key => $value) {
-			print_r($value);
 			foreach ($this->jsonDecode($value['homework']) as $k => $v) {
 				$v = is_array($v) ? 'is_view' : $v;
 				$v = is_numeric($v) ? 'isCountEnough' : $v;
