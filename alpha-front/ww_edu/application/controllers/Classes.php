@@ -1,7 +1,6 @@
 <?php
 class Classes extends MY_Controller
 {
-
 	public function current_stage()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
@@ -19,12 +18,29 @@ class Classes extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$original = $this->ClassesM->current_stage($uid);
 
-		$data['data']['current_stage'] = $this->classes_mission->jsonDecode($original['mission']['homework']);
-
+		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
+		print_r($mission);die;
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		$data['data']['complete'] = $this->classes_mission->init($data['data']['current_stage'], $personal)->get_mission_complete()->property('distributing')->complete_ratio();
+		// foreach ( $this->classes_mission->init($mission, $personal)->showData as $key => $value) {
+		// 	if ($key == ) {
+		// 		# code...
+		// 	}
+		// }
+		$data['data']['complete'] = $this->classes_mission->init($mission, $personal)->get_mission_complete()->property('distributing')->complete_ratio();
 
 		encode_json($response,$data);
+	}
+
+	public function showData($ids, $table)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$this->load->database();
+		$this->load->model('classes_mission');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+
+		return $this->classes_mission->showData($ids, $table);
 	}
 
 	public function All_stages()
