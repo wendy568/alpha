@@ -7,8 +7,8 @@ class Classes_mission
 	protected $category;
 
 	protected $distribution = [
-				'Video Learning' => 'is_view',
-				'Video learning' => 'is_view',
+				'Video Learning' => 'record',
+				'Video learning' => 'record',
 				'Article learning' => 'is_view',
 				'Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => 'isCountEnough', 'Make Transaction 2' => 'isCountEnough',
 				'4 style trade' => 'isCountEnough',
@@ -25,6 +25,8 @@ class Classes_mission
 
 	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
 
+	protected $classes;
+	
 	protected $mission;
 
 	protected $homework;
@@ -37,13 +39,19 @@ class Classes_mission
 
 	public function init($mission = null, $homework = null, $allProcess = null)
 	{
+		$this->classes = $allProcess;
 		$this->mission = $mission;
 		$this->homework = $homework;
 		$this->missionCount = count($mission);
 
+		return $this;
+	}
+
+	public function generating()
+	{
 		$result = [];
 
-		foreach($allProcess as $key => $value) {
+		foreach($this->classes as $key => $value) {
 			foreach ($this->jsonDecode($value['homework']) as $k => $v) {
 				$v = is_array($v) ? 'is_view' : $v;
 				$v = is_numeric($v) ? 'isCountEnough' : $v;
@@ -52,6 +60,7 @@ class Classes_mission
 		}
 		
 		$this->category = $result;
+
 		return $this;
 	}
 
