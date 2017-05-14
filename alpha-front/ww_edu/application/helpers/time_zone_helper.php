@@ -33,6 +33,7 @@ class time_zone{
 		$year = date("Y", $_date);
 		$month = date("m", $_date);
 		$day = date("d", $_date);
+
 		return $this->_date = mktime(00,00,00,$month,$day,$year);
 	}
 
@@ -49,6 +50,7 @@ class time_zone{
 		$year = date("Y", $_date);
 		$month = date("m", $_date);
 		$day = date("d", $_date);
+
 		return $this->_date = mktime(23,59,59,$month,$day,$year);
 	}
 
@@ -59,6 +61,7 @@ class time_zone{
 		$month = $slice[1]; 
 		$day = $slice[2];
 		$start = mktime(00, 00, 00, $month, $day, $year);
+
 		return $this->_date = $start;
 	}
 
@@ -69,6 +72,7 @@ class time_zone{
 		$month = $slice[1]; 
 		$day = $slice[2];
 		$end = mktime(23, 59, 59, $month, $day, $year);
+
 		return $this->_date = $end;
 	}
 
@@ -78,6 +82,7 @@ class time_zone{
 		$month = date("m");
 		$day = date("d");
 		$end= mktime(00,00,00,$month,$day,$year);
+
 		return $this->_date = $end;
 	}
 
@@ -87,6 +92,7 @@ class time_zone{
 		$month = date("m");
 		$day = date("d");
 		$end= mktime(23,59,59,$month,$day,$year);
+
 		return $this->_date = $end;
 	}
 
