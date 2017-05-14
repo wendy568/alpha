@@ -39,36 +39,6 @@
             left_right : direction || '',
             time_node : firstDate || ''
         };
-
-        function getFlagOfCountry(country) {
-            var countryClass = '';
-            if(country == 'New Zealand'){
-                countryClass = 'country_nzd';
-            }
-            else if(country == 'Japan'){
-                countryClass = 'country_jpy';
-            }
-            else if(country == 'China'){
-                countryClass = 'country_cny';
-                
-            }
-            else if(country == 'the United States'){
-                countryClass = 'country_usd';
-            }
-            else if(country == 'the United Kingdom'){
-                countryClass = 'country_gbp';
-            }
-            else if(country == 'Australia'){
-                countryClass = 'country_aud';
-            }
-            else if(country == 'Euro'){
-                countryClass = 'country_eur';
-            }
-            else if(country == 'Switzerland'){
-                countryClass = 'country_chf';
-            }
-            return countryClass;
-        }
         
         $.alpha.request_Url('post','dashboard/calendar',date,function(data){
             if(data.archive.status == 0){
@@ -265,5 +235,34 @@
 	        getCalendarData(parseInt((new Date(lastDate).getTime())/1000),'right');
 	    });
     });
-
+  
+  
+  function getFlagOfCountry(country) {
+    var countryClass = '';
+    if(country == 'New Zealand'){
+      countryClass = 'country_nzd';
+    }
+    else if(country == 'Japan'){
+      countryClass = 'country_jpy';
+    }
+    else if(country == 'China'){
+      countryClass = 'country_cny';
+    }
+    else if(country == 'the United States'){
+      countryClass = 'country_usd';
+    }
+    else if(country == 'the United Kingdom'){
+      countryClass = 'country_gbp';
+    }
+    else if(country == 'Australia'){
+      countryClass = 'country_aud';
+    }
+    else if(country == 'Euro'){
+      countryClass = 'country_eur';
+    }
+    else if(country == 'Switzerland'){
+      countryClass = 'country_chf';
+    }
+    return countryClass;
+  }
 })();
