@@ -128,24 +128,4 @@ class Trading_Analysis extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function test()
-	{
-		header( 'Access-Control-Allow-Origin:*' );
-		
-		$token = $this->input->get_post('token', TRUE);
-		$account = $this->get_trading_account($token);
-
-		$this->load->database();
-		$this->load->helper('json');
-		// $this->load->helper('time_zone');
-		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->model('TradingAnalysis');
-
-		$mt4 = $this->TradingAnalysis->calendar();
-		$this->load->library('trading_datas_calculate');
-		$this->trading_datas_calculate->time_filter_definition = 'time_en';
-		$data['data']['test'] = $this->trading_datas_calculate->build($mt4, 3)->get_week()->getWeekResult();
-		$response = array('archive' => array('status' => 0 ,'message' =>''));
-		encode_json($response,$data);
-	}
 }
