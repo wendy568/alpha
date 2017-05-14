@@ -147,9 +147,9 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
-						if ($v > $todayBegin && $v < $todayEnd) {
+						// if ($v > $todayBegin && $v < $todayEnd) {
 							$value['align_top'] = $this->align_time($v);
-						}
+						// }
 						
 						$result[$month . '.' . $day][] = $value;
 					} 
