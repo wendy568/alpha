@@ -4,8 +4,11 @@ class Classes_mission
 {
 	use date_format, struct;
 
-	protected $category = [
+	protected $category;
+
+	protected $distribution = [
 				'Video Learning' => 'is_view',
+				'Video learning' => 'is_view',
 				'Article learning' => 'is_view',
 				'Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => 'isCountEnough', 'Make Transaction 2' => 'isCountEnough',
 				'4 style trade' => 'isCountEnough',
@@ -40,11 +43,6 @@ class Classes_mission
 		$this->homework = $homework;
 		$this->missionCount = count($mission);
 
-		return $this;
-	}
-
-	public function generating()
-	{
 		$result = [];
 		foreach($this->classes as $key => $value) {
 			foreach ($this->jsonDecode($value['homework']) as $k => $v) {
@@ -53,8 +51,9 @@ class Classes_mission
 				$result[$k] = $v;
 			}
 		}
-		print_r(array_diff($this->category, $result));
-		print_r($result);
+		
+		$this->category = $result;
+		return $this;
 	}
 
 	public function get_mission_complete()
