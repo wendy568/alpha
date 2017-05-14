@@ -5,19 +5,19 @@ class Classes_mission
 	use date_format, struct;
 
 	protected $category = [
-				['Video Learning' => 'is_view'],
-				['Article learning' => 'is_view'],
-				['Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => 'isCountEnough', 'Make Transaction 2' => 'isCountEnough'],
-				['4 style trade' => 'isCountEnough'],
-				['take profits/stop loss' => 'isCountEnough'],
-				['Trade all kinds products' => 'isCountEnough', 'Task 2 - 10 different products' => 'isCountEnough', '5 tradable products' => 'isCountEnough'],
-				['Trading Record' => 'isCountEnough'],
-				['Learning Report' => 'isCountEnough'],
-				['Trading Score' => 'isCountEnough'],
-				['Task 1 - 2 different markets' => 'isCountEnough'],
-				['Produce a module' => 'isCountEnough'],
-				['Risk Management Level' => 'isCountEnough'],
-				['Profitable Period' => 'isCountEnough']
+				'Video Learning' => 'is_view',
+				'Article learning' => 'is_view',
+				'Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => 'isCountEnough', 'Make Transaction 2' => 'isCountEnough',
+				'4 style trade' => 'isCountEnough',
+				'take profits/stop loss' => 'isCountEnough',
+				'Trade all kinds products' => 'isCountEnough', 'Task 2 - 10 different products' => 'isCountEnough', '5 tradable products' => 'isCountEnough',
+				'Trading Record' => 'isCountEnough',
+				'Learning Report' => 'isCountEnough',
+				'Trading Score' => 'isCountEnough',
+				'Task 1 - 2 different markets' => 'isCountEnough',
+				'Produce a module' => 'isCountEnough',
+				'Risk Management Level' => 'isCountEnough',
+				'Profitable Period' => 'isCountEnough'
 			];
 	protected $classes;
 
@@ -45,8 +45,9 @@ class Classes_mission
 
 	public function generating()
 	{
+		$result = [];
 		foreach($this->classes as $key => $value) {
-			print_r($value);
+			$this->jsonDecode($value['homework']);
 		}
 	}
 
@@ -59,7 +60,7 @@ class Classes_mission
 			$homework[$key] = $val;
 		});
 
-		array_walk_recursive($this->category, function ($val, $key) use (&$method, $homework) {
+		array_walk($this->category, function ($val, $key) use (&$method, $homework) {
 			foreach ($homework as $k => $v) {
 				if ($k == $key) {
 					$method[$val][$k] = $v;
