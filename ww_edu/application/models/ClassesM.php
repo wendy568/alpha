@@ -58,4 +58,14 @@ class ClassesM extends CI_Model
 
 	}
 
+	function showData($ids, $table)
+	{
+		$map = 'SELECT * 
+				FROM '.$table.'
+				WHERE in ('.$ids.')';
+		
+		$result = $this->db->query($map)->result_array();
+		return $result;
+	}
+
 }
