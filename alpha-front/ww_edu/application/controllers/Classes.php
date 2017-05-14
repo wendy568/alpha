@@ -33,6 +33,8 @@ class Classes extends MY_Controller
 		
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
+		$ratio = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
+		print_r($ratio);die;
 		$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 		print_r($this->classes_mission->init($mission, $personal, $allProcess)->is_complete($is_complete));
 		die;
@@ -55,7 +57,7 @@ class Classes extends MY_Controller
 		$this->load->helper('struct');
 		$this->load->library('classes_mission');
 
-		$response = array('archive' => array('status' => 0,'message' =>''));
+		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		$original = $this->ClassesM->current_stage($uid);
 		$allProcess = $this->allProcess();
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
