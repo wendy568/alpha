@@ -8770,14 +8770,14 @@ body.rtl .footer-widget {
     display: inline-block;
     vertical-align: middle;
 }
-.country_jpy{height:27px;width:44px;background-position:0 0;}
-.country_gbp{height:27px;width:44px;background-position:-53px 0;}
-.country_usd{height:27px;width:44px;background-position:-103px 0;}
-.country_nzd{height:27px;width:44px;background-position:-153px 0;}
-.country_chf{height:27px;width:44px;background-position:-203px 0;}
-.country_aud{height:27px;width:44px;background-position:-253px 0;}
-.country_eur{height:27px;width:44px;background-position:-303px 0;}
-.country_cny{height:27px;width:44px;background-position:-353px 0;}
+.country_cny{height:27px;width:44px;background-position:0 0;}
+.country_jpy{height:27px;width:44px;background-position:-53px 0;}
+.country_aud{height:27px;width:44px;background-position:-103px 0;}
+.country_chf{height:27px;width:44px;background-position:-153px 0;}
+.country_eur{height:27px;width:44px;background-position:-203px 0;}
+.country_usd{height:27px;width:44px;background-position:-253px 0;}
+.country_nzd{height:27px;width:44px;background-position:-303px 0;}
+.country_gbp{height:27px;width:44px;background-position:-353px 0;}
 /*--------------------------------tools---------------------------------------------*/
 .toolbar{
   width: 100%;
