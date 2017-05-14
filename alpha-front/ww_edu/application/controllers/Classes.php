@@ -20,7 +20,9 @@ class Classes extends MY_Controller
 
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		foreach ( $this->classes_mission->init($mission, $personal)->showData as $key => $value) {
+		$data['data']['complete'] = $this->classes_mission->init($mission, $personal)->get_mission_complete()->property('distributing')->complete_ratio();
+		$showData = $this->classes_mission->init($mission, $personal)->showData;
+		foreach ($showData  as $key => $value) {
 			if (!empty($mission[$key])) {
 				foreach ($mission as $k) {
 					$mission[$k] = $this->showData($k, $value);
@@ -28,7 +30,7 @@ class Classes extends MY_Controller
 			}
 		}
 		$data['data']['current_stage'] = $mission;
-		$data['data']['complete'] = $this->classes_mission->init($mission, $personal)->get_mission_complete()->property('distributing')->complete_ratio();
+		
 
 		encode_json($response,$data);
 	}
