@@ -54,46 +54,24 @@ class time_zone{
 		return $this->_date = mktime(23,59,59,$month,$day,$year);
 	}
 
-	public function theDayStart($val)
+	public function todayBegin($time = null)
 	{
-		$slice = explode('-', $val);
-		$year = $slice[0];
-		$month = $slice[1]; 
-		$day = $slice[2];
-		$start = mktime(00, 00, 00, $month, $day, $year);
+		$time = ($time) ? $time : time();
+		$year = date("Y", time());
+		$month = date("m", time());
+		$day = date("d", time());
 
-		return $this->_date = $start;
+		return $this->_date = mktime(00,00,00,$month,$day,$year);
 	}
 
-	public function theDayEnd($val)
+	public function todayEnd($time = null)
 	{
-		$slice = explode('-', $val);
-		$year = $slice[0];
-		$month = $slice[1]; 
-		$day = $slice[2];
-		$end = mktime(23, 59, 59, $month, $day, $year);
+		$time = ($time) ? $time : time();
+		$year = date("Y", time());
+		$month = date("m", time());
+		$day = date("d", time());
 
-		return $this->_date = $end;
-	}
-
-	public function todayBegin()
-	{
-		$year = date("Y");
-		$month = date("m");
-		$day = date("d");
-		$end= mktime(00,00,00,$month,$day,$year);
-
-		return $this->_date = $end;
-	}
-
-	public function todayEnd()
-	{
-		$year = date("Y");
-		$month = date("m");
-		$day = date("d");
-		$end= mktime(23,59,59,$month,$day,$year);
-
-		return $this->_date = $end;
+		return $this->_date = mktime(23,59,59,$month,$day,$year);
 	}
 
 	public function get_week($time = null)
