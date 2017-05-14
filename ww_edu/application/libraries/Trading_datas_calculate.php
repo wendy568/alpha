@@ -216,12 +216,12 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
     	$time = date('Y-m-d H');
-    	print_r($time);die;
-    	// array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
-    	// 	if ($key == $index) {
-    	// 		$sum += $val;
-    	// 	}
-    	// });
+    	print_r($time);
+    	array_walk_recursive($datas, function ($val, $key) use ($index){
+    		if ($key == $index) {
+    			echo date('Y-m-d H', $val);
+    		}
+    	});
     }
 
     private function sum($index, $data = [])
