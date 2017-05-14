@@ -40,6 +40,11 @@ class Classes_mission
 		return $this;
 	}
 
+	public function generating()
+	{
+		
+	}
+
 	public function get_mission_complete()
 	{
 		$method = [];

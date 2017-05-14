@@ -7,6 +7,15 @@ class ClassesM extends CI_Model
         parent::__construct();
     }
 
+    function allProcess()
+    {
+    	$map = 'SELECT homework 
+    			FROM classes';
+    	
+    	$result = $this->db->query($map)->result_array();
+    	return $result;
+    }
+
     function current_stage($uid)
     {
     	$result = [];
