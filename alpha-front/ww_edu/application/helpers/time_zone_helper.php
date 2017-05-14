@@ -10,14 +10,12 @@ class time_zone{
 
     public function lastDayInMonthOfBegin()
 	{
-		$this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', time()))));
-		return $this;
+		return $this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', time()))));
 	}
 
 	public function lastDayInMonthOfEnd()
 	{
-		$this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', time()))) . ' +1 month -1 day');
-		return $this;
+		return $this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', time()))) . ' +1 month -1 day');
 	}
 
 	public function sundayOfTheWeekOfBegin()
@@ -35,9 +33,7 @@ class time_zone{
 		$year = date("Y", $_date);
 		$month = date("m", $_date);
 		$day = date("d", $_date);
-		$this->_date= mktime(00,00,00,$month,$day,$year);
-
-		return $this;
+		return $this->_date = mktime(00,00,00,$month,$day,$year);
 	}
 
 	public function sundayOfTheWeekOfEnd()
@@ -53,9 +49,27 @@ class time_zone{
 		$year = date("Y", $_date);
 		$month = date("m", $_date);
 		$day = date("d", $_date);
-		$this->_date= mktime(23,59,59,$month,$day,$year);
+		return $this->_date = mktime(23,59,59,$month,$day,$year);
+	}
 
-		return $this;
+	public function theDayStart($val)
+	{
+		$slice = explode('-', $val);
+		$year = $slice[0];
+		$month = $slice[1]; 
+		$day = $slice[2];
+		$start = mktime(00, 00, 00, $month, $day, $year);
+		return $this->_date = $start;
+	}
+
+	public function theDayEnd($val)
+	{
+		$slice = explode('-', $val);
+		$year = $slice[0];
+		$month = $slice[1]; 
+		$day = $slice[2];
+		$end = mktime(23, 59, 59, $month, $day, $year);
+		return $this->_date = $end;
 	}
 
 	public function todayBegin()
@@ -64,8 +78,7 @@ class time_zone{
 		$month = date("m");
 		$day = date("d");
 		$end= mktime(00,00,00,$month,$day,$year);
-		$this->_date = $end;
-		return $this;
+		return $this->_date = $end;
 	}
 
 	public function todayEnd()
@@ -74,8 +87,7 @@ class time_zone{
 		$month = date("m");
 		$day = date("d");
 		$end= mktime(23,59,59,$month,$day,$year);
-		$this->_date = $end;
-		return $this;
+		return $this->_date = $end;
 	}
 
 	public function get_week($time = null)
@@ -102,7 +114,7 @@ class time_zone{
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
 
-			return $dates;
+			return $this->_date = $dates;
 
 		} elseif ($date['mday'] >= 7) {
 			$year = date("Y", $time);
@@ -113,7 +125,7 @@ class time_zone{
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
 
-			return array_reverse($dates);
+			return $this->_date = array_reverse($dates);
 		}
 	}
 
