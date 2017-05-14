@@ -213,18 +213,26 @@ class Trading_datas_calculate {
 
     private function align_time($index, $data = [])
     {
-    	echo date_default_timezone_get();
-    	print_r(getdate(1494743415));
-    	var_dump(time());
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
-    	$time = date('Y-m-d H:i:s', time());
+    	$time = strtotime(date('Y-m-d H:i:s', time()));
     	var_dump($time);
-    	array_walk_recursive($datas, function ($val, $key) use ($index){
-    		if ($key == $index) {
-    			var_dump(date('Y-m-d H', $val));
-    		}
-    	});
+    	foreach ($datas as $key => $value) {
+			foreach ($value as $k => $v) {
+				if ($k == $index) {
+					if($time == strtotime(date('Y-m-d H', $v))){
+	    				$datas[$key]['align_time'] = 1;
+	    			}
+				}
+			}
+		}	
+		
+		if(!empty($data)) {
+			return $this->oneByone = $datas;
+		} else {
+			return $this->_data = $datas;
+		}
+    	
     }
 
     private function sum($index, $data = [])
