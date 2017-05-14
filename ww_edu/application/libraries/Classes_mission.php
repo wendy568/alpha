@@ -125,11 +125,11 @@ class Classes_mission
 
 	protected function isCountEnough($param)
 	{
-		var_dump(empty(0));
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
+				print_r($param[$key]);
 				$this->completeOne[$key] = ($param[$key] >= $value) ? 1 : 0;
-				print_r($this->completeOne);
+				
 				$this->complete += ($param[$key] >= $value) ? 1 : 0;
 			}
 		}
