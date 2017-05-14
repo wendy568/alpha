@@ -4,7 +4,7 @@ class Classes_mission
 {
 	use date_format, struct;
 
-	private $category = [
+	protected $category = [
 				['Video Learning' => 'is_view'],
 				['Article learning' => 'is_view'],
 				['Place your order' => 'isCountEnough', 'Make Transactions' => 'isCountEnough', 'Make Transaction 1' => 'isCountEnough', 'Make Transaction 2' => 'isCountEnough'],
@@ -19,30 +19,35 @@ class Classes_mission
 				['Risk Management Level' => 'isCountEnough'],
 				['Profitable Period' => 'isCountEnough']
 			];
+	protected $classes;
 
 	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
 
-	private $mission;
+	protected $mission;
 
-	private $homework;
+	protected $homework;
 
-	private $complete;
+	protected $complete;
 
-	private $missionCount = 0;
+	protected $missionCount = 0;
 
-	private $completeOne = [];
+	protected $completeOne = [];
 
-	public function init($mission = null, $homework = null)
+	public function init($mission = null, $homework = null, $allProcess = null)
 	{
+		$this->classes = $allProcess;
 		$this->mission = $mission;
 		$this->homework = $homework;
 		$this->missionCount = count($mission);
+
 		return $this;
 	}
 
 	public function generating()
 	{
-		
+		foreach($this->classes as $key => $value) {
+			print_r($value);
+		}
 	}
 
 	public function get_mission_complete()
@@ -86,7 +91,7 @@ class Classes_mission
 		}
 	}
 
-	private function is_view($param)
+	protected function is_view($param)
 	{
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
@@ -96,7 +101,7 @@ class Classes_mission
 		}
 	}
 
-	private function isCountEnough($param)
+	protected function isCountEnough($param)
 	{
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
