@@ -215,7 +215,7 @@ class Trading_datas_calculate {
     {
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
-    	$time = date('Y-m-d H');
+    	$time = date('Y-m-d H', time());
     	print_r($time);
     	array_walk_recursive($datas, function ($val, $key) use ($index){
     		if ($key == $index) {
