@@ -216,7 +216,7 @@ class Trading_datas_calculate {
     	$datas = $this->_data;
     	if(!empty($data)) $datas = $data;
 
-    	$time = strtotime(date('Y-m-d H:i:s', time()));
+    	$time = strtotime(date('Y-m-d H', time()));
     	foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == $index) {
