@@ -19,7 +19,7 @@ class Classes extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$original = $this->ClassesM->current_stage($uid);
 
-		$data['data']['current_stage'] = $this->classes_mission->jsonDecode($original['personal']['homework']);
+		$data['data']['current_stage'] = $this->classes_mission->jsonDecode($original['mission']['homework']);
 
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$data['data']['complete'] = $this->classes_mission->init($mission, $data['data']['current_stage'])->get_mission_complete()->property('distributing')->complete_ratio();
