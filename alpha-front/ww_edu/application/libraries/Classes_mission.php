@@ -154,7 +154,7 @@ class Classes_mission
 			$is_mission = array_search($this->public_params, $this->mission[$key]);
 			var_dump($key);
 			print_r($this->mission[$key]);
-			print_r($is_mission);
+			var_dump($is_mission);
 		}
 			
 		
