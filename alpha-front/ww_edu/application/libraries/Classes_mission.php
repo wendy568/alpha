@@ -169,13 +169,33 @@ class Classes_mission
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $value;
 		}
-		print_r($this->homework);
+
 		return $this->homework;
 	}
 
 	protected function articleRead($param)
 	{
 
+		if($this->look_up != 'article') return false;
+
+		foreach ($param as $key => $value) {
+			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
+				if (!($bool = array_search($this->mission[$key][$is_mission], $value)) && $bool === false) {
+				 	$param[$key][] = $this->mission[$key][$is_mission];
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		}
+		
+		foreach ($param as $key => $value) {
+			$this->homework[$key] = $value;
+		}
+
+		return $this->homework;
+		
 	}
 
 	protected function record_count($param)
