@@ -21,6 +21,7 @@ class Classes extends MY_Controller
 		$look_up = $this->input->get_post('look_up', TRUE);
 		$token = $this->input->get_post('token', TRUE);
 		$uid = $this->get_bytoken($token);
+		$account = $this->get_trading_account($token);
 		
 		$this->load->database();
 		$this->load->helper('json');
