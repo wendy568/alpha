@@ -205,7 +205,7 @@ class Classes_mission
 		print_r($param);
 		$this->load->database();
 		$this->load->model('TradingAnalysis');
-		$count = $this->TradingAnalysis->trading_count($account);
+		$count = $this->TradingAnalysis->trading_count($this->account);
 		var_dump($count);
 	}
 
