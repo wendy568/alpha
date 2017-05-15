@@ -230,10 +230,11 @@ class Classes_mission
 
 	protected function count($callback, $param)
 	{
+		print_r($param);die;
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
-		$count = call_user_func_array([$instance->TradingAnalysis, $callback], $param);
+		$count = call_user_func_array([$instance->TradingAnalysis, $callback], [$param]);
 
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
