@@ -101,8 +101,6 @@ class Classes_mission
 		return $this;
 	}
 
-
-
 	public function complete_ratio()
 	{
 		return round($this->complete / $this->missionCount, 2);
