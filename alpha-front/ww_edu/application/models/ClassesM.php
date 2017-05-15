@@ -26,7 +26,7 @@ class ClassesM extends CI_Model
     	
     	$result['personal'] = $this->db->query($map)->row_array();
 
-    	$map = "SELECT `describe`, homework  
+    	$map = "SELECT title, `describe`, homework  
 				FROM classes
 				WHERE id = {$result['personal']['hw_id']}";	
 
@@ -34,15 +34,6 @@ class ClassesM extends CI_Model
 		
         $result['mission'] = $query->row_array();
 
-    	return $result;
-    }
-
-    function All_stages()
-    {
-    	$map = 'SELECT * 
-    			FROM classes';
-    	
-    	$result = $this->db->query($map)->result_array();
     	return $result;
     }
 
