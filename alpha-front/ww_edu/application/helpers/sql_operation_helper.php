@@ -27,7 +27,6 @@ abstract class sql_operation
 		}
 
 		if(isset($this->_data[$index]) && $this->_data[$index]) {
-
 			return addslashes($this->_data[$index]);
 		} else {
 			return false;
@@ -42,7 +41,6 @@ abstract class sql_operation
 
 	public function add($file = null)
 	{	
-
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
