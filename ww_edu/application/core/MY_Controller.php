@@ -28,7 +28,7 @@ class MY_Controller extends CI_Controller
 		return $data;
 	}
 
-	public function get_account()
+	public function get_account($uid)
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
