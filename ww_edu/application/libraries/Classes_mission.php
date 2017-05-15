@@ -93,7 +93,7 @@ class Classes_mission
 				}
 			}
 		});
-
+		print_r($method);
 		$this->method = $method;
 
 		return $this;
