@@ -142,6 +142,7 @@ class Classes_mission
 
 	public function intersection($mission, $homework)
 	{
+		print_r($mission);die;
 		foreach ($mission as $key => $value) {
 			if (is_array($value)) {
 				foreach ($value as $k => $v) {
