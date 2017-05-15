@@ -152,8 +152,8 @@ class Classes_mission
 
 	protected function videoRead($param)
 	{
-		if(isset($this->look_up)) return false;
-
+		if(isset($this->look_up) && $this->look_up == 'video') return false;
+		echo 123;
 		foreach ($param as $key => $value) {
 			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
 				var_dump($this->mission[$key][$is_mission]);
