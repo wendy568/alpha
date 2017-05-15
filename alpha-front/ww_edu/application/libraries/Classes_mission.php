@@ -233,6 +233,7 @@ class Classes_mission
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
+		print_r($param);
 		die;
 		$count = call_user_func_array([$instance->TradingAnalysis, $callback], $param);
 
