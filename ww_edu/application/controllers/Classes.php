@@ -22,7 +22,7 @@ class Classes extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$uid = $this->get_bytoken($token);
 		$account = $this->get_account($uid);
-
+		var_dump($account);
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('ClassesM');
