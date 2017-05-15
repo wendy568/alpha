@@ -150,11 +150,14 @@ class Classes_mission
 
 	protected function videoRead($param)
 	{
-		print_r($this->mission);
-		print_r($this->homework);
-		print_r($param);die;
-		foreach ($this->mission as $key => $value) {
-			# code...
+		// print_r($this->mission);
+		// print_r($this->homework);
+		// print_r($param);die;
+		foreach ($param as $key => $value) {
+			foreach ($this->mission[$key] as $key => $value) {
+				print_r($this->mission[$key]);die;
+			}
+			
 		}
 	}
 
