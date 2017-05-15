@@ -212,7 +212,7 @@ class Classes_mission
 		return $this->homework;
 	}
 
-	protected function count($param, $col, $val)
+	protected function count($param, $col = null, $val = null)
 	{
 		$instance = & get_instance();
 		$instance->load->database();
