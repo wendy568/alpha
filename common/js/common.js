@@ -466,14 +466,12 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
      * @param fn callback function
      *
      * */
-    sessionStorage.setItem('userInfo',{
-      token : '',
-      email : ''
-    });
+    sessionStorage.setItem('token','');
     alpha.prototype.request_Url = function (type, url, data, fn) {
 
         // 每次请求都会带上token信息
-        data.token = sessionStorage.getItem("userInfo").token || '';
+
+        data.token = sessionStorage.getItem("token") || '';
 
         return $.ajax({
           type    : type,
