@@ -6662,6 +6662,7 @@ input[type="checkbox"] {
 .cbp_tmtimeline ul li {
   display: inline-block;
   margin-right: 30px;
+  margin-bottom: 20px;
 }
 .cbp_tmtimeline:before {
   content: '';
@@ -9126,8 +9127,7 @@ body.rtl .footer-widget {
   display: inline-block;
 }
 .bk-img{
-  width:540px;
-  height: 324px;
+  width:100%;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   position: relative;
@@ -9135,7 +9135,7 @@ body.rtl .footer-widget {
 .tv-date{
   position: absolute;
   height: 30px;
-  top:294px;
+  bottom: 60px;
   left: 0;
   background-color:rgba(0,0,0,.5);
   width: 100%;
