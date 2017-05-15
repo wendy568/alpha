@@ -140,25 +140,25 @@ class Classes_mission
 		}
 	}
 
-	public function intersection($mission, $homework)
+	public function intersection()
 	{
-		foreach ($mission as $key => $value) {
+		foreach ($this->lastOrNextProcess as $key => $value) {
 			if (is_array($value)) {
 				foreach ($value as $kk => $val) {
 					foreach ($val as $k => $v) {
-						if ($k == 'id' && ($bool = array_search($v, $homework[$key]) OR $bool !== false)) {
-							$mission[$key][$kk]['is_complete'] = 1;
+						if ($k == 'id' && ($bool = array_search($v, $this->homework[$key]) OR $bool !== false)) {
+							$this->lastOrNextProcess[$key][$kk]['is_complete'] = 1;
 						}
 					}					
 				}
 			} 
 
-			if (is_numeric($value)){
-				$mission[$key] = $homework[$key] . '/' . $value;
+			if (is_numeric($value)) {
+				$this->lastOrNextProcess[$key] = $this->homework[$key] . '/' . $value;
 			}
 		}
 
-		return $mission;
+		return $this->lastOrNextProcess;
 	}
 
 	public function lastOrNextProcess()
@@ -176,8 +176,7 @@ class Classes_mission
 			}
 		}
 
-		print_r($mission);
-		die;
+		return $this->lastOrNextProcess = $mission;
 	}
 
 	public function is_complete($is)
