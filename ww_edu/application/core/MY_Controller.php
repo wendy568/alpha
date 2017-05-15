@@ -34,6 +34,7 @@ class MY_Controller extends CI_Controller
 		$this->load->database();
 		$this->load->model('login');
 		$data = $this->login->get_trading_account($uid);
+		return $data;
 	}
 
 	public function get_bytoken_id_forAdmin($token)
