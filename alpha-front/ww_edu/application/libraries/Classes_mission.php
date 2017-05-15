@@ -43,6 +43,8 @@ class Classes_mission
 
 	public $look_up = null;
 
+	public $account;
+
 	public function init($mission = null, $homework = null, $allProcess = null)
 	{
 		$this->classes = $allProcess;
