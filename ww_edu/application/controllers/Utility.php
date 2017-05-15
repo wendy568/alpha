@@ -88,7 +88,7 @@ class Utility extends MY_Controller
 		$cols = $this->trading_log->init($datas)
 								  ->create_time()
 								  ->format()
-					              ->property('user_addslashes')
+					              ->property('user_addslashes',[])
 					              ->add();
 
 		$this->load->model('users');
@@ -115,7 +115,7 @@ class Utility extends MY_Controller
 
 		$cols = $this->trading_log->init($datas)
 								  ->format()
-					              ->property('user_addslashes')
+					              ->property('user_addslashes', [])
 					              ->update();
 
 		$this->load->model('users');
