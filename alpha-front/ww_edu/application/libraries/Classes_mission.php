@@ -93,7 +93,7 @@ class Classes_mission
 				}
 			}
 		});
-		print_r($method);
+
 		$this->method = $method;
 
 		return $this;
@@ -193,7 +193,7 @@ class Classes_mission
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $value;
 		}
-		print_r($this->homework);
+
 		return $this->homework;
 		
 	}

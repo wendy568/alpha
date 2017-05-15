@@ -36,7 +36,7 @@ class Classes extends MY_Controller
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		$ratio = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
-
+		print_r($personal);
 		if($ratio != 1) {
 			$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 			$this->classes_mission->public_params = $article_classes_id;
@@ -47,7 +47,24 @@ class Classes extends MY_Controller
 		
 		encode_json($response,$data);
 	}
+	/**
+	 * Array
+(
+    [Video Learning] => Array
+        (
+            [0] => 3
+            [1] => 1
+        )
 
+    [Article learning] => Array
+        (
+            [0] => 1
+            [1] => 2
+        )
+
+    [Make Transactions] => 2
+)
+	**/
 	public function current_stage()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
