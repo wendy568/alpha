@@ -200,7 +200,7 @@ class Classes_mission
 
 	protected function record_count($param)
 	{
-
+		print_r($param);
 	}
 
 }
