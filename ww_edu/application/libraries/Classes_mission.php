@@ -233,7 +233,7 @@ class Classes_mission
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
-		$count = call_user_func_array([$instance->TradingAnalysis, $callback], [$param]);
+		$count = call_user_func_array([$instance->TradingAnalysis, $callback], $param);
 
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
@@ -257,12 +257,11 @@ class Classes_mission
 
 	protected function record_count($param)
 	{
-		// call_user_func_array([$this, 'count'], ['trading_count', [$param]]);
+		call_user_func_array([$this, 'count'], ['trading_count', [$param]]);
 	}
 
 	protected function orderSymbolCount($param)
 	{
-		print_r([$param, 'order_type', '0,1,2,3,4,5', 'order_type']);die;
 		call_user_func_array([$this, 'count'], ['trading_count', [$param, 'order_type', '0,1,2,3,4,5', 'order_type']]);
 	}
 
