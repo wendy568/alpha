@@ -193,7 +193,7 @@ class Classes_mission
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $value;
 		}
-		var_dump($this->homework);
+		print_r($this->homework);
 		return $this->homework;
 		
 	}
