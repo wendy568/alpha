@@ -165,7 +165,7 @@ class Classes_mission
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $value;
 		}
-		print_r($this->homework)
+		print_r($this->homework);
 	}
 
 	protected function articleRead($param)
