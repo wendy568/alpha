@@ -13,6 +13,12 @@ abstract class sql_operation
 		return $this;
 	}
 
+	public function pickUpProperty()
+	{
+		$this->_data = $this->property;
+		return $this;
+	}
+
 	protected function user_addslashes($index = null)
 	{
 		isset($index) OR $index = array_keys($this->_data);
@@ -31,12 +37,6 @@ abstract class sql_operation
 		} else {
 			return false;
 		}
-	}
-
-	public function property($callback, $param = [])
-	{
-		$this->_data = call_user_func_array([$this, $callback], $param);
-		return $this;
 	}
 
 	public function add($file = null)
