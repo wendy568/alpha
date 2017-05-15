@@ -7,9 +7,9 @@ class Classes_mission
 	protected $category;
 
 	protected $distribution = [
-				'Video Learning' => 'read',
-				'Video learning' => 'read',
-				'Article learning' => 'read',
+				'Video Learning' => 'videoRead',
+				'Video learning' => 'videoRead',
+				'Article learning' => 'articleRead',
 				'Place your order' => 'record_count', 'Make Transactions' => 'record_count', 'Make Transaction 1' => '', 'Make Transaction 2' => '',
 				'4 style trade' => 'record_count',
 				'take profits/stop loss' => 'record_count',
@@ -148,11 +148,14 @@ class Classes_mission
 		return $this;
 	}
 
-	protected function read($param)
+	protected function videoRead($param)
 	{
 		print_r($this->mission);
 		print_r($this->homework);
-		print_r($param);
+		print_r($param);die;
+		foreach ($this->mission as $key => $value) {
+			# code...
+		}
 	}
 
 }
