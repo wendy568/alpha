@@ -236,7 +236,7 @@ class Classes_mission
 			$this->homework[$key] = $count;
 		}
 
-		print_r($this->homework);
+		return $this->homework;
 	}
 
 }
