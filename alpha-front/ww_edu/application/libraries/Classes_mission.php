@@ -152,8 +152,7 @@ class Classes_mission
 	{
 		foreach ($param as $key => $value) {
 			if (($is_mission = array_search($this->public_params, $this->mission[$key])) && $is_mission !== false) {
-				var_dump($is_mission);
-				$value[] = array_search($is_mission, $value) ? : $is_mission;
+				$value[] = array_search($this->mission[$key][$is_mission], $value) ? : $is_mission;
 			}
 		}
 		
