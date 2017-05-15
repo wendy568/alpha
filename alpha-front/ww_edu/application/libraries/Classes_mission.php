@@ -193,7 +193,7 @@ class Classes_mission
 
 	protected function Read($param)
 	{
-		if($this->look_up != 'video') return false;
+		if($this->look_up != 'video' OR $this->look_up != 'article') return false;
 
 		foreach ($param as $key => $value) {
 			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
