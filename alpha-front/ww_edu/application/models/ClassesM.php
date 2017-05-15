@@ -26,14 +26,13 @@ class ClassesM extends CI_Model
     	
     	$result['personal'] = $this->db->query($map)->row_array();
 
-    	$map = "SELECT homework  
+    	$map = "SELECT `describe`, homework  
 				FROM classes
 				WHERE id = {$result['personal']['hw_id']}";	
 
 		$query = $this->db->query($map);
 		
         $result['mission'] = $query->row_array();
-        $result['mission']['stage'] = $result['personal']['hw_id'];
 
     	return $result;
     }
