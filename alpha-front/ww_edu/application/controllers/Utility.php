@@ -115,9 +115,9 @@ class Utility extends MY_Controller
 
 		$cols = $this->trading_log->init($datas)
 								  ->format()
-					              ->property('user_addslashes', [])
-					              ->update();
-
+					              ->property('user_addslashes', []);
+					              // ->update();
+					              print_r($cols);
 		$this->load->model('users');
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = $this->users->add($cols, $response);
