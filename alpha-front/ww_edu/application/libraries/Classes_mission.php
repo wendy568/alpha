@@ -161,7 +161,7 @@ class Classes_mission
 			}
 		}
 		
-		// print_r($param);
+		print_r($param);
 	}
 
 	protected function articleRead($param)
