@@ -100,17 +100,24 @@ class TradingAnalysis extends CI_Model
         return count($result['count']);
     }
 
-    function tradingCountGL($account, $col = null)
+    function tradingCountGL($account, $col = [])
     {
         $where = null;
-        if (isset($col) && $col) $where = " AND {$col}>0";
-        $map = "SELECT count(*) AS count  
-                FROM mt4_export_datas
-                WHERE account_number='{$account}' {$where} 
-                LIMIT 1";
+        if (!empty($col)) {
+            foreach ($col as $key) {
+                $where = " AND {$key}>0";
+                $map = "SELECT count(*) AS count  
+                        FROM mt4_export_datas
+                        WHERE account_number='{$account}' {$where} 
+                        LIMIT 1";
 
-        $result = $this->db->query($map)->row_array();
-        return $result['count'];
+                $result = $this->db->query($map)->row_array();
+                $count += $result['connt'];
+            }
+            
+        }
+        
+        return $count;
     }
 
 }
