@@ -85,7 +85,8 @@ class Classes extends MY_Controller
 			}
 		}
 
-		$data['data']['current_stage'] = $original['mission']['stage'];
+		$data['data']['current_stage'] = $original['personal']['hw_id'];
+		$data['data']['describe'] = $original['mission']['describe'];
 		$data['data']['detail'] = $mission;
 		
 		encode_json($response,$data);
