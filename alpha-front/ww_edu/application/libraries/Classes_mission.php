@@ -248,7 +248,7 @@ class Classes_mission
 		
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
-			$this->homework[$key] = $value;
+			$this->homework[$key] = $count;
 		}
 		print_r($param);
 		print_r($this->homework);
