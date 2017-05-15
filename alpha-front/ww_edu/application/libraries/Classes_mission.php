@@ -145,10 +145,10 @@ class Classes_mission
 		foreach ($mission as $key => $value) {
 			if (is_array($value)) {
 				foreach ($value as $k => $v) {
-						var_dump($k);
-						var_dump($v);
-						var_dump($homework[$key]);
-					var_dump( array_search($homework[$key], $v));
+						print_r($k);
+						print_r($v);
+						print_r($homework[$key]);
+					print_r( array_search($homework[$key], $v));
 					if ($k == 'id' && ($bool = array_search($homework[$key], $v) OR $bool !== false)) {
 
 						$mission[$key]['is_complete'] = 1;
