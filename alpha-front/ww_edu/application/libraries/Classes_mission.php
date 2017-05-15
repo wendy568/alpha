@@ -12,7 +12,7 @@ class Classes_mission
 				'Article learning' => 'articleRead',
 				'Place your order' => 'record_count', 'Make Transactions' => 'record_count', 'Make Transaction 1' => '', 'Make Transaction 2' => '',
 				'4 style trade' => 'orderSymbolCount',
-				'take profits/stop loss' => 'record_count',
+				'take profits/stop loss' => 'profits_loss',
 				'Trade all kinds products' => 'record_count', 'Task 2 - 10 different products' => 'record_count', '5 tradable products' => 'record_count',
 				'Trading Record' => 'record_count',
 				'Learning Report' => '',
@@ -21,6 +21,17 @@ class Classes_mission
 				'Produce a module' => '',
 				'Risk Management Level' => 'variance',
 				'Profitable Period' => 'sumOneMonth'
+			];
+
+	protected $products = [
+				[
+					'AUDUSD', 'EURUSD', 'GBPUSD', 'NZDUSD', 'USDCAD', 'USDCHF', 'USDCNH', 'USDJPY', 'AUDCAD', 'AUDCHF', 'AUDJPY', 'AUDNZD', 'CADCHF', 'CADJPY', 'CHFJPY', 'EURAUD', 'EURCAD', 'EURCHF', 'EURGBP', 'EURJPY', 'EURNZD', 'GBPAUD', 'GBPCAD', 'GBPCHF', 'GBPJPY', 'GBPNZD', 'NZDJPY'],
+		  		[
+					'XAUUSD', 'XAGUSD', 'DXY', 'COPPER', 'NGAS', 'UKOIL', 'USOIL'
+				],
+				[
+					'AUS200', 'HKG50', 'HKH40', 'JPN225', 'NAS100', 'SPX500', 'UK100', 'US30'
+				]
 			];
 
 	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
@@ -217,13 +228,14 @@ class Classes_mission
 		return $this->homework;
 	}
 
-	protected function count($param, $col = null, $val = null)
+	protected function count($param, $col = null, $value = null, $group = null)
 	{
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
-		$count = $instance->TradingAnalysis->trading_count($this->account, $col, $val);
-		
+
+		// $count = $instance->TradingAnalysis->trading_count($this->account, $col, $value, $group);
+		$count = call_user_func_array([$instance->TradingAnalysis, 'trading_count'], [$this->account, $col, $value, $group]);
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
@@ -231,6 +243,22 @@ class Classes_mission
 
 		return $this->homework;
 	}
+
+	// protected function count($param, $col = null, $value = null, $group = null)
+	// {
+	// 	$instance = & get_instance();
+	// 	$instance->load->database();
+	// 	$instance->load->model('TradingAnalysis');
+
+	// 	$count = $instance->TradingAnalysis->trading_count_gl($this->account, $col, $gl);
+		
+	// 	if ($count === 0) return false;
+	// 	foreach ($param as $key => $value) {
+	// 		$this->homework[$key] = $count;
+	// 	}
+
+	// 	return $this->homework;
+	// }
 
 	protected function videoRead($param)
 	{
@@ -251,7 +279,12 @@ class Classes_mission
 
 	protected function orderSymbolCount($param)
 	{
-		call_user_func_array([$this, 'count'], [$param, 'order_symbol', '0,1,2,3,4,5']);
+		call_user_func_array([$this, 'count'], [$param, 'order_type', '0,1,2,3,4,5', 'order_type']);
+	}
+
+	protected function specCountProc($param)
+	{
+		call_user_func_array([$this, 'count'], [$param, 'order_type', '0,1,2,3,4,5', 'order_type']);
 	}
 
 }
