@@ -191,10 +191,8 @@ class Classes_mission
 		return $this;
 	}
 
-	protected function videoRead($param)
+	protected function read($param)
 	{
-		if($this->look_up != 'video') return false;
-
 		foreach ($param as $key => $value) {
 			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
 				if (!($bool = array_search($this->mission[$key][$is_mission], $value)) && $bool === false) {
@@ -214,29 +212,16 @@ class Classes_mission
 		return $this->homework;
 	}
 
+	protected function videoRead($param)
+	{
+		if($this->look_up != 'video') return false;
+		call_user_func_array([$this, 'read'], [$param]);
+	}
+
 	protected function articleRead($param)
 	{
-
 		if($this->look_up != 'article') return false;
-
-		foreach ($param as $key => $value) {
-			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
-				if (!($bool = array_search($this->mission[$key][$is_mission], $value)) && $bool === false) {
-				 	$param[$key][] = $this->mission[$key][$is_mission];
-				} else {
-					return false;
-				}
-			} else {
-				return false;
-			}
-		}
-		
-		foreach ($param as $key => $value) {
-			$this->homework[$key] = $value;
-		}
-
-		return $this->homework;
-		
+		call_user_func_array([$this, 'read'], [$param]);
 	}
 
 	protected function record_count($param)
