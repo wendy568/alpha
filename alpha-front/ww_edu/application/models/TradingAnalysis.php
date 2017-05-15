@@ -83,8 +83,8 @@ class TradingAnalysis extends CI_Model
         print_r($map);
 
         $result = $this->db->query($map)->row_array();
-        var_dump(($group) ? count($result['count']) : $result['count']);
-        return $result['count'] = ($group) ? count($result['count']) : $result['count'];
+        print_r($result['count']);
+        return $result['count'];
     }
 
     function trading_count_gl($account, $col = null, $gl = '>')
