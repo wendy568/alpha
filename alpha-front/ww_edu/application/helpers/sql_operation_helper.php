@@ -13,10 +13,10 @@ abstract class sql_operation
 		return $this;
 	}
 
-	protected function user_addslashes($index)
+	protected function user_addslashes($index = null)
 	{
 		isset($index) OR $index = array_keys($this->_data);
-		print_r($index);
+		print_r($index);die;
 		if (is_array($index)) {
 			$output = array();
 			foreach ($index as $key) {
