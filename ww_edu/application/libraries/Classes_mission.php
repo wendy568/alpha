@@ -7,9 +7,9 @@ class Classes_mission
 	protected $category;
 
 	protected $distribution = [
-				'Video Learning' => 'videoRead',
-				'Video learning' => 'videoRead',
-				'Article learning' => 'articleRead',
+				'Video Learning' => 'Read',
+				'Video learning' => 'Read',
+				'Article learning' => 'Read',
 				'Place your order' => 'record_count', 'Make Transactions' => 'record_count', 'Make Transaction 1' => '', 'Make Transaction 2' => '',
 				'4 style trade' => 'record_count',
 				'take profits/stop loss' => 'record_count',
@@ -191,7 +191,7 @@ class Classes_mission
 		return $this;
 	}
 
-	protected function videoRead($param)
+	protected function Read($param)
 	{
 		if($this->look_up != 'video') return false;
 
@@ -214,31 +214,6 @@ class Classes_mission
 		return $this->homework;
 	}
 
-	protected function articleRead($param)
-	{
-
-		if($this->look_up != 'article') return false;
-
-		foreach ($param as $key => $value) {
-			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
-				if (!($bool = array_search($this->mission[$key][$is_mission], $value)) && $bool === false) {
-				 	$param[$key][] = $this->mission[$key][$is_mission];
-				} else {
-					return false;
-				}
-			} else {
-				return false;
-			}
-		}
-		
-		foreach ($param as $key => $value) {
-			$this->homework[$key] = $value;
-		}
-
-		return $this->homework;
-		
-	}
-
 	protected function record_count($param)
 	{
 		$instance = & get_instance();
@@ -250,7 +225,7 @@ class Classes_mission
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
 		}
-		print_r($param);
+
 		print_r($this->homework);
 	}
 
