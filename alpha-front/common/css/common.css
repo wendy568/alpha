@@ -6663,6 +6663,7 @@ input[type="checkbox"] {
   display: inline-block;
   margin-right: 30px;
   margin-bottom: 20px;
+  overflow: hidden;
 }
 .cbp_tmtimeline:before {
   content: '';
@@ -9128,9 +9129,23 @@ body.rtl .footer-widget {
 }
 .bk-img{
   width:100%;
+  height: auto;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   position: relative;
+  overflow: hidden;
+}
+.bk-img img{
+  transition: all 1s linear;
+  -moz-transition:all 1s linear;
+  -webkit-transition:all 1s linear;
+  -o-transition:all 1s linear;
+}
+.cbp_tmtimeline ul li:hover .bk-img img{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
 }
 .tv-date{
   position: absolute;
@@ -9149,6 +9164,7 @@ body.rtl .footer-widget {
   padding:2px 15px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  text-overflow : ellipsis;
 }
 .tv-btn{
   position: absolute;
