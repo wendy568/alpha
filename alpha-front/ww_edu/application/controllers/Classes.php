@@ -78,8 +78,8 @@ class Classes extends MY_Controller
 		$data['data']['is_complete'] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 
 		$data['data']['current_stage'] = $original['personal']['hw_id'];
-		$data['data']['describe'] = $original['mission']['describe'];
 		$data['data']['title'] = $original['mission']['title'];
+		$data['data']['describe'] = $original['mission']['describe'];
 		$data['data']['detail'] = $this->classes_mission->init($mission, $personal, $allProcess)->lastOrNextProcess()->intersection();
 		
 		encode_json($response,$data);
