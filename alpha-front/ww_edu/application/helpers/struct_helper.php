@@ -111,6 +111,7 @@ trait struct
 
 	public function property($callback, $param = [])
 	{
+		var_dump($param);die;
 		$this->property = call_user_func_array([$this, $callback], $param);
 		return $this;
 	}
