@@ -122,10 +122,6 @@
                 billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
                 
                 pieChart.setOption({
-                  tooltip: {
-                    trigger: 'item',
-                    formatter: "{b}: {d}%"
-                  },
                   legend: {
                     x : 'center',
                     y : 'bottom',
@@ -140,10 +136,11 @@
                       label: {
                         normal: {
                           show: true,
-                          position: 'center'
+                          position: 'inside',
+                          formatter:"{b}: {d}%"
                         },
                         emphasis: {
-                          show: false,
+                          show: true,
                           textStyle: {
                             fontSize: '16',
                             fontWeight: 'bold'
