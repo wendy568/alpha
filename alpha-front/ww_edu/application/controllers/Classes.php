@@ -42,7 +42,6 @@ class Classes extends MY_Controller
 			$this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->get_mission_complete();
 		}
 		
-		
 		encode_json($response,$data);
 	}
 

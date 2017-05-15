@@ -154,9 +154,10 @@ class Classes_mission
 		// print_r($this->homework);
 		// print_r($param);die;
 		foreach ($param as $key => $value) {
-			foreach ($this->mission[$key] as $key => $value) {
-				print_r($this->mission[$key]);die;
-			}
+			print_r($key);
+			// foreach ($this->mission[$key] as $key => $value) {
+			// 	print_r($this->mission[$key]);die;
+			// }
 			
 		}
 	}
