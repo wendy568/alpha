@@ -6666,7 +6666,7 @@ input[type="checkbox"] {
   bottom: 0;
   width: 2px;
   background: #24282E;
-  left: 18%;
+  left: 22px;
   margin-left: -10px;
 }
 .cbp_tmtimeline > li .cbp_tmtime {
@@ -6692,17 +6692,18 @@ input[type="checkbox"] {
   border-right-color: #ffffff;
 }
 .cbp_tmtimeline > li .cbp_tmlabel {
-  margin: 0 0 0 20%;
+  margin: 0;
   /*background: #1C2026;*/
   font-size: 13px;
   line-height: 1.4;
   position: relative;
+  padding: 5px 0 0 22px;
 }
 .cbp_tmtimeline > li .cbp_tmicon {
   width: 32px;
   position: absolute;
   text-align: center;
-  left: 18%;
+  left: 22px;
   top: 7px;
   margin: 0 0 0 -25px;
   font-size: 1.3em;
@@ -9268,8 +9269,8 @@ body.rtl .footer-widget {
     border: none;
 }
 .modal-body {
-  background-color: #13151a;
-  padding: 30px 50px;
+  background-color: #16181d;
+  padding: 30px 40px;
 }
 #logModal .input-with-icon{
   display: inline-block;
@@ -9296,7 +9297,7 @@ body.rtl .footer-widget {
   left:0;
 }
 .pro-intr{
-    width: 75%;
+    width: calc(100% - 273px);
     height: 380px;
     background-color: #2A2E36;
     border-radius: 4px;
@@ -9305,7 +9306,7 @@ body.rtl .footer-widget {
     margin-left: -2px;
     padding: 80px 30px 0;
 }
-@media screen and (min-width: 1920px) {
+/*@media screen and (min-width: 1920px) {
     .pro-intr{
         width: 75%;
     }
@@ -9324,7 +9325,7 @@ body.rtl .footer-widget {
     .pro-intr{
         width: 58%;
     }
-}
+}*/
 .pro-left{
     height: 380px;
     background-color:#2A2E36;
@@ -9425,6 +9426,7 @@ body.rtl .footer-widget {
     background-color: #2a2e36;
     border-radius: 8px;
     margin-right: 30px;
+    margin-bottom: 10px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
