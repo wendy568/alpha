@@ -103,6 +103,7 @@ class TradingAnalysis extends CI_Model
     function tradingCountGL($account, $col = [])
     {
         $where = null;
+        $count = 0;
         if (!empty($col)) {
             foreach ($col as $key) {
                 $where = " AND {$key}>0";
