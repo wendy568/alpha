@@ -228,14 +228,14 @@ class Classes_mission
 		return $this->homework;
 	}
 
-	protected function count($callback, $param)
+	protected function count($callback, $param, $query)
 	{
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
 		print_r($param);
 		die;
-		$count = call_user_func_array([$instance->TradingAnalysis, $callback], $param);
+		$count = call_user_func_array([$instance->TradingAnalysis, $callback], $query);
 
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
@@ -264,12 +264,12 @@ class Classes_mission
 
 	protected function orderSymbolCount($param)
 	{
-		call_user_func_array([$this, 'count'], ['trading_count', [$param, 'order_type', '0,1,2,3,4,5', 'order_type']]);
+		call_user_func_array([$this, 'count'], ['trading_count', [$param, [$this->account, 'order_type', '0,1,2,3,4,5', 'order_type']]]);
 	}
 
 	protected function specCountProc($param)
 	{
-		call_user_func_array([$this, 'count'], ['trading_count', [$param, 'order_type', '0,1,2,3,4,5', 'order_type']]);
+		call_user_func_array([$this, 'count'], ['trading_count', [$param, [$this->account, 'order_type', '0,1,2,3,4,5', 'order_type']]]);
 	}
 
 }
