@@ -5,12 +5,6 @@ class Trading_log extends sql_operation
 	use struct;
 
 	public $time_filter_definition = 'c_time';
-
-	public function property($callback, $param = [])
-	{
-		$this->_data = call_user_func_array([$this, $callback], $param);
-		return $this;
-	}
 	
 	public function init($array)
 	{
