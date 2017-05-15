@@ -95,7 +95,8 @@ class Utility extends MY_Controller
 		$this->load->model('users');
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = $this->users->add($cols, $response);
-	
+		$data['time'] = time();
+		
 		encode_json($response,$data);
 	}
 
@@ -123,7 +124,8 @@ class Utility extends MY_Controller
 		$this->load->model('users');
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = $this->users->add($cols, $response);
-		
+		$data['time'] = time();
+
 		encode_json($response,$data);
 	}
 }
