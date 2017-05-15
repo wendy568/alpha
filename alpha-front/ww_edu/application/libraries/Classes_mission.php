@@ -41,6 +41,8 @@ class Classes_mission
 
 	protected $needRecord = [];
 
+	public $look_up = null;
+
 	public function init($mission = null, $homework = null, $allProcess = null)
 	{
 		$this->classes = $allProcess;
@@ -150,16 +152,18 @@ class Classes_mission
 
 	protected function videoRead($param)
 	{
+		if(isset($this->look_up)) return false;
+
 		foreach ($param as $key => $value) {
 			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
 				var_dump($this->mission[$key][$is_mission]);
 				var_dump($value);
 				if (!($bool = array_search($this->mission[$key][$is_mission], $value)) && $bool === false) $param[$key][] = $this->mission[$key][$is_mission];
 			} else {
-				var_dump($is_mission);
+				return false;
 			}
 		}
-		
+		print_r($this->homework);
 		print_r($param);
 	}
 
