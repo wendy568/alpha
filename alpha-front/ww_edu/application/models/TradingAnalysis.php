@@ -75,7 +75,7 @@ class TradingAnalysis extends CI_Model
     {
         $where = null;
 
-        if ((isset($col) && $col) && (isset($param) && $param)) $where = " AND {$col}='{$param}'";
+        if ((isset($col) && $col) && (isset($param) && $param)) $where = " AND {$col} IN ({$param})";
         $map = "SELECT count(*) AS count  
                 FROM mt4_export_datas
                 WHERE account_number='{$account}' {$where}";
