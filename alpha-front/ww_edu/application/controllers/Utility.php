@@ -81,6 +81,7 @@ class Utility extends MY_Controller
 
 		$this->load->database();
 		$this->load->helper('json');
+		$this->load->helper('struct');
 		$this->load->helper('sql_operation');
 		$this->load->library('trading_log');
 
