@@ -152,6 +152,7 @@ class Classes_mission
 	{
 		foreach ($param as $key => $value) {
 			$return = array_search($this->public_params, $this->mission[$key]);
+			print_r($this->mission[$key]);
 			print_r($return);
 		}
 			
