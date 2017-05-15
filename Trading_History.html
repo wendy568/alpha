@@ -377,61 +377,64 @@
                     <!-- 条件筛选 -->
                     <div class="row m-b-30">
                         <!-- left -->
-                        <div class="col-lg-3 col-md-12">
+                        <div class="col-lg-1 col-md-6 no-padding">
                             <div class="paging">
                                 <a href="" class="fa fa-chevron-left"></a>
                                 <a href="" class="fa fa-chevron-right"></a>
                             </div>
                             <button class="btn btn-white btn-cons" type="button">Today</button>
                         </div>
-                        <!-- right -->
-                        <div class="col-lg-9 col-md-12" >
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <span class="m-r-10">Account</span>
-                                    <a class="btn btn-black dropdown-toggle btn-demo-space" data-toggle="dropdown" href="">189234562223
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="">562321545</a>
-                                        </li>
-                                        <li>
-                                            <a href="">48856531313</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <span class="m-r-10 date-to pull-left">From</span>
-                                    <div class="input-append date col-md-10 col-lg-6 no-padding">
-                                        <span class="add-on"><i class="fa fa-calendar text-c3"></i></span>
-                                        <input type="text" class="form-control no-boarder" placeholder="2017-05-20" style="padding-left:36px !important;width: 140px;">
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="row-fluid hide">
-                                    <div class="slide-primary">
-                                        <input type="checkbox" name="switch" class="ios" checked="checked" />
-                                    </div>
-                                    <div class="slide-success">
-                                        <input type="checkbox" name="switch" class="iosblue" checked="checked" />
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <span class="m-r-10 date-to pull-left">From</span>
-                                    <div class="input-append date col-md-10 col-lg-6 no-padding">
-                                        <span class="add-on"><i class="fa fa-calendar text-c3"></i></span>
-                                        <input type="text" class="form-control no-boarder" placeholder="2017-05-24" style="padding-left:36px !important;width: 140px;">
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="btn-group m-b-10" data-toggle="buttons-checkbox">
-                                        <button typr="button" class="btn btn-primary active">Month</button>
-                                        <button typr="button" class="btn btn-primary">Week</button>
-                                        <button typr="button" class="btn btn-primary">Days</button>
-                                    </div>
-                                </div>
+                        <div class="col-lg-1 col-md-6 no-padding">
+                            <select name="" class="text-c2">
+                                <option value="closed">Closed</option>
+                                <option value="open">Open</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-6 no-padding">
+                            <span>Type</span>
+                            <select name="" id="" class="text-c2">
+                                <option value="1">USD/JPY</option>  
+                                <option value="2">USD/PZD</option>
+                                <option value="3">JPY/PZD</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-6 no-padding">
+                            <span class="m-r-10">Account</span>
+                            <select name="" id=""  class="text-c2">
+                                <option value="">13655258885</option>
+                                <option value="">13852664452</option>
+                                <option value="">15986663244</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-6 no-padding">
+                            <span class="m-r-10 date-to pull-left">From</span>
+                            <div class="input-append date col-md-10 col-lg-6 no-padding">
+                                <span class="add-on"><i class="fa fa-calendar text-c3"></i></span>
+                                <input type="text" class="form-control no-boarder" placeholder="2017-05-20" style="padding-left:36px !important;width: 150px;">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="row-fluid hide">
+                            <div class="slide-primary">
+                                <input type="checkbox" name="switch" class="ios" checked="checked" />
+                            </div>
+                            <div class="slide-success">
+                                <input type="checkbox" name="switch" class="iosblue" checked="checked" />
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 no-padding">
+                            <span class="m-r-10 date-to pull-left">To</span>
+                            <div class="input-append date col-md-10 col-lg-6 no-padding">
+                                <span class="add-on"><i class="fa fa-calendar text-c3"></i></span>
+                                <input type="text" class="form-control no-boarder" placeholder="2017-05-24" style="padding-left:36px !important;width: 150px;">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 no-padding">
+                            <div class="btn-group m-b-10" data-toggle="buttons-checkbox">
+                                <button typr="button" class="btn btn-primary active">Month</button>
+                                <button typr="button" class="btn btn-primary">Week</button>
+                                <button typr="button" class="btn btn-primary">Days</button>
                             </div>
                         </div>
                     </div>
@@ -443,15 +446,7 @@
                                     <h4 class="text-white">
                                         <i class="fa fa-bar-chart"></i>
                                         <span>ALL TRADING STATISTICS</span>
-                                        <a href="" class="pull-right fa fa-file-text text-c1" data-toggle="dropdown"></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <a href="">562321545</a>
-                                            </li>
-                                            <li>
-                                                <a href="">48856531313</a>
-                                            </li>
-                                        </ul>
+                                        <span class="pull-right fa fa-file-text text-c1 filter"></span>
                                     </h4>
                                 </div>
                                 <div class="grid-body no-border">
@@ -672,61 +667,43 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <div id="chose-title" class="c-title">
+                                    <div id="chose-title" class="c-title hide">
                                         <ul class="no-padding">
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Product</label>
-                                                </div>
+                                                <input id="checkbox1" type="checkbox" value="1" checked="checked">
+                                                <span for="checkbox1">Product</span>
                                             </li>
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Order Id</label>
-                                                </div>
+                                                <input id="checkbox2" type="checkbox" value="2" checked="checked">
+                                                <span for="checkbox2">Order Id</span>
                                             </li>
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Open time</label>
-                                                </div>
+                                                <input id="checkbox3" type="checkbox" value="3" checked="checked">
+                                                <span for="checkbox3">Open time</span>
                                             </li>
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Count</label>
-                                                </div>
+                                                <input id="checkbox4" type="checkbox" value="4" checked="checked">
+                                                <span for="checkbox4">Count</span>
                                             </li>
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Direction</label>
-                                                </div>
+                                                <input id="checkbox5" type="checkbox" value="5" checked="checked">
+                                                <span for="checkbox5">Direction</span>
                                             </li>
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Price</label>
-                                                </div>
+                                                <input id="checkbox6" type="checkbox" value="6" checked="checked">
+                                                <span for="checkbox6">Price</span>
                                             </li>
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Current price</label>
-                                                </div>
+                                                <input id="checkbox7" type="checkbox" value="7" checked="checked">
+                                                <span for="checkbox7">Current price</span>
                                             </li>
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Profit</label>
-                                                </div>
+                                                <input id="checkbox8" type="checkbox" value="8" checked="checked">
+                                                <span for="checkbox8">Profit</span>
                                             </li>
                                             <li>
-                                                <div class="checkbox check-default">
-                                                    <input id="checkbox1" type="checkbox" value="1">
-                                                    <label for="checkbox1">Close time</label>
-                                                </div>
+                                                <input id="checkbox9" type="checkbox" value="9" checked="checked">
+                                                <span for="checkbox9">Close time</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -754,5 +731,11 @@
         <script src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
         <script src="assets/js/form_elements.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $('.filter').click(function(){
+                $('.c-title').toggleClass('hide');
+            });
+
+        </script>
     </body>
 </html>
