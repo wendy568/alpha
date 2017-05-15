@@ -109,7 +109,7 @@ trait struct
 		return $this;
 	}
 
-	public function property($callback, $param = [])
+	public function property($callback, $param = ['content'])
 	{
 		$this->property = call_user_func_array([$this, $callback], $param);
 		return $this;
