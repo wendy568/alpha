@@ -161,6 +161,25 @@ class Classes_mission
 		return $mission;
 	}
 
+	public function lastOrNextProcess()
+	{
+		$instance = & get_instance();
+		$instance->load->database();
+		$instance->load->model('ClassesM');
+		
+		$mission = $this->mission;
+		foreach ($this->showData as $key => $value) {
+			if (!empty($mission[$key])) {
+				$ids = implode(',', $mission[$key]);
+				unset($mission[$key]);
+				$mission[$key] = $instance->ClassesM->showData($ids, $value[0], $value[1]);
+			}
+		}
+
+		print_r($mission);
+		die;
+	}
+
 	public function is_complete($is)
 	{
 		$this->needRecord = $this->homework;
