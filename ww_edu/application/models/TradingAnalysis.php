@@ -81,7 +81,9 @@ class TradingAnalysis extends CI_Model
                 FROM mt4_export_datas
                 WHERE account_number='{$account}' {$where} {$group}";
         print_r($map);
+
         $result = $this->db->query($map)->row_array();
+        var_dump(($group) ? count($result['count']) : $result['count']);
         return $result['count'] = ($group) ? count($result['count']) : $result['count'];
     }
 
