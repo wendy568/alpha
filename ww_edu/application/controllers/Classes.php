@@ -16,7 +16,9 @@ class Classes extends MY_Controller
 	public function record_process()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
-	
+		
+		$article_classes_id = $this->input->get_post('article_classes_id', TRUE);
+		$look_up = $this->input->get_post('look_up', TRUE);
 		$token = $this->input->get_post('token', TRUE);
 		$uid = $this->get_bytoken($token);
 		
@@ -37,7 +39,8 @@ class Classes extends MY_Controller
 
 		if($ratio != 1) {
 			$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
-			$this->classes_mission->public_params = 5;
+			$this->classes_mission->public_params = $article_classes_id;
+			$this->classes_mission->look_up = $look_up;
 			$this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing');
 			die;
 		}
