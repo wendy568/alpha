@@ -265,7 +265,7 @@ class Classes_mission
 		call_user_func_array([$this, 'count'], ['trading_count_group', $param, [$this->account, 'order_type', '0,1,2,3,4,5', 'order_type']]);
 	}
 
-	protected function profits_loss($param)
+	protected function specCountProc($param)
 	{
 		call_user_func_array([$this, 'count'], ['tradingCountGL', $param, [$this->account, 'order_take_profit']]);
 		call_user_func_array([$this, 'count'], ['tradingCountGL', $param, [$this->account, 'order_stop_loss']]);
