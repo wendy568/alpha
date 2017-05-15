@@ -152,9 +152,8 @@ class Classes_mission
 
 	protected function videoRead($param)
 	{
-		print_r(11);
 		if($this->look_up != 'video') return false;
-		print_r(22);
+
 		foreach ($param as $key => $value) {
 			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
 				if (!($bool = array_search($this->mission[$key][$is_mission], $value)) && $bool === false) {
@@ -178,7 +177,7 @@ class Classes_mission
 	{
 
 		if($this->look_up != 'article') return false;
-		var_dump($param);
+
 		foreach ($param as $key => $value) {
 			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
 				if (!($bool = array_search($this->mission[$key][$is_mission], $value)) && $bool === false) {
@@ -194,7 +193,7 @@ class Classes_mission
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $value;
 		}
-
+		var_dump($this->homework);
 		return $this->homework;
 		
 	}
