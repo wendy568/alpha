@@ -194,42 +194,39 @@
         $.alpha.request_Url('post','Trading_Analysis/long_short_ratio',params,function(data){
             if(data.archive.status == 0){
                 var billData = [];
-                billData[0] = {name:'BUY',value:data.data.percent_ratio._0 * 100};
-                billData[1] = {name:'SELL',value:data.data.percent_ratio._1 * 100};
+                billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
+                billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
           
                 var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
                 pieChart.setOption({
-                  tooltip: {
-                    trigger: 'item',
-                    formatter: "{b}: {d}%"
-                  },
-                  series: [
-                    {
-                      name:'bill',
-                      type:'pie',
-                      radius: ['50%', '70%'],
-                      avoidLabelOverlap: false,
-                      label: {
-                        normal: {
-                          show: false,
-                          position: 'center'
-                        },
-                        emphasis: {
-                          show: true,
-                          textStyle: {
-                            fontSize: '16',
-                            fontWeight: 'bold'
-                          }
+                    legend: {
+                        x : 'center',
+                        y : 'bottom',
+                        data:['Long','Short']
+                    },
+                    series: [
+                        {
+                            name:'bill',
+                            type:'pie',
+                            radius: ['50%', '70%'],
+                            avoidLabelOverlap: false,
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'inside',
+                                    formatter:"{b}: {d}%"
+                                },
+                                emphasis: {
+                                    show: true,
+                                    textStyle: {
+                                        fontSize: '16',
+                                        fontWeight: 'bold'
+                                    }
+                                }
+                            },
+                            data:billData
                         }
-                      },
-                      labelLine: {
-                        normal: {
-                          show: false
-                        }
-                      },
-                      data:billData
-                    }
-                  ]
+                    ]
                 });
             }
         });
