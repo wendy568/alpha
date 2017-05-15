@@ -10,6 +10,6 @@ function encode_json($response, $data, $status = 200, $cached = null, $paras = n
 		$cached->addServer($server, 11211);
 		$cached->set($paras, json_encode($array)); // Return 1
 	}
-			
+	print_r(mb_detect_encoding(json_encode($array)));
 	echo json_encode($array);
 }
