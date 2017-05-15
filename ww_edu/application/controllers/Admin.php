@@ -1,4 +1,5 @@
 <?php
+
 class Admin extends MY_Controller
 {
 	public function get_bytoken_id_forAdmin($token)
