@@ -100,10 +100,10 @@ class TradingAnalysis extends CI_Model
         return count($result['count']);
     }
 
-    function trading_count_gl($account, $col = null, $gl = '>')
+    function tradingCountGL($account, $col = null)
     {
         $where = null;
-        if (isset($col) && $col) $where = " AND {$col}{$gl}}0";
+        if (isset($col) && $col) $where = " AND {$col}>0";
         $map = "SELECT count(*) AS count  
                 FROM mt4_export_datas
                 WHERE account_number='{$account}' {$where} 
