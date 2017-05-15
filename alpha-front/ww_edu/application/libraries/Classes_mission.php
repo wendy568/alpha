@@ -203,6 +203,7 @@ class Classes_mission
 	protected function record_count($param)
 	{
 		print_r($param);
+		print_r($this->account);
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
