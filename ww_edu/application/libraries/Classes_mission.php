@@ -176,7 +176,9 @@ class Classes_mission
 			}
 		}
 
-		return $this->lastOrNextProcess = $mission;
+		$this->lastOrNextProcess = $mission;
+
+		return $this;
 	}
 
 	public function is_complete($is)
