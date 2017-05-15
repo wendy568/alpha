@@ -29,7 +29,7 @@
             var currData=[];
 
             for(var i in date){
-                key.push(i);
+                key.push(i.substring(5,10));
                 var cur = 0;
                 cur = !date[i] ? 0 : date[i];
                 currData.push(cur);

@@ -9241,6 +9241,7 @@ body.rtl .footer-widget {
 /*log----------------------------------------------------*/
 .log{
   overflow: hidden;
+  height: 360px;
   border-radius: 8px;
   background-color: #fff;
 }
@@ -9269,9 +9270,17 @@ body.rtl .footer-widget {
     padding-left: 20px;
 }
 .log-foot{
+    padding-right: 30px;
+    width: 100%;
+    position: absolute;
     height: 36px;
-    background-color: #e5e9ec;
     line-height: 36px;
+    top: 324px;
+}
+.log-foot p{
+    background-color: #e5e9ec;
+    cursor: pointer;
+    border-radius: 8px;
 }
 #logModal .modal-dialog{
   width: 700px;

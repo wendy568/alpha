@@ -7,6 +7,7 @@
 
     $('.fa-close').click(function(){
         $('#logModal').removeClass('in');
+        $('#editModal').removeClass('in');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').removeClass('modal-backdrop');
     });
@@ -336,11 +337,11 @@
                     		titleImg='src="assets/img/log_bg_03.png"';
                     	};
 
-                    	log_html +=
-                    	'<div class="col-lg-4 m-b-40">'+
-                            '<div class="log">'+
+                    	log_html =
+                    	$('<div class="col-lg-4 m-b-40">'+
+                            '<div id="'+ data.id +'" class="log">'+
                                 '<img '+ titleImg +'" alt="" class="log-title">'+
-                                '<div class="log-body">'+
+                                '<div class="log-body ">'+
                                     '<h3>'+
                                     	'<i class="status-icon '+ data.color +'"></i>'+ data.title +
                                     '</h3>'+
@@ -348,16 +349,26 @@
                                     '<p class="log-content">'+ data.content +'</p>'+
                                 '</div>'+
                                 '<div class="log-foot">'+
-                                    '<p class="text-center">'+
+                                    '<p class="text-center logEdit" data-toggle="modal" data-target="#logModal" style="cursor:pointer;">'+
                                         '<i class="fa fa-edit"></i>'+
-                                        '<a href="#" class="m-l-5 text-c3" data-toggle="modal" data-target="#editModal">Edit</a>'+
+                                        '<a class="m-l-5 text-c3">Edit</a>'+
                                     '</p>'+
                                 '</div>'+
                             '</div>'+
-                        '</div>';
-                    	
+                        '</div>');
+
+                        $(log_html).find('.logEdit').click(function(){
+                            var id = data.id;
+                            var title = data.title;
+                            var content = data.content;
+                            var color = data.color;
+                            $('.form-control[name="title"]').val(title);
+                            $('[name="content"]').val(content);
+                            $('#logModal').attr('data-logId',id);
+                        });
+                    	$content.append(log_html);
                     });
-                    $content.html(log_html);
+                    
                     isCurDay ? $content.show() : $content.hide();
                    	$('.logList').append($content);
                 });
@@ -389,42 +400,61 @@
     });
 
     // logAdd-----------------------------------------------------------------------------
-    var titleReg=/^[A-Za-z0-9]{2,12}$/;	
-    var contentReg=/^[A-Za-z0-9]{10,300}$/;	
+    // var titleReg=/^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$/;	
+    // var contentReg=/^[\u4E00-\u9FA5A-Za-z0-9]{10,500}$/;	
 
-    $('[name="title"]').change(function () {
-        if(titleReg.test($(this).val())){
-            $.alpha.props($(this).parent(),'none');
-        }else{
-            $.alpha.props($(this).parent(),'right','Please enter 2-12 characters!');
-        }
-    });
-    $('[name="content"]').change(function () {
-        if(contentReg.test($(this).val())){
-            $.alpha.props($(this).parent(),'none');
-        }else{
-            $.alpha.props($(this).parent(),'right','Please enter at least 10 characters!');
-        }
-    });
-
-
+    // $('[name="title"]').change(function () {
+    //     if(titleReg.test($(this).val())){
+    //         $.alpha.props($(this).parent(),'none');
+    //     }else{
+    //         $.alpha.props($(this).parent(),'right','Please enter 2-20 characters!');
+    //     }
+    // });
+    // $('[name="content"]').change(function () {
+    //     if(contentReg.test($(this).val())){
+    //         $.alpha.props($(this).parent(),'none');
+    //     }else{
+    //         $.alpha.props($(this).parent(),'right','Please enter at least 10 characters!');
+    //     }
+    // });
 
     $('.submit').click(function(){
     	var title=$('.form-control[name="title"]').val();
     	var content=$('[name="content"]').val();
+        var color = $('[name="color"]').val();
+        var logId=$('#logModal').attr('data-logId');
     	var data={
     		title : title,
-    		content : content
+    		content : content,
+            color : color
     	}
-
     	if(title && content){
-	    	$.alpha.request_Url('post','Utility/addTradingLog',data,function(res){
-	    		if(res.archive.status == 0){
-	    			$.alpha.notification('success','Add Success');
-	    		}else{
-	    			$.alpha.alertBox('Fail','Add Failed');
-	    		}
-	    	});
+            // 新增
+            if(!logId){
+    	    	$.alpha.request_Url('post','Utility/addTradingLog',data,function(res){
+    	    		if(res.archive.status == 0){
+    	    			$.alpha.notification('success','Add Success');
+
+    	    		}else{
+    	    			$.alpha.alertBox('Fail','Add Failed');
+    	    		}
+    	    	});
+            }else{
+            // 修改
+                data.id=logId;
+                $.alpha.request_Url('post','Utility/updateTradingLog',data,function(res){
+                    if(res.archive.status == 0){
+                        $.alpha.notification('success','Update Success');
+                        // 更新页面数据
+                        $('.logList #'+logId).find('h3').html('<i class="status-icon '+ color +'"></i>'+ title);
+                        $('.logList #'+logId).find('.log-content').html(content);
+                        $('#logModal').hide();
+                        $('.modal-backdrop').hide();
+                    }else{
+                        $.alpha.alertBox('Fail','Update Failed');
+                    }
+                });
+            }
     	}else{
     		if(!title){
     			$.alpha.props($('.form-control[name="title"]').parent(),'right','Not Empty!');
@@ -434,7 +464,7 @@
     		}
     	}
     });
-  
+
 
 
 

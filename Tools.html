@@ -514,7 +514,7 @@
                     
                     <!-- 交易日志 -->
                     <div id="log" class="row m-b-30 tab-pane En-log">
-                        <div class="col-sm-12 m-b-30">
+                        <div class="col-sm-12 m-b-30" style="line-height: 37px;">
                             <div class="pull-left">
                                 <strong class="text-c2">ALL TRADING LOGS</strong>
                                 <span class="m-l-5">OverAll <span class="text-success"></span></span>
@@ -534,8 +534,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="pull-right">
-                                <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#logModal">
+                            <div class="pull-right m-t-5">
+                                <button class="btn btn-primary pull-right" id="addLog" data-toggle="modal" data-target="#logModal">
                                     <i class="fa fa-edit"></i>
                                     <span class="m-l-5">New log</span>
                                 </button>
@@ -577,7 +577,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="logModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div id="logModal" class="modal fade" tabindex="-1"  data-logId="">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -595,7 +595,9 @@
 
                                     <div class="form-group">
                                         <label class="form-label">Description</label>
-                                        <textarea name="content" cols="40" rows="5"></textarea>
+                                        <div class="input-with-icon right">
+                                            <textarea name="content" cols="40" rows="5"></textarea>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
@@ -616,14 +618,14 @@
                                         </div>
                                     </div>
                                     <p class="text-center">
-                                        <button class="btn btn-success submit" type="submit">Submit</button>
+                                        <a class="btn btn-success submit">Submit</a>
                                     </p>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="editModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+               <!--  <div id="editModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -635,7 +637,7 @@
                                     <div class="form-group">
                                         <label class="form-label">Subject</label>
                                         <div class="input-with-icon right">
-                                            <input class="form-control" id="form1CardNumber" name="form1CardNumber" type="text" pattern="[0-9]{13,16}" required>
+                                            <input class="form-control" id="" name="" type="text" required>
                                         </div>
                                     </div>
 
@@ -660,7 +662,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         
