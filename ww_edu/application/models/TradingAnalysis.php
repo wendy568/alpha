@@ -71,4 +71,17 @@ class TradingAnalysis extends CI_Model
         return $result;
     }
 
+    function trading_count($account, $col = null, $param = null)
+    {
+        $where = null;
+
+        if ((isset($col) && $col) && (isset($param) && $param)) $where = " AND {$col}='{$param}'";
+        $map = "SELECT count(*) AS count  
+                FROM mt4_export_datas
+                WHERE account='{$account}' {$where}";
+        
+        $result = $this->db->query($map)->array_array();
+        return $result['count'];
+    }
+
 }
