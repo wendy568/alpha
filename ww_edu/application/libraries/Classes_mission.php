@@ -203,9 +203,10 @@ class Classes_mission
 	protected function record_count($param)
 	{
 		print_r($param);
-		$this->load->database();
-		$this->load->model('TradingAnalysis');
-		$count = $this->TradingAnalysis->trading_count($this->account);
+		$instance = & get_instance();
+		$instance->load->database();
+		$instance->load->model('TradingAnalysis');
+		$count = $instance->TradingAnalysis->trading_count($this->account);
 		var_dump($count);
 	}
 
