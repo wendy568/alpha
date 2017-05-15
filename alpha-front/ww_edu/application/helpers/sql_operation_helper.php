@@ -35,6 +35,7 @@ abstract class sql_operation
 
 	public function property($callback, $param = [])
 	{
+		echo 123;die;
 		$this->_data = call_user_func_array([$this, $callback], $param);
 		return $this;
 	}
