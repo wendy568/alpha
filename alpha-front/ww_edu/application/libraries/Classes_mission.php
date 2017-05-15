@@ -175,7 +175,7 @@ class Classes_mission
 
 	protected function articleRead($param)
 	{
-
+		echo 111;
 		if($this->look_up != 'article') return false;
 
 		foreach ($param as $key => $value) {
