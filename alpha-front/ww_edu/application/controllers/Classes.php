@@ -73,48 +73,14 @@ class Classes extends MY_Controller
 		$allProcess = $this->allProcess();
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
+
 		$data['data']['complete'] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
 		$data['data']['is_complete'] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
-		$showData = $this->classes_mission->showData;
-
-		foreach ($showData as $key => $value) {
-			if (!empty($mission[$key])) {
-				$ids = implode(',', $mission[$key]);
-				unset($mission[$key]);
-				$mission[$key] = $this->showData($ids, $value[0], $value[1]);
-			}
-		}
 
 		$data['data']['current_stage'] = $original['personal']['hw_id'];
 		$data['data']['describe'] = $original['mission']['describe'];
-		$data['data']['detail'] = $this->classes_mission->init($mission, $personal, $allProcess)->intersection($mission, $personal);
+		$data['data']['detail'] = $this->classes_mission->init($mission, $personal, $allProcess)->lastOrNextProcess()->intersection($mission, $personal);
 		
-		encode_json($response,$data);
-	}
-
-	public function showData($ids, $table, $cols)
-	{
-		header( 'Access-Control-Allow-Origin:*' );
-		
-		$this->load->database();
-		$this->load->model('ClassesM');
-	
-		$response = array('archive' => array('status' => 0,'message' =>''));
-
-		return $this->ClassesM->showData($ids, $table, $cols);
-	}
-
-	public function All_stages()
-	{
-		header( 'Access-Control-Allow-Origin:*' );
-		
-		$this->load->database();
-		$this->load->helper('json');
-		$this->load->model('ClassesM');
-	
-		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->ClassesM->All_stages();
-	
 		encode_json($response,$data);
 	}
 
