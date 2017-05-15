@@ -407,22 +407,22 @@
                             </div>
                             <ul class="dropdown-menu">
                                 <li>
-                                     <a>USD/JPY</a>
+                                     <span>USD/JPY</span>
                                 </li>
                                 <li>
-                                     <a>USD/JPY</a>
+                                     <span>USD/JPY</span>
                                 </li>
                                 <li>
-                                     <a>USD/JPY</a>
+                                     <span>USD/JPY</span>
                                 </li>
                                 <li>
-                                     <a>USD/JPY</a>
+                                     <span>USD/JPY</span>
                                 </li>
                                 <li>
-                                     <a>USD/JPY</a>
+                                     <span>USD/JPY</span>
                                 </li>
                                 <li>
-                                     <a>USD/JPY</a>
+                                     <span>USD/JPY</span>
                                 </li>
                             </ul>
                         </li>
@@ -444,17 +444,10 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <span class="m-r-10">Account</span>
-                                    <a class="btn btn-black dropdown-toggle btn-demo-space" data-toggle="dropdown" href="">189234562223
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="">562321545</a>
-                                        </li>
-                                        <li>
-                                            <a href="">48856531313</a>
-                                        </li>
-                                    </ul>
+                                    <select id="source">
+                                        <option value="AK">18952324532</option>
+                                        <option value="HI">21454643120</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-3">
                                     <span class="m-r-10 date-to pull-left">From</span>
@@ -1237,6 +1230,24 @@
         <script src="assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
         <script src="assets/js/form_elements.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            var curryLi=$('.last-tab opdown-menu ul li');
+            curryLi.click(function(){
+                var curryText=$(this).find('span').text();
+                console.log(curryText);
+                // function checkedCurrency(){
+                //     c_html+=`<li class="tab">`;
+                //     c_html+=     `<span class="currency">`+curryText+`</span>`;
+                //     c_html+=     `<div class="controller">`;
+                //     c_html+=          `<a href="javascript:;" class="remove"></a>`;
+                //     c_html+=     `</div>`;
+                //     c_html+= `</li>`;
+                //     // return c_html;
+                // };
+            });
+            // $('.tabs li:last').before(checkedCurrency());
+        </script>
         
     </body>
 </html>
