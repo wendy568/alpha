@@ -106,6 +106,11 @@ class Classes_mission
 		return round($this->complete / $this->missionCount, 2);
 	}
 
+	public function get_homework()
+	{
+		return $this->homework;
+	}
+
 	public function getOneComplete()
 	{
 		return $this->completeOne;

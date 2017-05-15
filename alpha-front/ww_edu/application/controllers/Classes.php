@@ -43,7 +43,8 @@ class Classes extends MY_Controller
 			$this->classes_mission->public_params = $article_classes_id;
 			$this->classes_mission->look_up = $look_up;
 			$this->classes_mission->account = $account;
-			$homework = $this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing');
+			$homework = $this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing')->get_homework();
+			print_r($homework);
 			die;
 			if ($homework !== false) {
 				$this->saveRecord($homework);
