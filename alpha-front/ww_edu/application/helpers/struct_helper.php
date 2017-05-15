@@ -67,6 +67,7 @@ trait struct
 
 	public function get_week($callback = null, $index = 'position')
 	{
+		echo $this->time_filter_definition;die;
 		$datas = $this->_data;
 		$result = [];
 		$instance = & get_instance();
