@@ -202,13 +202,17 @@ class Classes_mission
 
 	protected function record_count($param)
 	{
+		print_r($this->homework);
 		print_r($param);
 
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
 		$count = $instance->TradingAnalysis->trading_count($this->account);
-		var_dump($count);
+		
+		// foreach ($param as $key => $value) {
+		// 	$this->homework[$key]
+		// }
 	}
 
 }
