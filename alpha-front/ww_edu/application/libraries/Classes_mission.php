@@ -144,14 +144,16 @@ class Classes_mission
 	{
 		foreach ($mission as $key => $value) {
 			if (is_array($value)) {
-				var_dump($key);
 				foreach ($value as $k => $v) {
-					if ($k == 'id' && ($bool = array_search($homework[$key], $v) OR $bool !== false)) $mission[$key]['is_complete'] = 1;
+					if ($k == 'id' && ($bool = array_search($homework[$key], $v) OR $bool !== false)) {
+						echo 123;
+						$mission[$key]['is_complete'] = 1;
+					}
+					
 				}
 			} 
 
 			if (is_numeric($value)){
-				print_r($key);
 				$mission[$key] = $homework[$key] . '/' . $value;
 			}
 		}
