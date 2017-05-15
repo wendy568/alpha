@@ -230,7 +230,6 @@ class Classes_mission
 
 	protected function count($callback, $param)
 	{
-		print_r($param);die;
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
@@ -263,7 +262,7 @@ class Classes_mission
 
 	protected function orderSymbolCount($param)
 	{
-		print_r([$param, 'order_type', '0,1,2,3,4,5', 'order_type']);
+		print_r([$param, 'order_type', '0,1,2,3,4,5', 'order_type']);die;
 		call_user_func_array([$this, 'count'], ['trading_count', [$param, 'order_type', '0,1,2,3,4,5', 'order_type']]);
 	}
 
