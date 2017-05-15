@@ -411,11 +411,8 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
     }
     // common ajax request
     alpha.prototype.request_Url = function (type, url, data, fn) {
-
         // 每次请求都会带上token信息
-
         data.token = sessionStorage.getItem("alpha_token") || '';
-
         return $.ajax({
           type    : type,
           url     : alpha_host + url,

@@ -345,7 +345,10 @@
                                     '<h3>'+
                                     	'<i class="status-icon '+ data.color +'"></i>'+ data.title +
                                     '</h3>'+
-                                    '<p class="log-data">'+ data.update_time +'</p>'+
+                                    '<p class="log-data">'+
+                                        '<i class="fa fa-clock-o"></i>'+
+                                       '<span class="m-l-5">'+ data.update_time +'</span>'+
+                                    '</p>'+
                                     '<p class="log-content">'+ data.content +'</p>'+
                                 '</div>'+
                                 '<div class="log-foot">'+
@@ -449,7 +452,8 @@
                         $('.logList #'+logId).find('h3').html('<i class="status-icon '+ color +'"></i>'+ title);
                         $('.logList #'+logId).find('.log-content').html(content);
                         $('#logModal').hide();
-                        $('.modal-backdrop').hide();
+                        $('.modal-backdrop').removeClass('in');
+                        $('body').removeClass('.modal-open');
                     }else{
                         $.alpha.alertBox('Fail','Update Failed');
                     }
@@ -464,10 +468,6 @@
     		}
     	}
     });
-
-
-
-
 
 
 	function getFlagOfCountry(country) {
