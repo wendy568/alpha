@@ -228,14 +228,13 @@ class Classes_mission
 		return $this->homework;
 	}
 
-	protected function count($param, $col = null, $value = null, $group = null)
+	protected function count($callback, $param)
 	{
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
+		$count = call_user_func_array([$instance->TradingAnalysis, $callback], $param);
 
-		// $count = $instance->TradingAnalysis->trading_count($this->account, $col, $value, $group);
-		$count = call_user_func_array([$instance->TradingAnalysis, 'trading_count'], [$this->account, $col, $value, $group]);
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
@@ -243,22 +242,6 @@ class Classes_mission
 
 		return $this->homework;
 	}
-
-	// protected function count($param, $col = null, $value = null, $group = null)
-	// {
-	// 	$instance = & get_instance();
-	// 	$instance->load->database();
-	// 	$instance->load->model('TradingAnalysis');
-
-	// 	$count = $instance->TradingAnalysis->trading_count_gl($this->account, $col, $gl);
-		
-	// 	if ($count === 0) return false;
-	// 	foreach ($param as $key => $value) {
-	// 		$this->homework[$key] = $count;
-	// 	}
-
-	// 	return $this->homework;
-	// }
 
 	protected function videoRead($param)
 	{
@@ -274,17 +257,17 @@ class Classes_mission
 
 	protected function record_count($param)
 	{
-		call_user_func_array([$this, 'count'], [$param]);
+		call_user_func_array([$this, 'count'], ['trading_count', [$param]]);
 	}
 
 	protected function orderSymbolCount($param)
 	{
-		call_user_func_array([$this, 'count'], [$param, 'order_type', '0,1,2,3,4,5', 'order_type']);
+		call_user_func_array([$this, 'count'], ['trading_count', [$param, 'order_type', '0,1,2,3,4,5', 'order_type']]);
 	}
 
 	protected function specCountProc($param)
 	{
-		call_user_func_array([$this, 'count'], [$param, 'order_type', '0,1,2,3,4,5', 'order_type']);
+		call_user_func_array([$this, 'count'], ['trading_count', [$param, 'order_type', '0,1,2,3,4,5', 'order_type']]);
 	}
 
 }
