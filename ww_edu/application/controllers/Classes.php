@@ -39,6 +39,7 @@ class Classes extends MY_Controller
 
 		if($ratio != 1) {
 			$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+			print_r($is_complete);
 			$this->classes_mission->public_params = $article_classes_id;
 			$this->classes_mission->look_up = $look_up;
 			$this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing');
