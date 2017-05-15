@@ -28,6 +28,14 @@ class MY_Controller extends CI_Controller
 		return $data;
 	}
 
+	public function get_account()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		$this->load->database();
+		$this->load->model('login');
+		$data = $this->login->get_trading_account($uid);
+	}
+
 	public function get_bytoken_id_forAdmin($token)
 	{
 		header( 'Access-Control-Allow-Origin:*' );

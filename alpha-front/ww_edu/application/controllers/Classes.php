@@ -21,8 +21,8 @@ class Classes extends MY_Controller
 		$look_up = $this->input->get_post('look_up', TRUE);
 		$token = $this->input->get_post('token', TRUE);
 		$uid = $this->get_bytoken($token);
-		$account = $this->get_trading_account($token);
-		
+		$account = $this->get_account($uid);
+
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('ClassesM');
@@ -42,6 +42,7 @@ class Classes extends MY_Controller
 			$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 			$this->classes_mission->public_params = $article_classes_id;
 			$this->classes_mission->look_up = $look_up;
+			$this->classes_mission->account = $account;
 			$homework = $this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing');
 			die;
 			if ($homework !== false) {
