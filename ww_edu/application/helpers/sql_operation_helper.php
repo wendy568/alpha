@@ -27,8 +27,9 @@ abstract class sql_operation
 		}
 
 		if(isset($this->_data[$index]) && $this->_data[$index]) {
-			echo 123;
+
 			return addslashes($this->_data[$index]);
+			print_r($this->_data[$index]);
 		} else {
 			return false;
 		}
