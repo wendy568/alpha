@@ -1,8 +1,8 @@
 <?php  
 
-class Classes_mission
+class Classes_mission extends Encapsulation
 {
-	use date_format, struct;
+	use date_format, Trading_datas_calculate;
 
 	protected $category;
 
