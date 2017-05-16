@@ -85,16 +85,12 @@ class TradingAnalysis extends CI_Model
         return $result['count'];
     }
 
-    function tradingCountGroup($account, $col = null, $param = null, $group = null)
+    function tradingCountGroup($account, $group)
     {
-        $where = null;
-        $group = ($group) ? "GROUP BY {$group}" : null;
-        if ((isset($col) && $col) && (isset($param) && $param)) $where = " AND {$col} IN ({$param})";
-
         $map = "SELECT *  
                 FROM mt4_export_datas
-                WHERE account_number='{$account}' {$where} {$group}";
-                print_r($map);
+                WHERE account_number='{$account}' GROUP BY {$group}";
+
         $result = $this->db->query($map)->result_array();
 
         return count($result);
