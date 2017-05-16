@@ -34,7 +34,7 @@ class Classes_mission
 				]
 			];
 
-	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
+	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Video learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
 
 	protected $classes;
 
@@ -291,6 +291,7 @@ class Classes_mission
 
 	protected function homework_ability($param)
 	{
+		print_r($param);
 		$ability = $this->ability('profit');
 		print_r($ability);
 	}
