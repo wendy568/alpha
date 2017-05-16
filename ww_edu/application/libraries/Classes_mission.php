@@ -272,7 +272,7 @@ class Classes_mission
 
 	protected function specCountProc($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountIn', $param, [$this->account, $this->products]]);
+		call_user_func_array([$this, 'count'], ['tradingCountIn', $param, [$this->account, 'order_symbol', $this->products]]);
 	}
 
 }
