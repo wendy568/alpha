@@ -71,7 +71,7 @@ class TradingAnalysis extends CI_Model
         return $result;
     }
 
-    function trading_count($account, $col = null, $param = null, $time)
+    function trading_count($account, $time, $col = null, $param = null)
     {
         $where = null;
         if ((isset($col) && $col) && (isset($param) && $param)) $where = " AND {$col} IN ({$param})";
