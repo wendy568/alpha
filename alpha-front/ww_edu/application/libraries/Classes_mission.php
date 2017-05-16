@@ -1,6 +1,6 @@
 <?php  
 
-class Classes_mission extends Encapsulation
+class Classes_mission
 {
 	use date_format, Trading_datas_calculate;
 
@@ -211,7 +211,7 @@ class Classes_mission extends Encapsulation
 		return $this;
 	}
 
-	protected function read($param)
+	protected function homework_read($param)
 	{
 		foreach ($param as $key => $value) {
 			if (($is_mission = array_search($this->public_params, $this->mission[$key])) OR $is_mission !== false) {
@@ -232,7 +232,7 @@ class Classes_mission extends Encapsulation
 		return $this->homework;
 	}
 
-	protected function count($callback, $param, $model, $query)
+	protected function homework_count($callback, $param, $model, $query)
 	{
 		$instance = & get_instance();
 		$instance->load->database();
@@ -250,13 +250,13 @@ class Classes_mission extends Encapsulation
 	protected function videoRead($param)
 	{
 		if($this->look_up != 'video') return false;
-		call_user_func_array([$this, 'read'], [$param, $this->time]);
+		call_user_func_array([$this, 'homework_read'], [$param, $this->time]);
 	}
 
 	protected function articleRead($param)
 	{
 		if($this->look_up != 'article') return false;
-		call_user_func_array([$this, 'read'], [$param, $this->time]);
+		call_user_func_array([$this, 'homework_read'], [$param, $this->time]);
 	}
 
 	protected function record_count($param)

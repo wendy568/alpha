@@ -26,7 +26,7 @@ class Classes extends MY_Controller
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('ClassesM');
-		$this->load->helper('encapsulation');
+		$this->load->helper('struct');
 		$this->load->helper('format');
 		$this->load->helper('Trading_calculate');
 		$this->load->library('classes_mission');
@@ -68,7 +68,7 @@ class Classes extends MY_Controller
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('ClassesM');
-		$this->load->helper('encapsulation');
+		$this->load->helper('struct');
 		$this->load->helper('format');
 		$this->load->helper('Trading_calculate');
 		$this->load->library('classes_mission');
