@@ -17,7 +17,7 @@ class Classes_mission
 				'Trading Record' => 'record_count',
 				'Learning Report' => '',
 				'Trading Score' => 'ability',
-				'Task 1 - 2 different markets' => 'specCountProc',
+				'Task 1 - 2 different markets' => 'orderSymbolCount',
 				'Produce a module' => '',
 				'Risk Management Level' => 'variance',
 				'Profitable Period' => 'sumOneMonth'
