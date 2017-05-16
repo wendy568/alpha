@@ -277,6 +277,7 @@ class Classes_mission
 
 	protected function TradingManyProducts($param)
 	{
+		$array = '';
 		foreach ($this->products as $key) {
 			$array .= implode(',', $key);
 		}
