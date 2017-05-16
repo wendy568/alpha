@@ -250,8 +250,7 @@ class Classes_mission
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model($model);
-		print_r($model);die;
-		$count = call_user_func_array([$instance->$something, $callback], $query);
+		$count = call_user_func_array([$instance->$model, $callback], $query);
 
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
