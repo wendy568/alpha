@@ -20,7 +20,7 @@ class ClassesM extends CI_Model
     {
     	$result = [];
 
-    	$map = 'SELECT hw_id, homework 
+    	$map = 'SELECT hw_id, homework, u_time 
     			FROM homework
     			WHERE uid="'.$uid.'"';
     	

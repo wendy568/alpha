@@ -14,7 +14,7 @@ class Classes_mission
 				'4 style trade' => 'orderSymbolCount',
 				'take profits/stop loss' => 'profits_loss',
 				'Trade all kinds products' => 'TradingManyProducts', 'Task 2 - 10 different products' => 'TradingManyProducts', '5 tradable products' => 'TradingManyProducts',
-				'Trading Record' => 'record_count',
+				'Trading Record' => 'userLogsCount',
 				'Learning Report' => '',
 				'Trading Score' => 'ability',
 				'Task 1 - 2 different markets' => 'specCountProc',
@@ -55,6 +55,8 @@ class Classes_mission
 	public $look_up = null;
 
 	public $account;
+
+	public $time;
 
 	public function init($mission = null, $homework = null, $allProcess = null)
 	{
@@ -246,38 +248,40 @@ class Classes_mission
 	protected function videoRead($param)
 	{
 		if($this->look_up != 'video') return false;
-		call_user_func_array([$this, 'read'], [$param]);
+		call_user_func_array([$this, 'read'], [$param, $this->time]);
 	}
 
 	protected function articleRead($param)
 	{
 		if($this->look_up != 'article') return false;
-		call_user_func_array([$this, 'read'], [$param]);
+		call_user_func_array([$this, 'read'], [$param, $this->time]);
 	}
 
 	protected function record_count($param)
 	{
-		call_user_func_array([$this, 'count'], ['trading_count', $param, [$this->account]]);
+		call_user_func_array([$this, 'count'], ['trading_count', $param, [$this->account, $this->time]]);
 	}
 
 	protected function orderSymbolCount($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_type']]);
+		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_type', $this->time]]);
 	}
 
 	protected function profits_loss($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountGL', $param, [$this->account, ['order_take_profit', 'order_stop_loss']]]);
+		call_user_func_array([$this, 'count'], ['tradingCountGL', $param, [$this->account, ['order_take_profit', 'order_stop_loss'], $this->time]]);
 	}
 
 	protected function specCountProc($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountIn', $param, [$this->account, 'order_symbol', $this->products]]);
+		call_user_func_array([$this, 'count'], ['tradingCountIn', $param, [$this->account, 'order_symbol', $this->products, $this->time]]);
 	}
 
 	protected function TradingManyProducts($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_type']]);
+		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_symbol', $this->time]]);
 	}
+
+	protected function userLogsCount($param)
 
 }
