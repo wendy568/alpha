@@ -95,8 +95,8 @@ class TradingAnalysis extends CI_Model
                 FROM mt4_export_datas
                 WHERE account_number='{$account}' {$where} {$group}";
 
-        $result = $this->db->query($map)->row_array();
-        print_r($result);
+        $result = $this->db->query($map)->result_array();
+
         return count($result);
     }
 

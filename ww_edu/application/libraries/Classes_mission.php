@@ -234,7 +234,7 @@ class Classes_mission
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
 		$count = call_user_func_array([$instance->TradingAnalysis, $callback], $query);
-		print_r($count);
+
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
