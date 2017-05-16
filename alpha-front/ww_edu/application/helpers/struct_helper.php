@@ -128,12 +128,12 @@ trait struct
 		return count($datas);
     }
 
-    protected function month_day()
+    protected function month_day($time)
     {
     	$instance = & get_instance();
     	$instance->load->helper('time_zone');
     	$time_zone = time_zone::build();
-    	print_r(date('Y-m-d', $time_zone->lastDayInMonthOfBegin()));
-    	print_r(date('Y-m-d', $time_zone->lastDayInMonthOfEnd()));
+    	print_r(date('Y-m-d', $time_zone->lastDayInMonthOfBegin($time)));
+    	print_r(date('Y-m-d', $time_zone->lastDayInMonthOfEnd($time)));
     }
 }
