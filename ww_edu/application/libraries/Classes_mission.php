@@ -295,8 +295,13 @@ class Classes_mission
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
 		$this->_data = call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
-		$ability = $this->count()->property('ability', ['profit'])->get_property();
-		print_r($ability);
+		$count = $this->count()->property('ability', ['profit'])->get_property();
+		if ($count === 0) return false;
+		foreach ($param as $key => $value) {
+			$this->homework[$key] = $count;
+		}
+
+		return $this->homework;
 	}
 
 }
