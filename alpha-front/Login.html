@@ -182,6 +182,7 @@
                                 window.location.href = 'index.html';
                             }else if(res.archive.status == 102){
                                 // 提示邮箱已存在
+                                $.alpha.props($('#tab_register [name="email"]'),'right','the email has been registered!');
                             }else{
                                 // 提示注册失败
                                 $.alpha.alertBox('Fail','Register failed!','#');
