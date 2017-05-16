@@ -299,7 +299,7 @@ class Classes_mission
 
 	protected function homework_ability($param)
 	{
-		call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
+		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
 
 		$count = $this->count()->property('ability', ['profit'])->get_property();
 		if ($count === 0) return false;
@@ -315,6 +315,19 @@ class Classes_mission
 		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
 
 		$count = $this->count()->property('variance', ['profit'])->get_property();
+		if ($count === 0) return false;
+		foreach ($param as $key => $value) {
+			$this->homework[$key] = $count;
+		}
+
+		return $this->homework;
+	}
+
+	protected function sumOneMonth($param)
+	{
+		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
+
+		$count = $this->count()->property('month_day', [$this->time])->get_property();
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
