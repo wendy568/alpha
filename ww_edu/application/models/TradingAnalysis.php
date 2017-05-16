@@ -123,15 +123,16 @@ class TradingAnalysis extends CI_Model
         return $count;
     }
 
-    function tradingCountIn($account, $prod = [])
+    function tradingCountIn($account, $col, $prod = [])
     {
         $where = null;
         $count = 0;
 
         if (!empty($prod)) {
-            foreach ($prod as $key) {
-                print_r($key);die;
-                $where = " AND {$key}>0";
+            foreach ($prod as $value) {
+                $symbols = implode(',', $value);
+                print_r($symbols);
+                $where = " AND {$col} IN ({$symbols})";
                 $map = "SELECT *  
                         FROM mt4_export_datas
                         WHERE account_number='{$account}' {$where} 
