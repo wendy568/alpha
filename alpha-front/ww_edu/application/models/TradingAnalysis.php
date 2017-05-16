@@ -104,13 +104,13 @@ class TradingAnalysis extends CI_Model
     {
         $where = null;
         $count = 0;
-        
+
         if (!empty($col)) {
             foreach ($col as $key) {
                 $where = " AND {$key}>0";
                 $map = "SELECT count(*) AS count  
                         FROM mt4_export_datas
-                        WHERE account_number='{$account}' {$where} 
+                        WHERE account_number='2102077628' {$where} 
                         LIMIT 1";
 
                 $result = $this->db->query($map)->row_array();
