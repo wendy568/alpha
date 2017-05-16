@@ -262,7 +262,7 @@ class Classes_mission
 
 	protected function orderSymbolCount($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_type', '0,1,2,3,4,5', 'order_type']]);
+		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_type']]);
 	}
 
 	protected function profits_loss($param)
@@ -277,7 +277,7 @@ class Classes_mission
 
 	protected function TradingManyProducts($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_symbol']]);
+		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_type']]);
 	}
 
 }
