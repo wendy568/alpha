@@ -130,8 +130,8 @@ class TradingAnalysis extends CI_Model
 
         if (!empty($prod)) {
             foreach ($prod as $value) {
-                $symbols = implode(',', $value);
-                $where = " AND {$col} IN ({$symbols})";
+                $symbols = implode('\',\'', $value);
+                $where = " AND {$col} IN ('{$symbols}')";
                 $map = "SELECT *  
                         FROM mt4_export_datas
                         WHERE account_number='{$account}' {$where} 
