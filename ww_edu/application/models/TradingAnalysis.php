@@ -97,7 +97,7 @@ class TradingAnalysis extends CI_Model
 
         $result = $this->db->query($map)->row_array();
 
-        return count($result['count']);
+        return count($result);
     }
 
     function tradingCountGL($account, $col = [])
