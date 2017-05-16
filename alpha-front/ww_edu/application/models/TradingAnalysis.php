@@ -127,9 +127,10 @@ class TradingAnalysis extends CI_Model
     {
         $where = null;
         $count = 0;
-        print_r($prod);die;
+
         if (!empty($prod)) {
             foreach ($prod as $key) {
+                print_r($key);die;
                 $where = " AND {$key}>0";
                 $map = "SELECT *  
                         FROM mt4_export_datas
