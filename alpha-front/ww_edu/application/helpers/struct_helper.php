@@ -133,7 +133,7 @@ trait struct
     	$instance = & get_instance();
     	$instance->load->helper('time_zone');
     	$time_zone = time_zone::build();
-    	print_r($time_zone->lastDayInMonthOfBegin());
-    	print_r($time_zone->lastDayInMonthOfEnd());
+    	print_r(date('Y-m-d', $time_zone->lastDayInMonthOfBegin()));
+    	print_r(date('Y-m-d', $time_zone->lastDayInMonthOfEnd()));
     }
 }
