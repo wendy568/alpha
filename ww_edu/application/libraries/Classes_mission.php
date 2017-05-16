@@ -13,7 +13,7 @@ class Classes_mission
 				'Place your order' => 'record_count', 'Make Transactions' => 'record_count', 'Make Transaction 1' => '', 'Make Transaction 2' => '',
 				'4 style trade' => 'orderSymbolCount',
 				'take profits/stop loss' => 'profits_loss',
-				'Trade all kinds products' => 'record_count', 'Task 2 - 10 different products' => 'record_count', '5 tradable products' => 'record_count',
+				'Trade all kinds products' => 'TradingManyProducts', 'Task 2 - 10 different products' => 'TradingManyProducts', '5 tradable products' => 'TradingManyProducts',
 				'Trading Record' => 'record_count',
 				'Learning Report' => '',
 				'Trading Score' => 'ability',
@@ -273,6 +273,15 @@ class Classes_mission
 	protected function specCountProc($param)
 	{
 		call_user_func_array([$this, 'count'], ['tradingCountIn', $param, [$this->account, 'order_symbol', $this->products]]);
+	}
+
+	protected function TradingManyProducts($param)
+	{
+		foreach ($this->products as $key) {
+			$key += $key;
+		}
+		print_r($key);die;
+		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_symbol', '0,1,2,3,4,5', 'order_type']]);
 	}
 
 }
