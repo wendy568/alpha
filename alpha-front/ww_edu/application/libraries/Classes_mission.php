@@ -295,7 +295,7 @@ class Classes_mission
 		$instance->load->database();
 		$instance->load->model('TradingAnalysis');
 		$this->_data = call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
-
+		print_r($this->_data);
 		$ability = $this->ability('profit');
 		print_r($ability);
 	}
