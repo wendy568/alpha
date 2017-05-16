@@ -131,7 +131,7 @@ class TradingAnalysis extends CI_Model
         if (!empty($prod)) {
             foreach ($prod as $value) {
                 $symbols = implode(',', $value);
-                print_r($symbols);
+                print_r($symbols);die;
                 $where = " AND {$col} IN ({$symbols})";
                 $map = "SELECT *  
                         FROM mt4_export_datas
