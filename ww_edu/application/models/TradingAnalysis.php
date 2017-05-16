@@ -96,7 +96,7 @@ class TradingAnalysis extends CI_Model
                 WHERE account_number='{$account}' {$where} {$group}";
 
         $result = $this->db->query($map)->row_array();
-        print_r(count($result));
+        print_r($result);
         return count($result);
     }
 
