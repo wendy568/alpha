@@ -25,11 +25,11 @@
                         <div role="tabpanel" class="tab-pane active" id="tab_login">
                             <form class="animated fadeIn " id="form_id" name="">
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <label for="">* Your email</label>
                                         <input class="form-control" name="email" placeholder="zhangsan@qq.com" type="email" required >
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <label for="">* Password</label>
                                         <input class="form-control" name="pwd" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12" >
                                     </div>
@@ -102,9 +102,10 @@
         <script src="assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jq-tooltips/jquery.poshytip.js" type="text/javascript"></script>
         <script src="common/js/common.js" type="text/javascript"></script>
         <script type="text/javascript">
-        
+
             $(function () {
                 var emailReg=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 var pwdReg = /^[A-Za-z0-9]{6,12}$/;
@@ -118,7 +119,7 @@
                         email : email,
                         password : pwd
                     };
-                    if (email && pwd){
+                    if (email && pwd && emailReg.test(email) && pwdReg.test(pwd)){
                       $.alpha.request_Url('POST','user/login',data,function (res) {
                         if(res.archive.status == 0){
                           sessionStorage.setItem('alpha_token',res.data.token);
@@ -134,40 +135,40 @@
                     }else{
                         // 提示表单验证
                         if(!email){
-                            $.alpha.props($('#tab_login [name="email"]').parent(),'right','Not Empty!');
+                            $.alpha.props($('#tab_login [name="email"]'),'right','Not Empty!');
                         }
                         if(!pwd){
-                            $.alpha.props($('#tab_login [name="pwd"]').parent(),'right','Not Empty!');
+                            $.alpha.props($('#tab_login [name="pwd"]'),'right','Not Empty!');
                         }
                     }
                 });
 
                 $('[name="email"]').change(function () {
                     if(emailReg.test($(this).val())){
-                        $.alpha.props($(this).parent(),'none');
+                        $.alpha.props($(this),'none');
                     }else{
-                        $.alpha.props($(this).parent(),'right','Mailbox verification is not legal!');
+                        $.alpha.props($(this),'top','Mailbox verification is not legal!');
                     }
                 });
                 $('[name="pwd"]').change(function () {
                     if(pwdReg.test($(this).val())){
-                        $.alpha.props($(this).parent(),'none');
+                        $.alpha.props($(this),'none');
                     }else{
-                        $.alpha.props($(this).parent(),'right','Don\'t match the rules!');
+                        $.alpha.props($(this),'right','Don\'t match the rules!');
                     }
                 });
                 $('[name="pwdAgain"]').change(function () {
                     if($(this).val() === $('#tab_register [name="pwd"]').val()){
-                        $.alpha.props($(this).parent(),'none');
+                        $.alpha.props($(this),'none');
                     }else{
-                        $.alpha.props($(this).parent(),'right','Inconsistent password!');
+                        $.alpha.props($(this),'right','Inconsistent password!');
                     }
                 });
                 $('[name="firstName"]').change(function () {
                     if($(this).val()){
-                        $.alpha.props($(this).parent(),'none');
+                        $.alpha.props($(this),'none');
                     }else{
-                        $.alpha.props($(this).parent(),'right','Not Empty!');
+                        $.alpha.props($(this),'right','Not Empty!');
                     }
                 });
 

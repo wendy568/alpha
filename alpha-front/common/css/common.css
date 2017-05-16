@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url("../../assets/plugins/jq-tooltips/tip-twitter/tip-twitter.css");
 /*------------------------------------------------------------------
 1. Layouts 布局
 2. Icons 图标
@@ -9554,162 +9555,6 @@ body.rtl .footer-widget {
     border:1px solid #141519;
 }
 
-
-/*form notification--------------------------------------------------------*/
-.form-item-notification-up,.form-item-notification-down,.form-item-notification-left,.form-item-notification-right{
-  position: relative;
-}
-.form-item-notification-up::after{
-  content: attr(data-tooltip);
-  position: absolute;
-  white-space : nowrap;
-  z-index: 1000;
-  padding: 0 10px;
-  height: 40px;
-  line-height: 40px;
-  background: #2c4059;
-  font-size: 14px;
-  color:#fff;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  bottom:100%;
-  left: 50%;
-  margin-bottom: 10px;
-  transform: translate(-50%);
-  -webkit-transform: translate(-50%);
-  -moz-transform:  translate(-50%);
-  -o-transform:  translate(-50%);
-}
-.form-item-notification-up::before{
-  content: '';
-  display: block;
-  position: absolute;
-  z-index: 1000;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  width: 0;
-  height: 0;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #2c4059 transparent transparent transparent;
-  left:50%;
-  bottom:100%;
-  margin-left:-5px;
-}
-.form-item-notification-right::after{
-  content: attr(data-tooltip);
-  position: absolute;
-  z-index: 10000;
-  white-space : nowrap;
-  padding: 0 10px;
-  height: 40px;
-  line-height: 40px;
-  background: #2c4059;
-  font-size: 14px;
-  color:#fff;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  top:50%;
-  left: 100%;
-  margin-left: 10px;
-  margin-top: -20px;
-}
-.form-item-notification-right::before{
-  content: '';
-  display: block;
-  position: absolute;
-  z-index: 10000;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  width: 0;
-  height: 0;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent #2c4059 transparent transparent;
-  top:50%;
-  left: 100%;
-  margin-top:-5px;
-}
-.form-item-notification-down::after{
-  content: attr(data-tooltip);
-  position: absolute;
-  white-space : nowrap;
-  z-index: 1000;
-  padding: 0 10px;
-  height: 40px;
-  line-height: 40px;
-  background: #2c4059;
-  font-size: 14px;
-  color:#fff;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  top:100%;
-  left: 50%;
-  margin-top: 10px;
-  transform: translate(-50%);
-  -webkit-transform: translate(-50%);
-  -moz-transform:  translate(-50%);
-  -o-transform:  translate(-50%);
-}
-.form-item-notification-down::before{
-  content: '';
-  display: block;
-  position: absolute;
-  z-index: 1000;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  width: 0;
-  height: 0;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #2c4059 transparent;
-  top:100%;
-  left: 50%;
-  margin-left:-5px;
-}
-.form-item-notification-left::after{
-  content: attr(data-tooltip);
-  position: absolute;
-  z-index: 10000;
-  white-space : nowrap;
-  padding: 0 10px;
-  height: 40px;
-  line-height: 40px;
-  background: #2c4059;
-  font-size: 14px;
-  color:#fff;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  top:50%;
-  right: 100%;
-  margin-right: 10px;
-  margin-top: -20px;
-}
-.form-item-notification-left::before{
-  content: '';
-  display: block;
-  position: absolute;
-  z-index: 10000;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  width: 0;
-  height: 0;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent #2c4059;
-  top:50%;
-  right: 100%;
-  margin-top:-5px;
-}
-
 /*notification--------------------------------------------------------*/
 .notification{
   position: absolute;
@@ -9828,14 +9673,14 @@ url("chrome://browser/content/history/history-panel.xul")
     border:0px !important;
     border-radius:5px !important;
   }
-  
+
   slider
   {
     -moz-appearance:none !important;
     background:transparent !important;
     border:0px !important;
   }
-  
+
   scrollbar[orient="vertical"]{
     width:5px !important;
   }
