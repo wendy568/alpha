@@ -7,7 +7,7 @@ class TradingAnalysis extends CI_Model
         parent::__construct();
     }
 
-    function export_mt4_datas($account = null, $finency_proc = null, $start_time = null, $end_time = null)
+    function export_mt4_datas($account = null, $finency_proc = null, $start_time = null, $end_time = null, $some_time = null)
     {
         $where = "account_number='{$account}'";
         $now = time();
@@ -18,6 +18,7 @@ class TradingAnalysis extends CI_Model
             $end_time = ($end_time) ? $end_time : $now;
             $where .= " AND (order_close_time>{$start_time} AND order_close_time<{$end_time})";
         }
+        if(isset($some_time) && $some_time) $where .= " AND order_close_time>{$some_time}";
 
     	$map = "SELECT * 
     			FROM mt4_export_datas
