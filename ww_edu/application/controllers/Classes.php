@@ -43,6 +43,7 @@ class Classes extends MY_Controller
 			$this->classes_mission->public_params = $article_classes_id;
 			$this->classes_mission->look_up = $look_up;
 			$this->classes_mission->account = $account;
+			$this->classes_mission->uid = $uid;
 			$this->classes_mission->time = $original['personal']['u_time'];
 			$homework = $this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing')->get_homework();
 			print_r($homework);

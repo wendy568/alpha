@@ -56,6 +56,8 @@ class Classes_mission
 
 	public $account;
 
+	public $uid;
+
 	public $time;
 
 	public function init($mission = null, $homework = null, $allProcess = null)
@@ -245,21 +247,6 @@ class Classes_mission
 		return $this->homework;
 	}
 
-	protected function logs($callback, $param, $model, $query)
-	{
-		$instance = & get_instance();
-		$instance->load->database();
-		$instance->load->model($model);
-		$count = call_user_func_array([$instance->$model, $callback], $query);
-
-		if ($count === 0) return false;
-		foreach ($param as $key => $value) {
-			$this->homework[$key] = $count;
-		}
-
-		return $this->homework;
-	}
-
 	protected function videoRead($param)
 	{
 		if($this->look_up != 'video') return false;
@@ -299,7 +286,7 @@ class Classes_mission
 
 	protected function userLogsCount($param)
 	{
-
+		call_user_func_array([$this, 'count'], ['logs_count', $param, 'Trading_logs', [$this->uid, $this->time]]);
 	}
 
 }
