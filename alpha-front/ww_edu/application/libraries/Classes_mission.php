@@ -291,8 +291,11 @@ class Classes_mission
 
 	protected function homework_ability($param)
 	{
-		print_r($this->_data);
-		call_user_func_array([$this, 'accuracy'], ['export_mt4_datas', $param, 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
+		$instance = & get_instance();
+		$instance->load->database();
+		$instance->load->model('TradingAnalysis');
+		$this->_data = call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
+
 		$ability = $this->ability('profit');
 		print_r($ability);
 	}
