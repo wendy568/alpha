@@ -279,10 +279,10 @@ class Classes_mission
 	{
 		$array = '';
 		foreach ($this->products as $key) {
-			$array .= implode(',', $key) . ',';
+			$array .= implode('\',\'', $key) . ',';
 		}
 
-		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_symbol', substr($array, 0, -1), 'order_symbol']]);
+		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_symbol', "'" . substr($array, 0, -1) . "'", 'order_symbol']]);
 	}
 
 }
