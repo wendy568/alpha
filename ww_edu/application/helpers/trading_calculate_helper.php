@@ -1,6 +1,6 @@
 <?php  
 
-trait Trading_datas_calculate  {
+trait Trading_calculate  {
 
 	public $time_filter_definition = 'order_close_time';
 	
