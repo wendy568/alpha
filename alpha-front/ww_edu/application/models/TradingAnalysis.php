@@ -108,14 +108,14 @@ class TradingAnalysis extends CI_Model
         if (!empty($col)) {
             foreach ($col as $key) {
                 $where = " AND {$key}>0";
-                $map = "SELECT count(*) AS count  
+                $map = "SELECT *  
                         FROM mt4_export_datas
                         WHERE account_number='{$account}' {$where} 
                         LIMIT 1";
-                        print_r($map);
-                $result = $this->db->query($map)->row_array();
 
-                $count += $result['count'];
+                $result = $this->db->query($map)->result_array();
+
+                $count += count($result);
             }
             
         }
