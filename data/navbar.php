@@ -1,7 +1,7 @@
 <?php
 header('Content-Type:text/html;charset=UTF-8');
 ?>
-<!-- navbar -->
+ <!-- navbar -->
 <div class="header navbar navbar-inverse ">
     <div class="navbar-inner">
         <!-- sidebar top -->
@@ -28,12 +28,12 @@ header('Content-Type:text/html;charset=UTF-8');
                 </li>
                 <!-- 邮箱 -->
                 <li class="dropdown hidden-xs hidden-sm">
-                    <a href="email.html" class="dropdown-toggle">
+                    <a href="" class="dropdown-toggle">
                         <i class="fa fa-envelope-o"></i><span class="badge badge-important">2</span>
                     </a>
                 </li>
                 <li class="dropdown visible-xs visible-sm">
-                    <a href="#" data-webarch="toggle-right-side">
+                    <a href="" data-webarch="toggle-right-side">
                         <i class="fa fa-search"></i>
                     </a>
                 </li>
@@ -116,7 +116,7 @@ header('Content-Type:text/html;charset=UTF-8');
                 <ul class="nav quick-section ">
                     <!-- 邮箱 -->
                     <li class="dropdown hidden-xs hidden-sm">
-                        <a href="email.html" class="dropdown-toggle" data-webarch="toggle-right-side">
+                        <a href="" class="dropdown-toggle" data-webarch="toggle-right-side">
                             <i class="fa fa-envelope-o"></i><span class="badge badge-important">2</span>
                         </a>
                          <div class="simple-chat-popup chat-menu-toggle hide">

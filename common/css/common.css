@@ -9964,6 +9964,12 @@ body.rtl .footer-widget {
 }
 
 /*--------------------------------------index-css---------------------------------*/
+.nav input:focus{
+    background-color: #F4F5F7;
+}
+.nav>li>a:focus, .nav>li>a:hover{
+  background-color: transparent;
+}
 .page-content .index-content {
     padding: 90px 30px;
 }
