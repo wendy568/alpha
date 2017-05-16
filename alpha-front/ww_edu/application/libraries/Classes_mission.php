@@ -245,6 +245,21 @@ class Classes_mission
 		return $this->homework;
 	}
 
+	protected function logs($callback, $param, $model, $query)
+	{
+		$instance = & get_instance();
+		$instance->load->database();
+		$instance->load->model($model);
+		$count = call_user_func_array([$instance->{$model}, $callback], $query);
+
+		if ($count === 0) return false;
+		foreach ($param as $key => $value) {
+			$this->homework[$key] = $count;
+		}
+
+		return $this->homework;
+	}
+
 	protected function videoRead($param)
 	{
 		if($this->look_up != 'video') return false;
@@ -259,29 +274,32 @@ class Classes_mission
 
 	protected function record_count($param)
 	{
-		call_user_func_array([$this, 'count'], ['trading_count', $param, [$this->account, $this->time]]);
+		call_user_func_array([$this, 'count'], ['trading_count', $param, $model, [$this->account, $this->time]]);
 	}
 
 	protected function orderSymbolCount($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_type', $this->time]]);
+		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, $model, [$this->account, 'order_type', $this->time]]);
 	}
 
 	protected function profits_loss($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountGL', $param, [$this->account, ['order_take_profit', 'order_stop_loss'], $this->time]]);
+		call_user_func_array([$this, 'count'], ['tradingCountGL', $param, $model, [$this->account, ['order_take_profit', 'order_stop_loss'], $this->time]]);
 	}
 
 	protected function specCountProc($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountIn', $param, [$this->account, 'order_symbol', $this->products, $this->time]]);
+		call_user_func_array([$this, 'count'], ['tradingCountIn', $param, $model, [$this->account, 'order_symbol', $this->products, $this->time]]);
 	}
 
 	protected function TradingManyProducts($param)
 	{
-		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_symbol', $this->time]]);
+		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, $model, [$this->account, 'order_symbol', $this->time]]);
 	}
 
-	// protected function userLogsCount($param)
+	protected function userLogsCount($param)
+	{
+
+	}
 
 }
