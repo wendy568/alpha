@@ -2,7 +2,7 @@
 
 class Classes_mission
 {
-	use date_format, Trading_calculate;
+	use date_format, Trading_calculate, struct;
 
 	protected $category;
 
