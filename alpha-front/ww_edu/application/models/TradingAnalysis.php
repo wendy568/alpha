@@ -123,7 +123,7 @@ class TradingAnalysis extends CI_Model
         return $count;
     }
 
-    function tradingCountGL($account, $prod = [])
+    function tradingCountIn($account, $prod = [])
     {
         $where = null;
         $count = 0;
