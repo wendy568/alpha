@@ -247,6 +247,14 @@ class Classes_mission
 		return $this->homework;
 	}
 
+	protected function load_datas($callback, $model, $query)
+	{
+		$instance = & get_instance();
+		$instance->load->database();
+		$instance->load->model($model);
+		$this->_data = call_user_func_array([$instance->$model, $callback], $query);
+	}
+
 	protected function videoRead($param)
 	{
 		if($this->look_up != 'video') return false;
@@ -291,10 +299,8 @@ class Classes_mission
 
 	protected function homework_ability($param)
 	{
-		$instance = & get_instance();
-		$instance->load->database();
-		$instance->load->model('TradingAnalysis');
-		$this->_data = call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
+		call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
+
 		$count = $this->count()->property('ability', ['profit'])->get_property();
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
@@ -306,10 +312,8 @@ class Classes_mission
 
 	protected function homework_variance($param)
 	{
-		$instance = & get_instance();
-		$instance->load->database();
-		$instance->load->model('TradingAnalysis');
-		$this->_data = call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
+		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', [$this->account, null, null, null, $this->time]]);
+
 		$count = $this->count()->property('variance', ['profit'])->get_property();
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
