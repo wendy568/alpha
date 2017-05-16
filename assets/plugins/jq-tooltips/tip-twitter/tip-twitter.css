@@ -1,0 +1,73 @@
+.tip-twitter {
+	opacity:0.9;
+	z-index:1000;
+	text-align:left;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+  max-width: 300px;
+  padding: 10px 15px;
+	color:#fff;
+	background-color:#2c4059;
+	/**
+	 * - If you set a background-image, border/padding/background-color will be ingnored.
+	 *   You can set any padding to .tip-inner instead if you need.
+	 * - If you want a tiled background-image and border/padding for the tip,
+	 *   set the background-image to .tip-inner instead.
+	 */
+}
+.tip-twitter .tip-inner {
+	font-size:14px;
+}
+
+/* Configure an arrow image - the script will automatically position it on the correct side of the tip */
+.tip-twitter .tip-arrow-top {
+	margin-top:-10px;
+	margin-left:-5px; /* approx. half the width to center it */
+	top:0;
+	left:50%;
+	width:0;
+  z-index: 1000;
+	height:0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #2c4059 transparent;
+}
+.tip-twitter .tip-arrow-right {
+	margin-top:-5px; /* approx. half the height to center it */
+	margin-left:0;
+	top:50%;
+	left:100%;
+  z-index: 1000;
+  width:0;
+  height:0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #2c4059;
+}
+.tip-twitter .tip-arrow-bottom {
+	margin-top:0;
+	margin-left:-5px; /* approx. half the width to center it */
+	top:100%;
+	left:50%;
+  z-index: 1000;
+  width:0;
+  height:0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2c4059 transparent transparent transparent;
+}
+.tip-twitter .tip-arrow-left {
+	margin-top:-5px; /* approx. half the height to center it */
+	margin-left:-10px;
+	top:50%;
+  z-index: 1000;
+	left:0;
+  width:0;
+  height:0;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #2c4059 transparent transparent;
+}

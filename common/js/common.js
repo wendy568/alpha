@@ -457,19 +457,52 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
 
    // props
     alpha.prototype.props = function (target, direction,msg) {
-        if(direction == 'up'){
-          $(target).addClass('form-item-notification-up').attr('data-tooltip',msg);
+
+        if(direction == 'top'){
+          $(target).poshytip({
+            className: 'tip-twitter',
+            content: msg,
+            showOn: 'none',
+            alignTo: 'target',
+            alignX: 'center',
+            offsetY:5
+          });
+          $(target).poshytip('show');
         }else if(direction == 'right'){
-          $(target).addClass('form-item-notification-right').attr('data-tooltip',msg);
-        }else if(direction == 'down'){
-          $(target).addClass('form-item-notification-down').attr('data-tooltip',msg);
+          $(target).poshytip({
+            className: 'tip-twitter',
+            content: msg,
+            showOn: 'none',
+            alignTo: 'target',
+            alignX: 'right',
+            alignY: 'center',
+            offsetX:5
+          });
+          $(target).poshytip('show');
+        }else if(direction == 'bottom'){
+          $(target).poshytip({
+            className: 'tip-twitter',
+            content: msg,
+            showOn: 'none',
+            alignTo: 'target',
+            alignX: 'center',
+            alignY: 'bottom',
+            offsetY:5
+          });
+          $(target).poshytip('show');
         }else if(direction == 'left'){
-          $(target).addClass('form-item-notification-left').attr('data-tooltip',msg);
+          $(target).poshytip({
+            className: 'tip-twitter',
+            content: msg,
+            showOn: 'none',
+            alignTo: 'target',
+            alignX: 'left',
+            alignY: 'center',
+            offsetX:5
+          });
+          $(target).poshytip('show');
         }else{
-          $(target).removeClass('form-item-notification-up').removeAttr('data-tooltip');
-          $(target).removeClass('form-item-notification-right').removeAttr('data-tooltip');
-          $(target).removeClass('form-item-notification-down').removeAttr('data-tooltip');
-          $(target).removeClass('form-item-notification-left').removeAttr('data-tooltip');
+          $(target).poshytip('destroy');
         }
     };
 
@@ -627,9 +660,9 @@ $('.input-append.date').datepicker({
             autoclose: true,
             todayHighlight: true
    });
- 
+
  $('#dp5').datepicker();
- 
+
  $('#sandbox-advance').datepicker({
         format: "dd/mm/yyyy",
         startView: 1,
