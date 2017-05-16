@@ -230,12 +230,12 @@ class Classes_mission
 		return $this->homework;
 	}
 
-	protected function count($callback, $param, $query)
+	protected function count($callback, $param, $model, $query)
 	{
 		$instance = & get_instance();
 		$instance->load->database();
-		$instance->load->model('TradingAnalysis');
-		$count = call_user_func_array([$instance->TradingAnalysis, $callback], $query);
+		$instance->load->model($model);
+		$count = call_user_func_array([$instance->$model, $callback], $query);
 
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
