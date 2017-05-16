@@ -8,14 +8,16 @@ class time_zone{
         return new time_zone();
     }
 
-    public function lastDayInMonthOfBegin()
+    public function lastDayInMonthOfBegin($time = null)
 	{
-		return $this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', time()))));
+		$time = ($time) ? $time : time();
+		return $this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', $time))));
 	}
 
-	public function lastDayInMonthOfEnd()
+	public function lastDayInMonthOfEnd($time = null)
 	{
-		return $this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', time()))) . ' +1 month -1 day');
+		$time = ($time) ? $time : time();
+		return $this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', $time))) . ' +1 month -1 day');
 	}
 
 	public function sundayOfTheWeekOfBegin()

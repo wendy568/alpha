@@ -127,4 +127,13 @@ trait struct
 		}
 		return count($datas);
     }
+
+    protected function month_day()
+    {
+    	$instance = & get_instance();
+    	$instance->load->helper('time_zone');
+    	$time_zone = time_zone::build();
+    	print_r($time_zone->lastDayInMonthOfBegin());
+    	print_r($time_zone->lastDayInMonthOfEnd());
+    }
 }
