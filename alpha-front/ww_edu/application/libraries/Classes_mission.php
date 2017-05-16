@@ -16,7 +16,7 @@ class Classes_mission
 				'Trade all kinds products' => 'TradingManyProducts', 'Task 2 - 10 different products' => 'TradingManyProducts', '5 tradable products' => 'TradingManyProducts',
 				'Trading Record' => 'userLogsCount',
 				'Learning Report' => '',
-				'Trading Score' => 'ability',
+				'Trading Score' => 'homework_ability',
 				'Task 1 - 2 different markets' => 'specCountProc',
 				'Produce a module' => '',
 				'Risk Management Level' => 'variance',
@@ -287,6 +287,12 @@ class Classes_mission
 	protected function userLogsCount($param)
 	{
 		call_user_func_array([$this, 'homework_count'], ['logs_count', $param, 'Trading_logs', [$this->uid, $this->time]]);
+	}
+
+	protected function homework_ability($param)
+	{
+		$ability = $this->ability('profit');
+		print_r($ability);
 	}
 
 }
