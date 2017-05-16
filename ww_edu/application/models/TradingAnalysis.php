@@ -91,7 +91,7 @@ class TradingAnalysis extends CI_Model
         $group = ($group) ? "GROUP BY {$group}" : null;
         if ((isset($col) && $col) && (isset($param) && $param)) $where = " AND {$col} IN ({$param})";
 
-        $map = "SELECT * AS count  
+        $map = "SELECT *  
                 FROM mt4_export_datas
                 WHERE account_number='{$account}' {$where} {$group}";
 
