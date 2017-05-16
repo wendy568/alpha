@@ -39,23 +39,26 @@ header('Content-Type:text/html;charset=UTF-8');
             </li>
             <!-- Tra Management -->
             <li>
-                <a href="javascript:;"> 
+                <a href="TradingStatistic.html"> 
                     <i class="fa fa-legal"></i>
-                    <span class="title">Tra Management</span> 
+                    <span class="title"> Tra Management</span> 
                     <span class=" fa fa-angle-left pull-right "></span> 
                 </a>
                 <ul class="sub-menu">
                     <li> 
-                        <a href="TradingStatistic.html"><i class="fa fa-bar-chart"></i>Trading Statistics </a> 
+                        <a href="TradingStatistic.html"><i class="fa fa-bar-chart"></i> Trading Statistics </a> 
                     </li>
                     <li> 
-                        <a href="Tools.html"><i class="fa fa-suitcase"></i>Tools</a> 
+                        <a href="Tools.html"><i class="fa fa-suitcase"></i> Tools</a> 
+                    </li>
+                    <li> 
+                        <a href="Trading_History.html"><i class="fa fa-suitcase"></i> Trading history</a> 
                     </li>
                 </ul>
             </li>
             <!-- tv -->
             <li>
-                <a href="email.html"> 
+                <a href="Tv.html"> 
                     <i class="fa fa-tv"></i> 
                     <span class="title">TV</span> 
                 </span>
@@ -63,23 +66,16 @@ header('Content-Type:text/html;charset=UTF-8');
             </li>
             <!-- order -->
             <li>
-                <a href="javascript:;"> 
+                <a href="Order.html"> 
                     <i class="fa fa-file-text"></i> 
                     <span class="title">Order</span> 
                 </a>
             </li>
             <!-- help -->
             <li>
-                <a href="javascript:;"> 
+                <a href="Help.html"> 
                     <i class="fa fa-question-circle"></i> 
                     <span class="title">Help</span> 
-                </a>
-            </li>
-            <!-- table -->
-            <li>
-                <a href="javascript:;"> 
-                    <i class="fa fa-th-large"></i>
-                    <span class="title">Table</span> 
                 </a>
             </li>
         </ul>
@@ -121,7 +117,6 @@ header('Content-Type:text/html;charset=UTF-8');
         </a>
     </div>
 </div>
-
  <!-- sidebar right notice-->
 <div class="notice-box">
     <div  class="inner-content scroller scrollbar-dynamic">
@@ -161,7 +156,7 @@ header('Content-Type:text/html;charset=UTF-8');
                     </div>
                     <!-- body -->
                     <div class="card-body">
-                        <h5>The problem you submitted a <span class="text-primary">new reply &gt;&gt;</span></h5>
+                        <h5>The problem you submitted a <a href="" class="text-primary">new reply &gt;&gt;</a></h5>
                     </div>
                 </div>
                 <div class="notice-card">
@@ -172,7 +167,7 @@ header('Content-Type:text/html;charset=UTF-8');
                     </div>
                     <!-- body -->
                     <div class="card-body">
-                        <h5>The problem you submitted a  <span class="text-success">new reply &gt;&gt;</span> </h5>
+                        <h5>The problem you submitted a  <a href="" class="text-success">new reply &gt;&gt;</a> </h5>
                     </div>
                 </div>
             </div>
@@ -206,7 +201,7 @@ header('Content-Type:text/html;charset=UTF-8');
                     </div>
                     <!-- body -->
                     <div class="card-body">
-                        <h5>The problem you submitted a <span class="text-primary">new reply &gt;&gt;</span></h5>
+                        <h5>The problem you submitted a <a href="" class="text-primary">new reply &gt;&gt;</a></h5>
                     </div>
                 </div>
                 <div class="notice-card">
@@ -217,7 +212,7 @@ header('Content-Type:text/html;charset=UTF-8');
                     </div>
                     <!-- body -->
                     <div class="card-body">
-                        <h5>The problem you submitted a  <span class="text-success">new reply &gt;&gt;</span> </h5>
+                        <h5>The problem you submitted a  <a href="" class="text-success">new reply &gt;&gt;</a> </h5>
                     </div>
                 </div>
             </div>
