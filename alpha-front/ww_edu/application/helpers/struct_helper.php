@@ -114,4 +114,17 @@ trait struct
 		$this->property = call_user_func_array([$this, $callback], $param);
 		return $this;
 	}
+
+    protected function count_positive($index)
+    {
+    	$datas = $this->_data;
+    	foreach ($datas as $key => $value) {
+			foreach ($value as $k => $v) {
+				if ($k == $index && $v < 0) {
+					unset($datas[$key]);
+				}
+			}
+		}
+		return count($datas);
+    }
 }
