@@ -282,6 +282,6 @@ class Classes_mission
 		call_user_func_array([$this, 'count'], ['tradingCountGroup', $param, [$this->account, 'order_symbol', $this->time]]);
 	}
 
-	protected function userLogsCount($param)
+	// protected function userLogsCount($param)
 
 }
