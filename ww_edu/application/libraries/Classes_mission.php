@@ -19,7 +19,7 @@ class Classes_mission
 				'Trading Score' => 'homework_ability',
 				'Task 1 - 2 different markets' => 'specCountProc',
 				'Produce a module' => '',
-				'Risk Management Level' => 'variance',
+				'Risk Management Level' => 'homework_variance',
 				'Profitable Period' => 'sumOneMonth'
 			];
 
@@ -296,6 +296,21 @@ class Classes_mission
 		$instance->load->model('TradingAnalysis');
 		$this->_data = call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
 		$count = $this->count()->property('ability', ['profit'])->get_property();
+		if ($count === 0) return false;
+		foreach ($param as $key => $value) {
+			$this->homework[$key] = $count;
+		}
+
+		return $this->homework;
+	}
+
+	protected function homework_variance($param)
+	{
+		$instance = & get_instance();
+		$instance->load->database();
+		$instance->load->model('TradingAnalysis');
+		$this->_data = call_user_func_array([$instance->TradingAnalysis, 'export_mt4_datas'], [$this->account, null, null, null, $this->time]);
+		$count = $this->count()->property('variance', ['profit'])->get_property();
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
