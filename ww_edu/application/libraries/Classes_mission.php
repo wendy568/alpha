@@ -279,8 +279,8 @@ class Classes_mission
 	{
 		$array = '';
 		foreach ($this->products as $key) {
-			print_r(count($key));
 			$array .= implode(',', $key);
+			var_dump($array);
 		}
 		$products = explode(',', $array);
 		print_r($products);die;
