@@ -17,7 +17,7 @@ class Classes_mission
 				'Trading Record' => 'record_count',
 				'Learning Report' => '',
 				'Trading Score' => 'ability',
-				'Task 1 - 2 different markets' => 'orderSymbolCount',
+				'Task 1 - 2 different markets' => 'specCountProc',
 				'Produce a module' => '',
 				'Risk Management Level' => 'variance',
 				'Profitable Period' => 'sumOneMonth'
@@ -257,7 +257,7 @@ class Classes_mission
 
 	protected function record_count($param)
 	{
-		// call_user_func_array([$this, 'count'], ['trading_count', $param, [$this->account]]);
+		call_user_func_array([$this, 'count'], ['trading_count', $param, [$this->account]]);
 	}
 
 	protected function orderSymbolCount($param)
