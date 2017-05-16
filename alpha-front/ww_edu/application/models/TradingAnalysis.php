@@ -114,7 +114,7 @@ class TradingAnalysis extends CI_Model
                         LIMIT 1";
 
                 $result = $this->db->query($map)->row_array();
-                $count += $result['connt'];
+                $count += $result['count'];
             }
             
         }
