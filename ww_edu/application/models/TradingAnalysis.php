@@ -104,6 +104,7 @@ class TradingAnalysis extends CI_Model
     {
         $where = null;
         $count = 0;
+        
         if (!empty($col)) {
             foreach ($col as $key) {
                 $where = " AND {$key}>0";
