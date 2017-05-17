@@ -7,7 +7,7 @@ $(document).ready(function() {
     $('.select2', "#form_traditional_validation").change(function () {
         $('#form_traditional_validation').validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
     });
-	//Iconic form validation sample	
+	// //Iconic form validation sample	
    $('#form_iconic_validation').validate({
             errorElement: 'span', 
             errorClass: 'error', 
@@ -88,7 +88,7 @@ $(document).ready(function() {
                         required: true,
                     },
 					form3Occupation: {
-						 minlength: 3,
+						minlength: 3,
                         required: true,
                     },
 					form3Email: {
