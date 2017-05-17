@@ -128,7 +128,7 @@ trait Trading_calculate  {
 
     protected function ability_score($ability)
     {
-        $ability = 2;
+        $ability = 3;
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
                 foreach ($value as $key) {
