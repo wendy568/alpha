@@ -147,7 +147,7 @@ trait Trading_calculate  {
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
                 foreach ($value as $key) {
-                   if ($ability > $key[1][0] && $ability <= $key[1][1]) {
+                   if ($ability >= $key[1][0] && $ability < $key[1][1]) {
                         if (!empty($key[2][1])) {
                             $key[0][0] += call_user_func_array([$this, $key[2][1]], [$ability, $key[2][0], $key[1][0]]);
                             $score = $key[0][0];
