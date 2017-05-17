@@ -100,7 +100,9 @@ trait Trading_calculate  {
 		}
 
 		$sqrt_sum = ($this->count) ? $sum / $this->count : 0;
-		return round(sqrt($sqrt_sum), 2);
+		$variance = round(sqrt($sqrt_sum), 2);
+        $this->variance_score($variance);
+        return $variance;
 
     }
 
@@ -158,6 +160,32 @@ trait Trading_calculate  {
             } elseif ($ability <= -1) {
                 $score = 0;
             } elseif ($ability >= 500000) {
+                $score = 100;
+            }
+        }
+        
+        return $score;
+    }
+
+    protected function variance_score($variance)
+    {
+        $variance = 0;
+        foreach ($this->score_zone as $key => $value) {
+            if ($key == 'risk_management') {
+                foreach ($value as $key) {
+                   if ($variance >= $key[1][0] && $variance < $key[1][1]) {
+                        if (!empty($key[2][1])) {
+                            $key[0][0] += call_user_func_array([$this, $key[2][1]], [$variance, $key[2][0], $key[1][0]]);
+                            $score = $key[0][0];
+                        } else {
+                            $key[0][0] += round($variance / $key[2][0],1);
+                            $score = $key[0][0];
+                        }
+                   }
+                }
+            } elseif ($variance <= -1) {
+                $score = 0;
+            } elseif ($variance >= 500000) {
                 $score = 100;
             }
         }
