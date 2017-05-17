@@ -328,6 +328,7 @@ class Classes_mission
 	protected function sumOneMonth($param)
 	{
 		$mt4 = call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
+		print_r($param);
 		$mon_1 = getdate($this->time)['mon'];
 		$profit = $this->build($mt4,$mon_1)->get_month()->property('sum', ['profit'])->get_property();
 		print_r($this->_data);
