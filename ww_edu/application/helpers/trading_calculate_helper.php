@@ -204,8 +204,8 @@ trait Trading_calculate  {
                 $score = 100;
             }
         }
-        
-        return round($score, 2);
+        print_r($score);
+        // return round($score, 2);
     }
 
 }
