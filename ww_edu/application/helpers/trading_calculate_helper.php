@@ -138,6 +138,7 @@ trait Trading_calculate  {
 
     protected function plusOne($p1, $p2)
     {
+        print_r($p1);
         return $p1 + 1 / $p2;
     }
 
