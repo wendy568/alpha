@@ -93,13 +93,20 @@ trait Trading_calculate  {
     public function accuracy($index)
     {
     	$accuracy = ($this->count) ? $this->count_positive($index) / $this->count : 0;
-    	return  round($accuracy, 4);
+    	return  round($accuracy, 2);
     }
 
     //(A*B) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
     public function ability($index)
+    {   $ability = round($this->accuracy($index) * $this->avg($index, $this->_data), 2);
+        $this->ability_score($ability);
+    	return $ability;
+    }
+
+    protected function ability_score($ability)
     {
-    	return round($this->accuracy($index) * $this->avg($index, $this->_data), 4);
+       $ability = $ability / 100000;
+       print_r($ability);
     }
 
 }
