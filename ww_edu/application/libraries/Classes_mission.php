@@ -304,7 +304,7 @@ class Classes_mission
 		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
 
 		$count = $this->count()->property('ability', ['profit'])->get_property();
-		print_r($count);
+
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
