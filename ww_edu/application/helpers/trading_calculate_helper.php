@@ -187,6 +187,7 @@ trait Trading_calculate  {
 
     protected function frequency_score($frequency)
     {
+        var_dump($frequency);
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'trade_frequency') {
                 foreach ($value as $key) {
