@@ -329,15 +329,15 @@ class Classes_mission
 	{
 		$mt4 = call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
 		foreach ($param as $key => $null) {
-			print_r($this->mission[$key]);die;
 			for ($i = 0; $i < $this->mission[$key]; $i++) {
-
+				$mon = getdate($this->time)['mon'];
+				$mon = $mon + $i;
+				$profit = $this->build($mt4,$mon)->get_month()->property('sum', ['profit'])->get_property();
+				print_r($profit);
+				$count += ($profit) ? 1 : 0;
 			}
 		}
-		$mon_1 = getdate($this->time)['mon'];
-		$profit = $this->build($mt4,$mon_1)->get_month()->property('sum', ['profit'])->get_property();
-		print_r($this->_data);
-		print_r($profit);die;
+		print_r($count);die;
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
