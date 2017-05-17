@@ -183,9 +183,9 @@ trait Trading_calculate  {
                 }
             } elseif ($variance < 0) {
                 $score = 100;
-            } elseif ($variance >= 0.21) {
-                $score = 0;
-            }
+            // } elseif ($variance >= 0.21) {
+            //     $score = 0;
+            // }
         }
         
         print_r($score);
