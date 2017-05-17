@@ -128,7 +128,7 @@ trait Trading_calculate  {
 
     protected function getLog($p1, $p2)
     {
-        return round(log($p1, $p2), 2);
+        return round(log($p1, $p2), 1);
     }
 
     protected function minusOne($p1, $p2)
@@ -138,7 +138,7 @@ trait Trading_calculate  {
 
     protected function plusOne($p1, $p2)
     {
-        return $p1 + 40;
+        return $p1 + 1 / $p2;
     }
 
     protected function ability_score($ability)
