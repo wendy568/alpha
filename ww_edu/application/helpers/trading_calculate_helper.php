@@ -111,8 +111,7 @@ trait Trading_calculate  {
     	$denominator = call_user_func_array([$this, $callback], $param);
     	$frequency = ($denominator) ? $this->count / $denominator : 0;
         $frequency = round(($frequency) * 300, 4);
-        $this->frequency_score($frequency);
-    	return $frequency;
+        return $this->frequency_score($frequency);
     }
 
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
@@ -208,7 +207,7 @@ trait Trading_calculate  {
                 $frequency = 100;
             }
         }
-        
+
         return round($score, 2);
     }
 
