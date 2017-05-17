@@ -169,7 +169,7 @@ trait Trading_calculate  {
 
     protected function variance_score($variance)
     {
-        $variance = 0;
+        // $variance = 0;
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'risk_management') {
                 foreach ($value as $key) {
