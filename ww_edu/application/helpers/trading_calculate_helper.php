@@ -7,7 +7,7 @@ trait Trading_calculate  {
                         [[100, 90], [0, 0.001], [0.0001]],
                         [[90, 60], [0.001, 0.01], [0.0005, 'minusOne']],
                         [[60, 10], [0.01, 0.21], [0.004, 'minusOne']],
-                        [[10, 0], [0.21, 0x7fffffff], [0.05, 'minusOne']]
+                        [[10, 0], [0.21, 0.71], [0.05, 'minusOne']]
                     ],
                     'trade_frequency' => [
                         [[0, 10], [0, 0.0001], [0.00001]],
@@ -178,7 +178,9 @@ trait Trading_calculate  {
                             $key[0][0] -= round($variance / $key[2][0],1);
                             $score = $key[0][0];
                         }
-                   } 
+                   } elseif ($variance >= 0.71) {
+                        $score = 0;
+                   }
                 } 
             } 
         }
