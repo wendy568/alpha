@@ -122,8 +122,7 @@ trait Trading_calculate  {
     //(A*B) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
     public function ability($index)
     {   $ability = round($this->accuracy($index) * $this->avg($index, $this->_data), 2);
-        $this->ability_score($ability);
-    	return $ability;
+        return $this->ability_score($ability);
     }
 
     protected function getLog($p1, $p2, $p3)
@@ -162,7 +161,8 @@ trait Trading_calculate  {
                 $score = 100;
             }
         }
-        var_dump($score);
+        
+        return $score
     }
 
 }
