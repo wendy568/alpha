@@ -128,10 +128,16 @@ trait Trading_calculate  {
 
     protected function ability_score($ability)
     {
+        $a = 'log';
+        print_r($a(100, 10));die;
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
                 foreach ($value as $key) {
-                    print_r($key);
+                   if ($ability >= $key[1][0] && $ability <= $key[1][1]) {
+                        if (is_string($key[2][1])) {
+
+                        }
+                   }
                 }
             }
         }
