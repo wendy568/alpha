@@ -1,5 +1,5 @@
 (function(){
-
+	// 基础样式JS
 	function getStage(stage) {
 	    var ctx = c1.getContext('2d');
 	    ctx.lineWidth = 10;
@@ -42,6 +42,9 @@
 		$('.description span').html(complete);
 		$('.progress').html('<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="'+ complete +'%" style="width:'+ complete +'%"></div>');
 
+		// title
+		$('.pro-intr h4').html(data.data.title);
+		$('.pro-intr p').html(data.data.describe);
 	});
 
 	

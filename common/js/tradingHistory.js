@@ -1,4 +1,23 @@
 (function () {
+    // common datepicker 
+    $('.input-append.date').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    $('#dp5').datepicker();
+
+    $('#sandbox-advance').datepicker({
+        format: "dd/mm/yyyy",
+        startView: 1,
+        daysOfWeekDisabled: "3,4",
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    $('.my-colorpicker-control').colorpicker();
+
+    
     $('.filter').click(function(){
       $('.c-title').toggleClass('hide');
     });
