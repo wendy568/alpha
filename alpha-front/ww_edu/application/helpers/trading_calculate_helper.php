@@ -19,7 +19,7 @@ trait Trading_calculate  {
                         [[85, 100], [10, 100], [6]]
                     ],
                     'profit_ability' => [
-                        [[95, 100], [6, 500000], [10, 'getLog']],
+                        [[95, 100], [6, 500000], [5, 'getLog']],
                         [[90, 95], [1, 6], [1, 'minusOne']],
                         [[40, 90], [0, 1], [0.02]],
                         [[0, 40], [-1, 0], [0.025, 'plusOne']]
@@ -128,7 +128,7 @@ trait Trading_calculate  {
 
     protected function getLog($p1, $p2)
     {
-        return round(log($p1, $p2), 1);
+        return round(log($p1, 10), 1);
     }
 
     protected function minusOne($p1, $p2)
