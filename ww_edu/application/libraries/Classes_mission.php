@@ -253,6 +253,8 @@ class Classes_mission
 		$instance->load->database();
 		$instance->load->model($model);
 		$this->_data = call_user_func_array([$instance->$model, $callback], $query);
+
+		return $this->_data;
 	}
 
 	protected function videoRead($param)
@@ -325,9 +327,10 @@ class Classes_mission
 
 	protected function sumOneMonth($param)
 	{
-		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
+		$mt4 = call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
+		echo getdate($this->time)['mon'];die;
+		// $count = $this->buid($mt4,)->count()->property('month_', [$this->time])->get_property();
 
-		$count = $this->count()->property('month_day', [$this->time])->get_property();
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
 			$this->homework[$key] = $count;
