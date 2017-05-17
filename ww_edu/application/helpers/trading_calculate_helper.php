@@ -188,6 +188,7 @@ trait Trading_calculate  {
                    }
                 }
             } elseif ($variance < 0.21) {
+                echo 345;
                 $score = 0;
             } elseif ($variance >= 500000) {
                 $score = 100;
