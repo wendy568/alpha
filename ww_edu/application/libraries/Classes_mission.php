@@ -327,6 +327,7 @@ class Classes_mission
 
 	protected function sumOneMonth($param)
 	{
+		$count = 0;
 		$mt4 = call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
 		foreach ($param as $key => $null) {
 			for ($i = 0; $i < $this->mission[$key]; $i++) {
