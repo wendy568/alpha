@@ -160,7 +160,7 @@ trait Trading_calculate  {
             }
         }
         
-        return $score;
+        return round($score, 2);
     }
 
     protected function variance_score($variance)
@@ -188,7 +188,7 @@ trait Trading_calculate  {
             // }
         }
         
-        print_r($score);
+        return round($score, 2);
     }
 
 }
