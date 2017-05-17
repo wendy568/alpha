@@ -334,7 +334,7 @@ class Classes_mission
 				$mon = getdate($this->time)['mon'];
 				$mon = $mon + $i;
 				$profit = $this->build($mt4,$mon)->get_month()->property('sum', ['profit'])->get_property();
-				// print_r($profit);
+				var_dump($profit);
 				$count += ($profit > 0) ? 1 : 0;
 			}
 		}
