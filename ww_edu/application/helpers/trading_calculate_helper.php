@@ -133,12 +133,12 @@ trait Trading_calculate  {
 
     protected function minusOne($p1, $p2, $p3)
     {
-        return $p1 / $p2 - $p2;
+        return round($p1 / $p2, 1) - $p2;
     }
 
     protected function plusOne($p1, $p2, $p3)
     {
-        return $p1 / $p2 + 1 / $p2;
+        return round($p1 / $p2, 1) + round(1 / $p2, 1);
     }
 
     protected function ability_score($ability)
