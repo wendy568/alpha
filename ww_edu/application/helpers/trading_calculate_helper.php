@@ -144,9 +144,9 @@ trait Trading_calculate  {
 
     protected function ability_score($ability)
     {
-        var_dump($ability);
-        $ability = round($ability / 5000, 1);
-        var_dump($ability);
+        // var_dump($ability);
+        $ability = $ability / 5000;
+        // var_dump($ability);
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
                 foreach ($value as $key) {
