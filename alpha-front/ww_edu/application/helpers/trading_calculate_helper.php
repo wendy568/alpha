@@ -128,6 +128,7 @@ trait Trading_calculate  {
 
     protected function getLog($p1, $p2)
     {
+        var_dump($p1);
         return round(log($p1, 10), 1);
     }
 
