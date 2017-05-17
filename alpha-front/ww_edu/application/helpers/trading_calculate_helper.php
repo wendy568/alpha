@@ -152,11 +152,11 @@ trait Trading_calculate  {
                             $key[0][0] += round($ability / $key[2][0],1);
                             $score = $key[0][0];
                         }
+                   } elseif ($ability >= 500000) {
+                        $score = 100;
                    }
                 }
-            } elseif ($ability >= 500000) {
-                $score = 100;
-            }
+            } 
         }
         
         return round($score, 2);
@@ -177,8 +177,8 @@ trait Trading_calculate  {
                             $key[0][0] -= round($variance / $key[2][0],1);
                             $score = $key[0][0];
                         }
-                   }
-                }
+                   } 
+                } 
             } 
         }
         
