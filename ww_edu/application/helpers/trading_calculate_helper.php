@@ -162,7 +162,7 @@ trait Trading_calculate  {
             }
         }
         
-        return $score
+        return $score;
     }
 
 }
