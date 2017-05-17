@@ -167,7 +167,7 @@ trait Trading_calculate  {
     {
         $score = 0.0000;
         $variance = $variance / 100000;
-        $variance = 0.21;
+        $variance = 50;
         foreach ($this->score_zone as $key => $value) {
 
             if ($key == 'risk_management') {
