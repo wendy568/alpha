@@ -137,6 +137,7 @@ trait Trading_calculate  {
                             $key[0][0] += round($key[2][1](round($ability / $key[1][0], 2), $key[2][0]), 1);
                             echo $key[0][0];
                         } else {
+                            var_dump($key[2][0]);
                             $key[0][0] += round($ability / $key[2][0],1);
                             echo $key[0][0];
                         }
