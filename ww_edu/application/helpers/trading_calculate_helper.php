@@ -154,6 +154,8 @@ trait Trading_calculate  {
                         }
                    } elseif ($ability >= 500000) {
                         $score = 100;
+                   } elseif ($ability < -1) {
+                       $score = 0;
                    }
                 }
             } 
@@ -165,7 +167,6 @@ trait Trading_calculate  {
     protected function variance_score($variance)
     {
         $variance = $variance / 100000;
-        $variance = 0.77;
         foreach ($this->score_zone as $key => $value) {
 
             if ($key == 'risk_management') {
@@ -190,7 +191,6 @@ trait Trading_calculate  {
 
     protected function frequency_score($frequency)
     {
-        var_dump($frequency);
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'trade_frequency') {
                 foreach ($value as $key) {
@@ -204,10 +204,12 @@ trait Trading_calculate  {
                         }
                    }
                 }
-            } 
+            } elseif ($frequency >= 100) {
+                $frequency = 100;
+            }
         }
-        print_r($score);
-        // return round($score, 2);
+        
+        return round($score, 2);
     }
 
 }
