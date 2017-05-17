@@ -2226,13 +2226,13 @@ hr {
 .page-content .breadcrumb i,
 .page-content .breadcrumb span,
 .page-content .breadcrumb li {
-    color: #515050;
+    color: #e5e9ec;
     font-weight: 300;
     text-shadow: none;
 }
 .breadcrumb > li + li:before {
     padding: 0 2px;
-    color: #515050;
+    color: #e5e9ec;
     font-family: 'Material Icons';
     content: "\e5cc";
     position: relative;
@@ -3013,7 +3013,8 @@ div.DTTT_print_info p {
   position: absolute;
 }
 .login-container {
-  margin-top: 13%;
+    margin:8% auto auto;
+    width: 850px;
 }
 .lockscreen-wrapper {
   position: relative;
@@ -3786,13 +3787,13 @@ form legend,
   padding: 0px !important;
 }
 .form .form-actions {
-  background-color: #f6f7f8 !important;
+  /*background-color: #f6f7f8 !important;*/
   margin-top: 0px !important;
   margin-top: 40px;
   padding-left: 190px;
 }
 .form-actions {
-  background-color: #f6f7f8;
+  /*background-color: #f6f7f8;*/
   border: 0px;
   margin-bottom: 20px;
   margin-top: 34px;
@@ -4578,7 +4579,7 @@ form legend,
 }
 .error {
   font-size: 12px;
-  color: #f35958;
+  color: #f35958 !important;
   display: block;
 }
 .has-error .form-control,
@@ -5093,22 +5094,16 @@ form legend,
 .carousel-inner .date:active{
     background-color: #1CBD9D;
 }
-.item .body{
-    background-color: #2b2d31;
-    padding: 15px;
-    overflow: hidden;   
-    box-sizing: border-box;
-    height: 60px;
-    text-align: center;
+.item .col{
+  height: 100px;
+  padding: 20px;
+  background-color: #2b2d31;
 }
-.item .foot{
-    color: #282323 !important;
-    background-color: #2f3135;
-    margin-bottom: 0px;
-    border-bottom: 0px;
-    height: 30px;
-    line-height: 30px;
+.item .body{
+    box-sizing: border-box;
     text-align: center;
+    border-right:3px solid #3C4955;
+    padding-right:20px;
 }
 .inner-row{
     height: 70px;
@@ -9234,10 +9229,6 @@ body.rtl .footer-widget {
   .user-mini-description h5 {
     text-align: center;
   }
-  /** Login Page **/
-  .login-container {
-    padding: 0 10px;
-  }
   .spacing-bottom-sm {
     margin-bottom: 20px;
   }
@@ -9465,10 +9456,6 @@ body.rtl .footer-widget {
   /** email **/
   .email-body {
     padding: 8px !important;
-  }
-  /** Login Page **/
-  .login-container {
-    padding: 0 10px;
   }
   .table td.small-cell,
   .table th.small-cell {
@@ -10565,4 +10552,11 @@ body.rtl .footer-widget {
 }
 #logModal .input-with-icon{
   display: inline-block;
+}
+/*personal-management---------------------------------------------------------*/
+.pro-view{
+    width: 270px;
+    height: 390px;
+    background:url(assets/img/dem0_img01.png) no-repeat;
+    border:1px solid #fff;
 }
