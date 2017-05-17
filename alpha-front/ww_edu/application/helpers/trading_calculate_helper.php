@@ -19,8 +19,8 @@ trait Trading_calculate  {
                         [[85, 100], [10, 100], [6]]
                     ],
                     'profit_ability' => [
-                        [[95, 100], [6, 500000], [10, 'log']],
-                        [[90, 95], [1, 6], [1]],
+                        [[95, 100], [6, 500000], [10, 'getLog']],
+                        [[90, 95], [1, 6], [1, 'minusOne']],
                         [[40, 90], [0, 1], [0.02]],
                         [[0, 40], [-1, 0], [0.025]]
                     ]
@@ -126,6 +126,11 @@ trait Trading_calculate  {
     	return $ability;
     }
 
+    protected function getLog($p1, $p2)
+    {
+        return round(log($p1, $p2), 2);
+    }
+
     protected function ability_score($ability)
     {
         $ability = 6;
@@ -134,10 +139,9 @@ trait Trading_calculate  {
                 foreach ($value as $key) {
                    if (($ability >= $key[1][0] && $ability <= $key[1][1]) OR $ability < -1 OR $ability > 500000) {
                         if (!empty($key[2][1])) {
-                            $key[0][0] += round($key[2][1](round($ability / $key[1][0], 2), $key[2][0]), 1);
+                            $key[0][0] += call_user_func_array([$this, $key[2][1]], [round($ability / $key[1][0], 2), $key[2][0], 1]);
                             $score = $key[0][0];
                         } else {
-                            echo 123;
                             $key[0][0] += round($ability / $key[2][0],1);
                             $score = $key[0][0];
                         }
