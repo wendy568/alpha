@@ -110,7 +110,9 @@ trait Trading_calculate  {
     {
     	$denominator = call_user_func_array([$this, $callback], $param);
     	$frequency = ($denominator) ? $this->count / $denominator : 0;
-    	return round(($frequency) * 300, 4);
+        $frequency = round(($frequency) * 300, 4);
+        $this->frequency_score($frequency);
+    	return $frequency;
     }
 
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
@@ -152,8 +154,6 @@ trait Trading_calculate  {
                         }
                    }
                 }
-            } elseif ($ability < -1) {
-                $score = 0;
             } elseif ($ability >= 500000) {
                 $score = 100;
             }
@@ -179,12 +179,30 @@ trait Trading_calculate  {
                         }
                    }
                 }
-            } elseif ($variance < 0) {
+            } 
+        }
+        
+        return round($score, 2);
+    }
+
+    protected function frequency_score($frequency)
+    {
+        foreach ($this->score_zone as $key => $value) {
+            if ($key == 'trade_frequency') {
+                foreach ($value as $key) {
+                   if ($frequency >= $key[1][0] && $frequency < $key[1][1]) {
+                        if (!empty($key[2][1])) {
+                            $key[0][0] += call_user_func_array([$this, $key[2][1]], [$frequency, $key[2][0], $key[1][0]]);
+                            $score = $key[0][0];
+                        } else {
+                            $key[0][0] += round($frequency / $key[2][0],1);
+                            $score = $key[0][0];
+                        }
+                   }
+                }
+            } elseif ($frequency >= 500000) {
                 $score = 100;
             }
-            // } elseif ($variance >= 0.21) {
-            //     $score = 0;
-            // }
         }
         
         return round($score, 2);
