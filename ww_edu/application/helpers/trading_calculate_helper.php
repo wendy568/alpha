@@ -158,7 +158,7 @@ trait Trading_calculate  {
                         }
                    }
                 }
-            } elseif ($ability <= -1) {
+            } elseif ($ability < -1) {
                 $score = 0;
             } elseif ($ability >= 500000) {
                 $score = 100;
@@ -181,17 +181,15 @@ trait Trading_calculate  {
                             $key[0][0] += call_user_func_array([$this, $key[2][1]], [$variance, $key[2][0], $key[1][0]]);
                             $score = $key[0][0];
                         } else {
-                            echo 123;
                             $key[0][0] -= round($variance / $key[2][0],1);
                             $score = $key[0][0];
                         }
                    }
                 }
-            } elseif ($variance < 0.21) {
-                echo 345;
-                $score = 0;
-            } elseif ($variance >= 500000) {
+            } elseif ($variance < 0) {
                 $score = 100;
+            } elseif ($variance >= 0.21) {
+                $score = 0;
             }
         }
         
