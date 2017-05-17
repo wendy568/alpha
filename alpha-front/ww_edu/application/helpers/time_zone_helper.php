@@ -10,7 +10,6 @@ class time_zone{
 
     public function lastDayInMonthOfBegin($time = null)
 	{
-		print_r(date('Y-m-d', $time));
 		$time = ($time) ? $time : time();
 		return $this->_date = strtotime(date('Y-m-01', strtotime(date('Y-m-d', $time))));
 	}
