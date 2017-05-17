@@ -134,7 +134,6 @@ trait Trading_calculate  {
 
     protected function minusOne($p1, $p2, $p3)
     {
-        var_dump(($p1 / $p2) - ($p3 / $p2));
         return ($p1 / $p2) - ($p3 / $p2);
     }
 
@@ -174,7 +173,7 @@ trait Trading_calculate  {
                 foreach ($value as $key) {
                    if ($variance >= $key[1][0] && $variance < $key[1][1]) {
                         if (!empty($key[2][1])) {
-                            $key[0][0] += call_user_func_array([$this, $key[2][1]], [$variance, $key[2][0], $key[1][0]]);
+                            $key[0][0] -= call_user_func_array([$this, $key[2][1]], [$variance, $key[2][0], $key[1][0]]);
                             $score = $key[0][0];
                         } else {
                             $key[0][0] -= round($variance / $key[2][0],1);
