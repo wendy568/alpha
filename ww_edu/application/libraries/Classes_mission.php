@@ -302,7 +302,7 @@ class Classes_mission
 	protected function homework_ability($param)
 	{
 		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
-
+		print_r($this->_data);
 		$count = $this->count()->property('ability', ['profit'])->get_property();
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
