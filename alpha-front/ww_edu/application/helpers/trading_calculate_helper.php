@@ -19,8 +19,8 @@ trait Trading_calculate  {
                         [[85, 100], [10, 100], [6]]
                     ],
                     'profit_ability' => [
-                        [[95, 100], [6, 500000], [10, 'getLog']],
-                        [[90, 95], [1, 6], [1, 'minusOne']],
+                        [[95, 100], [5, 500000], [10, 'getLog']],
+                        [[90, 95], [1, 5], [1, 'minusOne']],
                         [[40, 90], [0, 1], [0.02]],
                         [[0, 40], [-1, 0], [0.025, 'plusOne']]
                     ]
@@ -146,6 +146,7 @@ trait Trading_calculate  {
 
     protected function ability_score($ability)
     {
+        var_dump(5<5);
         $ability = 5;
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
