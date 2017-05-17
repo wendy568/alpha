@@ -128,26 +128,22 @@ trait Trading_calculate  {
 
     protected function getLog($p1, $p2, $p3)
     {
-        echo 1;
         return round(log($p1 / $p3, 10), 1);
     }
 
     protected function minusOne($p1, $p2, $p3)
     {
-        echo 2;
         return $p1 / $p2 - $p2;
     }
 
     protected function plusOne($p1, $p2, $p3)
     {
-        echo 3;
         return $p1 / $p2 + 1 / $p2;
     }
 
     protected function ability_score($ability)
     {
-        var_dump(5<5);
-        $ability = 5;
+        $ability = 50;
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
                 foreach ($value as $key) {
