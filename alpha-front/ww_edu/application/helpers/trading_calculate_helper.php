@@ -101,8 +101,7 @@ trait Trading_calculate  {
 
 		$sqrt_sum = ($this->count) ? $sum / $this->count : 0;
 		$variance = round(sqrt($sqrt_sum), 2);
-        $this->variance_score($variance);
-        return $variance;
+        return $this->variance_score($variance);
 
     }
 
