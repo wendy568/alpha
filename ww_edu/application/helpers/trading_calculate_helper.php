@@ -131,6 +131,11 @@ trait Trading_calculate  {
         return round(log($p1, $p2), 2);
     }
 
+    protected function minusOne($p1, $p2)
+    {
+        return null;
+    }
+
     protected function ability_score($ability)
     {
         $ability = 6;
