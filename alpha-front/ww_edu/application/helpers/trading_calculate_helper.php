@@ -134,6 +134,7 @@ trait Trading_calculate  {
 
     protected function minusOne($p1, $p2, $p3)
     {
+        var_dump(($p1 / $p2) - ($p3 / $p2));
         return ($p1 / $p2) - ($p3 / $p2);
     }
 
