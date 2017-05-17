@@ -134,7 +134,8 @@ trait Trading_calculate  {
                 foreach ($value as $key) {
                    if ($ability >= $key[1][0] && $ability <= $key[1][1]) {
                         if (is_string($key[2][1])) {
-                            // echo round($ability / $key[2][0], 2);
+                            var_dump($key[1][1]);
+                            var_dump($key[2][0]);
                             echo $key[2][1](round($ability / $key[1][1], 2), $key[2][0]);die;
                         }
                    }
