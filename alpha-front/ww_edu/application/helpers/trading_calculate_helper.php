@@ -136,8 +136,8 @@ trait Trading_calculate  {
                         if (is_string($key[2][1])) {
                             // var_dump($key[1][1]);
                             // var_dump($key[2][0]);
-                            echo $key[2][1](round($ability / $key[1][0], 2), $key[2][0]);die;
-                        }
+                            echo $key[2][1](round($ability / $key[1][0], 2), $key[2][0]);
+                        } 
                    }
                 }
             }
