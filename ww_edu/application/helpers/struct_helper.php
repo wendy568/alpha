@@ -58,6 +58,23 @@ trait struct
 		return $this;
 	}
 
+	public function get_month()
+	{
+		$datas = $this->_data;
+		foreach ($datas as $key => $value) {
+			foreach ($value as $k => $v) {
+				if ($k == $this->time_filter_definition && getdate($v)['mon'] != $this->this_month) {
+					unset($datas[$key]);
+				}
+			}
+		}
+
+		$this->_data = $datas;
+		unset($datas);
+
+		return $this;
+	}
+
 	public function setUnixTime($start, $nextOrLast = '+0', $time = null)
 	{
 		$time = (isset($time) && $time) ? $time : time();
