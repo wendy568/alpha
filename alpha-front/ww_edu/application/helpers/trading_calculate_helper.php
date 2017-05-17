@@ -144,6 +144,7 @@ trait Trading_calculate  {
 
     protected function ability_score($ability)
     {
+        $ability = round($ability / 5000, 1);
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
                 foreach ($value as $key) {
@@ -169,8 +170,10 @@ trait Trading_calculate  {
 
     protected function variance_score($variance)
     {
-        // $variance = 0;
+        $variance = round($variance / 5000, 1);
+        print_r(current($this->score_zone));
         foreach ($this->score_zone as $key => $value) {
+
             if ($key == 'risk_management') {
                 foreach ($value as $key) {
                    if ($variance >= $key[1][0] && $variance < $key[1][1]) {
@@ -183,14 +186,14 @@ trait Trading_calculate  {
                         }
                    }
                 }
-            } elseif ($variance <= -1) {
+            } elseif ($variance < 0.21) {
                 $score = 0;
             } elseif ($variance >= 500000) {
                 $score = 100;
             }
         }
         
-        return $score;
+        print_r($score);
     }
 
 }
