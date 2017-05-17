@@ -22,7 +22,7 @@ trait Trading_calculate  {
                         [[95, 100], [6, 500000], [10, 'getLog']],
                         [[90, 95], [1, 6], [1, 'minusOne']],
                         [[40, 90], [0, 1], [0.02]],
-                        [[0, 40], [-1, 0], [0.025]]
+                        [[0, 40], [-1, 0], [0.025, 'plusOne']]
                     ]
                 ];
 	public $time_filter_definition = 'order_close_time';
@@ -134,6 +134,11 @@ trait Trading_calculate  {
     protected function minusOne($p1, $p2)
     {
         return $p1 - $p2;
+    }
+
+    protected function plusOne($p1, $p2)
+    {
+        return $p1 + 40;
     }
 
     protected function ability_score($ability)
