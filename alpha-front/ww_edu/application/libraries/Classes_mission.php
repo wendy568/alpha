@@ -329,7 +329,7 @@ class Classes_mission
 	{
 		$mt4 = call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
 		$mon_1 = getdate($this->time)['mon'];
-		$profit = $this->buid($mt4,$mon_1)->property('sum', ['profit'])->get_property();
+		$profit = $this->build($mt4,$mon_1)->property('sum', ['profit'])->get_property();
 		print_r($profit);die;
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
