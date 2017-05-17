@@ -4,10 +4,10 @@ trait Trading_calculate  {
 
     protected $score_zone = [
                     'risk_management' => [
-                        [[90, 100], [0, 0.001], [0.0001]],
-                        [[60, 90], [0.001, 0.01], [0.0005]],
-                        [[10, 60], [0.01, 0.21], [0.004]],
-                        [[0, 10], [0.21, '>'], [0.05]]
+                        [[100, 90], [0, 0.001], [0.0001]],
+                        [[90, 60], [0.001, 0.01], [0.0005]],
+                        [[60, 10], [0.01, 0.21], [0.004]],
+                        [[10, 0], [0.21, '>'], [0.05]]
                     ],
                     'trade_frequency' => [
                         [[0, 10], [0, 0.0001], [0.00001]],
@@ -144,9 +144,7 @@ trait Trading_calculate  {
 
     protected function ability_score($ability)
     {
-        // var_dump($ability);
         $ability = $ability / 5000;
-        // var_dump($ability);
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
                 foreach ($value as $key) {
@@ -172,7 +170,8 @@ trait Trading_calculate  {
 
     protected function variance_score($variance)
     {
-        $variance = round($variance / 100000, 1);
+        $variance = $variance / 100000;
+        $variance = 0;
         foreach ($this->score_zone as $key => $value) {
 
             if ($key == 'risk_management') {
@@ -182,7 +181,7 @@ trait Trading_calculate  {
                             $key[0][0] += call_user_func_array([$this, $key[2][1]], [$variance, $key[2][0], $key[1][0]]);
                             $score = $key[0][0];
                         } else {
-                            $key[0][0] += round($variance / $key[2][0],1);
+                            $key[0][0] -= round($variance / $key[2][0],1);
                             $score = $key[0][0];
                         }
                    }
