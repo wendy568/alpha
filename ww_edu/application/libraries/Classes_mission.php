@@ -316,7 +316,7 @@ class Classes_mission
 	protected function homework_variance($param)
 	{
 		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
-
+		$this->count()->property('frequency', ['avg_deviation', ['order_open_time', 'order_close_time']])->get_property();die;
 		$count = $this->count()->property('variance', ['profit'])->get_property();
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {
