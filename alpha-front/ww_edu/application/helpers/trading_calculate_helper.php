@@ -130,7 +130,7 @@ trait Trading_calculate  {
     {
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
-                foreach ($value[0] as $key) {
+                foreach ($value as $key) {
                     print_r($key);
                 }
             }
