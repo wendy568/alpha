@@ -333,6 +333,7 @@ class Classes_mission
 			for ($i = 0; $i < $this->mission[$key]; $i++) {
 				$mon = getdate($this->time)['mon'];
 				$mon = $mon + $i;
+				var_dump($mon);
 				$profit = $this->build($mt4,$mon)->get_month()->property('sum', ['profit'])->get_property();
 				var_dump($profit);
 				$count += ($profit > 0) ? 1 : 0;
