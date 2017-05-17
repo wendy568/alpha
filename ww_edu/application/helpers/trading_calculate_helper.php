@@ -105,7 +105,7 @@ trait Trading_calculate  {
 
     protected function ability_score($ability)
     {
-       $ability = $ability / 10000;
+       $ability = $ability / 5000;
        print_r($ability);
     }
 
