@@ -120,7 +120,7 @@ class Dashboard extends MY_Controller
 		$this->load->library('trading_datas_calculate');
 		// $data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->count()->get_result();
 		$this->trading_datas_calculate->time_filter_definition = 'Time';
-		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', ['-0'])->get_week()->getWeekResult();
+		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', ['+0'])->get_week()->getWeekResult();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
