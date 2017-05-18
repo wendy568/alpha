@@ -109,6 +109,17 @@ class Dashboard extends MY_Controller
 		
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
+		$left_right = $this->input->get_post('left_right', TRUE);
+
+		$start = '+0';
+		$nextOrLast = null;
+		if($left_right == 'left') {
+			$start = '+1';
+			$nextOrLast = '+6';
+		} elseif($left_right == 'right') {
+			$start = '+1';
+			$nextOrLast = '+6';
+		}
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -120,7 +131,7 @@ class Dashboard extends MY_Controller
 		$this->load->library('trading_datas_calculate');
 		// $data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->count()->get_result();
 		$this->trading_datas_calculate->time_filter_definition = 'Time';
-		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', ['-1', '-6'])->get_week()->getWeekResult();
+		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', [$start, $nextOrLast])->get_week()->getWeekResult();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
