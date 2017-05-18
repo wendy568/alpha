@@ -49,7 +49,7 @@
                     <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width: 100%;">
                 </div>
                 <!-- 遮罩 -->
-                <div class="tv-date text-c3">${data.legth}</div>
+                <div class="tv-date text-c3">${data.length}</div>
                 <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
                 <div class="tv-des">
                     <h5 class="text-c2">${data.name}</h5>
