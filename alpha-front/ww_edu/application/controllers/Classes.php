@@ -114,13 +114,11 @@ class Classes extends MY_Controller
 		$this->load->helper('json');
 		$this->load->model('ClassesM');
 
-		// $this->load->helper('struct');
-		// $this->load->helper('sql_operation');
-		$this->load->library('classes');
+		$this->load->library('classes_mission');
 
-		$classes = $this->ClassesM->showStageDetail($stage_id, $uid);
-		$this->classes->init($classes, $homework);
-		$data['data'] = [];
+		$classes = $this->ClassesM->showStageDetail($stage_id);
+		
+		$data['data'] = $data['data']['detail'] = $this->classes_mission->init($mission, $personal, $allProcess)->lastOrNextProcess()->getLastOrNextProcess();
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
 	

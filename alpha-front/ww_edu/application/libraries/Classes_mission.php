@@ -76,6 +76,11 @@ class Classes_mission
 		return $this;
 	}
 
+	public function getLastOrNextProcess()
+	{
+		return $this->lastOrNextProcess;
+	}
+
 	public function generating()
 	{
 		$result = [];
