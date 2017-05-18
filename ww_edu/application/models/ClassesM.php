@@ -41,14 +41,14 @@ class ClassesM extends CI_Model
 	{
 		$result = array();
 
-		$map = "SELECT homework  
+		$map = "SELECT *  
 				FROM classes
 				WHERE id = {$stageId}";	
 
 		$query = $this->db->query($map);
-        $result[''] = $query->row_array();
+        $result = $query->row_array();
         
-        return $result['homework'];
+        return $result;
 
 	}
 
