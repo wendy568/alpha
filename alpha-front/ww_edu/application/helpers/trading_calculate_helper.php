@@ -25,6 +25,7 @@ trait Trading_calculate  {
                         [[0, 40], [-1, 0], [0.025, 'minusOne']]
                     ]
                 ];
+                
 	public $time_filter_definition = 'order_close_time';
 	
     protected function sum($index, $data = [])
