@@ -9152,7 +9152,7 @@ body.rtl .footer-widget {
 }
 .bk-img{
   width:100%;
-  height: auto;
+  height: 260px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   position: relative;
