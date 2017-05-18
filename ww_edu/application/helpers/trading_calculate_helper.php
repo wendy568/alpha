@@ -25,7 +25,7 @@ trait Trading_calculate  {
                         [[0, 40], [-1, 0], [0.025, 'minusOne']]
                     ]
                 ];
-                
+
 	public $time_filter_definition = 'order_close_time';
 	
     protected function sum($index, $data = [])
@@ -141,7 +141,6 @@ trait Trading_calculate  {
 
     protected function ability_score($ability)
     {
-        echo 123131;die;
         $ability = $ability / 5000;
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
