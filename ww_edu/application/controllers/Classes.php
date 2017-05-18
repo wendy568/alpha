@@ -49,11 +49,12 @@ class Classes extends MY_Controller
 			$homework = $this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing')->get_homework();
 			print_r($homework);
 			if ($homework !== false) {
-				$this->saveRecord($uid, $homework);
+				$this->saveRecord($uid, json_encode($homework));
 			}
 
 			$response = array('archive' => array('status' => 0,'message' =>'update mission'));
 		}
+
 		$data['data'] = [];
 		encode_json($response,$data);
 	}
