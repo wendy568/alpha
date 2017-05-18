@@ -29,7 +29,7 @@ class Trading_logs extends CI_Model
 
 	    $map = "SELECT count(*) AS count  
 	            FROM trading_log
-	            WHERE uid='{$uid}' AND c_time>{$time} {$where}";
+	            WHERE uid='{$uid}' AND c_time>={$time} {$where}";
 
 	    $result = $this->db->query($map)->row_array();
 
