@@ -134,7 +134,7 @@ class Trading_datas_calculate extends Encapsulation{
     public function accuracy($index)
     {
     	$accuracy = ($this->count) ? $this->count_positive($index) / $this->count : 0;
-    	return  round($accuracy, 4);
+    	return  round($accuracy, 2) * 100;
     }
 
     //(A*B) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
