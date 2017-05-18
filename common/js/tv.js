@@ -43,7 +43,6 @@
             .attr({
                 id: data.id
             })
-            // <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width:100%;">
             .html(
                 `<div class="bk-img">
                     <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width: 100%;">

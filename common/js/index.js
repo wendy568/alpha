@@ -101,6 +101,10 @@
         $('.chart .label-important').eq(1).html(data.data.operating_frequecy);
         $('.chart .label-info').eq(0).html(data.data.operating_accuracy);
         $('.chart .label-info').eq(1).html(data.data.trading_ability);
+        $('.chart .progress').eq(0).html(`<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="${data.data.risk_management_level}%"></div>`);
+        $('.chart .progress').eq(1).html(`<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="${data.data.operating_frequecy}%"></div>`);
+        $('.chart .progress').eq(2).html(`<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="${data.data.operating_accuracy}%"></div>`);
+        $('.chart .progress').eq(3).html(`<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="${data.data.trading_ability}%"></div>`);
       }
     });
 
