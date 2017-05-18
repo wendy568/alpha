@@ -120,7 +120,7 @@ class Classes extends MY_Controller
 		$this->load->library('classes_mission');
 
 		$classes = $this->ClassesM->showStageDetail($stage_id);
-		$mission = $this->classes_mission->jsonDecode($classes);
+		$mission = $this->classes_mission->jsonDecode($classes['homework']);
 		$data['data'] = $data['data']['detail'] = $this->classes_mission->init($mission)->lastOrNextProcess()->getLastOrNextProcess();
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
