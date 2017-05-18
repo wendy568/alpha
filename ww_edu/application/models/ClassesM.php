@@ -37,22 +37,16 @@ class ClassesM extends CI_Model
     	return $result;
     }
 
-	function showStageDetail($stageId, $uid)
+	function showStageDetail($stageId)
 	{
 		$result = array();
 
-		$map = "SELECT *  
+		$map = "SELECT homework  
 				FROM classes
 				WHERE id = {$stageId}";	
 
 		$query = $this->db->query($map);
-        $result['mission'] = $query->row_array();
-
-        $map = 'SELECT * 
-    			FROM homework
-    			WHERE uid="'.$uid.'"';
-    	
-    	$result['homework'] = $this->db->query($map)->row_array();
+        $result[''] = $query->row_array();
         
         return $result;
 
