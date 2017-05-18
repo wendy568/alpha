@@ -79,7 +79,7 @@ class TradingAnalysis extends CI_Model
 
         $map = "SELECT count(*) AS count  
                 FROM mt4_export_datas
-                WHERE account_number='{$account}' AND order_close_time>{$time} {$where}";
+                WHERE account_number='{$account}' AND order_close_time>={$time} {$where}";
         print_r($map);        
         $result = $this->db->query($map)->row_array();
 
@@ -90,7 +90,7 @@ class TradingAnalysis extends CI_Model
     {
         $map = "SELECT *  
                 FROM mt4_export_datas
-                WHERE account_number='{$account}' AND order_close_time>{$time} GROUP BY {$group}";
+                WHERE account_number='{$account}' AND order_close_time>={$time} GROUP BY {$group}";
 
         $result = $this->db->query($map)->result_array();
 
@@ -107,7 +107,7 @@ class TradingAnalysis extends CI_Model
                 $where = " AND {$key}>0";
                 $map = "SELECT *  
                         FROM mt4_export_datas
-                        WHERE account_number='{$account}' AND order_close_time>{$time} {$where} 
+                        WHERE account_number='{$account}' AND order_close_time>={$time} {$where} 
                         LIMIT 1";
 
                 $result = $this->db->query($map)->result_array();
@@ -131,7 +131,7 @@ class TradingAnalysis extends CI_Model
                 $where = " AND {$col} IN ('{$symbols}')";
                 $map = "SELECT *  
                         FROM mt4_export_datas
-                        WHERE account_number='{$account}' AND order_close_time>{$time} {$where} 
+                        WHERE account_number='{$account}' AND order_close_time>={$time} {$where} 
                         LIMIT 1";
 
                 $result = $this->db->query($map)->result_array();
