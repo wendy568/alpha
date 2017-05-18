@@ -5697,12 +5697,12 @@ code:hover {
 .tab-content > .tab-pane,
 .pill-content > .pill-pane {
   display: none;
-  padding: 15px;
+  /*padding: 15px;*/
 }
 .tab-content > .active,
 .pill-content > .active {
   display: block;
-  padding: 19px;
+  /*padding: 19px;*/
 }
 .tabs-below > .nav-tabs {
   border-top: 1px solid #DDDDDD;
@@ -6666,22 +6666,37 @@ input[type="checkbox"] {
   overflow: hidden;
 }
 .cbp_tmtimeline:before {
-  content: '';
+  /*content: '';
   position: absolute;
   top: 15px;
   bottom: 0;
   width: 2px;
   background: #24282E;
   left: 22px;
-  margin-left: -10px;
+  margin-left: -10px;*/
+    content: '';
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    width: 2px;
+    background: #24282E;
+    left: 80px;
+    margin-left: -10px;
 }
 .cbp_tmtimeline > li .cbp_tmtime {
-  width: 25%;
+  /*width: 25%;
   padding-right: 100px;
   text-align: right;
   display: block;
   position: absolute;
-  font-family: 'Roboto';
+  font-family: 'Roboto';*/
+    margin-top: 5px;
+    width: 25%;
+    /* padding-right: 29px; */
+    /* text-align: right; */
+    display: block;
+    position: absolute;
+    font-family: 'Roboto';
 }
 .cbp_tmtimeline > li .cbp_tmtime .time {
   font-size: 1em;
@@ -6703,16 +6718,24 @@ input[type="checkbox"] {
   font-size: 13px;
   line-height: 1.4;
   position: relative;
-  padding: 5px 0 0 22px;
+  padding: 0 0 0 75px;
 }
 .cbp_tmtimeline > li .cbp_tmicon {
-  width: 32px;
+  /*width: 32px;
   position: absolute;
   text-align: center;
   left: 22px;
   top: 7px;
   margin: 0 0 0 -25px;
-  font-size: 1.3em;
+  font-size: 1.3em;*/
+
+    width: 32px;
+    position: absolute;
+    text-align: center;
+    left: 80px;
+    top: 11px;
+    margin: 0 0 0 -25px;
+    font-size: 1.3em;
 }
 /* Media Queries */
 @media screen and (max-width: 47.2em) {

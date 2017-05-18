@@ -414,16 +414,20 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         // 每次请求都会带上token信息
         data.token = sessionStorage.getItem("alpha_token") || '';
         return $.ajax({
-          type    : type,
-          url     : alpha_host + url,
-          data    : data,
-          success : function(res){
-            fn && fn(res);
-          },
-          error   : function(err) {
-            console.log(err);
-          }
-      });
+            type    : type,
+            url     : alpha_host + url,
+            data    : data,
+            success : function(res){
+                if(!data.token){
+                    window.location.href='login.html';   
+                }
+                fn && fn(res);
+                $('.username').eq(1).html()
+            },
+            error   : function(err) {
+                console.log(err);
+            }
+        });
     };
 
     // alert box

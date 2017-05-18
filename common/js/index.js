@@ -24,6 +24,9 @@
     //折线图
     $.alpha.request_Url('post','dashboard/profit_statistics',{},function(data){
         if(data.archive.status == 0){
+            $('.profit .item-count').eq(0).html(data.data.profit_total + 'USD');
+            $('.profit .item-count').eq(1).html('$' + data.data.profit_month);
+            $('.profit .item-count').eq(2).html('$' + data.data.profit_today);
             var date=data.data.profit_week;
             var key=[];
             var currData=[];
@@ -56,9 +59,9 @@
                 grid: {
                     left: '3%',
                     right: '4%',
-                    bottom: '3%',
+                    bottom: '1%',
                     containLabel: true,
-                    height:260
+                    height:215
                 },
                 xAxis: [
                     {
