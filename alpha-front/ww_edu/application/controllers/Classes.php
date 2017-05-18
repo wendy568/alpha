@@ -31,7 +31,7 @@ class Classes extends MY_Controller
 		$this->load->helper('Trading_calculate');
 		$this->load->library('classes_mission');
 
-		$response = array('archive' => array('status' => 0,'message' =>''));
+		$response = array('archive' => array('status' => 0,'message' =>'all mission complete'));
 		$original = $this->ClassesM->current_stage($uid);
 		$allProcess = $this->allProcess();
 		
@@ -48,14 +48,25 @@ class Classes extends MY_Controller
 			$this->classes_mission->time = $original['personal']['u_time'];
 			$homework = $this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing')->get_homework();
 			print_r($homework);
-			die;
 			if ($homework !== false) {
-				$this->saveRecord($homework);
+				$this->saveRecord($uid, $homework);
 			}
-			
+
+			$response = array('archive' => array('status' => 0,'message' =>'update mission'));
 		}
-		
+		$data['data'] = [];
 		encode_json($response,$data);
+	}
+
+	public function saveRecord($uid, $homework)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+			
+		$this->load->database();
+		$this->load->model('ClassesM');
+	
+		return $this->ClassesM->saveRecord($uid, $homework);
+	
 	}
 
 	public function current_stage()

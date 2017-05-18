@@ -75,4 +75,16 @@ class ClassesM extends CI_Model
 		return $result;
 	}
 
+	function saveRecord($uid, $homework)
+	{
+		$map = 'UPDATE homework 
+				SET homework="'.$homework.'"
+				WHERE uid="'.$uid.'"';
+		
+		$this->db->query($map);
+		$result = $this->db->affected_rows();
+	
+		return $result;
+	}		
+
 }
