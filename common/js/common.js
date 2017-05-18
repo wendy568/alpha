@@ -419,7 +419,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             data    : data,
             success : function(res){
                 if(!data.token){
-                    window.location.href='login.html';   
+                    window.location.href='Login.html';   
                 }
                 fn && fn(res);
                 $('.username').eq(1).html()
