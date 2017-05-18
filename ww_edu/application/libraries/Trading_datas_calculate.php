@@ -17,6 +17,30 @@
  */
 class Trading_datas_calculate extends Encapsulation{
 
+    protected $score_zone = [
+                    'risk_management' => [
+                        [[100, 90], [0, 0.001], [0.0001]],
+                        [[90, 60], [0.001, 0.01], [0.0005, 'minusOne']],
+                        [[60, 10], [0.01, 0.21], [0.004, 'minusOne']],
+                        [[10, 0], [0.21, 0.71], [0.05, 'minusOne']]
+                    ],
+                    'trade_frequency' => [
+                        [[0, 10], [0, 0.0001], [0.00001]],
+                        [[10, 25], [0.0001, 0.001], [0.00006, 'minusOne']],
+                        [[25, 40], [0.001, 0.01], [0.0006, 'minusOne']],
+                        [[40, 55], [0.01, 0.1], [0.006, 'minusOne']],
+                        [[55, 70], [0.1, 1], [0.06, 'minusOne']],
+                        [[70, 85], [1, 10], [0.6, 'minusOne']],
+                        [[85, 100], [10, 100], [6, 'minusOne']]
+                    ],
+                    'profit_ability' => [
+                        [[95, 100], [5, 500000], [10, 'getLog']],
+                        [[90, 95], [1, 5], [1, 'minusOne']],
+                        [[40, 90], [0, 1], [0.02]],
+                        [[0, 40], [-1, 0], [0.025, 'minusOne']]
+                    ]
+                ];
+                
 	public $time_filter_definition = 'order_close_time';
 	
     protected function sum($index, $data = [])
@@ -115,6 +139,91 @@ class Trading_datas_calculate extends Encapsulation{
     public function ability($index)
     {
     	return round($this->accuracy($index) * $this->avg($index, $this->_data), 4);
+    }
+
+    protected function getLog($p1, $p2, $p3)
+    {
+        return round(log($p1 / $p3, 10), 1);
+    }
+
+    protected function minusOne($p1, $p2, $p3)
+    {
+        return ($p1 / $p2) - ($p3 / $p2);
+    }
+
+    protected function ability_score($ability)
+    {
+        echo 123131;die;
+        $ability = $ability / 5000;
+        foreach ($this->score_zone as $key => $value) {
+            if ($key == 'profit_ability') {
+                foreach ($value as $key) {
+                   if ($ability >= $key[1][0] && $ability < $key[1][1]) {
+                        if (!empty($key[2][1])) {
+                            $key[0][0] += call_user_func_array([$this, $key[2][1]], [$ability, $key[2][0], $key[1][0]]);
+                            $score = $key[0][0];
+                        } else {
+                            $key[0][0] += round($ability / $key[2][0],1);
+                            $score = $key[0][0];
+                        }
+                   } elseif ($ability >= 500000) {
+                        $score = 100;
+                   } elseif ($ability < -1) {
+                       $score = 0;
+                   }
+                }
+            } 
+        }
+        
+        return round($score, 2);
+    }
+
+    protected function variance_score($variance)
+    {
+        $variance = $variance / 100000;
+        foreach ($this->score_zone as $key => $value) {
+
+            if ($key == 'risk_management') {
+                foreach ($value as $key) {
+                   if ($variance >= $key[1][0] && $variance < $key[1][1]) {
+                        if (!empty($key[2][1])) {
+                            $key[0][0] -= call_user_func_array([$this, $key[2][1]], [$variance, $key[2][0], $key[1][0]]);
+                            $score = $key[0][0];
+                        } else {
+                            $key[0][0] -= round($variance / $key[2][0],1);
+                            $score = $key[0][0];
+                        }
+                   } elseif ($variance >= 0.71) {
+                        $score = 0;
+                   }
+                } 
+            } 
+        }
+        
+        return round($score, 2);
+    }
+
+    protected function frequency_score($frequency)
+    {
+        foreach ($this->score_zone as $key => $value) {
+            if ($key == 'trade_frequency') {
+                foreach ($value as $key) {
+                   if ($frequency >= $key[1][0] && $frequency < $key[1][1]) {
+                        if (!empty($key[2][1])) {
+                            $key[0][0] += call_user_func_array([$this, $key[2][1]], [$frequency, $key[2][0], $key[1][0]]);
+                            $score = $key[0][0];
+                        } else {
+                            $key[0][0] += round($frequency / $key[2][0],1);
+                            $score = $key[0][0];
+                        }
+                   }
+                }
+            } elseif ($frequency >= 100) {
+                $frequency = 100;
+            }
+        }
+
+        return round($score, 2);
     }
 
 }
