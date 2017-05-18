@@ -48,7 +48,7 @@ class ClassesM extends CI_Model
 		$query = $this->db->query($map);
         $result[''] = $query->row_array();
         
-        return $result;
+        return $result['homework'];
 
 	}
 

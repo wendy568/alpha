@@ -117,8 +117,8 @@ class Classes extends MY_Controller
 		$this->load->library('classes_mission');
 
 		$classes = $this->ClassesM->showStageDetail($stage_id);
-		
-		$data['data'] = $data['data']['detail'] = $this->classes_mission->init($mission, $personal, $allProcess)->lastOrNextProcess()->getLastOrNextProcess();
+		$mission = $this->classes_mission->jsonDecode($classes);
+		$data['data'] = $data['data']['detail'] = $this->classes_mission->init($mission)->lastOrNextProcess()->getLastOrNextProcess();
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
 	
