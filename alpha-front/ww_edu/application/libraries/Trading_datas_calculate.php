@@ -116,7 +116,8 @@ class Trading_datas_calculate extends Encapsulation{
 		}
 
 		$sqrt_sum = ($this->count) ? $sum / $this->count : 0;
-		return round(sqrt($sqrt_sum), 2);
+		$variance = round(sqrt($sqrt_sum), 2);
+        return $this->variance_score($variance);
 
     }
 
@@ -124,8 +125,9 @@ class Trading_datas_calculate extends Encapsulation{
     public function frequency($callback, $param)
     {
     	$denominator = call_user_func_array([$this, $callback], $param);
-    	$frequency = ($denominator) ? $this->count / $denominator : 0;
-    	return round(($frequency) * 300, 4);
+        $frequency = ($denominator) ? $this->count / $denominator : 0;
+        $frequency = round(($frequency) * 300, 4);
+        return $this->frequency_score($frequency);
     }
 
     //A=Count(OrderNo(Profit>0))/Count(OrderNo) 
@@ -138,7 +140,8 @@ class Trading_datas_calculate extends Encapsulation{
     //(A*B) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
     public function ability($index)
     {
-    	return round($this->accuracy($index) * $this->avg($index, $this->_data), 4);
+    	$ability = round($this->accuracy($index) * $this->avg($index, $this->_data), 2);
+        return $this->ability_score($ability);
     }
 
     protected function getLog($p1, $p2, $p3)
