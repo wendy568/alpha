@@ -19,14 +19,14 @@ class Dashboard extends MY_Controller
 		
 		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
-		$data['data']['trading_count'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('get_count', [])->get_property();
+		$data['data']['trading_count'] = $this->trading_datas_calculate->build($mt4)->count()->property('get_count', [])->get_property();
 		$data['data']['last_trading_count'] = "100% Higher";
-		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('sum', ['profit'])->get_property();
+		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4)->count()->property('sum', ['profit'])->get_property();
 		$data['data']['last_profit'] = "100% Higher";
-		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
+		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
 		$data['data']['last_avg_holding_time'] = "100% Higher";
 
-		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4, 3)->count()->property('transaction_peroid', ['order_open_time'])->get_property();
+		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4)->count()->property('transaction_peroid', ['order_open_time'])->get_property();
 		$data['data']['last_transaction_peroid'] = "100% Higher";
 
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
@@ -51,10 +51,10 @@ class Dashboard extends MY_Controller
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account);		
 		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
-		$data['data']['profit_total'] = $this->trading_datas_calculate->build($mt4, 3)->property('sum', ['profit'])->get_property();
-		$data['data']['profit_today'] = $this->trading_datas_calculate->build($mt4, 3)->get_day()->property('sum', ['profit'])->get_property();
-		$data['data']['profit_month'] = $this->trading_datas_calculate->build($mt4, 3)->get_month()->property('sum', ['profit'])->get_property();
-		$data['data']['profit_week'] = $this->trading_datas_calculate->build($mt4, 3)->get_week()->property('get_one_by_one', ['sum', ['profit']])->get_property();
+		$data['data']['profit_total'] = $this->trading_datas_calculate->build($mt4)->property('sum', ['profit'])->get_property();
+		$data['data']['profit_today'] = $this->trading_datas_calculate->build($mt4)->get_day()->property('sum', ['profit'])->get_property();
+		$data['data']['profit_month'] = $this->trading_datas_calculate->build($mt4)->get_month()->property('sum', ['profit'])->get_property();
+		$data['data']['profit_week'] = $this->trading_datas_calculate->build($mt4)->get_week()->property('get_one_by_one', ['sum', ['profit']])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);
@@ -136,7 +136,7 @@ class Dashboard extends MY_Controller
 		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'time_en';
-		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week('align_time','align_top')->getWeekResult();
+		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week('align_time','align_top')->getWeekResult();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
