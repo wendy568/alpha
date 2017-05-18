@@ -9209,7 +9209,11 @@ body.rtl .footer-widget {
 }
 .tv-small{
     cursor: pointer;
-    width: 393px;
+    width: 360px;
+    display: inline-block;
+    margin-right: 30px;
+    overflow: hidden;
+    position: relative;
 }
 .comment{
   margin-bottom: 30px;
