@@ -39,15 +39,17 @@
         $.each(data.data,function(i,data){
             var li = document.createElement('li');
 
-            $(li).addClass('col-lg-3 tv-small m-b-40')
+            $(li).addClass('tv-small')
             .attr({
                 id: data.id
             })
+            // <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width:100%;">
             .html(
-                `<img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" class="bk-img">
-                <div class="tv-date">
-                    <h6 class="text-c3">${data.length}</h6>
+                `<div class="bk-img">
+                    <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width: 100%;">
                 </div>
+                <!-- 遮罩 -->
+                <div class="tv-date text-c3">${data.legth}</div>
                 <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
                 <div class="tv-des">
                     <h5 class="text-c2">${data.name}</h5>
