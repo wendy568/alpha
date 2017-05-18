@@ -39,7 +39,7 @@
                                         <a href="javascript:;" class="reload"></a>
                                         <a href="javascript:;" class="remove"></a>
                                     </div>
-                                    <div class="tiles-title text-white">TODAY'S TRADING COUNTS </div>
+                                    <div class="tiles-title text-white"> Order Statistics  </div>
                                     <div class="widget-stats m-b-10">
                                         <span class="item-count animate-number semi-bold"></span>
                                     </div>
@@ -59,7 +59,7 @@
                                         <a href="javascript:;" class="reload"></a>
                                         <a href="javascript:;" class="remove"></a>
                                     </div>
-                                    <div class="tiles-title text-black">TODAY'S PEOFITS</div>
+                                    <div class="tiles-title text-black"> Profits Statistics </div>
                                     <div class="widget-stats m-b-10">
                                         <span class="item-count animate-number semi-bold"></span>
                                     </div>
@@ -79,9 +79,9 @@
                                     <a href="javascript:;" class="reload"></a>
                                     <a href="javascript:;" class="remove"></a>
                                 </div>
-                                <div class="tiles-title text-black">TODAY'S HODING TIME</div>
+                                <div class="tiles-title text-black"> Average Position Time </div>
                                 <div class="widget-stats m-b-10">
-                                    <span class="item-count animate-number semi-bold"></span>H
+                                    <span class="item-count animate-number semi-bold"></span>
                                 </div>
                                 <div class="description">
                                     <i class="icon-custom-up"></i>
@@ -99,7 +99,7 @@
                                     <a href="javascript:;" class="reload"></a>
                                     <a href="javascript:;" class="remove"></a>
                                 </div>
-                                <div class="tiles-title text-black">OVERALL SALES </div>
+                                <div class="tiles-title text-black">Transactions Age  </div>
                                 <div class="widget-stats m-b-10">
                                     <span class="item-count animate-number semi-bold"></span>Days
                                 </div>
@@ -117,8 +117,12 @@
                         <!-- 折线图 -->
                         <div class="col-lg-5 col-md-6 m-b-30">
                             <div class="grid simple">
-                                <div class="grid-body  chart no-border">
-                                    <div class="row no-margin">
+                                <div class="grid-body no-border">
+                                    <h4>
+                                        <i class="fa fa-line-chart"></i>
+                                        Profits
+                                    </h4>
+                                    <div class="row no-margin profit">
                                          <div class="widget-stats" style="float: left;">
                                             <div class="wrapper transparent">
                                                 <span class="item-title text-c2">You've earned</span>
@@ -131,14 +135,14 @@
                                                 <P class="item-count animate-number semi-bold text-c2"></P>
                                             </div>
                                         </div>
-                                         <div class="widget-stats" style="float: right;">
+                                         <div class="widget-stats m-r-15" style="float: right;">
                                             <div class="wrapper transparent">
                                                 <span class="item-title text-c2">Today</span>
                                                 <P class="item-count animate-number semi-bold text-c2"></P>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="lineChart" style="width:100%;height:280px;"> </div>
+                                    <div id="lineChart" style="width:100%;height:233px;"> </div>
                                 </div>
                             </div>
                         </div>
@@ -149,7 +153,7 @@
                                     <div class="row-fluid">
                                         <h4 class="m-b-30">
                                             <i class="fa fa-line-chart"></i>
-                                            SYNTHESIZING DATA
+                                             Analysis 
                                         </h4>
                                         <div class="row">
                                             <div class="col-sm-6">
@@ -162,7 +166,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="text-c3">Risk Management Level</p>
+                                                <p class="text-c3"> Risk Degree </p>
                                                 <span class="text-error pull-left">SLEVEL</span>
                                                 <span class="label label-important pull-right"></span>
                                             </div>
@@ -178,7 +182,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                 <p class="text-c3 no-margin">Operating frequercy</p>
+                                                 <p class="text-c3 no-margin">Transactions Frequency </p>
                                                 <span class="text-error pull-left">SLEVEL</span>
                                                 <span class="label label-important pull-right">-318.24</span>
                                             </div>
@@ -194,7 +198,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                <h5 class="text-c3">Risk Management Level</h5>
+                                                <h5 class="text-c3"> Success Transactions Ratio </h5>
                                                 <span class="text-info pull-left">SLEVEL</span>
                                                 <span class="label label-info pull-right">-318.24</span>
                                             </div>
@@ -210,7 +214,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
-                                                 <h5 class="text-c3">Operating frequercy</h5>
+                                                 <h5 class="text-c3"> Profitability </h5>
                                                 <span class="text-info pull-left">SLEVEL</span>
                                                 <span class="label label-info pull-right">-318.24</span>
                                             </div>
@@ -223,7 +227,7 @@
                         <div class="col-lg-2 col-md-6  m-b-30">
                             <div class="grid simple">
                                 <div class="grid-body chart no-border">
-                                    <h4><i class="fa fa-pie-chart"></i> LONG SHORT RATIO</h4>  <br>
+                                    <h4><i class="fa fa-pie-chart"></i>  Long Short Ratio </h4>  <br>
                                     <div id="ram-usage" class="easy-pie-custom"></div>
                                     <div class="yun">
                                         <i class="calendar calendar_left text-c3"></i>
@@ -243,7 +247,7 @@
                                         <span class="text-error pull-right" id="newsMon"></span>
                                     </h4>
                                 </div>
-                                <div class="grid-body no-border" style="height: 463px;">
+                                <div class="grid-body no-border" style="height: 468px;">
                                     <ul class="cbp_tmtimeline" style="height: 400px;"> </ul>
                                 </div>
                             </div>
@@ -254,7 +258,7 @@
                             <div class="grid simple">
                                 <!-- title -->
                                 <div class="grid-title no-border " style="height: 100px;">
-                                    <div class="carousel-inner">
+                                    <div class="carousel-inner m-t-4">
                                         <a class="col-sm-1 text-center" style="cursor: pointer;">
                                             <input type="button" style="display: none" id="preCalendar"/>
                                             <label for="preCalendar" class="disabled-box" type="button"></label>
