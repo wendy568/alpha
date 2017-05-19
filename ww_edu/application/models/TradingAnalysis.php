@@ -11,7 +11,7 @@ class TradingAnalysis extends CI_Model
     {
         $where = "account_number='{$account}'";
         $now = time();
-        
+
         if(isset($finency_proc) && $finency_proc) $where .= " AND order_symbol='{$finency_proc}'";
         if(isset($start_time) OR isset($end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
@@ -39,7 +39,7 @@ class TradingAnalysis extends CI_Model
             $where .= " AND (time_en>{$start_time} AND time_en<{$end_time})";
         }
 
-        $map = "SELECT time_en AS `Time`, country AS `Currency`, event AS Event, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance
+        $map = "SELECT time_en AS `Time`, country AS `Currency`, event AS Event, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance, detail
                 FROM calendar
                 WHERE {$where}";
 
