@@ -9,7 +9,6 @@ class TradingAnalysis extends CI_Model
 
     function export_mt4_datas($account = null, $finency_proc = null, $start_time = null, $end_time = null)
     {
-        var_dump((isset($finency_proc) && $finency_proc));
         $where = "account_number='{$account}'";
         $now = time();
         if(isset($finency_proc) && $finency_proc) $where .= " AND order_symbol='{$finency_proc}'";
@@ -18,6 +17,7 @@ class TradingAnalysis extends CI_Model
             $end_time = ($end_time) ? $end_time : $now;
             $where .= " AND (order_close_time>{$start_time} AND order_close_time<{$end_time})";
         }
+        var_dump($where);
     	$map = "SELECT * 
     			FROM mt4_export_datas
     			WHERE {$where}";
