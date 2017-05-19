@@ -116,7 +116,6 @@ class Dashboard extends MY_Controller
 		$nextOrLast = '+0';
 		if($left_right == 'left') {
 			$start = '-1';
-			// $nextOrLast = '-6';
 		} elseif($left_right == 'right') {
 			$start = '+1';
 			$nextOrLast = '+6';
