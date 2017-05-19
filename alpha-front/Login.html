@@ -13,8 +13,8 @@
         <link href="common/css/common.css" rel="stylesheet" type="text/css" />
     </head>
     
-    <body>
-        <div class="row login-container animated fadeInDown">
+    <body >
+        <div class="row login-container animated fadeInDown" >
             <div class="modal-content">
                 <div class="modal-header">
                    <span class="text-c1">Sign In</span>
@@ -33,10 +33,12 @@
                                         <label for="">* Password</label>
                                         <input class="form-control" name="pwd" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12">
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="">* Password Again</label>
-                                        <input class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12"> 
-                                    </div>
+                                </div>
+                                <div role="tablist">
+                                    <a  href="" class="btn-cons text-info m-r-30 active m-b-30 " role="tab" data-toggle="tab"> 
+                                        <i class="fa fa-save"></i> Sign up
+                                    </a>
+                                    <a href="#tab_register" class="btn-cons text-success m-b-30" role="tab" data-toggle="tab"> Sign in</a>
                                 </div>
                             </form>
                         </div>
@@ -45,7 +47,7 @@
                             <form class="animated fadeIn validate" id="" name="">
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
                                     <div class="col-md-6 col-sm-6">
-                                        <label for="">First name</label>
+                                        <label for="">* First name</label>
                                         <input class="form-control" placeholder="Marry" type="text" required>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
@@ -55,13 +57,19 @@
                                 </div>
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
                                     <div class="col-md-12">
-                                        <label for="">Your email</label>
+                                        <label for="">* Your email</label>
                                         <input name="email" class="form-control" placeholder="zhangsan@qq.com" type="email" required>
                                     </div>
                                 </div>
                                 <div class="row form-row xs-m-l-10 xs-m-r-10">
                                     <div class="col-md-12">
-                                        <label for="">Password</label>
+                                        <label for="">* Password</label>
+                                        <input name="pwd" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12">
+                                    </div>
+                                </div>
+                                <div class="row form-row xs-m-l-10 xs-m-r-10">
+                                    <div class="col-md-12">
+                                        <label for="">* Password Again</label>
                                         <input name="pwd" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12">
                                     </div>
                                 </div>
@@ -71,16 +79,16 @@
                                         <input class="form-control" id="login_pass" name="" placeholder="2E334G" type="text" required>
                                     </div>
                                 </div>
+                                <div role="tablist">
+                                    <a href="" class="btn-cons text-info m-r-30 active m-b-30 " role="tab" data-toggle="tab"> 
+                                        <i class="fa fa-save"></i> Sign In
+                                    </a>
+                                    <a href="#tab_login" class="btn-cons text-success m-b-30" role="tab" data-toggle="tab"> Sign Up</a>
+                                </div>
                             </form>
                         </div>
                     </div>
-                    <div role="tablist">
-                        <a href="#tab_login" class="btn-cons text-info m-r-30 active m-b-30 " role="tab" data-toggle="tab"> 
-                            <i class="fa fa-sign-in"></i>
-                            Sign up
-                        </a>
-                        <a href="#tab_register" class="btn-cons text-success m-b-30" role="tab" data-toggle="tab">Sign in</a>
-                    </div>
+                    
                 </div>
             </div>
         </div>

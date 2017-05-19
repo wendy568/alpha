@@ -9580,3 +9580,12 @@ body.rtl .footer-widget {
     left: 150px;
     opacity: 0;
 }
+/*login*/
+.login-container .modal-content{
+    box-shadow: inherit;
+    border: none;
+}
+.login-container .modal-body{
+    background-color: #141519;
+    border:1px solid #141519;
+}
