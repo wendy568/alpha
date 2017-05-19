@@ -120,14 +120,13 @@ class Trading_datas_calculate {
 
 	public function setUnixTime($start, $nextOrLast = '+0', $time = null)
 	{
-		$time = ($time) ? $time : time();
+		$time = isset($time) ? $time : time();
 		//date('Y-m-d', strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day"))
 		$this->unix_time = strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
 	}
 
 	public function get_week()
 	{
-		print_r($this->unix_time);
 		$datas = $this->_data;
 		$result = [];
 		$instance = & get_instance();
