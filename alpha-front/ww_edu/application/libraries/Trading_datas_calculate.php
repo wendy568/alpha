@@ -120,7 +120,7 @@ class Trading_datas_calculate {
 
 	public function setUnixTime($start, $nextOrLast = '+0', $time = null)
 	{
-		var_dump(isset($time));
+		var_dump(strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day"));
 		$time = isset($time) ? $time : time();
 		//date('Y-m-d', strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day"))
 		$this->unix_time = strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
