@@ -11,13 +11,14 @@ class TradingAnalysis extends CI_Model
     {
         $where = "account_number='{$account}'";
         $now = time();
+        
         if(isset($finency_proc) && $finency_proc) $where .= " AND order_symbol='{$finency_proc}'";
         if(isset($start_time) OR isset($end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
             $end_time = ($end_time) ? $end_time : $now;
             $where .= " AND (order_close_time>{$start_time} AND order_close_time<{$end_time})";
         }
-        var_dump($where);
+
     	$map = "SELECT * 
     			FROM mt4_export_datas
     			WHERE {$where}";
@@ -31,11 +32,13 @@ class TradingAnalysis extends CI_Model
     {
         $where = "1=1";
         $now = time();
+
         if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
             $end_time = ($end_time) ? $end_time : $now;
             $where .= " AND (time_en>{$start_time} AND time_en<{$end_time})";
         }
+
         $map = "SELECT time_en AS `Time`, country AS `Currency`, event AS Event, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance
                 FROM calendar
                 WHERE {$where}";
