@@ -28,6 +28,8 @@ class TradingAnalysis extends CI_Model
 
     function calendar($start_time = null, $end_time = null)
     {
+        var_dump($start_time);
+        var_dump($end_time);
         $where = "1=1";
         $now = time();
         if(isset($start_time) OR isset($end_time)) {
