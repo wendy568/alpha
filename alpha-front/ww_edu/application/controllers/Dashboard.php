@@ -121,7 +121,7 @@ class Dashboard extends MY_Controller
 			$start = '+1';
 			$nextOrLast = '+6';
 		}
-		print_r($start);
+
 		$this->load->database();
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
