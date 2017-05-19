@@ -9,7 +9,7 @@ class TradingAnalysis extends CI_Model
 
     function export_mt4_datas($account = null, $finency_proc = null, $start_time = null, $end_time = null)
     {
-        var_dump($finency_proc);
+        var_dump((isset($finency_proc) && $finency_proc));
         $where = "account_number='{$account}'";
         $now = time();
         if(isset($finency_proc) && $finency_proc) $where .= " AND order_symbol='{$finency_proc}'";
