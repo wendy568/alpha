@@ -113,7 +113,7 @@ class Dashboard extends MY_Controller
 		$time_node = $this->input->get_post('time_node', TRUE);
 
 		$start = '+0';
-		$nextOrLast = null;
+		$nextOrLast = '+0';
 		if($left_right == 'left') {
 			$start = '-1';
 			// $nextOrLast = '-6';
