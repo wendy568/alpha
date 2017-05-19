@@ -120,7 +120,7 @@ function loadTvList(){
                     $(this).find('.tv-play').addClass('bounceInDown');
                 })
                 .html(
-                    `<img src="upload/${i.image[0]}/m_${i.image[1]}" alt="" class="bk-img">
+                    `<img src="ww_edu/upload/${i.image[0]}/m_${i.image[1]}" alt="" class="bk-img">
                     <div class="tv-date">
                         <h6 class="text-c3">${i.length}</h6>
                     </div>
