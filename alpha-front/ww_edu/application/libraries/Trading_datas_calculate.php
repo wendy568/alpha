@@ -127,6 +127,7 @@ class Trading_datas_calculate {
 
 	public function get_week()
 	{
+		print_r($this->unix_time);
 		$datas = $this->_data;
 		$result = [];
 		$instance = & get_instance();
