@@ -39,7 +39,7 @@ class TradingAnalysis extends CI_Model
             $where .= " AND (time_en>{$start_time} AND time_en<{$end_time})";
         }
 
-        $map = "SELECT time_en AS `Time`, country AS `Currency`, event AS Event, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance, detail
+        $map = "SELECT time_en, date_en AS `Time`, country AS `Currency`, event AS Event, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance, detail
                 FROM calendar
                 WHERE {$where}";
 
