@@ -109,8 +109,6 @@ class Dashboard extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$account = $this->get_trading_account($token);
-		$start_time = $this->input->get_post('start_time', TRUE);
-		$end_time = $this->input->get_post('end_time', TRUE);
 		$left_right = $this->input->get_post('left_right', TRUE);
 		$time_node = $this->input->get_post('time_node', TRUE);
 
@@ -129,7 +127,7 @@ class Dashboard extends MY_Controller
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
 		$this->load->model('TradingAnalysis');
 
-		$mt4 = $this->TradingAnalysis->calendar($start_time, $end_time);
+		$mt4 = $this->TradingAnalysis->calendar();
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'Time';
 		$data['data']['calendar'] = $this->trading_datas_calculate->build($mt4, 3)->property('setUnixTime', [$start, $nextOrLast, $time_node])->get_week()->getWeekResult();

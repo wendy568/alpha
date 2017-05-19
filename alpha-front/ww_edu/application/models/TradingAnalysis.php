@@ -9,9 +9,10 @@ class TradingAnalysis extends CI_Model
 
     function export_mt4_datas($account = null, $finency_proc = null, $start_time = null, $end_time = null)
     {
+        var_dump($finency_proc);
         $where = "account_number='{$account}'";
         $now = time();
-        if(isset($finency_proc)) $where .= " AND order_symbol='{$finency_proc}'";
+        if(isset($finency_proc) && $finency_proc) $where .= " AND order_symbol='{$finency_proc}'";
         if(isset($start_time) OR isset($end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
             $end_time = ($end_time) ? $end_time : $now;
@@ -28,11 +29,9 @@ class TradingAnalysis extends CI_Model
 
     function calendar($start_time = null, $end_time = null)
     {
-        var_dump($start_time);
-        var_dump($end_time);
         $where = "1=1";
         $now = time();
-        if(isset($start_time) OR isset($end_time)) {
+        if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
             $end_time = ($end_time) ? $end_time : $now;
             $where .= " AND (time_en>{$start_time} AND time_en<{$end_time})";
