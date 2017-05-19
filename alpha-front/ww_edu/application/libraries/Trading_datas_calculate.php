@@ -124,7 +124,7 @@ class Trading_datas_calculate {
 		var_dump($nextOrLast);
 		var_dump($time);
 		var_dump(isset($time));
-		$time = isset($time) ? $time : time();
+		$time = (isset($time) && $time) ? $time : time();
 		//date('Y-m-d', strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day"))
 		$this->unix_time = strtotime(date('Y-m-d', strtotime(date('Y-m-d', $time) . " {$start} day")) . " {$nextOrLast} day");
 	}
