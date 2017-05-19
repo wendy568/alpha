@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <meta charset="utf-8" />
-        <title>Alpha sing in</title>
+        <title>Alpha Sing In</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -13,19 +13,13 @@
         <link href="common/css/common.css" rel="stylesheet" type="text/css" />
     </head>
     
-    <body class="error-body no-top lazy" data-original="assets/img/tv-small.png" style="background-image: url('assets/img/tv-small.png');opacity: 0.9">
-
-        <div class="row login-container animated fadeInUp">
+    <body>
+        <div class="row login-container animated fadeInDown">
             <div class="modal-content">
                 <div class="modal-header">
-                   <span class="text-c1">Login</span>
+                   <span class="text-c1">Sign In</span>
                 </div>
                 <div class="modal-body">
-                    <div role="tablist">
-                        <a href="#tab_login" class="btn btn-primary btn-cons m-r-30 active m-b-30" role="tab" data-toggle="tab">Login</a>
-                        <a href="#tab_register" class="btn btn-success btn-cons m-b-30" role="tab" data-toggle="tab">Regiester</a>
-                    </div>
-
                     <div class="tiles no-margin text-black tab-content">
                         <!-- login -->
                         <div role="tabpanel" class="tab-pane active" id="tab_login">
@@ -43,11 +37,6 @@
                                         <label for="">* Password Again</label>
                                         <input class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" required minlength="6" maxlength="12"> 
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <button id="btn-login" class="btn btn-black" type="submit">
-                                        <i class="fa fa-paste"></i> Submit
-                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -82,13 +71,15 @@
                                         <input class="form-control" id="login_pass" name="" placeholder="2E334G" type="text" required>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <button id="btn-regiester" class="btn btn-black">
-                                        <i class="fa fa-paste"></i> Submit
-                                    </button>
-                                </div>
                             </form>
                         </div>
+                    </div>
+                    <div role="tablist">
+                        <a href="#tab_login" class="btn-cons text-info m-r-30 active m-b-30 " role="tab" data-toggle="tab"> 
+                            <i class="fa fa-sign-in"></i>
+                            Sign up
+                        </a>
+                        <a href="#tab_register" class="btn-cons text-success m-b-30" role="tab" data-toggle="tab">Sign in</a>
                     </div>
                 </div>
             </div>

@@ -2678,6 +2678,7 @@ div.DTTT_print_info p {
 .login-container {
     margin:8% auto auto;
     width: 850px;
+    background:rgba(0,0,0,.7);
 }
 .lockscreen-wrapper {
   position: relative;
