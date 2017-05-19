@@ -107,6 +107,8 @@ class Dashboard extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
+		$token = $this->input->get_post('token', TRUE);
+		$account = $this->get_trading_account($token);
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$left_right = $this->input->get_post('left_right', TRUE);
