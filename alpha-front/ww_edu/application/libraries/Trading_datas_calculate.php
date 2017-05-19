@@ -167,6 +167,12 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
+	public function getRealWeek()
+	{
+		$datas = $this->_data;
+		
+	}
+
 	public function put_in()
 	{
 		$this->_data = [];
