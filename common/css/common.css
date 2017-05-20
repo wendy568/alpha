@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 /*------------------------------------------------------------------
 1. Layouts 布局
 2. Icons 图标
@@ -4877,6 +4878,32 @@ textarea:focus{
   font-size: 16px;
   position: relative;
   top: 4px;
+}
+.alert{
+  width: 400px;
+  height: 240px;
+  background: #2C4059;
+  top:50%;
+  left:50%;
+  margin-top: -120px;
+  margin-left: -200px;
+  position: relative;
+  border-radius: 8px;
+  color:#fff;
+  font-size: 16px;
+}
+.alert-head{
+  background: #304862;
+  padding: 5px 15px;
+  line-height: 40px;
+  box-sizing: border-box;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.alert-body{
+  height: 200px;
+  padding: 30px;
+  text-align: center;
 }
 /*------------------------------------------------------------------
 [9. Tiles]
