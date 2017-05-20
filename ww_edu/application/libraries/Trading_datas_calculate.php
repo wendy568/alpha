@@ -192,6 +192,7 @@ class Trading_datas_calculate {
 
     public function get_one_by_one($callback, $param)
     {
+    	print_r($this->oneByone);
     	foreach ($this->oneByone as $key => $value) {
     		if (!empty($value)) {
     			$param['data'] = $value;
