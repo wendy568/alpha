@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 /*------------------------------------------------------------------
-Webarch v2.8
-Theme : Default
-Generated From LESS
-[Table of contents]
-
 1. Layouts 布局
 2. Icons 图标
 3. Horizontal Menu 水平菜单
@@ -30,9 +24,6 @@ Generated From LESS
 23. Slider 滑块
 24. text-color 字体颜色
 -------------------------------------------------------------------*/
-/*!
-* direction.less v0.1.0
-*/
 li{
     list-style-type:none; 
 }
@@ -8719,14 +8710,9 @@ body.rtl .footer-widget {
 }
 .index-video{
     background-color:#1c2026;
-    height: 340px;
+    height: 450px;
     position: relative;
     width: 100%;
-}
-.index-video video{
-    display: block;
-    margin: 0 auto;
-    height: 340px;
 }
 .index-video .video-intr{
     background-color: #1c2026;
@@ -8759,12 +8745,6 @@ body.rtl .footer-widget {
     text-align: center;
     line-height: 50px;
     cursor: pointer;
-}
-.event{
-    width: 100%;
-    height:340px;
-    position: relative;
-    z-index: 1;
 }
 .shade{
   width: 100%;
