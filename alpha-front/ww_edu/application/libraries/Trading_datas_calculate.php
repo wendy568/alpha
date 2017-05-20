@@ -170,7 +170,7 @@ class Trading_datas_calculate {
 	public function getRealWeek()
 	{
 		$datas = $this->_data;
-		
+
 	}
 
 	public function put_in()
@@ -209,6 +209,19 @@ class Trading_datas_calculate {
     {
     	$this->property = call_user_func_array([$this, $callback], $param);
     	return $this;
+    }
+
+    private function align_time($index, $data = [])
+    {
+    	$datas = $this->_data;
+    	if(!empty($data)) $datas = $data;
+    	$time = date('Y-m-d H');
+    	print_r($time);
+    	// array_walk_recursive($datas, function ($val, $key) use (&$sum, $index){
+    	// 	if ($key == $index) {
+    	// 		$sum += $val;
+    	// 	}
+    	// });
     }
 
     private function sum($index, $data = [])

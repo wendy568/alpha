@@ -24,20 +24,6 @@ class Utility extends MY_Controller
 	
 		encode_json($response,$data);
 	}
-
-	public function get_unix_time()
-	{
-		header( 'Access-Control-Allow-Origin:*' );
-	
-		$ip = $this->input->ip_address();
-
-		$this->load->helper('json');
-
-		$data['data']['unix_time'] = time();
-		$response = array('archive' => array('status' => 0,'message' =>''));
-	
-		encode_json($response,$data);
-	}
 }
 
 
