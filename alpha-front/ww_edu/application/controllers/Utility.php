@@ -33,7 +33,7 @@ class Utility extends MY_Controller
 
 		$this->load->helper('json');
 
-		$data['data'] = time();
+		$data['data']['unix_time'] = time();
 		$response = array('archive' => array('status' => 0,'message' =>''));
 	
 		encode_json($response,$data);
