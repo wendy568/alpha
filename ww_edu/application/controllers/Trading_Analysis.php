@@ -143,7 +143,7 @@ class Trading_Analysis extends MY_Controller
 
 		$mt4 = $this->TradingAnalysis->calendar();
 		$this->load->library('trading_datas_calculate');
-		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4, 3)->get_week()->property('get_one_by_noe', ['align_time', ['time_en']])->get_property();
+		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4, 3)->get_week()->property('get_one_by_one', ['align_time', ['time_en']])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 		encode_json($response,$data);
 	}
