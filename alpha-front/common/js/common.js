@@ -179,7 +179,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             if (sub.is(":visible")) {
                 jQuery('.fa', jQuery(this)).removeClass("open");
                 jQuery(this).parent().removeClass("active");
-                
+
                 sub.slideUp(200, function () {
                 });
             } else {
@@ -197,7 +197,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             var elem = jQuery('.page-sidebar ul');
             elem.children('li.open').children('a').children('.fa').removeClass('open');
             elem.children('li.open').children('a').children('.fa').removeClass('active');
-           
+
             elem.children('li.open').children('.sub-menu').slideUp(200);
             elem.children('li').removeClass('open');
         }
@@ -223,7 +223,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             timer= setTimeout(function(){
                 $('.page-sidebar').removeClass('visible');
             }, 300);
-            
+
         }
         else{
             clearTimeout(timer);
@@ -242,11 +242,11 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
                 $('.notice-box').removeClass('visible');
             }, 300);
         }
-        else{ 
+        else{
             clearTimeout(timer);
             $('.notice-box').addClass('visible');
             $('body').addClass('open-menu-right');
-        }        
+        }
     }
     // Util Functions
     alpha.prototype.initUtil = function(){
@@ -273,7 +273,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             var $table =  $el.closest('table');
             if ($el.is(':checked')) {
                 $table.find(':checkbox').attr('checked', true);
-                $table.find('tr').addClass('row_selected'); 
+                $table.find('tr').addClass('row_selected');
             } else {
                $table.find(':checkbox').attr('checked', false);
                $table.find('tr').removeClass('row_selected');
@@ -309,12 +309,12 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         $('#user-options').click(function () {
             $('#my-task-list').popover('hide');
         });
-        
+
         $('table th .checkall').on('click', function () {
             if ($(this).is(':checked')) {
                 $(this).closest('table').find(':checkbox').attr('checked', true);
                 $(this).closest('table').find('tr').addClass('row_selected');
-                //$(this).parent().parent().parent().toggleClass('row_selected');   
+                //$(this).parent().parent().parent().toggleClass('row_selected');
             } else {
                 $(this).closest('table').find(':checkbox').attr('checked', false);
                 $(this).closest('table').find('tr').removeClass('row_selected');
@@ -402,7 +402,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             },
             success: function (label, element) {
                 // var parent = $(element).parent('.input-with-icon');
-                // parent.removeClass('error-control').addClass('success-control'); 
+                // parent.removeClass('error-control').addClass('success-control');
             },
         });
 
@@ -486,11 +486,11 @@ $(document).ready(function () {
     }, 8000);
 
 
-    //***********************************END Grids*****************************				
+    //***********************************END Grids*****************************
 
 
 
-    //***********************************BEGIN Main Menu Toggle *****************************	
+    //***********************************BEGIN Main Menu Toggle *****************************
     $('#layout-condensed-toggle').click(function () {
         if ($('#main-menu').attr('data-inner-menu') == '1') {
             //Do nothing
@@ -572,7 +572,7 @@ $(document).ready(function () {
     };
     $.fn.toggleTradingDetail = function () {
         $.Webarch.toggleClass('hide');
-    }; 
+    };
 
 })(jQuery);
 
@@ -588,3 +588,38 @@ $(function() {
         $('#tradingDetail').toggleClass('hide');
     }
 );
+
+
+//******************************* Bind Functions Jquery-request OPTIONS  ***************
+
+(function ($) {
+
+  /*
+  * description Common ajax request
+  *
+  * @param type post , get , or put method
+  *
+  * @param url request url
+  *
+  * @param data request parameter
+  *
+  * @param fn callback function
+  *
+  * */
+  $.fn.request_Url = function (type, url, data, fn) {
+
+    // 每次请求都会带上token信息
+    data.token = sessionStorage.getItem("userInfo").token;
+    return $.ajax({
+      type    : type,
+      url     : alpha_host + url,
+      data    : data,
+      success : function(res){
+        fn && fn(res);
+      },
+      error   : function(err) {
+        console.log(err);
+      }
+    });
+  };
+})(jQuery);
