@@ -1,3 +1,2 @@
-
 RewriteEngine on
-RewriteRule ^/(.*).html$ /$1
+RewriteRule ^/(.*).html /$1
