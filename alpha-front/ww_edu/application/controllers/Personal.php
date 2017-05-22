@@ -430,7 +430,7 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		echo file_get_contents('http://120.25.211.159/tv.html');
+		echo file_get_contents('http://120.25.211.159/Personal_management.html');
 		die;
 		$proxyhost = isset($_POST['proxyhost']) ? $_POST['proxyhost'] : '';
 		$proxyport = isset($_POST['proxyport']) ? $_POST['proxyport'] : '';
