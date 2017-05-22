@@ -1,2 +1,3 @@
 RewriteEngine on
-RewriteRule ^/(.*).html /$1
+RewriteBase    /~quux/
+RewriteRule    ^Tv\.html$  bar.html
