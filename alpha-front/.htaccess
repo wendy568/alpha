@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^/Tv$  /Tv.html [R=301,L]
+RewriteRule ^Tv$  Tv.html [R=301,L]
