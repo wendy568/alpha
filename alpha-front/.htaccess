@@ -1,3 +1,3 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME}.html -f #判断该后缀文件是否存在
-RewriteRule ^/tv$ /Tv.html [L]
+RewriteRule ^tv\.html$ Tv [L]
