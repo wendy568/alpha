@@ -4007,6 +4007,7 @@ form legend,
 .form-row textarea,
 .form-row select2 {
   margin-bottom: 10px;
+  border:1px solid #3D424E;
 }
 .form-row .radio {
   margin-bottom: 7px;
@@ -10755,5 +10756,24 @@ body.rtl .footer-widget {
 /*help----------------------------------------------------------------------*/
 .question:hover{
     background: #0AA699;
+}
+.tvbar a:hover,
+.tvbar a:active,
+.tvbar a:focus{
+    color:#fff !important;
+}
+
+/*Profile----------------------------------------------------------------*/
+.photo{
+  border:1px solid #3D424E;
+  padding: 30px;
+  text-align: center;
+}
+.photo-img{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border:1px solid #3D424E;
+  margin:0 auto 20px;
 }
 
