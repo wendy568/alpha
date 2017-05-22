@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^Tv\.html$ /tv [L]
+RewriteRule ^[a-zA-z+]\.html$ /$1 [L]
