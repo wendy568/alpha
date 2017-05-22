@@ -10769,11 +10769,12 @@ body.rtl .footer-widget {
   padding: 30px;
   text-align: center;
 }
-.photo-img{
+.photo-img img{
   width: 120px;
   height: 120px;
   border-radius: 50%;
   border:1px solid #3D424E;
   margin:0 auto 20px;
+  cursor: pointer;
 }
 
