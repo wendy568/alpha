@@ -433,7 +433,7 @@ body.boxed-layout .footer-widget {
   right: -2px;
   border-radius: 100px;
 }
-.header .chat-toggler .profile-pic .availability-bubble.online {
+/*.header .chat-toggler .profile-pic .availability-bubble.online {
   background-color: #0aa699;
 }
 .header .chat-toggler .profile-pic .availability-bubble.away {
@@ -444,7 +444,7 @@ body.boxed-layout .footer-widget {
 }
 .header .chat-toggler .profile-pic .availability-bubble.offline {
   background-color: #8b91a0;
-}
+}*/
 .header .chat-toggler a {
   color: #1b1e24;
   font-size: 15px;
@@ -769,49 +769,26 @@ body.boxed-layout .footer-widget {
 .page-sidebar.mini .page-sidebar-wrapper > ul > li a i {
   color: #ffffff;
 }
-.page-sidebar.mini .page-sidebar-wrapper > p {
-  display: none;
-}
-.page-sidebar.mini .page-sidebar-wrapper > .side-bar-widgets {
-  display: none;
-}
-.page-sidebar.mini .user-info {
-  display: none;
-}
-.page-sidebar.mini .status-widget {
-  display: none;
-}
-.page-sidebar.mini .notification-alert {
-  display: none;
-}
-.page-sidebar.mini ul li span.title {
-  display: none;
-}
+.page-sidebar.mini .page-sidebar-wrapper > p,
+.page-sidebar.mini .page-sidebar-wrapper > .side-bar-widgets,
+.page-sidebar.mini .user-info,
+.page-sidebar.mini .status-widget,
+.page-sidebar.mini .notification-alert,
+.page-sidebar.mini ul li span.title,
 .page-sidebar.mini ul li span.fa-angle-left,
-.page-sidebar.mini ul li span.fa-angle-down
-{
+.page-sidebar.mini ul li span.fa-angle-down,
+.page-sidebar.mini ul li span.badge,
+.page-sidebar.mini .profile-wrapper,
+.page-sidebar.mini .footer-widget{
   display: none;
 }
-.page-sidebar.mini ul li span.badge {
-  display: none;
-}
-.page-sidebar.mini ul li ul li span.title {
+.page-sidebar.mini ul li ul li span.title,
+.page-sidebar.mini ul li ul li span.arrow{
   display: inline;
 }
-.page-sidebar.mini ul li ul li span.arrow {
-  display: inline;
-}
-.page-sidebar.mini ul.big-items span.badge {
+.page-sidebar.mini ul.big-items span.badge ,
+.page-sidebar.mini ul.small-items span.badge{
   display: inline-block;
-}
-.page-sidebar.mini ul.small-items span.badge {
-  display: inline-block;
-}
-.page-sidebar.mini .profile-wrapper {
-  display: none;
-}
-.page-sidebar.mini .footer-widget {
-  display: none;
 }
 .page-sidebar ul.folders {
   list-style: none;
@@ -872,36 +849,29 @@ body.boxed-layout .footer-widget {
 .page-sidebar.mini .page-sidebar-wrapper > ul > li:hover > a {
   background: #0b9c8f;
 }
-.page-sidebar.mini .page-sidebar-wrapper > ul > li.active > a i,
-.page-sidebar .page-sidebar-wrapper > ul > li:hover > a i {
-  color: #ffffff !important;
+.page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu a .arrow:before,
+.page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu a .arrow.open:before {
+  color: #919091  !important;
 }
 .page-sidebar .page-sidebar-wrapper ul > li > a > .arrow:before,
 .page-sidebar .page-sidebar-wrapper > ul > li > a > .arrow.open:before {
   color: #919091 !important;
 }
+.page-sidebar.mini .page-sidebar-wrapper > ul > li.active > a i,
+.page-sidebar .page-sidebar-wrapper > ul > li:hover > a i ,
 .page-sidebar .page-sidebar-wrapper ul > li.active > a .arrow:before,
-.page-sidebar .page-sidebar-wrapper > ul > li.active > a .arrow.open:before {
-  color: #ffffff !important;
-}
+.page-sidebar .page-sidebar-wrapper > ul > li.active > a .arrow.open:before,
 .page-sidebar .page-sidebar-wrapper ul > li.open > a i,
-.page-sidebar .page-sidebar-wrapper > ul > li.open > a i {
-  color: #ffffff !important;
-}
+.page-sidebar .page-sidebar-wrapper > ul > li.open > a i,
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li.active > a,
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li:hover a,
-.page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li:hover i{
-  color: #ffffff !important;
-}
+.page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li:hover i,
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu li > ul.sub-menu > li.active > a,
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu li > ul.sub-menu > li > a:hover,
-.page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu li.open > a {
+.page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu li.open > a{
   color: #ffffff !important;
 }
-.page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu a .arrow:before,
-.page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu a .arrow.open:before {
-  color: #919091  !important;
-}
+
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li.active > a {
   font-weight: 600;
 }
@@ -1524,29 +1494,19 @@ body.boxed-layout .footer-widget {
   top: 4px;
 }
 .status-icon.green {
-  background-position: -1px -1px;
-  width: 14px;
-  height: 14px;
+  background-position: -1px -1px;width: 14px;height: 14px;
 }
 .status-icon.red {
-  background-position: -17px -1px;
-  width: 14px;
-  height: 14px;
+  background-position: -17px -1px; width: 14px;height: 14px;
 }
 .status-icon.blue {
-  background-position: -33px -1px;
-  width: 14px;
-  height: 14px;
+  background-position: -33px -1px;width: 14px;height: 14px;
 }
 .status-icon.yellow {
-  background-position: -48px -1px;
-  width: 15px;
-  height: 14px;
+  background-position: -48px -1px; width: 15px;height: 14px;
 }
 .status-icon.grey {
-  background-position: -64px -1px;
-  width: 14px;
-  height: 14px;
+  background-position: -64px -1px; width: 14px;height: 14px;
 }
 .user-info img {
   float: left;
@@ -1705,7 +1665,7 @@ you can use the generic selector below, but it's slower:
   content: "\e017";
 }
 /*------------------------------------------------------------------[3. Horizontal Menu]---------------------------------------*/
-.horizontal-menu .header-seperation {
+/*.horizontal-menu .header-seperation {
   display: none;
 }
 .horizontal-menu .bar {
@@ -1895,7 +1855,7 @@ you can use the generic selector below, but it's slower:
   .horizontal-menu .page-content .content {
     padding-top: 123px;
   }
-}
+}*/
 /*------------------------------------------------------------------[4. Typography]-----------------------------------------------*/
 .h-ribbon {
   width: 100%;
@@ -1914,7 +1874,7 @@ you can use the generic selector below, but it's slower:
   right: -15px;
   z-index: 9999;
 }
-h1,h2,h3,h4,h5,h6 {
+/*h1,h2,h3,h4,h5,h6 {
   margin: 10px 0;
   font-family: 'Roboto';
   color: #505458;
@@ -1935,10 +1895,10 @@ h3 small,h4 small,h5 small {
   font-family: 'Roboto';
   font-weight: 300;
   color: #444;
-}
-h1.block,h2.block,h3.block,h4.block,h5.block,h6.block {
+}*/
+/*h1.block,h2.block,h3.block,h4.block,h5.block,h6.block {
   padding-bottom: 10px;
-}
+}*/
 a {
   text-shadow: none !important;
   color: #0d638f;
@@ -2065,7 +2025,7 @@ blockquote.pull-right small:after {
 .all-caps {
   text-transform: uppercase;
 }
-.light {
+/*.light {
   font-weight: 300 !important;
 }
 .text-extra-small {
@@ -2082,7 +2042,7 @@ blockquote.pull-right small:after {
 }
 .center-text {
   text-align: center !important;
-}
+}*/
 .muted {
   color: #b6bfc5;
 }
@@ -2142,7 +2102,7 @@ blockquote.pull-right small:after {
 .text-center {
   text-align: center !important;
 }
-.color-bands {
+/*.color-bands {
   display: inline-block;
   width: 80px;
   height: 4px;
@@ -2160,7 +2120,7 @@ blockquote.pull-right small:after {
 }
 .color-bands.blue {
   background-color: #0090d9;
-}
+}*/
 hr {
     margin: 20px 0;
     border: 0;
@@ -2238,7 +2198,7 @@ hr {
     position: relative;
     top: 2px;
 }
-.well {
+/*.well {
     background-color: #d1dade;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -2261,7 +2221,7 @@ hr {
     background-color: #0aa699;
     color: #ffffff;
     border: none;
-}
+}*/
 /*------------------------------------------------------------------[5. Misc]---------------------------------------*/
 span.iconset {
     display: block;
@@ -9945,6 +9905,7 @@ body.rtl .footer-widget {
 }
 
 /*--------------------------------------index-css---------------------------------*/
+
 .nav input:focus{
     background-color: #F4F5F7;
 }
@@ -10032,8 +9993,23 @@ body.rtl .footer-widget {
   padding: 5px 10px;
   background: #13151a;
   border-radius: 15px;
-  margin-bottom: 15px;: 
+  margin-bottom: 15px;
 }
+/*货币图标*/
+.country_img{
+    background:url(../img/icon/img.png)  no-repeat;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.country_jpy{height:30px;width:40px;background-position:0 0;}
+.country_gbp{height:30px;width:40px;background-position:-44px 0;}
+.country_usd{height:30px;width:40px;background-position:-88px 0;}
+.country_nzd{height:30px;width:40px;background-position:-132px 0;}
+.country_chf{height:30px;width:40px;background-position:-176px 0;}
+.country_aud{height:30px;width:40px;background-position:-220px 0;}
+.country_eur{height:30px;width:40px;background-position:-264px 0;}
+.country_cny{height:30px;width:40px;background-position:-308px 0;}
 /*--------------------------------tools---------------------------------------------*/
 .toolbar{
   width: 100%;
@@ -10061,6 +10037,17 @@ body.rtl .footer-widget {
 .module:hover>.module-icon{
     background: #7a7f8c;
 }
+.tools_img{
+    background:url(../img/icon/tools_img.png)  no-repeat;
+    background-size:300%;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle; 
+}
+.tool_quotation{height:30px;width:30px;background-position:0 0;}
+.tool_news{height:30px;width:30px;background-position:-30px 0;}
+.tool_canlendar{height:30px;width:30px;background-position:-60px 0;}
+
 .module:first-child.active .module-icon,
 .module:nth-child(4).active .module-icon{
     background-image: -moz-linear-gradient( 90deg, rgb(242,66,68) 0%, rgb(255,119,120) 100%);
@@ -10777,4 +10764,10 @@ body.rtl .footer-widget {
   margin:0 auto 20px;
   cursor: pointer;
 }
-
+.upload{
+    width: 84px;
+    position: absolute;
+    top: 172px;
+    left: 150px;
+    opacity: 0;
+}
