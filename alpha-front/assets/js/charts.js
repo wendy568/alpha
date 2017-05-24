@@ -3,14 +3,14 @@
 -----------------------------------------------------------------*/	
 // 折线图的样式
 $(document).ready(function() {		
-	var d2 = [ [1, 30],
-            [2, 20],
-            [3, 10],
-            [4, 30],
-            [5, 15],
-            [6, 25],
-            [7, 40]
-	];
+	// var d2 = [ [1, 30],
+ //            [2, 20],
+ //            [3, 10],
+ //            [4, 30],
+ //            [5, 15],
+ //            [6, 25],
+ //            [7, 40]
+	// ];
 	var d1 = [
             [1, 30],
             [2, 30],
@@ -22,20 +22,23 @@ $(document).ready(function() {
 	];
 	var plot = $.plotAnimator($("#placeholder"), [
 		{  	
-			label: "Label 1",
+			// label: ["04.24","04.25","04.26","04.27","04.28","04.29"],
 			data: d1, 	
-			lines: {				
-				fill: 0.6,
+			lines: {
+                // 透明度				
+				fill: 0.4,
 				lineWidth: 0,				
 			},
 			color:['#735f87']
 		},{ 
+            label: ["04.24","04.25","04.26","04.27","04.28","04.29"],
 			data: d1, 
 			animator: {steps: 60, duration: 1000, start:0}, 		
 			lines: {lineWidth:2},	
 			shadowSize:0,
 			color: '#735f87',
 		},{
+            label: ["04.24","04.25","04.26","04.27","04.28","04.29"],
 			data: d1, 
 			points: { show: true, fill: true, radius:6,fillColor:"#735f87",lineWidth:3 },
 			// canvas坐标点圈的颜色	
@@ -124,52 +127,52 @@ $(document).ready(function() {
 		scaleColor:false
     });
 	
-    Morris.Line({
-        element: 'line-example',
-        data: [
-            { y: '2006', a: 50, b: 40 },
-            { y: '2007', a: 65,  b: 55 },
-            { y: '2008', a: 50,  b: 40 },
-            { y: '2009', a: 75,  b: 65 },
-            { y: '2010', a: 50,  b: 40 },
-            { y: '2011', a: 75,  b: 65 },
-            { y: '2012', a: 100, b: 90 }
-        ],
-        xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['Series A', 'Series B'],
-        lineColors:['#0aa699','#d1dade'],
-    });
+    // Morris.Line({
+    //     element: 'line-example',
+    //     data: [
+    //         { y: '2006', a: 50, b: 40 },
+    //         { y: '2007', a: 65,  b: 55 },
+    //         { y: '2008', a: 50,  b: 40 },
+    //         { y: '2009', a: 75,  b: 65 },
+    //         { y: '2010', a: 50,  b: 40 },
+    //         { y: '2011', a: 75,  b: 65 },
+    //         { y: '2012', a: 100, b: 90 }
+    //     ],
+    //     xkey: 'y',
+    //     ykeys: ['a', 'b'],
+    //     labels: ['Series A', 'Series B'],
+    //     lineColors:['#0aa699','#d1dade'],
+    // });
     
-    Morris.Area({
-        element: 'area-example',
-        data: [
-            { y: '2006', a: 100, b: 90 },
-            { y: '2007', a: 75,  b: 65 },
-            { y: '2008', a: 50,  b: 40 },
-            { y: '2009', a: 75,  b: 65 },
-            { y: '2010', a: 50,  b: 40 },
-            { y: '2011', a: 75,  b: 65 },
-            { y: '2012', a: 100, b: 90 }
-        ],
-        xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['Series A', 'Series B'],
-        lineColors:['#0090d9','#b7c1c5'],
-        lineWidth:'0',
-        grid:'false',
-        fillOpacity:'0.5'
-    });
+    // Morris.Area({
+    //     element: 'area-example',
+    //     data: [
+    //         { y: '2006', a: 100, b: 90 },
+    //         { y: '2007', a: 75,  b: 65 },
+    //         { y: '2008', a: 50,  b: 40 },
+    //         { y: '2009', a: 75,  b: 65 },
+    //         { y: '2010', a: 50,  b: 40 },
+    //         { y: '2011', a: 75,  b: 65 },
+    //         { y: '2012', a: 100, b: 90 }
+    //     ],
+    //     xkey: 'y',
+    //     ykeys: ['a', 'b'],
+    //     labels: ['Series A', 'Series B'],
+    //     lineColors:['#0090d9','#b7c1c5'],
+    //     lineWidth:'0',
+    //     grid:'false',
+    //     fillOpacity:'0.5'
+    // });
     
-    Morris.Donut({
-        element: 'donut-example',
-        data: [
-            {label: "Download Sales", value: 12},
-            {label: "In-Store Sales", value: 30},
-            {label: "Mail-Order Sales", value: 20}
-        ],
-        colors:['#60bfb6','#91cdec','#eceff1']
-    });
+    // Morris.Donut({
+    //     element: 'donut-example',
+    //     data: [
+    //         {label: "Download Sales", value: 12},
+    //         {label: "In-Store Sales", value: 30},
+    //         {label: "Mail-Order Sales", value: 20}
+    //     ],
+    //     colors:['#60bfb6','#91cdec','#eceff1']
+    // });
 
     $('#mysparkline').sparkline([4,3,3,1,4,3,2,2,3], {
         type: 'line', 
@@ -224,38 +227,38 @@ $(document).ready(function() {
     });
     
     var seriesData = [ [], []];
-    var random = new Rickshaw.Fixtures.RandomData(50);
+    // var random = new Rickshaw.Fixtures.RandomData(50);
 
     for (var i = 0; i < 50; i++) {
-        random.addData(seriesData);
+        // random.addData(seriesData);
     }
 
-    graph = new Rickshaw.Graph( {
-        element: document.querySelector("#updatingChart"),
-        height: 200,
-        renderer: 'area',
-        series: [
-            {
-                data: seriesData[0],
-                color: 'rgba(0,144,217,0.51)',
-                name:'DB Server'
-            },{
-                data: seriesData[1],
-                color: '#eceff1',
-                name:'Web Server'
-            }
-        ]
-    } );
-    var hoverDetail = new Rickshaw.Graph.HoverDetail( {
-        graph: graph
-    });
+    // graph = new Rickshaw.Graph( {
+    //     element: document.querySelector("#updatingChart"),
+    //     height: 200,
+    //     renderer: 'area',
+    //     series: [
+    //         {
+    //             data: seriesData[0],
+    //             color: 'rgba(0,144,217,0.51)',
+    //             name:'DB Server'
+    //         },{
+    //             data: seriesData[1],
+    //             color: '#eceff1',
+    //             name:'Web Server'
+    //         }
+    //     ]
+    // } );
+    // var hoverDetail = new Rickshaw.Graph.HoverDetail( {
+    //     graph: graph
+    // });
 
-    setInterval( function() {
-        random.removeData(seriesData);
-        random.addData(seriesData);
-        graph.update();
+    // setInterval( function() {
+    //     random.removeData(seriesData);
+    //     random.addData(seriesData);
+    //     graph.update();
 
-    },1000);
+    // },1000);
     
     //Bar Chart  - Jquert flot
     
