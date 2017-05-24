@@ -8947,12 +8947,16 @@ body.rtl .footer-widget {
     background-image: -webkit-linear-gradient( 90deg, rgb(242,66,68) 0%, rgb(255,119,120) 100%);
     background-image: -ms-linear-gradient( 90deg, rgb(242,66,68) 0%, rgb(255,119,120) 100%);
 }
-.module:nth-child(2).active .module-icon{
+.module:nth-child(2).active .module-icon,
+.module:nth-child(5).active .module-icon
+{
   background-image: -webkit-linear-gradient(left, rgb(13,101,216) 0%, rgb(93,156,236) 100%);
   background-image: -o-linear-gradient(left, rgb(13,101,216) 0%, rgb(93,156,236) 100%);
   background-image: linear-gradient(to right, rgb(13,101,216) 0%, rgb(93,156,236) 100%);
 }
-.module:nth-child(3).active .module-icon{
+.module:nth-child(3).active .module-icon,
+.module:nth-child(6).active .module-icon
+{
   background-image: -moz-linear-gradient( 90deg, rgb(240,160,28) 0%, rgb(255,187,75) 100%);
   background-image: -webkit-linear-gradient( 90deg, rgb(240,160,28) 0%, rgb(255,187,75) 100%);
   background-image: -ms-linear-gradient( 90deg, rgb(240,160,28) 0%, rgb(255,187,75) 100%);
@@ -9046,7 +9050,7 @@ body.rtl .footer-widget {
 .screen-b:focus{
     color:#8b91a0;
     border-bottom:1px solid #8b91a0;
-    background: url(assets/img/dashboard_tv_play.png) no-repeat bottom center;
+    /*background: url(../../assets/img/tool_pulldown.png) no-repeat bottom center;*/
 }
 /*quotation*/
 .quotation-border{
@@ -9180,7 +9184,7 @@ body.rtl .footer-widget {
 .view{
     font-size: 14px;
     height: 32px;
-    width: 100px;
+    width: 120px;
     border: 1px solid #8b91a0;
     line-height: 32px;
     padding: 0 5px;

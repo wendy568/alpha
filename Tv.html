@@ -553,25 +553,16 @@
            $('.tv-small').hover(function(){
                 $(this).children('.tv-play').toggleClass('hide').fadeToggle(3000);
             });
-
-   //         	var self = this
-			// let formData = new FormData()
-			// formData.append('limit',self.limit)
-			// formData.append('start',self.start)
-			// fetch('http://120.25.211.159/'+ 'index.php/video/list',{
-			// 	mode: 'cors',
-			// 	method: 'post',
-			// 	body: formData
-			// }).then((res) => {
-			// 	if(res.ok){
-			// 		res.json().then((json) => {
-			// 			self.video_list = json.data
-			// 			for(let i = 0; i < self.video_list.length; i ++) {
-			// 				self.video_list[i].image = 'http://120.25.211.159/' + 'upload/' + self.video_list[i].image[0] + 'm_' + self.video_list[i].image[1]
-			// 			}
-			// 		})
-			// 	}
-			// })
+ 			
+ 			// TV list
+			$.ajax({
+		    	type:'POST',
+		    	url:'http://120.25.211.159/index.php/video/list',
+		    	data:{"limit":3,"start":0},
+		    	success:function(txt,msg,xhr){
+		    		alert('请求成功！');
+		    	}
+		    });   
         </script>
     </body>
 </html>
