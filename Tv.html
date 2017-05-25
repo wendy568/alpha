@@ -342,9 +342,9 @@
                 	<div class="row no-margin all-tv m-b-30">
                         <!-- video-box -->
                         <div class="col-lg-8 col-sm-12 no-padding tv-preview" style="height: 450px;"> 
-                            <video id="tv" src="./assets/res/birds.mp4"  controls loop>您的浏览器不支持VIDEO标签</video>
-                            <img src="assets/img/dashboard_demo_img.png" alt="" class="ad">
-                            <img class="btn-play img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                            <!-- <video id="tv" src="./assets/res/birds.mp4"  controls loop>您的浏览器不支持VIDEO标签</video> -->
+                            <!-- <img src="assets/img/dashboard_demo_img.png" alt="" class="ad">
+                            <img class="btn-play img-responsive" src="./assets/img/dashboard_tv_play.png" alt=""> -->
                         </div>
                         <!-- video-intr -->
                         <div class="col-lg-4 col-sm-12 no-padding" style="height: 450px;">
@@ -371,13 +371,72 @@
                                 </div>
                             </div>
                             <div class="video-btn" style="top:410px;border-bottom-right-radius: 8px;">
-                                <span class="text-c1 semi-bold">PLAY</span>
+                                <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">PLAY</span>
                             </div>
                         </div>
                 	</div>
                     <!-- tv-small -->
                     <ul class="row m-b-30 no-padding">
-                        
+                       <!--  <li class="col-lg-3 tv-small">
+                            <img src="assets/img/dem0_img01.png" alt="" class="bk-img">
+                            <div class="tv-date">
+                                <h6 class="text-c3">12'23</h6>
+                            </div>
+                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                            <div class="tv-des">
+                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
+                            </div>
+                            <div class="tv-play hide">
+                                <div class="video-btn">
+                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-3 tv-small">
+                            <img src="assets/img/dem0_img02.png" alt="" class="bk-img">
+                            <div class="tv-date">
+                                <h6 class="text-c3">12'23</h6>
+                            </div>
+                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                            <div class="tv-des">
+                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
+                            </div>
+                            <div class="tv-play hide">
+                                <div class="video-btn">
+                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-3 tv-small">
+                            <img src="assets/img/dem0_img03.png" alt="" class="bk-img">
+                            <div class="tv-date">
+                                <h6 class="text-c3">12'23</h6>
+                            </div>
+                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                            <div class="tv-des">
+                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
+                            </div>
+                            <div class="tv-play hide">
+                                <div class="video-btn">
+                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-lg-3 tv-small">
+                            <img src="assets/img/dem0_img04.png" alt="" class="bk-img">
+                            <div class="tv-date">
+                                <h6 class="text-c3">12'23</h6>
+                            </div>
+                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                            <div class="tv-des">
+                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
+                            </div>
+                            <div class="tv-play hide">
+                                <div class="video-btn">
+                                    <span href="" class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
+                                </div>
+                            </div>
+                        </li> -->
                     </ul>
                     <!-- modal -->
                     <div class="modal fade" id="tvModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -458,6 +517,58 @@
         <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="common/js/common.js" type="text/javascript"></script>
         <script type="text/javascript">
+            // big-tv
+            $.ajax({
+                type:'POST',
+                url:'http://120.25.211.159/ww_edu/video/videos_detail',
+                data:{'class_id':1},
+                success:function(videos_detail){
+                    var big_html="";
+                    $.each(videos_detail.data,function(data,i){
+                        big_html+=
+                        // `<video id="tv" src="//content.jwplatform.com/players/${i.source}-T351KaXB.html"  controls loop>您的浏览器不支持VIDEO标签</video>`
+                        `<iframe src="//content.jwplatform.com/players/${data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+                        <img src="assets/img/dashboard_demo_img.png" alt="" class="ad">
+                        <img class="btn-play img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">`;
+                    });
+                    $('.tv-preview').html(big_html);
+                },
+                error:function(){
+                    alert('There are wrong oh!'); 
+                }
+            });
+            // TV list
+            $.ajax({
+                type:'POST',
+                url:'http://120.25.211.159/ww_edu/video/list',
+                data:{'limit':4,'start':1},
+                success:function(list){
+                    var list_html="";
+                    $.each(list.data,function(data,i){
+                        list_html+=
+                        `<li class="col-lg-3 tv-small">
+                            <img src="http://120.25.211.159/ww_edu/upload/${i.image[0]}/m_${i.image[1]}" alt="" class="bk-img">
+                            <div class="tv-date">
+                                <h6 class="text-c3">${i.length}</h6>
+                            </div>
+                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                            <div class="tv-des">
+                                <h5 class="text-c2">${i.name}</h5>
+                            </div>
+                            <div class="tv-play hide">
+                                <div class="video-btn">
+                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
+                                </div>
+                            </div>
+                        </li>`;
+                    });
+                    $('.tv-content>ul').html(list_html);
+                },
+                error:function() {
+                    alert('There are wrong oh!');   
+                }
+            }); 
+
             var btn = document.querySelector('.btn-play');
             var myTv = document.getElementById("tv");
             myTv.volume=0.2;
@@ -488,41 +599,11 @@
             }
 
            $('.tv-small').hover(function(){
-                $(this).children('.tv-play').toggleClass('hide').fadeToggle(3000);
+                $(this).children('.tv-play').toggleClass('hide');
+                $(this).children('.tv-play').addClass('animated');
+                $(this).children('.tv-play').addClass('bounceInDown');
             });
- 			
- 			// TV list
-			$.ajax({
-		    	type:'POST',
-		    	url:'http://120.25.211.159/ww_edu/video/list',
-		    	data:{'limit':4,'start':0},
-		    	success:function(list){
-		    		var html="";
-                    $.each(list.data,function(data,i){
-                        console.log(i.id);
-                        html+=
-                        `<li class="col-lg-3 tv-small">
-                            <img src="${i.image[1]}" alt="" class="bk-img">
-                            <div class="tv-date">
-                                <h6 class="text-c3">${i.length}</h6>
-                            </div>
-                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                            <div class="tv-des">
-                                <h5 class="text-c2">${i.describe}</h5>
-                            </div>
-                            <div class="tv-play hide">
-                                <div class="video-btn">
-                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
-                                </div>
-                            </div>
-                        </li>`;
-                    });
-                    $('.tv-content>ul').html(html);
-                },
-                error:function() {
-                    alert('There are wrong oh!');   
-                }
-		    });   
+ 			  
         </script>
     </body>
 </html>
