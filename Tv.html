@@ -377,70 +377,7 @@
                 	</div>
                     <!-- tv-small -->
                     <ul class="row m-b-30 no-padding">
-                        <li class="col-lg-3 tv-small">
-                            <img src="assets/img/dem0_img01.png" alt="" class="bk-img">
-                            <!-- 遮罩 -->
-                            <div class="tv-date">
-                                <h6 class="text-c3">12'23</h6>
-                            </div>
-                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                            <div class="tv-des">
-                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
-                            </div>
-                            <div class="tv-play hide">
-                                <div class="video-btn">
-                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-lg-3 tv-small">
-                            <img src="assets/img/dem0_img02.png" alt="" class="bk-img">
-                            <!-- 遮罩 -->
-                            <div class="tv-date">
-                                <h6 class="text-c3">12'23</h6>
-                            </div>
-                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                            <div class="tv-des">
-                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
-                            </div>
-                            <div class="tv-play hide">
-                                <div class="video-btn">
-                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-lg-3 tv-small">
-                            <img src="assets/img/dem0_img03.png" alt="" class="bk-img">
-                            <!-- 遮罩 -->
-                            <div class="tv-date">
-                                <h6 class="text-c3">12'23</h6>
-                            </div>
-                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                            <div class="tv-des">
-                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
-                            </div>
-                            <div class="tv-play hide">
-                                <div class="video-btn">
-                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-lg-3 tv-small">
-                            <img src="assets/img/dem0_img04.png" alt="" class="bk-img">
-                            <!-- 遮罩 -->
-                            <div class="tv-date">
-                                <h6 class="text-c3">12'23</h6>
-                            </div>
-                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                            <div class="tv-des">
-                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
-                            </div>
-                            <div class="tv-play hide">
-                                <div class="video-btn">
-                                    <span href="" class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
-                                </div>
-                            </div>
-                        </li>
+                        
                     </ul>
                     <!-- modal -->
                     <div class="modal fade" id="tvModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -557,11 +494,34 @@
  			// TV list
 			$.ajax({
 		    	type:'POST',
-		    	url:'http://120.25.211.159/index.php/video/list',
-		    	data:{"limit":3,"start":0},
-		    	success:function(txt,msg,xhr){
-		    		alert('请求成功！');
-		    	}
+		    	url:'http://120.25.211.159/ww_edu/video/list',
+		    	data:{'limit':4,'start':0},
+		    	success:function(list){
+		    		var html="";
+                    $.each(list.data,function(data,i){
+                        console.log(i.id);
+                        html+=
+                        `<li class="col-lg-3 tv-small">
+                            <img src="${i.image[1]}" alt="" class="bk-img">
+                            <div class="tv-date">
+                                <h6 class="text-c3">${i.length}</h6>
+                            </div>
+                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                            <div class="tv-des">
+                                <h5 class="text-c2">${i.describe}</h5>
+                            </div>
+                            <div class="tv-play hide">
+                                <div class="video-btn">
+                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
+                                </div>
+                            </div>
+                        </li>`;
+                    });
+                    $('.tv-content>ul').html(html);
+                },
+                error:function() {
+                    alert('There are wrong oh!');   
+                }
 		    });   
         </script>
     </body>

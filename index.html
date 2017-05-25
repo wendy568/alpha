@@ -335,9 +335,9 @@
                         <li> <p>Index</p> </li>
                     </ul>
                     <!-- 卡片 -->
-                    <div class="row">
+                    <div class="row ">
                         <!-- 456 -->
-                        <div class=" col-md-6 col-lg-3 m-b-30">
+                        <div class=" col-md-6 col-lg-3 m-b-30 animated card">
                             <div class="tiles blue">
                                 <div class="tiles-body">
                                     <div class="controller">
@@ -363,7 +363,7 @@
                             </div>
                         </div>
                         <!-- 2545 -->
-                        <div class=" col-md-6  col-lg-3 m-b-30">
+                        <div class=" col-md-6  col-lg-3 m-b-30 animated card">
                             <div class="tiles green">
                                 <div class="tiles-body">
                                     <div class="controller">
@@ -389,7 +389,7 @@
                             </div>
                         </div>
                         <!-- 17 -->
-                        <div class=" col-md-6 col-lg-3  m-b-30">
+                        <div class=" col-md-6 col-lg-3  m-b-30 animated card">
                           <div class="tiles red">
                             <div class="tiles-body">
                                 <div class="controller">
@@ -415,7 +415,7 @@
                           </div>
                         </div>
                         <!-- 24DAY -->
-                        <div class=" col-md-6 col-lg-3  m-b-30">
+                        <div class=" col-md-6 col-lg-3  m-b-30 animated card">
                           <div class="tiles purple">
                             <div class="tiles-body">
                                 <div class="controller">
@@ -1173,7 +1173,10 @@
             div.onmouseleave = function(){
               btn.style.display = 'none';
             }
-
+           // card hove
+           $('.card').hover(function(){
+                $(this).toggleClass('bounceIn');
+           });
         </script>
     </body>
 </html>

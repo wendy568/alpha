@@ -111,14 +111,15 @@
                 $this.unblockUI(el);
             }, 1000);
         });
-        $('.tiles .controller .remove').click(function () {
-            $(this).parent().parent().parent().parent().addClass('animated fadeOut');
-            $(this).parent().parent().parent().parent().attr('id', 'id_remove_temp_id');
-            setTimeout(function () {
-                $('#id_remove_temp_id').remove();
-            }, 400);
-        });
+        // $('.tiles .controller .remove').click(function () {
+        //     $(this).parent().parent().parent().parent().addClass('animated fadeOut');
+        //     $(this).parent().parent().parent().parent().attr('id', 'id_remove_temp_id');
+        //     setTimeout(function () {
+        //         $('#id_remove_temp_id').remove();
+        //     }, 400);
+        // });
         $('.tab .controller .remove').click(function () {
+            alert('点我干嘛？');
             $(this).parent().parent().addClass('animated fadeOut');
             $(this).parent().parent().attr('id', 'id_remove');
             setTimeout(function () {

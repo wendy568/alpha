@@ -387,12 +387,14 @@
             <div class="page-content">
                  <!-- 选项卡 -->
                 <div class="tab-page">
-                    <ul class="tabs">
+                    <ul class="tabs" role="tablist">
                         <li class="tab active">
-                            <span class="currency">NAD/USD</span>
-                            <div class="controller">
-                                <a href="javascript:;" class="remove"></a>
-                            </div>
+                            <a href="#1">
+                                <span class="currency">NAD/USD</span>
+                                <div class="controller">
+                                    <a href="javascript:;" class="remove"></a>
+                                </div>
+                            </a>
                         </li>
                         <li class="last-tab">
                             <div class="dropdown-toggle" data-toggle="dropdown" >
@@ -400,22 +402,22 @@
                             </div>
                             <ul class="dropdown-menu">
                                 <li>
-                                     <span>EUR/JPY</span>
+                                     <a href="#2">EUR/JPY</a>
                                 </li>
                                 <li>
-                                     <span>NZD/JPY</span>
+                                     <a href="#3">NZD/JPY</a>
                                 </li>
                                 <li>
-                                     <span>USD/JPY</span>
+                                     <a href="#4">USD/JPY</a>
                                 </li>
                                 <li>
-                                     <span>USD/CHF</span>
+                                     <a href="#5">USD/CHF</a>
                                 </li>
                                 <li>
-                                     <span>AUD/JPY</span>
+                                     <a href="#6">AUD/JPY</a>
                                 </li>
                                 <li>
-                                     <span>USD/JPY</span>
+                                     <a href="#7">USD/JPY</a>
                                 </li>
                             </ul>
                         </li>
@@ -657,24 +659,533 @@
                                         </thead>
                                         <tbody >
                                             <tr class="m-t-30 preview">
-                                                <td>
+                                                <td class="td">
                                                     <span class="text-c2">$458.00</span>
+                                                    <div class="col-lg-3 col-xs-6 m-b-30 hover-detail hide animated bounceIn">
+                                                        <div class="grid simple" >
+                                                            <!-- title -->
+                                                            <div class="grid-title no-border" style="height: 60px;">
+                                                                <h4 class="text-white">
+                                                                    <span>POSITIONS</span>
+                                                                </h4>
+                                                            </div>
+                                                            <!-- body -->
+                                                            <div class="grid-body no-border">
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Total</h6>
+                                                                        <h5 class="text-right align text-c2">123</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-c2">69(56.1%)</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-c2">54(0.00%)</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>TRADES(%)</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Short</span>
+                                                                        <span class="text-right align text-c2">1.45</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Long</span>
+                                                                        <span class="text-right align text-c2">768</span>
+                                                                    </p>
+                                                                </div>
+                                                                <div>
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>% TRIGGERED POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-success text-c2">+$768.00</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-error">-$84500</h5>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
-                                                <td>
+
+                                                <td class="td">
                                                     <span class="text-c2">768.00</span>
+                                                    <div class="col-lg-3 col-xs-6 m-b-30 hover-detail hide animated bounceIn">
+                                                        <div class="grid simple" >
+                                                            <!-- title -->
+                                                            <div class="grid-title no-border" style="height: 60px;">
+                                                                <h4 class="text-white">
+                                                                    <span>POSITIONS</span>
+                                                                </h4>
+                                                            </div>
+                                                            <!-- body -->
+                                                            <div class="grid-body no-border">
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Expected payoff,$</span>
+                                                                    <span class="text-right align text-c2">+5.83</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Reward/risk rattio</span>
+                                                                    <span class="text-right align text-c2">1.15</span>
+                                                                </p>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Total</h6>
+                                                                        <h5 class="text-right align text-c2">123</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-c2">54(0.00%)</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>% TRIGGERED POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-success text-c2">+$768.00</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-error">-$84500</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div >
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>TRADES(%)</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Short</span>
+                                                                        <span class="text-right align text-c2">1.45</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Long</span>
+                                                                        <span class="text-right align text-c2">768</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
-                                                <td>
+
+                                                <td class="td">
                                                     <span class="text-c2">132</span>
+                                                     <div class="col-lg-3 col-xs-6 m-b-30 hover-detail hide animated bounceIn">
+                                                        <div class="grid simple" >
+                                                            <!-- title -->
+                                                            <div class="grid-title no-border" style="height: 60px;">
+                                                                <h4 class="text-white">
+                                                                    <span>POSITIONS</span>
+                                                                </h4>
+                                                            </div>
+                                                            <!-- body -->
+                                                            <div class="grid-body no-border">
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Expected payoff,$</span>
+                                                                    <span class="text-right align text-c2">+5.83</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Reward/risk rattio</span>
+                                                                    <span class="text-right align text-c2">1.15</span>
+                                                                </p>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Total</h6>
+                                                                        <h5 class="text-right align text-c2">123</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-c2">54(0.00%)</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>% TRIGGERED POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-success text-c2">+$768.00</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-error">-$84500</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div >
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>TRADES(%)</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Short</span>
+                                                                        <span class="text-right align text-c2">1.45</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Long</span>
+                                                                        <span class="text-right align text-c2">768</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
-                                                <td class="text-success">+$6877.00</td>
-                                                <td class="text-error">$566.00</td>
-                                                <td class="text-success">-$236.00</td>
-                                                <td>
+
+                                                <td class="td">
+                                                    <span class="text-success">+$6877.00</span>
+                                                    <div class="col-lg-3 col-xs-6 m-b-30 hover-detail hide animated bounceIn">
+                                                        <div class="grid simple" >
+                                                            <!-- title -->
+                                                            <div class="grid-title no-border" style="height: 60px;">
+                                                                <h4 class="text-white">
+                                                                    <span>POSITIONS</span>
+                                                                </h4>
+                                                            </div>
+                                                            <!-- body -->
+                                                            <div class="grid-body no-border">
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Expected payoff,$</span>
+                                                                    <span class="text-right align text-c2">+5.83</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Reward/risk rattio</span>
+                                                                    <span class="text-right align text-c2">1.15</span>
+                                                                </p>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Total</h6>
+                                                                        <h5 class="text-right align text-c2">123</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-c2">54(0.00%)</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>% TRIGGERED POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-success text-c2">+$768.00</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-error">-$84500</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div >
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>TRADES(%)</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Short</span>
+                                                                        <span class="text-right align text-c2">1.45</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Long</span>
+                                                                        <span class="text-right align text-c2">768</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="td">
+                                                    <span class="text-error">$566.00</span>
+                                                    <div class="col-lg-3 col-xs-6 hover-detail hide animated bounceIn">
+                                                        <div class="grid simple" >
+                                                            <!-- title -->
+                                                            <div class="grid-title no-border" style="height: 60px;">
+                                                                <h4 class="text-white">
+                                                                    <span>POSITIONS</span>
+                                                                </h4>
+                                                            </div>
+                                                            <!-- body -->
+                                                            <div class="grid-body no-border">
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Expected payoff,$</span>
+                                                                    <span class="text-right align text-c2">+5.83</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Reward/risk rattio</span>
+                                                                    <span class="text-right align text-c2">1.15</span>
+                                                                </p>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Total</h6>
+                                                                        <h5 class="text-right align text-c2">123</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-c2">54(0.00%)</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>% TRIGGERED POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-success text-c2">+$768.00</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-error">-$84500</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div >
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>TRADES(%)</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Short</span>
+                                                                        <span class="text-right align text-c2">1.45</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Long</span>
+                                                                        <span class="text-right align text-c2">768</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="td">
+                                                    <span class="text-success">-$236.00</span>
+                                                    <div class="col-lg-3 col-xs-6 hover-detail hide animated bounceIn">
+                                                        <div class="grid simple">
+                                                            <!-- title -->
+                                                            <div class="grid-title no-border" style="height: 60px;">
+                                                                <h4 class="text-white">
+                                                                    <span>POSITIONS</span>
+                                                                </h4>
+                                                            </div>
+                                                            <!-- body -->
+                                                            <div class="grid-body no-border">
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Expected payoff,$</span>
+                                                                    <span class="text-right align text-c2">+5.83</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Reward/risk rattio</span>
+                                                                    <span class="text-right align text-c2">1.15</span>
+                                                                </p>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Total</h6>
+                                                                        <h5 class="text-right align text-c2">123</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-c2">54(0.00%)</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>% TRIGGERED POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-success text-c2">+$768.00</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-error">-$84500</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div >
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>TRADES(%)</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Short</span>
+                                                                        <span class="text-right align text-c2">1.45</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Long</span>
+                                                                        <span class="text-right align text-c2">768</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="td">
                                                     <span class="text-c2">1mo 13h 18m 53s</span>
+                                                    <div class="col-lg-3 col-xs-6 hover-detail hide animated bounceIn">
+                                                        <div class="grid simple">
+                                                            <!-- title -->
+                                                            <div class="grid-title no-border" style="height: 60px;">
+                                                                <h4 class="text-white">
+                                                                    <span>POSITIONS</span>
+                                                                </h4>
+                                                            </div>
+                                                            <!-- body -->
+                                                            <div class="grid-body no-border">
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Expected payoff,$</span>
+                                                                    <span class="text-right align text-c2">+5.83</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Reward/risk rattio</span>
+                                                                    <span class="text-right align text-c2">1.15</span>
+                                                                </p>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Total</h6>
+                                                                        <h5 class="text-right align text-c2">123</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-c2">54(0.00%)</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>% TRIGGERED POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-success text-c2">+$768.00</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-error">-$84500</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div >
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>TRADES(%)</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Short</span>
+                                                                        <span class="text-right align text-c2">1.45</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Long</span>
+                                                                        <span class="text-right align text-c2">768</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
-                                                <td class="text-right">
+                                                <td class="text-right td">
                                                     <span class="text-c2">28</span>
                                                     <span class="label label-important m-l-5">Hign</span> 
+                                                    <div class="col-lg-3 col-xs-6 hover-detail hide animated bounceIn">
+                                                        <div class="grid simple" >
+                                                            <!-- title -->
+                                                            <div class="grid-title no-border" style="height: 60px;">
+                                                                <h4 class="text-white">
+                                                                    <span>POSITIONS</span>
+                                                                </h4>
+                                                            </div>
+                                                            <!-- body -->
+                                                            <div class="grid-body no-border">
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Expected payoff,$</span>
+                                                                    <span class="text-right align text-c2">+5.83</span>
+                                                                </p>
+                                                                <p>
+                                                                    <span class="text-left align text-c4">Reward/risk rattio</span>
+                                                                    <span class="text-right align text-c2">1.15</span>
+                                                                </p>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Total</h6>
+                                                                        <h5 class="text-right align text-c2">123</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-c2">54(0.00%)</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="m-b-40">
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>% TRIGGERED POSITIONS</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Profitable</h6>
+                                                                        <h5 class="text-right align text-success text-c2">+$768.00</h5>
+                                                                    </p>
+                                                                    <p>
+                                                                        <h6 class="text-left align text-c4">Losing</h6>
+                                                                        <h5 class="text-right align text-error">-$84500</h5>
+                                                                    </p>
+                                                                </div>
+                                                                <div >
+                                                                    <p>
+                                                                        <i class="fa fa-circle-o"></i>
+                                                                        <span>TRADES(%)</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Short</span>
+                                                                        <span class="text-right align text-c2">1.45</span>
+                                                                    </p>
+                                                                    <p>
+                                                                        <span class="text-left align text-c4">Long</span>
+                                                                        <span class="text-right align text-c2">768</span>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -1215,16 +1726,19 @@
 
         <script type="text/javascript">
             // 选择货币
-            $('.dropdown-menu>li').click(function(){
-                var curryText=$(this).children('span').text();
+            $('.dropdown-menu>li').click(function(i){
+                var curryText=$(this).children('a').text();
+                var tabId=$(this).children('a').attr('href');
+
                 function initCurrency(){
                     var c_html='';
-
                     c_html+= `<li class="tab">`;
-                    c_html+=     `<span class="currency">`+curryText+`</span>`;
-                    c_html+=     `<div class="controller">`;
-                    c_html+=          `<a href="javascript:;" class="remove"></a>`;
-                    c_html+=     `</div>`;
+                    c_html+=    `<a href="`+tabId+`">`;       
+                    c_html+=        `<span class="currency">`+curryText+`</span>`;
+                    c_html+=        `<div class="controller">`;
+                    c_html+=            `<a href="javascript:;" class="remove"></a>`;
+                    c_html+=        `</div>`;
+                    c_html+=    `</a>`;
                     c_html+= `</li>`;
 
                     return c_html;
@@ -1246,6 +1760,12 @@
                 ],
             }
             var myLine = new Chart(document.getElementById("barChart").getContext("2d")).Bar(barChartData);
+
+            // hover-detail
+            $('.td').hover(function(){
+                $(this).children('.hover-detail').toggleClass('hide');
+                $(this).children('.hover-detail').attr('top','130');
+            });
         </script>
     </body>
 </html>

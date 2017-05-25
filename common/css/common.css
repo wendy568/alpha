@@ -9207,7 +9207,12 @@ body.rtl .footer-widget {
 .preview td:hover #tradingDetail:first-child{
     position: absolute;
 }
-
+.hover-detail{
+  position: absolute;
+  /*top:130px;
+  left:135px;*/
+  z-index: 1000;
+}
 /*tv----------------------------------*/
 .tvbar{
     background: #2A2E36;
