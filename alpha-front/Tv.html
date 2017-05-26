@@ -524,13 +524,11 @@
                 data:{'class_id':1},
                 success:function(videos_detail){
                     var big_html="";
-                    $.each(videos_detail.data,function(data,i){
-                        big_html+=
+                    big_html+=
                         // `<video id="tv" src="//content.jwplatform.com/players/${i.source}-T351KaXB.html"  controls loop>您的浏览器不支持VIDEO标签</video>`
-                        `<iframe src="//content.jwplatform.com/players/${data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+                        `<iframe src="//content.jwplatform.com/players/${videos_detail.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>
                         <img src="assets/img/dashboard_demo_img.png" alt="" class="ad">
                         <img class="btn-play img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">`;
-                    });
                     $('.tv-preview').html(big_html);
                 },
                 error:function(){
@@ -538,41 +536,46 @@
                 }
             });
             // TV list
-            $.ajax({
-                type:'POST',
-                url:'http://120.25.211.159/ww_edu/video/list',
-                data:{'limit':4,'start':1},
-                success:function(list){
-                    var list_html="";
-                    $.each(list.data,function(data,i){
-                        list_html+=
-                        `<li class="col-lg-3 tv-small">
-                            <img src="http://120.25.211.159/ww_edu/upload/${i.image[0]}/m_${i.image[1]}" alt="" class="bk-img">
-                            <div class="tv-date">
-                                <h6 class="text-c3">${i.length}</h6>
-                            </div>
-                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                            <div class="tv-des">
-                                <h5 class="text-c2">${i.name}</h5>
-                            </div>
-                            <div class="tv-play hide">
-                                <div class="video-btn">
-                                    <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
+            function loadTvList(){
+                $.ajax({
+                    type:'POST',
+                    url:'http://120.25.211.159/ww_edu/video/list',
+                    data:{'limit':4,'start':1},
+                    success:function(list){
+                        var list_html="";
+                        $.each(list.data,function(data,i){
+                            // <img src="http://120.25.211.159/ww_edu/upload/${i.image[0]}/m_${i.image[1]}" alt="" class="bk-img">
+                            list_html+=
+                            `<li class="col-lg-3 tv-small">
+                                <img src="assets/img/dem0_img04.png" alt="" class="bk-img">
+                                <div class="tv-date">
+                                    <h6 class="text-c3">${i.length}</h6>
                                 </div>
-                            </div>
-                        </li>`;
-                    });
-                    $('.tv-content>ul').html(list_html);
-                },
-                error:function() {
-                    alert('There are wrong oh!');   
-                }
-            }); 
+                                <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                                <div class="tv-des">
+                                    <h5 class="text-c2">${i.name}</h5>
+                                </div>
+                                <div class="tv-play hide">
+                                    <div class="video-btn">
+                                        <span class="text-c1 semi-bold" data-toggle="modal" data-target="#tvModal">Play</span>
+                                    </div>
+                                </div>
+                            </li>`;
+                        });
+                        $('.tv-content>ul').html(list_html);
+                    },
+                    error:function() {
+                        alert('There are wrong oh!');   
+                    }
+                }); 
+            };
+            loadTvList();
 
-            var btn = document.querySelector('.btn-play');
+            // var btn = document.querySelector('.btn-play');
+            // console.log(btn);
             var myTv = document.getElementById("tv");
             myTv.volume=0.2;
-            btn.onclick = function(){
+            $('.all-tv').on('click','.btn-play',function(){
                 if(myTv.paused){    //当前处于暂停状态
                     myTv.play();
                     this.src="./assets/img/dashboard_tv_play.png";
@@ -580,30 +583,30 @@
                     myTv.pause();
                     this.src="./assets/img/dashboard_tv_stop.png";
                 }
-            }
-            //鼠标移入视频容器，显示按钮；移出就隐藏
-            var div = document.querySelector('.all-tv');
-            div.onmouseenter = function(){
-                btn.style.display = 'block';
-            }
-            div.onmouseleave = function(){
-              btn.style.display = 'none';
-            }
-             //视频暂停则显示广告；播放则隐藏广告
-            var ad = document.querySelector('.ad');
-            myTv.onplay = function(){
-              ad.style.display = 'none';
-            }
-            myTv.onpause = function(){
-              ad.style.display = 'block';
-            }
-
-           $('.tv-small').hover(function(){
-                $(this).children('.tv-play').toggleClass('hide');
-                $(this).children('.tv-play').addClass('animated');
-                $(this).children('.tv-play').addClass('bounceInDown');
             });
- 			  
+            //鼠标移入视频容器，显示按钮；移出就隐藏
+            // var div = document.querySelector('.all-tv');
+            // div.on('mouseenter',function(){
+            //     btn.style.display = 'block';
+            // });
+            // div.on('mouseleave', function(){
+            //   btn.style.display = 'none';
+            // });
+            //  //视频暂停则显示广告；播放则隐藏广告
+            // var ad = document.querySelector('.ad');
+            // myTv.on('play', function(){
+            //   ad.style.display = 'none';
+            // });
+            // myTv.on('pause', function(){
+            //   ad.style.display = 'block';
+            // });
+            
+            $('.tv-content>ul').hover(function(){
+                $('.tv-play').toggleClass('hide');
+                $('.tv-play').addClass('animated');
+                $('.tv-play').addClass('bounceInDown');
+            });
+
         </script>
     </body>
 </html>
