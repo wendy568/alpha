@@ -103,6 +103,7 @@ class Trading_datas_calculate {
     	});
 
     	$this->property['profit'] = $sum;
+    	return $this;
     }
 
 
