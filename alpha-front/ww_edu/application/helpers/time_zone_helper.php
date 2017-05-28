@@ -25,12 +25,17 @@ class time_zone{
 		$time = getdate();
 		if($time['wday'] != 1 && $time['wday'] != 0) {
 			$day = $time['wday'] - 1;
-			$this->_date = strtotime(" - {$day} day");
+			$_date = strtotime(" - {$day} day");
 		} elseif ($time['wday'] == 1) {
-			$this->_date = $time[0];
+			$_date = $time[0];
 		} elseif ($time['wday'] == 0) {
-			$this->_date = strtotime(" - 6 day");
+			$_date = strtotime(" - 6 day");
 		}
+
+		$year = date("Y", $_date);
+		$month = date("m", $_date);
+		$day = date("d", $_date);
+		$this->_date= mktime(00,00,00,$month,$day,$year);
 
 		return $this;
 	}
@@ -40,10 +45,16 @@ class time_zone{
 		$time = getdate();
 		if($time['wday'] != 0) {
 			$day = 7 - $time['wday'];
-			$this->_date = strtotime(" + {$day} day");
+			$_date = strtotime(" + {$day} day");
 		} elseif ($time['wday'] == 0) {
-			$this->_date = $time[0];
+			$_date = $time[0];
 		}
+
+		$year = date("Y", $_date);
+		$month = date("m", $_date);
+		$day = date("d", $_date);
+		$this->_date= mktime(23,59,59,$month,$day,$year);
+
 		return $this;
 	}
 
@@ -52,8 +63,7 @@ class time_zone{
 		$year = date("Y");
 		$month = date("m");
 		$day = date("d");
-		// $start = mktime(0,0,0,$month,$day,$year);//当天开始时间戳
-		$end= mktime(00,00,00,$month,$day,$year);//当天结束时间戳
+		$end= mktime(00,00,00,$month,$day,$year);
 		$this->_date = $end;
 		return $this;
 	}
@@ -63,8 +73,7 @@ class time_zone{
 		$year = date("Y");
 		$month = date("m");
 		$day = date("d");
-		// $start = mktime(0,0,0,$month,$day,$year);//当天开始时间戳
-		$end= mktime(23,59,59,$month,$day,$year);//当天结束时间戳
+		$end= mktime(23,59,59,$month,$day,$year);
 		$this->_date = $end;
 		return $this;
 	}
