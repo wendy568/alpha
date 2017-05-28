@@ -47,7 +47,7 @@ class Trading_datas_calculate {
 		$datas = $this->mt4;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($k == 'order_close_time' && getdate($v)['mon'] != $this->this_month) {
+				if ($k == 'order_close_time' && getdate($v)['mon'] != $this->this_month && getdate($v)['year'] != $this->this_year) {
 					unset($datas[$key]);
 				}	
 			}
