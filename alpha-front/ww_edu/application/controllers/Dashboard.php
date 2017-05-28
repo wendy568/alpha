@@ -12,7 +12,7 @@ class Dashboard extends MY_Controller
 		$this->load->helper('json');
 		$this->load->helper('time_zone');
 		print_r(time_zone::build()->todayBegin()->get_time_zone());
-		echo date('Y-m-d H:i:s', time_zone::build()->todayEnd()->get_time_zone());
+		echo date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfBegin()->get_time_zone());
 		$this->load->model('TradingAnalysis');
 		$mt4 = $this->TradingAnalysis->export_mt4_datas();
 		$this->load->library('trading_datas_calculate');
