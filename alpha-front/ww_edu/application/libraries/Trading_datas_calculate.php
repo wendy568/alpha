@@ -21,15 +21,24 @@ class Trading_datas_calculate {
 	private $mt4 = [];
 	private $trading_count = 0;
 	private $this_month;
+	private $this_year;
 
-	public function build($import_datas, $month = null)
+	public function build($import_datas, $month = null, $year = null)
 	{
 		$this->mt4 = $import_datas;
+
 		if ($month !== null) {
 			$this->this_month = $month;
 		} else {
 			$this->this_month = getdate()['mon'];
 		}
+
+		if ($year !== null) {
+			$this->this_year = $year;
+		} else {
+			$this->this_year = getdate()['year'];
+		}
+
 		return $this;
 	}
 
