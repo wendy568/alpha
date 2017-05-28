@@ -132,7 +132,7 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-		print_r($result);die;
+
 		$this->oneByone = $result;
 		return $this;
 	}
@@ -140,6 +140,7 @@ class Trading_datas_calculate {
     public function get_one_by_one($callback, $param)
     {
     	foreach ($this->oneByone as $key => $value) {
+    		print_r($value);die;
     		$param['data'] = $value;
     		$result[$key] = call_user_func_array([$this, $callback], $param);
     	}
