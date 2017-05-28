@@ -89,9 +89,19 @@ class Trading_datas_calculate {
 
 	public function get_week()
 	{
+		$datas = $this->_data;
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
-		time_zone::build()->get_week();
+		$week = time_zone::build()->get_week();
+		foreach ($week as $value) {
+			$slice = explode('-', $value);
+			$year = $slice[0];
+			$month = $slice[1];
+			$day = $slice[2];
+			$start = mktime(00, 00, 00, $month, $day, $year);
+			$end = mktime(23, 59, 59, $month, $day, $year);
+			print_r($slcie);
+		}
 
 	}
 
