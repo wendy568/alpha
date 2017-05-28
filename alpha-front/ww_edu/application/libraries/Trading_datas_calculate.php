@@ -26,8 +26,20 @@ class Trading_datas_calculate {
 	{
 		$this->mt4 = $import_datas;
 		$this->this_month = getdate()['mon'];
-		print_r(getdate(1488336020)['mon']);
 		return $this;
+	}
+
+	protected function datas_for_month()
+	{
+		$datas = $this->mt4;
+		foreach ($datas as $key => $value) {
+			foreach ($value as $k => $v) {
+				if ($k == 'order_close_time' && getdate($value)['mon'] != $this->this_month) {
+					unset($datas[$key]);
+				}	
+			}
+		}
+		print_r($datas);
 	}
 
 	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
