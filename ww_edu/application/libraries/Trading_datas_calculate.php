@@ -36,10 +36,13 @@ class Trading_datas_calculate {
 
     public function profit_since_today()
     {
-    	array_walk_recursive($this->mt4, function ($val, $key) {
+    	$sum = 0;
+    	array_walk_recursive($this->mt4, function ($val, $key) use (&$sum){
     		if ($key == 'profit' && $val > 0) {
-    			print_r($val);
+    			$sum += $val;
     		}
     	});
+
+    	print_r($val);
     }
 }
