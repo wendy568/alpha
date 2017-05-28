@@ -91,7 +91,7 @@ class Trading_datas_calculate {
 	{
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
-		echo date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
+		time_zone::build()->get_week();
 
 	}
 
