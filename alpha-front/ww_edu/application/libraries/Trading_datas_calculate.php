@@ -18,12 +18,15 @@
  */
 class Trading_datas_calculate {
 
-	private $mt4;
-	private $trading_count;
+	private $mt4 = [];
+	private $trading_count = 0;
+	private $this_month;
 
 	public function build($import_datas)
 	{
 		$this->mt4 = $import_datas;
+		$this->this_month = getdate()['mon'];
+		print_r($this->this_month);
 		return $this;
 	}
 
@@ -31,7 +34,6 @@ class Trading_datas_calculate {
     public function trading_count()
     {
     	$this->trading_count = count($this->mt4);
-    	print_r($this->trading_count);
     }
 
     public function profit_since_today()
@@ -43,6 +45,8 @@ class Trading_datas_calculate {
     		}
     	});
 
-    	print_r($sum);
+    	$this->profit = $sum;
     }
+
+
 }
