@@ -81,9 +81,9 @@ class time_zone{
 	public function get_week()
 	{
 		$date = getdate();
-		if($date['mday'] < 7) {
+		// if($date['mday'] < 7) {
 			echo date('Y-m-d', strtotime(date('Y-m-01', strtotime($date)) . ' -1 day'));
-		}
+		// }
 	}
 
 	public function get_time_zone()
