@@ -111,7 +111,7 @@ class Trading_datas_calculate {
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
 		$week = time_zone::build()->get_week();
-		
+		print_r($datas);die;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				foreach ($week as $val) {
