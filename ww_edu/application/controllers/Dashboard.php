@@ -13,7 +13,7 @@ class Dashboard extends MY_Controller
 		$this->load->model('TradingAnalysis');
 		$mt4 = $this->TradingAnalysis->export_mt4_datas();
 		$this->load->library('trading_datas_calculate');
-		print_r($this->trading_datas_calculate->build($mt4)->profit_since_today());die;
+		print_r($this->trading_datas_calculate->build($mt4)->datas_for_month());die;
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);
