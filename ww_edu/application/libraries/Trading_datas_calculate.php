@@ -288,7 +288,7 @@ class Trading_datas_calculate {
     }
 
     //只处理枚举
-    public function ratio($index, $data = [])
+    public function ratio($index, $enmu = [], $data = [])
     {
     	$datas = $this->_data;
 
