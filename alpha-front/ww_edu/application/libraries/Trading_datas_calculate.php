@@ -22,6 +22,7 @@ class Trading_datas_calculate {
 	private $trading_count = 0;
 	private $this_month;
 	private $this_year;
+	private $profit;
 
 	public function build($import_datas, $month = null, $year = null)
 	{
@@ -47,7 +48,12 @@ class Trading_datas_calculate {
 		return $this->_data;
 	}
 
-	public function datas_for_year()
+	public function get_property($prop)
+	{
+		return $this->{$prop};
+	}
+
+	public function get_year()
 	{
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
@@ -59,22 +65,24 @@ class Trading_datas_calculate {
 		}
 
 		$this->_data = $datas;
+		unset($datas);
 
 		return $this;
 	}
 
-	public function datas_for_month()
+	public function get_month()
 	{
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == 'order_close_time' && getdate($v)['mon'] != $this->this_month) {
 					unset($datas[$key]);
-				}	
+				}
 			}
 		}
 
 		$this->_data = $datas;
+		unset($datas);
 
 		return $this;
 	}
@@ -85,7 +93,7 @@ class Trading_datas_calculate {
     	$this->trading_count = count($this->_data);
     }
 
-    public function profit_since_today()
+    public function profit()
     {
     	$sum = 0;
     	array_walk_recursive($this->_data, function ($val, $key) use (&$sum){
