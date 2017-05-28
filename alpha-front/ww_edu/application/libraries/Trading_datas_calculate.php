@@ -111,7 +111,7 @@ class Trading_datas_calculate {
 		$instance = & get_instance();
 		$instance->load->helper('time_zone');
 		$week = time_zone::build()->get_week();
-		print_r($datas);die;
+
 		foreach ($datas as $key => $value) {
 			foreach ($value as $k => $v) {
 				foreach ($week as $val) {
@@ -121,8 +121,9 @@ class Trading_datas_calculate {
 					$day = $slice[2];
 					$start = mktime(00, 00, 00, $month, $day, $year);
 					$end = mktime(23, 59, 59, $month, $day, $year);
-					echo date('Y-m-d', $start);echo date('Y-m-d', $v);die;
+					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
+						echo date('Y-m-d', $start);echo date('Y-m-d', $v);die;
 						$result[$val][] = $value;
 					} 
 
