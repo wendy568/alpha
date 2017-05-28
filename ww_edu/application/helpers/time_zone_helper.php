@@ -99,13 +99,18 @@ class time_zone{
 				
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
-			print_r($dates);
+
 			return $dates;
+
 		} elseif ($date['mday'] >= 7) {
 			$year = date("Y");
 			$month = date("m");
 			$day = 7 - ($date['mday'] - 1);
-			return mktime(00, 00, 00, $month, $day, $year);
+			for ($i=1; $i <= 7; $i++) { 
+				$day = 7 - ($date['mday'] - $i);
+				$dates[] = "{$year}-{$month}-{$day}";
+			}
+			print_r($dates);
 		}
 	}
 
