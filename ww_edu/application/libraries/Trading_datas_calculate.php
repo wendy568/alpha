@@ -144,7 +144,7 @@ class Trading_datas_calculate {
     			$param['data'] = $value;
     			$result[$key] = call_user_func_array([$this, $callback], $param);
     		} else {
-    			$result[$key] = 'null';
+    			$result[$key] = null;
     		}
     		
     	}
