@@ -24,6 +24,7 @@ class Trading_datas_calculate {
 	public function build($import_datas)
 	{
 		$this->mt4 = $import_datas;
+		return $this;
 	}
 
 	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
