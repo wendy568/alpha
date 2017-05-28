@@ -23,7 +23,6 @@ class Trading_datas_calculate {
 	private $trading_count = 0;
 	private $this_month;
 	private $this_year;
-	private $profit;
 
 	public function build($import_datas, $month = null, $year = null)
 	{
@@ -51,7 +50,7 @@ class Trading_datas_calculate {
 
 	public function get_property($prop)
 	{
-		return $this->{$prop};
+		return $this->property[$prop];
 	}
 
 	public function get_year()
@@ -103,7 +102,7 @@ class Trading_datas_calculate {
     		}
     	});
 
-    	$this->profit = $sum;
+    	$this->property['profit'] = $sum;
     }
 
 
