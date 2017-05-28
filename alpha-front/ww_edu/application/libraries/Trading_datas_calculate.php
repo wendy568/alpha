@@ -38,7 +38,7 @@ class Trading_datas_calculate {
     {
     	$sum = 0;
     	array_walk_recursive($this->mt4, function ($val, $key) use (&$sum){
-    		if ($key == 'profit' && $val > 0) {
+    		if ($key == 'profit') {
     			$sum += $val;
     		}
     	});
