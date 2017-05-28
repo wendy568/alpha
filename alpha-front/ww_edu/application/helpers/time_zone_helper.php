@@ -29,10 +29,9 @@ class time_zone{
 		} elseif ($time['wday'] == 1) {
 			$this->_date = $time[0];
 		} elseif ($time['wday'] == 0) {
-			echo 1;
 			$this->_date = strtotime(" - 6 day");
 		}
-		
+
 		return $this;
 	}
 
