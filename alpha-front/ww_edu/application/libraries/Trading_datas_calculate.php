@@ -35,12 +35,11 @@ class Trading_datas_calculate {
 	private $update_time;
 	private $order_no;
 
-	public function __construct($import_datas)
+	public function build($import_datas)
 	{
-		if ($import_datas['type'] == 'mt4') {
-			$this->mt4 = $import_datas['data'];
-		}
+		$this->mt4 = $import_datas;
 		extract($this->mt4, EXTR_PREFIX_SAME, "cq");
+		echo $profit;
 	}
 
 	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
