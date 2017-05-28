@@ -132,7 +132,7 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-		print_r($result);die
+		print_r($result);die;
 		$this->oneByone = $result;
 		return $this;
 	}
