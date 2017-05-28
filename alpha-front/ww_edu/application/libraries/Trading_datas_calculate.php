@@ -19,6 +19,7 @@
 class Trading_datas_calculate {
 
 	private $_data = [];
+	private $_property = [];
 	private $trading_count = 0;
 	private $this_month;
 	private $this_year;
