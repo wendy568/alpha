@@ -87,6 +87,12 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
+	public function get_week()
+	{
+		$instance = & get_instance();
+		$instance->load->helper('time_zone');
+	}
+
 	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
     public function trading_count()
     {
@@ -106,5 +112,16 @@ class Trading_datas_calculate {
     	return $this;
     }
 
+    //Avg[∑(CloseTime-OpenTime)]
+    public function avg_holding()
+    {
+
+    }
+
+    //TimeNow-AccountOpentTime
+    public function transaction_peroid()
+    {
+
+    }
 
 }
