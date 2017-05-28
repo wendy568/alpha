@@ -106,7 +106,7 @@ class time_zone{
 		} elseif ($date['mday'] >= 7) {
 			$year = date("Y");
 			$month = date("m");
-			for ($i=1; $i <= 7; $i++) { 
+			for ($i = 0; $i < 7; $i++) { 
 				$day = $date['mday'] - $i;
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
