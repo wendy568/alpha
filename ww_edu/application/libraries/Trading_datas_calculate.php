@@ -19,32 +19,22 @@
 class Trading_datas_calculate {
 
 	private $mt4;
+	private $trading_count;
 
-	private $account_number;
-	private $order_symbol;
-	private $order_type;
-	private $order_lots;
-	private $order_open_price;
-	private $order_open_time;
-	private $order_close_price;
-	private $order_close_time;
-	private $order_take_profit;
-	private $order_stop_loss;
-	private $profit;
-	private $ceate_time;
-	private $update_time;
-	private $order_no;
-
-	public function build($import_datas)
+	public function __contruct($import_datas)
 	{
 		$this->mt4 = $import_datas;
-		extract($this->mt4, EXTR_PREFIX_SAME, "cq");
-		print_r($this->mt4);
 	}
 
 	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
     public function trading_count()
     {
-    	$this->buy_count = count($this->mt4);
+    	$this->trading_count = count($this->mt4);
+    	print_r($this->trading_count);
+    }
+
+    public function profit_since_today()
+    {
+    	// array_walk_recursive($this->mt4, funcname)
     }
 }
