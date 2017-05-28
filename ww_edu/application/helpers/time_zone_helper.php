@@ -23,14 +23,16 @@ class time_zone{
 	public function sundayOfTheWeekOfBegin()
 	{
 		$time = getdate();
-		if($time['wday'] != 1) {
+		if($time['wday'] != 1 && $time['wday'] != 0) {
 			$day = $time['wday'] - 1;
 			$this->_date = strtotime(" - {$day} day");
 		} elseif ($time['wday'] == 1) {
 			$this->_date = $time[0];
 		} elseif ($time['wday'] == 0) {
+			echo 1;
 			$this->_date = strtotime(" - 6 day");
 		}
+		
 		return $this;
 	}
 
