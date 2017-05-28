@@ -20,29 +20,31 @@ class Trading_datas_calculate {
 
 	private $mt4;
 
-	private $buy_count;
-	private $sell_count;
-	private $single_gain;
-	private $single_loss;
-	private $single_lots;
-	private $avg_time;
-	private $avg_gain;
-	private $avg_loss;
-	private $period;
-	private $gl_ratio;
-	private $ls_ratio;
-	private $profit_lots;
-	private $best_symbol;
-	private $risk_manage;
+	private $account_number;
+	private $order_symbol;
+	private $order_type;
+	private $order_lots;
+	private $order_open_price;
+	private $order_open_time;
+	private $order_close_price;
+	private $order_close_time;
+	private $order_take_profit;
+	private $order_stop_loss;
+	private $profit;
+	private $ceate_time;
+	private $update_time;
+	private $order_no;
 
 	public function __construct($import_datas)
 	{
 		if ($import_datas['type'] == 'mt4') {
 			$this->mt4 = $import_datas['data'];
 		}
+		extract($this->mt4, EXTR_PREFIX_SAME, "cq");
 	}
 
-    public function buy_no()
+	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
+    public function trading_count()
     {
     	$this->buy_count = count($this->mt4);
     }
