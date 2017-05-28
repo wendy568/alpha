@@ -43,6 +43,6 @@ class Trading_datas_calculate {
     		}
     	});
 
-    	print_r($val);
+    	print_r($sum);
     }
 }
