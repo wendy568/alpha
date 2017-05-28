@@ -42,7 +42,7 @@ class Trading_datas_calculate {
 		return $this;
 	}
 
-	public function datas_for_month()
+	public function datas_for_date()
 	{
 		$datas = $this->mt4;
 		foreach ($datas as $key => $value) {
