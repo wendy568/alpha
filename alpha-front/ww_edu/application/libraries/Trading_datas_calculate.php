@@ -121,7 +121,7 @@ class Trading_datas_calculate {
 					$day = $slice[2];
 					$start = mktime(00, 00, 00, $month, $day, $year);
 					$end = mktime(23, 59, 59, $month, $day, $year);
-					echo $start;echo $v;die;
+					echo date('Y-m-d', $start);echo date('Y-m-d', $v);die;
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
 						$result[$val][] = $value;
 					} 
