@@ -39,7 +39,7 @@ class Trading_datas_calculate {
 	{
 		$this->mt4 = $import_datas;
 		extract($this->mt4, EXTR_PREFIX_SAME, "cq");
-		echo $profit;
+		print_r($this->mt4);
 	}
 
 	//Count(OrderNo(OrderType=0))+Count(OrderNo(OrderType=1))
