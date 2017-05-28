@@ -25,6 +25,7 @@ class time_zone{
 		$time = getdate();
 		if($time['wday'] != 1) {
 			$day = $time['wday'] - 1;
+			print_r($day);
 			$this->_date = strtotime(" - {$day} day");
 		} elseif ($time['wday'] == 1) {
 			$this->_date = $time[0];
