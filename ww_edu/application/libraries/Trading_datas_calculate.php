@@ -123,7 +123,6 @@ class Trading_datas_calculate {
 					$end = mktime(23, 59, 59, $month, $day, $year);
 					
 					if ($k == $this->time_filter_definition && ($v >= $start && $v <= $end)) {
-						echo date('Y-m-d', $start);echo date('Y-m-d', $v);die;
 						$result[$val][] = $value;
 					} 
 
@@ -133,7 +132,7 @@ class Trading_datas_calculate {
 				}
 			}
 		}
-
+		print_r($result);die
 		$this->oneByone = $result;
 		return $this;
 	}
