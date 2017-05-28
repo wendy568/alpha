@@ -47,7 +47,7 @@ class Trading_datas_calculate {
 		return $this->_data;
 	}
 
-	public function datas_for_month()
+	public function datas_for_year()
 	{
 		$datas = $this->_data;
 		foreach ($datas as $key => $value) {
