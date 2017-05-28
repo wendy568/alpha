@@ -100,7 +100,7 @@ class Trading_datas_calculate {
 			$day = $slice[2];
 			$start = mktime(00, 00, 00, $month, $day, $year);
 			$end = mktime(23, 59, 59, $month, $day, $year);
-			print_r($slice);
+			print_r($start);
 		}
 
 	}
