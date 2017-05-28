@@ -25,8 +25,8 @@ class Trading_datas_calculate {
 	public function build($import_datas)
 	{
 		$this->mt4 = $import_datas;
-		$this->this_month = getdate()['mon'];
-		print_r(getdate(1490676508)['mon']);
+		// $this->this_month = getdate()['mon'];
+		$this->this_month = 3;
 		return $this;
 	}
 
