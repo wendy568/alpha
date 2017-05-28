@@ -23,11 +23,10 @@ class time_zone{
 	public function sundayOfTheWeekOfBegin()
 	{
 		$time = getdate();
-		if($time['wday'] != 1)
-		{
-			$day = $time['wday']-1;
+		if($time['wday'] != 1) {
+			$day = $time['wday'] - 1;
 			$this->_date = strtotime(" - {$day} day");
-		}elseif ($time['wday'] == 1) {
+		} elseif ($time['wday'] == 1) {
 			$this->_date = $time[0];
 		}
 		return $this;
@@ -36,11 +35,10 @@ class time_zone{
 	public function sundayOfTheWeekOfEnd()
 	{
 		$time = getdate();
-		if($time['wday'] != 0)
-		{
-			$day = 7-$time['wday'];
+		if($time['wday'] != 0) {
+			$day = 7 - $time['wday'];
 			$this->_date = strtotime(" + {$day} day");
-		}elseif ($time['wday'] == 0) {
+		} elseif ($time['wday'] == 0) {
 			$this->_date = $time[0];
 		}
 		return $this;
