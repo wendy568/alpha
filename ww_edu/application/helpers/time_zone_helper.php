@@ -107,7 +107,7 @@ class time_zone{
 			$year = date("Y");
 			$month = date("m");
 			for ($i=1; $i < 7; $i++) { 
-				$day = 7 - ($date['mday'] - $i);
+				$day = $date['mday'] - $i;
 				$dates[] = "{$year}-{$month}-{$day}";
 			}
 			print_r(array_reverse($dates));
