@@ -98,6 +98,7 @@ class Trading_datas_calculate extends Encapsulation{
     public function transaction_peroid($index)
     {
     	$time = end($this->_data)[$index];
+        print_r($time);
     	return ($time) ? time() - $time : 0;
     }
 
