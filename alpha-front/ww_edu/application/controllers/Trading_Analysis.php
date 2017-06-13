@@ -1,6 +1,31 @@
 <?php
 class Trading_Analysis extends MY_Controller
 {
+	public function order_symbol()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$token = $this->input->get_post('token', TRUE);
+		$start_time = $this->input->get_post('start_time', TRUE);
+		$end_time = $this->input->get_post('end_time', TRUE);
+		$account = $this->get_trading_account($token);
+
+		$this->load->database();
+		$this->load->helper('json');
+		// $this->load->helper('time_zone');
+		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
+		$this->load->helper('encapsulation');
+		$this->load->model('TradingAnalysis');
+
+		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, null, $start_time, $end_time);
+		$this->load->library('trading_datas_calculate');
+		$data['data']['order_symbol'] = $this->trading_datas_calculate->build($mt4)->property('group', ['order_symbol'])->get_property();
+
+		$response = array('archive' => array('status' => 0 ,'message' =>''));
+	
+		encode_json($response,$data);
+	}
+
 	public function calculator_anytime()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
