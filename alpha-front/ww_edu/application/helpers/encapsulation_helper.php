@@ -301,7 +301,6 @@ abstract class Encapsulation
     	foreach ($datas as $key => $value) {
     		foreach ($value as $k => $v) {
     			if ($k == $index && $v > 0) {
-    				var_dump($v);
     				$sum += 1;
     			} elseif($k == $index && $v < 0) {
 
@@ -311,8 +310,6 @@ abstract class Encapsulation
     		}
     	}
 
-    	print_r($sum);
-    	print_r($count);
     	if($sum !== 0) $count[] = $sum;
     	if(empty($count)) $count[] = 0;
 
