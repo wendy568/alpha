@@ -19,7 +19,7 @@ class Dashboard extends MY_Controller
 		
 		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
-		$last_month = getdate(strtotime(date('Y-m-d H:i:s', time()) . '- 1 day'))['mon'];
+		$last_month = getdate(strtotime(date('Y-m-d H:i:s', time()) . '- 1 month'))['mon'];
 		print_r($last_month);
 		$data['data']['trading_count'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('get_count', [])->get_property();
 		$last_trading_count = $this->trading_datas_calculate->build($mt4, $last_month)->get_month()->count()->property('get_count', [])->get_property();
