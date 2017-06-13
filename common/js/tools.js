@@ -348,18 +348,18 @@
                     var $content = $('<div class="log-tab-content"></div>');
                     var log_html='';
                     $.each(item,function(i,data){
-                    	if(data.color == "red"){
-                    		titleImg='src="assets/img/log_bg_01.png"';
-                    	}else if(data.color == "yellow"){
-                    		titleImg='src="assets/img/log_bg_02.png"';
-                    	}else if(data.color == "blue"){
-                    		titleImg='src="assets/img/log_bg_03.png"';
-                    	};
+                    	// if(data.color == "red"){
+                    	// 	titleImg='src="assets/img/log_bg_01.png"';
+                    	// }else if(data.color == "yellow"){
+                    	// 	titleImg='src="assets/img/log_bg_02.png"';
+                    	// }else if(data.color == "blue"){
+                    	// 	titleImg='src="assets/img/log_bg_03.png"';
+                    	// };
 
                     	log_html =
                     	$('<div class="col-lg-4 m-b-40">'+
                             '<div id="'+ data.id +'" class="log">'+
-                                '<img '+ titleImg +'" alt="" class="log-title">'+
+                                '<img src="assets/img/log_bg_01.png" alt="" class="log-title">'+
                                 '<div class="log-body ">'+
                                     '<h3>'+
                                     	'<i class="status-icon '+ data.color +'"></i>'+ data.title +
