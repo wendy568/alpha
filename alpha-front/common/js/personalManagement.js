@@ -152,6 +152,7 @@
 		$('.modal-backdrop').removeClass('modal-backdrop');
 		$('body').removeClass('modal-open');
 		$('#tvModal').removeClass('in');
+		$('#articleModal').removeClass('in');
 	});
 
 	$.alpha.request_Url('post','Classes/current_stage',{},function(data){
@@ -174,62 +175,73 @@
 		$('.tab-pane').eq(stage-1).addClass('active');
 
 		// detail
-		var studyList = "";
 		var stageDtail=data.data.detail;
-		// var title=[];
-		// var content=[];
-		// for(var i in stageDtail){
-		// 	title.push(i);
-		// 	content.push(stageDtail[i]);
-		// }
-		// $.each(stageDtail,function(i,data){
-		// 	console.log(i);
-		// 	console.log(data);
-		// 	if(i !== 'Video learning' || i !== 'Article learning'){
+		var title=[];
+		var content=[];
+		for(var i in stageDtail){
+			title.push(i);
+			content.push(stageDtail[i]);
+		}
+		// video
+		var tvList = "";
+		$.each(content[3],function(i,data){
+			tvList = $('<li id="'+ data.id +'" class="tv-small" data-toggle="modal" data-target="#tvModal">'+
+                            '<div class="bk-img">'+
+                                '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
+                            '</div>'+
+                            '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">'+
+                           	'<div class="tv-des">'+
+                                '<h5 class="text-c2">'+ data.name +'</h5>'+
+                            '</div>'+
+                        '</li>');
+			$('.tv-list').append(tvList);
+		});
+		$('.tv-list').on('click','.tv-small',function(){
+			var vmid=$(this).attr('id');
+			$.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
+                var tvStudy="";
+                tvStudy +=
+                `<iframe id="tv" src="http://content.jwplatform.com/players/${data.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>`;
+                $('.tv-detail-header').html(tvStudy);
+                var tvdesc="";
+                tvdesc +=`<h3 class="text-c1 no-margin p-b-10">${data.data.name}</h3>
+                           <P class="text-c3 no-padding">${data.data.describe}</P>`;
+                $('#tvModal .tv-detail-body').html(tvdesc);
 
-		// 		studyList = $('<li class="panel no-margin">' +
-		//                         '<div class="panel-heading no-padding">' +
-	 //                                '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>'+
-	 //                               	'<div class="cbp_tmlabel">'+
-	 //                                    '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">'+
-	 //                                        '<p class="m-t-5 text-c2">'+ i +'</p>'+
-	 //                                    '</div>'+
-	 //                                '</div>'+
-		//                         '</div>'+
-		//                     '</li>');
-		// 		$('#stage'+stage).find('.cbp_tmtimeline').append(studyList);
-		// 	}else if(i == 'Video learning'){
-		// 		studyList = $('<li class="panel no-margin">'+
-  //                               '<div class="panel-heading no-padding">'+
-  //                                   '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level'+stage+'-1">'+
-  //                                       '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>'+
-  //                                       '<div class="cbp_tmlabel">'+
-  //                                           '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">'+
-  //                                               '<p class="m-t-5 text-c2">Video Learning</p>'+
-  //                                           '</div>'+
-  //                                           '<div id="level'+stage+'-1" class="collapse in" style="margin-left:32px;">'+
-  //                                               '<div class="panel-body" style="padding-left: 0;">'+
-  //                                                   '<ul class="row m-b-30 no-padding">'+
-  //                                                       '<li id="'+ data.data.id +'" class="tv-small" data-toggle="modal" data-target="#tvModal">'+
-  //                                                           '<div class="bk-img">'+
-  //                                                               '<img src="assets/img/dem0_img01.png" alt="" style="width: 100%;">'+
-  //                                                           '</div>'+
-  //                                                           '<div class="tv-date text-c3">1223</div>'+
-  //                                                           '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">'+
-  //                                                           '<div class="tv-des">'+
-  //                                                               '<h5 class="text-c2">'+ data.name +'</h5>'+
-  //                                                           '</div>'+
-  //                                                       '</li>'+
-  //                                                   '</ul>'+
-  //                                               '</div>'+
-  //                                           '</div>'+
-  //                                       '</div>'+
-  //                                   '</a>'+
-  //                               '</div>'+
-  //                           '</li>');
-		// 		$('#stage'+stage).find('.cbp_tmtimeline').append(studyList);
-		// 	}
-		// });
+            });
+		});
+		// artic
+		var articList = "";
+		$.each(content[4],function(i,data){
+			articList = $('<li id="'+ data.id+'" class="tv-small" data-toggle="modal" data-target="#articleModal">'+
+                            '<div class="bk-img">'+
+                                '<img src="assets/img/dem0_img01.png" alt="" style="width: 100%;">'+
+                            '</div>'+
+                            '<div class="tv-des">'+
+                                '<h5 class="text-c2">'+data.title+'</h5>'+
+                            '</div>'+
+                        '</li>');
+			$('.artic-list').append(articList);
+		});
+		$('.artic-list').on('click','.tv-small',function(){
+			var aid=$(this).attr('id');
+			$.alpha.request_Url('post','Classes/article_detail',{class_id:aid},function(data){
+                
+                var artdesc="";
+                artdesc +=`<div class="fa fa-close text-c1 tv-close" style="top:0"></div>
+                                <h3 class="text-c1 no-margin p-b-10"> 
+                                    <i class="status-icon yellow m-r-10 m-b-5"></i>
+                                    ${data.data.title}
+                                </h3>
+                                <p>${data.data.update_time}</p>
+                                <P class="text-c3 no-padding">${data.data.content}</P>`;
+                $('#articleModal .tv-detail-body').html(artdesc);
+            });
+		});
+
+		$('.cbp_tmlabel p span').eq(0).html(content[0]);
+		$('.cbp_tmlabel p span').eq(1).html(content[1]);
+		$('.cbp_tmlabel p span').eq(2).html(content[2]);
 	});
 })();
 
