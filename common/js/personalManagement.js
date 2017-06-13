@@ -176,17 +176,60 @@
 		// detail
 		var studyList = "";
 		var stageDtail=data.data.detail;
-		var title=[];
-		var content=[];
-		for(var i in stageDtail){
-			title.push(i);
-			content.push(stageDtail);
-		}
-		console.log(title); 
-		console.log(content);
-	
-		
-		$('#stage'+stage).find('.cbp_tmtimeline').html();
+		// var title=[];
+		// var content=[];
+		// for(var i in stageDtail){
+		// 	title.push(i);
+		// 	content.push(stageDtail[i]);
+		// }
+		// $.each(stageDtail,function(i,data){
+		// 	console.log(i);
+		// 	console.log(data);
+		// 	if(i !== 'Video learning' || i !== 'Article learning'){
+
+		// 		studyList = $('<li class="panel no-margin">' +
+		//                         '<div class="panel-heading no-padding">' +
+	 //                                '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>'+
+	 //                               	'<div class="cbp_tmlabel">'+
+	 //                                    '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">'+
+	 //                                        '<p class="m-t-5 text-c2">'+ i +'</p>'+
+	 //                                    '</div>'+
+	 //                                '</div>'+
+		//                         '</div>'+
+		//                     '</li>');
+		// 		$('#stage'+stage).find('.cbp_tmtimeline').append(studyList);
+		// 	}else if(i == 'Video learning'){
+		// 		studyList = $('<li class="panel no-margin">'+
+  //                               '<div class="panel-heading no-padding">'+
+  //                                   '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level'+stage+'-1">'+
+  //                                       '<div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>'+
+  //                                       '<div class="cbp_tmlabel">'+
+  //                                           '<div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">'+
+  //                                               '<p class="m-t-5 text-c2">Video Learning</p>'+
+  //                                           '</div>'+
+  //                                           '<div id="level'+stage+'-1" class="collapse in" style="margin-left:32px;">'+
+  //                                               '<div class="panel-body" style="padding-left: 0;">'+
+  //                                                   '<ul class="row m-b-30 no-padding">'+
+  //                                                       '<li id="'+ data.data.id +'" class="tv-small" data-toggle="modal" data-target="#tvModal">'+
+  //                                                           '<div class="bk-img">'+
+  //                                                               '<img src="assets/img/dem0_img01.png" alt="" style="width: 100%;">'+
+  //                                                           '</div>'+
+  //                                                           '<div class="tv-date text-c3">1223</div>'+
+  //                                                           '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">'+
+  //                                                           '<div class="tv-des">'+
+  //                                                               '<h5 class="text-c2">'+ data.name +'</h5>'+
+  //                                                           '</div>'+
+  //                                                       '</li>'+
+  //                                                   '</ul>'+
+  //                                               '</div>'+
+  //                                           '</div>'+
+  //                                       '</div>'+
+  //                                   '</a>'+
+  //                               '</div>'+
+  //                           '</li>');
+		// 		$('#stage'+stage).find('.cbp_tmtimeline').append(studyList);
+		// 	}
+		// });
 	});
 })();
 
