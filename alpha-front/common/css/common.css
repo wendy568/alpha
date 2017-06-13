@@ -9221,6 +9221,31 @@ body.rtl .footer-widget {
 .comment .favicon{
   border-radius: 50%;
 }
+.tv-detail{
+    top: 50%;
+    left: 50%;
+    width: 1080px;
+    overflow: hidden;
+    margin-left: -540px;
+    margin-top: 60px;
+    background-color: #16181d;
+}
+.tv-detail-header{
+    width: 100%;
+    height: 600px;
+}
+.tv-detail-body{
+    width: 100%;
+    overflow: hidden;
+    background-color: #16181d;
+    padding:30px;
+}
+.tv-close{
+   position: absolute;
+   padding: 15px;
+   left: 1032px;
+   cursor: pointer;
+}
 /*工具提示条*/
 .tooltips{
   width: 50px;
@@ -9464,12 +9489,6 @@ body.rtl .footer-widget {
     position: relative;
     margin-top: 30px;
 }
-.detail-blocks{
-    z-index:1000;
-    position: absolute;
-    top:30px;
-    height: 60px;
-}
 .block{
     width: 117px;
     background-color: #2a2e36;
@@ -9483,93 +9502,93 @@ body.rtl .footer-widget {
     display: inline-block;
     cursor: pointer;
 }
-.detail-blocks li:first-child:hover,
-.detail-blocks li:first-child:active,
-.detail-blocks li:first-child.active
+.roll__list li:first-child:hover,
+.roll__list li:first-child:active,
+.roll__list li:first-child.active
 {
      background: -webkit-linear-gradient(top,#F25555,#FB72AE);
 }
-.detail-blocks li:nth-child(2):hover,
-.detail-blocks li:nth-child(2):active,
-.detail-blocks li:nth-child(2).active
+.roll__list li:nth-child(2):hover,
+.roll__list li:nth-child(2):active,
+.roll__list li:nth-child(2).active
 {
      background: -webkit-linear-gradient(top,#F9BF66,#F95CB1);
 }
-.detail-blocks li:nth-child(3):hover,
-.detail-blocks li:nth-child(3):active,
-.detail-blocks li:nth-child(3).active
+.roll__list li:nth-child(3):hover,
+.roll__list li:nth-child(3):active,
+.roll__list li:nth-child(3).active
 {
      background: -webkit-linear-gradient(top,#FFA35A,#FFB064);
 }
-.detail-blocks li:nth-child(4):hover,
-.detail-blocks li:nth-child(4):active,
-.detail-blocks li:nth-child(4).active
+.roll__list li:nth-child(4):hover,
+.roll__list li:nth-child(4):active,
+.roll__list li:nth-child(4).active
 {
      background: -webkit-linear-gradient(top,#FD9786,#F567DC);
 }
-.detail-blocks li:nth-child(5):hover,
-.detail-blocks li:nth-child(5):active
-.detail-blocks li:nth-child(5).active
+.roll__list li:nth-child(5):hover,
+.roll__list li:nth-child(5):active
+.roll__list li:nth-child(5).active
 {
      background: -webkit-linear-gradient(top,#F387BC,#A26FED);
 }
-.detail-blocks li:nth-child(6):hover,
-.detail-blocks li:nth-child(6):active
-.detail-blocks li:nth-child(6).active
+.roll__list li:nth-child(6):hover,
+.roll__list li:nth-child(6):active
+.roll__list li:nth-child(6).active
 {
      background: -webkit-linear-gradient(top,#E7EE9D,#5BF2B9);
 }
-.detail-blocks li:nth-child(7):hover,
-.detail-blocks li:nth-child(7):active
-.detail-blocks li:nth-child(7).active
+.roll__list li:nth-child(7):hover,
+.roll__list li:nth-child(7):active
+.roll__list li:nth-child(7).active
 {
      background: -webkit-linear-gradient(top,#E5EBA4,#A7DA7C);
 }
-.detail-blocks li:nth-child(8):hover,
-.detail-blocks li:nth-child(8):active
-.detail-blocks li:nth-child(8).active
+.roll__list li:nth-child(8):hover,
+.roll__list li:nth-child(8):active
+.roll__list li:nth-child(8).active
 {
      background: -webkit-linear-gradient(top,#889CFF,#9BE1D3);
 }
-.detail-blocks li:nth-child(9):hover,
-.detail-blocks li:nth-child(9):active
-.detail-blocks li:nth-child(9).active
+.roll__list li:nth-child(9):hover,
+.roll__list li:nth-child(9):active
+.roll__list li:nth-child(9).active
 {
      background: -webkit-linear-gradient(top,#B7F2EB,#BADDEB);
 }
-.detail-blocks li:nth-child(10):hover,
-.detail-blocks li:nth-child(10):active
-.detail-blocks li:nth-child(10).active
+.roll__list li:nth-child(10):hover,
+.roll__list li:nth-child(10):active
+.roll__list li:nth-child(10).active
 {
      background: -webkit-linear-gradient(top,#B6CFEC,#789AEC);
 }
-.detail-blocks li:nth-child(11):hover,
-.detail-blocks li:nth-child(11):active
-.detail-blocks li:nth-child(11).active
+.roll__list li:nth-child(11):hover,
+.roll__list li:nth-child(11):active
+.roll__list li:nth-child(11).active
 {
      background: -webkit-linear-gradient(top,#77EFD8,#45BAF2);
 }
-.detail-blocks li:nth-child(12):hover,
-.detail-blocks li:nth-child(12):active
-.detail-blocks li:nth-child(12).active
+.roll__list li:nth-child(12):hover,
+.roll__list li:nth-child(12):active
+.roll__list li:nth-child(12).active
 {
      background: -webkit-linear-gradient(top,#5F6BE4,#73BDEB);
 }
-.detail-blocks li:nth-child(13):hover,
-.detail-blocks li:nth-child(13):active
-.detail-blocks li:nth-child(13).active
+.roll__list li:nth-child(13):hover,
+.roll__list li:nth-child(13):active
+.roll__list li:nth-child(13).active
 {
      background: -webkit-linear-gradient(top,#A2ACF1,#B482D3);
 }
-.detail-blocks li:nth-child(14):hover,
-.detail-blocks li:nth-child(14):active
-.detail-blocks li:nth-child(14).active
+.roll__list li:nth-child(14):hover,
+.roll__list li:nth-child(14):active
+.roll__list li:nth-child(14).active
 {
      background: -webkit-linear-gradient(top,#62ABFD,#9E80F3);
 }
-.detail-blocks li:nth-child(15):hover,
-.detail-blocks li:nth-child(15):active
-.detail-blocks li:nth-child(15).active
+.roll__list li:nth-child(15):hover,
+.roll__list li:nth-child(15):active
+.roll__list li:nth-child(15).active
 {
      background: -webkit-linear-gradient(top,#B6B7F8,#F5ACCC);
 }
@@ -9793,4 +9812,45 @@ url("chrome://browser/content/history/history-panel.xul")
 .table-list{
   height: 520px;
   overflow-y: scroll;
+}
+
+.roll-wrap:hover .control{
+    display: block;
+}
+
+.roll-wrap{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+}
+.roll_row .roll__list::before, .roll_row .roll__list::after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.roll_row .roll__list::after {
+    clear: both;
+}
+.roll_row .roll__list{
+    width: 9999px;
+}
+.control{
+    position: absolute;
+    top: 8px;
+    display: none;
+    padding: 10px 5px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .3);
+}
+.control:hover{
+    background-color: rgba(0, 0, 0, .5);
+}
+.control.pre{
+    left: 5px;
+}
+.control.next{
+    right: 5px;
 }
