@@ -146,6 +146,8 @@ class Login extends CI_Model
 	    $result = $this->db->insert_id();
 	    $map = 'INSERT user_info(mem_id) VALUES("'.$result.'")';
 	    $this->db->query($map);
+	    $map = 'INSERT homework(uid,create_time,update_time,c_time,u_time) VALUES("'.$result.'","'.date('Y-m-d H:i:s', time()).'","'.date('Y-m-d H:i:s', time()).'","'.time().'","'.time().'",)';
+	    $this->db->query($map);
 	    $token = $this->get_token($result);
 	    $data['data']['token'] = $token;
 	}
