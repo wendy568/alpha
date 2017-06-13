@@ -17,13 +17,11 @@
                 <div class="video-body">
                     <h4 class="text-c2 semi-bold">${data.data.name}</h4>
                     <span>${data.data.describe}</span><br>
-                    <!-- 访问量 -->
                     <div class="overall">
                         <h6 class="text-c3">Overall Visits</h6>
                         <h5 class="text-c2">${data.data.views}</h5>
                         <p><i class="fa fa-play text-error"></i></p>
                     </div>
-                    <!-- 评论数 -->
                     <div class="overall pull-right">
                         <h6 class="text-c3">Comment</h6>
                         <h5 class="text-c2">${data.data.message_count}</h5>
@@ -34,12 +32,12 @@
     })
 
     // 视频列表
-    $.alpha.request_Url('post','video/list',{'limit':4,'start':1},function(data){
+    $.alpha.request_Url('post','video/list',{'limit':20,'start':1},function(data){
         var list_html="";
         $.each(data.data,function(i,data){
             var li = document.createElement('li');
 
-            $(li).addClass('tv-small')
+            $(li).addClass('tv-small m-b-30')
             .attr({
                 id: data.id
             })

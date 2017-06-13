@@ -9856,3 +9856,10 @@ url("chrome://browser/content/history/history-panel.xul")
 .control.next{
     right: 5px;
 }
+.complete{
+    width: 32px;
+    height: 25px;
+    background:url(../img/Level_completed.png) center no-repeat;
+    background-size: 50%;
+    display: inline-block;
+}
