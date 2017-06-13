@@ -79,6 +79,16 @@ class ClassesM extends CI_Model
 		$result = $this->db->affected_rows();
 	
 		return $result;
-	}		
+	}
+
+	function article_detail($id)
+	{
+		$map = 'SELECT * 
+				FROM article
+				WHERE id="'.$id.'"';
+		
+		$result = $this->db->query($map)->result_array();
+		return $result;
+	}
 
 }
