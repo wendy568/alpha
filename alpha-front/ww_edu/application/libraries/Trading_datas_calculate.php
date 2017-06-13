@@ -134,6 +134,7 @@ class Trading_datas_calculate extends Encapsulation{
     public function accuracy($index)
     {
     	$accuracy = ($this->count) ? $this->count_positive($index) / $this->count : 0;
+        print_r($accuracy);
     	return  round($accuracy, 4);
     }
 
