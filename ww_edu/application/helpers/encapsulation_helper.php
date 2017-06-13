@@ -309,6 +309,7 @@ abstract class Encapsulation
     		}
     	}
     	print_r($sum);
+    	print_r($count);
     	if($sum !== 0 && $sum !== 1) $count[] = $sum;
     	print_r($count);
     	rsort($count);
