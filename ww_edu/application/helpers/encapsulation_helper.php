@@ -315,4 +315,9 @@ abstract class Encapsulation
 
     	return current($count);
     }
+
+    protected function group($index)
+    {
+    	print_r($array_column($this->_data, 'order_symbol'));
+    }
 }
