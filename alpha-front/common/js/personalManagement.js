@@ -32,6 +32,119 @@
 	      	ctx.fillStyle='#fff';
 	    },50);
 	}
+	(function($){
+                $.fn.rollSlide = function(obj){
+                    var $self = this,
+                    orientation = obj.orientation || 'left',   //滚动方式
+                    num = obj.num || 1,      //滚动数量
+                    v = (typeof obj.v === 'number') ? obj.v : 0,    //滚动速度
+                    minTime = (typeof obj.space === 'number') ? ((obj.space >= 100) ? obj.space : 100) : 100,    //最小间隔为 100 ms ，
+                    isStart = true,
+                    roll = function(ori, n, v){
+                        var $ul = $self.find('.roll-list'),
+                            $item = $ul.find('li'),
+                            range = 0,
+                            i,len = $item.length,
+                            sliceItem = [],
+                            cloneSliceItem = [],
+                            startTime = (new Date()).getTime(),
+                            //存放滚动过的 item
+                            memory = function(){
+                                var arr = [];
+
+                                if(ori === 'left' || ori === 'top'){
+                                    for(i = 0; i < n; i++){
+                                        range += ori === 'left' ? $($item[i]).outerWidth(true) : $($item[i]).outerHeight(true); // left 取 width，top 取 height
+                                        arr.push($item[i]);
+                                    }
+                                } else if(ori === 'right' || ori === 'bottom'){
+                                    for(i = len - n; n > 0; n--, i++){
+                                        range += ori === 'right' ? $($item[i]).outerWidth(true) : $($item[i]).outerHeight(true);
+                                        arr.push($item[i]);
+                                    }
+                                }
+                                return arr;
+                            };
+
+                        isStart = false;         //关闭滚动
+                        sliceItem = memory();
+                        cloneSliceItem = $(sliceItem).clone();
+                        //判断往哪个方向移动
+                        switch (ori){
+                            case 'left':
+                                $ul.append(cloneSliceItem);
+                                $ul.animate({
+                                    'left': -range + 'px'
+                                },v,function(){
+                                    $(this).css({'left': 0});
+                                    $(sliceItem).remove();
+                                    isStart = true;    //开启滚动
+                                });
+                                break;
+                            case 'right':
+                                $ul.prepend(cloneSliceItem);
+                                $ul.css('left', -range + 'px');
+                                $ul.animate({
+                                    'left': 0
+                                },v,function(){
+                                    $(sliceItem).remove();
+                                    isStart = true;    //开启滚动
+                                });
+                                break;
+                        }
+                    },
+                    init = function(){
+                        var $ul = $self.find('.roll-list'),
+                            $item = $ul.find('li'),
+                            len = $item.length,
+                            timer;
+
+                        num = num <= len ? num : len;   //滚动个数超过列表数，取列表数
+                        if(len > 1){
+                            $self.on('click', '.pre', function(){
+                                if(isStart){
+                                    //横向滚动
+                                    if(orientation === 'left' || orientation === 'right'){
+                                        roll('right', num, v);
+                                    } else{           //纵向滚动
+                                        roll('bottom', num, v);
+                                    }
+                                }
+                            }).
+                            on('click', '.next', function(){
+                                if(isStart){
+                                    //横向滚动
+                                    if(orientation === 'left' || orientation === 'right'){
+                                        roll('left', num, v);
+                                    } else{           //纵向滚动
+                                        roll('top', num, v);
+                                    }
+                                }
+                            }).
+                            hover(function(){
+                                clearInterval(timer);
+                            }, function(){
+                                // if(isRoll){
+                                //     timer = setInterval(function(){
+                                //         roll(orientation, num, v);
+                                //     },space);
+                                // }
+                            }).
+                            trigger('mouseout');
+                        }
+                    };
+
+                    init();
+                };
+            })(jQuery);
+
+            $('#levelList').rollSlide({
+                orientation: 'left',
+                num: 1,
+                v: 1000,
+                space: 3000,
+                isRoll: false
+            });
 
 	$('.tv-close').click(function(){
 		$('#tvModal').hide();
@@ -42,7 +155,7 @@
 	});
 
 	$.alpha.request_Url('post','Classes/current_stage',{},function(data){
-		// 阶段
+		// 阶段展示
 		var stage=data.data.current_stage;
 		getStage(stage);
 		// 完成情况
@@ -53,8 +166,27 @@
 		// title
 		$('.pro-intr h4').html(data.data.title);
 		$('.pro-intr p').html(data.data.describe);
-	});
 
+		// 定位 stage learning
+		$('.roll-list li').removeClass('active');
+		$('.tab-pane').removeClass('active');
+		$('.roll-list li').eq(stage-1).addClass('active');
+		$('.tab-pane').eq(stage-1).addClass('active');
+
+		// detail
+		var studyList = "";
+		var stageDtail=data.data.detail;
+		var title=[];
+		var content=[];
+		for(var i in stageDtail){
+			title.push(i);
+			content.push(stageDtail);
+		}
+		console.log(title); 
+		console.log(content);
 	
+		
+		$('#stage'+stage).find('.cbp_tmtimeline').html();
+	});
 })();
 

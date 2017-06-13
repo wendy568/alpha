@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 @import url("../../assets/plugins/jq-tooltips/tip-twitter/tip-twitter.css");
+*{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 /*------------------------------------------------------------------
 1. Layouts 布局
 2. Icons 图标
@@ -9502,93 +9504,93 @@ body.rtl .footer-widget {
     display: inline-block;
     cursor: pointer;
 }
-.roll__list li:first-child:hover,
-.roll__list li:first-child:active,
-.roll__list li:first-child.active
+.s1:hover,
+.s1:active,
+.s1.active
 {
      background: -webkit-linear-gradient(top,#F25555,#FB72AE);
 }
-.roll__list li:nth-child(2):hover,
-.roll__list li:nth-child(2):active,
-.roll__list li:nth-child(2).active
+.s2:hover,
+.s2:active,
+.s2.active
 {
      background: -webkit-linear-gradient(top,#F9BF66,#F95CB1);
 }
-.roll__list li:nth-child(3):hover,
-.roll__list li:nth-child(3):active,
-.roll__list li:nth-child(3).active
+.s3:hover,
+.s3:active,
+.s3.active
 {
      background: -webkit-linear-gradient(top,#FFA35A,#FFB064);
 }
-.roll__list li:nth-child(4):hover,
-.roll__list li:nth-child(4):active,
-.roll__list li:nth-child(4).active
+.s4:hover,
+.s4:active,
+.s4.active
 {
      background: -webkit-linear-gradient(top,#FD9786,#F567DC);
 }
-.roll__list li:nth-child(5):hover,
-.roll__list li:nth-child(5):active
-.roll__list li:nth-child(5).active
+.s5:hover,
+.s5:active
+.s5.active
 {
      background: -webkit-linear-gradient(top,#F387BC,#A26FED);
 }
-.roll__list li:nth-child(6):hover,
-.roll__list li:nth-child(6):active
-.roll__list li:nth-child(6).active
+.s6:hover,
+.s6:active
+.s6.active
 {
      background: -webkit-linear-gradient(top,#E7EE9D,#5BF2B9);
 }
-.roll__list li:nth-child(7):hover,
-.roll__list li:nth-child(7):active
-.roll__list li:nth-child(7).active
+.s7:hover,
+.s7:active
+.s7.active
 {
      background: -webkit-linear-gradient(top,#E5EBA4,#A7DA7C);
 }
-.roll__list li:nth-child(8):hover,
-.roll__list li:nth-child(8):active
-.roll__list li:nth-child(8).active
+.s8:hover,
+.s8:active
+.s8.active
 {
      background: -webkit-linear-gradient(top,#889CFF,#9BE1D3);
 }
-.roll__list li:nth-child(9):hover,
-.roll__list li:nth-child(9):active
-.roll__list li:nth-child(9).active
+.s9:hover,
+.s9:active
+.s9.active
 {
      background: -webkit-linear-gradient(top,#B7F2EB,#BADDEB);
 }
-.roll__list li:nth-child(10):hover,
-.roll__list li:nth-child(10):active
-.roll__list li:nth-child(10).active
+.s10:hover,
+.s10:active
+.s10.active
 {
      background: -webkit-linear-gradient(top,#B6CFEC,#789AEC);
 }
-.roll__list li:nth-child(11):hover,
-.roll__list li:nth-child(11):active
-.roll__list li:nth-child(11).active
+.s11:hover,
+.s11:active
+.s11.active
 {
      background: -webkit-linear-gradient(top,#77EFD8,#45BAF2);
 }
-.roll__list li:nth-child(12):hover,
-.roll__list li:nth-child(12):active
-.roll__list li:nth-child(12).active
+.s12:hover,
+.s12:active
+.s12.active
 {
      background: -webkit-linear-gradient(top,#5F6BE4,#73BDEB);
 }
-.roll__list li:nth-child(13):hover,
-.roll__list li:nth-child(13):active
-.roll__list li:nth-child(13).active
+.s13:hover,
+.s13:active
+.s13.active
 {
      background: -webkit-linear-gradient(top,#A2ACF1,#B482D3);
 }
-.roll__list li:nth-child(14):hover,
-.roll__list li:nth-child(14):active
-.roll__list li:nth-child(14).active
+.s14:hover,
+.s14:active
+.s14.active
 {
      background: -webkit-linear-gradient(top,#62ABFD,#9E80F3);
 }
-.roll__list li:nth-child(15):hover,
-.roll__list li:nth-child(15):active
-.roll__list li:nth-child(15).active
+.s15:hover,
+.s15:active
+.s15.active
 {
      background: -webkit-linear-gradient(top,#B6B7F8,#F5ACCC);
 }
@@ -9824,15 +9826,15 @@ url("chrome://browser/content/history/history-panel.xul")
     height: 60px;
     overflow: hidden;
 }
-.roll_row .roll__list::before, .roll_row .roll__list::after {
+.roll_row .roll-list::before, .roll_row .roll-list::after {
     content: "";
     display: table;
     line-height: 0;
 }
-.roll_row .roll__list::after {
+.roll_row .roll-list::after {
     clear: both;
 }
-.roll_row .roll__list{
+.roll_row .roll-list{
     width: 9999px;
 }
 .control{
