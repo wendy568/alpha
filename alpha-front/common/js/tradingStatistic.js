@@ -1,5 +1,5 @@
 (function(){
-    // common datepicker 
+    // common datepicker
     $('.input-append.date').datepicker({
         autoclose: true,
         todayHighlight: true
@@ -27,10 +27,10 @@
       return val1 - val2;
     });
     var oFragment = document.createDocumentFragment();
-    
+
     $.each(billCount,function (i,item) {
         var $li = $('<li><a href="#'+i+'">'+item+'</a></li>');
-    
+
         // 选择货币
         $li.click(function(){
             var currText=$(this).children('a').text();
@@ -40,7 +40,7 @@
             $('<li class="tab"><a href="javascript:;">'+
                 '<span class="currency">'+currText+'</span>'+
               '<div class="controller"><a href="javascript:;" class="remove"></a></div></a></li>');
-            
+
             $currLiHtml.find('.controller .remove').click(function () {
               $(this).parent().parent().addClass('animated fadeOut');
               $(this).parent().parent().attr('id', 'id_remove');
@@ -61,18 +61,18 @@
                   start_time : startTime ? new Daste(startTime).getTime()/1000 : null,
                   end_time : endTime ? new Date(endTime).getTime()/1000 : null
                 };
-  
+
                 getAllData(param);
             });
-            
+
             $('.last-tab').before($currLiHtml);
             $this.hide();
         });
         $(oFragment).append($li);
     });
-    
+
     $('.dropdown-menu').append($(oFragment));
-	
+
     // 监听货币选项卡加载数据
     $('.page-content .tabs>.tab').on('click',function (e) {
         e.stopPropagation();
@@ -86,10 +86,10 @@
             start_time : startTime ? new Daste(startTime).getTime()/1000 : null,
             end_time : endTime ? new Date(endTime).getTime()/1000 : null
         };
-        
+
         getAllData(param);
     });
-    
+
     $('.today').click(function (e) {
         e.stopPropagation();
         var curBill = $('.page-content .tabs>.tab.active').find('.currency').text().replace('/','');
@@ -100,9 +100,9 @@
         };
         getAllData(param);
     });
-    
+
     getAllData({finency_proc:'EUR/USD'});
-    
+
     function getAllData(param) {
         getTraData(param);
         getLossData(param);
@@ -123,7 +123,7 @@
         }
       });
     }
-  
+
     // 收益净值
     function getLossData(params){
       $.alpha.request_Url('post','Trading_Analysis/profit_loss',params,function(data){
@@ -171,7 +171,7 @@
                         left: '2%',
                         right: '5%',
                         bottom: '3%',
-                    
+
                         containLabel: true,
                         height:250,
                     },
@@ -205,50 +205,55 @@
       });
     }
 
-  
+
     // synthesizing data 环形图----------------------------------------------------------------------------
     function getPieData(params) {
         $.alpha.request_Url('post','Trading_Analysis/long_short_ratio',params,function(data){
             if(data.archive.status == 0){
                 var billData = [];
-                billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
-                billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
-          
-                var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
-                pieChart.setOption({
+                if(data.data.percent_ratio.length > 0){
+                  billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
+                  billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
+
+                  var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
+                  pieChart.setOption({
                     legend: {
-                        x : 'center',
-                        y : 'bottom',
-                        data:['Long','Short']
+                      x : 'center',
+                      y : 'bottom',
+                      data:['Long','Short']
                     },
                     series: [
-                        {
-                            name:'bill',
-                            type:'pie',
-                            radius: ['50%', '70%'],
-                            avoidLabelOverlap: false,
-                            label: {
-                                normal: {
-                                    show: true,
-                                    position: 'inside',
-                                    formatter:"{b}: {d}%"
-                                },
-                                emphasis: {
-                                    show: true,
-                                    textStyle: {
-                                        fontSize: '16',
-                                        fontWeight: 'bold'
-                                    }
-                                }
-                            },
-                            data:billData
-                        }
+                      {
+                        name:'bill',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                          normal: {
+                            show: true,
+                            position: 'inside',
+                            formatter:"{b}: {d}%"
+                          },
+                          emphasis: {
+                            show: true,
+                            textStyle: {
+                              fontSize: '16',
+                              fontWeight: 'bold'
+                            }
+                          }
+                        },
+                        data:billData
+                      }
                     ]
-                });
+                  });
+                }else{
+                  $('#ram-usage').css({'text-algin':'center','line-height':'190px'}).html('');
+                }
+
             }
         });
     }
-  
+
 
     // 柱状图 交易买卖手数
     function getBarData(params){
@@ -265,22 +270,22 @@
             buy.push(x && x._0 ? x._0 : 0);
             sell.push(x && x._1 ? x._1 : 0);
           }
-          
+
           var barChart = echarts.init(document.getElementById('barChart'),'purple-passion');
           var option = {
               tooltip : {
                   trigger: 'axis',
-      
+
                   axisPointer : {
                       type : 'shadow'
                   }
               },
               legend: {},
               grid: {
-                
+
                   left: '2%',
                   right: '4%',
-           
+
                   bottom: '2%',
                   containLabel: true,
                   height: 250
@@ -300,7 +305,7 @@
                 {
                       name:'买',
                       type:'bar',
-                
+
                       stack: 1,
                       data:buy,
                       barWidth:8
@@ -308,19 +313,19 @@
                   {
                       name:'卖',
                       type:'bar',
-                 
+
                       stack: 1,
                       data:sell,
                       barWidth:8
                   }
-                  
+
               ]
           };
           barChart.setOption(option);
         }
       });
     }
-  
+
     //  allTradingStatistics  交易数据----------------------------------------------------------------------------
     function getAllTradingStatistics(params) {
         var $td = $('.all-trading-statistics tbody td');
@@ -331,7 +336,7 @@
         var $aveHoldingtime = $td.eq(4).find('span');
         var $riskManagementLevel = $td.eq(5).find('span').eq(0);
         var $riskManagementLevel_label = $td.eq(5).find('span').eq(1);
-  
+
         $.alpha.request_Url('post','Trading_Analysis/allTradingStatistics',params,function(data){
           if(data.archive.status == 0){
             var time = data.data.Avg_holding_Time;
@@ -339,7 +344,7 @@
             var hours = parseInt(time/3600) - days*24;
             var min = parseInt(time/60) - hours*60 - days*24*60;
             var sec = time - hours*60*60 - days*24*60*60 - min*60;
-            
+
             data.data.Net_profit && $NetProfit.html(data.data.Net_profit >= 0 ? '$'+data.data.Net_profit : '-$' + Math.abs(data.data.Net_profit));
             data.data.Average_Profits && $averageProfit.html(data.data.Average_Profits >= 0 ? '$'+data.data.Average_Profits : '-$' + Math.abs(data.data.Average_Profits));
             data.data.Average_Loss && $averageLoss.html(data.data.Average_Loss >= 0 ? '$'+data.data.Average_LossAverage_Loss : '-$' + Math.abs(data.data.Average_Loss));

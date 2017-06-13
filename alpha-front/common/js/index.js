@@ -124,45 +124,49 @@
       return val1.charCodeAt() - val2.charCodeAt();
     });
     var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
-    
+
     function getPieData(bill) {
         bill = bill.replace('/','');
         $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
             if(data.archive.status == 0){
                 var billData = [];
-                billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
-                billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
-                
-                pieChart.setOption({
-                  legend: {
-                    x : 'center',
-                    y : 'bottom',
-                    data:['Long','Short']
-                  },
-                  series: [
-                    {
-                      name:'bill',
-                      type:'pie',
-                      radius: ['50%', '70%'],
-                      avoidLabelOverlap: false,
-                      label: {
-                        normal: {
-                          show: true,
-                          position: 'inside',
-                          formatter:"{b}: {d}%"
-                        },
-                        emphasis: {
-                          show: true,
-                          textStyle: {
-                            fontSize: '16',
-                            fontWeight: 'bold'
+                if(data.data.percent_ratio.length > 0){
+                  billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
+                  billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
+
+                  pieChart.setOption({
+                    legend: {
+                      x : 'center',
+                      y : 'bottom',
+                      data:['Long','Short']
+                    },
+                    series: [
+                      {
+                        name:'bill',
+                        type:'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                          normal: {
+                            show: true,
+                            position: 'inside',
+                            formatter:"{b}: {d}%"
+                          },
+                          emphasis: {
+                            show: true,
+                            textStyle: {
+                              fontSize: '16',
+                              fontWeight: 'bold'
+                            }
                           }
-                        }
-                      },
-                      data:billData
-                    }
-                  ]
-                });
+                        },
+                        data:billData
+                      }
+                    ]
+                  });
+                }else{
+                  $('#ram-usage').css({'text-algin':'center','line-height':'190px'}).html('');
+                }
             }
         });
     }
@@ -225,14 +229,14 @@
             }
             return countryClass;
         }
-        
+
         $.alpha.request_Url('post','dashboard/calendar',date,function(data){
             if(data.archive.status == 0){
                 dateList = [];
                 var isCurDay = false;
                 $.each(data.data.calendar,function (i,item) {
                     dateList.push(i);
-                    
+
                     // 财经日历导航
                     i = i.replace('.','-').replace('.','-');
                     var x = i;
@@ -260,7 +264,7 @@
                         $('.calendar-tab-content').hide().eq(index).show().parent().scrollTop(scrollTop);
                     });
                     $('.En-calendar .calendar-tab').append($navBar);
-                  
+
                     // content
                     var $content = $('<div class="calendar-tab-content"></div>');
                     $.each(item,function (i,news) {
@@ -292,10 +296,10 @@
                         '<div class="panel-body">'+news.detail+'</div>'+
                         '</div>'+
                         '</div>');
-                        
+
                         $content.append($contentItem);
                     });
-                    
+
                     isCurDay ? $content.show() : $content.hide();
                     $('#accordion').append($content);
                 });
@@ -304,7 +308,7 @@
         });
     }
     getCalendarData();
-    
+
     $('.En-calendar .carousel-inner>a').eq(0).find('input').click(function (e) {
         e.stopPropagation();
         var $this = $(this);
