@@ -33,6 +33,14 @@
 	    },50);
 	}
 
+	$('.tv-close').click(function(){
+		$('#tvModal').hide();
+		$('#articleModal').hide();
+		$('.modal-backdrop').removeClass('modal-backdrop');
+		$('body').removeClass('modal-open');
+		$('#tvModal').removeClass('in');
+	});
+
 	$.alpha.request_Url('post','Classes/current_stage',{},function(data){
 		// 阶段
 		var stage=data.data.current_stage;
@@ -49,3 +57,4 @@
 
 	
 })();
+
