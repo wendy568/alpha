@@ -40,10 +40,6 @@ class Dashboard extends MY_Controller
 		$data['data']['last_avg_holding_time'] = abs(round(abs($abs) / $last_avg_holding_time, 3)) * 100 . '%' . $desc;
 
 		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('transaction_peroid', ['order_open_time'])->get_property();
-		$last_transaction_peroid = $this->trading_datas_calculate->build($mt4, $last_month)->get_month()->count()->property('transaction_peroid', ['order_open_time'])->get_property();
-		$abs = $data['data']['transaction_peroid'] - $last_transaction_peroid;
-
-		$data['data']['last_transaction_peroid'] = abs(round(abs($abs) / $last_transaction_peroid, 3)) * 100 . '%' . $desc;
 
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
