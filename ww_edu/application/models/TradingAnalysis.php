@@ -38,7 +38,7 @@ class TradingAnalysis extends CI_Model
         if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
             $start_time = ($start_time) ? $start_time : 0;
             $end_time = ($end_time) ? $end_time : $now;
-            $where .= " AND (time_en>{$start_time} AND time_en<{$end_time})";
+            $where .= " AND (time_cn>{$start_time} AND time_cn<{$end_time})";
         }
 
         $map = "SELECT time_en, time_cn, country AS `Currency`, event AS Event, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance, detail
