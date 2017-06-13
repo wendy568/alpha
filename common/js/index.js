@@ -123,50 +123,56 @@
     billCount.sort(function (val1,val2) {
       return val1.charCodeAt() - val2.charCodeAt();
     });
-    var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
 
     function getPieData(bill) {
+        var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
+        pieChart.setOption({
+          legend: {
+            x : 'center',
+            y : 'bottom',
+            data:['Long','Short']
+          },
+          series: [
+            {
+              name:'bill',
+              type:'pie',
+              radius: ['50%', '70%'],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: true,
+                  position: 'inside',
+                  formatter:"{b}: {d}%"
+                },
+                emphasis: {
+                  show: true,
+                  textStyle: {
+                    fontSize: '16',
+                    fontWeight: 'bold'
+                  }
+                }
+              },
+              data:[]
+            }
+          ]
+        });
+
         bill = bill.replace('/','');
         $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
             if(data.archive.status == 0){
                 var billData = [];
-                if(data.data.percent_ratio.length > 0){
+                if(data.data.percent_ratio._0>=0){
                   billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
                   billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
-
-                  pieChart.setOption({
-                    legend: {
-                      x : 'center',
-                      y : 'bottom',
-                      data:['Long','Short']
-                    },
-                    series: [
-                      {
-                        name:'bill',
-                        type:'pie',
-                        radius: ['50%', '70%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                          normal: {
-                            show: true,
-                            position: 'inside',
-                            formatter:"{b}: {d}%"
-                          },
-                          emphasis: {
-                            show: true,
-                            textStyle: {
-                              fontSize: '16',
-                              fontWeight: 'bold'
-                            }
-                          }
-                        },
-                        data:billData
-                      }
-                    ]
-                  });
-                }else{
-                  $('#ram-usage').css({'text-algin':'center','line-height':'190px'}).html('');
                 }
+                pieChart.setOption({
+                  series: [
+                    {
+                      name:'bill',
+                      data:billData
+                    }
+                  ]
+                });
             }
         });
     }

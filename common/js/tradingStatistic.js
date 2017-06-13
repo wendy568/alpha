@@ -18,11 +18,11 @@
     $('.my-colorpicker-control').colorpicker();
 
     // 货币种类
-    var billCount = ['AUD/USD','GBP/USD','NZD/USD','USD/CAD','USD/CHF','USD/CNH','USD/JPY',
-        'AUD/CAD','AUD/CHF','AUD/JPY','AUD/NZD','CAD/CHF','CAD/JPY','CHF/JPY','EUR/AUD','EUR/CAD','EUR/CHF',
-        'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
-        'AUG','DXY','COPPER','NGAS','UKOIL','USOIL','AUS200','HKG50','HKH40','JPN225','NAS100',
-        'SPX500','UK100','US30'];
+    var billCount = ['AUD/USD','EUR/USD','NZD/USD','USD/CAD','USD/CHF','USD/CNH','USD/JPY',
+      'AUD/CAD','AUD/CHF','AUD/JPY','AUD/NZD','CAD/CHF','CAD/JPY','CHF/JPY','EUR/AUD','EUR/CAD','EUR/CHF',
+      'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
+      'AUG','DXY','COPPER','NGAS','UKOIL','USOIL','AUS200','HKG50','HKH40','JPN225','NAS100',
+      'SPX500','UK100','US30'];
     billCount.sort(function (val1,val2) {
       return val1 - val2;
     });
@@ -101,7 +101,7 @@
         getAllData(param);
     });
 
-    getAllData({finency_proc:'EUR/USD'});
+    $('.page-content .tabs>.tab').eq(0).trigger('click');
 
     function getAllData(param) {
         getTraData(param);
@@ -208,48 +208,52 @@
 
     // synthesizing data 环形图----------------------------------------------------------------------------
     function getPieData(params) {
+        var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
+        pieChart.setOption({
+          legend: {
+            x : 'center',
+            y : 'bottom',
+            data:['Long','Short']
+          },
+          series: [
+            {
+              name:'bill',
+              type:'pie',
+              radius: ['50%', '70%'],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: true,
+                  position: 'inside',
+                  formatter:"{b}: {d}%"
+                },
+                emphasis: {
+                  show: true,
+                  textStyle: {
+                    fontSize: '16',
+                    fontWeight: 'bold'
+                  }
+                }
+              },
+              data:[]
+            }
+          ]
+        });
         $.alpha.request_Url('post','Trading_Analysis/long_short_ratio',params,function(data){
             if(data.archive.status == 0){
                 var billData = [];
                 if(data.data.percent_ratio.length > 0){
                   billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
                   billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
-
-                  var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
-                  pieChart.setOption({
-                    legend: {
-                      x : 'center',
-                      y : 'bottom',
-                      data:['Long','Short']
-                    },
-                    series: [
-                      {
-                        name:'bill',
-                        type:'pie',
-                        radius: ['50%', '70%'],
-                        avoidLabelOverlap: false,
-                        label: {
-                          normal: {
-                            show: true,
-                            position: 'inside',
-                            formatter:"{b}: {d}%"
-                          },
-                          emphasis: {
-                            show: true,
-                            textStyle: {
-                              fontSize: '16',
-                              fontWeight: 'bold'
-                            }
-                          }
-                        },
-                        data:billData
-                      }
-                    ]
-                  });
-                }else{
-                  $('#ram-usage').css({'text-algin':'center','line-height':'190px'}).html('');
                 }
-
+                pieChart.setOption({
+                  series: [
+                    {
+                      name:'bill',
+                      data:billData
+                    }
+                  ]
+                });
             }
         });
     }
