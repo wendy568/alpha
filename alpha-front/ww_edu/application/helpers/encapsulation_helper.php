@@ -309,9 +309,10 @@ abstract class Encapsulation
     		}
     	}
 
-    	if(empty($count)) $count[] = 0;
+    	
     	if($sum !== 0) $count[] = $sum;
-
+    	if(empty($count)) $count[] = 0;
+    	
     	return current($count);
     }
 }
