@@ -318,12 +318,10 @@ abstract class Encapsulation
 
     protected function group($index)
     {
-    	$array = [];
     	$order_symbol = array_column($this->_data, 'order_symbol');
     	$order_symbol = array_flip(array_flip($order_symbol));
-    	array_walk($order_symbol, function ($val) use ($array) {
-    		$array[] = $key;
-    	});
-    	return $array;
+    	$order_symbol = array_values($order_symbol);
+    	
+    	return $order_symbol;
     }
 }
