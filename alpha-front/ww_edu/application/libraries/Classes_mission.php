@@ -34,7 +34,7 @@ class Classes_mission
 				]
 			];
 
-	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Video learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title']];
+	public $showData = ['Video Learning' => ['classes_text', 'id, class_id, name, image'], 'Video learning' => ['classes_text', 'id, class_id, name, image'], 'Article learning' => ['article', 'id, title, image']];
 
 	protected $classes;
 
