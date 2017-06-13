@@ -128,8 +128,10 @@
     function getLossData(params){
       $.alpha.request_Url('post','Trading_Analysis/profit_loss',params,function(data){
         if(data.archive.status == 0){
-          var total_html='<h4 class="item-count animate-number semi-bold bg-purple">$'+data.data.profit_total+'</h4>';
+          var total_html='<h4 class="item-count animate-number semi-bold bg-purple">'+(data.data.profit_total > 0 ? + '$'+data.data.profit_total : '-$'+Math.abs(data.data.profit_total))+'</h4>';
           $('.wrapper').html(total_html);
+          var profit = data.data.profit;
+          var loss = data.data.loss;
         }
       });
     }
