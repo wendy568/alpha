@@ -97,8 +97,7 @@ class Trading_datas_calculate extends Encapsulation{
     //TimeNow-AccountOpentTime
     public function transaction_peroid($index)
     {
-    	$time = current($this->_data)[$index];
-        print_r($time);
+    	$time = current(array_flip($this->_data))[$index];
     	return ($time) ? time() - $time : 0;
     }
 
