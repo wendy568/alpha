@@ -130,4 +130,22 @@ class Classes extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function article_detail()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$article_id = $this->input->get_post('article_id', TRUE);
+		$token = $this->input->get_post('token', TRUE);
+		$uid = $this->get_bytoken($token);
+		
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('ClassesM');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->ClassesM->article_detail($article_id);
+	
+		encode_json($response,$data);
+	}
+
 }
