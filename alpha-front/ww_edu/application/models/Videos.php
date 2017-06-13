@@ -19,6 +19,7 @@ class Videos extends CI_Model
 				WHERE 1=1
 				-- AND ct.recommend=1 
 				$where
+				ORDER BY id DESC
 				limit {$start},{$limit}";
 		
 		$result = $this->db->query($map)->result_array();
