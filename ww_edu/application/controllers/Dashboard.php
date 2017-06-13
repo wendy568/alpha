@@ -23,7 +23,9 @@ class Dashboard extends MY_Controller
 		print_r($last_month);
 		$data['data']['trading_count'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('get_count', [])->get_property();
 		$last_trading_count = $this->trading_datas_calculate->build($mt4, $last_month)->get_month()->count()->property('get_count', [])->get_property();
-		$data['data']['last_trading_count'] = "100% Higher";
+		$abs = $data['data']['trading_count'] - $last_trading_count;
+		$desc = ($abs > 0) ? ' Higher' : ' Lower';
+		$data['data']['last_trading_count'] =
 		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('sum', ['profit'])->get_property();
 		$data['data']['last_profit'] = "100% Higher";
 		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
