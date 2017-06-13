@@ -225,7 +225,7 @@
 		});
 		$('.artic-list').on('click','.tv-small',function(){
 			var aid=$(this).attr('id');
-			$.alpha.request_Url('post','Classes/article_detail',{class_id:aid},function(data){
+			$.alpha.request_Url('post','Classes/article_detail',{article_id:aid},function(data){
                 
                 var artdesc="";
                 artdesc +=`<div class="fa fa-close text-c1 tv-close" style="top:0"></div>

@@ -101,12 +101,14 @@
         $('.chart .label-important').eq(1).html(data.data.operating_frequecy);
         $('.chart .label-info').eq(0).html(data.data.operating_accuracy);
         $('.chart .label-info').eq(1).html(data.data.trading_ability);
-        var risk_management_level=$('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.risk_management_level +'%" style="width:'+ data.data.risk_management_level +'%"></div>');
-        var operating_frequecy=$('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.operating_frequecy +'%" style="width:'+ data.data.operating_frequecy +'%"></div>');
-        var operating_accuracy=$('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.operating_accuracy +'%" style="width:'+ data.data.operating_accuracy +'%"></div>');
-        var trading_ability=$('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.trading_ability +'%" style="width:'+ data.data.trading_ability +'%"></div>');
+        console.log(data.risk_management_level);
+        console.log(data);
+        var risk_management_level = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.risk_management_level +'%" style="width:'+ data.data.risk_management_level +'%"></div>');
+        var operating_frequecy = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.operating_frequecy +'%" style="width:'+ data.data.operating_frequecy +'%"></div>');
+        var operating_accuracy = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.operating_accuracy +'%" style="width:'+ data.data.operating_accuracy +'%"></div>');
+        var trading_ability = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.trading_ability +'%" style="width:'+ data.data.trading_ability +'%"></div>');
 
-        $('.chart .progress').eq(0).append(risk_management_level);
+        $('.chart .progress').eq(0).html(risk_management_level);
         $('.chart .progress').eq(1).append(operating_frequecy);
         $('.chart .progress').eq(2).append(operating_accuracy);
         $('.chart .progress').eq(3).append(trading_ability);
