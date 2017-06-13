@@ -172,7 +172,7 @@ class Dashboard extends MY_Controller
 		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
 		$this->trading_datas_calculate->time_filter_definition = 'time';
-		$data['data']['news'] = $this->trading_datas_calculate->build($mt4, 5)->get_month()->get_result();
+		$data['data']['news'] = $this->trading_datas_calculate->build($mt4)->get_month()->get_result();
 		$data['data']['date'] = $date[0];
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 
