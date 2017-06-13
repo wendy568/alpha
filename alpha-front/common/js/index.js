@@ -283,9 +283,9 @@
                         '<ul class="row no-margin no-padding">'+
                         '<li class="col-sm-1">'+curTime.getHours()+':'+curTime.getMinutes()+'</li>'+
                          '<li class="col-sm-1">'+
-                        '<i class="country_img ' + getFlagOfCountry(news.Currency) + '"></i>'+
+                        news.Currency+
                         '</li>'+
-                        '<li class="col-sm-6">'+
+                        '<li class="col-sm-6 text-center">'+
                         '<span>'+news.Event+'</span>'+
                         '</li>'+
                         '<li class="col-sm-1">'+news.Actual+'</li>'+

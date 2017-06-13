@@ -1,5 +1,5 @@
 (function () {
-    // common datepicker 
+    // common datepicker
     $('.input-append.date').datepicker({
         autoclose: true,
         todayHighlight: true
@@ -16,7 +16,7 @@
     });
 
     $('.my-colorpicker-control').colorpicker();
-    
+
 
 	$('.log').hover(function(){
         $(this).find('.log-foot').css('visibility','visible');
@@ -37,7 +37,7 @@
         var tool_pText=$(this).children('p').text();
         function initToolHtml(){
             var tool_html='';
-            
+
             tool_html+= '<li class="module">';
             tool_html+=     '<a href="#`+tool_pText+`" role="tab" data-toggle="tab">';
             tool_html+=         '<div class="module-icon">';
@@ -61,14 +61,14 @@
             left_right : direction || '',
             time_node : firstDate || ''
         };
-        
+
         $.alpha.request_Url('post','dashboard/calendar',date,function(data){
             if(data.archive.status == 0){
                 dateList = [];
                 var isCurDay = false;
                 $.each(data.data.calendar,function (i,item) {
                     dateList.push(i);
-                    
+
                     // 财经日历导航
                     i = i.replace('.','-').replace('.','-');
                     var x = i;
@@ -97,7 +97,7 @@
                         $('.calendar-tab-content').hide().eq(index).show().parent().scrollTop(scrollTop);
                     });
                     $('.En-calendar .calendar-tab').append($navBar);
-                  
+
                     // content
                     var $content = $('<div class="calendar-tab-content"></div>');
                     $.each(item,function (i,row) {
@@ -110,9 +110,9 @@
                         '<ul class="row no-margin no-padding">'+
                         '<li class="col-sm-1">'+curTime.getHours()+':'+curTime.getMinutes()+'</li>'+
                          '<li class="col-sm-1">'+
-                        '<i class="country_img ' + getFlagOfCountry(row.Currency) + '"></i>'+
+                          row.Currency+
                         '</li>'+
-                        '<li class="col-sm-6">'+
+                        '<li class="col-sm-6 text-center">'+
                         '<span>'+row.Event+'</span>'+
                         '</li>'+
                         '<li class="col-sm-1">'+row.Actual+'</li>'+
@@ -129,10 +129,10 @@
                         '<div class="panel-body">'+row.detail+'</div>'+
                         '</div>'+
                         '</div>');
-                        
+
                         $content.append($contentItem);
                     });
-                    
+
                     isCurDay ? $content.show() : $content.hide();
                     $('#accordion').append($content);
                 });
@@ -141,7 +141,7 @@
         });
     }
     getCalendarData();
-    
+
     $('.En-calendar .carousel-inner>a').eq(0).find('input').click(function (e) {
         e.stopPropagation();
         var $this = $(this);
@@ -164,16 +164,16 @@
             $this.prop('disabled',false);
         });
     });
-    
+
     // 筛选
     $('.select-country .screen-b').click(function (e) {
         e.stopPropagation();
         $(this).addClass('selected').siblings().removeClass('selected');
         var $news = $('#accordion .calendar-tab-content').eq($('.calendar-tab li.active').index()).children();
-        var curClass = $(this).find('.country_img').attr('class');
+        var curClass = $(this).find('span').text();
         if($news.length){
             $.each($news,function (i,row) {
-              var className = $(row).find('.country_img').attr('class');
+              var className = $(row).find('ul.row li').eq(1).text();
               if(className == curClass){
                 $(row).show();
               }else{
@@ -200,7 +200,7 @@
                 var isCurDay = false;
                 $.each(data.data.news,function (i,item) {
                     dateList.push(i);
-                    
+
                     i = i.replace('.','-').replace('.','-');
                     var x = i;
                     var curDay = new Date(i);
@@ -216,7 +216,7 @@
                         $('.news-tab li').removeClass('active');
                         $(this).addClass('active');
                         var index = $(this).index();
-                        
+
                         $('.news-tab-content').hide().eq(index).show();
                     });
                     $('.En-news .news-tab').append($navBar);
@@ -306,7 +306,7 @@
         	$this.prop('disabled',false);
         });
     });
-  
+
   	// log-----------------------------------------------------------------------------
 	function getLogData(firstDate,direction,fn){
 		var date = {
@@ -323,7 +323,7 @@
 
                 $.each(data.data.trading_logs,function (i,item) {
                     dateList.push(i);
-                    
+
                     i = i.replace('.','-').replace('.','-');
                     var x = i;
                     var curDay = new Date(i);
@@ -339,7 +339,7 @@
                         $('.log-tab li').removeClass('active');
                         $(this).addClass('active');
                         var index = $(this).index();
-                        
+
                         $('.log-tab-content').hide().eq(index).show();
                     });
                     $('.En-log .log-tab').append($navBar);
@@ -390,7 +390,7 @@
                         });
                     	$content.append(log_html);
                     });
-                    
+
                     isCurDay ? $content.show() : $content.hide();
                    	$('.logList').append($content);
                 });
@@ -422,8 +422,8 @@
     });
 
     // logAdd-----------------------------------------------------------------------------
-    // var titleReg=/^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$/;	
-    // var contentReg=/^[\u4E00-\u9FA5A-Za-z0-9]{10,500}$/;	
+    // var titleReg=/^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$/;
+    // var contentReg=/^[\u4E00-\u9FA5A-Za-z0-9]{10,500}$/;
 
     // $('[name="title"]').change(function () {
     //     if(titleReg.test($(this).val())){
