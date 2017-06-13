@@ -12,19 +12,19 @@
         intr_html+=
             `<div class="video-title">
                     <i class="fa fa-video-camera text-c2"></i>
-                    <span>${data.data.create_time}</span>
+                    <span class="font12">${data.data.create_time}</span>
                 </div>
                 <div class="video-body">
-                    <h4 class="text-c2 semi-bold">${data.data.name}</h4>
-                    <span>${data.data.describe}</span><br>
+                    <h4 class="text-c2 semi-bold font24">${data.data.name}</h4>
+                    <span class="font14">${data.data.describe}</span><br>
                     <div class="overall">
-                        <h6 class="text-c3">Overall Visits</h6>
-                        <h5 class="text-c2">${data.data.views}</h5>
+                        <h6 class="text-c3 font14">Overall Visits</h6>
+                        <h5 class="text-c2 font16">${data.data.views}</h5>
                         <p><i class="fa fa-play text-error"></i></p>
                     </div>
                     <div class="overall pull-right">
-                        <h6 class="text-c3">Comment</h6>
-                        <h5 class="text-c2">${data.data.message_count}</h5>
+                        <h6 class="text-c3 font14">Comment</h6>
+                        <h5 class="text-c2 font16">${data.data.message_count}</h5>
                         <p><i class="fa fa-comments text-info"></i></p>
                     </div>
                 </div>`;
@@ -61,7 +61,7 @@
                  var big_html="";
                 big_html+=
                 `<iframe id="tv" src="http://content.jwplatform.com/players/${data.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>`;
-        
+
                 $('.tv-preview').html(big_html);
 
                 var intr_html="";
@@ -90,5 +90,5 @@
             });
         });
     });
-    
+
 })();

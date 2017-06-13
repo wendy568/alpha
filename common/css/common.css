@@ -9863,3 +9863,16 @@ url("chrome://browser/content/history/history-panel.xul")
     background-size: 50%;
     display: inline-block;
 }
+/*===========================字体类样式================================*/
+.font24{
+    font-size: 24px !important;
+}
+.font14{
+    font-size: 14px !important;
+}
+.font12{
+    font-size: 12px !important;
+}
+.font16{
+    font-size: 16px !important;
+}
