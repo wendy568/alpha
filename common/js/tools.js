@@ -1,4 +1,12 @@
 (function () {
+    $('.page-sidebar-wrapper>ul>li').eq(1).addClass("open").children('a')
+      .find('i.fa')
+      .addClass('open');
+    $('.page-sidebar-wrapper>ul>li').eq(1).children('a').find('span.fa').addClass('open')
+      .removeClass('fa-angle-left')
+      .addClass('fa-angle-down');
+    $('.page-sidebar-wrapper>ul>li').eq(1).find('.sub-menu').show();
+
     // common datepicker
     $('.input-append.date').datepicker({
         autoclose: true,
@@ -18,10 +26,10 @@
     $('.my-colorpicker-control').colorpicker();
 
 
-	$('.log').hover(function(){
+	  $('.log').hover(function(){
         $(this).find('.log-foot').css('visibility','visible');
     },function(){
-    	$(this).find('.log-foot').css('visibility','hidden');
+    	  $(this).find('.log-foot').css('visibility','hidden');
     });
 
     $('.fa-close').click(function(){
