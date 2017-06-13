@@ -31,7 +31,7 @@ document.writeln("                        <li class=\'start \'> ");
 document.writeln("                            <a href=\'index.html\'>");
 document.writeln("                                <i class=\'fa fa-home\'></i> ");
 document.writeln("                                <span class=\'title\'>Home</span> ");
-document.writeln("                                <span class=\'badge badge-important pull-right\'>5</span>");
+// document.writeln("                                <span class=\'badge badge-important pull-right\'>5</span>");
 document.writeln("                            </a>");
 document.writeln("                        </li>");
 document.writeln("                        <!-- Tra Management -->");
