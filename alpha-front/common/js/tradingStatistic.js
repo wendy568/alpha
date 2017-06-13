@@ -242,7 +242,7 @@
         $.alpha.request_Url('post','Trading_Analysis/long_short_ratio',params,function(data){
             if(data.archive.status == 0){
                 var billData = [];
-                if(data.data.percent_ratio.length > 0){
+                if(data.data.percent_ratio._0>=0){
                   billData[0] = {name:'Long',value:data.data.percent_ratio._0 * 100};
                   billData[1] = {name:'Short',value:data.data.percent_ratio._1 * 100};
                 }
