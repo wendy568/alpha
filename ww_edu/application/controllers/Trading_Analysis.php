@@ -48,7 +48,7 @@ class Trading_Analysis extends MY_Controller
 		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4)->count()->property('variance', ['profit'])->get_property();
 		$data['data']['operating_frequecy'] = $this->trading_datas_calculate->build($mt4)->count()->property('frequency', ['avg_deviation', ['order_open_time', 'order_close_time']])->get_property();
 		$data['data']['operating_accuracy'] = $this->trading_datas_calculate->build($mt4)->count()->property('accuracy', ['profit'])->get_property() * 100;
-		var_dump($data['data']['operating_accuracy'] * 100);
+		var_dump($data['data']['operating_accuracy'] * 100);die;
 		$data['data']['trading_ability'] = $this->trading_datas_calculate->build($mt4)->count()->property('ability', ['profit'])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
