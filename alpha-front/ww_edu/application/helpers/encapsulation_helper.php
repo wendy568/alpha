@@ -318,6 +318,6 @@ abstract class Encapsulation
 
     protected function group($index)
     {
-    	print_r($array_column($this->_data, 'order_symbol'));
+    	print_r(array_column($this->_data, 'order_symbol'));
     }
 }
