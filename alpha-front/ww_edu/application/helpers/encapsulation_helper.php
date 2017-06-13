@@ -303,16 +303,15 @@ abstract class Encapsulation
     			if ($k == $index && $v > 0) {
     				$sum += 1;
     			} elseif($k == $index && $v < 0) {
-    				if($sum !== 0 && $sum !== 1) $count[] = $sum;
+    				if($sum !== 0) $count[] = $sum;
     				$sum = 0;
     			}
     		}
     	}
-    	print_r($sum);
-    	print_r($count);
-    	if($sum !== 0 && $sum !== 1) $count[] = $sum;
-    	print_r($count);
-    	rsort($count);
+
+    	if(empty($count)) $count[] = 0;
+    	if($sum !== 0) $count[] = $sum;
+
     	return current($count);
     }
 }
