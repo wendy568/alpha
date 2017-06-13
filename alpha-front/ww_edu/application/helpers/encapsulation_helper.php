@@ -308,7 +308,7 @@ abstract class Encapsulation
     			}
     		}
     	}
-
+    	print_r($sum);
     	if($sum !== 0 && $sum !== 1) $count[] = $sum;
     	rsort($count);
     	return current($count);
