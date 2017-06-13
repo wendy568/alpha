@@ -42,7 +42,7 @@ class Dashboard extends MY_Controller
 		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('transaction_peroid', ['order_open_time'])->get_property();
 
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
-	
+		echo strtotime(date('Y-m-d H:i:s', time()) . '+ 1 day');
 		encode_json($response,$data);
 	}
 
