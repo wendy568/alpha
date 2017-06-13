@@ -1,6 +1,6 @@
 (function(){
     // 视频播放窗口
-    $.alpha.request_Url('post','video/videos_detail',{'class_id':1},function(data){
+    $.alpha.request_Url('post','video/videos_detail',{'class_id':3},function(data){
         // 视频播放窗口
         var big_html="";
         big_html+=
