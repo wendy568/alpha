@@ -129,6 +129,11 @@
           $('.risk .label').eq(1).html(data.data.operating_frequecy);
           $('.risk .label').eq(2).html(data.data.risk_management_level);
           $('.risk .label').eq(3).html(data.data.trading_ability);
+
+          $('.risk .progress .progress-bar').eq(0).attr('data-percentage',data.data.risk_management_level +'%').css('width',data.data.risk_management_level +'%');
+          $('.risk .progress .progress-bar').eq(1).attr('data-percentage',data.data.operating_frequecy +'%').css('width',data.data.operating_frequecy +'%');
+          $('.risk .progress .progress-bar').eq(2).attr('data-percentage',data.data.operating_accuracy +'%').css('width',data.data.operating_accuracy +'%');
+          $('.risk .progress .progress-bar').eq(3).attr('data-percentage',data.data.trading_ability +'%').css('width',data.data.trading_ability +'%');
         }
       });
     }
@@ -139,8 +144,15 @@
         if(data.archive.status == 0){
           var total_html='<h4 class="item-count animate-number semi-bold bg-purple">'+(data.data.profit_total > 0 ? + '$'+data.data.profit_total : '-$'+Math.abs(data.data.profit_total))+'</h4>';
           $('.wrapper').html(total_html);
-          var profit = data.data.profit;
-          var loss = data.data.loss;
+          var profit = Math.abs(data.data.profit);
+          var loss = Math.abs(data.data.loss);
+          var total = Math.abs(profit)+Math.abs(loss);
+
+          $('.profit .mini-description').eq(0).text('Gross Profits '+profit+' USD ');
+          $('.profit .mini-description').eq(1).text('Loss ' +loss+ ' USD' );
+
+          $('.profit .progress .progress-bar-purple').attr('data-percentage',(profit/total).toFixed(2)*100 +'%').css('width',(profit/total).toFixed(2)*100 +'%');
+          $('.profit .progress .progress-bar-info').attr('data-percentage',(1-profit/total).toFixed(2)*100 +'%').css('width',(1-profit/total).toFixed(2)*100 +'%');
         }
       });
     }
