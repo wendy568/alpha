@@ -303,6 +303,7 @@ abstract class Encapsulation
     			if ($k == $index && $v > 0) {
     				$sum += 1;
     			} elseif($k == $index && $v < 0) {
+    				print_r($v);
     				if($sum !== 0) $count[] = $sum;
     				$sum = 0;
     			}
