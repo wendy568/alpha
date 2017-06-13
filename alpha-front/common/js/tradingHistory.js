@@ -1,5 +1,14 @@
 (function () {
-    // common datepicker 
+    // open
+    $('.page-sidebar-wrapper>ul>li').eq(1).addClass("open").children('a')
+      .find('i.fa')
+      .addClass('open');
+    $('.page-sidebar-wrapper>ul>li').eq(1).children('a').find('span.fa').addClass('open')
+      .removeClass('fa-angle-left')
+      .addClass('fa-angle-down');
+    $('.page-sidebar-wrapper>ul>li').eq(1).find('.sub-menu').show();
+
+    // common datepicker
     $('.input-append.date').datepicker({
         autoclose: true,
         todayHighlight: true
@@ -17,15 +26,15 @@
 
     $('.my-colorpicker-control').colorpicker();
 
-    
+
     $('.filter').click(function(){
       $('.c-title').toggleClass('hide');
     });
-    
+
     $('.c-title li input').click(function (e) {
         e.stopPropagation();
         window.event.stopPropagation();
-        
+
         var isShow =  $(this).prop('checked');
         var index = parseInt($(this).val());
         var $thead = $('.table thead tr th:nth-child('+index+')');
@@ -40,7 +49,7 @@
     });
 
     getTableData();
-    
+
     $('#today').click(function (e) {
         e.stopPropagation();
         var today = new Date();
@@ -56,7 +65,7 @@
         var endTime = $('.date input').eq(1).val();
         getTableData(bill,startTime,endTime);
     });
-    
+
     /*$('.bill-type select').change(function (e) {
     	  e.stopPropagation();
     	  var curBill = $(this).val();
@@ -76,7 +85,7 @@
         var curAccount = $(this).val();
         // todo request
     });
-    
+
     // 获取列表数据
     function getTableData(bill,startTime,endTime,curPage) {
         startTime = startTime ? parseInt((new Date(startTime).getTime())/1000) : null;
@@ -87,7 +96,7 @@
             start_time : startTime,
             end_time : endTime
         };
-        
+
         $.alpha.request_Url('POST','Trading_Analysis/trading_history',data,function (res) {
             if(res.archive.status == 0){
             	  var list = res.data.trading_history;
