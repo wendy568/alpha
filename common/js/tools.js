@@ -237,14 +237,14 @@
                     var $contentItem_left = $('<ul class="cbp_tmtimeline"></ul>');
                     var $contentItem_right = $('<ul class="cbp_tmtimeline"></ul>');
                     var leftItem = '', rightItem = '';
-                    $.each(item,function(i,data){
+                    $.each(item,function(k,data){
                     	var newDate=new Date();
 		                newDate.setTime(data.time * 1000);
 		                var newsTime=newDate.toTimeString().substring(0,5);
-		                if(i < oneUl){
+		                if(k < oneUl){
 		                	leftItem += '<li class="panel">' +
                                         '<div class="panel-heading">' +
-                                            '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i +'">' +
+                                            '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i + '_' + k +'">' +
                                                 '<time class="cbp_tmtime" datetime="18:30">' +
                                                     '<span class="time">'+ newsTime +'</span>' +
                                                 '</time>' +
@@ -257,14 +257,14 @@
                                                 '</div>' +
                                             '</a>' +
                                         '</div>' +
-                                        '<div id="collapse'+ i +'" class="panel-collapse collapse">' +
+                                        '<div id="collapse'+ i + '_' + k +'" class="panel-collapse collapse">' +
                                              '<div class="panel-body">'+ data.desc +'</div>' +
                                         '</div>' +
                                     '</li>' ;
 		                }else{
 		                	rightItem += '<li class="panel">' +
                                 '<div class="panel-heading">' +
-                                    '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+i+'">' +
+                                    '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+i + '_' + k+'">' +
                                         '<time class="cbp_tmtime" datetime="18:30">' +
                                             '<span class="time">'+ newsTime +'</span>' +
                                         '</time>' +
@@ -277,7 +277,7 @@
                                         '</div>' +
                                     '</a>' +
                                 '</div>' +
-                                '<div id="collapse'+i+'" class="panel-collapse collapse">' +
+                                '<div id="collapse'+i + '_' + k+'" class="panel-collapse collapse">' +
                                      '<div class="panel-body">'+ data.desc +'</div>' +
                                 '</div>' +
                             '</li>';

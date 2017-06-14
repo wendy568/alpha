@@ -39,8 +39,6 @@
             var tvS=tvT.substring(0,1) + '"';
             var tvH=tvT.slice(2,4);
             var tvTime=tvS + tvH;
-            console.log(tvTime);
-
             var li = document.createElement('li');
 
             $(li).addClass('tv-small m-b-30')
