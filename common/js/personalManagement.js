@@ -1,6 +1,7 @@
 (function(){
 	// 基础样式JS
 	function getStage(stage) {
+	    var c1 = document.getElementById('c1');
 	    var ctx = c1.getContext('2d');
 	    ctx.lineWidth = 10;
 	    ctx.font = '60px SimHei';
@@ -161,8 +162,8 @@
 		getStage(stage);
 		// 完成情况
 		var complete=data.data.complete;
-		$('.description span').html(complete);
-		$('.progress').html('<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="'+ complete +'%" style="width:'+ complete +'%"></div>');
+		$('.description span').html(complete*100 + '%');
+		$('.stage-left .progress').html('<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="'+ complete*100 +'%" style="width:'+ complete*100 +'%"></div>');
 
 		// title
 		$('.pro-intr h4').html(data.data.title);
@@ -199,7 +200,7 @@
 		$('.tv-list').on('click','.tv-small',function(){
             var vmid=$(this).attr('id');
             $.alpha.request_Url('post','Classes/record_process',{article_classes_id:vmid,look_up:'video'},function(data){
-               
+            
             });
 			$.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
                 var tvStudy="";
@@ -229,12 +230,12 @@
 		$('.artic-list').on('click','.tv-small',function(){
 			var aid=$(this).attr('id');
             $.alpha.request_Url('post','Classes/record_process',{article_classes_id:aid,look_up:'article'},function(data){
-               
+            
             });
 			$.alpha.request_Url('post','Classes/article_detail',{article_id:aid},function(data){
                 var artdesc="";
                 artdesc +=`<div class="fa fa-close text-c1 tv-close" style="top:0"></div>
-                                <h3 class="text-c1 no-margin p-b-10"> 
+                                <h3 class="text-c1 no-margin p-b-10">
                                     <i class="status-icon yellow m-r-10 m-b-5"></i>
                                     ${data.data.title}
                                 </h3>
@@ -254,10 +255,6 @@
         $.alpha.request_Url('post','Classes/showStageDetail',{stage_id:stage_id},function(data){
             // 阶段展示
             var stage=stage_id;
-            getStage(stage);
-            // 完成情况
-            $('.description span').html(100);
-            $('.progress').html('<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="'+ 100 +'%" style="width:'+ 100 +'%"></div>');
             // title
             $('.pro-intr h4').html(data.data.title);
             $('.pro-intr p').html(data.data.describe);
@@ -315,7 +312,7 @@
                 $.alpha.request_Url('post','Classes/article_detail',{article_id:aid},function(data){
                     var artdesc="";
                     artdesc +=`<div class="fa fa-close text-c1 tv-close" style="top:0"></div>
-                                    <h3 class="text-c1 no-margin p-b-10"> 
+                                    <h3 class="text-c1 no-margin p-b-10">
                                         <i class="status-icon yellow m-r-10 m-b-5"></i>
                                         ${data.data.title}
                                     </h3>
