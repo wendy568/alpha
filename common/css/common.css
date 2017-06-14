@@ -5114,25 +5114,25 @@ form legend,
 .tiles label {
   color: #ffffff;
 }
-.tiles.red {
-  background-color: #f35958;
+.tiles.darkGreen {
+  background-color: #26A686;
 }
 .tiles.red .button {
   background: #bf3938;
   color: #f7bebe;
 }
 .tiles.purple {
-  background-color: #735f87;
+  background-color: #725AB0;
 }
 .tiles.purple .button {
   background: #736086;
   color: #d7d5d7;
 }
 .tiles.blue {
-  background-color: #0090d9;
+  background-color: #2B71CC;
 }
 .tiles.green {
-  background-color: #0aa699;
+  background-color: #1CA4A6;
 }
 .tiles.black {
   background-color: #22262e;
@@ -9175,14 +9175,15 @@ body.rtl .footer-widget {
 }
 .tv-date{
   position: absolute;
-  height: 30px;
+  height: 20px;
   bottom: 60px;
   left: 0;
+  font-size:12px !important;
   background-color:rgba(0,0,0,.5);
   width: 100%;
   padding: 0 15px;
   padding-right: 30px;
-  line-height: 30px;
+  line-height: 20px;
 }
 .tv-des{
   height: 60px;

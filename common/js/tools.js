@@ -264,7 +264,7 @@
 		                }else{
 		                	rightItem += '<li class="panel">' +
                                 '<div class="panel-heading">' +
-                                    '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+i + '_' + k+'">' +
+                                    '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+ i + '_' + k+'">' +
                                         '<time class="cbp_tmtime" datetime="18:30">' +
                                             '<span class="time">'+ newsTime +'</span>' +
                                         '</time>' +
