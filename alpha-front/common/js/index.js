@@ -12,7 +12,7 @@
         $('.card .animate-number').eq(0).html(data.data.trading_count);
         $('.card .animate-number').eq(1).html(data.data.profit);
         $('.card .animate-number').eq(2).html(avgHoldTime);
-        $('.card .animate-number').eq(3).html(transactionPeroid);
+        $('.card .animate-number').eq(3).html(transactionPeroid + 'Days');
 
         $('.hight').eq(0).html(data.data.last_trading_count);
         $('.hight').eq(1).html(data.data.last_profit);

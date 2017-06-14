@@ -4913,13 +4913,17 @@ form legend,
   margin-left: 37px;
 }
 .tiles .tiles-title {
-  font-size: 11px;
+  font-size: 14px;
   font-family: 'Roboto';
   letter-spacing: 0.7px;
   font-weight: 500;
 }
 .tiles .tiles-body {
   padding: 15px;
+}
+.tiles .tiles-body .animate-number{
+  font-size: 20px;
+  font-weight: bold;
 }
 .controller {
   position: relative;
@@ -9723,7 +9727,7 @@ body.rtl .footer-widget {
   -o-transition: all 0.5s;
 }
 .index-content .tiles{
-  height: 102px;
+  height: 117px;
 }
 .disabled-box{
   position: absolute;
