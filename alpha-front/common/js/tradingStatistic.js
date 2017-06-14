@@ -142,8 +142,10 @@
     function getLossData(params){
       $.alpha.request_Url('post','Trading_Analysis/profit_loss',params,function(data){
         if(data.archive.status == 0){
-          var total_html=data.data.profit_total >= 0 ? ('$'+data.data.profit_total) : ('-$'+Math.abs(data.data.profit_total));
-          $('.wrapper .item-count').html(total_html);
+          var total_real=data.data.profit_total >= 0 ? ('$'+data.data.profit_total) : ('-$'+Math.abs(data.data.profit_total));
+          var color = data.data.profit_total >= 0 ? 'text-success' : 'text-error';
+          var total_html = $('<h4 class="item-count semi-bold '+color+'">'+total_real+'</h4>');
+          $('.profit .wrapper').html(total_html);
           var profit = Math.abs(data.data.profit);
           var loss = Math.abs(data.data.loss);
           var total = profit+loss;
@@ -152,8 +154,8 @@
           $('.profit .mini-description').eq(0).text('Gross Profits '+profit+' USD ');
           $('.profit .mini-description').eq(1).text('Loss ' +loss+ ' USD' );
 
-          $('.profit .progress .progress-bar-purple').attr('data-percentage',isZero ? '0%' : (profit/total).toFixed(2)*100 +'%').css('width',isZero ? '0%' : (profit/total).toFixed(2)*100 +'%');
-          $('.profit .progress .progress-bar-info').attr('data-percentage',isZero ? '0%' : (loss/total).toFixed(2)*100 +'%').css('width',isZero ? '0%' : (loss/total).toFixed(2)*100 +'%');
+          $('.profit .progress .progress-bar').eq(0).attr('data-percentage',isZero ? '0%' : (profit/total).toFixed(2)*100 +'%').css('width',isZero ? '0%' : (profit/total).toFixed(2)*100 +'%');
+          $('.profit .progress .progress-bar').eq(1).attr('data-percentage',isZero ? '0%' : (loss/total).toFixed(2)*100 +'%').css('width',isZero ? '0%' : (loss/total).toFixed(2)*100 +'%');
         }
       });
     }
