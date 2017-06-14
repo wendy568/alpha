@@ -130,9 +130,9 @@
           $('.risk .label').eq(2).html(data.data.risk_management_level);
           $('.risk .label').eq(3).html(data.data.trading_ability);
 
-          $('.risk .progress .progress-bar').eq(0).attr('data-percentage',data.data.risk_management_level +'%').css('width',data.data.risk_management_level +'%');
+          $('.risk .progress .progress-bar').eq(0).attr('data-percentage',data.data.operating_accuracy +'%').css('width',data.data.operating_accuracy +'%');
           $('.risk .progress .progress-bar').eq(1).attr('data-percentage',data.data.operating_frequecy +'%').css('width',data.data.operating_frequecy +'%');
-          $('.risk .progress .progress-bar').eq(2).attr('data-percentage',data.data.operating_accuracy +'%').css('width',data.data.operating_accuracy +'%');
+          $('.risk .progress .progress-bar').eq(2).attr('data-percentage',data.data.risk_management_level +'%').css('width',data.data.risk_management_level +'%');
           $('.risk .progress .progress-bar').eq(3).attr('data-percentage',data.data.trading_ability +'%').css('width',data.data.trading_ability +'%');
         }
       });
@@ -142,28 +142,18 @@
     function getLossData(params){
       $.alpha.request_Url('post','Trading_Analysis/profit_loss',params,function(data){
         if(data.archive.status == 0){
-          var total_html='<h4 class="item-count animate-number semi-bold bg-purple">'+(data.data.profit_total > 0 ? + '$'+data.data.profit_total : '-$'+Math.abs(data.data.profit_total))+'</h4>';
-          $('.wrapper').html(total_html);
+          var total_html=data.data.profit_total >= 0 ? ('$'+data.data.profit_total) : ('-$'+Math.abs(data.data.profit_total));
+          $('.wrapper .item-count').html(total_html);
           var profit = Math.abs(data.data.profit);
           var loss = Math.abs(data.data.loss);
-          var total = Math.abs(profit)+Math.abs(loss);
-
+          var total = profit+loss;
+          var isZero = total == 0 ? true : false;
+          
           $('.profit .mini-description').eq(0).text('Gross Profits '+profit+' USD ');
           $('.profit .mini-description').eq(1).text('Loss ' +loss+ ' USD' );
 
-          $('.profit .progress .progress-bar-purple').attr('data-percentage',(profit/total).toFixed(2)*100 +'%').css('width',(profit/total).toFixed(2)*100 +'%');
-          $('.profit .progress .progress-bar-info').attr('data-percentage',(1-profit/total).toFixed(2)*100 +'%').css('width',(1-profit/total).toFixed(2)*100 +'%');
-          var profitHtml = $('<span class="text-white mini-description">Gross Profits '+ profit +' USD </span>');
-          var lossHtml = $('<span class="text-white mini-description"> Loss '+ loss +' USD </span>');
-
-          var pg = Math.round((Math.abs(profit))/((Math.abs(profit))+(Math.abs(loss))) * 100);
-          var lg = Math.round((Math.abs(loss))/((Math.abs(profit))+(Math.abs(loss))) * 100);
-          var profitgress = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ pg +'%" style="width:'+ pg +'%"></div>');
-          var lossgress = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ lg +'%" style="width:'+ lg +'%"></div>');
-          $('.profit').find('.description').eq(0).html(profitHtml);
-          $('.profit').find('.description').eq(1).html(lossHtml);
-          $('.profit').find('.progress').eq(0).html(profitgress);
-          $('.profit').find('.progress').eq(1).html(lossgress);
+          $('.profit .progress .progress-bar-purple').attr('data-percentage',isZero ? '0%' : (profit/total).toFixed(2)*100 +'%').css('width',isZero ? '0%' : (profit/total).toFixed(2)*100 +'%');
+          $('.profit .progress .progress-bar-info').attr('data-percentage',isZero ? '0%' : (loss/total).toFixed(2)*100 +'%').css('width',isZero ? '0%' : (loss/total).toFixed(2)*100 +'%');
         }
       });
     }
