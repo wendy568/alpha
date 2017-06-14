@@ -2686,11 +2686,7 @@ div.DTTT_print_info p {
 .invoice-button-action-set {
   position: absolute;
 }
-.login-container {
-    margin:0 auto;
-    padding-top:8%;
-    width: 850px;
-}
+
 .lockscreen-wrapper {
   position: relative;
   margin-top: 20%;
@@ -9504,31 +9500,31 @@ body.rtl .footer-widget {
     display: inline-block;
     cursor: pointer;
 }
-.s1:hover,
-.s1:active,
-.s1.active
+.s1:hover a,
+.s1:active a,
+.s1.active a
 {
      background: -webkit-linear-gradient(top,#F25555,#FB72AE);
 }
-.s2:hover,
-.s2:active,
-.s2.active
+.s2:hover a,
+.s2:active a,
+.s2.active a
 {
      background: -webkit-linear-gradient(top,#F9BF66,#F95CB1);
 }
-.s3:hover,
-.s3:active,
-.s3.active
+.s3:hover a,
+.s3:active a,
+.s3.active a
 {
      background: -webkit-linear-gradient(top,#FFA35A,#FFB064);
 }
-.s4:hover,
-.s4:active,
+/*.s4:hover,
+.s4:active
 .s4.active
 {
      background: -webkit-linear-gradient(top,#FD9786,#F567DC);
-}
-.s5:hover,
+}*/
+/*.s5:hover,
 .s5:active
 .s5.active
 {
@@ -9593,7 +9589,7 @@ body.rtl .footer-widget {
 .s15.active
 {
      background: -webkit-linear-gradient(top,#B6B7F8,#F5ACCC);
-}
+}*/
 .pro-detail-head{
   padding:30px;
   overflow: hidden;
@@ -9651,8 +9647,20 @@ body.rtl .footer-widget {
     opacity: 0;
 }
 /*login*/
-.login-container .modal-content{
-    box-shadow: inherit;
+.login-container {
+    width: 100%;
+    height: 100%;
+    background:url(../img/login_bg.png) no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+}
+.modal-content{
+    width: 800px;
+    height: auto;
+    top:50%;
+    left:50%;
+    margin-left: -400px;
+    margin-top: -240px;
     border: none;
 }
 .login-container .modal-body{
@@ -9875,4 +9883,10 @@ url("chrome://browser/content/history/history-panel.xul")
 }
 .font16{
     font-size: 16px !important;
+}
+
+.video-body p{
+  font-size:18px;
+  padding-top: 10px;
+  text-indent:1em;
 }

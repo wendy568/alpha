@@ -96,17 +96,21 @@
 
     // synthesizing data 条形图----------------------------------------------------------------------------
     $.alpha.request_Url('post','dashboard/trading_evaluating',{},function(data){
-      if(data.archive.status == 0){
-        $('.chart .label-important').eq(0).html(data.data.risk_management_level);
-        $('.chart .label-important').eq(1).html(data.data.operating_frequecy);
-        $('.chart .label-info').eq(0).html(data.data.operating_accuracy);
-        $('.chart .label-info').eq(1).html(data.data.trading_ability);
+        if(data.archive.status == 0){
+            $('.chart .label-important').eq(0).html(data.data.risk_management_level);
+            $('.chart .label-important').eq(1).html(data.data.operating_frequecy);
+            $('.chart .label-info').eq(0).html(data.data.operating_accuracy);
+            $('.chart .label-info').eq(1).html(data.data.trading_ability);
+            var risk_management_level = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.risk_management_level +'%" style="width:'+ data.data.risk_management_level +'%"></div>');
+            var operating_frequecy = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.operating_frequecy +'%" style="width:'+ data.data.operating_frequecy +'%"></div>');
+            var operating_accuracy = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.operating_accuracy +'%" style="width:'+ data.data.operating_accuracy +'%"></div>');
+            var trading_ability = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ data.data.trading_ability +'%" style="width:'+ data.data.trading_ability +'%"></div>');
 
-        $('.chart .progress .progress-bar').eq(0).attr('data-percentage',data.data.risk_management_level +'%').css('width',data.data.risk_management_level +'%');
-        $('.chart .progress .progress-bar').eq(1).attr('data-percentage',data.data.operating_frequecy +'%').css('width',data.data.operating_frequecy +'%');
-        $('.chart .progress .progress-bar').eq(2).attr('data-percentage',data.data.operating_accuracy +'%').css('width',data.data.operating_accuracy +'%');
-        $('.chart .progress .progress-bar').eq(3).attr('data-percentage',data.data.trading_ability +'%').css('width',data.data.trading_ability +'%');
-      }
+            $('.chart .progress').eq(0).append(risk_management_level);
+            $('.chart .progress').eq(1).append(operating_frequecy);
+            $('.chart .progress').eq(2).append(operating_accuracy);
+            $('.chart .progress').eq(3).append(trading_ability);
+        }
     });
 
 
