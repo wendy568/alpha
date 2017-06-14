@@ -151,8 +151,8 @@
           var total = profit+loss;
           var isZero = total == 0 ? true : false;
           
-          $('.profit .mini-description').eq(0).text('Gross Profits '+profit+' USD ');
-          $('.profit .mini-description').eq(1).text('Loss ' +loss+ ' USD' );
+          $('.profit .mini-description span').eq(0).text(profit);
+          $('.profit .mini-description span').eq(1).text(loss);
 
           $('.profit .progress .progress-bar').eq(0).attr('data-percentage',isZero ? '0%' : (profit/total).toFixed(2)*100 +'%').css('width',isZero ? '0%' : (profit/total).toFixed(2)*100 +'%');
           $('.profit .progress .progress-bar').eq(1).attr('data-percentage',isZero ? '0%' : (loss/total).toFixed(2)*100 +'%').css('width',isZero ? '0%' : (loss/total).toFixed(2)*100 +'%');
