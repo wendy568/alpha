@@ -153,6 +153,17 @@
 
           $('.profit .progress .progress-bar-purple').attr('data-percentage',(profit/total).toFixed(2)*100 +'%').css('width',(profit/total).toFixed(2)*100 +'%');
           $('.profit .progress .progress-bar-info').attr('data-percentage',(1-profit/total).toFixed(2)*100 +'%').css('width',(1-profit/total).toFixed(2)*100 +'%');
+          var profitHtml = $('<span class="text-white mini-description">Gross Profits '+ profit +' USD </span>');
+          var lossHtml = $('<span class="text-white mini-description"> Loss '+ loss +' USD </span>');
+
+          var pg = Math.round((Math.abs(profit))/((Math.abs(profit))+(Math.abs(loss))) * 100);
+          var lg = Math.round((Math.abs(loss))/((Math.abs(profit))+(Math.abs(loss))) * 100);
+          var profitgress = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ pg +'%" style="width:'+ pg +'%"></div>');
+          var lossgress = $('<div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="'+ lg +'%" style="width:'+ lg +'%"></div>');
+          $('.profit').find('.description').eq(0).html(profitHtml);
+          $('.profit').find('.description').eq(1).html(lossHtml);
+          $('.profit').find('.progress').eq(0).html(profitgress);
+          $('.profit').find('.progress').eq(1).html(lossgress);
         }
       });
     }

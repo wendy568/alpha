@@ -1,6 +1,6 @@
 (function(){
     // 视频播放窗口
-    $.alpha.request_Url('post','video/videos_detail',{'class_id':3},function(data){
+    $.alpha.request_Url('post','video/videos_detail',{'class_id':9},function(data){
         // 视频播放窗口
         var big_html="";
         big_html+=
@@ -35,6 +35,12 @@
     $.alpha.request_Url('post','video/list',{'limit':20,'start':1},function(data){
         var list_html="";
         $.each(data.data,function(i,data){
+            var tvT=((data.length)/60).toPrecision(3);
+            var tvS=tvT.substring(0,1) + '"';
+            var tvH=tvT.slice(2,4);
+            var tvTime=tvS + tvH;
+            console.log(tvTime);
+
             var li = document.createElement('li');
 
             $(li).addClass('tv-small m-b-30')
@@ -46,7 +52,7 @@
                     <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width: 100%;">
                 </div>
                 <!-- 遮罩 -->
-                <div class="tv-date text-c3">${data.length}</div>
+                <div class="tv-date text-c3">${tvTime}</div>
                 <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
                 <div class="tv-des">
                     <h5 class="text-c2">${data.name}</h5>
