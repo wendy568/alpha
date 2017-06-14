@@ -3,10 +3,8 @@
     $.alpha.request_Url('post','video/videos_detail',{'class_id':9},function(data){
         // 视频播放窗口
         var big_html="";
-        big_html+=
-        `<iframe id="tv" src="http://content.jwplatform.com/players/${data.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>`;
+        big_html+= '<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" width="100%" height="100%" frameborder="0" allowfullscreen name="tv"></iframe>';
         $('.tv-preview').html(big_html);
-
         // 视频介绍
         var intr_html="";
         intr_html+=
