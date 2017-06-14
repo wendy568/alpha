@@ -4368,6 +4368,7 @@ form legend,
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  vertical-align: middle;
 }
 .grid-title h4 i {
   font-size: 14px;
@@ -5322,7 +5323,7 @@ h4.custom-line-height {
 .btn-cons {
   margin-left: 20px;
   min-width: 80px;
-  height: 32px;
+  height: 37px;
 }
 .btn-demo-space {
   margin-bottom: 8px;
@@ -8816,7 +8817,7 @@ body.rtl .footer-widget {
   height: 130px;
   background: #2a2e36;
   margin-top:60px;
-  padding: 10px 30px;
+  padding: 18px 30px 10px;
 }
 .toolbar .row{
   margin:0;
@@ -9654,7 +9655,7 @@ body.rtl .footer-widget {
     background-size: 100% 100%;
     position: fixed;
 }
-.modal-content{
+.login-container .modal-content{
     width: 800px;
     height: auto;
     top:50%;
@@ -9720,6 +9721,9 @@ body.rtl .footer-widget {
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
+}
+.index-content .tiles{
+  height: 102px;
 }
 .disabled-box{
   position: absolute;
@@ -9888,5 +9892,4 @@ url("chrome://browser/content/history/history-panel.xul")
 .video-body p{
   font-size:18px;
   padding-top: 10px;
-  text-indent:1em;
 }

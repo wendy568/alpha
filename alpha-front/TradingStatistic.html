@@ -39,7 +39,7 @@
                         </li>
                         <li class="last-tab">
                             <div class="dropdown-toggle" data-toggle="dropdown" >
-                                <i class="fa fa-plus fa-2x text-c2" style="margin: 3px 18px;"></i>
+                                <i class="fa fa-plus fa-2x text-c2" style="margin:0 18px;vertical-align: middle;"></i>
                             </div>
                             <ul class="dropdown-menu bill-select"></ul>
                         </li>
@@ -49,12 +49,12 @@
                     <!-- 条件筛选 -->
                     <div class="row m-b-30">
                         <!-- left -->
-                        <div class="col-lg-4 col-md-12">
+                        <div class="col-lg-4 col-md-12 m-t-2">
                             <!--<div class="paging">-->
                                 <!--<a href="" class="fa fa-chevron-left"></a>-->
                                 <!--<a href="" class="fa fa-chevron-right"></a>-->
                             <!--</div>-->
-                            <button class="btn btn-white btn-cons today" type="button">Today</button>
+                            <button class="btn btn-white btn-cons today no-margin" type="button">Today</button>
                         </div>
                          <!-- right -->
                         <div class="col-lg-8 col-md-12" >
@@ -182,15 +182,18 @@
                         <div class="col-md-6 col-lg-2 m-b-30 profit">
                             <div class="tiles black profit">
                                 <div class="tiles-body">
-                                    <div class="controller">
+                                   <!--  <div class="controller">
                                         <a href="javascript:;" class="reload"></a>
                                         <a href="javascript:;" class="remove"></a>
-                                    </div>
+                                    </div> -->
                                     <div class="tiles-title text-black"> Net Profits  </div>
                                     <div class="widget-stats">
                                         <div class="wrapper transparent">
                                             <h4 class="item-count semi-bold">0</h4>
                                         </div>
+                                    </div>
+                                    <div class="progress no-radius progress-bar-white" style="width:100%">
+                                        <div class="progress-bar progress-bar-purple animate-progress-bar" data-percentage="0%"></div>
                                     </div>
 
                                     <div class="description">
@@ -254,7 +257,7 @@
                     <div class="row">
                         <div class="col-xs-12 m-b-30 all-trading-statistics">
                             <div class="grid simple" >
-                                <div class="grid-title no-border" style="height: 60px;">
+                                <div class="grid-title no-border" style="height: 60px;line-height: 30px;">
                                     <h4 class="text-white">
                                         <i class="fa fa-bar-chart"></i>
                                         <span>All Trading Statistics</span>
