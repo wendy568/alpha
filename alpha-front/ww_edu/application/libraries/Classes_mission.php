@@ -145,6 +145,7 @@ class Classes_mission
 
 	protected function is_view($param)
 	{
+		print_r($param);
 		foreach ($this->mission as $key => $value) {
 			if (!empty($param[$key])) {
 				$this->completeOne[$key] = empty(array_diff($value, $param[$key])) ? 1 : 0;
@@ -155,6 +156,7 @@ class Classes_mission
 
 	protected function isCountEnough($param)
 	{
+		print_r($param);
 		foreach ($this->mission as $key => $value) {
 			if (isset($param[$key])) {
 				$this->completeOne[$key] = ($param[$key] >= $value) ? 1 : 0;
