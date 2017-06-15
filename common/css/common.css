@@ -6669,14 +6669,6 @@ input[type="checkbox"] {
   overflow: hidden;
 }
 .cbp_tmtimeline:before {
-  /*content: '';
-  position: absolute;
-  top: 15px;
-  bottom: 0;
-  width: 2px;
-  background: #24282E;
-  left: 22px;
-  margin-left: -10px;*/
     content: '';
     position: absolute;
     top: 30px;
@@ -6687,16 +6679,8 @@ input[type="checkbox"] {
     margin-left: -10px;
 }
 .cbp_tmtimeline > li .cbp_tmtime {
-  /*width: 25%;
-  padding-right: 100px;
-  text-align: right;
-  display: block;
-  position: absolute;
-  font-family: 'Roboto';*/
     margin-top: 5px;
     width: 25%;
-    /* padding-right: 29px; */
-    /* text-align: right; */
     display: block;
     position: absolute;
     font-family: 'Roboto';
@@ -6717,21 +6701,12 @@ input[type="checkbox"] {
 }
 .cbp_tmtimeline > li .cbp_tmlabel {
   margin: 0;
-  /*background: #1C2026;*/
   font-size: 13px;
   line-height: 1.4;
   position: relative;
   padding: 0 0 0 75px;
 }
 .cbp_tmtimeline > li .cbp_tmicon {
-  /*width: 32px;
-  position: absolute;
-  text-align: center;
-  left: 22px;
-  top: 7px;
-  margin: 0 0 0 -25px;
-  font-size: 1.3em;*/
-
     width: 32px;
     position: absolute;
     text-align: center;
@@ -6739,6 +6714,33 @@ input[type="checkbox"] {
     top: 11px;
     margin: 0 0 0 -25px;
     font-size: 1.3em;
+}
+
+.pro-detail-body .cbp_tmtimeline:before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    width: 2px;
+    background: #24282E;
+    left: 18px;
+    margin-left: -10px;
+}
+.pro-detail-body .cbp_tmtimeline > li .cbp_tmicon{
+    width: 32px;
+    position: absolute;
+    text-align: center;
+    left: 80px;
+    top: 11px;
+    margin: 0 0 0 -87px;
+    font-size: 1.3em;
+}
+.pro-detail-body .cbp_tmtimeline > li .cbp_tmlabel {
+    margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  position: relative;
+  padding: 0 0 0 30px;
 }
 /* Media Queries */
 @media screen and (max-width: 47.2em) {
@@ -8832,7 +8834,7 @@ body.rtl .footer-widget {
 .module{
     list-style-type:none;
     display:inline-block;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 .module:hover>p,
 .module.active>p{
@@ -9364,21 +9366,21 @@ body.rtl .footer-widget {
 }
 /*personal-management---------------------------------------------------------*/
 .stage-left{
-    width: 270px;
+    width: 260px;
     display: inline-block;
     float: left;
     background-color: #2A2E36;
     border-radius: 8px;
 }
 .stage-right{
-  width: calc(100% - 304px);
+  width: calc(100% - 290px);
   display: inline-block;
   padding-right: 30px;
   float: right;
 }
 .pro-view{
-    width: 270px;
-    height: 300px;
+    width: 260px;
+    height: 260px;
     position: relative;
     border-radius: 8px;
     display: inline-block;
@@ -9398,7 +9400,7 @@ body.rtl .footer-widget {
   left:0;
 }
 .pro-intr{
-    width: 270px;
+    width: 260px;
     display: inline-block;
     vertical-align: middle;
     margin-left: -2px;
@@ -9853,6 +9855,11 @@ url("chrome://browser/content/history/history-panel.xul")
 }
 .roll_row .roll-list{
     width: 9999px;
+    position: absolute; 
+    left: 0; 
+    top: 0;
+    padding: 0;
+    margin:0;
 }
 .control{
     position: absolute;
