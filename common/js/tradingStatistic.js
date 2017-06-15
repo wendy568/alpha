@@ -212,7 +212,7 @@
                         bottom: '3%',
 
                         containLabel: true,
-                        height:250,
+                        height:280,
                     },
                     xAxis: [
                         {
@@ -331,7 +331,7 @@
 
                   bottom: '2%',
                   containLabel: true,
-                  height: 250
+                  height: 280
               },
               xAxis : [
                   {
