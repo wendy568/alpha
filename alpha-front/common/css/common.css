@@ -2839,7 +2839,7 @@ input[type="color"] {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  border: 1px solid #1B1E24;
+  border: 1px solid #3c414c;
   transition: background 0.2s linear 0s, box-shadow 0.2s linear 0s;
 }
 input {
@@ -9358,11 +9358,12 @@ body.rtl .footer-widget {
     border: none;
 }
 .modal-body {
-  background-color: #16181d;
+  background-color: #13151a;
   padding: 30px 40px;
 }
 #logModal .input-with-icon{
   display: inline-block;
+  width: 430px;
 }
 /*personal-management---------------------------------------------------------*/
 .stage-left{
