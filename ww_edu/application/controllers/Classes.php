@@ -213,6 +213,7 @@ class Classes extends MY_Controller
 			if ($complete == 1) {
 				foreach ($allProcess as $value) {
 					if ($value['id'] == $original['personal']['hw_id'] + 1) {
+						print_r($personal);
 						$personal = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
 						print_r($personal);
 					}
