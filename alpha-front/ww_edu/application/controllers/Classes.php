@@ -210,12 +210,11 @@ class Classes extends MY_Controller
 		if ($original['personal']['hw_id'] == $stage_id) {
 			$personal = $this->classes_mission->make_complete($current_mission, $personal, $mission_key);
 			$complete = $this->classes_mission->init($current_mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
-			var_dump($complete);
 			if ($complete == 1) {
 				foreach ($allProcess as $value) {
 					if ($value['id'] == $stage_id + 1) {
 						$personal = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
-						var_dump($personal);
+						print_r($personal);
 					}
 				}
 			} else if ($complete > 0 && $complete < 1) {
