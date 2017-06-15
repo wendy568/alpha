@@ -89,6 +89,7 @@
                         </div>
                     </div>`;
                 $('.video-intr').html(intr_html);
+                $(document).scrollTop(0);
             });
         });
     });
