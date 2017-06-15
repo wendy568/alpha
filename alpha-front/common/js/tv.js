@@ -8,25 +8,25 @@
         // 视频介绍
         var intr_html="";
         intr_html+=
-            `<div class="video-title">
-                    <i class="fa fa-video-camera text-c2"></i>
-                    <span class="font12">${data.data.create_time}</span>
-                </div>
-                <div class="video-body">
-                    <h4 class="text-c2 semi-bold font24">${data.data.name}</h4>
-                    <span class="font14">${data.data.describe}</span><br>
-                    <div class="overall">
-                        <h6 class="text-c3 font14">Overall Visits</h6>
-                        <h5 class="text-c2 font16">${data.data.views}</h5>
-                        <p><i class="fa fa-play text-error"></i></p>
-                    </div>
-                    <div class="overall pull-right">
-                        <h6 class="text-c3 font14">Comment</h6>
-                        <h5 class="text-c2 font16">${data.data.message_count}</h5>
-                        <p><i class="fa fa-comments text-info"></i></p>
-                    </div>
-                </div>`;
+            `<div class="video-title m-b-20">
+                <i class="fa fa-video-camera text-c2"></i>
+                <span class="font12">${data.data.create_time}</span>
+            </div>
+            <div class="video-body">
+                <h4 class="text-c2 semi-bold font24 m-b-20">${data.data.name}</h4>
+                <span class="font14" style="text-indent: 1em;">${data.data.describe}</span><br>
+            </div>`;
         $('.video-intr').html(intr_html);
+        // <div class="overall">
+        //     <h6 class="text-c3 font14 m-b-20">Overall Visits</h6>
+        //     <h5 class="text-c2 font16">${data.data.views}</h5>
+        //     <p><i class="fa fa-play text-error"></i></p>
+        // </div>  
+        // <div class="overall pull-right">
+        //     <h6 class="text-c3 font14 m-b-20">Comment</h6>
+        //     <h5 class="text-c2 font16">${data.data.message_count}</h5>
+        //     <p><i class="fa fa-comments text-info"></i></p>
+        // </div>
     })
 
     // 视频列表
@@ -39,7 +39,7 @@
             var tvTime=tvS + tvH;
             var li = document.createElement('li');
 
-            $(li).addClass('tv-small m-b-30')
+            $(li).addClass('tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 m-b-30')
             .attr({
                 id: data.id
             })
@@ -51,7 +51,7 @@
                 <div class="tv-date text-c3">${tvTime}</div>
                 <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
                 <div class="tv-des">
-                    <h5 class="text-c2">${data.name}</h5>
+                    <p class="text-c2">${data.name}</p>
                 </div>`);
 
             $('.tv-content>ul').append(li);

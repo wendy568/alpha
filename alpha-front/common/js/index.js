@@ -355,7 +355,7 @@
             var day=parseInt((newDay.Format('MM dd,yyyy')).substring(0,2));
             var newMon=(newDay.Format('MM dd,yyyy')).substring(3,10);
             var w = newDay.getDay();
-            var newDate=(week[w-1]) + ',' + (month[day-1]) + '&nbsp' + newMon;
+            var newDate=(week[w-1]) + ',&nbsp' + (month[day-1]) + '&nbsp' + newMon;
             
             $('#newsMon').html(newDate);
 

@@ -367,11 +367,11 @@
                     	// };
 
                     	log_html =
-                    	$('<div class="col-lg-4 m-b-40">'+
+                    	$('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 m-b-40">'+
                             '<div id="'+ data.id +'" class="log">'+
                                 '<img src="assets/img/log_bg_01.png" alt="" class="log-title">'+
                                 '<div class="log-body ">'+
-                                    '<h3>'+
+                                    '<h3 class="m-b-15">'+
                                     	'<i class="status-icon '+ data.color +'"></i>'+ data.title +
                                     '</h3>'+
                                     '<p class="log-data">'+
