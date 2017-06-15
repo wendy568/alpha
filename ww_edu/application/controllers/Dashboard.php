@@ -25,20 +25,20 @@ class Dashboard extends MY_Controller
 		$last_trading_count = $this->trading_datas_calculate->build($mt4, $last_month)->get_month()->count()->property('get_count', [])->get_property();
 		$abs = $data['data']['trading_count'] - $last_trading_count;
 		$desc = ($abs > 0) ? ' Higher' : ' Lower';
-		$data['data']['last_trading_count'] = ($last_trading_count > 0) ? abs(round(abs($abs) / $last_trading_count, 3)) * 100 . '%' . $desc : 100 . '%' . $desc;
+		$data['data']['last_trading_count'] = ($last_trading_count != 0) ? abs(round(abs($abs) / $last_trading_count, 3)) * 100 . '%' . $desc : 100 . '%' . $desc;
 
 		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('sum', ['profit'])->get_property();
 		$last_profit = $this->trading_datas_calculate->build($mt4, $last_month)->get_month()->count()->property('sum', ['profit'])->get_property();
 		print_r($last_profit);
 		$abs = $data['data']['profit'] - $last_profit;
 		$desc = ($abs > 0) ? ' Higher' : ' Lower';
-		$data['data']['last_profit'] = ($last_profit > 0) ? abs(round(abs($abs) / $last_profit, 3)) * 100 . '%' . $desc : 100 . '%' . $desc;
+		$data['data']['last_profit'] = ($last_profit != 0) ? abs(round(abs($abs) / $last_profit, 3)) * 100 . '%' . $desc : 100 . '%' . $desc;
 
 		$data['data']['avg_holding_time'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
 		$last_avg_holding_time = $this->trading_datas_calculate->build($mt4, $last_month)->get_month()->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
 		$abs = $data['data']['avg_holding_time'] - $last_avg_holding_time;
 		$desc = ($abs > 0) ? ' Higher' : ' Lower';
-		$data['data']['last_avg_holding_time'] = ($last_avg_holding_time > 0) ? abs(round(abs($abs) / $last_avg_holding_time, 3)) * 100 . '%' . $desc : 100 . '%' . $desc;
+		$data['data']['last_avg_holding_time'] = ($last_avg_holding_time != 0) ? abs(round(abs($abs) / $last_avg_holding_time, 3)) * 100 . '%' . $desc : 100 . '%' . $desc;
 
 		$data['data']['transaction_peroid'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('transaction_peroid', ['order_open_time'])->get_property();
 
