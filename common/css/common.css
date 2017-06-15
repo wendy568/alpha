@@ -9760,7 +9760,7 @@ body.rtl .footer-widget {
 }
 
 /*兼容ie滚动条*/
-.bill-select{
+.bill-select,.over-scroll{
   scrollbar-face-color:rgba(161, 178, 189,.3);
   scrollbar-arrow-color:#000;
   scrollbar-track-color:#000;

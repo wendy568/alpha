@@ -278,7 +278,7 @@
                     $('.En-calendar .calendar-tab').append($navBar);
 
                     // content
-                    var $content = $('<div class="calendar-tab-content"></div>');
+                    var $content = $('<div class="calendar-tab-content over-scroll" style="height: 342px;overflow: auto;"></div>');
                     $.each(item,function (i,news) {
                         var important = news.Importance == 'medium' ? 'blue' : (news.Importance == 'low' ? 'green' : 'red');
                         var curTime = new Date(parseInt(news.time_en));
