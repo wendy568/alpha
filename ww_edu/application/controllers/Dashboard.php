@@ -29,7 +29,6 @@ class Dashboard extends MY_Controller
 
 		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4)->get_month()->count()->property('sum', ['profit'])->get_property();
 		$last_profit = $this->trading_datas_calculate->build($mt4, $last_month)->get_month()->count()->property('sum', ['profit'])->get_property();
-		print_r($last_profit);
 		$abs = $data['data']['profit'] - $last_profit;
 		$desc = ($abs > 0) ? ' Higher' : ' Lower';
 		$data['data']['last_profit'] = ($last_profit != 0) ? abs(round(abs($abs) / $last_profit, 3)) * 100 . '%' . $desc : 100 . '%' . $desc;
