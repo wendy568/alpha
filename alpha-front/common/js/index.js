@@ -63,7 +63,7 @@
                     right: '4%',
                     bottom: '1%',
                     containLabel: true,
-                    height:215
+                    height:260
                 },
                 xAxis: [
                     {

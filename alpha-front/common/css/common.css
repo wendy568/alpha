@@ -6719,6 +6719,7 @@ input[type="checkbox"] {
     top: 11px;
     margin: 0 0 0 -25px;
     font-size: 1.3em;
+    background:#1C2026;
 }
 
 .pro-detail-body .cbp_tmtimeline:before {
@@ -6739,6 +6740,7 @@ input[type="checkbox"] {
     top: 11px;
     margin: 0 0 0 -87px;
     font-size: 1.3em;
+    background:#16181d;
 }
 .pro-detail-body .cbp_tmtimeline > li .cbp_tmlabel {
     margin: 0;
