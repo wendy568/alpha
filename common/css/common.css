@@ -8802,6 +8802,8 @@ body.rtl .footer-widget {
   border-radius: 15px;
   margin-bottom: 15px;
 }
+
+
 /*货币图标*/
 .country_img{
     background:url(../img/Spirits_country.png)  no-repeat;
@@ -9742,7 +9744,9 @@ body.rtl .footer-widget {
   background: transparent;
   cursor: pointer;
 }
-
+.last-no-marg{
+  margin-right: 0 !important;
+}
 /*TradingStatistic all-----------------------------------------------------------*/
 
 .bill-select{
@@ -9856,8 +9860,8 @@ url("chrome://browser/content/history/history-panel.xul")
 }
 .roll_row .roll-list{
     width: 9999px;
-    position: absolute; 
-    left: 0; 
+    position: absolute;
+    left: 0;
     top: 0;
     padding: 0;
     margin:0;

@@ -117,10 +117,10 @@
                         '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+'_'+x+'_'+i+'">'+
                         '<ul class="row no-margin no-padding">'+
                         '<li class="col-sm-1">'+curTime.getHours()+':'+curTime.getMinutes()+'</li>'+
-                         '<li class="col-sm-1">'+
+                         '<li class="col-sm-1" style="max-width: 100px">'+
                           row.Currency+
                         '</li>'+
-                        '<li class="col-sm-6 text-center">'+
+                        '<li class="col-sm-6">'+
                         '<span>'+row.Event+'</span>'+
                         '</li>'+
                         '<li class="col-sm-1">'+row.Actual+'</li>'+

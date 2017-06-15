@@ -1,4 +1,6 @@
 (function () {
+    var reg = new RegExp(/^[A-Z]{6}$/);  // 货币兑格式化
+    
     // description 首页正文卡片数据栏--------------------------------------------------------
     $.alpha.request_Url('post','dashboard/previews_since_today',{},function (data) {
       if(data.archive.status == 0){
@@ -286,10 +288,10 @@
                         '<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse'+'_'+x+'_'+i+'">'+
                         '<ul class="row no-margin no-padding">'+
                         '<li class="col-sm-1">'+curTime.getHours()+':'+curTime.getMinutes()+'</li>'+
-                         '<li class="col-sm-1">'+
+                         '<li class="col-sm-1" style="max-width: 100px">'+
                         news.Currency+
                         '</li>'+
-                        '<li class="col-sm-6 text-center">'+
+                        '<li class="col-sm-6">'+
                         '<span>'+news.Event+'</span>'+
                         '</li>'+
                         '<li class="col-sm-1">'+news.Actual+'</li>'+

@@ -1,4 +1,6 @@
 (function(){
+    var reg = new RegExp(/^[A-Z]{6}$/);  // 货币兑格式化
+  
     // open
     $('.page-sidebar-wrapper>ul>li').eq(1).addClass("open").children('a')
       .find('i.fa')

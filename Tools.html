@@ -13,6 +13,16 @@
         <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css" />
+        <style>
+          @media (max-width: 1024px) {
+            .text-algin{
+              text-align: left !important;
+            }
+          }
+          .text-algin{
+            text-align: right;
+          }
+        </style>
     </head>
 
     <body class="">
@@ -101,7 +111,7 @@
                                             <label for="preCalendar" class="disabled-box" ></label>
                                             <i class="calendar2x calendar_left text-c3 m-t-15" style="line-height: 70px;"></i>
                                         </a>
-                                        <ul class="no-margin no-padding col-sm-10 calendar-tab" >
+                                        <ul class="no-margin no-padding col-sm-10 calendar-tab text-center" >
 
                                         </ul>
                                         <a class="col-sm-1 text-center" style="cursor: pointer;">
@@ -114,9 +124,9 @@
                                 <!-- body -->
                                 <div class="grid-body no-border">
                                     <!-- 筛选栏 -->
-                                    <div class="row p-l-20 select-country">
+                                    <div class="row p-l-20 select-country" style="padding-right: 60px;">
                                         <!-- 左侧 -->
-                                        <div class="col-md-12 col-lg-9 m-b-10">
+                                        <div class="col-md-7 col-lg-7 m-b-10">
                                             <div class="screen-a">
                                                 <span>ALL</span>
                                             </div>
@@ -154,7 +164,7 @@
                                             </a>
                                         </div>
                                         <!-- 右侧 -->
-                                        <div class="col-md-12 col-lg-3 m-b-10 no-padding">
+                                        <div class="col-md-17 col-lg-5 m-b-10 no-padding text-algin">
                                             <div class="screen-a">
                                                 <span>Important:</span>
                                             </div>
@@ -174,8 +184,8 @@
                                         <div class="table-head panel">
                                             <ul class="row no-margin no-padding">
                                                 <li class="col-sm-1">Time</li>
-                                                <li class="col-sm-1">Currency </li>
-                                                <li class="col-sm-6 text-center">Event</li>
+                                                <li class="col-sm-1" style="max-width: 100px">Currency </li>
+                                                <li class="col-sm-6">&nbsp;Event</li>
                                                 <li class="col-sm-1">Actual</li>
                                                 <li class="col-sm-1">Forecast</li>
                                                 <li class="col-sm-1">Previous</li>
