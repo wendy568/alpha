@@ -157,7 +157,7 @@
         if(data.archive.status == 0){
           var total_real=data.data.profit_total >= 0 ? ('$'+data.data.profit_total) : ('-$'+Math.abs(data.data.profit_total));
           var color = data.data.profit_total >= 0 ? 'text-success' : 'text-error';
-          var total_html = $('<h4 class="item-count semi-bold '+color+'">'+total_real+'</h4>');
+          var total_html = $('<h4 class="item-count semi-bold m-t-10 m-b-10 '+color+'">'+total_real+'</h4>');
           $('.profit .wrapper').html(total_html);
           var profit = Math.abs(data.data.profit);
           var loss = Math.abs(data.data.loss);

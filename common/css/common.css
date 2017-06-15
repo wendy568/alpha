@@ -27,6 +27,10 @@
 23. Slider 滑块
 24. text-color 字体颜色
 -------------------------------------------------------------------*/
+h1,h2,h3,h4,h5,h6{
+  margin:0;
+  padding: 0;
+}
 li{
     list-style-type:none;
     visibility: visible;
@@ -4659,6 +4663,7 @@ form legend,
 }
 .progress.progress-large {
   height: 12px;
+  margin: 3px 0 14px;
 }
 .progress-bar {
   box-shadow: none;
