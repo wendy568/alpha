@@ -146,10 +146,10 @@ class Classes_mission
 	protected function is_view($param)
 	{
 		print_r($param);
-		foreach ($this->mission as $key => $value) {
-			if (!empty($param[$key])) {
-				$this->completeOne[$key] = empty(array_diff($value, $param[$key])) ? 1 : 0;
-				$this->complete += empty(array_diff($value, $param[$key])) ? 1 : 0;
+		foreach ($param as $key => $value) {
+			if (!empty($value)) {
+				$this->completeOne[$key] = empty(array_diff($value, $value)) ? 1 : 0;
+				$this->complete += empty(array_diff($value, $value)) ? 1 : 0;
 			} else {
 				var_dump($key);
 			}
@@ -158,10 +158,10 @@ class Classes_mission
 
 	protected function isCountEnough($param)
 	{
-		foreach ($this->mission as $key => $value) {
-			if (isset($param[$key])) {
-				$this->completeOne[$key] = ($param[$key] >= $value) ? 1 : 0;
-				$this->complete += ($param[$key] >= $value) ? 1 : 0;
+		foreach ($param as $key => $value) {
+			if (isset($value)) {
+				$this->completeOne[$key] = ($value >= $value) ? 1 : 0;
+				$this->complete += ($value >= $value) ? 1 : 0;
 			}
 		}
 	}
