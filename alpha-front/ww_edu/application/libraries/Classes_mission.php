@@ -191,7 +191,7 @@ class Classes_mission
 		$mission_key = explode(',', $mission_key);
 		foreach ($mission_key as $key) {
 			if (isset($key) && $key) {
-				$personal[$key] = $current_mission[$key];
+				if (empty($personal[$key])) $personal[$key] = $current_mission[$key];
 			}
 
 		}
