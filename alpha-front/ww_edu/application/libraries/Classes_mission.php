@@ -147,9 +147,9 @@ class Classes_mission
 	{
 		print_r($param);
 		foreach ($param as $key => $value) {
-			if (!empty($value)) {
-				$this->completeOne[$key] = empty(array_diff($value, $value)) ? 1 : 0;
-				$this->complete += empty(array_diff($value, $value)) ? 1 : 0;
+			if (!empty($this->mission[$key])) {
+				$this->completeOne[$key] = empty(array_diff($this->mission[$key], $value)) ? 1 : 0;
+				$this->complete += empty(array_diff($this->mission[$key], $value)) ? 1 : 0;
 			} else {
 				var_dump($key);
 			}
@@ -159,9 +159,9 @@ class Classes_mission
 	protected function isCountEnough($param)
 	{
 		foreach ($param as $key => $value) {
-			if (isset($value)) {
-				$this->completeOne[$key] = ($value >= $value) ? 1 : 0;
-				$this->complete += ($value >= $value) ? 1 : 0;
+			if (isset($this->mission[$key])) {
+				$this->completeOne[$key] = ($value >= $this->mission[$key]) ? 1 : 0;
+				$this->complete += ($value >= $this->mission[$key]) ? 1 : 0;
 			}
 		}
 	}
