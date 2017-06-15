@@ -32,14 +32,16 @@
                         <div class="pro-view">
                             <img src="assets/img/dem0_img01.png" data-src="assets/img/dem0_img01.png" alt="">
                             <div class="flot">
-                                <canvas id="c1" width="270" height="270"></canvas>
+                                <canvas id="c1" width="260" height="260"></canvas>
                                 <!-- <h4 class="text-c1 text-center">The current stage </h4> -->
                             </div>
                         </div>
                         <div class="pro-intr">
                             <h4 class="text-c1 semi-bold"></h4>
-                            <p class="text-c4"></p>
-
+                            <div class="text-c4">
+                                <p style="display: inline;"></p>
+                                <a href="javascript:;" class="more text-info"></a>
+                            </div>
                             <div class="description"><span></span> of Level</div>
                             <div class="progress progress-bar-white m-t-10 m-b-20" style="width: 100%"></div>
                         </div>
@@ -48,7 +50,7 @@
                     <div id="pro-detail" class="stage-right m-b-30">
                         <div class="pro-detail-head">
                             <div class="roll-wrap roll_row" id="levelList">
-                                <ul class="roll-list" style="position: absolute; left: 0; top: 0;">
+                                <ul class="roll-list" style="">
                                     <li class="module active s1">
                                         <a href="#stage1" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 1</a>
                                     </li>
@@ -109,12 +111,12 @@
                                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level1-1">
                                                 <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
                                                 <div class="cbp_tmlabel">
-                                                    <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
                                                         <p class="m-t-5 text-c2">Video Learning</p>
                                                     </div>
                                                 </div>
                                             </a>
-                                            <div id="level1-1" class="collapse in" style="margin-left:85px;">
+                                            <div id="level1-1" class="collapse in" style="margin-left:30px;">
                                               <div class="panel-body" style="padding-left: 0;">
                                                 <!-- tv-small -->
                                                 <ul class="row no-padding">
@@ -172,13 +174,13 @@
                                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level1-2">
                                                 <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
                                                 <div class="cbp_tmlabel">
-                                                    <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
                                                         <p class="m-t-5 text-c2">Article learning</p>
                                                     </div>
                                                     
                                                 </div>
                                             </a>
-                                            <div id="level1-2" class="collapse in" style="margin-left:85px;">
+                                            <div id="level1-2" class="collapse in" style="margin-left:30px;">
                                             <div class="panel-body" style="padding-left: 0;">
                                               <!-- tv-small -->
                                               <ul class="row m-b-30 no-padding">
@@ -232,37 +234,38 @@
                                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level2-1">
                                                 <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
                                                 <div class="cbp_tmlabel">
-                                                    <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
                                                         <p class="m-t-5 text-c2">Video Learning</p>
                                                     </div>
-                                                    <div id="level2-1" class="collapse in" style="margin-left:32px;">
-                                                        <div class="panel-body" style="padding-left: 0;">
-                                                            <ul class="row m-b-30 no-padding tv-list">
-                                                                <!-- <li class="tv-small" data-toggle="modal" data-target="#tvModal">
-                                                                    <div class="bk-img">
-                                                                        <img src="assets/img/dem0_img01.png" alt="" style="width: 100%;">
-                                                                    </div>
-                                                                    <div class="tv-date text-c3">12'23"</div>
-                                                                    <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                                                                    <div class="tv-des">
-                                                                        <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
-                                                                    </div>
-                                                                </li>
-                                                                <li class=" tv-small" data-toggle="modal" data-target="#tvModal">
-                                                                    <div class="bk-img">
-                                                                        <img src="assets/img/dem0_img02.png" alt="" style="width: 100%;">
-                                                                    </div>
-                                                                    <div class="tv-date text-c3">12'23"</div>
-                                                                    <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                                                                    <div class="tv-des">
-                                                                        <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
-                                                                    </div>
-                                                                </li> -->
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                                    
                                                 </div>
                                             </a>
+                                            <div id="level2-1" class="collapse in" style="margin-left:30px;">
+                                                <div class="panel-body" style="padding-left: 0;">
+                                                    <ul class="row m-b-30 no-padding tv-list">
+                                                        <!-- <li class="tv-small" data-toggle="modal" data-target="#tvModal">
+                                                            <div class="bk-img">
+                                                                <img src="assets/img/dem0_img01.png" alt="" style="width: 100%;">
+                                                            </div>
+                                                            <div class="tv-date text-c3">12'23"</div>
+                                                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                                                            <div class="tv-des">
+                                                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
+                                                            </div>
+                                                        </li>
+                                                        <li class=" tv-small" data-toggle="modal" data-target="#tvModal">
+                                                            <div class="bk-img">
+                                                                <img src="assets/img/dem0_img02.png" alt="" style="width: 100%;">
+                                                            </div>
+                                                            <div class="tv-date text-c3">12'23"</div>
+                                                            <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
+                                                            <div class="tv-des">
+                                                                <h5 class="text-c2">Astralian Dollar Steady Despite Westpc Consumer Wobble</h5>
+                                                            </div>
+                                                        </li> -->
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="panel no-margin">
@@ -270,40 +273,41 @@
                                             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level2-2">
                                                 <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
                                                 <div class="cbp_tmlabel">
-                                                    <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
                                                         <p class="m-t-5 text-c2">Article learning</p>
                                                     </div>
-                                                    <div id="level2-2" class="collapse in" style="margin-left:32px;">
-                                                        <div class="panel-body" style="padding-left: 0;">
-                                                            <ul class="row m-b-30 no-padding artic-list">
-                                                                <!-- <li class="tv-small" data-toggle="modal" data-target="#articleModal">
-                                                                    <div class="bk-img">
-                                                                        <img src="assets/img/dem0_img01.png" alt="" style="width: 100%;">
-                                                                    </div>
-                                                                    <div class="tv-des">
-                                                                        <h5 class="text-c2">顺势而为</h5>
-                                                                    </div>
-                                                                </li>
-                                                                <li class="tv-small">
-                                                                    <div class="bk-img">
-                                                                        <img src="assets/img/dem0_img02.png" alt="" style="width: 100%;">
-                                                                    </div>
-                                                                    <div class="tv-des">
-                                                                        <h5 class="text-c2">技术分析</h5>
-                                                                    </div>
-                                                                </li> -->
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                                    
                                                 </div>
                                             </a>
+                                            <div id="level2-2" class="collapse in" style="margin-left:30px;">
+                                                <div class="panel-body" style="padding-left: 0;">
+                                                    <ul class="row m-b-30 no-padding artic-list">
+                                                        <!-- <li class="tv-small" data-toggle="modal" data-target="#articleModal">
+                                                            <div class="bk-img">
+                                                                <img src="assets/img/dem0_img01.png" alt="" style="width: 100%;">
+                                                            </div>
+                                                            <div class="tv-des">
+                                                                <h5 class="text-c2">顺势而为</h5>
+                                                            </div>
+                                                        </li>
+                                                        <li class="tv-small">
+                                                            <div class="bk-img">
+                                                                <img src="assets/img/dem0_img02.png" alt="" style="width: 100%;">
+                                                            </div>
+                                                            <div class="tv-des">
+                                                                <h5 class="text-c2">技术分析</h5>
+                                                            </div>
+                                                        </li> -->
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </li>
                                     <li class="panel no-margin">
                                         <div class="panel-heading no-padding">
                                             <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
                                             <div class="cbp_tmlabel">
-                                                <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
                                                     <p class="m-t-5 text-c2">Task 1 - Place your order [ <span>41/1</span> ]</p>
                                                 </div>
                                             </div>
@@ -313,7 +317,7 @@
                                         <div class="panel-heading no-padding">
                                             <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
                                             <div class="cbp_tmlabel">
-                                                <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
                                                     <p class="m-t-5 text-c2">Task 2 - 4 style trade [ <span>2/4</span> ]</p>
                                                 </div>
                                             </div>
@@ -323,7 +327,7 @@
                                         <div class="panel-heading no-padding">
                                             <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
                                             <div class="cbp_tmlabel">
-                                                <div class="p-l-10 p-r-10 xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
                                                     <p class="m-t-5 text-c2">Task 3 - take profits/stop loss [ <span>2/2</span> ]</p>
                                                 </div>
                                             </div>

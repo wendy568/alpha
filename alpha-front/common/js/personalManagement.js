@@ -167,7 +167,27 @@
 
 		// title
 		$('.pro-intr h4').html(data.data.title);
-		$('.pro-intr p').html(data.data.describe);
+
+        // desc
+        var desc=data.data.describe.substr(0,80);
+        var i=0;
+        $('.more').html('Continue Reading...');
+        $('.more').click(function(){
+            if(i == 0){
+                desc=data.data.describe;
+                $(this).html('Pack Up The Full...');
+
+                i = i +1;
+            }else{
+                desc=data.data.describe.substr(0,80);
+                $(this).html('Continue Reading...');
+
+                i = 0;
+            }
+            $('.pro-intr p').html(desc);
+        });
+        $('.pro-intr p').html(desc);
+
 
 		// 定位 stage learning
 		$('.roll-list li').removeClass('active');
@@ -323,5 +343,27 @@
             });
         });
     })
+
+
+    // 显示隐藏阶段介绍
+    // var str=document.getElementById("piot").innerHTML;  
+    // str=str.substr(0,80)+"...";//先按一定字数缩进  
+    // var i=0;  
+    // var oA = document.getElementById("puta");  
+    // oA.onclick = function ()//点击更多箭头的时候显  
+    // {     
+          
+    //     if(i==0){     
+    //         str=str.substr(0,9999);  
+    //         oA.innerHTML = "<img src='images/win-005s.png' width='31' height='16'>"     
+    //         i=i+1;  
+    //     }  
+    //     else{  
+    //         str=str.substr(0,80)+"...";  
+    //         oA.innerHTML = "<img src='images/win-005.png' width='31' height='16'>"  
+    //         i=0;      
+    //     }  
+    // };  
+
 })();
 
