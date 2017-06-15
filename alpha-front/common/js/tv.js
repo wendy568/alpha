@@ -30,7 +30,7 @@
     })
 
     // 视频列表
-    $.alpha.request_Url('post','video/list',{'limit':20,'start':1},function(data){
+    $.alpha.request_Url('post','video/list',{'limit':20,'start':0},function(data){
         var list_html="";
         $.each(data.data,function(i,data){
             var tvT=((data.length)/60).toPrecision(3);
