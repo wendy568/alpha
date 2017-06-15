@@ -58,7 +58,9 @@
                     '<span class="currency">'+currText+'</span>'+
                   '<div class="controller"><a href="javascript:;" class="remove"></a></div></a></li>');
     
-                $currLiHtml.find('.controller .remove').click(function () {
+                $currLiHtml.find('.controller .remove').click(function (e) {
+                  var event = e || window.event;
+                  event.stopPropagation();
                   $(this).parent().parent().addClass('animated fadeOut');
                   $(this).parent().parent().attr('id', 'id_remove');
                   setTimeout(function () {
