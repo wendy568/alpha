@@ -213,8 +213,8 @@ class Classes extends MY_Controller
 			var_dump($complete);
 			if ($complete == 1) {
 				foreach ($allProcess as $value) {
-					if ($value['id'] == $stage_id) {
-						$personal = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value[$stage_id + 1]));
+					if ($value['id'] == $stage_id + 1) {
+						$personal = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
 						var_dump($personal);
 					}
 				}
