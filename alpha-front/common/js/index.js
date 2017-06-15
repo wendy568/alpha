@@ -244,6 +244,7 @@
 
         $.alpha.request_Url('post','dashboard/calendar',date,function(data){
             if(data.archive.status == 0){
+                $('#accordion .calendar-tab-content').remove();
                 dateList = [];
                 var isCurDay = false;
                 $.each(data.data.calendar,function (i,item) {
@@ -278,7 +279,7 @@
                     $('.En-calendar .calendar-tab').append($navBar);
 
                     // content
-                    var $content = $('<div class="calendar-tab-content over-scroll" style="height: 342px;overflow: auto;"></div>');
+                    var $content = $('<div class="calendar-tab-content"></div>');
                     $.each(item,function (i,news) {
                         var important = news.Importance == 'medium' ? 'blue' : (news.Importance == 'low' ? 'green' : 'red');
                         var curTime = new Date(parseInt(news.time_en));
@@ -313,10 +314,11 @@
                     });
 
                     isCurDay ? $content.show() : $content.hide();
-                    $('#accordion').append($content);
+                    $('#accordion .scroller').append($content);
                 });
             }
             fn && fn(data);
+            $.alpha.initScrollBar();
         });
     }
     getCalendarData();

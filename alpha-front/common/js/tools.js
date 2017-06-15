@@ -72,6 +72,7 @@
 
         $.alpha.request_Url('post','dashboard/calendar',date,function(data){
             if(data.archive.status == 0){
+                $('#accordion .calendar-tab-content').remove();
                 dateList = [];
                 var isCurDay = false;
                 $.each(data.data.calendar,function (i,item) {
@@ -142,10 +143,11 @@
                     });
 
                     isCurDay ? $content.show() : $content.hide();
-                    $('#accordion').append($content);
+                    $('#accordion .scroller').append($content);
                 });
             }
             fn && fn(data);
+            $.alpha.initScrollBar();
         });
     }
     getCalendarData();
