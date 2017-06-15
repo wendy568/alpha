@@ -345,15 +345,19 @@
     });
 
     //市场资讯
+    var week=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    var month = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     $.alpha.request_Url('post','Dashboard/news',{},function(data){
         if (data.archive.status == 0) {
-            var newDate=new Date();
-            newDate.setTime(data.data.date * 1000);
-            var newsMon=newDate.toDateString();
-            $('#newsMon').html(newsMon);
+            var newDay=new Date(parseInt(data.data.date * 1000));
+            var day=parseInt((newDay.Format('MM dd,yyyy')).substring(0,2));
+            var newMon=(newDay.Format('MM dd,yyyy')).substring(3,10);
+            var w = newDay.getDay();
+            var newDate=(week[w-1]) + ',' + (month[day-1]) + '&nbsp' + newMon;
+            
+            $('#newsMon').html(newDate);
 
             var news_html="";
-
             $.each(data.data.news,function(i,data){
                 var newDate=new Date();
                 newDate.setTime(data.time * 1000);
