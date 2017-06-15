@@ -390,7 +390,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
     }
     alpha.prototype.unblockUI = function(el){
         $(el).unblock();
-    }
+    };
     // Call initializers
     alpha.prototype.init = function() {
         // init layout
@@ -408,7 +408,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         this.initPopoverPlugin();
         this.initUtil();
 
-    }
+    };
     // common ajax request
     alpha.prototype.request_Url = function (type, url, data, fn) {
         // 每次请求都会带上token信息
@@ -520,6 +520,31 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         setTimeout(function () {
             $nof.remove();
         },3000);
+    };
+    
+    // bill type
+    alpha.prototype.getBillType = function (time,fn) {
+      time = time || {};
+      var reg = new RegExp(/^[A-Z]{6}$/);  // 货币兑格式化
+      var bills = [];
+      this.request_Url('POST','Trading_Analysis/order_symbol',time,function (res) {
+        if (res.archive.status == 0) {
+          var billList = res.data.order_symbol;
+          $.each(billList,function (i,bill) {
+            var curBill = '';
+            if(bill.length == 6 && bill != 'COPPER' && reg.test(bill)){
+              var x = bill.substring(0,3);
+              var y = bill.substring(3);
+              curBill = x + '/' + y;
+            }else{
+              curBill = bill;
+            }
+            bills.push(curBill);
+          });
+          
+          fn && fn(bills);
+        }
+      });
     };
 
     $.alpha = new alpha();

@@ -9746,7 +9746,7 @@ body.rtl .footer-widget {
 
 .bill-select{
   overflow-y: scroll !important;
-  height: 260px;
+  max-height: 260px;
 }
 
 /*兼容ie滚动条*/

@@ -1,4 +1,6 @@
 (function () {
+    var reg = new RegExp(/^[A-Z]{6}$/);  // 货币兑格式化
+  
     // open
     $('.page-sidebar-wrapper>ul>li').eq(1).addClass("open").children('a')
       .find('i.fa')
@@ -49,6 +51,7 @@
     });
 
     getTableData();
+    getBill();
 
     $('#today').click(function (e) {
         e.stopPropagation();
@@ -100,13 +103,12 @@
         $.alpha.request_Url('POST','Trading_Analysis/trading_history',data,function (res) {
             if(res.archive.status == 0){
             	  var list = res.data.trading_history;
-                var reg = new RegExp(/^[A-Z]{6}$/);
                 $('.table tbody').empty();
             	  $.each(list,function (i,row) {
             	  	  var bill = '';
             	  	  var openTime = new Date(parseInt(row.order_open_time)*1000);
             	  	  var closeTime = new Date(parseInt(row.order_close_time)*1000);
-            	  	  if(row.order_symbol.length == 6 && row.order_symbol != 'COPPERssss' && reg.test(row.order_symbol)){
+            	  	  if(row.order_symbol.length == 6 && row.order_symbol != 'COPPER' && reg.test(row.order_symbol)){
                         var x = row.order_symbol.substring(0,3);
                         var y = row.order_symbol.substring(3);
                         bill = x + '/' + y;
@@ -125,6 +127,28 @@
                     $('.table tbody').append($tr);
                 });
             }
+        });
+    }
+    
+    // 获取货币兑
+    function getBill(data) {
+        data = data || {};
+        var options = '<option value="">  </option>';
+        window.setTimeout(function () {
+            $.alpha.getBillType(data,function (bills) {
+                $.each(bills,function (i,bill) {
+                    var curBill = '';
+                    if(bill.length == 6 && bill != 'COPPER' && reg.test(bill)){
+                        var x = bill.substring(0,3);
+                        var y = bill.substring(3);
+                        curBill = x + '/' + y;
+                    }else{
+                        curBill = bill;
+                    }
+                    options += '<option value="'+curBill+'">'+curBill+'</option>';
+                  });
+                $('.bill-type select').html(options);
+            });
         });
     }
 })();

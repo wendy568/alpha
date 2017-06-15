@@ -111,47 +111,55 @@
 
 
     // synthesizing data 环形图----------------------------------------------------------------------------
-    var billCount = ['AUD/USD','EUR/USD','GBP/USD','NZD/USD','USD/CAD','USD/CHF','USD/CNH','USD/JPY',
-      'AUD/CAD','AUD/CHF','AUD/JPY','AUD/NZD','CAD/CHF','CAD/JPY','CHF/JPY','EUR/AUD','EUR/CAD','EUR/CHF',
-      'EUR/GBP','EUR/JPY','EUR/NZD','GBP/AUD','GBP/CAD','GBP/CHF','GBP/JPY','GBP/NZD','NZD/JPY','GOLD',
-      'AUG','DXY','COPPER','NGAS','UKOIL','USOIL','AUS200','HKG50','HKH40','JPN225','NAS100',
-      'SPX500','UK100','US30'];
-    billCount.sort(function (val1,val2) {
-      return val1.charCodeAt() - val2.charCodeAt();
-    });
-
-    function getPieData(bill) {
-        var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
-        pieChart.setOption({
-          legend: {
-            x : 'center',
-            y : 'bottom',
-            data:['Long','Short']
-          },
-          series: [
-            {
-              name:'bill',
-              type:'pie',
-              radius: ['50%', '70%'],
-              avoidLabelOverlap: false,
-              label: {
-                normal: {
-                  show: true,
-                  position: 'inside',
-                  formatter:"{b}: {d}%"
-                },
-                emphasis: {
-                  show: true,
-                  textStyle: {
-                    fontSize: '16',
-                    fontWeight: 'bold'
-                  }
-                }
-              },
-              data:[]
+    
+    var billCount = [];
+    $.alpha.getBillType('',function (bills) {
+        $.each(bills,function (i,bill) {
+            var curBill = '';
+            if(bill.length == 6 && bill != 'COPPER' && reg.test(bill)){
+                var x = bill.substring(0,3);
+                var y = bill.substring(3);
+                curBill = x + '/' + y;
+            }else{
+                curBill = bill;
             }
-          ]
+            billCount.push(curBill);
         });
+    });
+  
+    var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
+    pieChart.setOption({
+      legend: {
+        x : 'center',
+        y : 'bottom',
+        data:['Long','Short']
+      },
+      series: [
+        {
+          name:'bill',
+          type:'pie',
+          radius: ['50%', '70%'],
+          avoidLabelOverlap: false,
+          label: {
+            normal: {
+              show: true,
+              position: 'inside',
+              formatter:"{b}: {d}%"
+            },
+            emphasis: {
+              show: true,
+              textStyle: {
+                fontSize: '16',
+                fontWeight: 'bold'
+              }
+            }
+          },
+          data:[]
+        }
+      ]
+    });
+    
+    function getPieData(bill) {
 
         bill = bill.replace('/','');
         $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
