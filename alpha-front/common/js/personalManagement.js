@@ -1,5 +1,5 @@
 (function(){
-	// 基础样式JS
+	// 环形进度条JS
 	function getStage(stage) {
 	    var c1 = document.getElementById('c1');
 	    var ctx = c1.getContext('2d');
@@ -48,7 +48,8 @@
                             i,len = $item.length,
                             sliceItem = [],
                             cloneSliceItem = [],
-                            startTime = (new Date()).getTime(),
+                            startTime = (new Date
+                            ()).getTime(),
                             //存放滚动过的 item
                             memory = function(){
                                 var arr = [];
@@ -139,13 +140,13 @@
                 };
             })(jQuery);
 
-            $('#levelList').rollSlide({
-                orientation: 'left',
-                num: 1,
-                v: 1000,
-                space: 3000,
-                isRoll: false
-            });
+  $('#levelList').rollSlide({
+      orientation: 'left',
+      num: 1,
+      v: 1000,
+      space: 3000,
+      isRoll: false
+  });
 
 	$('.tv-close').click(function(){
 		$('#tvModal').hide();
@@ -224,12 +225,10 @@
             });
 			$.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
                 var tvStudy="";
-                tvStudy +=
-                `<iframe id="tv" src="http://content.jwplatform.com/players/${data.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>`;
+                tvStudy +='<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>';
                 $('.tv-detail-header').html(tvStudy);
                 var tvdesc="";
-                tvdesc +=`<h3 class="text-c1 no-margin p-b-10">${data.data.name}</h3>
-                           <P class="text-c3 no-padding">${data.data.describe}</P>`;
+                tvdesc +='<h3 class="text-c1 no-margin p-b-10">'+data.data.name+'</h3><P class="text-c3 no-padding">'+data.data.describe+'</P>';
                 $('#tvModal .tv-detail-body').html(tvdesc);
 
             });
@@ -254,13 +253,12 @@
             });
 			$.alpha.request_Url('post','Classes/article_detail',{article_id:aid},function(data){
                 var artdesc="";
-                artdesc +=`<div class="fa fa-close text-c1 tv-close" style="top:0"></div>
-                                <h3 class="text-c1 no-margin p-b-10">
-                                    <i class="status-icon yellow m-r-10 m-b-5"></i>
-                                    ${data.data.title}
-                                </h3>
-                                <p>${data.data.update_time}</p>
-                                <P class="text-c3 no-padding">${data.data.content}</P>`;
+                artdesc +=['<div class="fa fa-close text-c1 tv-close" style="top:0"></div>',
+                                '<h3 class="text-c1 no-margin p-b-10">',
+                                  '<i class="status-icon yellow m-r-10 m-b-5"></i>',
+                                    data.data.title+'</h3>',
+                                '<p>'+data.data.update_time+'</p>',
+                                '<P class="text-c3 no-padding">'+data.data.content+'</P>'].join(',');
                 $('#articleModal .tv-detail-body').html(artdesc);
             });
 		});
@@ -270,7 +268,7 @@
 		$('.cbp_tmlabel p span').eq(2).html(content[2]);
 	});
 
-    $('.block').click(function(){
+  $('.block').click(function(){
         var stage_id=($(this).index())+1;
         $.alpha.request_Url('post','Classes/showStageDetail',{stage_id:stage_id},function(data){
             // 阶段展示
@@ -304,12 +302,10 @@
                 var vmid=$(this).attr('id');
                 $.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
                     var tvStudy="";
-                    tvStudy +=
-                    `<iframe id="tv" src="http://content.jwplatform.com/players/${data.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>`;
+                    tvStudy +='<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>';
                     $('.tv-detail-header').html(tvStudy);
                     var tvdesc="";
-                    tvdesc +=`<h3 class="text-c1 no-margin p-b-10">${data.data.name}</h3>
-                               <P class="text-c3 no-padding">${data.data.describe}</P>`;
+                    tvdesc +='<h3 class="text-c1 no-margin p-b-10">'+data.data.name+'</h3><P class="text-c3 no-padding">'+data.data.describe+'</P>';
                     $('#tvModal .tv-detail-body').html(tvdesc);
 
                 });
@@ -331,18 +327,50 @@
                 var aid=$(this).attr('id');
                 $.alpha.request_Url('post','Classes/article_detail',{article_id:aid},function(data){
                     var artdesc="";
-                    artdesc +=`<div class="fa fa-close text-c1 tv-close" style="top:0"></div>
-                                    <h3 class="text-c1 no-margin p-b-10">
-                                        <i class="status-icon yellow m-r-10 m-b-5"></i>
-                                        ${data.data.title}
-                                    </h3>
-                                    <p>${data.data.update_time}</p>
-                                    <P class="text-c3 no-padding">${data.data.content}</P>`;
+                    artdesc +=['<div class="fa fa-close text-c1 tv-close" style="top:0"></div>',
+                                    '<h3 class="text-c1 no-margin p-b-10">',
+                                        '<i class="status-icon yellow m-r-10 m-b-5"></i>',
+                                        data.data.title+'</h3>',
+                                    '<p>'+data.data.update_time+'</p>',
+                                    '<P class="text-c3 no-padding">'+data.data.content+'</P>'].join(',');
                     $('#articleModal .tv-detail-body').html(artdesc);
                 });
             });
         });
-    })
+    });
+  
+  // 获取videolist
+  function getVideoList(videoList) {
+    var list = '';
+    $.each(videoList,function (i,item) {
+      list += ['<li class="tv-small m-b-20" data-toggle="modal" data-target="#tvModal" data-videoId="'+item.id+'">',
+        '<div class="bk-img">',
+        '<img src="'+item.image[1]+'" alt="" style="width: 100%;">',
+        '</div>',
+        '<div class="tv-date text-c3">'+'12\'23\"'+'</div>',
+        '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">',
+        '<div class="tv-des">',
+        '<h5 class="text-c2">'+item.name+'</h5></div>',
+        '</li>'].join(',');
+    });
+    return '<ul class="row no-padding">' + list + '</ul>';
+  }
+  
+  // 获取articlelist
+  function getArticleList(articleList) {
+    var list = '';
+    $.each(articleList,function (i,item) {
+      list += ['<li class="tv-small m-b-20" data-toggle="modal" data-target="#tvModal" data-videoId="'+item.id+'">',
+        '<div class="bk-img">',
+        '<img src="'+item.image[1]+'" alt="" style="width: 100%;">',
+        '</div>',
+        '<div class="tv-date text-c3">'+'12\'23\"'+'</div>',
+        '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">',
+        '<div class="tv-des">',
+        '<h5 class="text-c2">'+item.name+'</h5></div>',
+        '</li>']
+    });
+  }
 
 
     // 显示隐藏阶段介绍
