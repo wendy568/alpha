@@ -464,6 +464,10 @@
     	    	$.alpha.request_Url('post','Utility/addTradingLog',data,function(res){
     	    		if(res.archive.status == 0){
     	    			$.alpha.notification('success','Add Success');
+                        $('#logModal').hide();
+                        $('.modal-backdrop').removeClass('in');
+                        $('body').removeClass('modal-open');
+                        window.location.href = 'tools.html';
 
     	    		}else{
     	    			$.alpha.alertBox('Fail','Add Failed');
