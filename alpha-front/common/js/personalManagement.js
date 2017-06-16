@@ -269,9 +269,7 @@
                         '</li>');
             $('.tv-list').append(tvList);
         });
-        $('.tv-list').on('click','.tv-small',function(e){
-            var event = e || window.event;
-            event.stopPropagation();
+        $('.tv-list').on('click','.tv-small',function(){
             var vmid=$(this).attr('id');
             $.alpha.request_Url('post','Classes/record_process',{article_classes_id:vmid,look_up:'video'},function(data){});
             $.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
