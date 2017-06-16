@@ -309,7 +309,7 @@
                                     '<i class="status-icon yellow m-r-10 m-b-5"></i>',
                                     data.data.title+'</h3>',
                                 '<p>'+data.data.update_time+'</p>',
-                                '<P class="text-c3 no-padding">'+data.data.content+'</P>'].join(',');
+                                '<P class="text-c3 no-padding">'+data.data.content+'</P>'].join('');
                 $('#articleModal .tv-detail-body').html(artdesc);
             });
         });
