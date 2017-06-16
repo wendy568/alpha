@@ -8931,7 +8931,8 @@ body.rtl .footer-widget {
     left: 30px;
  }
 .grid-body .panel-heading:hover,
-.grid-body .panel-heading:hover .cbp_tmlabel{
+.grid-body .panel-heading:hover .cbp_tmlabel,
+.grid-body .panel-heading:hover .cbp_tmicon{
     background: #2a2e36;
     border-radius: 8px;
 }
