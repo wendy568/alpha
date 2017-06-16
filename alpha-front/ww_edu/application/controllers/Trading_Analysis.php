@@ -76,7 +76,7 @@ class Trading_Analysis extends MY_Controller
 		$this->load->library('trading_datas_calculate');
 		$data['data']['profit_total'] = $this->trading_datas_calculate->build($mt4)->property('sum', ['profit'])->get_property();
 		$data['data']['profit'] = $this->trading_datas_calculate->build($mt4)->saveCountPositive('profit')->property('sum', ['profit'])->get_property();
-		$data['data']['loss'] = $data['data']['profit_total'] - $data['data']['profit'];
+		$data['data']['loss'] = round($data['data']['profit_total'] - $data['data']['profit'], 2);
 
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
