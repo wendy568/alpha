@@ -74,6 +74,8 @@
             if(data.archive.status == 0){
                 $('#accordion .calendar-tab-content').remove();
                 dateList = [];
+                $('.En-calendar .calendar-tab').empty();
+                $('#accordion .scroller').empty();
                 var isCurDay = false;
                 $.each(data.data.calendar,function (i,item) {
                     dateList.push(i);
@@ -207,6 +209,8 @@
     	$.alpha.request_Url('post','Utility/week_news',date,function(data){
     		if(data.archive.status == 0){
     			dateList = [];
+          $('#newsContent').empty();
+          $('.En-news .news-tab').empty();
                 var isCurDay = false;
                 $.each(data.data.news,function (i,item) {
                     dateList.push(i);
@@ -326,45 +330,40 @@
         // logList
   		$.alpha.request_Url('post','Utility/tradingLogList',date,function(data){
   			if(data.archive.status == 0){
-    			dateList = [];
-                var isCurDay = false;
-                // overall
-                $('.pull-left .text-success').html(data.data.OverAll);
+            $('.logList').empty();
+            $('.En-log .log-tab').empty();
+            dateList = [];
+            var isCurDay = false;
+            // overall
+            $('.pull-left .text-success').html(data.data.OverAll);
 
-                $.each(data.data.trading_logs,function (i,item) {
-                    dateList.push(i);
+            $.each(data.data.trading_logs,function (i,item) {
+                dateList.push(i);
 
-                    i = i.replace('.','-').replace('.','-');
-                    var x = i;
-                    var curDay = new Date(i);
-                    var month = curDay.getMonth()+1 < 10 ? '0' + (curDay.getMonth()+1) : curDay.getMonth()+1;
-                    var day = curDay.getDate() < 10 ? '0' + curDay.getDate() : curDay.getDate();
-                    isCurDay = new Date().getDay() == curDay.getDay();
-                    activeClass = isCurDay ? 'active' : '';
-                    var $navBar = $('<li class="date ' + activeClass + '">' +
-                                  '<div class="text-c1 small-text text-center">'+weeks[curDay.getDay()]+'</div>' +
-                                  '<div class="text-c3 text-center">'+ month +'/' + day + '</div></li>');
-                    $navBar.on('click',function (e) {
-                        e.stopPropagation();
-                        $('.log-tab li').removeClass('active');
-                        $(this).addClass('active');
-                        var index = $(this).index();
+                i = i.replace('.','-').replace('.','-');
+                var x = i;
+                var curDay = new Date(i);
+                var month = curDay.getMonth()+1 < 10 ? '0' + (curDay.getMonth()+1) : curDay.getMonth()+1;
+                var day = curDay.getDate() < 10 ? '0' + curDay.getDate() : curDay.getDate();
+                isCurDay = new Date().getDay() == curDay.getDay();
+                activeClass = isCurDay ? 'active' : '';
+                var $navBar = $('<li class="date ' + activeClass + '">' +
+                              '<div class="text-c1 small-text text-center">'+weeks[curDay.getDay()]+'</div>' +
+                              '<div class="text-c3 text-center">'+ month +'/' + day + '</div></li>');
+                $navBar.on('click',function (e) {
+                    e.stopPropagation();
+                    $('.log-tab li').removeClass('active');
+                    $(this).addClass('active');
+                    var index = $(this).index();
 
-                        $('.log-tab-content').hide().eq(index).show();
-                    });
-                    $('.En-log .log-tab').append($navBar);
+                    $('.log-tab-content').hide().eq(index).show();
+                });
+                $('.En-log .log-tab').append($navBar);
 
-                    // content
-                    var $content = $('<div class="log-tab-content"></div>');
-                    var log_html='';
-                    $.each(item,function(i,data){
-                    	// if(data.color == "red"){
-                    	// 	titleImg='src="assets/img/log_bg_01.png"';
-                    	// }else if(data.color == "yellow"){
-                    	// 	titleImg='src="assets/img/log_bg_02.png"';
-                    	// }else if(data.color == "blue"){
-                    	// 	titleImg='src="assets/img/log_bg_03.png"';
-                    	// };
+                // content
+                var $content = $('<div class="log-tab-content"></div>');
+                var log_html='';
+                $.each(item,function(i,data){
 
                     	log_html =
                     	$('<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 m-b-40">'+
@@ -388,24 +387,31 @@
                                     '</p>'+
                                 '</div>'+
                             '</div>'+
-                        '</div>');
+                            '<div class="log-foot">'+
+                                '<p class="text-center logEdit" data-toggle="modal" data-target="#logModal" style="cursor:pointer;">'+
+                                    '<i class="fa fa-edit"></i>'+
+                                    '<a class="m-l-5 text-c3">Edit</a>'+
+                                '</p>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>');
 
-                        $(log_html).find('.logEdit').click(function(){
-                            var id = data.id;
-                            var title = data.title;
-                            var content = data.content;
-                            var color = data.color;
-                            $('#logModal .form-control[name="title"]').val(title);
-                            $('#logModal [name="content"]').val(content);
-                            $('#logModal').attr('data-logId',id);
-                            $('#logModal .log_importance'+'.'+color).addClass('active').siblings().removeClass('active');
-                        });
-                    	$content.append(log_html);
+                    $(log_html).find('.logEdit').click(function(){
+                        var id = data.id;
+                        var title = data.title;
+                        var content = data.content;
+                        var color = data.color;
+                        $('#logModal .form-control[name="title"]').val(title);
+                        $('#logModal [name="content"]').val(content);
+                        $('#logModal').attr('data-logId',id);
+                        $('#logModal .log_importance'+(color ? '.'+color : '')).addClass('active').siblings().removeClass('active');
                     });
-
-                    isCurDay ? $content.show() : $content.hide();
-                   	$('.logList').append($content);
+                    $content.append(log_html);
                 });
+
+                isCurDay ? $content.show() : $content.hide();
+                $('.logList').append($content);
+            });
     		}
     		fn && fn(data);
   		});
@@ -436,10 +442,16 @@
     // 按importance筛选日志
     $('.En-log .grid-body>p>.log_importance').click(function (e) {
         e.stopPropagation();
+        var colors = ['green','blue','yellow','red'];
+        var curColor = '';
         $(this).addClass('active').siblings('i').removeClass('active');
-        var curImportance = $(this).attr('class');
+        for(var x in colors){
+          if($(this).attr('class').indexOf(colors[x]) > -1){
+            curColor = colors[x];
+          }
+        }
         $.each($(".log-tab-content>div"),function (i,log) {
-            if(curImportance.indexOf($(log).find('.log_importance').attr('class')) > -1){
+            if($(log).find('.log_importance').attr('class').indexOf(curColor) > -1){
                 $(log).show();
             }else{
                 $(log).hide();
@@ -494,11 +506,7 @@
     	    	$.alpha.request_Url('post','Utility/addTradingLog',data,function(res){
     	    		if(res.archive.status == 0){
     	    			$.alpha.notification('success','Add Success');
-                        $('#logModal').hide();
-                        $('.modal-backdrop').removeClass('in');
-                        $('body').removeClass('modal-open');
-                        window.location.href = 'tools.html';
-
+                getLogData();
     	    		}else{
     	    			$.alpha.alertBox('Fail','Add Failed');
     	    		}
@@ -512,24 +520,38 @@
                         // 更新页面数据
                         $('.logList #'+logId).find('h3').html('<i class="status-icon '+ color +'"></i>'+ title);
                         $('.logList #'+logId).find('.log-content').html(content);
-                        $('#logModal').hide();
-                        $('.modal-backdrop').removeClass('in');
-                        $('body').removeClass('.modal-open');
                     }else{
                         $.alpha.alertBox('Fail','Update Failed');
                     }
                 });
             }
+            $('#logModal [type="button"].close').trigger('click');
     	}else{
     		if(!title){
     			$.alpha.props($('#logModal .form-control[name="title"]'),'right','Not Empty!');
-    		}
+    		}else{
+          $.alpha.props($('#logModal .form-control[name="title"]'),'none');
+        }
     		if(!content){
     			$.alpha.props($('#logModal [name="content"]'),'right','Not Empty!');
-    		}
+    		}else{
+          $.alpha.props($('#logModal [name="content"]'),'none');
+        }
     	}
     });
-
+  
+    // 关闭模态框删除Prop
+    $('#logModal').on('hide.bs.modal', function () {
+        $.alpha.props($('*'),'none');
+    });
+    
+    // 清空模态框
+    $('#addLog').on('click',function () {
+        $('#logModal').attr('data-logId','');
+        $('#logModal input[type="text"],#logModal textarea').val('');
+        $('#logModal input[type="radio"]').prop('checked',false);
+        $('#logModal .log_importance').removeClass('active');
+    });
 
 	function getFlagOfCountry(country) {
 	    var countryClass = '';
