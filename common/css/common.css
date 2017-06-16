@@ -9840,6 +9840,43 @@ url("chrome://browser/content/history/history-panel.xul")
   color:#8b91a0;
   border-bottom:1px solid #8b91a0;
 }
+.log_importance{
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  background: transparent;
+}
+.log_importance.green{
+  border-color: #0aa699;
+}
+.log_importance.blue{
+  border-color: #0090d9;
+}
+.log_importance.red{
+  border-color: #f35958;
+}
+.log_importance.yellow{
+  border-color: #fbb05e;
+}
+.log_importance.green.active,.log_importance.green:hover{
+  background: rgb(10, 166, 153);
+}
+.log_importance.blue.active,.log_importance.blue:hover{
+  background: rgb(0, 144, 217);
+}
+.log_importance.red.active,.log_importance.red:hover{
+  background: rgb(243, 89, 88);
+}
+.log_importance.yellow.active,.log_importance.yellow:hover{
+  background: rgb(251, 176, 94);
+}
 
 /*history --------------------------------------------------------------------------*/
 .table-list{

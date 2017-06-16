@@ -372,7 +372,7 @@
                                 '<img src="assets/img/log_bg_01.png" alt="" class="log-title">'+
                                 '<div class="log-body ">'+
                                     '<h3 class="m-b-15">'+
-                                    	'<i class="status-icon '+ data.color +'"></i>'+ data.title +
+                                    	'<i class="log_importance '+ data.color +'"></i>'+ data.title +
                                     '</h3>'+
                                     '<p class="log-data">'+
                                         '<i class="fa fa-clock-o"></i>'+
@@ -430,7 +430,27 @@
         	$this.prop('disabled',false);
         });
     });
-
+    
+    // 按importance筛选日志
+    $('.En-log .grid-body>p>.log_importance').click(function (e) {
+        e.stopPropagation();
+        $(this).addClass('active').siblings('i').removeClass('active');
+        var curImportance = $(this).attr('class');
+        $.each($(".log-tab-content>div"),function (i,log) {
+            if(curImportance.indexOf($(log).find('.log_importance').attr('class')) > -1){
+                $(log).show();
+            }else{
+                $(log).hide();
+            }
+        });
+    });
+    $('.En-log .grid-body>p>span').click(function (e) {
+        e.stopPropagation();
+        $(this).siblings('i').removeClass('active');
+        $.each($(".log-tab-content>div"),function (i,log) {
+            $(log).show();
+        });
+    });
     // logAdd-----------------------------------------------------------------------------
     // var titleReg=/^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$/;
     // var contentReg=/^[\u4E00-\u9FA5A-Za-z0-9]{10,500}$/;
@@ -449,16 +469,22 @@
     //         $.alpha.props($(this).parent(),'right','Please enter at least 10 characters!');
     //     }
     // });
+  
+    $('#logModal .log_importance').click(function (e) {
+        e.stopPropagation();
+        $(this).addClass('active').siblings().removeClass('active');
+        // console.log($('[name="log_importance"]:checked').val());
+    });
 
     $('.submit').click(function(){
-    	var title=$('.form-control[name="title"]').val();
-    	var content=$('[name="content"]').val();
-        var color = $('[name="color"]').val();
+        var title=$('.form-control[name="title"]').val();
+        var content=$('[name="content"]').val();
+        var color = $('[name="log_importance"]:checked').val();
         var logId=$('#logModal').attr('data-logId');
-    	var data={
-    		title : title,
+    	  var data={
+    		  title : title,
     		content : content,
-            color : color
+          color : color
     	}
     	if(title && content){
             // 新增
@@ -494,10 +520,10 @@
             }
     	}else{
     		if(!title){
-    			$.alpha.props($('.form-control[name="title"]').parent(),'right','Not Empty!');
+    			$.alpha.props($('#logModal .form-control[name="title"]'),'right','Not Empty!');
     		}
     		if(!content){
-    			$.alpha.props($('[name="content"]').parent(),'right','Not Empty!');
+    			$.alpha.props($('#logModal [name="content"]'),'right','Not Empty!');
     		}
     	}
     });
