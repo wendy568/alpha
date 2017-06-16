@@ -205,63 +205,9 @@
 			content.push(stageDtail[i]);
 		}
 		// video
-		var tvList = "";
-		$.each(content[3],function(i,data){
-			tvList = $('<li id="'+ data.id +'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#tvModal">'+
-                            '<div class="bk-img">'+
-                                '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
-                            '</div>'+
-                            '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">'+
-                           	'<div class="tv-des">'+
-                                '<h5 class="text-c2">'+ data.name +'</h5>'+
-                            '</div>'+
-                        '</li>');
-			$('.tv-list').append(tvList);
-		});
-		$('.tv-list').on('click','.tv-small',function(){
-            var vmid=$(this).attr('id');
-            $.alpha.request_Url('post','Classes/record_process',{article_classes_id:vmid,look_up:'video'},function(data){
-            
-            });
-			$.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
-                var tvStudy="";
-                tvStudy +='<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>';
-                $('.tv-detail-header').html(tvStudy);
-                var tvdesc="";
-                tvdesc +='<h3 class="text-c1 no-margin p-b-10">'+data.data.name+'</h3><P class="text-c3 no-padding">'+data.data.describe+'</P>';
-                $('#tvModal .tv-detail-body').html(tvdesc);
-
-            });
-		});
+        getVideoList(content[3]);
 		// artic
-		var articList = "";
-		$.each(content[4],function(i,data){
-			articList = $('<li id="'+ data.id+'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#articleModal">'+
-                            '<div class="bk-img">'+
-                                '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
-                            '</div>'+
-                            '<div class="tv-des">'+
-                                '<h5 class="text-c2">'+data.title+'</h5>'+
-                            '</div>'+
-                        '</li>');
-			$('.artic-list').append(articList);
-		});
-		$('.artic-list').on('click','.tv-small',function(){
-			var aid=$(this).attr('id');
-            $.alpha.request_Url('post','Classes/record_process',{article_classes_id:aid,look_up:'article'},function(data){
-            
-            });
-			$.alpha.request_Url('post','Classes/article_detail',{article_id:aid},function(data){
-                var artdesc="";
-                artdesc +=['<div class="fa fa-close text-c1 tv-close" style="top:0"></div>',
-                                '<h3 class="text-c1 no-margin p-b-10">',
-                                  '<i class="status-icon yellow m-r-10 m-b-5"></i>',
-                                    data.data.title+'</h3>',
-                                '<p>'+data.data.update_time+'</p>',
-                                '<P class="text-c3 no-padding">'+data.data.content+'</P>'].join(',');
-                $('#articleModal .tv-detail-body').html(artdesc);
-            });
-		});
+        getVideoList(content[4]);
 
 		$('.cbp_tmlabel p span').eq(0).html(content[0]);
 		$('.cbp_tmlabel p span').eq(1).html(content[1]);
@@ -271,94 +217,42 @@
     $('.block').click(function(){
         var stage_id=($(this).index())+1;
         $.alpha.request_Url('post','Classes/showStageDetail',{stage_id:stage_id},function(data){
-            // // 阶段展示
-            // var stage=stage_id;
-            // // title
-            // $('.pro-intr h4').html(data.data.title);
-            //  // desc
-            // var desc=data.data.describe.substr(0,80);
-            // var i=0;
-            // $('.more').html('Continue Reading...');
-            // $('.more').click(function(){
-            //     if(i == 0){
-            //         desc=data.data.describe;
-            //         $(this).html('Pack Up The Full...');
+            // title
+            $('.pro-intr h4').html(data.data.title);
+             // 阶段title + desc
+            var desc=data.data.describe.substr(0,80);
+            var i=0;
+            $('.more').html('Continue Reading...');
+            $('.more').click(function(){
+                if(i == 0){
+                    desc=data.data.describe;
+                    $(this).html('Pack Up The Full...');
+                    i = i +1;
+                }else{
+                    desc=data.data.describe.substr(0,80);
+                    $(this).html('Continue Reading...');
+                    i = 0;
+                }
+                $('.pro-intr p').html(desc);
+            });
+            $('.pro-intr p').html(desc);
 
-            //         i = i +1;
-            //     }else{
-            //         desc=data.data.describe.substr(0,80);
-            //         $(this).html('Continue Reading...');
-
-            //         i = 0;
-            //     }
-            //     $('.pro-intr p').html(desc);
-            // });
-            // $('.pro-intr p').html(desc);
-
-            // var stageDtail=data.data.detail;
-            // var title=[];
-            // var content=[];
-            // for(var i in stageDtail){
-            //     title.push(i);
-            //     content.push(stageDtail[i]);
-            //     if(i == 'Video learning'){
-            //         getVideoList(stageDtail[i]);
-            //     }else if(i == 'Article learning'){
-            //         getArticleList(stageDtail[i]);
-            //     }
-            // }
-            // // tvStudy
-            // var tvList = "";
-            // $.each(content[1],function(i,data){
-            //     tvList = $('<li id="'+ data.id +'" class="tv-small" data-toggle="modal" data-target="#tvModal">'+
-            //                     '<div class="bk-img">'+
-            //                         '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
-            //                     '</div>'+
-            //                     '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">'+
-            //                     '<div class="tv-des">'+
-            //                         '<h5 class="text-c2">'+ data.name +'</h5>'+
-            //                     '</div>'+
-            //                 '</li>');
-            //     $('.tv-list').append(tvList);
-            // });
-            // $('.tv-list').on('click','.tv-small',function(){
-            //     var vmid=$(this).attr('id');conosole.log(vmid);
-            //     $.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
-            //         var tvStudy="";
-            //         tvStudy +='<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>';
-            //         $('.tv-detail-header').html(tvStudy);
-            //         var tvdesc="";
-            //         tvdesc +='<h3 class="text-c1 no-margin p-b-10">'+data.data.name+'</h3><P class="text-c3 no-padding">'+data.data.describe+'</P>';
-            //         $('#tvModal .tv-detail-body').html(tvdesc);
-
-            //     });
-            // });
-            // // artic
-            // var articList = "";
-            // $.each(content[0],function(i,data){
-            //     articList = $('<li id="'+ data.id+'" class="tv-small" data-toggle="modal" data-target="#articleModal">'+
-            //                     '<div class="bk-img">'+
-            //                         '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
-            //                     '</div>'+
-            //                     '<div class="tv-des">'+
-            //                         '<h5 class="text-c2">'+data.title+'</h5>'+
-            //                     '</div>'+
-            //                 '</li>');
-            //     $('.artic-list').append(articList);
-            // });
-            // $('.artic-list').on('click','.tv-small',function(){
-            //     var aid=$(this).attr('id');
-            //     $.alpha.request_Url('post','Classes/article_detail',{article_id:aid},function(data){
-            //         var artdesc="";
-            //         artdesc +=['<div class="fa fa-close text-c1 tv-close" style="top:0"></div>',
-            //                         '<h3 class="text-c1 no-margin p-b-10">',
-            //                             '<i class="status-icon yellow m-r-10 m-b-5"></i>',
-            //                             data.data.title+'</h3>',
-            //                         '<p>'+data.data.update_time+'</p>',
-            //                         '<P class="text-c3 no-padding">'+data.data.content+'</P>'].join(',');
-            //         $('#articleModal .tv-detail-body').html(artdesc);
-            //     });
-            // });
+            var stageDtail=data.data.detail;
+            var title=[];
+            var content=[];
+            for(var i in stageDtail){
+                title.push(i);
+                content.push(stageDtail[i]);
+                if(i == 'Video learning'){
+                    getVideoList(stageDtail[i]);
+                }else if(i == 'Article learning'){
+                    getArticleList(stageDtail[i]);
+                }
+            }
+            // tvStudy
+            
+            // artic
+            
         });
     });
   
@@ -367,7 +261,7 @@
         var tvList = "";
         $('.tv-list').empty();
         $.each(videoList,function(i,data){
-            tvList = $('<li id="'+ data.id +'" class="tv-small" data-toggle="modal" data-target="#tvModal">'+
+            tvList = $('<li id="'+ data.id +'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#tvModal">'+
                             '<div class="bk-img">'+
                                 '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
                             '</div>'+
@@ -396,7 +290,7 @@
     function getArticleList(articleList) {
         var articList = "";
         $.each(articleList,function(i,data){
-            articList = $('<li id="'+ data.id+'" class="tv-small" data-toggle="modal" data-target="#articleModal">'+
+            articList = $('<li id="'+ data.id+'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#articleModal">'+
                             '<div class="bk-img">'+
                                 '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
                             '</div>'+
