@@ -11,25 +11,25 @@
 	    // var deg=0;
 	    var timer = setInterval(function(){
 	      	//清除所有内容
-	      	ctx.clearRect(0,0, 270, 300);
+	      	ctx.clearRect(0,0, 260, 260);
 
 	      	//绘制外层灰色框
 	      	ctx.beginPath();
-	      	ctx.arc(135,150, 80, 0, 2*Math.PI);
+	      	ctx.arc(130,130, 80, 0, 2*Math.PI);
 	      	ctx.strokeStyle = 'rgba(225,225,225,.2)';
 	      	ctx.stroke();
 
 	      	//绘制圆拱形进度条
 	      	ctx.beginPath();
 	      	var progress=2 * Math.PI / 15 * percent;
-	      	ctx.arc(135, 150, 80, 0-Math.PI/2, progress-Math.PI/2);
+	      	ctx.arc(130, 130, 80, 0-Math.PI/2, progress-Math.PI/2);
 	      	ctx.strokeStyle = '#fff';
 	      	ctx.stroke();
 
 	      	//绘制进度提示文字
 	      	var txt = percent;
 	      	var w = ctx.measureText(txt).width;
-	      	ctx.fillText(txt, 135-w/2, 150-30);
+	      	ctx.fillText(txt, 130-w/2, 130-30);
 	      	ctx.fillStyle='#fff';
 	    },50);
 	}
@@ -207,7 +207,7 @@
 		// video
 		var tvList = "";
 		$.each(content[3],function(i,data){
-			tvList = $('<li id="'+ data.id +'" class="tv-small" data-toggle="modal" data-target="#tvModal">'+
+			tvList = $('<li id="'+ data.id +'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#tvModal">'+
                             '<div class="bk-img">'+
                                 '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
                             '</div>'+
@@ -236,7 +236,7 @@
 		// artic
 		var articList = "";
 		$.each(content[4],function(i,data){
-			articList = $('<li id="'+ data.id+'" class="tv-small" data-toggle="modal" data-target="#articleModal">'+
+			articList = $('<li id="'+ data.id+'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#articleModal">'+
                             '<div class="bk-img">'+
                                 '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
                             '</div>'+
