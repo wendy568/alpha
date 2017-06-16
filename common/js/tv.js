@@ -45,7 +45,7 @@
             })
             .html(
                 ['<div class="bk-img">',
-                    '<img src="ww_edu/upload/'+data.image[0]+'/m_'+data.image[1]+'" alt="" style="width: 100%;height: 100%;">',
+                    '<img src="'+alpha_host+'upload/'+data.image[0]+'m_'+data.image[1]+'" alt="" style="width: 100%;">',
                 '</div>',
                 '<!-- 遮罩 -->',
                 '<div class="tv-date text-c3">'+tvTime+'</div>',
@@ -60,7 +60,7 @@
         $('.tv-content>ul').on('click','.tv-small',function(){
             var vmid=$(this).attr('id');
             $.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
-                 var big_html="";
+                var big_html="";
                 big_html+=
                 '<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>';
 
