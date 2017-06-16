@@ -9537,23 +9537,32 @@ body.rtl .footer-widget {
     display: inline-block;
     cursor: pointer;
 }
-.s1:hover a,
+s1.active,.s1:hover a,
 .s1:active a,
 .s1.active a
 {
-     background: -webkit-linear-gradient(top,#F25555,#FB72AE);
+  background: linear-gradient(top,#F25555,#FB72AE);
+  background: -webkit-linear-gradient(top,#F25555,#FB72AE);
+  background: -moz-linear-gradient(top,#F25555,#FB72AE);
+  background: -o-linear-gradient(top,#F25555,#FB72AE);
 }
-.s2:hover a,
+s2.active,.s2:hover a,
 .s2:active a,
 .s2.active a
 {
-     background: -webkit-linear-gradient(top,#F9BF66,#F95CB1);
+  background: linear-gradient(top,#F9BF66,#F95CB1);
+  background: -webkit-linear-gradient(top,#F9BF66,#F95CB1);
+  background: -moz-linear-gradient(top,#F9BF66,#F95CB1);
+  background: -o-linear-gradient(top,#F9BF66,#F95CB1);
 }
-.s3:hover a,
+s3.active,.s3:hover a,
 .s3:active a,
 .s3.active a
 {
-     background: -webkit-linear-gradient(top,#FFA35A,#FFB064);
+  background: linear-gradient(top,#FFA35A,#FFB064);
+  background: -webkit-linear-gradient(top,#FFA35A,#FFB064);
+  background: -moz-linear-gradient(top,#FFA35A,#FFB064);
+  background: -o-linear-gradient(top,#FFA35A,#FFB064);
 }
 /*.s4:hover,
 .s4:active

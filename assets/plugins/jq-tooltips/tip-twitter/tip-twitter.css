@@ -1,6 +1,6 @@
 .tip-twitter {
 	opacity:0.9;
-	z-index:1000;
+	z-index:10000;
 	text-align:left;
 	border-radius:4px;
 	-moz-border-radius:4px;
