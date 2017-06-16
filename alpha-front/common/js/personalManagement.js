@@ -214,7 +214,7 @@
 		$('.cbp_tmlabel p span').eq(2).html(content[2]);
 	});
 
-    $('.block').click(function(){
+    $('.module').click(function(){
         var stage_id=($(this).index())+1;
         $.alpha.request_Url('post','Classes/showStageDetail',{stage_id:stage_id},function(data){
             // title
@@ -248,11 +248,7 @@
                 }else if(i == 'Article learning'){
                     getArticleList(stageDtail[i]);
                 }
-            }
-            // tvStudy
-            
-            // artic
-            
+            }  
         });
     });
   
@@ -289,6 +285,7 @@
     // 获取articlelist
     function getArticleList(articleList) {
         var articList = "";
+        $('.artic-list').empty();
         $.each(articleList,function(i,data){
             articList = $('<li id="'+ data.id+'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#articleModal">'+
                             '<div class="bk-img">'+
