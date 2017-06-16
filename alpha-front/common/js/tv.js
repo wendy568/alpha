@@ -8,26 +8,26 @@
         // 视频介绍
         var intr_html="";
         intr_html+=
-            `<div class="video-title m-b-20">
-                <i class="fa fa-video-camera text-c2"></i>
-                <span class="font12">${data.data.create_time}</span>
-            </div>
-            <div class="video-body">
-                <h4 class="text-c2 semi-bold font24 m-b-20">${data.data.name}</h4>
-                <span class="font14" style="text-indent: 1em;">${data.data.describe}</span><br>
-            </div>`;
+            ['<div class="video-title m-b-20">',
+                '<i class="fa fa-video-camera text-c2"></i>',
+                '<span class="font12">&nbsp;'+data.data.create_time+'</span>',
+            '</div>',
+            '<div class="video-body">',
+                '<h4 class="text-c2 semi-bold font24 m-b-20">'+data.data.name+'</h4>',
+                '<span class="font14" style="text-indent: 1em;">'+data.data.describe+'</span><br>',
+            '</div>'].join('');
         $('.video-intr').html(intr_html);
         // <div class="overall">
         //     <h6 class="text-c3 font14 m-b-20">Overall Visits</h6>
         //     <h5 class="text-c2 font16">${data.data.views}</h5>
         //     <p><i class="fa fa-play text-error"></i></p>
-        // </div>  
+        // </div>
         // <div class="overall pull-right">
         //     <h6 class="text-c3 font14 m-b-20">Comment</h6>
         //     <h5 class="text-c2 font16">${data.data.message_count}</h5>
         //     <p><i class="fa fa-comments text-info"></i></p>
         // </div>
-    })
+    });
 
     // 视频列表
     $.alpha.request_Url('post','video/list',{'limit':20,'start':0},function(data){
@@ -44,15 +44,15 @@
                 id: data.id
             })
             .html(
-                `<div class="bk-img">
-                    <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width: 100%;height: 100%;">
-                </div>
-                <!-- 遮罩 -->
-                <div class="tv-date text-c3">${tvTime}</div>
-                <img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">
-                <div class="tv-des">
-                    <p class="text-c2">${data.name}</p>
-                </div>`);
+                ['<div class="bk-img">',
+                    '<img src="ww_edu/upload/'+data.image[0]+'/m_'+data.image[1]+'" alt="" style="width: 100%;height: 100%;">',
+                '</div>',
+                '<!-- 遮罩 -->',
+                '<div class="tv-date text-c3">'+tvTime+'</div>',
+                '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">',
+                '<div class="tv-des">',
+                    '<p class="text-c2">'+data.name+'</p>',
+                '</div>'].join(''));
 
             $('.tv-content>ul').append(li);
         });
@@ -62,36 +62,48 @@
             $.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
                  var big_html="";
                 big_html+=
-                `<iframe id="tv" src="http://content.jwplatform.com/players/${data.data.source}-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>`;
+                '<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>';
 
                 $('.tv-preview').html(big_html);
 
                 var intr_html="";
                 intr_html+=
-                    `<div class="video-title">
-                        <i class="fa fa-video-camera text-c2"></i>
-                        <span>${data.data.create_time}</span>
-                    </div>
-                    <div class="video-body">
-                        <h4 class="text-c2 semi-bold">${data.data.name}</h4>
-                        <span>${data.data.describe}</span><br>
-                        <!-- 访问量 -->
-                        <div class="overall">
-                            <h6 class="text-c3">Overall Visits</h6>
-                            <h5 class="text-c2">${data.data.views}</h5>
-                            <p><i class="fa fa-play text-error"></i></p>
-                        </div>
-                        <!-- 评论数 -->
-                        <div class="overall pull-right">
-                            <h6 class="text-c3">Comment</h6>
-                            <h5 class="text-c2">${data.data.message_count}</h5>
-                            <p><i class="fa fa-comments text-info"></i></p>
-                        </div>
-                    </div>`;
+                    ['<div class="video-title m-b-20">',
+                    '<i class="fa fa-video-camera text-c2"></i>',
+                    '<span class="font12">&nbsp;'+data.data.create_time+'</span>',
+                    '</div>',
+                    '<div class="video-body">',
+                    '<h4 class="text-c2 semi-bold font24 m-b-20">'+data.data.name+'</h4>',
+                    '<span class="font14" style="text-indent: 1em;">'+data.data.describe+'</span><br>',
+                    /*'<!-- 访问量 -->',
+                    '<div class="overall">',
+                    '<h6 class="text-c3">Overall Visits</h6>',
+                    '<h5 class="text-c2">'+data.data.views+'</h5>',
+                    '<p><i class="fa fa-play text-error"></i></p>',
+                    '</div>',
+                    '<!-- 评论数 -->',
+                    '<div class="overall pull-right">',
+                    '<h6 class="text-c3">Comment</h6>',
+                    '<h5 class="text-c2">'+data.data.message_count+'</h5>',
+                    '<p><i class="fa fa-comments text-info"></i></p>',
+                    '</div>',*/
+                    '</div>'].join('');
                 $('.video-intr').html(intr_html);
                 $(document).scrollTop(0);
             });
         });
     });
+    
+    // 改变窗口大小，做视频自适应
+    $(window).resize(function() {
+      var width = $('.tv-preview').width();
+      setTimeout(function () {
+        var height = (width*9/16).toFixed(2);
+        $('.tv-preview').height(height).next('div').height(height);
+      });
+    });
 
+    window.setTimeout(function () {
+      $('.tv-preview').height(($('.tv-preview').width()*9/16).toFixed(2)).next('div').height(($('.tv-preview').width()*9/16).toFixed(2));
+    });
 })();
