@@ -394,9 +394,10 @@
                             var title = data.title;
                             var content = data.content;
                             var color = data.color;
-                            $('.form-control[name="title"]').val(title);
-                            $('[name="content"]').val(content);
+                            $('#logModal .form-control[name="title"]').val(title);
+                            $('#logModal [name="content"]').val(content);
                             $('#logModal').attr('data-logId',id);
+                            $('#logModal .log_importance'+'.'+color).addClass('active').siblings().removeClass('active');
                         });
                     	$content.append(log_html);
                     });
@@ -476,10 +477,10 @@
         // console.log($('[name="log_importance"]:checked').val());
     });
 
-    $('.submit').click(function(){
-        var title=$('.form-control[name="title"]').val();
-        var content=$('[name="content"]').val();
-        var color = $('[name="log_importance"]:checked').val();
+    $('#logModal .submit').click(function(){
+        var title=$('#logModal .form-control[name="title"]').val();
+        var content=$('#logModal [name="content"]').val();
+        var color = $('#logModal [name="log_importance"]:checked').val();
         var logId=$('#logModal').attr('data-logId');
     	  var data={
     		  title : title,
