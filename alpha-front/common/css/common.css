@@ -9332,11 +9332,32 @@ body.rtl .footer-widget {
 .log-body .log-data{
   padding-left:20px;
   font-size: 12px;
+  position: relative;
+  top: -15px;
 }
 .log-body .log-content{
     font-size: 14px;
     color:#7E7F80;
     padding-left: 20px;
+    position: relative;
+    top: -10px;
+}
+.log-header{
+    position: relative;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    display: inline-block;
+    top: -21px;
+    margin-left:20px;
+} 
+.log-header:hover{
+    height: auto;
+    white-space: normal;
 }
 .log-foot{
     padding-right: 30px;
@@ -9373,7 +9394,7 @@ body.rtl .footer-widget {
 }
 #logModal .input-with-icon{
   display: inline-block;
-  width: 430px;
+  width: 460px;
 }
 /*personal-management---------------------------------------------------------*/
 .stage-left{
