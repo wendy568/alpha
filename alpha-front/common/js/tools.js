@@ -387,13 +387,6 @@
                                     '</p>'+
                                 '</div>'+
                             '</div>'+
-                            '<div class="log-foot">'+
-                                '<p class="text-center logEdit" data-toggle="modal" data-target="#logModal" style="cursor:pointer;">'+
-                                    '<i class="fa fa-edit"></i>'+
-                                    '<a class="m-l-5 text-c3">Edit</a>'+
-                                '</p>'+
-                            '</div>'+
-                        '</div>'+
                     '</div>');
 
                     $(log_html).find('.logEdit').click(function(){

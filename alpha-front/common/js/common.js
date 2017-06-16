@@ -461,7 +461,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
 
    // props
     alpha.prototype.props = function (target, direction,msg) {
-
+        $(target).poshytip('destroy');
         if(direction == 'top'){
           $(target).poshytip({
             className: 'tip-twitter',
