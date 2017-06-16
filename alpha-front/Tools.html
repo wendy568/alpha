@@ -574,11 +574,11 @@
                                 <!-- body -->
                                 <div class="grid-body no-border ">
                                     <p class="m-b-20">
-                                        <span class="m-r-20">ALL</span>
-                                        <i class="status-icon green m-r-20"></i>
-                                        <i class="status-icon blue m-r-20"></i>
-                                        <i class="status-icon red m-r-20"></i>
-                                        <i class="status-icon yellow m-r-20"></i>
+                                        <span class="m-r-20" style="cursor: pointer;">ALL</span>
+                                        <i class="log_importance green m-r-20" style="cursor: pointer;"></i>
+                                        <i class="log_importance blue m-r-20" style="cursor: pointer;"></i>
+                                        <i class="log_importance red m-r-20" style="cursor: pointer;"></i>
+                                        <i class="log_importance yellow m-r-20" style="cursor: pointer;"></i>
                                     </p>
                                     <div class="row logList">
                                     </div>
@@ -602,7 +602,7 @@
                                             <label class="form-label text-c3">Subject</label>
                                         </div>
                                         <div class="input-with-icon right col-xs-10 ">
-                                            <input class="form-control" name="title" type="text" required style="430px;">
+                                            <input class="form-control" name="title" type="text" required>
                                         </div>
                                     </div>
 
@@ -620,17 +620,17 @@
                                             <label class="form-label">Mark</label>
                                         </div>
                                         <div  class="col-xs-9 no-padding">
-                                            <label class="status-icon green m-r-30" style="z-index: 10000">
-                                                <input type="radio" name="green" class="m-r-20" style="opacity: 0">
+                                            <label class="log_importance green m-r-30" for="log_green">
+                                                <input type="radio" name="log_importance" class="m-r-20" style="opacity: 0" id="log_green" value="green">
                                             </label>
-                                            <label class="status-icon red m-r-30">
-                                                <input type="radio" name="red" class="m-r-20" style="opacity: 0">
+                                            <label class="log_importance red m-r-30" for="log_red">
+                                                <input type="radio" name="log_importance" class="m-r-20" style="opacity: 0" id="log_red" value="red">
                                             </label>
-                                            <label class="status-icon yellow m-r-30">
-                                                <input type="radio" name="yellow" class="m-r-20" style="opacity: 0">
+                                            <label class="log_importance yellow m-r-30" for="log_yellow">
+                                                <input type="radio" name="log_importance" class="m-r-20" style="opacity: 0" id="log_yellow" value="yellow">
                                             </label>
-                                            <label class="status-icon blue m-r-30">
-                                                <input type="radio" name="blue" class="m-r-20" style="opacity: 0">
+                                            <label class="log_importance blue m-r-30" for="log_blue">
+                                                <input type="radio" name="log_importance" class="m-r-20" style="opacity: 0" id="log_blue" value="blue">
                                             </label>
                                         </div>
                                     </div>
