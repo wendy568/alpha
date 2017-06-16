@@ -513,6 +513,7 @@
                         // 更新页面数据
                         $('.logList #'+logId).find('h3').html('<i class="status-icon '+ color +'"></i>'+ title);
                         $('.logList #'+logId).find('.log-content').html(content);
+                        $('.logList #'+logId).find('.log_importance').addClass(color);
                     }else{
                         $.alpha.alertBox('Fail','Update Failed');
                     }
