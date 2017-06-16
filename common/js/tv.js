@@ -45,7 +45,7 @@
             })
             .html(
                 `<div class="bk-img">
-                    <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width: 100%;">
+                    <img src="ww_edu/upload/${data.image[0]}/m_${data.image[1]}" alt="" style="width: 100%;height: 100%;">
                 </div>
                 <!-- 遮罩 -->
                 <div class="tv-date text-c3">${tvTime}</div>
