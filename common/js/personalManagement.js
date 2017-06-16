@@ -158,7 +158,7 @@
     });
    
 
-	$.alpha.request_Url('post','Classes/current_stage',{},function(data){
+	  $.alpha.request_Url('post','Classes/current_stage',{},function(data){
 		// 阶段展示
 		var stage=data.data.current_stage;
 		getStage(stage);
@@ -249,7 +249,7 @@
                 }else if(i == 'Article learning'){
                     getArticleList(stageDtail[i]);
                 }
-            }  
+            }
         });
     });
   
@@ -260,7 +260,7 @@
         $.each(videoList,function(i,data){
             tvList = $('<li id="'+ data.id +'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#tvModal">'+
                             '<div class="bk-img">'+
-                                '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
+                                '<img src="'+alpha_host+'upload/'+ data.image[0] +'m_'+ data.image[1] +'" alt="" >'+
                             '</div>'+
                             '<img class="tv-btn img-responsive" src="./assets/img/dashboard_tv_play.png" alt="">'+
                             '<div class="tv-des">'+
@@ -269,16 +269,18 @@
                         '</li>');
             $('.tv-list').append(tvList);
         });
-        $('.tv-list').on('click','.tv-small',function(){
+        $('.tv-list').on('click','.tv-small',function(e){
+            var event = e || window.event;
+            event.stopPropagation();
             var vmid=$(this).attr('id');
+            $.alpha.request_Url('post','Classes/record_process',{article_classes_id:vmid,look_up:'video'},function(data){});
             $.alpha.request_Url('post','video/videos_detail',{class_id:vmid},function(data){
                 var tvStudy="";
                 tvStudy +='<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" height="100%" width="100%" frameborder="0" scrolling="auto" allowfullscreen></iframe>';
-                $('.tv-detail-header').html(tvStudy);
+                $('#tvModal .tv-detail-header').html(tvStudy);
                 var tvdesc="";
                 tvdesc +='<h3 class="text-c1 no-margin p-b-10">'+data.data.name+'</h3><P class="text-c3 no-padding">'+data.data.describe+'</P>';
                 $('#tvModal .tv-detail-body').html(tvdesc);
-
             });
         });
     }
@@ -290,7 +292,7 @@
         $.each(articleList,function(i,data){
             articList = $('<li id="'+ data.id+'" class="tv-small col-lg-3 col-md-4 col-sm-6 col-xs-12 no-margin m-b-30" data-toggle="modal" data-target="#articleModal">'+
                             '<div class="bk-img">'+
-                                '<img src="ww_edu/upload/'+ data.image[0] +'/m_'+ data.image[1] +'" alt="" style="width: 100%;">'+
+                                '<img src="'+alpha_host+'upload/'+ data.image[0] +'m_'+ data.image[1] +'" alt="" >'+
                             '</div>'+
                             '<div class="tv-des">'+
                                 '<h5 class="text-c2">'+data.title+'</h5>'+
