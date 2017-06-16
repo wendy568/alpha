@@ -140,22 +140,23 @@
                 };
             })(jQuery);
 
-  $('#levelList').rollSlide({
-      orientation: 'left',
-      num: 1,
-      v: 1000,
-      space: 3000,
-      isRoll: false
-  });
+    $('#levelList').rollSlide({
+          orientation: 'left',
+          num: 1,
+          v: 1000,
+          space: 3000,
+          isRoll: false
+    });
 
-	$('.tv-close').click(function(){
-		$('#tvModal').hide();
-		$('#articleModal').hide();
-		$('.modal-backdrop').removeClass('modal-backdrop');
-		$('body').removeClass('modal-open');
-		$('#tvModal').removeClass('in');
-		$('#articleModal').removeClass('in');
-	});
+    // 关闭tvModal
+    $('#tvModal').on('hide.bs.modal', function () {
+        $('#tvModal .tv-detail-header').empty();
+    });
+     // 关闭articModal
+    $('#articleModal').on('hide.bs.modal', function () {
+        $('#articleModal .tv-detail-body').empty();
+    });
+   
 
 	$.alpha.request_Url('post','Classes/current_stage',{},function(data){
 		// 阶段展示
@@ -301,7 +302,7 @@
             var aid=$(this).attr('id');
             $.alpha.request_Url('post','Classes/article_detail',{article_id:aid},function(data){
                 var artdesc="";
-                artdesc +=['<div class="fa fa-close text-c1 tv-close" style="top:0"></div>',
+                artdesc +=['<div class="text-c1 tv-close close" data-dismiss="modal" style="top:0;opacity: 1;">X</div>',
                                 '<h3 class="text-c1 no-margin p-b-10">',
                                     '<i class="status-icon yellow m-r-10 m-b-5"></i>',
                                     data.data.title+'</h3>',
