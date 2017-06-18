@@ -232,6 +232,7 @@ class Classes extends MY_Controller
 		}
 
 		if ($original['personal']['hw_id'] > $stage_id) {
+			print_r($current_mission);
 			$personal = $this->classes_mission->make_complete($current_mission, $history[$stage_id . '_'], $mission_key);
 			print_r($personal);
 		}
