@@ -15,7 +15,8 @@ class Remarks extends CI_Model
 		$map = "SELECT *  
 				FROM remark
 				WHERE uid={$uid}
-				LIMIT {$start},{$limit}";	
+				LIMIT {$start},{$limit}";
+		print_r($map);
 		$query = $this->db->query($map);
         $result = $query->result_array();
         
