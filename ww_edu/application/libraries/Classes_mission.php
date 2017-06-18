@@ -229,7 +229,7 @@ class Classes_mission
 
 	public function record_history($current_stage, $stage_id, $history, $personal)
 	{
-		var_dump($current_stage = 1);
+		var_dump($current_stage = 10);
 		var_dump($stage_id);
 		print_r($history);
 		print_r($personal);
