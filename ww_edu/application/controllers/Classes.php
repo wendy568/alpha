@@ -233,6 +233,7 @@ class Classes extends MY_Controller
 
 		if ($original['personal']['hw_id'] > $stage_id) {
 			$personal = $this->classes_mission->skipAGrade($history[$stage_id . '_'], $mission_key);
+			print_r($personal);
 		}
 		
 		die;
