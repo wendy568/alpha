@@ -232,7 +232,7 @@ class Classes extends MY_Controller
 		}
 
 		if ($original['personal']['hw_id'] > $stage_id) {
-			var_dump(empty($history[$stage_id . '_']['Video Learning1']));
+			var_dump(!empty($history[$stage_id . '_']['Video Learning1']));
 			$personal = $this->classes_mission->make_complete($current_mission, $history[$stage_id . '_'], $mission_key);
 			print_r($personal);
 		}
