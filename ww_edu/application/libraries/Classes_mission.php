@@ -236,14 +236,20 @@ class Classes_mission
 		print_r($allProcess);
 
 		if (($num = $stage_id - $current_stage) > 0) {
-			// for ($current_stage; $current_stage < $stage_id; $current_stage++) {
-			// 	$allProcess[($current_stage + 1) . '_'] = 
-			// }
+			for ($current_stage; $current_stage < $stage_id; $current_stage++) {
+				foreach ($allProcess as $value) {
+					if ($value['id'] == $current_stage + 1) {
+						$history[($current_stage + 1) . '_'] = $value['homework'];
+					}
+				}
+			}
 		} else if ($num === 0) {
 			$history[$current_stage . '_'] = $personal;
 		} else if ($num < 0) {
 			echo -1;
 		}
+
+		print_r($history);
 	}
 
 	public function lastOrNextProcess()
