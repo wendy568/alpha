@@ -43,7 +43,7 @@ class Remark extends MY_Controller
 		$cols = $this->sample_struct->init($datas, 'remark')->format()->property('user_addslashes', [])->pickUpProperty()->update();
 		$this->load->model('users');
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->users->add($cols, $response);
+		$data['data'] = $this->users->update($cols, $response);
 		$data['time'] = time();
 
 		encode_json($response,$data);
