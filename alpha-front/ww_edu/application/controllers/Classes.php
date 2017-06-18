@@ -200,7 +200,7 @@ class Classes extends MY_Controller
 
 		$allProcess = $this->allProcess();
 		$history = $this->show_history($uid);
-		$current_mission = $this->get_mission($stage_id);
+		$personal = $this->get_mission($stage_id);
 		$original = $this->ClassesM->current_stage($uid);
 		$history = $this->classes_mission->jsonDecode($history['homework']);
 		// $mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
@@ -232,7 +232,7 @@ class Classes extends MY_Controller
 		}
 
 		if ($original['personal']['hw_id'] > $stage_id) {
-			$personal = $this->classes_mission->skipAGrade($current_mission, $mission_key);
+			$personal = $this->classes_mission->skipAGrade($history[$stage_id . '_'], $mission_key);
 		}
 		
 		die;
