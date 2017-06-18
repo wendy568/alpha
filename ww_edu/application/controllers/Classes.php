@@ -68,7 +68,7 @@ class Classes extends MY_Controller
 	
 	}
 
-	public function saveRecord($uid, $homework, $stage_id)
+	public function saveRecord($uid, $homework, $stage_id = null)
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 			
