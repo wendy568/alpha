@@ -240,7 +240,7 @@ class Classes_mission
 			for ($current_stage; $current_stage < $stage_id; $current_stage++) {
 				foreach ($allProcess as $value) {
 					if ($value['id'] == $current_stage + 1) {
-						$history[($current_stage + 1) . '_'] = json_decode($value['homework'], true);
+						$history[($current_stage + 1) . '_'] = $this->clean_mission(json_decode($value['homework'], true));
 					}
 				}
 			}
