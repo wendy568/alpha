@@ -16,7 +16,7 @@ class Remark extends MY_Controller
 		$this->load->library('sample_struct');
 
 		$cols = $this->sample_struct->init($datas, 'remark')->create_time()->format()->property('user_addslashes',[])->pickUpProperty()->add();
-		print_r($cols);die;
+
 		$this->load->model('users');
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = $this->users->add($cols, $response);
