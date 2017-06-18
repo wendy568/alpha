@@ -200,7 +200,7 @@ class Classes extends MY_Controller
 
 		$allProcess = $this->allProcess();
 		$history = $this->show_history($uid);
-		$personal = $this->get_mission($stage_id);
+		$current_mission = $this->get_mission($stage_id);
 		$original = $this->ClassesM->current_stage($uid);
 		$history = $this->classes_mission->jsonDecode($history['homework']);
 		// $mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
