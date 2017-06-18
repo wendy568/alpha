@@ -242,7 +242,7 @@ class Classes extends MY_Controller
 			$history = $this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal, $allProcess);
 			$personal = $this->classes_mission->skipAGrade($current_mission, $mission_key);
 
-			$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal));
+			$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal), $stage_id);
 			$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 		}
 
