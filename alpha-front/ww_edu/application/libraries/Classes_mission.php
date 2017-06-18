@@ -236,6 +236,7 @@ class Classes_mission
 		print_r($allProcess);
 
 		if (($num = $stage_id - $current_stage) > 0) {
+			$history[$current_stage . '_'] = $personal;
 			for ($current_stage; $current_stage < $stage_id; $current_stage++) {
 				foreach ($allProcess as $value) {
 					if ($value['id'] == $current_stage + 1) {
