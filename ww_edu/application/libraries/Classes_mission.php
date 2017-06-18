@@ -229,6 +229,7 @@ class Classes_mission
 
 	public function record_history($current_stage, $stage_id, $history, $personal = null, $allProcess = null)
 	{
+		print_r($personal);
 		if (($num = $stage_id - $current_stage) > 0) {
 			$history[$current_stage . '_'] = $personal;
 			for ($current_stage; $current_stage < $stage_id; $current_stage++) {
