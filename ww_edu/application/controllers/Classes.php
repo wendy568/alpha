@@ -250,7 +250,7 @@ class Classes extends MY_Controller
 			//personal = history,
 			$personal = $this->classes_mission->make_complete($current_mission, $history[$stage_id . '_'], $mission_key);
 			$history = $this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal);
-			
+			echo 123;
 			$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 		}
 		
