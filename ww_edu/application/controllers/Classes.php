@@ -229,7 +229,7 @@ class Classes extends MY_Controller
 					}
 				}
 
-				$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal), $original['personal']['hw_id'] + 1);
+				$this->saveRecord($uid, $this->classes_mission->jsonEncode($personal), $original['personal']['hw_id'] + 1);
 				$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 			} else if ($complete > 0 && $complete < 1) {
 
