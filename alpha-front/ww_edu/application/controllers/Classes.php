@@ -226,8 +226,9 @@ class Classes extends MY_Controller
 		}
 
 		if ($original['personal']['hw_id'] < $stage_id) {
+			$this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal， $allProcess);
 			$personal = $this->classes_mission->skipAGrade($current_mission, $mission_key);
-			print_r($personal);
+			// print_r($personal);
 		}
 
 		if ($original['personal']['hw_id'] > $stage_id) {
