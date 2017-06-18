@@ -227,6 +227,7 @@ class Classes extends MY_Controller
 
 		if ($original['personal']['hw_id'] < $stage_id) {
 			$personal = $this->classes_mission->skipAGrade($current_mission, $mission_key);
+			print_r($personal);
 		}
 
 		if ($original['personal']['hw_id'] > $stage_id) {

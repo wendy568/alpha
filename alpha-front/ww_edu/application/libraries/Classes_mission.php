@@ -229,7 +229,7 @@ class Classes_mission
 
 	public function record_history($current_stage, $stage_id, $history, $personal)
 	{
-		var_dump($current_stage = 10);
+		var_dump($current_stage);
 		var_dump($stage_id);
 		print_r($history);
 		print_r($personal);
@@ -237,7 +237,7 @@ class Classes_mission
 		if (($num = $stage_id - $current_stage) > 0) {
 			echo 1;
 		} else if ($num === 0) {
-			echo 0;
+			$history[$current_stage . '_'] = $personal;
 		} else if ($num < 0) {
 			echo -1;
 		}
