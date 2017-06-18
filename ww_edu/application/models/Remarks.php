@@ -12,11 +12,12 @@ class Remarks extends CI_Model
 		$start = (isset($start) && $start) ? $start : 0;
 		$limit = (isset($limit) && $limit) ? $limit : 10; 
 		$result = array();
-		$map = "SELECT *  
+		$map = "SELECT id, admin, content, uid, u_time
 				FROM remark
 				WHERE uid={$uid}
+				ORDER BY u_time DESC
 				LIMIT {$start},{$limit}";
-		print_r($map);
+
 		$query = $this->db->query($map);
         $result = $query->result_array();
         
