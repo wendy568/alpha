@@ -103,6 +103,18 @@ class ClassesM extends CI_Model
 		return $result;
 	}
 
+	function save_history($uid, $history)
+	{
+		$map = 'UPDATE homework_history 
+				SET homework="'.$history.'"
+				WHERE uid="'.$uid.'"';
+		
+		$this->db->query($map);
+		$result = $this->db->affected_rows();
+	
+		return $result;
+	}
+
 	function article_detail($id)
 	{
 		$map = 'SELECT * 

@@ -229,12 +229,6 @@ class Classes_mission
 
 	public function record_history($current_stage, $stage_id, $history, $personal = null, $allProcess = null)
 	{
-		var_dump($current_stage);
-		var_dump($stage_id);
-		print_r($history);
-		print_r($personal);
-		print_r($allProcess);
-
 		if (($num = $stage_id - $current_stage) > 0) {
 			$history[$current_stage . '_'] = $personal;
 			for ($current_stage; $current_stage < $stage_id; $current_stage++) {
@@ -250,7 +244,7 @@ class Classes_mission
 			$history[$stage_id . '_'] = $personal;
 		}
 
-		print_r($history);
+		return $history;
 	}
 
 	public function lastOrNextProcess()

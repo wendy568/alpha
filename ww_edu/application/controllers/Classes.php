@@ -57,6 +57,17 @@ class Classes extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function save_history($uid, $history)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+			
+		$this->load->database();
+		$this->load->model('ClassesM');
+	
+		return $this->ClassesM->save_history($uid, $history);
+	
+	}
+
 	public function saveRecord($uid, $homework)
 	{
 		header( 'Access-Control-Allow-Origin:*' );
@@ -213,28 +224,34 @@ class Classes extends MY_Controller
 			if ($complete == 1) {
 				foreach ($allProcess as $value) {
 					if ($value['id'] == $original['personal']['hw_id'] + 1) {
-						// print_r($personal);
-						$this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal);
+						$history = $this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal);
 						$personal = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
-						// print_r($personal);
 					}
 				}
+
+				$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal));
+				$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 			} else if ($complete > 0 && $complete < 1) {
+
 				$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal));
 			}
 			
 		}
 
 		if ($original['personal']['hw_id'] < $stage_id) {
-			$this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal, $allProcess);
+			$history = $this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal, $allProcess);
 			$personal = $this->classes_mission->skipAGrade($current_mission, $mission_key);
-			// print_r($personal);
+
+			$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal));
+			$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 		}
 
 		if ($original['personal']['hw_id'] > $stage_id) {
+			//personal = history,
 			$personal = $this->classes_mission->make_complete($current_mission, $history[$stage_id . '_'], $mission_key);
-			$this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal);
-			// print_r($personal);
+			$history = $this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal);
+			
+			$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 		}
 		
 		die;
