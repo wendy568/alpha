@@ -213,9 +213,10 @@ class Classes extends MY_Controller
 			if ($complete == 1) {
 				foreach ($allProcess as $value) {
 					if ($value['id'] == $original['personal']['hw_id'] + 1) {
-						print_r($personal);
+						// print_r($personal);
+						$this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal);
 						$personal = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
-						print_r($personal);
+						// print_r($personal);
 					}
 				}
 			} else if ($complete > 0 && $complete < 1) {

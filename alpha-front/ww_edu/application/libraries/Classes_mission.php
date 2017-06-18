@@ -227,6 +227,14 @@ class Classes_mission
 		return $mission;
 	}
 
+	public function record_history($current_stage, $stage_id, $history, $personal)
+	{
+		var_dump($current_stage);
+		var_dump($stage_id);
+		print_r($history);
+		print_r($personal);
+	}
+
 	public function lastOrNextProcess()
 	{
 		$instance = & get_instance();
