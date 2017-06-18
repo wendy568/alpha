@@ -24,6 +24,7 @@ class Admins extends CI_Model
 	    		$token = $this->get_token($result['id']);
 				$response = array('archive' => array('status' => 0,'message' =>'login success'));
 				$data['data']['token'] = $token;
+				$data['data']['username'] = $username;
 				// $data['data']['direct'] = "http://localhost:8080/webpack-dev-server/";
 			}
 			else 
