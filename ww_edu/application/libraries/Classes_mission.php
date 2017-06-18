@@ -188,7 +188,7 @@ class Classes_mission
 
 	public function make_complete($current_mission, $personal, $mission_key = null)
 	{
-		$a = '';
+		$a = -1;
 		var_dump(empty($a));
 		$mission_key = explode(',', $mission_key);
 		foreach ($mission_key as $key) {
