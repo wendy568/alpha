@@ -227,7 +227,7 @@ class Classes_mission
 		return $mission;
 	}
 
-	public function record_history($current_stage, $stage_id, $history, $personal, $allProcess = null)
+	public function record_history($current_stage, $stage_id, $history, $personal = null, $allProcess = null)
 	{
 		var_dump($current_stage);
 		var_dump($stage_id);
