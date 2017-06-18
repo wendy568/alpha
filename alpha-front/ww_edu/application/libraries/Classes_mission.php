@@ -192,10 +192,9 @@ class Classes_mission
 		foreach ($mission_key as $key) {
 			if (isset($key) && $key) {
 				if (!empty($personal[$key]) ) {
-					echo 123123;
-					$personal[$key] = ($current_mission[$key] > $personal[$key]) ? $current_mission[$key] : $personal[$key];
-				} else {
-					$personal[$key] = $current_mission[$key];
+					if (is_numeric($personal[$key])) $personal[$key] = ($current_mission[$key] > $personal[$key]) ? $current_mission[$key] : $personal[$key];
+				
+					if (is_array($personal[$key])) $personal[$key] = $current_mission[$key];
 				}
 			}
 
