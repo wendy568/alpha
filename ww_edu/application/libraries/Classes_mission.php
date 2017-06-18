@@ -247,7 +247,7 @@ class Classes_mission
 		} else if ($num === 0) {
 			$history[$current_stage . '_'] = $personal;
 		} else if ($num < 0) {
-			echo -1;
+			$history[$stage_id . '_'] = $personal;
 		}
 
 		print_r($history);
