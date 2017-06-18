@@ -28,7 +28,7 @@ class Classes extends MY_Controller
 		$this->load->helper('format');
 		$this->load->helper('Trading_calculate');
 		$this->load->library('classes_mission');
-		
+
 		$response = array('archive' => array('status' => 0,'message' =>'all mission complete'));
 		$original = $this->ClassesM->current_stage($uid);
 		$allProcess = $this->allProcess();
@@ -208,7 +208,7 @@ class Classes extends MY_Controller
 
 		$response = array('archive' => array('status' => 0, 'message' => ''));
 		$data['data'] = [];
-		print_r(json_decode('{}'));die;
+		print_r(json_decode('{}', true));die;
 
 		$allProcess = $this->allProcess();
 		$history = $this->show_history($uid);
