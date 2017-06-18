@@ -10,7 +10,7 @@ class Remarks extends CI_Model
 	function list($uid, $start = null, $limit = null)
 	{
 		$start = (isset($start) OR $start) ? $start : 0;
-		$limit = (isset($limit) OR $limit) ? $limi : 10; 
+		$limit = (isset($limit) OR $limit) ? $limit : 10; 
 		$result = array();
 		$map = "SELECT *  
 				FROM remark
