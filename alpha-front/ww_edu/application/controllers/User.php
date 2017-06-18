@@ -178,6 +178,7 @@ class User extends MY_Controller
 		$data['data'] = $this->getUserInfoById($uid);
 		$is_complete = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 		foreach ($is_complete as $val) {
+			print_r($val);
 			$data['data']['Student']['Task'] += $val;
 		}
 	

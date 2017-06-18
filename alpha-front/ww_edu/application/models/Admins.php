@@ -12,7 +12,7 @@ class Admins extends CI_Model
 		$result = array();
 		$map = 'SELECT id,password 
 				FROM admin 
-				WHERE username="'.$username.'"';	
+				WHERE username="'.$username.'"';
 		$query = $this->db->query($map);
         $result = $query->row_array();
 
