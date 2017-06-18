@@ -68,14 +68,14 @@ class Classes extends MY_Controller
 	
 	}
 
-	public function saveRecord($uid, $homework)
+	public function saveRecord($uid, $homework, $stage_id)
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 			
 		$this->load->database();
 		$this->load->model('ClassesM');
 	
-		return $this->ClassesM->saveRecord($uid, $homework);
+		return $this->ClassesM->saveRecord($uid, $homework, $stage_id);
 	
 	}
 
@@ -229,7 +229,7 @@ class Classes extends MY_Controller
 					}
 				}
 
-				$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal));
+				$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal), $original['personal']['hw_id'] + 1);
 				$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 			} else if ($complete > 0 && $complete < 1) {
 
