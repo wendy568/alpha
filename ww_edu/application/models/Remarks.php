@@ -9,8 +9,6 @@ class Remarks extends CI_Model
 
 	function list($uid, $start = null, $limit = null)
 	{
-		$a = 0;
-		var_dump(isset($a));
 		$start = (isset($start) && $start) ? $start : 0;
 		$limit = (isset($limit) && $limit) ? $limit : 10; 
 		$result = array();
