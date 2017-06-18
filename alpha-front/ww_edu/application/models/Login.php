@@ -136,8 +136,7 @@ class Login extends CI_Model
 	function register($email, $password, &$response, &$data, $first_name, $last_name)
 	{
 		$e = $this->email_isexists($email);
-		if($e)
-		{
+		if($e) {
 			$response = array('archive' => array('status' => 102,'message' =>'email is exists!'));
 			return false;
 		}
