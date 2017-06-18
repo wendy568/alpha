@@ -234,7 +234,7 @@ class Classes_mission
 		print_r($history);
 		print_r($personal);
 
-		if ($num = $stage_id - $current_stage) {
+		if (($num = $stage_id - $current_stage) > 0) {
 			echo 1;
 		} else if ($num === 0) {
 			echo 0;
