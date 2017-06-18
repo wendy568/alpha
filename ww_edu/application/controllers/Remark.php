@@ -16,7 +16,7 @@ class Remark extends MY_Controller
 		$this->load->model('remarks');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->remarks->list($xxxx, $yyyy);
+		$data['data'] = $this->remarks->list($uid, $start, $limit);
 	
 		encode_json($response,$data);
 	}
