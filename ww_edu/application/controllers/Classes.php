@@ -250,13 +250,11 @@ class Classes extends MY_Controller
 			//personal = history,
 			$personal = $this->classes_mission->make_complete($current_mission, $history[$stage_id . '_'], $mission_key);
 			$history = $this->classes_mission->record_history($original['personal']['hw_id'], $stage_id, $history, $personal);
-			echo 123;
+			print_r($history);
 			$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 		}
 		
 		die;
-		$this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
-		$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
 
 		encode_json($response,$data);
 	}
