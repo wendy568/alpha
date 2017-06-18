@@ -227,15 +227,18 @@ class Classes_mission
 		return $mission;
 	}
 
-	public function record_history($current_stage, $stage_id, $history, $personal)
+	public function record_history($current_stage, $stage_id, $history, $personal, $allProcess = null)
 	{
 		var_dump($current_stage);
 		var_dump($stage_id);
 		print_r($history);
 		print_r($personal);
+		print_r($allProcess);
 
 		if (($num = $stage_id - $current_stage) > 0) {
-			echo 1;
+			// for ($current_stage; $current_stage < $stage_id; $current_stage++) {
+			// 	$allProcess[($current_stage + 1) . '_'] = 
+			// }
 		} else if ($num === 0) {
 			$history[$current_stage . '_'] = $personal;
 		} else if ($num < 0) {
