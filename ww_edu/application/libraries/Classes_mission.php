@@ -191,7 +191,7 @@ class Classes_mission
 		$mission_key = explode(',', $mission_key);
 		foreach ($mission_key as $key) {
 			if (isset($key) && $key) {
-				if (!empty($personal[$key]) OR $personal[$key] == 0) {
+				if (!empty($personal[$key]) OR @$personal[$key] === 0) {
 					if (is_numeric($personal[$key])) $personal[$key] = ($current_mission[$key] > $personal[$key]) ? $current_mission[$key] : $personal[$key];
 				
 					if (is_array($personal[$key])) $personal[$key] = $current_mission[$key];
