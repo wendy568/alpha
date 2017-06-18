@@ -233,6 +233,14 @@ class Classes_mission
 		var_dump($stage_id);
 		print_r($history);
 		print_r($personal);
+
+		if ($num = $stage_id - $current_stage) {
+			echo 1;
+		} else if ($num === 0) {
+			echo 0;
+		} else if ($num < 0) {
+			echo -1;
+		}
 	}
 
 	public function lastOrNextProcess()
