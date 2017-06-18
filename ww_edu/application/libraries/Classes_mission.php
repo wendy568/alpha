@@ -188,16 +188,11 @@ class Classes_mission
 
 	public function make_complete($current_mission, $personal, $mission_key = null)
 	{
-		$a = 0;
-		var_dump(empty($a));
 		$mission_key = explode(',', $mission_key);
 		foreach ($mission_key as $key) {
 			if (isset($key) && $key) {
-				if (!empty($personal[$key]) ) {
-					print_r($personal[$key]);
-					if (is_numeric($personal[$key])) {
-						$personal[$key] = ($current_mission[$key] > $personal[$key]) ? $current_mission[$key] : $personal[$key];
-					}
+				if (!empty($personal[$key]) OR $personal[$key] == 0) {
+					if (is_numeric($personal[$key])) $personal[$key] = ($current_mission[$key] > $personal[$key]) ? $current_mission[$key] : $personal[$key];
 				
 					if (is_array($personal[$key])) $personal[$key] = $current_mission[$key];
 				}
