@@ -6,8 +6,9 @@ class Remark extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 	
 		$token = $this->input->get_post('token', TRUE);
-		$datas = $this->input->post();
-		$datas['uid'] = $this->get_bytoken($token);
+		$uid = $this->input->get_post('uid', TRUE);
+		$admin = $this->input->get_post('admin', TRUE);
+		$admin_id = $this->get_byadmintoken($token);
 
 		$this->load->database();
 		$this->load->helper('json');
