@@ -195,8 +195,8 @@ class Classes_mission
 					if (is_numeric($personal[$key])) $personal[$key] = ($current_mission[$key] > $personal[$key]) ? $current_mission[$key] : $personal[$key];
 				
 					if (is_array($personal[$key])) $personal[$key] = $current_mission[$key];
-				} else if(is_array($personal[$key])) {
-					
+				} else if(@is_array($personal[$key])) {
+
 					if (is_array($personal[$key])) $personal[$key] = $current_mission[$key];
 				}
 			}
