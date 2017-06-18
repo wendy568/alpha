@@ -208,7 +208,6 @@ class Classes extends MY_Controller
 
 		$response = array('archive' => array('status' => 0, 'message' => ''));
 		$data['data'] = [];
-		print_r(json_decode('[]', true));die;
 
 		$allProcess = $this->allProcess();
 		$history = $this->show_history($uid);
