@@ -253,8 +253,6 @@ class Classes extends MY_Controller
 			$this->save_history($uid,  $this->classes_mission->jsonEncode($history));
 		}
 		
-		die;
-
 		encode_json($response,$data);
 	}
 
