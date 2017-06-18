@@ -91,10 +91,11 @@ class ClassesM extends CI_Model
 		return $result;
 	}
 
-	function saveRecord($uid, $homework)
+	function saveRecord($uid, $homework, $stage_id = null)
 	{
+		$set = (isset($stage_id)) ? ',hw_id="' . $stage_id . '"' : null;
 		$map = 'UPDATE homework 
-				SET homework="'.$homework.'"
+				SET homework="'.$homework.'" '.$set.'
 				WHERE uid="'.$uid.'"';
 		
 		$this->db->query($map);
