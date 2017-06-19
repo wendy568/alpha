@@ -24,12 +24,12 @@ class ApisAndTools extends MY_Controller
 		$calendar = $this->input->get_post('calendar', TRUE);
 		
 		$this->load->database();
-		$this->load->library('insertandupdate');
+		$this->load->library('insert_update_api.php');
 		$this->load->helper('json');
 		$this->load->model('Toolfordis');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		 $this->insertandupdate->init();
+		 $this->insert_update_api.php->init();
 		$data['data'] = $this->Toolfordis->saveForCalendar($calendar);
 	
 		encode_json($response,$data);
