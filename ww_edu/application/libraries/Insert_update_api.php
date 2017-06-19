@@ -8,7 +8,7 @@ class Insert_update_api extends sql_operation
 	private $datas_before = [];
 	private $needUpdate = [];
 
-	public function init($json_data, $datas_before)
+	public function init($json_data, $datas_before = [])
 	{
 		$decode_data = $this->jsonDecode($json_data);
 		$this->_array = $decode_data;
