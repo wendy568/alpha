@@ -9698,7 +9698,7 @@ s3.active,.s3:hover a,
     top:50%;
     left:50%;
     margin-left: -200px;
-    margin-top: -240px;
+    margin-top: -350px;
     border: none;
 }
 .login .modal-body{
@@ -9707,7 +9707,7 @@ s3.active,.s3:hover a,
     padding: 60px 40px 40px;
     border-radius: 4px;
 }
-#form_id label{
+.login form label{
   font-size: 12px;
   font-weight: bold;
   color: #fff;
@@ -9717,19 +9717,30 @@ s3.active,.s3:hover a,
   display: block;
   margin: 0 auto 40px;
 }
-#btn-login{
+#btn-login,#btn-register{
   margin-left: 0;
   line-height: 36px;
   display: block;
   padding: 0 10px;
   height: 36px;
-  border: 1px solid #40B5BC;
+  border: 1px solid;
   text-align: center;
   margin-bottom: 10px;
 }
 .forgot{
   display: block;
   text-align: center;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+.signUpBtn{
+  display: block;
+  text-align: center;
+}
+.signUpBtn span{
+  font-size: 14px;
+  color: #fff;
+  margin-right: 5px;
 }
 
 /*notification--------------------------------------------------------*/
