@@ -73,6 +73,28 @@ class TradingAnalysis extends CI_Model
         return $result;
     }
 
+    function newsForApi($start_time = null, $end_time = null)
+    {
+        $where = "1=1";
+        $now = time();
+
+        if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
+            $start_time = ($start_time) ? $start_time : 0;
+            $end_time = ($end_time) ? $end_time : $now;
+            $where .= " AND (time>{$start_time} AND time<{$end_time})";
+        }
+
+        $map = "SELECT * 
+                FROM news
+                WHERE {$where}
+                ORDER BY id DESC
+                LIMIT 500";
+
+        $result = $this->db->query($map)->result_array();
+
+        return $result;
+    }
+
     function news($start_time = null, $end_time = null)
     {
         $where = "1=1";
