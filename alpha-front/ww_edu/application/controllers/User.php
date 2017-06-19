@@ -251,8 +251,8 @@ class User extends MY_Controller
 		$pages = $this->input->get_post('pages', TRUE);
 
 		$start = 0;
-		$limit = 10;
-		$page_nums_per = 5;
+		$limit = 5;
+		$page_nums_per = 3;
 		$count = 0;
 
 		$this->load->database();
