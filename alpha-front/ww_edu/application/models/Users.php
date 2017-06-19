@@ -114,6 +114,7 @@ class Users extends CI_Model
 		$count = 1;
 		
 		var_dump($update_count);
+		print_r($response);
 		array_walk($cols, function($val, $key) use (&$message, &$count){
 			if($this->db->query($val)){
 				$message = "{$key} update success,";	
