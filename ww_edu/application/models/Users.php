@@ -111,34 +111,30 @@ class Users extends CI_Model
 	{	
 		$message = '';
 		$status = 0;
-		$count = 0;
 		array_walk($cols, function($val, $key) use (&$message, &$count){
 			if($this->db->query($val)){
-				$message = "{$key} update success ";	
-				$count += 1;
+				$message = "{$key} update success,";	
 			}else{
 				$message .= "{$key} update failed, 「 {$cols} 」,";
 				$status = 39;
 			}
 		});
-		$response = ($count !== 0) ? array('archive' => array('status' => $status,'message' => $message . $count . '(s)')) : array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
 	}
 
 	function iteration_add($cols, &$response)
 	{	
 		$message = '';
 		$status = 0;
-		$count = 0;
 		array_walk($cols, function($val, $key) use (&$message, &$count){
 			if($this->db->query($val)){
-				$message = "{$key} add success ";	
-				$count += 1;
+				$message = "{$key} update success,";	
 			}else{
-				$message .= "{$key} add failed, 「 {$cols} 」,";
+				$message .= "{$key} update failed, 「 {$cols} 」,";
 				$status = 39;
 			}
 		});
-		$response = ($count !== 0) ? array('archive' => array('status' => $status,'message' => $message . $count . '(s)')) : array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
 	}
 
 	function add($cols, &$response)
