@@ -107,12 +107,12 @@ class Users extends CI_Model
 		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
 	}
 
-	function iteration_update($cols, &$response)
+	function iteration_update($cols, &$response, &$update_count)
 	{	
 		$message = '';
 		$status = 0;
 		$count = 1;
-		int($update_count);
+		
 
 		array_walk($cols, function($val, $key) use (&$message, &$count){
 			if($this->db->query($val)){
