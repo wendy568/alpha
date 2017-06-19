@@ -46,6 +46,7 @@ class Insert_update_api extends sql_operation
 			$val['table'] = $table;
 			$this->_data = $val;
 			$cols = $this->format()->property('user_addslashes', [])->pickUpProperty()->update();
+			var_dump($cols);
 			$message = $instance->users->iteration_update($cols, $count);
 		}
 		
