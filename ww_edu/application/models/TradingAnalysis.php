@@ -45,7 +45,7 @@ class TradingAnalysis extends CI_Model
                 FROM calendar
                 WHERE {$where}
                 ORDER BY id DESC";
-
+                var_dump($map);
         $result = $this->db->query($map)->result_array();
 
         return $result;
