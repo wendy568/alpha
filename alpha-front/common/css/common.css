@@ -9685,25 +9685,51 @@ s3.active,.s3:hover a,
     opacity: 0;
 }
 /*login*/
-.login-container {
+.login{
     width: 100%;
     height: 100%;
     background:url(../img/login_bg.png) no-repeat;
     background-size: 100% 100%;
     position: fixed;
 }
-.login-container .modal-content{
-    width: 800px;
+.login .modal-content{
+    width: 400px;
     height: auto;
     top:50%;
     left:50%;
-    margin-left: -400px;
+    margin-left: -200px;
     margin-top: -240px;
     border: none;
 }
-.login-container .modal-body{
-    background-color: #141519;
+.login .modal-body{
+    background-color: rgba(0,0,0,.98);
     border:1px solid #141519;
+    padding: 60px 40px 40px;
+    border-radius: 4px;
+}
+#form_id label{
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+.loginImg{
+  height: 50px;
+  display: block;
+  margin: 0 auto 40px;
+}
+#btn-login{
+  margin-left: 0;
+  line-height: 36px;
+  display: block;
+  padding: 0 10px;
+  height: 36px;
+  border: 1px solid #40B5BC;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.forgot{
+  display: block;
+  text-align: center;
 }
 
 /*notification--------------------------------------------------------*/
