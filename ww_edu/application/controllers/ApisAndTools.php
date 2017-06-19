@@ -58,8 +58,6 @@ class ApisAndTools extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$count = 0;
 		$news_before = $this->TradingAnalysis->newsForApi();
-		$data['data']['update'] = $this->insert_update_api->init($news, $news_before)->property('comparison', ['md5', 'id'])->iteration_update('news', $count);
-		$count = 0;
 		$data['data']['add'] = $this->insert_update_api->init($news, $news_before)->property('comparison', ['md5', 'id'])->iteration_add('news', $count);
 	
 		encode_json($response,$data);
