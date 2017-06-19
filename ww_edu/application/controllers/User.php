@@ -249,7 +249,7 @@ class User extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$mem_id = $this->get_bytoken($token);
 		$account = $this->input->get_post('account', TRUE);
-		print_r($account);
+
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('users');
