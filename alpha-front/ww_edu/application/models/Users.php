@@ -136,10 +136,10 @@ class Users extends CI_Model
 		array_walk($cols, function($val, $key) use (&$message, &$count, &$update_count){
 			if($this->db->query($val)){
 				$update_count += $count;
-				$message = "{$key} update success {$update_count}(s),";
+				$message = "{$key} add success {$update_count}(s),";
 				
 			}else{
-				$message .= "{$key} update failed, 「 {$val} 」,";
+				$message .= "{$key} add failed, 「 {$val} 」,";
 				$status = 39;
 			}
 		});
