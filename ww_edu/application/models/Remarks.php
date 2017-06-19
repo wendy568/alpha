@@ -11,7 +11,8 @@ class Remarks extends CI_Model
 	{
 		$start = (isset($start) && $start) ? $start : 0;
 		$limit = (isset($limit) && $limit) ? $limit : 10; 
-		$result = array();
+		$result = [];
+		
 		$map = "SELECT id, admin, content, uid, u_time
 				FROM remark
 				WHERE uid={$uid}
