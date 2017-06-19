@@ -23,7 +23,7 @@ class Users extends CI_Model
 	{
 		$result = [];
 		$map = 'INSERT trading_account(uid,account,c_time,`default`) 
-				SELECT "'.$uid.'","'.$account.'","'.time().'", "'.1.'"
+				SELECT "'.$uid.'","'.$account.'","'.time().'", "1"
 				FROM DUAL 
 				WHERE NOT EXISTS (SELECT * FROM trading_account WHERE account="'.$account.'")';	
 		$this->db->query($map);
