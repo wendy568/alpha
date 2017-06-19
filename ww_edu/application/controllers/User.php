@@ -249,14 +249,35 @@ class User extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$admin_id = $this->get_byadmintoken($token);
 		$pages = $this->input->get_post('pages', TRUE);
-		
+
+		$start = 0;
+		$limit = 10;
+		$page_nums_per = 5;
+		$count = 0;
+
 		$this->load->database();
 		$this->load->helper('json');
+		$this->load->helper('struct');
+		$this->load->helper('pagination');
+		$this->load->library('list_show');
 		$this->load->model('users');
-	
-		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->users->MT4AccountList($xxxx, $yyyy);
-	
+		
+		$response = array('archive' => array('status' => 0, 'message' => ''));
+		$data['data'] = [];
+
+		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
+		$users = $this->users->MT4AccountList($start, $limit, $count);
+		$get_pagination = $this->list_show->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
+		if ($get_pagination !== false) {
+			$data['data'] = $get_pagination;
+			$data['data']['interval'] = ceil($limit / $page_nums_per);
+			$data['data']['page_nums_per'] = $page_nums_per;
+			$data['data']['real_total_pages'] = ceil($count / $page_nums_per);
+			$data['data']['real_total_nums'] = $count;
+		} else {
+			$response = array('archive' => array('status' => 204, 'message' => 'No Content'));
+		}
+
 		encode_json($response,$data);
 	}
 
