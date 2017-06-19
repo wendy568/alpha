@@ -35,6 +35,7 @@ class ApisAndTools extends MY_Controller
 		$count = 0;
 		$calendars_before = $this->TradingAnalysis->calendarForApi();
 		$this->insert_update_api->init($calendar, $calendars_before)->property('comparison')->iteration_update('calendar', $response, $count);
+		$this->insert_update_api->init($calendar, $calendars_before)->property('comparison')->iteration_add('calendar', $response, $count);
 		$data['data'] =[];
 	
 		encode_json($response,$data);
