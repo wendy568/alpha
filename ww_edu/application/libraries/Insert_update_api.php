@@ -41,7 +41,6 @@ class Insert_update_api extends sql_operation
 		
 		foreach ($this->needUpdate as $val) {
 			$val['table'] = $table;
-			print_r($val);die;
 			$this->_data = $val;
 			$col = $this->property('user_addslashes', [])->pickUpProperty()->update();
 			print_r($col);
