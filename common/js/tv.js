@@ -75,18 +75,6 @@
                     '<div class="video-body">',
                     '<h4 class="text-c2 semi-bold font24 m-b-20">'+data.data.name+'</h4>',
                     '<span class="font14" style="text-indent: 1em;">'+data.data.describe+'</span><br>',
-                    /*'<!-- 访问量 -->',
-                    '<div class="overall">',
-                    '<h6 class="text-c3">Overall Visits</h6>',
-                    '<h5 class="text-c2">'+data.data.views+'</h5>',
-                    '<p><i class="fa fa-play text-error"></i></p>',
-                    '</div>',
-                    '<!-- 评论数 -->',
-                    '<div class="overall pull-right">',
-                    '<h6 class="text-c3">Comment</h6>',
-                    '<h5 class="text-c2">'+data.data.message_count+'</h5>',
-                    '<p><i class="fa fa-comments text-info"></i></p>',
-                    '</div>',*/
                     '</div>'].join('');
                 $('.video-intr').html(intr_html);
                 $(document).scrollTop(0);
