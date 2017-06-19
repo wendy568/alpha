@@ -24,9 +24,12 @@ class Insert_update_api extends sql_operation
 	protected function comparison()
 	{
 		$compa = array_flip(array_column($this->datas_before, 'md5', 'id'));
-		print_r($compa);die;
 		foreach ($this->_array as $key => $value) {
-			# code...
+			foreach ($value as $k => $v) {
+				if ($key == 'md5') {
+					var_dump($v);
+				}
+			}
 		}
 	}
 }
