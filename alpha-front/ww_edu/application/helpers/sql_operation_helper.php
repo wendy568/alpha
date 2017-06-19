@@ -61,7 +61,7 @@ abstract class sql_operation
 
 	public function update($file = null)
 	{
-		print_r($this->_data);
+		print_r($this->table);
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
