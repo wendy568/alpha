@@ -9564,78 +9564,78 @@ s3.active,.s3:hover a,
   background: -moz-linear-gradient(top,#FFA35A,#FFB064);
   background: -o-linear-gradient(top,#FFA35A,#FFB064);
 }
-/*.s4:hover,
-.s4:active
-.s4.active
+.s4:hover a,
+.s4:active a,
+.s4.active a
 {
      background: -webkit-linear-gradient(top,#FD9786,#F567DC);
-}*/
-/*.s5:hover,
-.s5:active
-.s5.active
+}
+.s5:hover a,
+.s5:active a,
+.s5.active a
 {
      background: -webkit-linear-gradient(top,#F387BC,#A26FED);
 }
-.s6:hover,
-.s6:active
-.s6.active
+.s6:hover a,
+.s6:active a,
+.s6.active a
 {
      background: -webkit-linear-gradient(top,#E7EE9D,#5BF2B9);
 }
-.s7:hover,
-.s7:active
-.s7.active
+.s7:hover a,
+.s7:active a,
+.s7.active a
 {
      background: -webkit-linear-gradient(top,#E5EBA4,#A7DA7C);
 }
-.s8:hover,
-.s8:active
-.s8.active
+.s8:hover a,
+.s8:active a,
+.s8.active a
 {
      background: -webkit-linear-gradient(top,#889CFF,#9BE1D3);
 }
-.s9:hover,
-.s9:active
-.s9.active
+.s9:hover a,
+.s9:active a,
+.s9.active a
 {
      background: -webkit-linear-gradient(top,#B7F2EB,#BADDEB);
 }
-.s10:hover,
-.s10:active
-.s10.active
+.s10:hover a,
+.s10:active a,
+.s10.active a
 {
      background: -webkit-linear-gradient(top,#B6CFEC,#789AEC);
 }
-.s11:hover,
-.s11:active
-.s11.active
+.s11:hover a,
+.s11:active a,
+.s11.active a
 {
      background: -webkit-linear-gradient(top,#77EFD8,#45BAF2);
 }
-.s12:hover,
-.s12:active
-.s12.active
+.s12:hover a,
+.s12:active a,
+.s12.active a
 {
      background: -webkit-linear-gradient(top,#5F6BE4,#73BDEB);
 }
-.s13:hover,
-.s13:active
-.s13.active
+.s13:hover a,
+.s13:active a,
+.s13.active a
 {
      background: -webkit-linear-gradient(top,#A2ACF1,#B482D3);
 }
-.s14:hover,
-.s14:active
-.s14.active
+.s14:hover a,
+.s14:active a,
+.s14.active a
 {
      background: -webkit-linear-gradient(top,#62ABFD,#9E80F3);
 }
-.s15:hover,
-.s15:active
-.s15.active
+.s15:hover a,
+.s15:active a,
+.s15.active a
 {
      background: -webkit-linear-gradient(top,#B6B7F8,#F5ACCC);
-}*/
+}
 .pro-detail-head{
   padding:30px;
   overflow: hidden;
@@ -9704,7 +9704,6 @@ s3.active,.s3:hover a,
 }
 .login .modal-body{
     background-color: rgba(19, 21, 26,0.8);
-    /* border: 1px solid #141519; */
     padding: 60px 40px 40px;
     border-radius: 4px;
 }
@@ -9718,15 +9717,31 @@ s3.active,.s3:hover a,
   display: block;
   margin: 0 auto 40px;
 }
-#btn-login,#btn-register{
+.signUpBtn{
   margin-left: 0;
   line-height: 36px;
   display: block;
   padding: 0 10px;
   height: 36px;
-  border: 1px solid;
+  border: 1px solid #0aa699;
   text-align: center;
   margin-bottom: 10px;
+}
+#btn-login.signUpBtn{
+  border: 1px solid #0aa699;
+  color:#0aa699;
+}
+#btn-register.signUpBtn{
+  border: 1px solid #0090d9;
+  color:#0090d9;
+}
+#btn-login.signUpBtn:hover{
+  color:#fff;
+  background:#0aa699;
+}
+#btn-register.signUpBtn:hover{
+  color:#fff;
+  background:#0090d9;
 }
 .forgot{
   display: block;
@@ -9734,11 +9749,11 @@ s3.active,.s3:hover a,
   font-size: 12px;
   margin-bottom: 20px;
 }
-.signUpBtn{
+.signUpTab{
   display: block;
   text-align: center;
 }
-.signUpBtn span{
+.signUpTab span{
   font-size: 14px;
   color: #fff;
   margin-right: 5px;

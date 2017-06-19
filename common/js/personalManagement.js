@@ -224,30 +224,38 @@
                     break;
                 case 'article learning':getArticleList(stageDtail[i])
                     break;
-                case 'place your order':$('.cbp_tmlabel p span').eq(0).html(stageDtail[i])
+                case 'place your order':$('#placeYourOrder').html(stageDtail[i])
                     break;
-                case '4 style trade':$('.cbp_tmlabel p span').eq(1).html(stageDtail[i])
+                case '4 style trade':$('#4StyleTrade').html(stageDtail[i])
                     break;
-                case 'take profits/stop loss':$('.cbp_tmlabel p span').eq(2).html(stageDtail[i])
+                case 'take profits/stop loss':$('#stopLoss').html(stageDtail[i])
                    break;
-                case 'make transactions':$('.cbp_tmlabel p span').eq(3).html(stageDtail[i])
+                case 'make transactions':$('#makeTransactions').html(stageDtail[i])
                     break;
-                case 'trade all kinds products':$('.cbp_tmlabel p span').eq(4).html(stageDtail[i])
+                case 'trade all kinds products':$('#tradeAllKindsProducts').html(stageDtail[i])
                     break;
-                case 'trading record':$('.cbp_tmlabel p span').eq(5).html(stageDtail[i])
+                case 'trading record':$('#tradingRecord').html(stageDtail[i])
                     break; 
-                case 'learning report':$('.cbp_tmlabel p span').eq(6).html(stageDtail[i])
+                case 'learning report':$('#learningReport').html(stageDtail[i])
                     break; 
-                // case 'make transaction 1':$('#'+id+' .cbp_tmlabel p span').eq(0).length && $('#'+id+' .cbp_tmlabel p span').eq(0).html(stageDtail[i])
-                //     break; 
-                // case 'make transaction 2':$('#'+id+' .cbp_tmlabel p span').eq(1).length && $('#'+id+' .cbp_tmlabel p span').eq(1).html(stageDtail[i])
-                //     break;
-                // case 'risk management level':$('#'+id+' .cbp_tmlabel p span').eq(0).length && $('#'+id+' .cbp_tmlabel p span').eq(0).html(stageDtail[i])
-                //     break;
-                // case 'trading score':$('#'+id+' .cbp_tmlabel p span').eq(1).length && $('#'+id+' .cbp_tmlabel p span').eq(1).html(stageDtail[i])
-                //     break;
-                // case 'trading report':$('#'+id+' .cbp_tmlabel p span').eq(2).length && $('#'+id+' .cbp_tmlabel p span').eq(2).html(stageDtail[i])
-                //     break;
+                case 'make transaction 1':$('#makeTransactionOn').html(stageDtail[i])
+                    break; 
+                case 'make transaction 2':$('#makeTransactionTwo').html(stageDtail[i])
+                    break;
+                case 'task 1 - 2 different markets':$('#2DifferentMarkets').html(stageDtail[i])
+                    break;
+                case 'task 2 - 10 different products':$('#10DifferentProducts').html(stageDtail[i])
+                    break;
+                case '5 tradable products':$('#5TradableProducts').html(stageDtail[i])
+                    break;
+                case 'produce a module':$('#produceAModule').html(stageDtail[i])
+                    break;
+                case 'risk management level':$('#riskManagementLevel').html(stageDtail[i])
+                    break;
+                case 'trading score':$('#tradingScore').html(stageDtail[i])
+                    break;
+                case 'profitable period':$('#profitablePeriod').html(stageDtail[i])
+                    break;
             }
         }
     }
