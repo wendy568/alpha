@@ -217,44 +217,44 @@
         });
     }
     //  获取其他课程内容
-    function getStudyList(stageDtail){
+    function getStudyList(stage,stageDtail){
         for(var i in stageDtail){
             switch (i.toLocaleLowerCase()){
                 case 'video learning':getVideoList(stageDtail[i])
                     break;
                 case 'article learning':getArticleList(stageDtail[i])
                     break;
-                case 'place your order':$('#placeYourOrder').html(stageDtail[i])
+                case 'place your order':$('#stage'+ stage + ' .placeYourOrder').html(stageDtail[i])
                     break;
-                case '4 style trade':$('#4StyleTrade').html(stageDtail[i])
+                case '4 style trade':$('#stage'+ stage + ' .4StyleTrade').html(stageDtail[i])
                     break;
-                case 'take profits/stop loss':$('#stopLoss').html(stageDtail[i])
+                case 'take profits/stop loss':$('#stage'+ stage + ' .stopLoss').html(stageDtail[i])
                    break;
-                case 'make transactions':$('#makeTransactions').html(stageDtail[i])
+                case 'make transactions':$('#stage'+ stage + ' .makeTransactions').html(stageDtail[i])
                     break;
-                case 'trade all kinds products':$('#tradeAllKindsProducts').html(stageDtail[i])
+                case 'trade all kinds products':$('#stage'+ stage + ' .tradeAllKindsProducts').html(stageDtail[i])
                     break;
-                case 'trading record':$('#tradingRecord').html(stageDtail[i])
+                case 'trading record':$('#stage'+ stage + ' .tradingRecord').html(stageDtail[i])
                     break; 
-                case 'learning report':$('#learningReport').html(stageDtail[i])
+                case 'learning report':$('#stage'+ stage + ' .learningReport').html(stageDtail[i])
                     break; 
-                case 'make transaction 1':$('#makeTransactionOn').html(stageDtail[i])
+                case 'make transaction 1':$('#stage'+ stage + ' .makeTransactionOn').html(stageDtail[i])
                     break; 
-                case 'make transaction 2':$('#makeTransactionTwo').html(stageDtail[i])
+                case 'make transaction 2':$('#stage'+ stage + ' .makeTransactionTwo').html(stageDtail[i])
                     break;
-                case 'task 1 - 2 different markets':$('#2DifferentMarkets').html(stageDtail[i])
+                case 'task 1 - 2 different markets':$('#stage'+ stage + ' .2DifferentMarkets').html(stageDtail[i])
                     break;
-                case 'task 2 - 10 different products':$('#10DifferentProducts').html(stageDtail[i])
+                case 'task 2 - 10 different products':$('#stage'+ stage + ' .10DifferentProducts').html(stageDtail[i])
                     break;
-                case '5 tradable products':$('#5TradableProducts').html(stageDtail[i])
+                case '5 tradable products':$('#stage'+ stage + ' .5TradableProducts').html(stageDtail[i])
                     break;
-                case 'produce a module':$('#produceAModule').html(stageDtail[i])
+                case 'produce a module':$('#stage'+ stage + ' .produceAModule').html(stageDtail[i])
                     break;
-                case 'risk management level':$('#riskManagementLevel').html(stageDtail[i])
+                case 'risk management level':$('#stage'+ stage + ' .riskManagementLevel').html(stageDtail[i])
                     break;
-                case 'trading score':$('#tradingScore').html(stageDtail[i])
+                case 'trading score':$('#stage'+ stage + ' .tradingScore').html(stageDtail[i])
                     break;
-                case 'profitable period':$('#profitablePeriod').html(stageDtail[i])
+                case 'profitable period':$('#stage'+ stage + ' .profitablePeriod').html(stageDtail[i])
                     break;
             }
         }
@@ -297,7 +297,7 @@
 
 		// 获取课程内容
 		var stageDtail=data.data.detail;
-        getStudyList(stageDtail);
+        getStudyList(stage,stageDtail);
 	});
 
     $('.module').click(function(){
@@ -324,7 +324,7 @@
             $('.pro-intr p').html(desc);
 
             var stageDtail=data.data.detail;
-            getStudyList(stageDtail);
+            getStudyList(stage_id,stageDtail);
         });
     });
    
