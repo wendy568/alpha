@@ -28,7 +28,7 @@ class Toolfordis extends CI_Model
 				FROM calendar
 				LIMIT 100';
 		
-		$result = $this->db->query($map)->array_array();
+		$result = $this->db->query($map)->result_array();
 		return $result;
 	}
 
