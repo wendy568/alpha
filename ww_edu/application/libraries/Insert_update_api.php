@@ -1,6 +1,6 @@
 <?php  
 
-class Insert_update_api
+class Insert_update_api extends sql_operation
 {
 	use date_format;
 
