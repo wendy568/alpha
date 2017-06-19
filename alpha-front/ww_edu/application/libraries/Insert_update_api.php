@@ -28,6 +28,7 @@ class Insert_update_api extends sql_operation
 		foreach ($needUpdate as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == 'md5') {
+					print_r($compa);
 					$needUpdate[$key] = $compa[$v];
 				}
 			}
