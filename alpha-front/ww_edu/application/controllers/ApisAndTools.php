@@ -53,13 +53,10 @@ class ApisAndTools extends MY_Controller
 		$this->load->helper('format');
 		$this->load->library('insert_update_api');
 		$this->load->helper('json');
-		$this->load->model('TradingAnalysis');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$count = 0;
-		$news_before = $this->TradingAnalysis->newsForApi();
-
-		$data['data']['add'] = $this->insert_update_api->init($news, $news_before)->iteration_add('news', $count);
+		$data['data']['add'] = $this->insert_update_api->init($news)->iteration_add('news', $count);
 	
 		encode_json($response,$data);
 	}
