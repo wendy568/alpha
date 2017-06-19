@@ -35,4 +35,11 @@ class Insert_update_api extends sql_operation
 		}
 
 	}
+
+	public function iteration_update()
+	{
+		$this->_data = $this->needUpdate;
+		$col = $this->property('user_addslashes', [])->pickUpProperty()->update();
+		print_r($col);
+	}
 }
