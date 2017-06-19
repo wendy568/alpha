@@ -12,9 +12,16 @@ class Insert_update_api extends sql_operation
 		$decode_data = $this->jsonDecode($json_data);
 		$this->_array = $decode_data;
 		$this->datas_before = $datas_before;
+
+		return $this;
 	}
 
-	public function comparison()
+	public function property($callback, $param = [])
+	{
+		$this->property = call_user_func_array([$this, $callback], $param);
+	}
+
+	protected function comparison()
 	{
 		$compa = array_column($this->datas_before, 'md5', 'id');
 		print_r($compa);
