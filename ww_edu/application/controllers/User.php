@@ -249,13 +249,14 @@ class User extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$mem_id = $this->get_bytoken($token);
 		$account = $this->input->get_post('account', TRUE);
-		
+		print_r($account);
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('users');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->users->add_trading_account($mem_id, $account);
+		$data['data'] = [];
+		$this->users->add_trading_account($mem_id, $account);
 	
 		encode_json($response,$data);
 	}

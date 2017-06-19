@@ -27,10 +27,8 @@ class Users extends CI_Model
 				FROM DUAL 
 				WHERE NOT EXISTS (SELECT * FROM trading_account WHERE account="'.$account.'")';	
 		$this->db->query($map);
-	    $result = $this->db->insert_id();   
-	    
-	    return $result;
-	
+		
+	    $result = $this->db->insert_id();	
 	}
 
 	function userInfoCenter($id)
