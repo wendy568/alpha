@@ -124,7 +124,7 @@ class Users extends CI_Model
 			}
 		});
 		
-		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1) . $update_count));
+		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
 	}
 
 	function iteration_add($cols, &$response)
