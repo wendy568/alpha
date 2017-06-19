@@ -9700,10 +9700,11 @@ s3.active,.s3:hover a,
     margin-left: -200px;
     margin-top: -350px;
     border: none;
+    background:transparent;
 }
 .login .modal-body{
-    background-color: rgba(0,0,0,.98);
-    border:1px solid #141519;
+    background-color: rgba(19, 21, 26,0.8);
+    /* border: 1px solid #141519; */
     padding: 60px 40px 40px;
     border-radius: 4px;
 }
