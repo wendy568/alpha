@@ -27,7 +27,14 @@ class Trading_logs extends CI_Model
 		$start = (isset($start) && $start) ? $start : 0;
 		$limit = (isset($limit) && $limit) ? $limit : 10; 
 		$result = [];
-		
+
+		$map = "SELECT COUNT(*) AS count
+				FROM trading_log
+				WHERE uid={$uid}";
+
+		$query = $this->db->query($map);
+		$result['count'] = $query->row_array()['count'];
+
 		$map = "SELECT id, title, content, color, uid, u_time
 				FROM trading_log
 				WHERE uid={$uid}
@@ -35,7 +42,7 @@ class Trading_logs extends CI_Model
 				LIMIT {$start},{$limit}";
 
 		$query = $this->db->query($map);
-        $result = $query->result_array();
+        $result['list'] = $query->result_array();
         
         return $result;
 
