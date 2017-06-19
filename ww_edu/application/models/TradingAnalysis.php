@@ -36,13 +36,33 @@ class TradingAnalysis extends CI_Model
         $now = time();
 
         if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
-            var_dump(123);
             $start_time = ($start_time) ? $start_time : 0;
             $end_time = ($end_time) ? $end_time : $now;
             $where .= " AND (time_cn>{$start_time} AND time_cn<{$end_time})";
         }
 
         $map = "SELECT time_en, time_cn, country AS `Currency`, event AS Event, Actual, consensus AS ForecASt, previous AS Previous, impact AS Importance, detail
+                FROM calendar
+                WHERE {$where}
+                ORDER BY id DESC";
+
+        $result = $this->db->query($map)->result_array();
+
+        return $result;
+    }
+
+    function calendarForApi($start_time = null, $end_time = null)
+    {
+        $where = "1=1";
+        $now = time();
+
+        if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
+            $start_time = ($start_time) ? $start_time : 0;
+            $end_time = ($end_time) ? $end_time : $now;
+            $where .= " AND (time_cn>{$start_time} AND time_cn<{$end_time})";
+        }
+
+        $map = "SELECT *
                 FROM calendar
                 WHERE {$where}
                 ORDER BY id DESC";
