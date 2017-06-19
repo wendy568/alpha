@@ -107,7 +107,7 @@ class Users extends CI_Model
 		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
 	}
 
-	function iteration_update($cols, &$response, &$update_count)
+	function iteration_update($cols, &$update_count)
 	{	
 		$message = '';
 		$status = 0;
@@ -119,14 +119,13 @@ class Users extends CI_Model
 				$message = "{$key} update success {$update_count}(s),";
 			}else{
 				$message .= "{$key} update failed, 「 {$val} 」,";
-				$status = 39;
 			}
 		});
 		
-		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+		return substr($message, 0, -1);
 	}
 
-	function iteration_add($cols, &$response, &$update_count)
+	function iteration_add($cols, &$update_count)
 	{	
 		$message = '';
 		$status = 0;
@@ -138,11 +137,10 @@ class Users extends CI_Model
 				$message = "{$key} add success {$update_count}(s),";
 			}else{
 				$message .= "{$key} add failed, 「 {$val} 」,";
-				$status = 39;
 			}
 		});
 		
-		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+		return substr($message, 0, -1);
 	}
 
 	function add($cols, &$response)
