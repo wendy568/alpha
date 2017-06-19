@@ -33,7 +33,7 @@ class ApisAndTools extends MY_Controller
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$calendars_before = $this->TradingAnalysis->calendarForApi();
-		$this->insert_update_api->init($calendar, $calendars_before)->property('comparison');
+		$this->insert_update_api->init($calendar, $calendars_before)->property('comparison')->iteration_update();
 		die;
 		$data['data'] = $this->TradingAnalysis->calendar($calendar);
 	
