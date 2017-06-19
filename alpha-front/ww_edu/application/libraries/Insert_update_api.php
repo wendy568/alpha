@@ -2,7 +2,7 @@
 
 class Insert_update_api extends sql_operation
 {
-	use date_format;
+	use date_format, struct;
 
 	private $_array = [];
 	private $datas_before = [];
@@ -15,11 +15,6 @@ class Insert_update_api extends sql_operation
 		$this->datas_before = $datas_before;
 
 		return $this;
-	}
-
-	public function property($callback, $param = [])
-	{
-		$this->property = call_user_func_array([$this, $callback], $param);
 	}
 
 	protected function comparison()
@@ -39,7 +34,5 @@ class Insert_update_api extends sql_operation
 			}
 		}
 
-		print_r($this->_array);
-		print_r($this->needUpdate);
 	}
 }
