@@ -14,7 +14,7 @@ class Insert_update_api extends sql_operation
 		$this->datas_before = $datas_before;
 	}
 
-	protected function comparison()
+	public function comparison()
 	{
 		$compa = array_column($this->datas_before, 'md5', 'id');
 		print_r($compa);
