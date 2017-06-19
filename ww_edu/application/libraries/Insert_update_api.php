@@ -50,4 +50,19 @@ class Insert_update_api extends sql_operation
 		}
 		
 	}
+
+	public function iteration_add($table, &$response, &$count)
+	{
+		$instance = & get_instance();
+		$instance->load->database();
+		$instance->load->model('users');
+
+		foreach ($this->_array as $val) {
+			$val['table'] = $table;
+			$this->_data = $val;
+			$cols = $this->format()->property('user_addslashes', [])->pickUpProperty()->add();
+			$instance->users->iteration_add($cols, $response, $count);
+		}
+		
+	}
 }
