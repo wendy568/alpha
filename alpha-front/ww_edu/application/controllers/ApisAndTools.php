@@ -36,7 +36,7 @@ class ApisAndTools extends MY_Controller
 		$calendars_before = $this->TradingAnalysis->calendarForApi();
 		$data['data']['update'] = $this->insert_update_api->init($calendar, $calendars_before)->property('comparison', ['md5', 'id'])->iteration_update('calendar', $count);
 		$count = 0;
-		$data['data']['add'] = $this->insert_update_api->init($calendar, $calendars_before)->property('comparison', ['md5', 'id'])->iteration_add('calendar', $count);
+		$data['data']['add'] = $this->insert_update_api->init($calendar, $calendars_before)->iteration_add('calendar', $count);
 	
 		encode_json($response,$data);
 	}
@@ -48,11 +48,19 @@ class ApisAndTools extends MY_Controller
 		$news = $this->input->get_post('news', TRUE);
 		
 		$this->load->database();
+		$this->load->helper('sql_operation');
+		$this->load->helper('struct');
+		$this->load->helper('format');
+		$this->load->library('insert_update_api');
 		$this->load->helper('json');
 		$this->load->model('TradingAnalysis');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->TradingAnalysis->saveUpdateNews($news);
+		$count = 0;
+		$news_before = $this->TradingAnalysis->newsForApi();
+		$data['data']['update'] = $this->insert_update_api->init($news, $news_before)->property('comparison', ['md5', 'id'])->iteration_update('news', $count);
+		$count = 0;
+		$data['data']['add'] = $this->insert_update_api->init($news, $news_before)->property('comparison', ['md5', 'id'])->iteration_add('news', $count);
 	
 		encode_json($response,$data);
 	}
