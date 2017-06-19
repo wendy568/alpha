@@ -1,6 +1,6 @@
 <?php  
 
-class InsertAndUpdate
+class Insert_update_api
 {
 
 	public function init()
