@@ -36,6 +36,7 @@ class TradingAnalysis extends CI_Model
         $now = time();
 
         if((isset($start_time) && $start_time) OR (isset($end_time) && $end_time)) {
+            var_dump(123);
             $start_time = ($start_time) ? $start_time : 0;
             $end_time = ($end_time) ? $end_time : $now;
             $where .= " AND (time_cn>{$start_time} AND time_cn<{$end_time})";
@@ -45,7 +46,7 @@ class TradingAnalysis extends CI_Model
                 FROM calendar
                 WHERE {$where}
                 ORDER BY id DESC";
-                var_dump($map);
+
         $result = $this->db->query($map)->result_array();
 
         return $result;
