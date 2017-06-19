@@ -156,103 +156,7 @@
     $('#articleModal').on('hide.bs.modal', function () {
         $('#articleModal .tv-detail-body').empty();
     });
-   
 
-	  $.alpha.request_Url('post','Classes/current_stage',{},function(data){
-		// 阶段展示
-		var stage=data.data.current_stage;
-		getStage(stage);
-		// 完成情况
-		var complete=data.data.complete;
-		$('.description span').html(complete*100 + '%');
-		$('.stage-left .progress').html('<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="'+ complete*100 +'%" style="width:'+ complete*100 +'%"></div>');
-
-		// title
-		$('.pro-intr h4').html(data.data.title);
-
-        // 阶段title + desc
-        var desc=data.data.describe.substr(0,80);
-        var i=0;
-        $('.more').html('Continue Reading...');
-        $('.more').click(function(){
-            if(i == 0){
-                desc=data.data.describe;
-                $(this).html('Pack Up The Full...');
-
-                i = i +1;
-            }else{
-                desc=data.data.describe.substr(0,80);
-                $(this).html('Continue Reading...');
-
-                i = 0;
-            }
-            $('.pro-intr p').html(desc);
-        });
-        $('.pro-intr p').html(desc);
-
-
-		// 定位 stage learning
-		$('.roll-list li').removeClass('active');
-		$('.tab-pane').removeClass('active');
-		$('.roll-list li').eq(stage-1).addClass('active');
-		$('.tab-pane').eq(stage-1).addClass('active');
-
-		// detail
-		var stageDtail=data.data.detail;
-		var title=[];
-		var content=[];
-		for(var i in stageDtail){
-			title.push(i);
-			content.push(stageDtail[i]);
-		}
-		// video
-        getVideoList(content[3]);
-		// artic
-        getVideoList(content[4]);
-
-		$('.cbp_tmlabel p span').eq(0).html(content[0]);
-		$('.cbp_tmlabel p span').eq(1).html(content[1]);
-		$('.cbp_tmlabel p span').eq(2).html(content[2]);
-	});
-
-    $('.module').click(function(){
-        var stage_id=($(this).index())+1;
-        $.alpha.request_Url('post','Classes/showStageDetail',{stage_id:stage_id},function(data){
-            // title
-            $('.pro-intr h4').html(data.data.title);
-             // 阶段title + desc
-            var desc=data.data.describe.substr(0,80);
-            var i=0;
-            $('.more').html('Continue Reading...');
-            $('.more').click(function(){
-                if(i == 0){
-                    desc=data.data.describe;
-                    $(this).html('Pack Up The Full...');
-                    i = i +1;
-                }else{
-                    desc=data.data.describe.substr(0,80);
-                    $(this).html('Continue Reading...');
-                    i = 0;
-                }
-                $('.pro-intr p').html(desc);
-            });
-            $('.pro-intr p').html(desc);
-
-            var stageDtail=data.data.detail;
-            var title=[];
-            var content=[];
-            for(var i in stageDtail){
-                title.push(i);
-                content.push(stageDtail[i]);
-                if(i == 'Video learning'){
-                    getVideoList(stageDtail[i]);
-                }else if(i == 'Article learning'){
-                    getArticleList(stageDtail[i]);
-                }
-            }
-        });
-    });
-  
     // 获取videolist
     function getVideoList(videoList) {
         var tvList = "";
@@ -312,5 +216,110 @@
             });
         });
     }
+    //  获取其他课程内容
+    function getStudyList(stageDtail){
+        for(var i in stageDtail){
+            switch (i.toLocaleLowerCase()){
+                case 'video learning':getVideoList(stageDtail[i])
+                    break;
+                case 'article learning':getArticleList(stageDtail[i])
+                    break;
+                case 'place your order':$('.cbp_tmlabel p span').eq(0).html(stageDtail[i])
+                    break;
+                case '4 style trade':$('.cbp_tmlabel p span').eq(1).html(stageDtail[i])
+                    break;
+                case 'take profits/stop loss':$('.cbp_tmlabel p span').eq(2).html(stageDtail[i])
+                   break;
+                case 'make transactions':$('.cbp_tmlabel p span').eq(3).html(stageDtail[i])
+                    break;
+                case 'trade all kinds products':$('.cbp_tmlabel p span').eq(4).html(stageDtail[i])
+                    break;
+                case 'trading record':$('.cbp_tmlabel p span').eq(5).html(stageDtail[i])
+                    break; 
+                case 'learning report':$('.cbp_tmlabel p span').eq(6).html(stageDtail[i])
+                    break; 
+                // case 'make transaction 1':$('#'+id+' .cbp_tmlabel p span').eq(0).length && $('#'+id+' .cbp_tmlabel p span').eq(0).html(stageDtail[i])
+                //     break; 
+                // case 'make transaction 2':$('#'+id+' .cbp_tmlabel p span').eq(1).length && $('#'+id+' .cbp_tmlabel p span').eq(1).html(stageDtail[i])
+                //     break;
+                // case 'risk management level':$('#'+id+' .cbp_tmlabel p span').eq(0).length && $('#'+id+' .cbp_tmlabel p span').eq(0).html(stageDtail[i])
+                //     break;
+                // case 'trading score':$('#'+id+' .cbp_tmlabel p span').eq(1).length && $('#'+id+' .cbp_tmlabel p span').eq(1).html(stageDtail[i])
+                //     break;
+                // case 'trading report':$('#'+id+' .cbp_tmlabel p span').eq(2).length && $('#'+id+' .cbp_tmlabel p span').eq(2).html(stageDtail[i])
+                //     break;
+            }
+        }
+    }
+	$.alpha.request_Url('post','Classes/current_stage',{},function(data){
+		// 阶段展示
+		var stage=data.data.current_stage;
+		getStage(stage);
+		// 完成情况
+		var complete=data.data.complete;
+		$('.description span').html(complete*100 + '%');
+		$('.stage-left .progress').html('<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="'+ complete*100 +'%" style="width:'+ complete*100 +'%"></div>');
+
+		// title
+		$('.pro-intr h4').html(data.data.title);
+
+        // 阶段描述点击获取全文
+        var desc=data.data.describe.substr(0,80);
+        var i=0;
+        $('.more').html('Continue Reading...');
+        $('.more').click(function(){
+            if(i == 0){
+                desc=data.data.describe;
+                $(this).html('Pack Up The Full...');
+                i = i +1;
+            }else{
+                desc=data.data.describe.substr(0,80);
+                $(this).html('Continue Reading...');
+                i = 0;
+            }
+            $('.pro-intr p').html(desc);
+        });
+        $('.pro-intr p').html(desc);
+
+		// 定位 stage learning
+		$('.roll-list li').removeClass('active');
+		$('.tab-pane').removeClass('active');
+		$('.roll-list li').eq(stage-1).addClass('active');
+		$('.tab-pane').eq(stage-1).addClass('active');
+
+		// 获取课程内容
+		var stageDtail=data.data.detail;
+        getStudyList(stageDtail);
+	});
+
+    $('.module').click(function(){
+        var stage_id=($(this).index())+1;
+        $.alpha.request_Url('post','Classes/showStageDetail',{stage_id:stage_id},function(data){
+            // title
+            $('.pro-intr h4').html(data.data.title);
+             // 阶段描述点击获取全文
+            var desc=data.data.describe.substr(0,80);
+            var i=0;
+            $('.more').html('Continue Reading...');
+            $('.more').click(function(){
+                if(i == 0){
+                    desc=data.data.describe;
+                    $(this).html('Pack Up The Full...');
+                    i = i +1;
+                }else{
+                    desc=data.data.describe.substr(0,80);
+                    $(this).html('Continue Reading...');
+                    i = 0;
+                }
+                $('.pro-intr p').html(desc);
+            });
+            $('.pro-intr p').html(desc);
+
+            var stageDtail=data.data.detail;
+            getStudyList(stageDtail);
+        });
+    });
+  
+   
 })();
 
