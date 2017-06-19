@@ -108,14 +108,14 @@ class Users extends CI_Model
 	}
 
 	function iteration_update($cols, &$response)
-	{	
+	{	print_r($response);
 		$message = '';
 		$status = 0;
 		array_walk($cols, function($val, $key) use (&$message, &$count){
 			if($this->db->query($val)){
 				$message = "{$key} update success,";	
 			}else{
-				$message .= "{$key} update failed, 「 {$cols} 」,";
+				$message .= "{$key} update failed, 「 {$val} 」,";
 				$status = 39;
 			}
 		});
@@ -130,7 +130,7 @@ class Users extends CI_Model
 			if($this->db->query($val)){
 				$message = "{$key} update success,";	
 			}else{
-				$message .= "{$key} update failed, 「 {$cols} 」,";
+				$message .= "{$key} update failed, 「 {$val} 」,";
 				$status = 39;
 			}
 		});
