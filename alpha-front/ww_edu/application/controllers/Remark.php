@@ -21,6 +21,24 @@ class Remark extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function delete_remark()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$token = $this->input->get_post('token', TRUE);
+		$id = $this->input->get_post('id', TRUE);
+		$admin_id = $this->get_byadmintoken($token);
+		
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('remarks');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->remarks->delete_remark($id);
+	
+		encode_json($response,$data);
+	}
+
 	public function add_remark()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
