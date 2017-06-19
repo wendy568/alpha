@@ -5,7 +5,7 @@ abstract class sql_operation
 	protected $_data = [];
 
 	public function format()
-	{
+	{echo 123;
 		foreach ($this->_data as $key => $value) {
 			$this->$key = $value;
 		}
