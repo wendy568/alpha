@@ -41,7 +41,7 @@ class ApisAndTools extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function saveUpdateNews()
+	public function saveForNews()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 	
@@ -58,7 +58,7 @@ class ApisAndTools extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$count = 0;
 		$news_before = $this->TradingAnalysis->newsForApi();
-		$data['data']['add'] = $this->insert_update_api->init($news, $news_before)->property('comparison', ['md5', 'id'])->iteration_add('news', $count);
+		$data['data']['add'] = $this->insert_update_api->init($news, $news_before)->iteration_add('news', $count);
 	
 		encode_json($response,$data);
 	}
