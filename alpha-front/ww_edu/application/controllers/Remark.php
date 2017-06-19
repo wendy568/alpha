@@ -46,8 +46,9 @@ class Remark extends MY_Controller
 	
 		$token = $this->input->get_post('token', TRUE);
 		$datas = $this->input->post();
-		$admin_id = $this->get_byadmintoken($token);
 		print_r($datas);die;
+		$admin_id = $this->get_byadmintoken($token);
+
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('struct');
