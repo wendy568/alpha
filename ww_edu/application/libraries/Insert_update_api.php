@@ -6,6 +6,7 @@ class Insert_update_api extends sql_operation
 
 	private $_array = [];
 	private $datas_before = [];
+	private $needUpdate = [];
 
 	public function init($json_data, $datas_before)
 	{
@@ -23,20 +24,22 @@ class Insert_update_api extends sql_operation
 
 	protected function comparison()
 	{
-		$needUpdate = $this->_array;
+		$this->needUpdate = $this->_array;
 		$compa = array_flip(array_column($this->datas_before, 'md5', 'id'));
-		foreach ($needUpdate as $key => $value) {
+		foreach ($this->needUpdate as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == 'md5') {
 					if (!empty($compa[$v])) {
-						$needUpdate[$key]['id'] = $compa[$v];
+						$this->needUpdate[$key]['id'] = $compa[$v];
+						unset($this->_array[$key]);
 					} else {
-						unset($needUpdate[$key]);
+						unset($this->needUpdate[$key]);
 					}
 				}
 			}
 		}
 
-		print_r($needUpdate);
+		print_r($this->_array);
+		print_r($this->needUpdate);
 	}
 }
