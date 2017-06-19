@@ -25,7 +25,7 @@ class Toolfordis extends CI_Model
 	function test()
 	{
 		$map = 'SELECT * 
-				FROM calendar
+				FROM news
 				LIMIT 10';
 		
 		$result = $this->db->query($map)->result_array();
