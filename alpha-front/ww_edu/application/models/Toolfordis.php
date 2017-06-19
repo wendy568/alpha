@@ -25,7 +25,7 @@ class Toolfordis extends CI_Model
 	function test()
 	{
 		$map = 'SELECT * 
-				FROM calendar
+				FROM news
 				ORDER BY id desc
 				LIMIT 10';
 		
