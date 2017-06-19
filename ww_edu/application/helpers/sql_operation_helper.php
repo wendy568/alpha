@@ -5,7 +5,7 @@ abstract class sql_operation
 	protected $_data = [];
 
 	public function format()
-	{echo 123;die;
+	{
 		foreach ($this->_data as $key => $value) {
 			$this->$key = $value;
 		}
@@ -61,7 +61,6 @@ abstract class sql_operation
 
 	public function update($file = null)
 	{
-		print_r($this->id);
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
