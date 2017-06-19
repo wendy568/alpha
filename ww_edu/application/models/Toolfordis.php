@@ -27,7 +27,7 @@ class Toolfordis extends CI_Model
 		$map = 'SELECT * 
 				FROM calendar
 				ORDER BY id desc
-				LIMIT 10';
+				LIMIT 5';
 		
 		$result = $this->db->query($map)->result_array();
 		return $result;
