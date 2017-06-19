@@ -19,6 +19,17 @@ class Users extends CI_Model
 		return $result;
 	}
 
+	function add_trading_account($uid, $account)
+	{
+		$result = [];
+		$map = 'INSERT trading_account(uid,account,c_time) SELECT "'.$uid.'","'.$account.'","'.time().'" FROM DUAL WHERE NOT EXISTS SELECT * FROM trading_account WHERE account="'.$account.'"';	
+		$this->db->query($map);
+	    $result = $this->db->insert_id();   
+	    
+	    return $result;
+	
+	}
+
 	function userInfoCenter($id)
 	{
 		$map = 'SELECT m.face, m.email, m.phone, ui.first_name, ui.last_name, ui.major, ui.company, ui.school, ui.position, ui.country, ui.city  
