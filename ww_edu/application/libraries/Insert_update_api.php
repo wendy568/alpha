@@ -17,10 +17,10 @@ class Insert_update_api extends sql_operation
 		return $this;
 	}
 
-	protected function comparison()
+	protected function comparison($comp, $index)
 	{
 		$this->needUpdate = $this->_array;
-		$compa = array_flip(array_column($this->datas_before, 'md5', 'id'));
+		$compa = array_flip(array_column($this->datas_before, $comp, $index));
 		foreach ($this->needUpdate as $key => $value) {
 			foreach ($value as $k => $v) {
 				if ($k == 'md5') {
