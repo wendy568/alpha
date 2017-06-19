@@ -32,9 +32,10 @@ class Remark extends MY_Controller
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('remarks');
-	
+		
+		$data['data'] = [];
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->remarks->delete_remark($id);
+		$this->remarks->delete_remark($id);
 	
 		encode_json($response,$data);
 	}
