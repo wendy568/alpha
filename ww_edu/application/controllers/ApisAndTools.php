@@ -28,12 +28,13 @@ class ApisAndTools extends MY_Controller
 		$this->load->helper('format');
 		$this->load->library('insert_update_api');
 		$this->load->helper('json');
-		$this->load->model('Toolfordis');
+		$this->load->model('TradingAnalysis');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$this->insert_update_api->init($calendar);
+		$calendars_before = $this->TradingAnalysis->calendar($calendar);
+		$this->insert_update_api->init($calendar, $calendars_before);
 		die;
-		$data['data'] = $this->Toolfordis->saveForCalendar($calendar);
+		$data['data'] = $this->TradingAnalysis->calendar($calendar);
 	
 		encode_json($response,$data);
 	}
@@ -46,10 +47,10 @@ class ApisAndTools extends MY_Controller
 		
 		$this->load->database();
 		$this->load->helper('json');
-		$this->load->model('Toolfordis');
+		$this->load->model('TradingAnalysis');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->Toolfordis->saveUpdateNews($news);
+		$data['data'] = $this->TradingAnalysis->saveUpdateNews($news);
 	
 		encode_json($response,$data);
 	}
