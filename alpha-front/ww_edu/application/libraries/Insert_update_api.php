@@ -57,7 +57,7 @@ class Insert_update_api extends sql_operation
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('users');
-
+		print_r($this->_array);die;
 		foreach ($this->_array as $val) {
 			$val['table'] = $table;
 			$this->_data = $val;
