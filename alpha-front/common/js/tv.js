@@ -45,7 +45,7 @@
             })
             .html(
                 ['<div class="bk-img">',
-                    '<img src="'+alpha_host+'upload/'+data.image[0]+'m_'+data.image[1]+'" alt="" style="width: 100%;">',
+                    '<img src="'+alpha_host+'upload/'+data.image[0]+'m_'+data.image[1]+'" alt="" ">',
                 '</div>',
                 '<!-- 遮罩 -->',
                 '<div class="tv-date text-c3">'+tvTime+'</div>',
