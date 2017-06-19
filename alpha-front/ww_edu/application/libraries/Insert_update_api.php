@@ -5,6 +5,7 @@ class Insert_update_api
 
 	public function init()
 	{
-		die(123);
+		echo 123;
+		die();
 	}
 }
