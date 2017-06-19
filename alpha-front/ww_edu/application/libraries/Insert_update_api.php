@@ -13,7 +13,7 @@ class Insert_update_api extends sql_operation
 		$decode_data = $this->jsonDecode($json_data);
 		$this->_array = $decode_data;
 		$this->datas_before = $datas_before;
-
+		print_r($json_data);die;
 		return $this;
 	}
 
