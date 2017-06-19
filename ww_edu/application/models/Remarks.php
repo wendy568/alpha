@@ -12,7 +12,7 @@ class Remarks extends CI_Model
 		$start = (isset($start) && $start) ? $start : 0;
 		$limit = (isset($limit) && $limit) ? $limit : 10; 
 		$result = [];
-		
+
 		$map = "SELECT id, admin, content, uid, u_time
 				FROM remark
 				WHERE uid={$uid}
@@ -24,6 +24,14 @@ class Remarks extends CI_Model
         
         return $result;
 
+	}
+
+	function delete_remark($id)
+	{
+		$map = 'DELETE FROM remark 
+				WHERE id="'.$id.'"';
+		
+		$this->db->query($map);
 	}
 
 }
