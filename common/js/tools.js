@@ -508,10 +508,11 @@
             // 修改
                 data.id=logId;
                 $.alpha.request_Url('post','Utility/updateTradingLog',data,function(res){
+                    console.log(title);
                     if(res.archive.status == 0){
                         $.alpha.notification('success','Update Success');
                         // 更新页面数据
-                        $('.logList #'+logId).find('h3').html('<i class="status-icon '+ color +'"></i>'+ title);
+                        $('.logList #'+logId).find('.log-header').html(title);
                         $('.logList #'+logId).find('.log-content').html(content);
                         $('.logList #'+logId).find('.log_importance').addClass(color);
                     }else{
