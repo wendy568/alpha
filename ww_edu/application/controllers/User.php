@@ -242,6 +242,24 @@ class User extends MY_Controller
 		encode_json($response, $data);
 	}
 
+	public function add_trading_account()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$token = $this->input->get_post('token', TRUE);
+		$mem_id = $this->get_bytoken($token);
+		$account = $this->input->get_post('account', TRUE);
+		
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('users');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->users->add_trading_account($mem_id, $account);
+	
+		encode_json($response,$data);
+	}
+
 	public function update_nic_name()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
