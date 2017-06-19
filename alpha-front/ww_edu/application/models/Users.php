@@ -22,12 +22,12 @@ class Users extends CI_Model
 	function add_trading_account($uid, $account)
 	{
 		$result = [];
-		$map = 'INSERT trading_account(uid,account,c_time) 
-				SELECT "'.$uid.'","'.$account.'","'.time().'" 
+		$map = 'INSERT trading_account(uid,account,c_time,`default`) 
+				SELECT "'.$uid.'","'.$account.'","'.time().'", "'.1.'"
 				FROM DUAL 
 				WHERE NOT EXISTS (SELECT * FROM trading_account WHERE account="'.$account.'")';	
 		$this->db->query($map);
-		
+
 	    $result = $this->db->insert_id();	
 	}
 

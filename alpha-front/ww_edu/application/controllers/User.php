@@ -108,8 +108,8 @@ class User extends MY_Controller
 		$pages = $this->input->get_post('pages', TRUE);
 
 		$start = 0;
-		$limit = 20;
-		$page_nums_per = 5;
+		$limit = 30;
+		$page_nums_per = 15;
 		$count = 0;
 
 		$this->load->database();
@@ -240,6 +240,24 @@ class User extends MY_Controller
 		$data['data'] = $this->users->update($cols, $response);
 
 		encode_json($response, $data);
+	}
+
+	public function MT4AccountList()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$token = $this->input->get_post('token', TRUE);
+		$admin_id = $this->get_byadmintoken($token);
+		$pages = $this->input->get_post('pages', TRUE);
+		
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('users');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->users->MT4AccountList($xxxx, $yyyy);
+	
+		encode_json($response,$data);
 	}
 
 	public function add_trading_account()
