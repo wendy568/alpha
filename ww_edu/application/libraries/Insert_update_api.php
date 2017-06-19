@@ -54,6 +54,7 @@ class Insert_update_api extends sql_operation
 
 	public function iteration_add($table, &$count)
 	{
+		print_r($this->_array);
 		$instance = & get_instance();
 		$instance->load->database();
 		$instance->load->model('users');
