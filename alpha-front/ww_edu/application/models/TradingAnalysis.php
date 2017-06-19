@@ -66,7 +66,7 @@ class TradingAnalysis extends CI_Model
                 FROM calendar
                 WHERE {$where}
                 ORDER BY id DESC
-                LIMIT 12";
+                LIMIT 3";
 
         $result = $this->db->query($map)->result_array();
 
