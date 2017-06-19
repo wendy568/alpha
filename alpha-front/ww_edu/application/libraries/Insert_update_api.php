@@ -24,7 +24,6 @@ class Insert_update_api extends sql_operation
 	protected function comparison()
 	{
 		$needUpdate = $this->_array;
-		print_r($this->datas_before);
 		$compa = array_flip(array_column($this->datas_before, 'md5', 'id'));
 		foreach ($needUpdate as $key => $value) {
 			foreach ($value as $k => $v) {
@@ -32,6 +31,7 @@ class Insert_update_api extends sql_operation
 					if (!empty($compa[$v])) $needUpdate[$key]['id'] = $compa[$v];
 				}
 			}
+			unset($needUpdate[$key]);
 		}
 		print_r($needUpdate);
 	}
