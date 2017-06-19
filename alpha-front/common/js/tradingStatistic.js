@@ -310,8 +310,8 @@
           for(var i in data){
             key.push(i.substring(5,10));
             var x = data[i];
-            buy.push(x && x._0 ? x._0 : 0);
-            sell.push(x && x._1 ? x._1 : 0);
+            buy.push((x && x._0) ? x._0 : 0);
+            sell.push((x && x._1) ? x._1 : 0);
           }
 
           var barChart = echarts.init(document.getElementById('barChart'),'purple-passion');
@@ -346,7 +346,7 @@
               ],
               series : [
                 {
-                      name:'买',
+                      name:'Bought',
                       type:'bar',
 
                       stack: 1,
@@ -354,7 +354,7 @@
                       barWidth:8
                   },
                   {
-                      name:'卖',
+                      name:'Sold',
                       type:'bar',
 
                       stack: 1,
