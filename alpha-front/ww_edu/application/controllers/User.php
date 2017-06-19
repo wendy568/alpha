@@ -249,6 +249,8 @@ class User extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$admin_id = $this->get_byadmintoken($token);
 		$pages = $this->input->get_post('pages', TRUE);
+		$start_time = $this->input->get_post('start_time', TRUE);
+		$end_time = $this->input->get_post('end_time', TRUE);
 
 		$start = 0;
 		$limit = 5;
@@ -266,7 +268,7 @@ class User extends MY_Controller
 		$data['data'] = [];
 
 		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
-		$users = $this->users->MT4AccountList($start, $limit, $count);
+		$users = $this->users->MT4AccountList($start, $limit, $count, $start_time, $end_time);
 		$get_pagination = $this->list_show->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;

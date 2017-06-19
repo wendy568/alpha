@@ -157,18 +157,26 @@ class Users extends CI_Model
 		return $result;
 	}
 
-	function MT4AccountList($start, $limit, &$count)
+	function MT4AccountList($start, $limit, &$count, $start_time, $end_time)
 	{
+		if(isset($start_time) OR isset($end_time)) {
+		    $start_time = ($start_time) ? $start_time : 0;
+		    $end_time = ($end_time) ? $end_time : $now;
+		    $where .= " AND (c_time>{$start_time} AND c_time<{$end_time})";
+		}
+
 		$map = "SELECT ta.uid, ta.account, ui.first_name, ui.last_name, ta.c_time AS binding_time
 				FROM trading_account ta 
 				LEFT JOIN user_info ui 
 				ON ui.mem_id=ta.uid
+				{$where}
 				LIMIT {$start},{$limit}";
 		
 		$result = $this->db->query($map)->result_array();
 
 		$map = "SELECT COUNT(*) AS count
-				FROM trading_account";
+				FROM trading_account
+				{$where}";
 		
 		$count = $this->db->query($map)->row_array()['count'];
 
