@@ -26,7 +26,7 @@ class Insert_update_api extends sql_operation
 		$compa = array_flip(array_column($this->datas_before, 'md5', 'id'));
 		foreach ($this->_array as $key => $value) {
 			foreach ($value as $k => $v) {
-				if ($key == 'md5') {
+				if ($k == 'md5') {
 					var_dump($v);
 				}
 			}
