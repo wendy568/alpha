@@ -22,4 +22,14 @@ class Toolfordis extends CI_Model
 
 	}
 
+	function test()
+	{
+		$map = 'SELECT * 
+				FROM calendar
+				LIMIT 100';
+		
+		$result = $this->db->query($map)->array_array();
+		return $result;
+	}
+
 }
