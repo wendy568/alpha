@@ -108,9 +108,10 @@ class Users extends CI_Model
 	}
 
 	function iteration_update($cols, &$response)
-	{	print_r($response);
+	{	
 		$message = '';
 		$status = 0;
+		$count = 1;
 		array_walk($cols, function($val, $key) use (&$message, &$count){
 			if($this->db->query($val)){
 				$message = "{$key} update success,";	
@@ -119,7 +120,7 @@ class Users extends CI_Model
 				$status = 39;
 			}
 		});
-		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1)));
+		$response = array('archive' => array('status' => $status,'message' =>substr($message, 0, -1) . $count++ . '(s)'));
 	}
 
 	function iteration_add($cols, &$response)
