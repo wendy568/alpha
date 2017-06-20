@@ -95,14 +95,14 @@ class Users extends CI_Model
 	function change_account($uid, $account)
 	{
 		$map = 'UPDATE trading_account 
-				SET default=0
+				SET `default`=0
 				WHERE uid="'.$uid.'"';
 		
 		$this->db->query($map);
 		$result = $this->db->affected_rows();
 
 		$map = 'UPDATE trading_account 
-				SET default=1
+				SET `default`=1
 				WHERE uid="'.$uid.'" 
 				AND account="'.$account.'"';
 		
