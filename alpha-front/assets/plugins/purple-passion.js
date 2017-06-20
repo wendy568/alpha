@@ -21,9 +21,9 @@
     }
     echarts.registerTheme('purple-passion', {
         "color": [
-            "#9b8bba",
-            "#0090d9",
-            "#f35958"
+            "#AB7DF6",
+            "#5DBEC7",
+            "#383859"
         ],
         "backgroundColor": "#1c2026",
         "textStyle": {},
