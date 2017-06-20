@@ -325,11 +325,26 @@ class Video extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function test2()
+	{
+		print_r($_POST);
+		print_r($_FILES);
+	}
+
 	public function test()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 
-		print_r((new \CURLFile('/Users/chenqi/www/1499240666.mp4'))->getMimeType());
+		$url = "http://120.25.211.159/ww_edu/video/test2?key=123";
+		$post_data = array("file"=>new \CURLFile('/Users/chenqi/www/1499240666.mp4'));
+		$curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+        $response = curl_exec($curl);
+        $err_no = curl_errno($curl);
+        $err_msg = curl_error($curl);
+        curl_close($curl);
 	}
 
 	public function upload_video()
