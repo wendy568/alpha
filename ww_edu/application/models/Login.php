@@ -175,16 +175,6 @@ class Login extends CI_Model
 		return $result;
 	}
 
-	function sign_out($token, &$response)
-	{
-		$map = 'DELETE FROM token 
-				WHERE token="'.$token.'"';
-		
-		$query = $this->db->query($map);
-		$count = $this->db->affected_rows();
-		$response = $count?array('archive' => array('status' => 0,'message' =>'success')):array('archive' => array('status' => 31,'message' =>'登出失败，产生此错误有部分人为原因，如果你怀疑帐号不够安全，请尽快修改密码'));
-	}
-
 	function change_password($password, $email, &$response, &$data)
 	{
 		$map = 'UPDATE member 

@@ -107,22 +107,6 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function sign_out()
-	{
-		header( 'Access-Control-Allow-Origin:*' );
-		$token = $this->input->get_post('token', TRUE);
-		
-		$this->load->database();
-		$this->load->helper('json');
-		$this->load->model('login');
-		
-		$data['data'] = array();
-		$response = array('archive' => array('status' => 0,'message' =>''));
-		$this->login->sign_out($token, $response);
-	
-		encode_json($response,$data);
-	}
-
 	public function user_layout_info()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
@@ -163,33 +147,16 @@ class User extends MY_Controller
 		$datas = $this->input->post();
 		$datas['mem_id'] = $this->get_bytoken($token);
 		$datas['id'] = $this->get_bytoken($token);
-		if(!empty($datas['first_name'])) $datas['first_name'] = addslashes($datas['first_name']);
-		if(!empty($datas['last_name'])) $datas['last_name'] = addslashes($datas['last_name']);
-		if(!empty($datas['content'])) $datas['content'] = addslashes($datas['content']);
-		if(!empty($datas['title'])) $datas['title'] = addslashes($datas['title']);
-		if(!empty($datas['describe'])) $datas['describe'] = addslashes($datas['describe']);
-		if(!empty($datas['act_info'])) $datas['act_info'] = addslashes($datas['act_info']);
+		$datas['uid'] = 
 
 		$this->load->helper('json');
-		$this->load->helper('databases_filter');
-		$this->load->helper('set_source');
-		$image = null;
-
-		if(!empty($datas['width']) && !empty($datas['height'])) $image = get_image($datas['width'], $datas['height'], "{$datas['file_path']}");
-		if($image) $datas['image'] = addslashes(json_encode(array("{$datas['file_path']}/".json_decode($image, TRUE)[0],json_decode($image, TRUE)[1])));
-
-		$dfdb = databases_filter::build();
-		$cols = array('member', 'user_info');
-
-		$dfdb->set_query($cols, $datas)
-		     ->filter_blank($cols)
-			 ->update_complete(
-			 	$cols, array('member' => array('id'=> $datas['id']),
-			 				 'user_info' => array('mem_id' => $datas['mem_id'])
-			 			));
-		// print_r($cols);die;
+		$this->load->helper('struct');
+		$this->load->helper('sql_operation');
+		$this->load->library('members');
 		$this->load->database();
 		$this->load->model('users');
+
+		$cols = $this->members->init($datas);
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = $this->users->update($cols, $response);
 
