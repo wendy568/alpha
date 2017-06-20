@@ -8953,7 +8953,7 @@ body.rtl .footer-widget {
     font-size: 12px;
 }
 .panel-collapse{
-    background: #2a2e36;
+    background: #E8E8E9;
     border-radius: 8px;
 }
 .screen{
@@ -10039,4 +10039,13 @@ url("chrome://browser/content/history/history-panel.xul")
   display: inline-block;
   background:url(../img/data_addmore.png) center no-repeat;
   background-size: 100%;
+}
+.clickItem{
+  background:#fff !important;
+}
+.clickItem a,.clickItem a .fa-question-circle{
+  color:#000 !important;
+}
+.panel .panel-heading.clickItem a:hover{
+  color:#000 !important;
 }
