@@ -39,7 +39,8 @@ class Remark extends MY_Controller
 	
 		encode_json($response,$data);
 	}
-
+// curl --form file=@/Users/chenqi/www/1499240666.mp4 "http://upload.jwplatform.com/v1/videos/upload?api_format=json&key=vtQmcboj& token=e2bbad0fd889d5d2e30047596cfe3789778257d2"
+// curl --request PUT --upload-file /Users/chenqi/www/1499240666.mp4 "https://jwplatform-upload.s3-accelerate.amazonaws.com/tL17msiU?AWSAccessKeyId=AKIAIRXCJ3TPZA4HVNYZ&Expires=1482770374&Signature=1%2Fl%2BL6%2FyOE05dNEbXHW8sw7TGF4%3D"
 	public function add_remark()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
