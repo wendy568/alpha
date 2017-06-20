@@ -90,6 +90,26 @@ class Users extends CI_Model
 		}
 
 		$response['archive'] = array('status' => 103,'message' =>'密码错误');
+	}
+
+	function change_account($uid, $account)
+	{
+		$map = 'UPDATE trading_account 
+				SET default=0
+				WHERE uid="'.$uid.'" AND default=1';
+		
+		$this->db->query($map);
+		$result = $this->db->affected_rows();
+		
+		$map = 'UPDATE trading_account 
+				SET default=1
+				WHERE uid="'.$uid.'" 
+				AND account="'.$account.'"';
+		
+		$this->db->query($map);
+		$result = $this->db->affected_rows();
+	
+		return $result;
 	}		
 
 	function update($cols, &$response)

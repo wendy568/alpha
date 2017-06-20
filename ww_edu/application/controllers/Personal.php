@@ -1,7 +1,5 @@
 <?php
 
-use fergusean\nusoap;
-
 class Personal extends MY_Controller
 {
 	// public function info()

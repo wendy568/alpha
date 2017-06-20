@@ -265,6 +265,24 @@ class User extends MY_Controller
 		));
 	}
 
+	public function change_account()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$account = $this->input->get_post('account', TRUE);
+		$token = $this->input->get_post('token', TRUE);
+		$uid = $this->get_bytoken($token);
+		
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('users');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->users->change_account($uid, $account);
+	
+		encode_json($response,$data);
+	}
+
 	public function update()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
