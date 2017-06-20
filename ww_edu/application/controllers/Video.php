@@ -329,6 +329,7 @@ class Video extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		$datas = $this->input->post();
+		print_r(sha1('chenqi'));
 		print_r($datas);
 		print_r($_FILES);
 	}
