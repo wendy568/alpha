@@ -217,12 +217,17 @@
     }
     //  获取其他课程内容
     function getStudyList(stage,stageDtail){
+        var content = '';
         for(var i in stageDtail){
-            var content = stageDtail[i].indexOf('/') > -1 ? stageDtail[i].split('/')[0] : stageDtail[i];
+            if(typeof(stageDtail[i]) == 'string' || typeof(stageDtail[i]) == 'number'){
+              stageDtail[i] = stageDtail[i] + '';
+              content = stageDtail[i].indexOf('/') > -1 ? stageDtail[i].split('/')[0] : stageDtail[i];
+            }
+            var index = i;
             switch (i.toLocaleLowerCase()){
-                case 'video learning':getVideoList(stageDtail[i])
+                case 'video learning':getVideoList(stageDtail[index])
                     break;
-                case 'article learning':getArticleList(stageDtail[i])
+                case 'article learning':getArticleList(stageDtail[index])
                     break;
                 case 'place your order':$('#stage'+ stage + ' .placeYourOrder').html(content)
                     break;
@@ -235,11 +240,11 @@
                 case 'trade all kinds products':$('#stage'+ stage + ' .tradeAllKindsProducts').html(content)
                     break;
                 case 'trading record':$('#stage'+ stage + ' .tradingRecord').html(content)
-                    break; 
+                    break;
                 case 'learning report':$('#stage'+ stage + ' .learningReport').html(content)
-                    break; 
+                    break;
                 case 'make transaction 1':$('#stage'+ stage + ' .makeTransactionOn').html(content)
-                    break; 
+                    break;
                 case 'make transaction 2':$('#stage'+ stage + ' .makeTransactionTwo').html(content)
                     break;
                 case 'task 1 - 2 different markets':$('#stage'+ stage + ' .2DifferentMarkets').html(content)
