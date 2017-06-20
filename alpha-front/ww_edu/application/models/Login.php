@@ -133,7 +133,7 @@ class Login extends CI_Model
 		$response = $result['id']?array('archive' => array('status' => 100,'message' =>'username is exists!')):array('archive' => array('status' => 0,'message' =>''));
 	}
 
-	function register($email, $password, &$response, &$data)
+	function register($email, $password, &$response, &$data, $first_name, $last_name)
 	{
 		$e = $this->email_isexists($email);
 		if($e)
@@ -145,7 +145,7 @@ class Login extends CI_Model
 		$map = 'INSERT member(email,password,create_time) VALUES("'.$email.'","'.$password.'","'.date('Y-m-d H:i:s',time()).'")';
 		$this->db->query($map);
 	    $result = $this->db->insert_id();
-	    $map = 'INSERT user_info(mem_id) VALUES("'.$result.'")';
+	    $map = 'INSERT user_info(mem_id, first_name, last_name) VALUES("'.$result.'","'.$first_name.'","'.$last_name.'")';
 	    $this->db->query($map);
 	    $map = 'INSERT homework(uid,create_time,update_time,c_time,u_time) VALUES("'.$result.'","'.date('Y-m-d H:i:s', time()).'","'.date('Y-m-d H:i:s', time()).'","'.time().'","'.time().'")';
 	    $this->db->query($map);
