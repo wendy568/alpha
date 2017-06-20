@@ -79,7 +79,7 @@
                     var endTime = $('input[name="endTime"]').val();
                     var param = {
                       finency_proc : curBill,
-                      start_time : startTime ? new Daste(startTime).getTime()/1000 : null,
+                      start_time : startTime ? new Date(startTime).getTime()/1000 : null,
                       end_time : endTime ? new Date(endTime).getTime()/1000 : null
                     };
     
@@ -105,7 +105,7 @@
         var endTime = $('input[name="endTime"]').val();
         var param = {
             finency_proc : curBill,
-            start_time : startTime ? new Daste(startTime).getTime()/1000 : null,
+            start_time : startTime ? new Date(startTime).getTime()/1000 : null,
             end_time : endTime ? new Date(endTime).getTime()/1000 : null
         };
 
@@ -121,6 +121,19 @@
           end_time : new Date().getTime()/1000
         };
         getAllData(param);
+    });
+    
+    $('.trading-content [name="startTime"],.trading-content [name="endTime"]').change(function (e) {
+        e.stopPropagation();
+        var curBill = $('.page-content .tabs>.tab.active').find('.currency').text().replace('/','');
+        var startTime = $('input[name="startTime"]').val();
+        var endTime = $('input[name="endTime"]').val();
+        var param = {
+          finency_proc : curBill,
+          start_time : startTime ? new Date(startTime).getTime()/1000 : null,
+          end_time : endTime ? new Date(endTime).getTime()/1000 : null
+        };
+      getAllData(param);
     });
 
     $('.page-content .tabs>.tab').eq(0).trigger('click');
