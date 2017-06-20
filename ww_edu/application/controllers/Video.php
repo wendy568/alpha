@@ -345,6 +345,8 @@ class Video extends MY_Controller
         $err_no = curl_errno($curl);
         $err_msg = curl_error($curl);
         curl_close($curl);
+
+        print_r($response);
 	}
 
 	public function upload_video()
