@@ -17,7 +17,7 @@ class databases_filter{
         $this->_instance->load->database();
         $cols = array_flip($cols);
 
-        array_walk($cols, function (&$val, &$key){
+        array_walk($cols, function (&$val, &$key) {
             $val = $this->_instance->db->list_fields($key);
             $val = array_flip($val);
             foreach($val as &$v){
