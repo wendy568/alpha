@@ -328,10 +328,8 @@ class Video extends MY_Controller
 	public function test()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
-		$datas = $this->input->post();
-		print_r(sha1('chenqi'));
-		print_r($datas);
-		print_r($_FILES);
+
+		print_r(new \CURLFile('/Users/chenqi/www/1499240666.mp4'));
 	}
 
 	public function upload_video()
