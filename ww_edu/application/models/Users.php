@@ -99,7 +99,6 @@ class Users extends CI_Model
 				WHERE uid="'.$uid.'"';
 		
 		$this->db->query($map);
-		$result = $this->db->affected_rows();
 
 		$map = 'UPDATE trading_account 
 				SET `default`=1
@@ -107,9 +106,6 @@ class Users extends CI_Model
 				AND account="'.$account.'"';
 		
 		$this->db->query($map);
-		$result = $this->db->affected_rows();
-	
-		return $result;
 	}		
 
 	function update($cols, &$response)

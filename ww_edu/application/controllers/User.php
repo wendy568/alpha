@@ -278,8 +278,9 @@ class User extends MY_Controller
 		$this->load->model('users');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->users->change_account($uid, $account);
-	
+		$this->users->change_account($uid, $account);
+		$data['data'] = [];
+
 		encode_json($response,$data);
 	}
 
