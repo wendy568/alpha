@@ -159,6 +159,8 @@ class Users extends CI_Model
 
 	function MT4AccountList($start, $limit, &$count, $start_time, $end_time)
 	{
+		$where = " WHERE 1=1";
+		
 		if(isset($start_time) OR isset($end_time)) {
 		    $start_time = ($start_time) ? $start_time : 0;
 		    $end_time = ($end_time) ? $end_time : $now;

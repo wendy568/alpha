@@ -325,6 +325,14 @@ class Video extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function test()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		$datas = $this->input->post();
+		print_r($datas);
+		print_r($_FILES);
+	}
+
 	public function upload_video()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
