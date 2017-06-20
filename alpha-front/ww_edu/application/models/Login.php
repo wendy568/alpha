@@ -92,7 +92,7 @@ class Login extends CI_Model
 	{
 		$map = 'SELECT account  
 				FROM trading_account
-				WHERE uid="'.$uid.'"';
+				WHERE uid="'.$uid.'" `default`=1';
 		
 		$result = $this->db->query($map)->row_array();
 		return isset($result['account']) ? $result['account'] : null;
