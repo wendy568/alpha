@@ -186,7 +186,6 @@
             });
         });
     }
-  
     // 获取articlelist
     function getArticleList(articleList) {
         var articList = "";
@@ -219,46 +218,48 @@
     //  获取其他课程内容
     function getStudyList(stage,stageDtail){
         for(var i in stageDtail){
+            var content = stageDtail[i].indexOf('/') > -1 ? stageDtail[i].split('/')[0] : stageDtail[i];
             switch (i.toLocaleLowerCase()){
                 case 'video learning':getVideoList(stageDtail[i])
                     break;
                 case 'article learning':getArticleList(stageDtail[i])
                     break;
-                case 'place your order':$('#stage'+ stage + ' .placeYourOrder').html(stageDtail[i])
+                case 'place your order':$('#stage'+ stage + ' .placeYourOrder').html(content)
                     break;
-                case '4 style trade':$('#stage'+ stage + ' .4StyleTrade').html(stageDtail[i])
+                case '4 style trade':$('#stage'+ stage + ' .4StyleTrade').html(content)
                     break;
-                case 'take profits/stop loss':$('#stage'+ stage + ' .stopLoss').html(stageDtail[i])
+                case 'take profits/stop loss':$('#stage'+ stage + ' .stopLoss').html(content)
                    break;
-                case 'make transactions':$('#stage'+ stage + ' .makeTransactions').html(stageDtail[i])
+                case 'make transactions':$('#stage'+ stage + ' .makeTransactions').html(content)
                     break;
-                case 'trade all kinds products':$('#stage'+ stage + ' .tradeAllKindsProducts').html(stageDtail[i])
+                case 'trade all kinds products':$('#stage'+ stage + ' .tradeAllKindsProducts').html(content)
                     break;
-                case 'trading record':$('#stage'+ stage + ' .tradingRecord').html(stageDtail[i])
+                case 'trading record':$('#stage'+ stage + ' .tradingRecord').html(content)
                     break; 
-                case 'learning report':$('#stage'+ stage + ' .learningReport').html(stageDtail[i])
+                case 'learning report':$('#stage'+ stage + ' .learningReport').html(content)
                     break; 
-                case 'make transaction 1':$('#stage'+ stage + ' .makeTransactionOn').html(stageDtail[i])
+                case 'make transaction 1':$('#stage'+ stage + ' .makeTransactionOn').html(content)
                     break; 
-                case 'make transaction 2':$('#stage'+ stage + ' .makeTransactionTwo').html(stageDtail[i])
+                case 'make transaction 2':$('#stage'+ stage + ' .makeTransactionTwo').html(content)
                     break;
-                case 'task 1 - 2 different markets':$('#stage'+ stage + ' .2DifferentMarkets').html(stageDtail[i])
+                case 'task 1 - 2 different markets':$('#stage'+ stage + ' .2DifferentMarkets').html(content)
                     break;
-                case 'task 2 - 10 different products':$('#stage'+ stage + ' .10DifferentProducts').html(stageDtail[i])
+                case 'task 2 - 10 different products':$('#stage'+ stage + ' .10DifferentProducts').html(content)
                     break;
-                case '5 tradable products':$('#stage'+ stage + ' .5TradableProducts').html(stageDtail[i])
+                case '5 tradable products':$('#stage'+ stage + ' .5TradableProducts').html(content)
                     break;
-                case 'produce a module':$('#stage'+ stage + ' .produceAModule').html(stageDtail[i])
+                case 'produce a module':$('#stage'+ stage + ' .produceAModule').html(content)
                     break;
-                case 'risk management level':$('#stage'+ stage + ' .riskManagementLevel').html(stageDtail[i])
+                case 'risk management level':$('#stage'+ stage + ' .riskManagementLevel').html(content)
                     break;
-                case 'trading score':$('#stage'+ stage + ' .tradingScore').html(stageDtail[i])
+                case 'trading score':$('#stage'+ stage + ' .tradingScore').html(content)
                     break;
-                case 'profitable period':$('#stage'+ stage + ' .profitablePeriod').html(stageDtail[i])
+                case 'profitable period':$('#stage'+ stage + ' .profitablePeriod').html(content)
                     break;
             }
         }
     }
+
 	$.alpha.request_Url('post','Classes/current_stage',{},function(data){
 		// 阶段展示
 		var stage=data.data.current_stage;
