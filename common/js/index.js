@@ -46,16 +46,16 @@
                 tooltip : {
                     trigger: 'axis',
                     axisPointer: {
-                      type: 'cross',
-                      label: {
-                        backgroundColor: '#383859',
-                      }
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#383859',
+                        }
                     }
                 },
                 legend: {},
                 toolbox: {
                     feature: {
-                      saveAsImage: {}
+                        saveAsImage: {}
                     }
                 },
                 grid: {
@@ -67,25 +67,30 @@
                 },
                 xAxis: [
                     {
-                      type : 'category',
-                      boundaryGap : false,
-                      data : key,
-                      textStyle : {
-                        color: '#fff'
-                      },
+                        type : 'category',
+                        boundaryGap : false,
+                        data : key,
+                        textStyle : {
+                            color: '#fff'
+                        },
                     }
                 ],
                 yAxis : [
                     {
-                      type : 'value'
+                        type : 'value'
                     }
                 ],
+                axisPointer:{
+                    shadowStyle:{
+                        color:'#AB7DF6'
+                    }
+                },
                 series : [
                     {
-                      name:'profit',
-                      type:'line',
-                      areaStyle: {normal: {}},
-                      data:currData
+                        name:'profit',
+                        type:'line',
+                        areaStyle: {normal: {}},
+                        data:currData
                     },
 
                 ]
@@ -131,38 +136,37 @@
   
     var pieChart = echarts.init(document.getElementById('ram-usage'),'purple-passion');
     pieChart.setOption({
-      legend: {
-        x : 'center',
-        y : 'bottom',
-        data:['Long','Short']
-      },
-      series: [
-        {
-          name:'bill',
-          type:'pie',
-          radius: ['50%', '70%'],
-          avoidLabelOverlap: false,
-          label: {
-            normal: {
-              show: true,
-              position: 'inside',
-              formatter:"{b}: {d}%"
-            },
-            emphasis: {
-              show: true,
-              textStyle: {
-                fontSize: '16',
-                fontWeight: 'bold'
-              }
+        legend: {
+            x : 'center',
+            y : 'bottom',
+            data:['Long','Short']
+        },
+        series: [
+            {
+                name:'bill',
+                type:'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'inside',
+                        formatter:"{b}: {d}%"
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '16',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                data:[]
             }
-          },
-          data:[]
-        }
-      ]
+        ]
     });
     
     function getPieData(bill) {
-
         bill = bill.replace('/','');
         $.alpha.request_Url('post','dashboard/long_short_ratio',{finency_proc:bill},function(data){
             if(data.archive.status == 0){
