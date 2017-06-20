@@ -329,7 +329,7 @@ class Video extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 
-		print_r(new \CURLFile('/Users/chenqi/www/1499240666.mp4')::getMimeType());
+		print_r((new \CURLFile('/Users/chenqi/www/1499240666.mp4'))->getMimeType());
 	}
 
 	public function upload_video()
