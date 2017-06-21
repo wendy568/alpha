@@ -164,7 +164,7 @@ class Login extends CI_Model
 		return $result['id']?TRUE:FALSE;
 	}
 
-	function user_layout_info($id)
+	function userLayoutInfo($id)
 	{
 		$map = 'SELECT face, first_name, last_name 
 				FROM member m

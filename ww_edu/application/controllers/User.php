@@ -107,7 +107,7 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function user_layout_info()
+	public function userLayoutInfo()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 	
@@ -118,7 +118,7 @@ class User extends MY_Controller
 		$this->load->model('login');
 		$id = $this->get_bytoken($token);
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->login->user_layout_info($id);
+		$data['data'] = $this->login->userLayoutInfo($id);
 	
 		encode_json($response,$data);
 	}
@@ -139,7 +139,7 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function update_user_info()
+	public function updateUserInfo()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
