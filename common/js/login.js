@@ -23,10 +23,10 @@ $(function () {
           window.location.href = 'index.html';
         }else if(res.archive.status == 101){
           // 弹出框提示用户名或密码错误
-          $.alpha.alertBox('Error','Wrong email or wrong password!','#');
+          $.alpha.alertBox('Error','Invalid Account or Password !','#');
         }else{
           // 登录失败提示
-          $.alpha.alertBox('Fail','Login failed!','#');
+          $.alpha.alertBox('Fail','Login Failed!','#');
         }
       });
     }else{
@@ -44,14 +44,14 @@ $(function () {
     if(emailReg.test($(this).val())){
       $.alpha.props($(this),'none');
     }else{
-      $.alpha.props($(this),'top','Mailbox verification is not legal!');
+      $.alpha.props($(this),'top','Invalid Email!');
     }
   });
   $('#tab_login [name="pwd"]').change(function () {
     if(pwdReg.test($(this).val())){
       $.alpha.props($(this),'none');
     }else{
-      $.alpha.props($(this),'bottom','Don\'t match the rules!');
+      $.alpha.props($(this),'bottom','Invalid Password!');
     }
   });
   
@@ -81,10 +81,10 @@ $(function () {
           window.location.href = 'index.html';
         }else if(res.archive.status == 102){
           // 提示邮箱已存在
-          $.alpha.props($('#tab_register [name="email"]'),'right','the email has been registered!');
+          $.alpha.props($('#tab_register [name="email"]'),'right','The email has been registered!');
         }else{
           // 提示注册失败
-          $.alpha.alertBox('Fail','Register failed!','#');
+          $.alpha.alertBox('Fail','Register Failed!','#');
         }
       });
     }else{
@@ -106,21 +106,21 @@ $(function () {
     if(emailReg.test($(this).val())){
       $.alpha.props($(this),'none');
     }else{
-      $.alpha.props($(this),'right','Mailbox verification is not legal!');
+      $.alpha.props($(this),'right','Invalid Email!');
     }
   });
   $('#tab_register [name="pwd"]').change(function () {
     if(pwdReg.test($(this).val())){
       $.alpha.props($(this),'none');
     }else{
-      $.alpha.props($(this),'right','Don\'t match the rules!');
+      $.alpha.props($(this),'right','Invalid Password!');
     }
   });
   $('#tab_register [name="pwdAgain"]').change(function () {
     if($(this).val() === $('#tab_register [name="pwd"]').val()){
       $.alpha.props($(this),'none');
     }else{
-      $.alpha.props($(this),'right','Inconsistent password!');
+      $.alpha.props($(this),'right','Inconsistent Password!');
     }
   });
   $('#tab_register [name="firstName"]').change(function () {
