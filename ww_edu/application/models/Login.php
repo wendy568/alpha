@@ -166,8 +166,10 @@ class Login extends CI_Model
 
 	function user_layout_info($id)
 	{
-		$map = 'SELECT face, email
-				FROM member
+		$map = 'SELECT face, first_name, last_name 
+				FROM member m
+				LEFT JOIN user_info u
+				ON u.mem_id=m.id
 				WHERE id="'.$id.'"';
 		
 		$query = $this->db->query($map);
