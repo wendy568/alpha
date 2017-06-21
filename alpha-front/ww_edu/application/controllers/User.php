@@ -145,7 +145,6 @@ class User extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$datas = $this->input->post();
-		print_r($datas);
 		$datas['mid'] = $this->get_bytoken($token);
 		$datas['uid'] = $this->get_bytoken($token);
 
