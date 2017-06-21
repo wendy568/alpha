@@ -23,7 +23,7 @@
         "color": [
             "#AB7DF6",
             "#5DBEC7",
-            "#383859"
+            // "#383859"
         ],
         "backgroundColor": "#1c2026",
         "textStyle": {},
