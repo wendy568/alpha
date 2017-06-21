@@ -155,12 +155,8 @@ class User extends MY_Controller
 		$this->load->database();
 		$this->load->model('users');
 
-		$cols = $this->members->init($datas)
-							  ->format()
-				              ->property('user_addslashes', [])
-				              ->pickUpProperty()
-				              ->update('face');
-				         print_r($cols);die;
+		$cols = $this->members->init($datas)->format()->property('user_addslashes', [])->pickUpProperty()->update('face'); 
+		print_r($cols);die;
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = $this->users->update($cols, $response);
 
