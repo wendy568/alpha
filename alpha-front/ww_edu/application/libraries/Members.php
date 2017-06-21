@@ -38,7 +38,7 @@ class Members extends sql_operation
 
 		$dfdb->set_query($cols, $this->_data)
 		     ->filter_blank($cols)
-			 ->update_complete($cols, array('member' => array('id'=>$this->id), 'user_info' => ['mem_id' => $this->mem_id]));
+			 ->update_complete($cols, array('member' => array('id'=>$this->uid), 'user_info' => ['mem_id' => $this->mid]));
 
 		return $cols;
 		
