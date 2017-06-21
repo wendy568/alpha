@@ -144,8 +144,8 @@ class User extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		print_r($token);
 		$datas = $this->input->post();
+		print_r($datas);
 		$datas['mid'] = $this->get_bytoken($token);
 		$datas['uid'] = $this->get_bytoken($token);
 
