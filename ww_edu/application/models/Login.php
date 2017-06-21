@@ -170,7 +170,7 @@ class Login extends CI_Model
 				FROM member m
 				LEFT JOIN user_info u
 				ON u.mem_id=m.id
-				WHERE id="'.$id.'"';
+				WHERE m.id="'.$id.'"';
 		
 		$query = $this->db->query($map);
 		$result = $query->row_array();
