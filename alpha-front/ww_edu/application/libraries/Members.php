@@ -17,7 +17,7 @@ class Members extends sql_operation
 		foreach ($this->_data as $key => $value) {
 			$this->$key = $value;
 		}
-		
+
 		$this->table = ['member', 'user_info'];
 
 		return $this;
@@ -25,6 +25,7 @@ class Members extends sql_operation
 
 	public function update($file = null)
 	{
+		print_r($this->_data);
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
