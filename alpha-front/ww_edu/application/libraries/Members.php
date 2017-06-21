@@ -7,8 +7,18 @@ class Members extends sql_operation
 	public function init($array)
 	{
 		$this->_data = $array;
-		$this->_data['table'] = ['member', 'user_info'];
 		$this->_data['update_time'] = date('Y-m-d H:i:s', time());
+
+		return $this;
+	}
+
+	public function format()
+	{
+		foreach ($this->_data as $key => $value) {
+			$this->$key = $value;
+		}
+		
+		$this->table = ['member', 'user_info'];
 
 		return $this;
 	}
