@@ -25,7 +25,6 @@ class Members extends sql_operation
 
 	public function update($file = null)
 	{
-		print_r($this->_data);
 		$instance = & get_instance();
 		$instance->load->helper('databases_filter');
 		$instance->load->helper('set_source');
@@ -39,7 +38,7 @@ class Members extends sql_operation
 
 		$dfdb->set_query($cols, $this->_data)
 		     ->filter_blank($cols)
-			 ->update_complete($cols, array('member' => array('id'=>$this->id), 'user_info' => $this->mem_id));
+			 ->update_complete($cols, array('member' => array('id'=>$this->id), 'user_info' => ['mem_id' => $this->mem_id]));
 
 		return $cols;
 		
