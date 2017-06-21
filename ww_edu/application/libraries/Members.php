@@ -18,7 +18,7 @@ class Members extends sql_operation
 			$this->$key = $value;
 		}
 
-		$this->table = ['member'];
+		$this->table = ['member', 'user_info'];
 
 		return $this;
 	}
