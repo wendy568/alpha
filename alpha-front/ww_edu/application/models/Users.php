@@ -19,9 +19,9 @@ class Users extends CI_Model
 		return $result;
 	}
 
-	function user_info_center($id)
+	function userInfoCenter($id)
 	{
-		$map = 'SELECT m.email, m.phone, ui.first_name, ui.last_name, ui.pro, ui.organization,ui.tradingplatform 
+		$map = 'SELECT m.face, m.email, m.phone, ui.first_name, ui.last_name, ui.major, ui.company, ui.school, ui.position, ui.country, ui.city  
 				FROM member m 
 				LEFT JOIN user_info ui
 				ON  m.id=ui.mem_id 

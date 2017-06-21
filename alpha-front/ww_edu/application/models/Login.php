@@ -174,6 +174,7 @@ class Login extends CI_Model
 		
 		$query = $this->db->query($map);
 		$result = $query->row_array();
+		$result['face'] = json_decode($result['face']);
 		return $result;
 	}
 

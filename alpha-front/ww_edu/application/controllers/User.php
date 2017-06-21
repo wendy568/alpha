@@ -123,7 +123,7 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function user_info_center()
+	public function userInfoCenter()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		
@@ -134,7 +134,7 @@ class User extends MY_Controller
 		$this->load->model('users');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->users->user_info_center($mem_id);
+		$data['data'] = $this->users->userInfoCenter($mem_id);
 	
 		encode_json($response,$data);
 	}
