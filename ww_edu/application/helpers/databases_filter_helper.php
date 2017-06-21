@@ -55,6 +55,7 @@ class databases_filter{
 
     function update_complete(&$data, $where)
     {
+        var_dump($where);
     	$result = '';
     	foreach($data as $key=>&$val) {
             foreach ($val as $k =>&$v) {
