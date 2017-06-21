@@ -145,8 +145,8 @@ class User extends MY_Controller
 		
 		$token = $this->input->get_post('token', TRUE);
 		$datas = $this->input->post();
-		$datas['mem_id'] = $this->get_bytoken($token);
-		$datas['id'] = $this->get_bytoken($token);
+		$datas['mid'] = $this->get_bytoken($token);
+		$datas['uid'] = $this->get_bytoken($token);
 
 		$this->load->helper('json');
 		$this->load->helper('struct');
