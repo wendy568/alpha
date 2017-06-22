@@ -249,6 +249,7 @@
         $.alpha.request_Url('post','dashboard/calendar',date,function(data){
             if(data.archive.status == 0){
                 $('#accordion .calendar-tab-content').remove();
+                $('.En-calendar .calendar-tab').empty();
                 dateList = [];
                 var isCurDay = false;
                 $.each(data.data.calendar,function (i,item) {

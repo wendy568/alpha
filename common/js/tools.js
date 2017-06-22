@@ -72,10 +72,9 @@
 
         $.alpha.request_Url('post','dashboard/calendar',date,function(data){
             if(data.archive.status == 0){
-                $('#accordion .calendar-tab-content').remove();
                 dateList = [];
                 $('.En-calendar .calendar-tab').empty();
-                $('#accordion .scroller').empty();
+                $('#accordion .calendar-tab-content').remove();
                 var isCurDay = false;
                 $.each(data.data.calendar,function (i,item) {
                     dateList.push(i);
