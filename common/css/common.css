@@ -9644,7 +9644,7 @@ s3.active,.s3:hover a,
 }
 .pro-detail-head{
   padding:30px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   position: relative;
 }
 .pro-detail-body{
@@ -10048,4 +10048,15 @@ url("chrome://browser/content/history/history-panel.xul")
 }
 .panel .panel-heading.clickItem a:hover{
   color:#000 !important;
+}
+
+
+.scroller-bar{
+    height: 5px;
+    min-width: 10px;
+    background-color: rgb(161, 178, 189);
+    display: block;
+    position: absolute;
+    z-index: 10;
+    top: calc(100% - 20px);
 }
