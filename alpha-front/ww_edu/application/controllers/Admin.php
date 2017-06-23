@@ -26,7 +26,7 @@ class Admin extends MY_Controller
 		$data = array();
 		$username = $this->input->get_post('username', TRUE);
 		$password = $this->input->get_post('password', TRUE);
-		print_r($_POST);
+
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('admins');
