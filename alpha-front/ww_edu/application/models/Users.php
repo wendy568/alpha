@@ -84,9 +84,11 @@ class Users extends CI_Model
 					WHERE id="'.$mem_id.'"';
 			
 			$this->db->query($map);
+
 			$result = $this->db->affected_rows();
-			$response['archive'] = $result?array('status' => 0,'message' =>'success'):array('status' => 21,'message' =>'新口令与旧口令相同');
-			return FALSE;
+			$response['archive'] = $result ? array('status' => 0,'message' =>'success') : array('status' => 21,'message' =>'新口令与旧口令相同');
+
+			return false;
 		}
 
 		$response['archive'] = array('status' => 103,'message' =>'密码错误');
