@@ -108,6 +108,7 @@ class User extends MY_Controller
 		$start = $this->input->get_post('start', TRUE);
 		$limit = $this->input->get_post('limit', TRUE);
 		$pages = $this->input->get_post('pages', TRUE);
+		
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('struct');
