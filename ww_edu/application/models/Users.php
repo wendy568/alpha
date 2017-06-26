@@ -104,6 +104,7 @@ class Users extends CI_Model
 				LEFT JOIN user_info u 
 				ON u.mem_id=m.id
 				WHERE user_type={$user_type}
+				ORDER BY id DESC
 				LIMIT {$start},{$limit}";
 		
 		$result = $this->db->query($map)->result_array();
