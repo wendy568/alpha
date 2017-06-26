@@ -16,7 +16,7 @@ trait pagination
         return $this;
     }
 
-    public function set_pages()
+    protected function set_pages()
     {
 
     	$total_pages = ceil($this->total_nums / $this->page_nums_per);

@@ -118,7 +118,7 @@ class User extends MY_Controller
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$users = $this->users->user_list($user_type, $start, $limit);
-		$this->members->init($users, $pages)->property('pagination');
+		$this->members->init($users, $pages)->property('set_pages');
 		die;
 		encode_json($response,$data);
 	}
