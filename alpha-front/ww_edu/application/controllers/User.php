@@ -17,15 +17,6 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function get_bytoken($token)
-	{
-		header( 'Access-Control-Allow-Origin:*' );
-		$this->load->database();
-		$this->load->model('login');
-		$data = $this->login->get_bytoken($token);
-		return $data;
-	}
-
 	public function nic_name_isexists()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
@@ -104,6 +95,26 @@ class User extends MY_Controller
 			));
 		}
 		
+		encode_json($response,$data);
+	}
+
+	public function user_list()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$token = $this->input->get_post('token', TRUE);
+		$admin_id = $this->get_byadmintoken($token);
+		var_dump($admin_id);die;
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->helper('struct');
+		$this->load->helper('sql_operation');
+		$this->load->library('members');
+		$this->load->model('users');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->users->user_list($xxxx, $yyyy);
+	
 		encode_json($response,$data);
 	}
 
