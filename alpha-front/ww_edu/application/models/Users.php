@@ -99,7 +99,7 @@ class Users extends CI_Model
 		$start = $start?$start:0;
 		$limit = $limit?$limit:500;
 
-		$map = "SELECT u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone 
+		$map = "SELECT u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone, m.create_time, u.update_time
 				FROM member m 
 				LEFT JOIN user_info u 
 				ON u.mem_id=m.id
