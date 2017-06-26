@@ -104,7 +104,10 @@ class User extends MY_Controller
 	
 		$token = $this->input->get_post('token', TRUE);
 		$admin_id = $this->get_byadmintoken($token);
-		var_dump($admin_id);die;
+		$user_type = $this->input->get_post('user_type', TRUE);
+		$start = $this->input->get_post('start', TRUE);
+		$limit = $this->input->get_post('limit', TRUE);
+
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('struct');
@@ -113,7 +116,7 @@ class User extends MY_Controller
 		$this->load->model('users');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->users->user_list($xxxx, $yyyy);
+		$users = $this->users->user_list($user_type, $start, $limit);
 	
 		encode_json($response,$data);
 	}
