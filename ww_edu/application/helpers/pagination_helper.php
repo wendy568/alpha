@@ -31,10 +31,8 @@ trait pagination
 
         $result['total_pages'] = $total_pages;
         $result['total_nums'] = $this->total_nums;
-        print_r($result);
-    	// $map = $this->_map." LIMIT {$offset},{$this->page_nums_per}";
-    	// return array('pages' => $total_pages, 'data' => $this->_db->query($map)->result_array());
-        
+
+        return $result;        
     }
 
 }
