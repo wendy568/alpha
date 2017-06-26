@@ -22,7 +22,7 @@ class Admin extends MY_Controller
 
 	public function Login()
 	{
-		header( 'Access-Control-Allow-Origin:*' );
+		// header( 'Access-Control-Allow-Origin:*' );
 		$data = array();
 		$username = $this->input->get_post('username', TRUE);
 		$password = $this->input->get_post('password', TRUE);
