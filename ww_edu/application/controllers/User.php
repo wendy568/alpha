@@ -111,6 +111,7 @@ class User extends MY_Controller
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('struct');
+		$this->load->helper('pagination');
 		$this->load->helper('sql_operation');
 		$this->load->library('members');
 		$this->load->model('users');
