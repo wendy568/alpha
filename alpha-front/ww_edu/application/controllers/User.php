@@ -119,7 +119,7 @@ class User extends MY_Controller
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$users = $this->users->user_list($user_type, $start, $limit);
-		$this->members->set_array($users, $pages, $page_nums_per = 50)->property('set_pages');
+		$this->members->set_array($users, $pages, $page_nums_per = 20)->property('set_pages');
 		die;
 		encode_json($response,$data);
 	}
