@@ -7,7 +7,7 @@ trait pagination
     protected $pages;
     protected $page_nums_per;
 
-    protected function set_array($array, $pages, $page_nums_per = 5)
+    public function set_array($array, $pages, $page_nums_per = 5)
     {
         $this->_array = $array;
         $this->total_nums = count($array);
