@@ -19,12 +19,12 @@ trait pagination
     protected function set_pages()
     {
     	$total_pages = ceil($this->total_nums / $this->page_nums_per);
-        if ($pages > $total_pages) $pages = $total_pages;
+        if ($this->pages > $total_pages) $this->pages = $total_pages;
         var_dump($total_pages);
         
-        for ($pages = 1; $pages <= $total_pages; $pages++) {
+        for ($this->pages = 1; $this->pages <= $total_pages; $this->pages++) {
             $offset = ($this->pages - 1) * $this->page_nums_per;
-            $result["_{$page}"] = array_slice($this->_array,$offset, $this->page_nums_per);
+            $result["_{$this->pages}"] = array_slice($this->_array,$offset, $this->page_nums_per);
         }
         print_r($result);
     	// $map = $this->_map." LIMIT {$offset},{$this->page_nums_per}";
