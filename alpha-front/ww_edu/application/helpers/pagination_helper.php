@@ -26,6 +26,8 @@ trait pagination
             $offset = ($this->pages - 1) * $this->page_nums_per;
             $result["_{$this->pages}"] = array_slice($this->_array,$offset, $this->page_nums_per);
         }
+        $result['total_pages'] = $total_pages;
+        $result['total_nums'] = $this->total_nums;
         print_r($result);
     	// $map = $this->_map." LIMIT {$offset},{$this->page_nums_per}";
     	// return array('pages' => $total_pages, 'data' => $this->_db->query($map)->result_array());
