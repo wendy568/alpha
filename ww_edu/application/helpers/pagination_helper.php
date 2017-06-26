@@ -18,7 +18,6 @@ trait pagination
 
     protected function set_pages()
     {
-        var_dump($this->page_nums_per);die;
     	$total_pages = ceil($this->total_nums / $this->page_nums_per);
     	$offset = ($this->pages - 1) * $this->page_nums_per;
         $result = array_slice($this->_array,$offset, $this->page_nums_per);
