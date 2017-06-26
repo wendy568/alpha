@@ -117,7 +117,7 @@ class User extends MY_Controller
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$users = $this->users->user_list($user_type, $start, $limit);
-	
+		print_r($users);die;
 		encode_json($response,$data);
 	}
 
