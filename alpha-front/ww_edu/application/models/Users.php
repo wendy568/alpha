@@ -97,7 +97,7 @@ class Users extends CI_Model
 	function user_list($user_type, $start, $limit)
 	{
 		$start = $start?$start:0;
-		$limit = $limit?$limit:30;
+		$limit = $limit?$limit:20;
 
 		$map = "SELECT u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone, m.create_time, u.update_time
 				FROM member m 
