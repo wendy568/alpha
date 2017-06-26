@@ -94,6 +94,22 @@ class Users extends CI_Model
 		$response['archive'] = array('status' => 103,'message' =>'密码错误');
 	}
 
+	function user_list($user_type, $start, $limit)
+	{
+		$start = $start?$start:0;
+		$limit = $limit?$limit:500;
+
+		$map = "SELECT u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone 
+				FROM member m 
+				LEFT JOIN user_info u 
+				ON u.mem_id=m.id
+				WHERE user_type={$user_type}
+				LIMIT {$start},{$limit}";
+		
+		$result = $this->db->query($map)->result_array();
+		return $result;
+	}
+
 	function change_account($uid, $account)
 	{
 		$map = 'UPDATE trading_account 
