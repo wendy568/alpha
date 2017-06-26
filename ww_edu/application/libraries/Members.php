@@ -2,7 +2,7 @@
 
 class Members extends sql_operation
 {
-	use struct;
+	use struct, pagination;
 
 	public function init($array)
 	{
