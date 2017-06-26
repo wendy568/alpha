@@ -22,7 +22,7 @@ trait pagination
         if ($this->pages > $total_pages) $this->pages = $total_pages;
         var_dump($total_pages);
         
-        for ($this->pages = 1; $this->pages <= $total_pages; $this->pages++) {
+        for ($this->pages; $this->pages <= $total_pages; $this->pages++) {
             $offset = ($this->pages - 1) * $this->page_nums_per;
             $result["_{$this->pages}"] = array_slice($this->_array,$offset, $this->page_nums_per);
         }
