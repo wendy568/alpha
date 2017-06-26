@@ -108,7 +108,7 @@ class User extends MY_Controller
 		$start = $this->input->get_post('start', TRUE);
 		$limit = $this->input->get_post('limit', TRUE);
 		$pages = $this->input->get_post('pages', TRUE);
-		
+
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('struct');
@@ -119,7 +119,7 @@ class User extends MY_Controller
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$users = $this->users->user_list($user_type, $start, $limit);
-		$this->members->set_array($users, $pages, $page_nums_per = 20)->property('set_pages');
+		$this->members->set_array($users, $pages, $page_nums_per = 10)->property('set_pages');
 		die;
 		encode_json($response,$data);
 	}
