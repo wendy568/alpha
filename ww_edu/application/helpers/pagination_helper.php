@@ -10,7 +10,6 @@ trait pagination
 
     public function set_array($array, $pages, $page_nums_per)
     {
-        var_dump(count($array));
         $this->_array = $array;
         $this->total_nums = count($array);
         $this->page_nums_per = $page_nums_per;
@@ -36,11 +35,11 @@ trait pagination
 
     protected function set_pages()
     {
-        var_dump($this->start);
+        // var_dump($this->start);
         var_dump($this->total_nums);
         $keys = range($this->start, $this->start + $this->total_nums - 1);
-        print_r(count($keys));
-        print_r($keys);
+        // print_r(count($keys));
+        // print_r($keys);
         print_r($this->_array);die;
         // print_r(array_combine($keys, $this->_array));
     	$total_pages = ceil(($this->start + $this->total_nums) / $this->page_nums_per);
