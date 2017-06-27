@@ -128,6 +128,7 @@ class User extends MY_Controller
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
 			$data['data']['page_nums_per'] = 5;
+			$data['data']['real_total_pages'] = 9;
 			$data['data']['real_total_nums'] = 43;
 		} else {
 			$response = array('archive' => array('status' => 204, 'message' =>'No Content'));
