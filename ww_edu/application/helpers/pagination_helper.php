@@ -53,8 +53,8 @@ trait pagination
 
         for ($this->pages; $this->pages <= $total_pages; $this->pages++) {
             $offset = ($this->pages - 1) * $this->page_nums_per;
-            for ($offset; $offset < $offset + $this->page_nums_per; $offset++) {
-                var_dump($offset);die;
+            $L = $offset + $this->page_nums_per;
+            for ($offset; $offset < $L; $offset++) {
                 $result["_{$this->pages}"][] = $this->_array[$offset];
             }
         }
