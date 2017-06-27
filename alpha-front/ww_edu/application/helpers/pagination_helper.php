@@ -10,7 +10,6 @@ trait pagination
 
     public function set_array($array, $pages, $page_nums_per)
     {
-        print_r($array);
         $this->_array = $array;
         $this->total_nums = count($array);
         $this->page_nums_per = $page_nums_per;
