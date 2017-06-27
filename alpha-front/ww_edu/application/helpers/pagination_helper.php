@@ -53,7 +53,9 @@ trait pagination
         print_r(array_slice($this->_array, 0, 3));die;
         for ($this->pages; $this->pages <= $total_pages; $this->pages++) {
             $offset = ($this->pages - 1) * $this->page_nums_per;
-            $result["_{$this->pages}"] = array_slice($this->_array, $offset, $this->page_nums_per);
+            for ($offset; $offset < $offset + $this->page_nums_per; $offset++) {
+                $result["_{$this->pages}"][] = $this->_array[$offset];
+            }
         }
 
         $result['total_pages'] = $total_pages;
