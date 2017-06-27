@@ -52,7 +52,7 @@ trait pagination
         }
 
         $result['total_pages'] = $total_pages;
-        $result['total_nums'] = $this->total_nums;
+        $result['total_nums'] = $this->start + $this->total_nums;
 
         return $result;        
     }
