@@ -15,6 +15,17 @@ trait pagination
         $this->pages = $pages ? $pages : 1;
         return $this;
     }
+    //总共 43
+    //每页 5
+    //页数9
+    public function set_limit($pages, &$start, $limit, $page_nums_per)
+    {
+        if ($pages * $page_nums_per > $limit) {
+            $multiplying = ceil(($pages * $page_nums_per) / $limit);
+            var_dump($multiplying);
+            $start += $limit + 1;
+        }
+    }
 
     protected function set_pages()
     {
