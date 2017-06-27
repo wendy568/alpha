@@ -39,7 +39,7 @@ trait pagination
         print_r(count($keys));
         print_r($keys);
         print_r($this->_array);
-        print_r(array_combine($keys, $this->_array));die;
+        print_r(array_combine($keys, $this->_array));
     	$total_pages = ceil($this->total_nums / $this->page_nums_per);
 
         if ($total_pages == 0) $this->pages = 1;
