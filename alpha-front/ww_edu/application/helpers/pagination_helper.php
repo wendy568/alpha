@@ -10,6 +10,7 @@ trait pagination
 
     public function set_array($array, $pages, $page_nums_per)
     {
+
         $this->_array = $array;
         $this->total_nums = count($array);
         $this->page_nums_per = $page_nums_per;
@@ -21,10 +22,9 @@ trait pagination
     {
         $s1 = floor(($pages * $page_nums_per) / $limit);
         $s1 = $s1 ? $s1 : 1;
-        var_dump($s1);
+        
         if ($pages * $page_nums_per > $limit * $s1) {
             $multiplying = floor($s1);
-            var_dump($multiplying);
             $start += $multiplying * $limit;
             $this->start = $pages * $page_nums_per;
 
