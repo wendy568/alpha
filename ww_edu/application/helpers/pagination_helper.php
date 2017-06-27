@@ -38,19 +38,24 @@ trait pagination
 
     protected function set_pages()
     {
+        $result = [];
         $keys = range($this->start, $this->start + $this->total_nums - 1);
         $this->_array = array_combine($keys, $this->_array);
         $total_pages = ceil(($this->start + $this->total_nums) / $this->page_nums_per);
+
         // if ($total_pages == 0) $this->pages = 1;
         // if ($this->pages > $total_pages && $total_pages != 0) $this->pages = $total_pages;
         // if ($this->pages < 0) $this->pages = 1;
+        
         for ($this->pages; $this->pages <= $total_pages; $this->pages++) {
             $offset = ($this->pages - 1) * $this->page_nums_per;
             $L = $offset + $this->page_nums_per;
             for ($offset; $offset < $L; $offset++) {
-                $result["_{$this->pages}"][] = $this->_array[$offset];
+                if (!empty($this->_array[$offset])) $result["_{$this->pages}"][] = $this->_array[$offset];
             }
         }
+
+        if (empty($result)) return false;
 
         $result['total_pages'] = $total_pages;
         $result['total_nums'] = $this->start + $this->total_nums;
