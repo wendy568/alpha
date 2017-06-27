@@ -35,7 +35,7 @@ trait pagination
     {
         var_dump($this->start);
         var_dump($this->total_nums);
-        $keys = range($this->start, $this->total_nums - 1);
+        $keys = range($this->start, $this->start + $this->total_nums - 1);
         print_r(count($keys));
         print_r($keys);
         print_r($this->_array);
