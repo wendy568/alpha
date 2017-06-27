@@ -22,7 +22,7 @@ trait pagination
         if ($pages * $page_nums_per > $limit) {
             $multiplying = ceil(($pages * $page_nums_per) / $limit);
             $start += $multiplying * $limit + 1;
-            $this->start = $multiplying * $limit;
+            $this->start = $multiplying * $page_nums_per;
 
             return true;
         } else {
