@@ -120,9 +120,16 @@ class User extends MY_Controller
 		$this->load->model('users');
 		
 		$response = array('archive' => array('status' => 0, 'message' =>''));
+		$data['data'] = [];
+
 		$this->members->set_limit($pages, $start, $limit, $page_nums_per);
 		$users = $this->users->user_list($user_type, $start, $limit);
-		$data['data'] = $this->members->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
+		$get_pagination = $this->members->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
+		if ($get !== false) {
+			$data['data'] = $get_pagination;
+		} else {
+			$response = array('archive' => array('status' => 204, 'message' =>'No Content'));
+		}
 
 		encode_json($response,$data);
 	}
