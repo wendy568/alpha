@@ -50,7 +50,7 @@ trait pagination
         // if ($total_pages == 0) $this->pages = 1;
         // if ($this->pages > $total_pages && $total_pages != 0) $this->pages = $total_pages;
         // if ($this->pages < 0) $this->pages = 1;
-
+        echo 123
         for ($this->pages; $this->pages <= $total_pages; $this->pages++) {
             $offset = ($this->pages - 1) * $this->page_nums_per;
             for ($offset; $offset < $offset + $this->page_nums_per; $offset++) {
