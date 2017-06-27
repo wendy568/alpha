@@ -105,9 +105,11 @@ class User extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$admin_id = $this->get_byadmintoken($token);
 		$user_type = $this->input->get_post('user_type', TRUE);
-		$start = $this->input->get_post('start', TRUE);
-		$limit = $this->input->get_post('limit', TRUE);
 		$pages = $this->input->get_post('pages', TRUE);
+
+		$start = 0;
+		$limit = 20;
+		$page_nums_per = 5;
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -116,10 +118,13 @@ class User extends MY_Controller
 		$this->load->helper('sql_operation');
 		$this->load->library('members');
 		$this->load->model('users');
-	
-		$response = array('archive' => array('status' => 0,'message' =>''));
+		
+		$response = array('archive' => array('status' => 0, 'message' =>''));
+		$this->members->set_limit($pages, $start, $limit, $page_nums_per);
 		$users = $this->users->user_list($user_type, $start, $limit);
-		$data['data'] = $this->members->set_array($users, $pages, $page_nums_per = 5)->property('set_pages')->get_property();
+		var_dump($start);
+		$data['data'] = $this->members->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
+
 		encode_json($response,$data);
 	}
 
