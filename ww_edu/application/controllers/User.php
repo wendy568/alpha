@@ -122,7 +122,6 @@ class User extends MY_Controller
 		$response = array('archive' => array('status' => 0, 'message' =>''));
 		$this->members->set_limit($pages, $start, $limit, $page_nums_per);
 		$users = $this->users->user_list($user_type, $start, $limit);
-		var_dump($start);
 		$data['data'] = $this->members->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
 
 		encode_json($response,$data);
