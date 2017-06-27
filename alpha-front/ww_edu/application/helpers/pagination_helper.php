@@ -6,8 +6,9 @@ trait pagination
     protected $total_nums;
     protected $pages;
     protected $page_nums_per;
+    protected $start = 0;
 
-    public function set_array($array, $pages, $page_nums_per = 5)
+    public function set_array($array, $pages, $page_nums_per)
     {
         $this->_array = $array;
         $this->total_nums = count($array);
@@ -15,20 +16,23 @@ trait pagination
         $this->pages = $pages ? $pages : 1;
         return $this;
     }
-    //总共 43
-    //每页 5
-    //页数9
+
     public function set_limit($pages, &$start, $limit, $page_nums_per)
     {
         if ($pages * $page_nums_per > $limit) {
             $multiplying = ceil(($pages * $page_nums_per) / $limit);
-            var_dump($multiplying);
             $start += $multiplying * $limit + 1;
+            $this->start = $multiplying * $limit;
+
+            return true;
+        } else {
+            return false;
         }
     }
 
     protected function set_pages()
     {
+        print_r(range(0, 12));
     	$total_pages = ceil($this->total_nums / $this->page_nums_per);
 
         if ($total_pages == 0) $this->pages = 1;
