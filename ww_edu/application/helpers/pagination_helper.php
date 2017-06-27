@@ -19,10 +19,12 @@ trait pagination
 
     public function set_limit($pages, &$start, $limit, $page_nums_per)
     {
-        if ($pages * $page_nums_per > $limit) {
-            $multiplying = floor(($pages * $page_nums_per) / $limit);
+        $s1 = floor($pages * $page_nums_per) / $limit;
+        $s1 = $s1 ? $s1 : 1;
+        if ($pages * $page_nums_per > $limit * $s1) {
+            $multiplying = floor($s1);
             var_dump($multiplying);
-            $start += $multiplying * $limit + 1;
+            $start += $multiplying * $limit;
             $this->start = $pages * $page_nums_per;
 
             return true;
