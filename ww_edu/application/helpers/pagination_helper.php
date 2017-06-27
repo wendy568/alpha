@@ -50,10 +50,10 @@ trait pagination
         // if ($total_pages == 0) $this->pages = 1;
         // if ($this->pages > $total_pages && $total_pages != 0) $this->pages = $total_pages;
         // if ($this->pages < 0) $this->pages = 1;
-        print_r($this->_array);die;
+        print_r(array_slice($this->_array, 8, 5));die;
         for ($this->pages; $this->pages <= $total_pages; $this->pages++) {
             $offset = ($this->pages - 1) * $this->page_nums_per;
-            $result["_{$this->pages}"] = array_slice($this->_array,$offset, $this->page_nums_per);
+            $result["_{$this->pages}"] = array_slice($this->_array, $offset, $this->page_nums_per);
         }
 
         $result['total_pages'] = $total_pages;
