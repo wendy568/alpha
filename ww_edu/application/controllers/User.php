@@ -127,8 +127,8 @@ class User extends MY_Controller
 		$get_pagination = $this->members->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
-			$data['page_nums_per'] = 5;
-			$data['real_total_nums'] = 43;
+			$data['data']['page_nums_per'] = 5;
+			$data['data']['real_total_nums'] = 43;
 		} else {
 			$response = array('archive' => array('status' => 204, 'message' =>'No Content'));
 		}
