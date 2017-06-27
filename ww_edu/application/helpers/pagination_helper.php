@@ -24,7 +24,7 @@ trait pagination
 
         if ($pages * $page_nums_per > $limit * $s1) {
 
-            $multiplying = floor($s1);
+            $multiplying = $s1;
             $start = $multiplying * $limit;
             $this->start = $multiplying * $limit;
             return true;
@@ -33,7 +33,7 @@ trait pagination
             $start = ($s1 - 1) * $limit;
             $this->start = ($s1 - 1) * $limit;
         } else {
-            
+
             return false;
         }
     }
