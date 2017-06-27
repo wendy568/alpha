@@ -23,12 +23,17 @@ trait pagination
         $s1 = $s1 ? $s1 : 1;
 
         if ($pages * $page_nums_per > $limit * $s1) {
-            $multiplying = floor($s1);
-            $start += $multiplying * $limit;
-            $this->start = $pages * $page_nums_per;
 
+            $multiplying = floor($s1);
+            $start = $multiplying * $limit;
+            $this->start = $multiplying * $limit;
             return true;
+        } elseif ($pages * $page_nums_per = $limit * $s1) {
+
+            $start = ($s1 - 1) * $limit;
+            $this->start = ($s1 - 1) * $limit;
         } else {
+            
             return false;
         }
     }
