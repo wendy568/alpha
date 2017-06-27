@@ -24,9 +24,8 @@ trait pagination
 
         if ($pages * $page_nums_per > $limit * $s1) {
 
-            $multiplying = $s1;
-            $start = $multiplying * $limit;
-            $this->start = $multiplying * $limit;
+            $start = $s1 * $limit;
+            $this->start = $s1 * $limit;
         } elseif ($pages * $page_nums_per = $limit * $s1) {
 
             $start = ($s1 - 1) * $limit;
@@ -48,7 +47,6 @@ trait pagination
         print_r(array_combine($keys, $this->_array));
         $this->_array = array_combine($keys, $this->_array);
         $total_pages = ceil(($this->start + $this->total_nums) / $this->page_nums_per);
-        print_r($total_pages);die;
         // if ($total_pages == 0) $this->pages = 1;
         // if ($this->pages > $total_pages && $total_pages != 0) $this->pages = $total_pages;
         // if ($this->pages < 0) $this->pages = 1;
