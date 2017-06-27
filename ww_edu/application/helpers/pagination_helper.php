@@ -42,7 +42,8 @@ trait pagination
         $keys = range($this->start, $this->start + $this->total_nums - 1);
         $this->_array = array_combine($keys, $this->_array);
         $total_pages = ceil(($this->start + $this->total_nums) / $this->page_nums_per);
-
+        var_dump(count($keys));
+        var_dump(count($this->_array));
         // if ($total_pages == 0) $this->pages = 1;
         // if ($this->pages > $total_pages && $total_pages != 0) $this->pages = $total_pages;
         // if ($this->pages < 0) $this->pages = 1;
