@@ -32,7 +32,7 @@ trait pagination
 
     protected function set_pages()
     {
-        $keys = range(20, 40);
+        $keys = range($this->start, $this->total_nums - 1);
         print_r(count($keys));
         print_r($this->_array);
         print_r(array_combine($keys, $this->_array));die;
