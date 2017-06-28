@@ -46,7 +46,7 @@ class Users extends CI_Model
 
 		$map = 'SELECT account
 				FROM trading_account
-				WHERE m.id="'.$id.'"';
+				WHERE id="'.$id.'"';
 		
 		$result['MT4'] = $this->db->query($map)->result_array();
 
