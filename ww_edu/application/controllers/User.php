@@ -127,7 +127,7 @@ class User extends MY_Controller
 		$get_pagination = $this->members->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
-			$data['data']['page_nums_per'] = $limit / $page_nums_per;
+			$data['data']['interval'] = $limit / $page_nums_per;
 			$data['data']['page_nums_per'] = 5;
 			$data['data']['real_total_pages'] = 9;
 			$data['data']['real_total_nums'] = 43;
