@@ -42,7 +42,14 @@ class Users extends CI_Model
 				WHERE m.id="'.$id.'"
 				AND ta.default=1';
 		
-		$result = $this->db->query($map)->row_array();
+		$result['BasicInfomation'] = $this->db->query($map)->row_array();
+
+		$map = 'SELECT account
+				FROM trading_account
+				WHERE m.id="'.$id.'"';
+		
+		$result['MT4'] = $this->db->query($map)->result_array();
+
 		return $result;
 	}
 
