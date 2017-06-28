@@ -36,9 +36,9 @@ class Users extends CI_Model
 		$map = 'SELECT m.id, ta.account, m.face, m.email, m.phone, ui.first_name, ui.last_name, ui.major, ui.company, ui.school, ui.position, ui.country, ui.city, ui.birthdate, ui.age, ui.sex, m.user_type
 				FROM member m 
 				LEFT JOIN user_info ui
-				ON ta.uid=m.id
-				LEFT JOIN trading_account ta 
 				ON  m.id=ui.mem_id 
+				LEFT JOIN trading_account ta 
+				ON ta.uid=m.id
 				WHERE m.id="'.$id.'"
 				AND ta.default=1';
 		
