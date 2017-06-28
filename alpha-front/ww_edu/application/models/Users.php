@@ -59,7 +59,7 @@ class Users extends CI_Model
 				ON tl.uid=h.uid
 				WHERE uid="'.$id.'"';
 		
-		$result['Student'] = $this->db->query($map)->result_array();
+		$result['Student'] = $this->db->query($map)->row_array();
 
 		return $result;
 	}
