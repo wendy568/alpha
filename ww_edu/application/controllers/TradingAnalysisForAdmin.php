@@ -6,12 +6,12 @@ class TradingAnalysisForAdmin extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		$uid = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$account = $this->get_account($uid);
 		$admin_id = $this->get_byadmintoken($token);
-		print_r($account);
+
 		$this->load->database();
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
@@ -33,7 +33,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		$uid = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
@@ -64,7 +64,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		$uid = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
@@ -94,7 +94,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		$uid = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
@@ -122,7 +122,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		$uid = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
@@ -178,7 +178,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		$uid = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
