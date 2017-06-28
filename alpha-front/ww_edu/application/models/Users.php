@@ -96,7 +96,7 @@ class Users extends CI_Model
 
 	function user_list($user_type, $start, $limit)
 	{
-		$map = "SELECT u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone, m.create_time, u.update_time
+		$map = "SELECT m.id, u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone, m.create_time, u.update_time
 				FROM member m 
 				LEFT JOIN user_info u 
 				ON u.mem_id=m.id
