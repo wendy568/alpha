@@ -185,9 +185,7 @@ class User extends MY_Controller
 	}
 
 	public function allProcess()
-	{
-		header( 'Access-Control-Allow-Origin:*' );
-			
+	{			
 		$this->load->database();
 		$this->load->model('ClassesM');
 	
