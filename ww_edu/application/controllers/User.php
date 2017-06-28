@@ -116,15 +116,15 @@ class User extends MY_Controller
 		$this->load->helper('struct');
 		$this->load->helper('pagination');
 		$this->load->helper('sql_operation');
-		$this->load->library('members');
+		$this->load->library('list_show');
 		$this->load->model('users');
 		
 		$response = array('archive' => array('status' => 0, 'message' => ''));
 		$data['data'] = [];
 
-		$this->members->set_limit($pages, $start, $limit, $page_nums_per);
+		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
 		$users = $this->users->user_list($user_type, $start, $limit);
-		$get_pagination = $this->members->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
+		$get_pagination = $this->list_show->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
 			$data['data']['interval'] = $limit / $page_nums_per;
