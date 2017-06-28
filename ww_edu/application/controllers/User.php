@@ -166,9 +166,17 @@ class User extends MY_Controller
 		$this->load->model('users');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->users->userInfoCenterForAdmin($uid);
+		$data['data'] = $this->getUserInfoById($uid);
 	
 		encode_json($response,$data);
+	}
+
+	public function getUserInfoById($uid)
+	{		
+		$this->load->database();
+		$this->load->model('users');
+	
+		$this->users->userInfoCenterForAdmin($uid);
 	}
 
 	public function userInfoCenter()
