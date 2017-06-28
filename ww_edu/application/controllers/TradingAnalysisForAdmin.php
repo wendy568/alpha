@@ -235,6 +235,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
 		$mt4 = $this->TradingAnalysis->mt4DatasForList($account, $finency_proc, $start_time, $end_time, $start, $limit);
 		$get_pagination = $this->list_show->set_array($mt4, $pages, $page_nums_per);
+		print_r($get_pagination);
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
 			$data['data']['interval'] = $limit / $page_nums_per;
