@@ -175,8 +175,8 @@ class User extends MY_Controller
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 
-		$data['data']['complete'] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
-		// $data['data'] = $this->getUserInfoById($uid);
+		$data['data'] = $this->getUserInfoById($uid);
+		$data['data']['is_complete'] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 	
 		encode_json($response,$data);
 	}
