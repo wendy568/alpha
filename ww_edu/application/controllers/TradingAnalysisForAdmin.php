@@ -217,17 +217,21 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
 		$account = $this->get_account($uid);
 		$admin_id = $this->get_byadmintoken($token);
+		$pages = $this->input->get_post('pages', TRUE);
+
+		$start = 0;
+		$limit = 20;
+		$page_nums_per = 5;
 
 		$this->load->database();
 		$this->load->helper('json');
-		// $this->load->helper('time_zone');
-		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
-		$this->load->helper('encapsulation');
+		$this->load->helper('pagination');
 		$this->load->model('TradingAnalysis');
-
-		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
-		$this->load->library('trading_datas_calculate');
-		$data['data']['trading_history'] = $this->trading_datas_calculate->build($mt4)->count()->get_result();
+		$this->load->library('list_show');
+		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
+		$mt4 = $this->TradingAnalysis->mt4DatasForList($account, $finency_proc, $start_time, $end_time, $start, $limit);
+		
+		$data['data']['trading_history'] = $this->list_show->set_array($mt4, $pages, $page_nums_per);
 		
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 
