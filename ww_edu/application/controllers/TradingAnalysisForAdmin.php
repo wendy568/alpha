@@ -165,6 +165,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
+		print_r($mt4);
 		$this->load->library('trading_datas_calculate');
 		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4)->count()->property('percent_ratio', ['order_type'])->get_property();
 		
