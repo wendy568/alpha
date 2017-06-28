@@ -228,12 +228,22 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$this->load->helper('pagination');
 		$this->load->model('TradingAnalysis');
 		$this->load->library('list_show');
+
+		$data['data'] = [];
+		$response = array('archive' => array('status' => 0 ,'message' =>''));
+
 		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
 		$mt4 = $this->TradingAnalysis->mt4DatasForList($account, $finency_proc, $start_time, $end_time, $start, $limit);
-		print_r($mt4);
-		$data['data']['trading_history'] = $this->list_show->set_array($mt4, $pages, $page_nums_per);
-		
-		$response = array('archive' => array('status' => 0 ,'message' =>''));
+		$get_pagination = $this->list_show->set_array($mt4, $pages, $page_nums_per);
+		if ($get_pagination !== false) {
+			$data['data'] = $get_pagination;
+			$data['data']['interval'] = $limit / $page_nums_per;
+			$data['data']['page_nums_per'] = 5;
+			$data['data']['real_total_pages'] = 9;
+			$data['data']['real_total_nums'] = 43;
+		} else {
+			$response = array('archive' => array('status' => 204, 'message' => 'No Content'));
+		}
 
 		encode_json($response,$data);
 	}
