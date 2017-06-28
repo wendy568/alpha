@@ -110,8 +110,8 @@ class Users extends CI_Model
 				FROM member 
 				WHERE user_type={$user_type}";
 		
-		$count = $this->db->query($map)->result_array()['count'];
-		
+		$count = $this->db->query($map)->row_array()['count'];
+
 		return $result;
 	}
 
