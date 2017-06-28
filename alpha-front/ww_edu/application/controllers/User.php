@@ -110,6 +110,7 @@ class User extends MY_Controller
 		$start = 0;
 		$limit = 20;
 		$page_nums_per = 5;
+		$count = 0;
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -122,14 +123,14 @@ class User extends MY_Controller
 		$data['data'] = [];
 
 		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
-		$users = $this->users->user_list($user_type, $start, $limit);
+		$users = $this->users->user_list($user_type, $start, $limit, $count);
 		$get_pagination = $this->list_show->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
-			$data['data']['interval'] = $limit / $page_nums_per;
-			$data['data']['page_nums_per'] = 5;
-			$data['data']['real_total_pages'] = 9;
-			$data['data']['real_total_nums'] = 43;
+			$data['data']['interval'] = ceil($limit / $page_nums_per);
+			$data['data']['page_nums_per'] = $page_nums_per;
+			$data['data']['real_total_pages'] = ceil($count / $page_nums_per);
+			$data['data']['real_total_nums'] = $count;
 		} else {
 			$response = array('archive' => array('status' => 204, 'message' => 'No Content'));
 		}

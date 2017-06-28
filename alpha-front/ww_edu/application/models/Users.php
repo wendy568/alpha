@@ -94,7 +94,7 @@ class Users extends CI_Model
 		$response['archive'] = array('status' => 103,'message' =>'密码错误');
 	}
 
-	function user_list($user_type, $start, $limit)
+	function user_list($user_type, $start, $limit, &$count)
 	{
 		$map = "SELECT m.id, u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone, m.create_time, u.update_time
 				FROM member m 
@@ -105,6 +105,13 @@ class Users extends CI_Model
 				LIMIT {$start},{$limit}";
 		
 		$result = $this->db->query($map)->result_array();
+
+		$map = "SELECT COUNT(*) AS count
+				FROM member 
+				WHERE user_type={$user_type}";
+		
+		$count = $this->db->query($map)->result_array()['count'];
+		
 		return $result;
 	}
 
