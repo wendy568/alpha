@@ -50,12 +50,11 @@ class TradingAnalysis extends CI_Model
 
         $result = $this->db->query($map)->result_array();
 
-        $map = "SELECT * 
+        $map = "SELECT COUNT(*) AS count
                 FROM mt4_export_datas
-                WHERE {$where}
-                ORDER BY id DESC";
+                WHERE {$where}";
 
-        $count = $this->db->query($map)->row_array();
+        $count = $this->db->query($map)->row_array()['count'];
 
         return $result;
     }
