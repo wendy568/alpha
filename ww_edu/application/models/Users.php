@@ -57,7 +57,7 @@ class Users extends CI_Model
 				FROM homework h 
 				LEFT JOIN trading_log tl
 				ON tl.uid=h.uid
-				WHERE uid="'.$id.'"';
+				WHERE h.uid="'.$id.'"';
 		
 		$result['Student'] = $this->db->query($map)->row_array();
 
