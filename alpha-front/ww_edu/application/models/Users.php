@@ -53,6 +53,14 @@ class Users extends CI_Model
 		
 		$result['MT4'] = $this->db->query($map)->result_array();
 
+		$map = 'SELECT hw_id AS Level, COUNT(*) AS logs
+				FROM homework h 
+				LEFT JOIN trading_log tl
+				ON tl.uid=h.uid
+				WHERE uid="'.$id.'"';
+		
+		$result['Student'] = $this->db->query($map)->result_array();
+
 		return $result;
 	}
 
