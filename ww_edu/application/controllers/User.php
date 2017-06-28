@@ -119,7 +119,7 @@ class User extends MY_Controller
 		$this->load->library('members');
 		$this->load->model('users');
 		
-		$response = array('archive' => array('status' => 0, 'message' =>''));
+		$response = array('archive' => array('status' => 0, 'message' => ''));
 		$data['data'] = [];
 
 		$this->members->set_limit($pages, $start, $limit, $page_nums_per);
@@ -127,11 +127,12 @@ class User extends MY_Controller
 		$get_pagination = $this->members->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
+			$data['data']['page_nums_per'] = $limit / $page_nums_per;
 			$data['data']['page_nums_per'] = 5;
 			$data['data']['real_total_pages'] = 9;
 			$data['data']['real_total_nums'] = 43;
 		} else {
-			$response = array('archive' => array('status' => 204, 'message' =>'No Content'));
+			$response = array('archive' => array('status' => 204, 'message' => 'No Content'));
 		}
 
 		encode_json($response,$data);
