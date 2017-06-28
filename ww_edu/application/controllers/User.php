@@ -163,12 +163,33 @@ class User extends MY_Controller
 		$admin_id = $this->get_byadmintoken($token);
 		$this->load->database();
 		$this->load->helper('json');
-		$this->load->model('users');
+		$this->load->model('ClassesM');
+		$this->load->helper('struct');
+		$this->load->helper('format');
+		$this->load->helper('Trading_calculate');
+		$this->load->library('classes_mission');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
+		$original = $this->ClassesM->current_stage($uid);
+		$allProcess = $this->allProcess();
+		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
+		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
+
+		$data['data']['complete'] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
 		$data['data'] = $this->getUserInfoById($uid);
 	
 		encode_json($response,$data);
+	}
+
+	public function allProcess()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+			
+		$this->load->database();
+		$this->load->model('ClassesM');
+	
+		return $this->ClassesM->allProcess();
+	
 	}
 
 	public function getUserInfoById($uid)
