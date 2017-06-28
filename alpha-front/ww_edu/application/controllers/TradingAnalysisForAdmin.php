@@ -150,7 +150,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$token = $this->input->get_post('token', TRUE);
-		$uid = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
 		$start_time = $this->input->get_post('start_time', TRUE);
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
@@ -165,7 +165,6 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$this->load->model('TradingAnalysis');
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
-		print_r($mt4);
 		$this->load->library('trading_datas_calculate');
 		$data['data']['percent_ratio'] = $this->trading_datas_calculate->build($mt4)->count()->property('percent_ratio', ['order_type'])->get_property();
 		
