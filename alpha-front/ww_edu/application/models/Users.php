@@ -28,6 +28,8 @@ class Users extends CI_Model
 				WHERE m.id="'.$id.'" ';
 		
 		$result = $this->db->query($map)->row_array();
+		$result['face'] = json_decode($result['face']);
+
 		return $result;
 	}
 
@@ -43,7 +45,7 @@ class Users extends CI_Model
 				AND ta.default=1';
 		
 		$result['BasicInfomation'] = $this->db->query($map)->row_array();
-
+		$result['BasicInfomation']['face'] = json_decode($result['BasicInfomation']['face']);
 		$map = 'SELECT account
 				FROM trading_account
 				WHERE id="'.$id.'"';
@@ -60,13 +62,11 @@ class Users extends CI_Model
 				WHERE id="'.$id.'"';
 		
 		$result = $this->db->query($map)->row_array();
-		if(strlen($result['nic_name_verify_time'])>0){
-			if($result['nic_name_verify_time']>time()){
+		if (strlen($result['nic_name_verify_time'])>0) {
+			if ($result['nic_name_verify_time']>time()) {
 				$response['archive'] = array('status' => 213,'message' => '近半年内你才修改过昵称');
-			}else
-			{
-				if($result['nic_name'] == $nic_name)
-				{
+			} else {
+				if ($result['nic_name'] == $nic_name) {
 					$response = array('archive' => array('status' => 21,'message' =>'新昵称与旧昵称是相同的,珍惜修改次数'));
 					return  FALSE;
 				}
@@ -77,9 +77,8 @@ class Users extends CI_Model
 		
 				$response = array('archive' => array('status' => 0,'message' =>'success'));
 			}
-		}else{
-			if($result['nic_name'] == $nic_name)
-			{
+		} else {
+			if ($result['nic_name'] == $nic_name) {
 				$response = array('archive' => array('status' => 21,'message' =>'新昵称与旧昵称是相同的,珍惜修改次数'));
 				return  FALSE;
 			}
