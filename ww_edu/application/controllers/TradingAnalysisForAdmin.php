@@ -240,7 +240,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
 			$data['data']['interval'] = ceil($limit / $page_nums_per);
-			$data['data']['page_nums_per'] = 5;
+			$data['data']['page_nums_per'] = $page_nums_per;
 			$data['data']['real_total_pages'] = ceil($count / $page_nums_per);
 			$data['data']['real_total_nums'] = $count;
 		} else {
