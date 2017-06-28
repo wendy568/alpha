@@ -3,9 +3,13 @@
 trait pagination
 {
     protected $_array;
+
     protected $total_nums;
+
     protected $pages;
+
     protected $page_nums_per;
+    
     protected $start = 0;
 
     public function set_array($array, $pages, $page_nums_per)

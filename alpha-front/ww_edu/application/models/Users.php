@@ -31,6 +31,21 @@ class Users extends CI_Model
 		return $result;
 	}
 
+	function userInfoCenterForAdmin($id)
+	{
+		$map = 'SELECT m.id, ta.account, m.face, m.email, m.phone, ui.first_name, ui.last_name, ui.major, ui.company, ui.school, ui.position, ui.country, ui.city, ui.birthdate, ui.age, ui.sex, m.user_type
+				FROM member m 
+				LEFT JOIN user_info ui
+				LEFT JOIN trading_account ta 
+				ON ta.uid=m.id
+				ON  m.id=ui.mem_id 
+				WHERE m.id="'.$id.'"
+				AND ta.default=1';
+		
+		$result = $this->db->query($map)->row_array();
+		return $result;
+	}
+
 	function update_nic_name($id, $nic_name, &$response)
 	{
 		$map = 'SELECT nic_name,nic_name_verify_time 

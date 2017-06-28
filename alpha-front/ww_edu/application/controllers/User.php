@@ -154,6 +154,23 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function userInfoCenterForAdmin()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$token = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
+		$admin_id = $this->get_byadmintoken($token);
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('users');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->users->userInfoCenterForAdmin($uid);
+	
+		encode_json($response,$data);
+	}
+
 	public function userInfoCenter()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
