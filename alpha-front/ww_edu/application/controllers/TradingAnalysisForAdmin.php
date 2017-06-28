@@ -11,7 +11,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$account = $this->get_account($uid);
 		$admin_id = $this->get_byadmintoken($token);
-
+		print_r($account);
 		$this->load->database();
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
