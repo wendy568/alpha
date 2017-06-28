@@ -176,7 +176,7 @@ class User extends MY_Controller
 		$this->load->database();
 		$this->load->model('users');
 	
-		$this->users->userInfoCenterForAdmin($uid);
+		return $this->users->userInfoCenterForAdmin($uid);
 	}
 
 	public function userInfoCenter()
