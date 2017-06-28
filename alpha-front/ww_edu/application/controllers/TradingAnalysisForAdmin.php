@@ -230,7 +230,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$this->load->library('list_show');
 		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
 		$mt4 = $this->TradingAnalysis->mt4DatasForList($account, $finency_proc, $start_time, $end_time, $start, $limit);
-		
+		print_r($mt4);
 		$data['data']['trading_history'] = $this->list_show->set_array($mt4, $pages, $page_nums_per);
 		
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
