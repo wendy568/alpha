@@ -222,6 +222,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$start = 0;
 		$limit = 20;
 		$page_nums_per = 5;
+		$count = 0;
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -234,14 +235,14 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 
 		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
-		$mt4 = $this->TradingAnalysis->mt4DatasForList($account, $finency_proc, $start_time, $end_time, $start, $limit);
+		$mt4 = $this->TradingAnalysis->mt4DatasForList($account, $finency_proc, $start_time, $end_time, $start, $limit, $count);
 		$get_pagination = $this->list_show->set_array($mt4, $pages, $page_nums_per)->property('set_pages')->get_property();
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
-			$data['data']['interval'] = $limit / $page_nums_per;
+			$data['data']['interval'] = ceil($limit / $page_nums_per);
 			$data['data']['page_nums_per'] = 5;
-			$data['data']['real_total_pages'] = 9;
-			$data['data']['real_total_nums'] = 43;
+			$data['data']['real_total_pages'] = ceil($count / $page_nums_per);
+			$data['data']['real_total_nums'] = $count;
 		} else {
 			$response = array('archive' => array('status' => 204, 'message' => 'No Content'));
 		}

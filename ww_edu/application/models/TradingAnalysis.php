@@ -30,7 +30,7 @@ class TradingAnalysis extends CI_Model
     	return $result;
     }
 
-    function mt4DatasForList($account = null, $finency_proc = null, $start_time = null, $end_time = null, $start, $limit)
+    function mt4DatasForList($account = null, $finency_proc = null, $start_time = null, $end_time = null, $start, $limit, &$count)
     {
         $where = "account_number='{$account}'";
         $now = time();
@@ -49,6 +49,13 @@ class TradingAnalysis extends CI_Model
                 LIMIT {$start},{$limit}";
 
         $result = $this->db->query($map)->result_array();
+
+        $map = "SELECT * 
+                FROM mt4_export_datas
+                WHERE {$where}
+                ORDER BY id DESC";
+
+        $count = $this->db->query($map)->row_array();
 
         return $result;
     }
