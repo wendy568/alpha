@@ -46,10 +46,10 @@ class Users extends CI_Model
 		
 		$result['BasicInfomation'] = $this->db->query($map)->row_array();
 		$result['BasicInfomation']['face'] = json_decode($result['BasicInfomation']['face']);
-		
+
 		$map = 'SELECT account
 				FROM trading_account
-				WHERE id="'.$id.'"';
+				WHERE uid="'.$id.'"';
 		
 		$result['MT4'] = $this->db->query($map)->result_array();
 
