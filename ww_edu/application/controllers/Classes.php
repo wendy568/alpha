@@ -171,7 +171,7 @@ class Classes extends MY_Controller
 			$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
 			$list[$value['id'] . '_'] = $this->classes_mission->init($this->classes_mission->jsonDecode($value['homework']), $homework)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
-		krsort($list);
+		krsort($list, SORT_NUMERIC);
 		print_r($list);
 		$data['data']['list'] = $list;
 		encode_json($response,$data);
