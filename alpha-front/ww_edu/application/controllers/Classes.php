@@ -159,15 +159,16 @@ class Classes extends MY_Controller
 
 		foreach ($history_homework as $key => $value) {
 			$history_mission = $this->get_mission(substr($key, -1));
-			$list[$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
+			$list[$key] = $this->classes_mission->init($this->classes_mission->jsonEncode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 
 		foreach ($allProcess as $key => $value) {
 			if (!empty($list['_' . $value['id']])) unset($allProcess[$key]);
 		}
-		print_r($allProcess);die;
+
 		foreach ($allProcess as $key => $value) {
-			$list[$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
+			$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonEncode($value['homework']));
+			$list[$key] = $this->classes_mission->init(json_decode($value['homework'], true), $homework)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 
 		$data['data']['list'] = ksort($list);

@@ -6,4 +6,11 @@ trait date_format
 	{
 		return json_decode($data, true);
 	}
+
+	public function jsonEncode($data)
+	{
+		$data = addslashes($data);
+		return json_encode($data);
+	}
+
 }
