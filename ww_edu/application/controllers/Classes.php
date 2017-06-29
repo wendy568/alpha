@@ -3,9 +3,7 @@ class Classes extends MY_Controller
 {
 
 	public function allProcess()
-	{
-		header( 'Access-Control-Allow-Origin:*' );
-			
+	{			
 		$this->load->database();
 		$this->load->model('ClassesM');
 	
@@ -128,6 +126,45 @@ class Classes extends MY_Controller
 		$response = array('archive' => array('status' => 0,'message' =>''));
 	
 		encode_json($response,$data);
+	}
+
+	public function showAllStage()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$token = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
+		$admin_id = $this->get_byadmintoken($token);
+		
+		$this->load->helper('json');
+		$this->load->helper('struct');
+		$this->load->helper('format');
+		$this->load->helper('Trading_calculate');
+		$this->load->library('classes_mission');
+
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = [];
+		
+		$mission = $this->allProcess();
+		$this->showHistory
+
+		encode_json($response,$data);
+	}
+
+	public function showCurrentStage($uid)
+	{
+		$this->load->database();
+		$this->load->model('ClassesM');
+	
+		return $this->ClassesM->showCurrentStage($uid);
+	}
+
+	public function show_history($uid)
+	{			
+		$this->load->database();
+		$this->load->model('ClassesM');
+	
+		return $this->ClassesM->showHistory($uid);
 	}
 
 	public function article_detail()
