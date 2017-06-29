@@ -18,7 +18,7 @@ class ClassesM extends CI_Model
 
     function show_history($uid)
     {
-    	$map = 'SELECT homework, create_time 
+    	$map = 'SELECT homework 
     			FROM homework_history
     			WHERE uid="'.$uid.'"';
     	
