@@ -163,7 +163,7 @@ class Classes extends MY_Controller
 		}
 		print_r($list);
 		foreach ($allProcess as $key => $value) {
-			if (empty($list['-' . $key])) unset($allProcess[$key]);
+			if (empty($list['_' . $key])) unset($allProcess[$key]);
 		}
 		print_r($allProcess);
 		foreach ($allProcess as $key => $value) {
