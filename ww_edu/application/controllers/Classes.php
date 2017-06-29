@@ -162,9 +162,8 @@ class Classes extends MY_Controller
 			$list[$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 
-		foreach ($allProcess as $value) {
-			print_r($list['_' . $value['id']]);
-			if (!empty($list['_' . $value['id']])) unset($allProcess[$value['id']]);
+		foreach ($allProcess as $key => $value) {
+			if (!empty($list['_' . $value['id']])) unset($allProcess[$key]);
 		}
 		print_r($allProcess);die;
 		foreach ($allProcess as $key => $value) {
