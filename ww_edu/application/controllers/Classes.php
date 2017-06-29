@@ -168,9 +168,10 @@ class Classes extends MY_Controller
 
 		foreach ($allProcess as $key => $value) {
 			$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
+			print_r($homework);
 			$list['_' . $value['id']] = $this->classes_mission->init($value['homework'], $homework)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
-		
+		print_r($list);
 		ksort($list);
 		$data['data']['list'] = $list;
 		encode_json($response,$data);
