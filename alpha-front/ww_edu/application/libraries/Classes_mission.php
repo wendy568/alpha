@@ -130,6 +130,7 @@ class Classes_mission
 	public function learnOneComplete()
 	{
 		$this->completeOne = null;
+		return $this;
 	}
 
 	public function getOneComplete()
