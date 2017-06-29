@@ -163,6 +163,7 @@ class Classes extends MY_Controller
 		}
 
 		foreach ($allProcess as $value) {
+			print_r($value);
 			if (!empty($list['_' . $value['id']])) unset($allProcess[$value['id']]);
 		}
 		print_r($allProcess);die;
