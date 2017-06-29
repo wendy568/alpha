@@ -166,7 +166,7 @@ class Classes extends MY_Controller
 		foreach ($allProcess as $key => $value) {
 			if (!empty($list[$value['id'] . '_'])) unset($allProcess[$key]);
 		}
-
+		print_r($allProcess);
 		foreach ($allProcess as $key => $value) {
 			$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
 			$list[$value['id'] . '_'] = $this->classes_mission->init($this->classes_mission->jsonDecode($value['homework']), $homework)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
