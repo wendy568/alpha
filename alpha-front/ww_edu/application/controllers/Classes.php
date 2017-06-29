@@ -158,7 +158,6 @@ class Classes extends MY_Controller
 
 		foreach ($history_homework as $key => $value) {
 			$history_mission = $this->get_mission(substr($key, -1));
-			print_r($history_mission);
 			$data['list'][$key] = $this->classes_mission->init($history_mission['homework'], $value, $allProcess)->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 
