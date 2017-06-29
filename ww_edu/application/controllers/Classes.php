@@ -155,7 +155,7 @@ class Classes extends MY_Controller
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		foreach ($history_homework as $key => $value) {
 			print_r($value);
-			$data['list'][$key][] = $this->classes_mission->init($mission, $value, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+			$data['list'][$key] = $this->classes_mission->init($mission, $value, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 		$data['list']['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 
