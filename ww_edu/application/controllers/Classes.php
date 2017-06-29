@@ -164,7 +164,7 @@ class Classes extends MY_Controller
 		$this->load->database();
 		$this->load->model('ClassesM');
 	
-		return $this->ClassesM->showHistory($uid);
+		return $this->ClassesM->show_history($uid);
 	}
 
 	public function article_detail()
