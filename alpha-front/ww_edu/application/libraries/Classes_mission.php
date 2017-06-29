@@ -62,6 +62,7 @@ class Classes_mission
 
 	public function init($mission = null, $homework = null, $allProcess = null)
 	{
+		print_r($mission);
 		$this->classes = $allProcess;
 		$this->mission = $mission;
 		$this->homework = $homework;
