@@ -155,12 +155,22 @@ class Classes extends MY_Controller
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		
 		$data['list']['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+
 		foreach ($history_homework as $key => $value) {
-			print_r($value);
-			$data['list'][$key] = $this->classes_mission->init($mission, $value, $allProcess)->get_mission_complete()->property('distributing')->getOneComplete();
+			$history_mission = $this->get_mission(substr($key, -1));
+			print_r($history_mission);
+			$data['list'][$key] = $this->classes_mission->init($history_mission['homework'], $value, $allProcess)->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 
 		encode_json($response,$data);
+	}
+
+	public function get_mission($hw_id)
+	{			
+		$this->load->database();
+		$this->load->model('ClassesM');
+	
+		return $this->ClassesM->get_mission($hw_id);
 	}
 
 	public function show_history($uid)
