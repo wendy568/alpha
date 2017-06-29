@@ -149,7 +149,6 @@ class Classes extends MY_Controller
 		$list = [];
 
 		$allProcess = $this->allProcess();
-		print_r($allProcess);
 		$history = $this->show_history($uid);
 		$original = $this->ClassesM->current_stage($uid);
 		$history_homework = $this->classes_mission->jsonDecode($history['homework']);
@@ -162,7 +161,7 @@ class Classes extends MY_Controller
 			$history_mission = $this->get_mission(substr($key, -1));
 			$list[$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
-
+		print_r($list);
 		foreach ($allProcess as $key => $value) {
 			if (empty($list['-' . $key])) unset($allProcess[$key]);
 		}
