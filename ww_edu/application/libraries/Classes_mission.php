@@ -127,6 +127,11 @@ class Classes_mission
 		return $this->homework;
 	}
 
+	public function learnOneComplete()
+	{
+		$this->completeOne = null;
+	}
+
 	public function getOneComplete()
 	{
 		return $this->completeOne;
