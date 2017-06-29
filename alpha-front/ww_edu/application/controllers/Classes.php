@@ -182,12 +182,12 @@ class Classes extends MY_Controller
 		header( 'Access-Control-Allow-Origin:*' );
 		
 		$stage_id = $this->input->get_post('stage_id', TRUE);
-		$datas = $this->input->post();
+		$mission_key = $this->input->get_post('mission_key', TRUE);
+		$mission_value = $this->input->get_post('mission_value', TRUE);
 		$token = $this->input->get_post('token', TRUE);
 		$uid = $this->input->get_post('uid', TRUE);
 		$admin_id = $this->get_byadmintoken($token);
-		print_r($datas);
-		die;
+	
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('struct');
@@ -201,13 +201,15 @@ class Classes extends MY_Controller
 
 		$allProcess = $this->allProcess();
 		$history = $this->show_history($uid);
+		$current_mission = $this->get_mission($stage_id);
 		$original = $this->ClassesM->current_stage($uid);
 		$history_homework = $this->classes_mission->jsonDecode($history['homework']);
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		
-		$data['data']['current_stage'] = $original['personal']['hw_id'];
-
+		print_r($current_mission);
+		// $this->classes_mission->make_complete($mission, $personal, $);
+		die;
+		$this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
 		$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
 
 		encode_json($response,$data);
