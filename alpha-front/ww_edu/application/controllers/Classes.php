@@ -148,6 +148,7 @@ class Classes extends MY_Controller
 		$data['data'] = [];
 		
 		$allProcess = $this->allProcess();
+		print_r($allProcess);
 		$history = $this->show_history($uid);
 		$original = $this->ClassesM->current_stage($uid);
 		$history_homework = $this->classes_mission->jsonDecode($history['homework']);
