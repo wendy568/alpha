@@ -16,6 +16,28 @@ class ClassesM extends CI_Model
     	return $result;
     }
 
+    function show_history($uid)
+    {
+    	$map = 'SELECT * 
+    			FROM homework_history
+    			WHERE uid="'.$uid.'"';
+    	
+    	$result = $this->db->query($map)->row_array();
+
+    	return $result;
+    }
+
+    function showCurrentStage($uid)
+    {
+    	$map = 'SELECT * 
+    			FROM homework
+    			WHERE uid="'.$uid.'"';
+    	
+    	$result = $this->db->query($map)->row_array();
+
+    	return $result;
+    }
+
     function current_stage($uid)
     {
     	$result = [];
