@@ -150,11 +150,13 @@ class Classes extends MY_Controller
 		$allProcess = $this->allProcess();
 		$history = $this->show_history($uid);
 		$original = $this->ClassesM->current_stage($uid);
-		$history['homework'] = $this->classes_mission->jsonDecode($history['homework']);
+		$history_homework = $this->classes_mission->jsonDecode($history['homework']);
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		print_r($history);die;
-		$data['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+		foreach ($history_homework as $key => $value) {
+			$data['list']['_' . $key] = $this->classes_mission->init($mission, $value, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+		}
+		$data['list']['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 
 		encode_json($response,$data);
 	}
