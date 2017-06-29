@@ -157,6 +157,7 @@ class Classes extends MY_Controller
 			print_r($value);
 			$data['list'][$key] = $this->classes_mission->init($mission, $value, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
+		print_r($personal);
 		$data['list']['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 
 		encode_json($response,$data);
