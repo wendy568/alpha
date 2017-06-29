@@ -186,6 +186,16 @@ class Classes_mission
 		return $this->lastOrNextProcess;
 	}
 
+	public function clean_mission($mission)
+	{
+		foreach ($mission as $key => $value) {
+			if (is_array($value)) $mission[$key] = [];
+			if (is_numeric($value)) $mission[$key] = 0;
+		}
+
+		return $mission;
+	}
+
 	public function lastOrNextProcess()
 	{
 		$instance = & get_instance();
