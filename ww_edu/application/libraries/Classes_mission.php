@@ -104,14 +104,10 @@ class Classes_mission
 		$homework = $this->homework;
 		if (!empty($this->needRecord)) $homework = $this->needRecord;
 
-		// array_walk($homework, function ($val, $key) use (&$homework) {
-		// 	$homework[$key] = $val;
-		// });
-
 		array_walk($this->category, function ($val, $key) use (&$method, $homework) {
 			foreach ($homework as $k => $v) {
 				if ($k == $key) {
-					if($val) $method[$val][$k] = $v;
+					if ($val) $method[$val][$k] = $v;
 				}
 			}
 		});
