@@ -188,7 +188,6 @@ class Classes_mission
 
 	public function clean_mission($mission)
 	{
-		print_r($mission);
 		foreach ($mission as $key => $value) {
 			if (is_array($value)) $mission[$key] = [];
 			if (is_numeric($value)) $mission[$key] = 0;
