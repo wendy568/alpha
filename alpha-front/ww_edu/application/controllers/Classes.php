@@ -156,7 +156,7 @@ class Classes extends MY_Controller
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		
 		$data['data']['current_stage'] = $original['personal']['hw_id'];
-		$list['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+		$list[$original['personal']['hw_id'] . '_'] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 
 		foreach ($history_homework as $key => $value) {
 			$history_mission = $this->get_mission(substr($key, -1));
@@ -164,12 +164,12 @@ class Classes extends MY_Controller
 		}
 
 		foreach ($allProcess as $key => $value) {
-			if (!empty($list['_' . $value['id']])) unset($allProcess[$key]);
+			if (!empty($list[$value['id'] . '_'])) unset($allProcess[$key]);
 		}
 
 		foreach ($allProcess as $key => $value) {
 			$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
-			$list['_' . $value['id']] = $this->classes_mission->init($this->classes_mission->jsonDecode($value['homework']), $homework)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
+			$list[$value['id'] . '_'] = $this->classes_mission->init($this->classes_mission->jsonDecode($value['homework']), $homework)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 
 		ksort($list, SORT_NUMERIC);
