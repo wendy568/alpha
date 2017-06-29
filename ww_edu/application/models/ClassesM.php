@@ -27,6 +27,17 @@ class ClassesM extends CI_Model
     	return $result;
     }
 
+    function get_mission($id)
+    {
+    	$map = 'SELECT homework 
+    			FROM classes
+    			WHERE id="'.$id.'"';
+    	
+    	$result = $this->db->query($map)->row_array();
+
+    	return $result;
+    }
+
     function current_stage($uid)
     {
     	$result = [];
