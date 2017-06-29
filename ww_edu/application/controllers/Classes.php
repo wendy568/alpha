@@ -196,7 +196,7 @@ class Classes extends MY_Controller
 		$this->load->library('classes_mission');
 		$this->load->model('ClassesM');
 
-		$response = array('archive' => array('status' => 0,'message' =>''));
+		$response = array('archive' => array('status' => 0, 'message' => ''));
 		$data['data'] = [];
 
 		$allProcess = $this->allProcess();
@@ -206,8 +206,10 @@ class Classes extends MY_Controller
 		$history_homework = $this->classes_mission->jsonDecode($history['homework']);
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		print_r($current_mission);
-		// $this->classes_mission->make_complete($mission, $personal, $);
+		var_dump($original['personal']['hw_id']);
+		var_dump($stage_id);
+		if ($original['personal']['hw_id'] == $stage_id) $this->classes_mission->make_complete($mission, $personal, $);
+		
 		die;
 		$this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
 		$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
