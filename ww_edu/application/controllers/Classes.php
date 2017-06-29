@@ -146,7 +146,8 @@ class Classes extends MY_Controller
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = [];
-		
+		$list = [];
+
 		$allProcess = $this->allProcess();
 		print_r($allProcess);
 		$history = $this->show_history($uid);
@@ -155,11 +156,20 @@ class Classes extends MY_Controller
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
 		
-		$data['list']['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
+		$list['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 
 		foreach ($history_homework as $key => $value) {
 			$history_mission = $this->get_mission(substr($key, -1));
-			$data['list'][$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value, $allProcess)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
+			$list[$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
+		}
+
+		foreach ($allProcess as $key => $value) {
+			if (empty($list['-' . $key])) unset($allProcess[$key]);
+		}
+		print_r($allProcess);
+		foreach ($allProcess as $key => $value) {
+			$history_mission = $this->get_mission($key);
+			$list[$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 
 		encode_json($response,$data);
