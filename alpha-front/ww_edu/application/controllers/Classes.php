@@ -136,27 +136,24 @@ class Classes extends MY_Controller
 		$uid = $this->input->get_post('uid', TRUE);
 		$admin_id = $this->get_byadmintoken($token);
 		
+		$this->load->database();
 		$this->load->helper('json');
 		$this->load->helper('struct');
 		$this->load->helper('format');
 		$this->load->helper('Trading_calculate');
 		$this->load->library('classes_mission');
+		$this->load->model('ClassesM');
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data['data'] = [];
 		
-		$mission = $this->allProcess();
-		$this->showHistory
-
+		$allProcess = $this->allProcess();
+		$history = $this->show_history($uid);
+		$original = $this->ClassesM->current_stage($uid);
+		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
+		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
+		
 		encode_json($response,$data);
-	}
-
-	public function showCurrentStage($uid)
-	{
-		$this->load->database();
-		$this->load->model('ClassesM');
-	
-		return $this->ClassesM->showCurrentStage($uid);
 	}
 
 	public function show_history($uid)
