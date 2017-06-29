@@ -177,6 +177,42 @@ class Classes extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function advanceToTheNextRound()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		
+		$stage_id = $this->input->get_post('stage_id', TRUE);
+		$datas = $this->input->post();
+		$token = $this->input->get_post('token', TRUE);
+		$uid = $this->input->get_post('uid', TRUE);
+		$admin_id = $this->get_byadmintoken($token);
+		print_r($datas);
+		die;
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->helper('struct');
+		$this->load->helper('format');
+		$this->load->helper('Trading_calculate');
+		$this->load->library('classes_mission');
+		$this->load->model('ClassesM');
+
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = [];
+
+		$allProcess = $this->allProcess();
+		$history = $this->show_history($uid);
+		$original = $this->ClassesM->current_stage($uid);
+		$history_homework = $this->classes_mission->jsonDecode($history['homework']);
+		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
+		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
+		
+		$data['data']['current_stage'] = $original['personal']['hw_id'];
+
+		$homework = $this->classes_mission->clean_mission($this->classes_mission->jsonDecode($value['homework']));
+
+		encode_json($response,$data);
+	}
+
 	public function get_mission($hw_id)
 	{			
 		$this->load->database();
