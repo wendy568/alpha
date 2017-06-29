@@ -172,6 +172,7 @@ class Classes extends MY_Controller
 			$list[$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
 
+		$data['data']['list'] = ksort($list);
 		encode_json($response,$data);
 	}
 
