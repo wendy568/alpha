@@ -9,7 +9,7 @@ class ClassesM extends CI_Model
 
     function allProcess()
     {
-    	$map = 'SELECT homework 
+    	$map = 'SELECT id, homework 
     			FROM classes';
     	
     	$result = $this->db->query($map)->result_array();
