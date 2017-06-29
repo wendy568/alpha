@@ -153,7 +153,7 @@ class Classes extends MY_Controller
 		$history_homework = $this->classes_mission->jsonDecode($history['homework']);
 		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		print_r($history);
+		print_r($history_homework);
 		$data['_' . $original['personal']['hw_id']] = $this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->getOneComplete();
 
 		encode_json($response,$data);
