@@ -9,7 +9,7 @@ trait pagination
     protected $pages;
 
     protected $page_nums_per;
-    
+
     protected $start = 0;
 
     public function set_array($array, $pages, $page_nums_per)
@@ -56,7 +56,7 @@ trait pagination
             $offset = ($this->pages - 1) * $this->page_nums_per;
             $L = $offset + $this->page_nums_per;
             for ($offset; $offset < $L; $offset++) {
-                if (!empty($this->_array[$offset])) $result['list']["_{$this->pages}"][] = $this->_array[$offset];
+                if (!empty($this->_array[$offset])) $result['list']["{$this->pages}_"][] = $this->_array[$offset];
             }
         }
 
