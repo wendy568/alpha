@@ -161,9 +161,9 @@ class Classes extends MY_Controller
 			$history_mission = $this->get_mission(substr($key, -1));
 			$list[$key] = $this->classes_mission->init(json_decode($history_mission['homework'], true), $value)->learnOneComplete()->get_mission_complete()->property('distributing')->getOneComplete();
 		}
-		print_r($list);
+
 		foreach ($allProcess as $value) {
-			print_r($value);
+			print_r($list['_' . $value['id']]);
 			if (!empty($list['_' . $value['id']])) unset($allProcess[$value['id']]);
 		}
 		print_r($allProcess);die;
