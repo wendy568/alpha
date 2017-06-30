@@ -49,7 +49,7 @@ document.writeln("                                <li> ");
 document.writeln("                                    <a href=\'Tools.html\'><i class=\'fa fa-suitcase\'></i> Tools</a> ");
 document.writeln("                                </li>");
 document.writeln("                                <li> ");
-document.writeln("                                    <a href=\'Trading_History.html\'><i class=\'fa fa-suitcase\'></i> Trading history</a> ");
+document.writeln("                                    <a href=\'Trading_History.html\'><i class=\'fa fa-history\'></i> Trading history</a> ");
 document.writeln("                                </li>");
 document.writeln("                            </ul>");
 document.writeln("                        </li>");
