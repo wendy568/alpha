@@ -209,7 +209,7 @@ class Classes_mission
 				if (is_numeric($value)) $current_mission[$key] = 0;
 			}
 		}
-		print_r($current_mission);
+
 		return $current_mission;
 	}
 
