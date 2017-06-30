@@ -186,7 +186,7 @@ class Classes_mission
 		return $this->lastOrNextProcess;
 	}
 
-	public function make_complete($current_mission, $personal, $mission_key)
+	public function make_complete($current_mission, $personal, $mission_key = null)
 	{
 		print_r($current_mission);
 		print_r($personal);
