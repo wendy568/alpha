@@ -204,6 +204,7 @@ class Classes_mission
 		$mission_key = explode(',', $mission_key);
 		foreach ($current_mission as $key => $value) {
 			if (!($index = array_search($key, $mission_key)) && !$index === false) {
+				echo 1;
 				if (is_array($value)) $current_mission[$key] = [];
 				if (is_numeric($value)) $current_mission[$key] = 0;
 			}
