@@ -209,8 +209,8 @@ class Classes_mission
 			}
 
 		}
-		
-		return $personal;
+		print_r($current_mission);
+		return $current_mission;
 	}
 
 	public function clean_mission($mission)
