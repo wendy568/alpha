@@ -8868,6 +8868,14 @@ body.rtl .footer-widget {
 .tool_quotation{height:30px;width:30px;background-position:0 0;}
 .tool_news{height:30px;width:30px;background-position:-30px 0;}
 .tool_canlendar{height:30px;width:30px;background-position:-60px 0;}
+.tool_log{
+    background:url(../img/tool_log.png)  no-repeat;
+    background-size:100%;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height:30px;width:30px
+}
 
 .module:first-child.active .module-icon,
 .module:nth-child(4).active .module-icon{
