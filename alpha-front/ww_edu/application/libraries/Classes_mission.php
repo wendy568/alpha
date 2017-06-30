@@ -188,18 +188,13 @@ class Classes_mission
 
 	public function make_complete($current_mission, $personal, $mission_key = null)
 	{
-		print_r($current_mission);
-		print_r($personal);
-		print_r(explode(',', $mission_key));
 		$mission_key = explode(',', $mission_key);
-		var_dump($mission_key);
-		$a = null;
-		var_dump(isset($a));
-		foreach ($mission_key as $key) {
-			var_dump(is_null($key));
-			$personal[$key] = $current_mission[$key];
+		if (isset($mission_key) && $mission_key) {
+			foreach ($mission_key as $key) {
+				$personal[$key] = $current_mission[$key];
+			}
 		}
-
+		
 		print_r($personal);
 	}
 
