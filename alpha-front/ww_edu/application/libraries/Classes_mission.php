@@ -196,7 +196,21 @@ class Classes_mission
 
 		}
 		
-		print_r($personal);
+		return $personal;
+	}
+
+	public function skipAGrade($current_mission, $mission_key = null)
+	{
+		$mission_key = explode(',', $mission_key);
+		foreach ($mission_key as $key) {
+			if (!isset($key) OR !$key) {
+				if (is_array($current_mission[$key])) $current_mission[$key] = [];
+				if (is_numeric($current_mission[$key])) $current_mission[$key] = 0;
+			}
+
+		}
+		
+		return $personal;
 	}
 
 	public function clean_mission($mission)
