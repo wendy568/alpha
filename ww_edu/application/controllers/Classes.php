@@ -206,8 +206,8 @@ class Classes extends MY_Controller
 		// $mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$current_mission = $this->classes_mission->jsonDecode($current_mission['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		print_r($current_mission);
-		// if ($original['personal']['hw_id'] == $stage_id) $this->classes_mission->make_complete($current_mission, $personal, $);
+
+		if ($original['personal']['hw_id'] == $stage_id) $this->classes_mission->make_complete($current_mission, $personal, $mission_key);
 		
 		die;
 		$this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
