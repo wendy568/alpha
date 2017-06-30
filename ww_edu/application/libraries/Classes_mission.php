@@ -193,7 +193,7 @@ class Classes_mission
 		print_r(explode(',', $mission_key));
 		$mission_key = explode(',', $mission_key);
 		var_dump($mission_key);
-		$a = '';
+		$a = null;
 		var_dump(isset($a));
 		foreach ($mission_key as $key) {
 			var_dump(is_null($key));
