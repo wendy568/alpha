@@ -183,7 +183,6 @@ class Classes extends MY_Controller
 		
 		$stage_id = $this->input->get_post('stage_id', TRUE);
 		$mission_key = $this->input->get_post('mission_key', TRUE);
-		$mission_value = $this->input->get_post('mission_value', TRUE);
 		$token = $this->input->get_post('token', TRUE);
 		$uid = $this->input->get_post('uid', TRUE);
 		$admin_id = $this->get_byadmintoken($token);
@@ -203,12 +202,12 @@ class Classes extends MY_Controller
 		$history = $this->show_history($uid);
 		$current_mission = $this->get_mission($stage_id);
 		$original = $this->ClassesM->current_stage($uid);
-		$history_homework = $this->classes_mission->jsonDecode($history['homework']);
-		$mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
+		$history = $this->classes_mission->jsonDecode($history['homework']);
+		// $mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
+		$current_mission = $this->classes_mission->jsonDecode($current_mission['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		var_dump($original['personal']['hw_id']);
-		var_dump($stage_id);
-		if ($original['personal']['hw_id'] == $stage_id) $this->classes_mission->make_complete($mission, $personal, $);
+		var_dump($current_mission);
+		// if ($original['personal']['hw_id'] == $stage_id) $this->classes_mission->make_complete($current_mission, $personal, $);
 		
 		die;
 		$this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
