@@ -202,10 +202,9 @@ class Classes_mission
 	public function skipAGrade($current_mission, $mission_key = null)
 	{
 		$mission_key = explode(',', $mission_key);
+		var_dump(array_search('Video Learning', $mission_key));
 		foreach ($current_mission as $key => $value) {
-			print_r($key);
 			if (!($index = array_search($key, $mission_key)) && !$index === false) {
-				echo 1;
 				if (is_array($value)) $current_mission[$key] = [];
 				if (is_numeric($value)) $current_mission[$key] = 0;
 			}
