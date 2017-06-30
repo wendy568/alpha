@@ -209,6 +209,7 @@ class Classes extends MY_Controller
 
 		if ($original['personal']['hw_id'] == $stage_id) $this->classes_mission->make_complete($current_mission, $personal, $mission_key);
 		if ($original['personal']['hw_id'] < $stage_id) $this->classes_mission->skipAGrade($current_mission, $mission_key);
+		if ($original['personal']['hw_id'] > $stage_id) $this->classes_mission->skipAGrade($current_mission, $mission_key);
 		
 		die;
 		$this->classes_mission->init($mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
