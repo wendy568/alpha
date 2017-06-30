@@ -186,6 +186,11 @@ class Classes_mission
 		return $this->lastOrNextProcess;
 	}
 
+	public function make_complete($current_mission, $personal, $mission_key)
+	{
+		print_r(explode(',', $mission_key));
+	}
+
 	public function clean_mission($mission)
 	{
 		foreach ($mission as $key => $value) {
