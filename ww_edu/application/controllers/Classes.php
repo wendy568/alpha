@@ -209,6 +209,8 @@ class Classes extends MY_Controller
 
 		if ($original['personal']['hw_id'] == $stage_id) {
 			$personal = $this->classes_mission->make_complete($current_mission, $personal, $mission_key);
+			$complete = $this->classes_mission->init($current_mission, $personal, $allProcess)->generating()->get_mission_complete()->property('distributing')->complete_ratio();
+			var_dump($complete);
 			$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal));
 		}
 		if ($original['personal']['hw_id'] < $stage_id) {
