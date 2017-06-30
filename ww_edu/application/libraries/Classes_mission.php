@@ -203,6 +203,7 @@ class Classes_mission
 	{
 		$mission_key = explode(',', $mission_key);
 		foreach ($current_mission as $key => $value) {
+			print_r($key);
 			if (!($index = array_search($key, $mission_key)) && !$index === false) {
 				echo 1;
 				if (is_array($value)) $current_mission[$key] = [];
