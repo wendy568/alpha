@@ -9,8 +9,7 @@ trait date_format
 
 	public function jsonEncode($data)
 	{
-		$data = addslashes($data);
-		return json_encode($data);
+		return addslashes(json_encode($data));
 	}
 
 }

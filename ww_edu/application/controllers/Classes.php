@@ -209,7 +209,6 @@ class Classes extends MY_Controller
 
 		if ($original['personal']['hw_id'] == $stage_id) {
 			$personal = $this->classes_mission->make_complete($current_mission, $personal, $mission_key);
-			print_r($personal);
 			$this->saveRecord($uid,  $this->classes_mission->jsonEncode($personal));
 		}
 		if ($original['personal']['hw_id'] < $stage_id) {
