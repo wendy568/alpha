@@ -206,7 +206,7 @@ class Classes extends MY_Controller
 		// $mission = $this->classes_mission->jsonDecode($original['mission']['homework']);
 		$current_mission = $this->classes_mission->jsonDecode($current_mission['homework']);
 		$personal = $this->classes_mission->jsonDecode($original['personal']['homework']);
-		print($current_mission);
+		print_r($current_mission);
 		// if ($original['personal']['hw_id'] == $stage_id) $this->classes_mission->make_complete($current_mission, $personal, $);
 		
 		die;
