@@ -188,6 +188,8 @@ class Classes_mission
 
 	public function make_complete($current_mission, $personal, $mission_key)
 	{
+		print_r($current_mission);
+		print_r($personal);
 		print_r(explode(',', $mission_key));
 	}
 
