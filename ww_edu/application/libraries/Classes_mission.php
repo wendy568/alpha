@@ -191,7 +191,7 @@ class Classes_mission
 		print_r($current_mission);
 		print_r($personal);
 		print_r(explode(',', $mission_key));
-
+		$mission_key = explode(',', $mission_key);
 		foreach ($mission_key as $key) {
 			$personal[$key] = $current_mission[$key];
 		}
