@@ -80,6 +80,7 @@ class time_zone{
 
 	public function get_week($time = null)
 	{
+		print_r($time);
 		$time = ($time) ? $time : time();
 		$date = getdate($time);
 		$dates = [];
