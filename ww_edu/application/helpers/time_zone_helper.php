@@ -86,7 +86,7 @@ class time_zone{
 		$this_month = ($date['mon'] < 10) ? '0' . $date['mon'] : $date['mon'];
 		$this_year = $date['year'];
 		if($date['mday'] < 7) {
-			$slice = explode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d', time()))) . ' -1 day')));
+			$slice = explode('-', date('Y-m-d', strtotime(date('Y-m-01', strtotime(date('Y-m-d', $time))) . ' -1 day')));
 			$year = $slice[0];
 			$month = $slice[1];
 			$j = 0;
@@ -105,8 +105,8 @@ class time_zone{
 			return $dates;
 
 		} elseif ($date['mday'] >= 7) {
-			$year = date("Y", time());
-			$month = date("m", time());
+			$year = date("Y", $time);
+			$month = date("m", $time);
 			for ($i = 0; $i < 7; $i++) { 
 				$day = $date['mday'] - $i;
 				$day = (strlen($day) <2) ? '0' . $day : $day;
