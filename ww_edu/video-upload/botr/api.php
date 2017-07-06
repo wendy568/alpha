@@ -45,6 +45,7 @@
         private function _urlencode($input) {
             print_r($input);
             if (is_array($input)) {
+                echo 123;
                 return array_map(array('_urlencode'), $input);
             } else if (is_scalar($input)) {
                 return str_replace('+', ' ', str_replace('%7E', '~', rawurlencode($input)));
