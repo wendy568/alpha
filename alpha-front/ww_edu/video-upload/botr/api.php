@@ -63,7 +63,7 @@
                 // Construct Signature Base String
                 $sbs .= $this->_urlencode($key) . "=" . $this->_urlencode($value);
             }
-
+            print_r($sbs);
             // Add shared secret to the Signature Base String and generate the signature
             $signature = sha1($sbs . $this->_secret);
 
