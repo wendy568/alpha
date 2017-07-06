@@ -14,6 +14,6 @@ if(isset($_GET['resumable'])) {
   $params['resumable'] = 'True';
 }
 
-print_r($params);die;
+print_r(123);die;
 // Do the API call and send the result back to the client.
 echo json_encode($botr_api->call('/videos/create', $params));
