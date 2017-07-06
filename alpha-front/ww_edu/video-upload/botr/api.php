@@ -43,6 +43,7 @@
         // Only required for phpversion() <= 5.2.7RC1
         // See http://www.php.net/manual/en/function.rawurlencode.php#86506
         private function _urlencode($input) {
+            // print_r($input);
             if (is_array($input)) {
                 return array_map(array('_urlencode'), $input);
             } else if (is_scalar($input)) {
@@ -101,7 +102,6 @@
         // Make an API call
         public function call($call, $args=array()) {
             $url = $this->call_url($call, $args);
-            print_r($url);die;
             $response = null;
             switch($this->_library) {
                 case 'curl':
