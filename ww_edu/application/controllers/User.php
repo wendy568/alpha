@@ -102,7 +102,6 @@ class User extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 		$token = $this->input->get_post('token', TRUE);
-		print_r($token);
 		$admin_id = $this->get_byadmintoken($token);
 		$user_type = $this->input->get_post('user_type', TRUE);
 		$pages = $this->input->get_post('pages', TRUE);
