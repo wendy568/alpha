@@ -43,9 +43,7 @@
         // Only required for phpversion() <= 5.2.7RC1
         // See http://www.php.net/manual/en/function.rawurlencode.php#86506
         private function _urlencode($input) {
-            print_r($input);
             if (is_array($input)) {
-                echo 123;
                 return array_map(array('_urlencode'), $input);
             } else if (is_scalar($input)) {
                 return str_replace('+', ' ', str_replace('%7E', '~', rawurlencode($input)));
@@ -126,7 +124,7 @@
             $url = $upload_link['protocol'] . '://' . $upload_link['address'] . $upload_link['path'] .
                 "?key=" . $upload_link['query']['key'] . '&token=' . $upload_link['query']['token'] .
                 "&api_format=" . $api_format;
-            print_r($file_path);
+            print_r($file_path);die;
             // A new variable included with curl in PHP 5.5 - CURLOPT_SAFE_UPLOAD - prevents the
             // '@' modifier from working for security reasons (in PHP 5.6, the default value is true)
             // http://stackoverflow.com/a/25934129
