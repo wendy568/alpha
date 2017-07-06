@@ -7,7 +7,6 @@
  * your account. Therefore, it is important to add an authentication
  * check here.
  */
-
 require_once('botr/init_api.php');
 
 $params = array();
@@ -15,6 +14,7 @@ if(isset($_GET['resumable'])) {
   $params['resumable'] = 'True';
 }
 
+
+
 // Do the API call and send the result back to the client.
 echo json_encode($botr_api->call('/videos/create', $params));
-?>
