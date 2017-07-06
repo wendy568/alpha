@@ -33,7 +33,7 @@ $(function() {
   if(BotrUpload.resumeSupported()) {
     data['resumable'] = 'resumable';
   }
-  console.log($data)
+  console.log(data)
   $.get("create.php", data, function(data) {
     // Attach a BotrUpload instance to the form.
     var upload = new BotrUpload(data.link, data.session_id, {
