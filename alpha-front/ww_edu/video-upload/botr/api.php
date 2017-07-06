@@ -125,7 +125,7 @@
             $url = $upload_link['protocol'] . '://' . $upload_link['address'] . $upload_link['path'] .
                 "?key=" . $upload_link['query']['key'] . '&token=' . $upload_link['query']['token'] .
                 "&api_format=" . $api_format;
-
+            print_r($file_path);
             // A new variable included with curl in PHP 5.5 - CURLOPT_SAFE_UPLOAD - prevents the
             // '@' modifier from working for security reasons (in PHP 5.6, the default value is true)
             // http://stackoverflow.com/a/25934129
