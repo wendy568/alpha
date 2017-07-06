@@ -335,7 +335,7 @@ class Video extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 
-		$url = "http://api.bitsontherun.com/v1/videos/create?&api_key=c6PABMlh&api_format=php&api_format=php&token=CLJeFvRzMIyA4bsB4SV5eZlH&api_timestamp=1499326278";
+		$url = "http://api.bitsontherun.com/v1/videos/create?&api_key=c6PABMlh&api_format=php&api_format=php&token=CLJeFvRzMIyA4bsB4SV5eZlH&api_timestamp=1499326278&api_nonce=41825417";
 
 		$post_data = array("file"=>new \CURLFile($_FILES['video']['tmp_name']));
 		$curl = curl_init();
