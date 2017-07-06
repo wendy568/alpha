@@ -101,6 +101,7 @@
         // Make an API call
         public function call($call, $args=array()) {
             $url = $this->call_url($call, $args);
+            print_r($url);die;
             $response = null;
             switch($this->_library) {
                 case 'curl':
@@ -120,6 +121,42 @@
         }
 
         // Upload a file
-       
+        public function upload($upload_link=array(), $file_path, $api_format="php") {
+            $url = $upload_link['protocol'] . '://' . $upload_link['address'] . $upload_link['path'] .
+                "?key=" . $upload_link['query']['key'] . '&token=' . $upload_link['query']['token'] .
+                "&api_format=" . $api_format;
+
+            // A new variable included with curl in PHP 5.5 - CURLOPT_SAFE_UPLOAD - prevents the
+            // '@' modifier from working for security reasons (in PHP 5.6, the default value is true)
+            // http://stackoverflow.com/a/25934129
+            // http://php.net/manual/en/migration56.changed-functions.php
+            // http://comments.gmane.org/gmane.comp.php.devel/87521
+            if (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 50500) {
+              $post_data = array("file"=>"@" . $file_path);
+            } else {
+              $post_data = array("file"=>new \CURLFile($file_path));
+            }
+            $response = null;
+            switch($this->_library) {
+                case 'curl':
+                    $curl = curl_init();
+                    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                    curl_setopt($curl, CURLOPT_URL, $url);
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $post_data);
+                    $response = curl_exec($curl);
+                    $err_no = curl_errno($curl);
+                    $err_msg = curl_error($curl);
+                    curl_close($curl);
+                    break;
+                default:
+                    $response = "Error: No cURL library";
+            }
+
+            if ($err_no == 0) {
+                return unserialize($response);
+            } else {
+                return "Error #" . $err_no . ": " . $err_msg;
+            }
+        }
     }
 ?>
