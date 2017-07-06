@@ -57,7 +57,7 @@ document.writeln("                        <!-- Progress -->");
 document.writeln("                        <li>");
 document.writeln("                            <a href=\'Personal_management.html\'> ");
 document.writeln("                                <i class=\'fa fa-mortar-board\'></i> ");
-document.writeln("                                <span class=\'title\'> Personal Management</span> ");
+document.writeln("                                <span class=\'title\'> Academy </span> ");
 document.writeln("                            </span>");
 document.writeln("                            </a>");
 document.writeln("                        </li>");
