@@ -9186,13 +9186,28 @@ body.rtl .footer-widget {
   overflow: hidden;
 }
 .bk-img img{
-  transition: all 1s linear;
-  -moz-transition:all 1s linear;
-  -webkit-transition:all 1s linear;
-  -o-transition:all 1s linear;
-  width: 100%;
-  height: 200px;
+    width: 100%;
+    transition: all 1s linear;
+    -moz-transition:all 1s linear;
+    -webkit-transition:all 1s linear;
+    -o-transition:all 1s linear;
+  }
+@media (max-width: 1920px){
+  .bk-img img{
+    height: 200px;
+  }
 }
+@media (max-width: 1366px){
+  .bk-img img{
+    height: 150px;
+  }
+}
+@media (max-width: 1024px){
+  .bk-img img{
+    height: 120px;
+  }
+}
+
 .cbp_tmtimeline ul li:hover .bk-img img{
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
