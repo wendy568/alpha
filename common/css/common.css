@@ -10060,10 +10060,13 @@ url("chrome://browser/content/history/history-panel.xul")
 }
 
 
-.scroller-bar{
-    height: 5px;
-    min-width: 10px;
-    background-color: rgb(161, 178, 189);
+.cart{
+    height: 0;
+    width: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent rgb(161, 178, 189) transparent;
+    margin-top: -10px;
     display: block;
     position: absolute;
     z-index: 10;
