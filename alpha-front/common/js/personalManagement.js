@@ -35,29 +35,31 @@
         }, 50);
     }
     
-    // 横向滚动
-    var moveWidth = $('.roll-list .module').length*147+30 - $('.roll-wrap').width();
-    setTimeout(function () {
-        $('.scroller-bar').width($('.roll-wrap').width() - moveWidth + 'px');
-    });
-    var wheel = (window.onwheel !== undefined) ? 'wheel' :
-        (window.onmousewheel !== undefined) ? 'mousewheel' :
-            (window.attachEvent) ? 'onmousewheel' : 'DOMMouseScroll';
-    $('#levelList').next('.scroll-y').remove();
-    $('#levelList').on(wheel, function (e) {
-        var event = e || window.event;
-        var delta = event.originalEvent.wheelDelta;
-        var left = $(this).scrollLeft();
-        var x = 1;
-        event.stopPropagation();
-        if (event.preventDefault) {
-            event.preventDefault();
-        }
-        left = delta < 0 ? (left + x * 60) : (left + (-x) * 60);
-        var move = left <= 0 ? 30 : left > moveWidth ? moveWidth : left;
-        $(this).scrollLeft(left);
-        $('.scroller-bar').css('left',move + 'px');
-    });
+    // // 横向拖拽
+    // $(".roll-list").on({
+    //     click: function (e) {
+    //         var event = e || window.event;
+    //         event.stopPropagation();
+    //     },
+    //     mousedown: function(e){
+    //         var el=$(this);
+    //         var os = el.offset(), dx = e.pageX-os.left;
+    //         $(document).on('mousemove.drag', function(e){ el.offset({left: e.pageX-dx}); });
+    //     },
+    //     mouseup: function(e){
+    //         $(document).off('mousemove.drag');
+    //         var _this = $(this);
+    //         setTimeout(function () {
+    //             var maxLeft = parseInt(_this.parent().width()) - parseInt(_this.width());
+    //             if (parseInt(_this.css('left')) >=0){
+    //                 _this.animate({'left':0});
+    //             }
+    //             if (parseInt(_this.css('left')) <= maxLeft){
+    //                 _this.animate({'left':maxLeft + 'px'});
+    //             }
+    //         })
+    //     }
+    // });
     
     // 关闭tvModal
     $('#tvModal').on('hide.bs.modal', function () {
@@ -296,6 +298,34 @@
             });
         } else {
             getCurStage();
+        }
+        
+        // 自动定位
+        var liList = $(this).parent();
+        var offLeft = $(this).offset().left - liList.offset().left + parseInt(liList.css('left'));
+        var offWidth = parseInt(liList.parent().width());
+        var left = parseInt(liList.css('left'));
+        var maxLeft = parseInt(liList.parent().width()) - parseInt(liList.width());
+        var actLeft = 0;
+        
+        if (offLeft - 60 > offWidth/2){
+            actLeft = left + (offWidth/2 - offLeft) + 60;
+            if (actLeft <= maxLeft){
+                liList.animate({'left':maxLeft + 'px'});
+            }
+            else {
+                liList.animate({'left': actLeft + 'px'});
+            }
+        }
+        else if (offLeft + 60 < offWidth/2){
+            actLeft = left + (offWidth/2 - offLeft -60);
+            if (actLeft >=0){
+                liList.animate({'left':0});
+            }
+            else{
+                liList.animate({'left': actLeft + 'px'});
+            }
+            
         }
     });
     
