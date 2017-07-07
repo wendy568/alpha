@@ -9191,6 +9191,7 @@ body.rtl .footer-widget {
   -webkit-transition:all 1s linear;
   -o-transition:all 1s linear;
   width: 100%;
+  height: 200px;
 }
 .cbp_tmtimeline ul li:hover .bk-img img{
   transform: scale(1.1);
