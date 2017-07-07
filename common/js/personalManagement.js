@@ -70,6 +70,8 @@
         $('#articleModal .tv-detail-body').empty();
     });
     
+    $('.bk-img img').height($(this).width() * 200 / 351);
+    
     // 获取videolist
     function getVideoList(videoList) {
         var tvList = "";
