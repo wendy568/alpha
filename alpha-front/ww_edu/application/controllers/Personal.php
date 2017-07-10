@@ -376,8 +376,8 @@ class Personal extends MY_Controller
 		if (($handle = fopen(getcwd()."/{$file}.csv", "r")) !== FALSE) {
 		    while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
 		    	static $i=0;
+		    	print_r($data);
 		    	array_walk($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
-		    		print_r($key);
 		    		if(isset($val)) $datas[$i][$mt4_format[$key]] = $val;	
 		    	});
 		    	// $datas[] = array_combine($mt4_format, $data);
