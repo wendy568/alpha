@@ -378,7 +378,7 @@ class Personal extends MY_Controller
 		    	static $i=0;
 		    	array_walk($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
 		    		if(isset($val)) {
-		    			print_r($mt4_format[$key]);
+		    			print_r($i);
 		    			$datas[$i][$mt4_format[$key]] = $val;	
 		    		}
 		    	});
