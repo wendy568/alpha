@@ -390,7 +390,7 @@ class Personal extends MY_Controller
 		    }
 		    fclose($handle);
 		}
-		print_r($datas);die;
+
 		$this->load->helper('databases_filter');
 		$this->load->database();
 		$this->load->model('admins');
