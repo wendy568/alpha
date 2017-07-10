@@ -7,6 +7,17 @@ class TradingAnalysis extends CI_Model
         parent::__construct();
     }
 
+    function get_capital()
+    {
+        $map = 'SELECT * 
+                FROM mt4_export_datas
+                ORDER BY id DESC
+                LIMIT 1';
+        
+        $result = $this->db->query($map)->row_array();
+        return $result;
+    }
+
     function export_mt4_datas($account = null, $finency_proc = null, $start_time = null, $end_time = null, $some_time = null)
     {
         $where = "account_number='{$account}'";
