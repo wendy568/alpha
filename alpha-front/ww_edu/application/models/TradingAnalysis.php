@@ -7,10 +7,11 @@ class TradingAnalysis extends CI_Model
         parent::__construct();
     }
 
-    function get_capital()
+    function get_capital($account)
     {
         $map = 'SELECT capital 
                 FROM mt4_export_datas
+                WHERE account_number="'.$account.'"
                 ORDER BY id DESC
                 LIMIT 1';
         
