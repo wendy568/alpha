@@ -9711,8 +9711,9 @@ s3.active,.s3:hover a,
     width: 84px;
     position: absolute;
     top: 172px;
-    left: 150px;
+    left: 190px;
     opacity: 0;
+    margin-bottom: 10px;
 }
 /*login*/
 .login{
