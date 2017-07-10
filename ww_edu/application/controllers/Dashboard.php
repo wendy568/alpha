@@ -80,7 +80,7 @@ class Dashboard extends MY_Controller
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
 		$account = $this->get_trading_account($token);
 		$openCapital = $this->get_capital($account);
-		print_r($openCapital);
+
 		$this->load->database();
 		$this->load->helper('json');
 		// $this->load->helper('time_zone');
