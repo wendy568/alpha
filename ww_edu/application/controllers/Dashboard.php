@@ -90,7 +90,7 @@ class Dashboard extends MY_Controller
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account);		
 		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
-		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4)->count()->property('variance', ['profit', $openCapital])->get_property();
+		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4)->count()->property('variance', ['profit', 100000])->get_property();
 		$data['data']['operating_frequecy'] = $this->trading_datas_calculate->build($mt4)->count()->property('frequency', ['avg_deviation', ['order_open_time', 'order_close_time']])->get_property();
 		$operating_accuracy = $this->trading_datas_calculate->build($mt4)->count()->property('accuracy', ['profit'])->get_property();
 		$data['data']['operating_accuracy'] = round($operating_accuracy * 100, 2);
