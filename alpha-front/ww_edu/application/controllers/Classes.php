@@ -20,6 +20,7 @@ class Classes extends MY_Controller
 		$token = $this->input->get_post('token', TRUE);
 		$uid = $this->get_bytoken($token);
 		$account = $this->get_account($uid);
+		$openCapital = $this->get_capital($account);
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -43,6 +44,7 @@ class Classes extends MY_Controller
 			$this->classes_mission->look_up = $look_up;
 			$this->classes_mission->account = $account;
 			$this->classes_mission->uid = $uid;
+			$this->classes_mission->openCapital = $openCapital;
 			$this->classes_mission->time = $original['personal']['u_time'];
 			$homework = $this->classes_mission->init($mission, $personal, $allProcess)->get_distribution()->is_complete($is_complete)->get_mission_complete()->property('distributing')->get_homework();
 			// print_r($homework);

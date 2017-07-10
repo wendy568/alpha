@@ -35,6 +35,7 @@ class Trading_Analysis extends MY_Controller
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
 		$account = $this->get_trading_account($token);
+		$openCapital = $this->get_capital($account);
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -45,7 +46,7 @@ class Trading_Analysis extends MY_Controller
 
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account, $finency_proc, $start_time, $end_time);
 		$this->load->library('trading_datas_calculate');
-		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4)->count()->property('variance', ['profit', 1000000])->get_property();
+		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4)->count()->property('variance', ['profit', $openCapital])->get_property();
 		$data['data']['operating_frequecy'] = $this->trading_datas_calculate->build($mt4)->count()->property('frequency', ['avg_deviation', ['order_open_time', 'order_close_time']])->get_property();
 		$operating_accuracy = $this->trading_datas_calculate->build($mt4)->count()->property('accuracy', ['profit'])->get_property();
 		$data['data']['operating_accuracy'] = round($operating_accuracy * 100, 2);
@@ -170,6 +171,7 @@ class Trading_Analysis extends MY_Controller
 		$end_time = $this->input->get_post('end_time', TRUE);
 		$finency_proc = $this->input->get_post('finency_proc', TRUE);
 		$account = $this->get_trading_account($token);
+		$openCapital = $this->get_capital($account);
 
 		$this->load->database();
 		$this->load->helper('json');
@@ -185,7 +187,7 @@ class Trading_Analysis extends MY_Controller
 		$data['data']['Average_Loss'] = $this->trading_datas_calculate->build($mt4)->saveCountNegative('profit')->count()->property('avg', ['profit'])->get_property();
 		$data['data']['Maximum_Consecutive_Profit'] = $this->trading_datas_calculate->build($mt4)->count()->property('Consecutive', ['profit'])->get_property();
 		$data['data']['Avg_holding_Time'] = $this->trading_datas_calculate->build($mt4)->count()->property('avg_deviation', ['order_open_time', 'order_close_time'])->get_property();
-		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4)->count()->property('variance', ['profit', 1000000])->get_property();
+		$data['data']['risk_management_level'] = $this->trading_datas_calculate->build($mt4)->count()->property('variance', ['profit', $openCapital])->get_property();
 
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 
