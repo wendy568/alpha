@@ -54,7 +54,7 @@ class TradingAnalysisForAdmin extends MY_Controller
 		$data['data']['operating_frequecy'] = $this->trading_datas_calculate->build($mt4)->count()->property('frequency', ['avg_deviation', ['order_open_time', 'order_close_time']])->get_property();
 		$operating_accuracy = $this->trading_datas_calculate->build($mt4)->count()->property('accuracy', ['profit'])->get_property();
 		$data['data']['operating_accuracy'] = round($operating_accuracy * 100, 2);
-		$data['data']['trading_ability'] = $this->trading_datas_calculate->build($mt4)->count()->property('ability', ['profit'])->get_property();
+		$data['data']['trading_ability'] = $this->trading_datas_calculate->build($mt4)->count()->property('ability', ['profit', $openCapital / 20])->get_property();
 		$response = array('archive' => array('status' => 0 ,'message' =>''));
 	
 		encode_json($response,$data);

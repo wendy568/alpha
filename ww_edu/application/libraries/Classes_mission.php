@@ -376,7 +376,7 @@ class Classes_mission
 	{
 		call_user_func_array([$this, 'load_datas'], ['export_mt4_datas', 'TradingAnalysis', [$this->account, null, null, null, $this->time]]);
 
-		$count = $this->count()->property('ability', ['profit'])->get_property();
+		$count = $this->count()->property('ability', ['profit', $this->openCapital / 20])->get_property();
 
 		if ($count === 0) return false;
 		foreach ($param as $key => $value) {

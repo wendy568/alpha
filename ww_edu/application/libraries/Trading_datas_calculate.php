@@ -139,10 +139,10 @@ class Trading_datas_calculate extends Encapsulation{
     }
 
     //(A*B) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
-    public function ability($index)
+    public function ability($index, $capital)
     {
     	$ability = round($this->accuracy($index) * $this->avg($index, $this->_data), 2);
-        return $this->ability_score($ability);
+        return $this->ability_score($ability, $capital);
     }
 
     protected function getLog($p1, $p2, $p3)
@@ -155,9 +155,9 @@ class Trading_datas_calculate extends Encapsulation{
         return ($p1 / $p2) - ($p3 / $p2);
     }
 
-    protected function ability_score($ability)
+    protected function ability_score($ability, $capital)
     {
-        $ability = $ability / 5000;
+        $ability = $ability / $capital;
         foreach ($this->score_zone as $key => $value) {
             if ($key == 'profit_ability') {
                 foreach ($value as $key) {
