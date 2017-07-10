@@ -11,16 +11,14 @@ class MY_Controller extends CI_Controller
 
 	public function get_capital($account)
 	{
-		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
-		$this->load->model('login');
+		$this->load->model('TradingAnalysis');
 		$data = $this->TradingAnalysis->get_capital($account);
 		return $data;
 	}
 
 	public function get_bytoken($token)
 	{
-		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
 		$this->load->model('login');
 		$data = $this->login->get_bytoken($token);
@@ -29,7 +27,6 @@ class MY_Controller extends CI_Controller
 
 	public function get_trading_account($token)
 	{
-		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
 		$this->load->model('login');
 		$data = $this->login->get_trading_account($this->get_bytoken($token));
@@ -39,7 +36,6 @@ class MY_Controller extends CI_Controller
 
 	public function get_account($uid)
 	{
-		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
 		$this->load->model('login');
 		$data = $this->login->get_trading_account($uid);
@@ -48,7 +44,6 @@ class MY_Controller extends CI_Controller
 
 	public function get_bytoken_id_forAdmin($token)
 	{
-		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
 		$this->load->model('admins');
 		$data = $this->admins->get_bytoken_id($token);
@@ -57,7 +52,6 @@ class MY_Controller extends CI_Controller
 
 	public function get_bytoken_id($token)
 	{
-		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
 		$this->load->model('login');
 		$data = $this->login->get_bytoken_id($token);
@@ -66,7 +60,6 @@ class MY_Controller extends CI_Controller
 
 	public function get_byadmintoken($token)
 	{
-		header( 'Access-Control-Allow-Origin:*' );
 		$this->load->database();
 		$this->load->model('admins');
 		$data = $this->admins->get_bytoken($token);
