@@ -378,8 +378,11 @@ class Personal extends MY_Controller
 		    	static $i=0;
 		    	array_walk($data, function ($val, $key) use ($mt4_format, &$datas, $i) {
 		    		if(isset($val)) {
-		    			print_r($i);
-		    			$datas[$i][$mt4_format[$key]] = $val;	
+		    			if ($mt4_format[$key] == 'order_open_time' OR $mt4_format[$key] == 'order_close_time') {
+		    				$datas[$i][$mt4_format[$key]] = strtotime($val);
+		    			} else {
+		    				$datas[$i][$mt4_format[$key]] = $val;	
+		    			}
 		    		}
 		    	});
 		    	// $datas[] = array_combine($mt4_format, $data);
