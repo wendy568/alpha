@@ -151,14 +151,14 @@
     function getTraData(params){
       $.alpha.request_Url('post','Trading_Analysis/calculator_anytime',params,function(data){
         if(data.archive.status == 0){
-          $('.risk .label').eq(0).html(data.data.operating_accuracy);
+          $('.risk .label').eq(0).html(data.data.risk_management_level);
           $('.risk .label').eq(1).html(data.data.operating_frequecy);
-          $('.risk .label').eq(2).html(data.data.risk_management_level);
+          $('.risk .label').eq(2).html(data.data.operating_accuracy);
           $('.risk .label').eq(3).html(data.data.trading_ability);
 
-          $('.risk .progress .progress-bar').eq(0).attr('data-percentage',data.data.operating_accuracy +'%').css('width',data.data.operating_accuracy +'%');
+          $('.risk .progress .progress-bar').eq(0).attr('data-percentage',data.data.risk_management_level +'%').css('width',data.data.risk_management_level +'%');
           $('.risk .progress .progress-bar').eq(1).attr('data-percentage',data.data.operating_frequecy +'%').css('width',data.data.operating_frequecy +'%');
-          $('.risk .progress .progress-bar').eq(2).attr('data-percentage',data.data.risk_management_level +'%').css('width',data.data.risk_management_level +'%');
+          $('.risk .progress .progress-bar').eq(2).attr('data-percentage',data.data.operating_accuracy +'%').css('width',data.data.operating_accuracy +'%');
           $('.risk .progress .progress-bar').eq(3).attr('data-percentage',data.data.trading_ability +'%').css('width',data.data.trading_ability +'%');
         }
       });
