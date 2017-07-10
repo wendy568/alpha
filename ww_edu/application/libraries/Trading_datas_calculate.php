@@ -103,7 +103,7 @@ class Trading_datas_calculate extends Encapsulation{
     }
 
     //根号[∑((X-μ)^2)] ? A (A*B) X=Profit μ=Avg(∑Profit) A=Count(OrderNo(Profit>0))/Count(OrderNo)  B=Avg(Profit)
-    public function variance($index)
+    public function variance($index, $openCapital = 1000000)
     {
     	$datas = $this->_data;
     	$avg = call_user_func_array([$this, 'avg'], [$index, $this->_data]);
@@ -118,7 +118,7 @@ class Trading_datas_calculate extends Encapsulation{
 
 		$sqrt_sum = ($this->count) ? $sum / $this->count : 0;
 		$variance = round(sqrt($sqrt_sum), 2);
-        return $this->variance_score($variance);
+        return $this->variance_score($variance, $openCapital);
 
     }
 
@@ -181,9 +181,9 @@ class Trading_datas_calculate extends Encapsulation{
         return round($score, 2);
     }
 
-    protected function variance_score($variance)
+    protected function variance_score($variance, $openCapital)
     {
-        $variance = $variance / 100000;
+        $variance = $variance / $openCapital;
         foreach ($this->score_zone as $key => $value) {
 
             if ($key == 'risk_management') {
