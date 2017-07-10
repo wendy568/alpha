@@ -86,7 +86,7 @@ class Dashboard extends MY_Controller
 		// $this->load->helper('time_zone');
 		// date('Y-m-d H:i:s', time_zone::build()->sundayOfTheWeekOfEnd()->get_time_zone());die;
 		$this->load->model('TradingAnalysis');
-		print_r($openCapital);
+
 		$mt4 = $this->TradingAnalysis->export_mt4_datas($account);		
 		$this->load->helper('encapsulation');
 		$this->load->library('trading_datas_calculate');
