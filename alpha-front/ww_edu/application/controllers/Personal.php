@@ -369,7 +369,8 @@ class Personal extends MY_Controller
 				'order_close_time',
 				'order_take_profit',
 				'order_stop_loss',
-				'profit'
+				'profit',
+				'capital'
 			);	
 		$datas = [];
 		if (($handle = fopen(getcwd()."/{$file}.csv", "r")) !== FALSE) {
