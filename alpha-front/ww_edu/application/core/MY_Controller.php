@@ -9,6 +9,15 @@ class MY_Controller extends CI_Controller
 		//$this->origin = $this->get_origin();
 	}
 
+	public function get_capital($account)
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+		$this->load->database();
+		$this->load->model('login');
+		$data = $this->TradingAnalysis->get_capital($account);
+		return $data;
+	}
+
 	public function get_bytoken($token)
 	{
 		header( 'Access-Control-Allow-Origin:*' );
