@@ -391,6 +391,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
     alpha.prototype.unblockUI = function(el){
         $(el).unblock();
     };
+    
     // Call initializers
     alpha.prototype.init = function() {
         // init layout
@@ -705,3 +706,19 @@ Date.prototype.Format = function (fmt) { //author: meizz
     if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
   return fmt;
 };
+
+
+// 首页显示登录用户名
+$.alpha.request_Url('post','user/userLayoutInfo',{},function(data){
+    if(data.archive.status == 0){
+        var first_name = data.data.first_name;
+        var last_name = data.data.last_name;
+        $('.username').text(first_name + last_name);
+        if(data.data.face){
+            $('.profile-wrapper').html('<img src=\''+ alpha_host + 'upload/'+ data.data.face[0] + 'm_' + data.data.face[1] +'\' alt=\'\'  width=\'69\' height=\'69\' />');
+        }else{
+            $('.profile-wrapper').html('<img src=\'assets/img/photo.png\' alt=\'\'  width=\'69\' height=\'69\' />');
+        }
+    }
+});
+
