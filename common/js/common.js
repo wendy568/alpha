@@ -393,7 +393,6 @@ window.alpha_user_info_userName = '';
     alpha.prototype.unblockUI = function(el){
         $(el).unblock();
     };
-    
     // Call initializers
     alpha.prototype.init = function() {
         // init layout
