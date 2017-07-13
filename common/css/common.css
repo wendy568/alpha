@@ -10053,6 +10053,9 @@ url("chrome://browser/content/history/history-panel.xul")
 .font16{
     font-size: 16px !important;
 }
+.font18{
+    font-size: 18px !important;
+}
 
 .video-body p{
   font-size:14px;
