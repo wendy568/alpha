@@ -5,11 +5,11 @@ var user_info_face = '';
 	window.onload = function(){
 		if (!sessionStorage.getItem('alpha_user_info_userName')) {
 			$.alpha.getUserInfo(function(data){
-				var first_name = data.first_name || ' ';
-	            var last_name = data.last_name || ' ';
+				var first_name = data.first_name || 'User';
+	            var last_name = data.last_name || ' Name';
 	            var face = '';
-	            sessionStorage.setItem('alpha_user_info_userName', first_name + last_name);
-	            $('.username').text(first_name + last_name);
+	            sessionStorage.setItem('alpha_user_info_userName', first_name + ' ' +last_name);
+	            $('.username').text(first_name + ' ' +last_name);
 	            if(data.face){
 	                $('.profile-wrapper').html('<img src=\''+ alpha_host + 'upload/'+ data.face[0] + 'm_' + data.face[1] +'\' alt=\'\'  width=\'69\' height=\'69\' />');
 	                face = alpha_host + 'upload/'+ data.face[0] + 'm_' + data.face[1];
@@ -20,7 +20,7 @@ var user_info_face = '';
 	            sessionStorage.setItem('alpha_user_info_face', face);
 			});
 		}else{
-			user_info_userName = sessionStorage.getItem('alpha_user_info_userName') || 'User Name';
+			user_info_userName = sessionStorage.getItem('alpha_user_info_userName');
 			user_info_face = sessionStorage.getItem('alpha_user_info_face') || 'assets/img/photo.png';
 			$('.username').text(user_info_userName);
 			$('.profile-wrapper').html('<img src=\''+ user_info_face +'\' alt=\'\'  width=\'69\' height=\'69\' />');
