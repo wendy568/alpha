@@ -1,5 +1,7 @@
 // 项目请求根地址
 window.alpha_host='http://120.25.211.159/ww_edu/';
+window.alpha_user_info_face = '';
+window.alpha_user_info_userName = '';
 
 (function($) {
     'use strict';
@@ -420,7 +422,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             console.log(e)
         }
         return $.ajax({
-            type    : type,
+            type    : type || 'post',
             url     : alpha_host + url,
             data    : data,
             success : function(res){
@@ -552,6 +554,14 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         }
       });
     };
+
+    // 首页显示登录用户名
+    alpha.prototype.getUserInfo = function(fn){
+        this.request_Url('post','user/userLayoutInfo',{},function(data){
+            fn && fn(data.data);
+        });
+    }
+    
 
     $.alpha = new alpha();
     $.alpha.Constructor = alpha;
@@ -707,18 +717,4 @@ Date.prototype.Format = function (fmt) { //author: meizz
   return fmt;
 };
 
-
-// 首页显示登录用户名
-$.alpha.request_Url('post','user/userLayoutInfo',{},function(data){
-    if(data.archive.status == 0){
-        var first_name = data.data.first_name;
-        var last_name = data.data.last_name;
-        $('.username').text(first_name + last_name);
-        if(data.data.face){
-            $('.profile-wrapper').html('<img src=\''+ alpha_host + 'upload/'+ data.data.face[0] + 'm_' + data.data.face[1] +'\' alt=\'\'  width=\'69\' height=\'69\' />');
-        }else{
-            $('.profile-wrapper').html('<img src=\'assets/img/photo.png\' alt=\'\'  width=\'69\' height=\'69\' />');
-        }
-    }
-});
 
