@@ -53,6 +53,11 @@ $(function () {
         } else {
             $.alpha.props($(this), 'bottom', 'Invalid Password!');
         }
+    }).keyup(function(e){
+        var event = e || window.event;
+        if (event.keyCode == 13){
+            $('#btn-login').trigger('click');
+        }
     });
     
     // Register
