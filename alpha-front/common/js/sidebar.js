@@ -1,3 +1,33 @@
+var user_info_userName = '';
+var user_info_face = '';
+
+(function(){
+	window.onload = function(){
+		if (!sessionStorage.getItem('alpha_user_info_userName')) {
+			$.alpha.getUserInfo(function(data){
+				var first_name = data.first_name || ' ';
+	            var last_name = data.last_name || ' ';
+	            var face = '';
+	            sessionStorage.setItem('alpha_user_info_userName', first_name + last_name);
+	            $('.username').text(first_name + last_name);
+	            if(data.face){
+	                $('.profile-wrapper').html('<img src=\''+ alpha_host + 'upload/'+ data.face[0] + 'm_' + data.face[1] +'\' alt=\'\'  width=\'69\' height=\'69\' />');
+	                face = alpha_host + 'upload/'+ data.face[0] + 'm_' + data.face[1];
+	            }else{
+	                $('.profile-wrapper').html('<img src=\'assets/img/photo.png\' alt=\'\'  width=\'69\' height=\'69\' />');
+	                face = 'assets/img/photo.png';
+	            }
+	            sessionStorage.setItem('alpha_user_info_face', face);
+			});
+		}else{
+			user_info_userName = sessionStorage.getItem('alpha_user_info_userName') || 'User Name';
+			user_info_face = sessionStorage.getItem('alpha_user_info_face') || 'assets/img/photo.png';
+			$('.username').text(user_info_userName);
+			$('.profile-wrapper').html('<img src=\''+ user_info_face +'\' alt=\'\'  width=\'69\' height=\'69\' />');
+		}
+	};
+})();
+
 document.writeln("<!-- sidebar left-->");
 document.writeln("            <div class=\'page-sidebar \' id=\'main-menu\'>");
 document.writeln("                <div class=\'page-sidebar-wrapper scroller scrollbar-dynamic\' id=\'main-menu-wrapper\'>");
@@ -5,12 +35,12 @@ document.writeln("                    <!-- 用户头像信息 -->");
 document.writeln("                    <div class=\'user-info-wrapper sm\'>");
 document.writeln("                        <!-- 头像 -->");
 document.writeln("                        <a href=\'Profile.html\' class=\'profile-wrapper sm\'>");
-document.writeln("                            <img src=\'assets/img/photo.png\' alt=\'\'  width=\'69\' height=\'69\' />");
+document.writeln("                            <img src=\'"+user_info_face+"\' alt=\'\'  width=\'69\' height=\'69\' />");
 document.writeln("                        </a>");
 document.writeln("                        <!-- 姓名、登录状态 -->");
 document.writeln("                        <div class=\'user-info sm\'>");
 document.writeln("                            <div class=\'font18 semi-bold\'>Welcome</div>");
-document.writeln("                            <div class=\'username\'>UserName</div>");
+document.writeln("                            <div class=\'username\'>"+user_info_userName+"</div>");
 document.writeln("                        </div>");
 document.writeln("                    </div>");
 document.writeln("                    <!-- 链接列表 -->");
@@ -68,4 +98,3 @@ document.writeln("                    </ul>");
 document.writeln("                </div>");
 document.writeln("            </div>");
 document.writeln("            <a href=\'#\' class=\'scrollup\'>Scroll</a>");
-

@@ -4,6 +4,8 @@
 $(function () {
     var emailReg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     var pwdReg = /^[A-Za-z0-9]{6,12}$/;
+    sessionStorage.setItem(alpha_user_info_userName, 'User Name');
+    sessionStorage.setItem(alpha_user_info_face, 'assets/img/photo.png');
     
     // Login
     $('#btn-login').click(function (e) {
