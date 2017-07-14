@@ -1,7 +1,5 @@
 // 项目请求根地址
 window.alpha_host='http://120.25.211.159/ww_edu/';
-window.alpha_user_info_face = '';
-window.alpha_user_info_userName = '';
 
 (function($) {
     'use strict';

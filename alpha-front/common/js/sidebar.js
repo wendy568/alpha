@@ -5,8 +5,8 @@ var user_info_face = '';
 	window.onload = function(){
 		if (!sessionStorage.getItem('alpha_user_info_userName')) {
 			$.alpha.getUserInfo(function(data){
-				var first_name = data.first_name || 'User';
-	            var last_name = data.last_name || ' Name';
+				var first_name = data.first_name || ' ';
+	            var last_name = data.last_name || ' ';
 	            var face = '';
 	            sessionStorage.setItem('alpha_user_info_userName', first_name + ' ' +last_name);
 	            $('.username').text(first_name + ' ' +last_name);
@@ -21,7 +21,7 @@ var user_info_face = '';
 			});
 		}else{
 			user_info_userName = sessionStorage.getItem('alpha_user_info_userName');
-			user_info_face = sessionStorage.getItem('alpha_user_info_face') || 'assets/img/photo.png';
+			user_info_face = sessionStorage.getItem('alpha_user_info_face');
 			$('.username').text(user_info_userName);
 			$('.profile-wrapper').html('<img src=\''+ user_info_face +'\' alt=\'\'  width=\'69\' height=\'69\' />');
 		}
