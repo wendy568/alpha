@@ -1307,6 +1307,8 @@ body.boxed-layout .footer-widget {
   margin: 20px 31px;
   margin-bottom: 0px;
   margin-left: 17px;
+  height: 47px;
+  clear: both;
 }
 .user-info-wrapper.sm {
   margin-left: 26px;
