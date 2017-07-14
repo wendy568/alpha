@@ -101,7 +101,6 @@
         // Make an API call
         public function call($call, $args=array()) {
             $url = $this->call_url($call, $args);
-            print_r($url);die;
             $response = null;
             switch($this->_library) {
                 case 'curl':
