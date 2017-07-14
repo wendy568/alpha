@@ -9712,10 +9712,11 @@ s3.active,.s3:hover a,
 .upload{
     width: 84px;
     position: absolute;
-    top: 172px;
-    left: 190px;
+    top: 0;
+    left: 0;
     opacity: 0;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 /*login*/
 .login{
