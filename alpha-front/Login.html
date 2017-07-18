@@ -18,9 +18,10 @@
             <div class="modal-content animated fadeInDown" style="box-shadow:none;-webkit-box-shadow: none;-moz-box-shadow: none;-o-box-shadow: none;">
                 <div class="modal-body">
                     <div class="no-margin tab-content">
+                        <!-- logo -->
+                        <img src="assets/img/alpha_logo.png" class="loginImg">
                         <!-- login -->
                         <div role="tabpanel" class="tab-pane active" id="tab_login">
-                            <img src="assets/img/alpha_logo.png" class="loginImg">
                             <form class="animated fadeIn" id="form_id" name="">
                                 <div class="row">
                                     <div class="col-md-12 m-b-20">
@@ -48,51 +49,139 @@
                         </div>
                         <!-- register -->
                         <div role="tabpane1" class="tab-pane" id="tab_register">
-                            <img src="assets/img/alpha_logo.png" class="loginImg">
-                            <form class="animated fadeIn" id="" name="">
-                                <div class="row m-b-20">
-                                    <div class="col-md-6 col-sm-6">
-                                        <label for="">* First name</label>
-                                        <input class="form-control" name="firstName" placeholder="Marry" type="text" >
+                            <form id="commentForm" class="animated fadeIn">
+                                <div id="rootwizard" class="m-b-20">
+                                    <!-- step -->
+                                    <div class="form-wizard-steps m-b-40">
+                                        <ul class="wizard-steps">
+                                            <li class="active" data-target="#step1">
+                                                <a href="#tab1" data-toggle="tab">
+                                                    <span class="step">1</span> 
+                                                    <span class="title">Account</span> 
+                                                </a>
+                                            </li>
+                                            <li data-target="#step2" class="">
+                                                <a href="#tab2" data-toggle="tab">
+                                                    <span class="step">2</span> 
+                                                    <span class="title">Information</span> 
+                                                </a>
+                                            </li>
+                                            <li data-target="#step3" class="">
+                                                <a href="#tab3" data-toggle="tab">
+                                                    <span class="step">3</span> 
+                                                    <span class="title">MT4</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6">
-                                        <label for="">Last name</label>
-                                        <input class="form-control" name="lastName" placeholder="joy" type="text">
+                                    <!-- tab-content -->
+                                    <div class="tab-content transparent">
+                                        <div class="tab-pane active" id="tab1">
+                                            <div class="row m-b-20">
+                                                <div class="col-md-12">
+                                                    <label for="">* Account</label>
+                                                    <input name="account" class="form-control" placeholder="Please enter 4-20 characters" type="text" minlength="6" maxlength="12">
+                                                </div>
+                                            </div>
+                                            <div class="row m-b-20">
+                                                <div class="col-md-12">
+                                                    <label for="">* Password</label>
+                                                    <input name="pwd" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" minlength="6" maxlength="12">
+                                                </div>
+                                            </div>
+                                            <div class="row m-b-20">
+                                                <div class="col-md-12">
+                                                    <label for="">* ConfirmPassword</label>
+                                                    <input name="pwdAgain" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" minlength="6" maxlength="12">
+                                                </div>
+                                            </div>
+                                            <div class="row m-b-20">
+                                                <div class="col-md-12">
+                                                    <label for="">* Invite Code</label>
+                                                    <input class="form-control" id="login_pass" name="inviteCode" placeholder="2E334G" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab2">
+                                            <div  class="row m-b-10">
+                                                <div class="col-md-12">
+                                                    <label for="">First name</label>
+                                                    <input class="form-control" name="firstName" placeholder="Marry" type="text" >
+                                                </div>
+                                            </div>
+                                            <div  class="row m-b-10">
+                                                <div class="col-md-12">
+                                                    <label for="">Last name</label>
+                                                    <input class="form-control" name="lastName" placeholder="joy" type="text">
+                                                </div>
+                                            </div>
+                                            <div  class="row m-b-10">
+                                                <div class="col-md-12">
+                                                    <label for="">DateofBirth</label>
+                                                    <input class="form-control" name="birth" placeholder="" type="text">
+                                                </div>
+                                            </div>
+                                            <div  class="row m-b-10">
+                                                <label for="" class="inlineblock m-r-10">* Sex</label>
+                                                <div class="radio radio-success inlineblock">
+                                                    <input id="male" name="sex" type="radio" value="0">
+                                                    <label for="male">Male</label>
+                                                    <input id="female" name="sex" type="radio" value="1">
+                                                    <label for="female">Female</label>
+                                                </div>
+                                            </div>
+                                            <div class="row m-b-10">
+                                                <div class="col-md-12">
+                                                    <label for="">* E-mail</label>
+                                                    <input name="email" class="form-control m-b-5" placeholder="zhangsan@qq.com" type="email">
+                                                    <button type="button" class="btn btn-success btm-cons pull-right">SendCode</button>
+                                                </div>
+                                            </div>
+                                            <div class="row m-b-20">
+                                                <div class="col-md-12">
+                                                    <label for="">* VerificationCode</label>
+                                                    <input name="code" class="form-control" placeholder="" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab3">
+                                            <div  class="row m-b-20">
+                                                <div class="col-md-12">
+                                                    <label for="">MT4Account</label>
+                                                    <input class="form-control" name="birth" placeholder="" type="text">
+                                                </div>
+                                            </div>
+                                            <div  class="row m-b-20">
+                                                <label for="" class="inlineblock m-r-10">MT4Group</label>
+                                                <div class="radio radio-success inlineblock">
+                                                    <input id="main" name="group" type="radio" value="0">
+                                                    <label for="main">Main</label>
+                                                    <input id="secondary" name="group" type="radio" value="1">
+                                                    <label for="secondary">Secondary</label>
+                                                </div>
+                                            </div>
+                                            <div  class="row m-b-20">
+                                                <div class="col-md-12">
+                                                    <label for="">MT4Server</label>
+                                                    <input class="form-control" name="birth" placeholder="" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="wizard wizard-actions">
+                                            <li class="next m-l-5"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Next&nbsp;&nbsp;</a></li>
+                                            <li class="next last m-l-5" style="display:none;"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Last&nbsp;&nbsp;</a></li>
+                                            <li class="previous m-l-5"><a href="javascript:;" class="btn">&nbsp;&nbsp;Previous&nbsp;&nbsp;</a></li>
+                                            <li class="previous first m-l-5" style="display:none;"><a href="javascript:;" class="btn">&nbsp;&nbsp;First&nbsp;&nbsp;</a></li>
+                                        </ul>
+                                        <a id="btn-register" href="javascript:;" class="btn-cons active signUpBtn hide" role="tab" data-toggle="tab">
+                                            <span>Register</span><i class="fa fa-long-arrow-right m-l-5"></i>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="row m-b-20">
-                                    <div class="col-md-12">
-                                        <label for="">* Your email</label>
-                                        <input name="email" class="form-control" placeholder="zhangsan@qq.com" type="email">
-                                    </div>
-                                </div>
-                                <div class="row m-b-20">
-                                    <div class="col-md-12">
-                                        <label for="">* Password</label>
-                                        <input name="pwd" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" minlength="6" maxlength="12">
-                                    </div>
-                                </div>
-                                <div class="row m-b-20">
-                                    <div class="col-md-12">
-                                        <label for="">* Password Again</label>
-                                        <input name="pwdAgain" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" minlength="6" maxlength="12">
-                                    </div>
-                                </div>
-                                <div class="row m-b-20">
-                                    <div class="col-md-12">
-                                        <label for="">Invite Code</label>
-                                        <input class="form-control" id="login_pass" name="inviteCode" placeholder="2E334G" type="text">
-                                    </div>
-                                </div>
-                                <div role="tablist">
-                                    <a id="btn-register" href="javascript:;" class="btn-cons active signUpBtn" role="tab" data-toggle="tab">
-                                        <span>Register</span><i class="fa fa-long-arrow-right m-l-5"></i>
-                                    </a>
-                                    <!-- <a class="text-c3 forgot">Forgot password?</a> -->
-                                    <a href="#tab_login" class="btn-cons text-success signUpTab" role="tab" data-toggle="tab">
-                                        <span>Already A Member?</span> Sign In
-                                    </a>
-                                </div>
+                                <a href="#tab_login" class="btn-cons text-success signUpTab" role="tab" data-toggle="tab" style="line-height: 37px;">
+                                    <span>Already A Member?</span> Sign In
+                                </a>
                             </form>
                         </div>
     
@@ -138,14 +227,12 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
 
         <script src="assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-        <!-- <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script> -->
         <script src="assets/plugins/jq-tooltips/jquery.poshytip.js" type="text/javascript"></script>
         <script src="common/js/common.js" type="text/javascript"></script>
         <script src="common/js/login.js" type="text/javascript"></script>
