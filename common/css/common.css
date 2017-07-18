@@ -52,6 +52,9 @@ li{
 .placeholder {
     color: #333843;
 }
+.inlineblock{
+    display: inline-block !important;
+}
 a,
 a:hover,
 a:active,
@@ -10090,4 +10093,108 @@ url("chrome://browser/content/history/history-panel.xul")
     position: absolute;
     z-index: 10;
     top: calc(100% - 20px);
+}
+
+// 注册
+.wizard-steps {
+  display: block;
+  list-style: none outside none;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+.wizard-steps li {
+  display: block;
+  float: left;
+  width: 93px;
+  padding-left: 0;
+}
+.wizard-steps li:before {
+  border-top: 6px solid #55606E;
+  content: "";
+  display: block;
+  font-size: 0;
+  overflow: hidden;
+  position: relative;
+  top: 13px;
+  right: 1px;
+  width: 100%;
+  z-index: 1;
+}
+.wizard-steps li:first-child:before {
+  left: 20%;
+}
+.wizard-steps li:last-child:before {
+  width: 0;
+}
+.wizard-steps li.complete .step {
+  background-color: #0aa699;
+  padding: 1px 6px;
+  border: 4px solid #55606e;
+}
+.wizard-steps li .step {
+  background-color: #d1dade;
+  border-radius: 32px 32px 32px 32px;
+  color: #ffffff;
+  display: inline;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 12px;
+  padding: 4px 9px;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  transition: all 0.2s linear 0s;
+}
+.wizard-steps li .step i {
+  font-size: 10px;
+  font-weight: normal;
+  position: relative;
+  top: -1.5px;
+}
+.wizard-steps li .title {
+  color: #a8adb2;
+  display: block;
+  font-size: 13px;
+  line-height: 15px;
+  max-width: 100%;
+  position: relative;
+  table-layout: fixed;
+  top: 20px;
+  word-wrap: break-word;
+  z-index: 104;
+}
+.wizard-steps a{
+    text-shadow: none !important;
+    color: #0d638f;
+    transition: color 0.1s linear 0s, background-color 0.1s linear 0s, opacity 0.1s linear 0s !important;
+}
+.wizard-steps a:hover,
+.wizard-steps a:active,
+.wizard-steps a:focus {
+  text-decoration: none;
+}
+.wizard-steps li.active .step,
+.wizard-steps li.active.complete .step {
+  background-color: #0090d9;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  font-size: 16px;
+}
+.wizard-steps li.complete .title,
+.wizard-steps li.active .title {
+  color: #fff;
+}
+.wizard-actions {
+  display: block;
+  list-style: none outside none;
+  padding: 0;
+  position: relative;
+  width: 100%;  
+}
+.wizard-actions li {
+  display: inline;
+  float: right;
 }
