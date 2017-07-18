@@ -65,12 +65,20 @@ $(function () {
         var event = e || window.event;
         event.stopPropagation();
         sessionStorage.setItem('alpha_token', '');
-        var firstName = $('#tab_register [name="firstName"]').val(),
-            lastName = $('#tab_register [name="lastName"]').val(),
-            email = $('#tab_register [name="email"]').val(),
+        var account = $('#tab_register [name="account"]').val(),
             pwd = $('#tab_register [name="pwd"]').val(),
             inviteCode = $('#tab_register [name="inviteCode"]').val();
+            firstName = $('#tab_register [name="firstName"]').val(),
+            lastName = $('#tab_register [name="lastName"]').val(),
+            birth = $('#tab_register [name="birth"]').val(),
+            sex = $('#tab_register [name="sex"]').val(),
+            email = $('#tab_register [name="email"]').val(),
+            emailCode = $('#tab_register [name="emailCode"]').val(),
+            mt4Account = $('#tab_register [name="mt4Account"]').val(),
+            mt4Group = $('#tab_register [name="mt4Group"]').val(),
+            mt4Server = $('#tab_register [name="mt4Server"]').val();
         
+
         var data = {
             first_name: firstName,
             last_name: lastName,
@@ -139,6 +147,12 @@ $(function () {
     $('#tab_register,#tab_login,#tab_forgot_password').on('show.bs.tab', function (e) {
         var event = e || window.event;
         $.alpha.props($('input'), 'none');
+    });
+
+    $('.next').click(function(){
+        if($('.wizard-steps').find('li.active').index() == 0){
+            $('.wizard-steps').find('li.active').removeClass('active');
+        }
     });
     
     
