@@ -136,8 +136,50 @@ $(function () {
         }
     });
     
-    $('#tab_register,#tab_login').on('show.bs.tab', function (e) {
+    $('#tab_register,#tab_login,#tab_forgot_password').on('show.bs.tab', function (e) {
         var event = e || window.event;
         $.alpha.props($('input'), 'none');
     });
+    
+    
+    // 忘记密码
+    $('#forgot_next_btn').click(function (e) {
+        var account = $('#tab_forgot_password input[name="account"]').val().trim();
+        var email = $('#tab_forgot_password input[name="email"]').val().trim();
+        var inviteCode = $('#tab_forgot_password input[name="code"]').val().trim();
+        var isNext = account && email && inviteCode && emailReg.test(email);
+        if (isNext){
+            $('#forgot_password1').hide();
+            $('#forgot_password2').show();
+            $(this).hide();
+            $('#forgot_submit_btn').show();
+            $('#tab_forgot_password .return_pre').show();
+            $('#tab_forgot_password .return_login').hide();
+        }
+    })
+    
+    $('#tab_forgot_password .return_pre').click(function (e) {
+        $('#forgot_password1').show();
+        $('#forgot_password2').hide();
+        $('#forgot_next_btn').show();
+        $('#forgot_submit_btn').hide();
+        $(this).hide();
+        $('#tab_forgot_password .return_login').show();
+    })
+    
+    $('#forgot_submit_btn').click(function (e) {
+        var password = $('#tab_forgot_password input[name="newPassword"]').val();
+        var password2 = $('#tab_forgot_password input[name="new_pwdAgain"]').val();
+        if (password && password2 == password){
+        
+        }
+    })
+    
+    $('.send-code').click(function (e) {
+        var email = $('#tab_forgot_password input[name="email"]').val().trim();
+        if (emailReg.test(email)){
+        
+        }
+    })
+    
 });

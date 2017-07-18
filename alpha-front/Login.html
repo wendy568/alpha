@@ -188,40 +188,43 @@
                         <div role="tabpane1" class="tab-pane" id="tab_forgot_password" style="color: #fff;">
                             <div role="tablist" class="m-b-10">
                                 Forgot Password
-                                <a href="#tab_login" class="text-info pull-right" role="tab" data-toggle="tab">
+                                <a href="#tab_login" class="text-info pull-right return_login" role="tab" data-toggle="tab">
+                                    Return
+                                </a>
+                                <a href="javascript:(0);" class="text-info pull-right return_pre" style="display: none;">
                                     Return
                                 </a>
                             </div>
                             <div class="row" id="forgot_password1">
                                 <div class="col-md-12 m-b-20">
                                     <label for="">* Account</label>
-                                    <input class="form-control" name="email" type="email" />
+                                    <input class="form-control" name="account" type="text" minlength="4" maxlength="20" />
                                 </div>
                                 <div class="col-md-12 m-b-20">
                                     <label for="">* E-mail</label>
-                                    <input class="form-control" name="pwd" placeholder="Please enter the E-mail you have registered" type="password"  minlength="6" maxlength="12" >
-                                    <a href="">Send Code</a>
+                                    <input class="form-control" name="email" placeholder="Please enter the E-mail you have registered" type="email"  >
+                                    <a href="javascript:(0);" class="send-code">Send Code</a>
                                 </div>
                                 <div class="col-md-12 m-b-20">
                                     <label for="">* Verification Code</label>
-                                    <input class="form-control" name="code" placeholder="The code from your E-mail" type="email">
+                                    <input class="form-control" name="code" placeholder="The code from your E-mail" type="text">
                                 </div>
                             </div>
-                            <div class="row hidden" id="forgot_password2">
+                            <div class="row" id="forgot_password2" style="display: none;">
                                 <div class="col-md-12 m-b-20">
                                     <label for="">New Password</label>
-                                    <input class="form-control" name="newPassword" type="password" placeholder="Please enter 6 to 12 Numbers and letters of the password" />
+                                    <input class="form-control" name="newPassword" type="password" placeholder="Please enter 6 to 12 Numbers and letters of the password"  minlength="4" maxlength="20"/>
                                 </div>
                                 <div class="col-md-12 m-b-20">
                                     <label for="">Confirmation</label>
-                                    <input name="new_pwdAgain" class="form-control" type="password" minlength="6" maxlength="12">
+                                    <input name="new_pwdAgain" class="form-control" type="password">
                                 </div>
                             </div>
-                            <div role="tablist">
-                                <a href="javascript:(0);" class="btn-cons active signUpBtn" role="tab" data-toggle="tab">
+                            <div>
+                                <a href="javascript:(0);" class="btn-cons active signUpBtn" id="forgot_next_btn">
                                     Next
                                 </a>
-                                <a href="javascript:(0);" class="btn-cons active signUpBtn hidden" role="tab" data-toggle="tab">
+                                <a href="javascript:(0);" class="btn-cons active signUpBtn" id="forgot_submit_btn" style="display: none;">
                                     Submit
                                 </a>
                             </div>
