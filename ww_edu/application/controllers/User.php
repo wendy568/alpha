@@ -31,7 +31,7 @@ class User extends MY_Controller
 		$data['data'] = array();
 		$this->login->nic_name_isexists($nic_name, $response);
 	
-		encode_json($response,$data);
+		encode_json($response, $data);
 	}
 
 	public function username_isexists()
@@ -343,7 +343,7 @@ class User extends MY_Controller
 	public function send_mail()
 	{
 		$email = $this->input->get_post('email', TRUE);
-		$nic_name = $this->input->get_post('nic_name', TRUE);
+
 		$str = $this->encode($email);
 		$time = $this->encode(strtotime('+ 1 day'));
 		$file = file_get_contents(ALPHATEXT.'verify.html');
@@ -355,14 +355,14 @@ class User extends MY_Controller
 				'verify' => $time
 			);
 		$list = array(
-				'replaceName' => $nic_name,
+				'replaceName' => 'Dear',
 				'replaceUrl' => $const->alphatrader['base']['_pwd_site'].'?'.http_build_query($query)
 			);
 		array_walk($list, function ($item, $key) use (&$file){
 			$file = str_replace($key, $item, $file);
 		});
 
-		$this->request_post('http://alphacoin.co.uk/mail.php',array(
+		$this->request_post('http://88.80.188.124/mail.php',array(
 			'title' => $title,
 			'content' => $file,
 			'email' => $email,

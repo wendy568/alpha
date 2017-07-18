@@ -16,7 +16,6 @@ class Payment extends MY_Controller
 		$alipay_config['input_charset'] = strtolower('utf-8');
 		$alipay_config['cacert'] = getcwd().'/cacert.pem';
 
-
         //商户订单号，商户网站订单系统中唯一订单号，必填
 		$out_trade_no = $this->input->get_post('WIDout_trade_no', TRUE);
 		//订单名称，必填
