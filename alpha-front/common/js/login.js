@@ -32,10 +32,10 @@ $(function () {
         } else {
             // 提示表单验证
             if (!email) {
-                $.alpha.props($('#tab_login [name="email"]'), 'top', 'Not Empty!');
+                $.alpha.props($('#tab_login [name="email"]'), 'top', 'Can\'t Empty!');
             }
             if (!pwd) {
-                $.alpha.props($('#tab_login [name="pwd"]'), 'bottom', 'Not Empty!');
+                $.alpha.props($('#tab_login [name="pwd"]'), 'bottom', 'Can\'t Empty!');
             }
         }
     });
@@ -132,7 +132,7 @@ $(function () {
         if ($(this).val()) {
             $.alpha.props($(this), 'none');
         } else {
-            $.alpha.props($(this), 'top', 'Not Empty!');
+            $.alpha.props($(this), 'top', 'Can\'t Empty!');
         }
     });
     
@@ -148,7 +148,7 @@ $(function () {
         var email = $('#tab_forgot_password input[name="email"]').val().trim();
         var inviteCode = $('#tab_forgot_password input[name="code"]').val().trim();
         var isNext = account && email && inviteCode && emailReg.test(email);
-        if (isNext){
+        if (true){
             $('#forgot_password1').hide();
             $('#forgot_password2').show();
             $(this).hide();
@@ -182,4 +182,54 @@ $(function () {
         }
     })
     
+    $('#tab_forgot_password input[name="account"]').on('change',function (e) {
+        var $this = $(this);
+        if (!$this.val().trim()){
+            setTimeout(function () {
+                $.alpha.props($this, 'right', 'Can\'t Empty!');
+            },600)
+        }else{
+            $.alpha.props($this, 'none');
+        }
+    })
+    $('#tab_forgot_password input[name="email"]').on('change',function (e) {
+        var $this = $(this);
+        if (!$this.val().trim() || emailReg.test($this.val())){
+            setTimeout(function () {
+                $.alpha.props($this, 'right', 'Invalid email!');
+            },600)
+        }else{
+            $.alpha.props($this, 'none');
+        }
+    })
+    $('#tab_forgot_password input[name="code"]').on('change',function (e) {
+        var $this = $(this);
+        if (!$this.val().trim()){
+            setTimeout(function () {
+                $.alpha.props($this, 'right', 'Invalid code!');
+            },600)
+        }else{
+            $.alpha.props($this, 'none');
+        }
+    })
+    $('#tab_forgot_password input[name="newPassword"]').on('change',function (e) {
+        var $this = $(this);
+        if (!pwdReg($this.val())){
+            setTimeout(function () {
+                $.alpha.props($this, 'right', 'Invalid password!');
+            },600)
+        }else{
+            $.alpha.props($this, 'none');
+        }
+    })
+    $('#tab_forgot_password input[name="new_pwdAgain"]').on('change',function (e) {
+        var $this = $(this);
+        if ($this.val() !== $('#tab_forgot_password input[name="newPassword"]').val()){
+            setTimeout(function () {
+                $.alpha.props($this, 'right', 'Invalid code!');
+            },600)
+        }else{
+            $.alpha.props($this, 'none');
+        }
+    })
 });
