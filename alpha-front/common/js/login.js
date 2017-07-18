@@ -187,17 +187,17 @@ $(function () {
         if (!$this.val().trim()){
             setTimeout(function () {
                 $.alpha.props($this, 'right', 'Can\'t Empty!');
-            },600)
+            },400)
         }else{
             $.alpha.props($this, 'none');
         }
     })
     $('#tab_forgot_password input[name="email"]').on('change',function (e) {
         var $this = $(this);
-        if (!$this.val().trim() || emailReg.test($this.val())){
+        if (!$this.val().trim() || !emailReg.test($this.val().trim())){
             setTimeout(function () {
                 $.alpha.props($this, 'right', 'Invalid email!');
-            },600)
+            },400)
         }else{
             $.alpha.props($this, 'none');
         }
@@ -207,17 +207,18 @@ $(function () {
         if (!$this.val().trim()){
             setTimeout(function () {
                 $.alpha.props($this, 'right', 'Invalid code!');
-            },600)
+            },400)
         }else{
             $.alpha.props($this, 'none');
         }
     })
     $('#tab_forgot_password input[name="newPassword"]').on('change',function (e) {
         var $this = $(this);
-        if (!pwdReg($this.val())){
+        if (!pwdReg.test($this.val())){
             setTimeout(function () {
                 $.alpha.props($this, 'right', 'Invalid password!');
-            },600)
+                
+            },400)
         }else{
             $.alpha.props($this, 'none');
         }
@@ -226,8 +227,8 @@ $(function () {
         var $this = $(this);
         if ($this.val() !== $('#tab_forgot_password input[name="newPassword"]').val()){
             setTimeout(function () {
-                $.alpha.props($this, 'right', 'Invalid code!');
-            },600)
+                $.alpha.props($this, 'right', 'Different width password!');
+            },400)
         }else{
             $.alpha.props($this, 'none');
         }
