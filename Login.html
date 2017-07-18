@@ -25,7 +25,7 @@
                             <form class="animated fadeIn" id="form_id" name="">
                                 <div class="row">
                                     <div class="col-md-12 m-b-20">
-                                        <label for="">* Username(Email)</label>
+                                        <label for="">* Account</label>
                                         <input class="form-control" name="email" placeholder="zhangsan@qq.com" type="email">
                                     </div>
                                     <div class="col-md-12 m-b-20">
@@ -61,16 +61,16 @@
                                                 </a>
                                             </li>
                                             <li data-target="#step2" class="">
-                                                <a href="#tab2" data-toggle="tab">
+                                                <!-- <a href="#tab2" data-toggle="tab"> -->
                                                     <span class="step">2</span> 
                                                     <span class="title">Information</span> 
-                                                </a>
+                                                <!-- </a> -->
                                             </li>
                                             <li data-target="#step3" class="">
-                                                <a href="#tab3" data-toggle="tab">
+                                                <!-- <a href="#tab3" data-toggle="tab"> -->
                                                     <span class="step">3</span> 
                                                     <span class="title">MT4</span>
-                                                </a>
+                                                <!-- </a> -->
                                             </li>
                                         </ul>
                                         <div class="clearfix"></div>
@@ -135,13 +135,13 @@
                                                 <div class="col-md-12">
                                                     <label for="">* E-mail</label>
                                                     <input name="email" class="form-control m-b-5" placeholder="zhangsan@qq.com" type="email">
-                                                    <button type="button" class="btn btn-success btm-cons pull-right">SendCode</button>
+                                                    <a href="" class="pull-right">Send Code</a>
                                                 </div>
                                             </div>
                                             <div class="row m-b-20">
                                                 <div class="col-md-12">
                                                     <label for="">* VerificationCode</label>
-                                                    <input name="code" class="form-control" placeholder="" type="text">
+                                                    <input name="emailCode" class="form-control" placeholder="" type="text">
                                                 </div>
                                             </div>
                                         </div>
@@ -149,30 +149,38 @@
                                             <div  class="row m-b-20">
                                                 <div class="col-md-12">
                                                     <label for="">MT4Account</label>
-                                                    <input class="form-control" name="birth" placeholder="" type="text">
+                                                    <input class="form-control" name="mt4Account" placeholder="" type="text">
                                                 </div>
                                             </div>
                                             <div  class="row m-b-20">
                                                 <label for="" class="inlineblock m-r-10">MT4Group</label>
                                                 <div class="radio radio-success inlineblock">
-                                                    <input id="main" name="group" type="radio" value="0">
+                                                    <input id="main" name="mt4Group" type="radio" value="0">
                                                     <label for="main">Main</label>
-                                                    <input id="secondary" name="group" type="radio" value="1">
+                                                    <input id="secondary" name="mt4Group" type="radio" value="1">
                                                     <label for="secondary">Secondary</label>
                                                 </div>
                                             </div>
                                             <div  class="row m-b-20">
                                                 <div class="col-md-12">
                                                     <label for="">MT4Server</label>
-                                                    <input class="form-control" name="birth" placeholder="" type="text">
+                                                    <input class="form-control" name="mt4Server" placeholder="" type="text">
                                                 </div>
                                             </div>
                                         </div>
                                         <ul class="wizard wizard-actions">
-                                            <li class="next m-l-5"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Next&nbsp;&nbsp;</a></li>
-                                            <li class="next last m-l-5" style="display:none;"><a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Last&nbsp;&nbsp;</a></li>
-                                            <li class="previous m-l-5"><a href="javascript:;" class="btn">&nbsp;&nbsp;Previous&nbsp;&nbsp;</a></li>
-                                            <li class="previous first m-l-5" style="display:none;"><a href="javascript:;" class="btn">&nbsp;&nbsp;First&nbsp;&nbsp;</a></li>
+                                            <li class="next m-l-5">
+                                                <a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Next&nbsp;&nbsp;</a>
+                                            </li>
+                                           <!--  <li class="next last m-l-5" style="display:none;">
+                                                <a href="javascript:;" class="btn btn-primary">&nbsp;&nbsp;Last&nbsp;&nbsp;</a>
+                                            </li> -->
+                                            <li class="previous m-l-5 hide">
+                                                <a href="javascript:;" class="btn">&nbsp;&nbsp;Previous&nbsp;&nbsp;</a>
+                                            </li>
+                                           <!--  <li class="previous first m-l-5" style="display:none;">
+                                                <a href="javascript:;" class="btn">&nbsp;&nbsp;First&nbsp;&nbsp;</a>
+                                            </li> -->
                                         </ul>
                                         <a id="btn-register" href="javascript:;" class="btn-cons active signUpBtn hide" role="tab" data-toggle="tab">
                                             <span>Register</span><i class="fa fa-long-arrow-right m-l-5"></i>
