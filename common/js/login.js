@@ -17,6 +17,7 @@ $(function () {
             email: email,
             password: pwd
         };
+        $('#tab_login .text-danger').html('');
         if (email && pwd && emailReg.test(email) && pwdReg.test(pwd)) {
             $.alpha.request_Url('POST', 'user/login', data, function (res) {
                 if (res.archive.status == 0) {
@@ -24,7 +25,7 @@ $(function () {
                     window.location.href = 'index.html';
                 } else if (res.archive.status == 101) {
                     // 弹出框提示用户名或密码错误
-                    $.alpha.alertBox('Error', 'Invalid Account or Password !', 'javascript:(0);');
+                    $('#tab_login .text-danger').html('Invalid Account or Password !');
                 } else {
                     // 登录失败提示
                     $.alpha.alertBox('Fail', 'Login Failed!', 'javascript:(0);');
