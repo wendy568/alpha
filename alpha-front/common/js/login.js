@@ -24,10 +24,10 @@ $(function () {
                     window.location.href = 'index.html';
                 } else if (res.archive.status == 101) {
                     // 弹出框提示用户名或密码错误
-                    $.alpha.alertBox('Error', 'Invalid Account or Password !', '#');
+                    $.alpha.alertBox('Error', 'Invalid Account or Password !', 'javascript:(0);');
                 } else {
                     // 登录失败提示
-                    $.alpha.alertBox('Fail', 'Login Failed!', '#');
+                    $.alpha.alertBox('Fail', 'Login Failed!', 'javascript:(0);');
                 }
             });
         } else {
