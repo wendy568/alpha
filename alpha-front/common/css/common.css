@@ -10110,7 +10110,7 @@ url("chrome://browser/content/history/history-panel.xul")
 .wizard-steps li {
   display: block;
   float: left;
-  width: 93px;
+  width: 106px;
   padding-left: 0;
 }
 .wizard-steps li:before {
