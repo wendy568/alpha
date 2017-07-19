@@ -273,7 +273,6 @@ $(function () {
         if (!pwdReg.test($this.val())){
             setTimeout(function () {
                 $.alpha.props($this, 'right', 'Invalid password!');
-                
             },400)
         }else{
             $.alpha.props($this, 'none');
