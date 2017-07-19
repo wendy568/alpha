@@ -150,8 +150,36 @@ $(function () {
     });
 
     $('.next').click(function(){
-        if($('.wizard-steps').find('li.active').index() == 0){
-            $('.wizard-steps').find('li.active').removeClass('active');
+        var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
+        console.log(nextIndex);
+        if(nextIndex < 3){
+            $('.wizard-steps').find('li').eq(nextIndex).addClass('active');
+            $('#tab_register').find('.tab-pane').eq(nextIndex-1).removeClass('active');
+            $('#tab_register').find('.tab-pane').eq(nextIndex).addClass('active');
+        }
+        if(nextIndex == 1){
+            $('.previous').removeClass('hide');
+        }
+        if(nextIndex == 2){
+            $('.next').addClass('hide');
+            $('#btn-register').removeClass('hide');
+        }
+    });
+    $('.previous').click(function(){
+        var preIndex = parseInt($('.wizard-steps').find('li.active').length);
+        console.log(preIndex);
+        if(preIndex > 1){
+            $('.wizard-steps').find('li').eq(preIndex - 1).removeClass('active');
+            $('#tab_register').find('.tab-pane').eq(preIndex - 1).removeClass('active');
+            $('#tab_register').find('.tab-pane').eq(preIndex - 2).addClass('active');
+        }
+        if(preIndex == 2){
+            $('.previous').addClass('hide');
+        }
+        if(preIndex == 3){
+            $('#btn-register').addClass('hide');
+            $('.previous').removeClass('hide');
+            $('.next').removeClass('hide');
         }
     });
     
@@ -244,7 +272,7 @@ $(function () {
                 $.alpha.props($this, 'right', 'Different width password!');
             },400)
         }else{
-            $.alpha.props($this, 'none');
+            $.alpha.props($this, 'none');   
         }
     })
 });

@@ -9769,8 +9769,11 @@ s3.active,.s3:hover a,
   color:#0aa699;
 }
 #btn-register.signUpBtn{
-  border: 1px solid #0090d9;
-  color:#0090d9;
+    border: 1px solid #0090d9;
+    color:#0090d9;
+    float: right;
+    border-radius: 8px;
+    width: 100px;
 }
 #btn-login.signUpBtn:hover{
   color:#fff;
