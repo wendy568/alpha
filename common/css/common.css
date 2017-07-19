@@ -3474,10 +3474,9 @@ form legend,
   margin-bottom: -10px !important;
 }
 .tab-content {
-  overflow: auto;
-  position: relative;
-  z-index: 10;
-  overflow: hidden;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
 }
 .tab-content.transparent {
   background-color: transparent;
@@ -10098,7 +10097,9 @@ url("chrome://browser/content/history/history-panel.xul")
     top: calc(100% - 20px);
 }
 
-// 注册
+/*------------------------ 注册 ----------------------------------*/
+
+
 .wizard-steps {
   display: block;
   list-style: none outside none;
@@ -10200,4 +10201,12 @@ url("chrome://browser/content/history/history-panel.xul")
 .wizard-actions li {
   display: inline;
   float: right;
+}
+
+.check{
+    position: absolute;
+    left: calc(100% - 20px);
+    top: 50%;
+    font-size: 16px;
+    z-index: 10;
 }
