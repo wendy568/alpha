@@ -10,6 +10,7 @@
         <link href="assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css" />
         <link href="common/css/common.css" rel="stylesheet" type="text/css" />
     </head>
 
@@ -38,7 +39,6 @@
                                     <a id="btn-login" href="javascript:;" class="btn-cons active signUpBtn" role="tab" data-toggle="tab">
                                         <span>Sign In</span><i class="fa fa-long-arrow-right m-l-5"></i>
                                     </a>
-                                    <!-- <a class="text-c3 forgot">Forgot password?</a> -->
                                     <a href="#tab_register" class="text-info signUpTab text-right" role="tab" data-toggle="tab">
                                         <span>Want to join us?</span> Register
                                     </a>
@@ -56,22 +56,16 @@
                                     <div class="form-wizard-steps m-b-40">
                                         <ul class="wizard-steps">
                                             <li class="active" data-target="#step1">
-                                                <a href="#tab1" data-toggle="tab">
-                                                    <span class="step">1</span> 
-                                                    <span class="title">Account</span> 
-                                                </a>
+                                                <span class="step">1</span> 
+                                                <span class="title">Account</span> 
                                             </li>
                                             <li data-target="#step2" class="">
-                                                <!-- <a href="#tab2" data-toggle="tab"> -->
-                                                    <span class="step">2</span> 
-                                                    <span class="title">Information</span> 
-                                                <!-- </a> -->
+                                                <span class="step">2</span> 
+                                                <span class="title">Information</span> 
                                             </li>
                                             <li data-target="#step3" class="">
-                                                <!-- <a href="#tab3" data-toggle="tab"> -->
-                                                    <span class="step">3</span> 
-                                                    <span class="title">MT4</span>
-                                                <!-- </a> -->
+                                                <span class="step">3</span> 
+                                                <span class="title">MT4</span>
                                             </li>
                                         </ul>
                                         <div class="clearfix"></div>
@@ -82,25 +76,25 @@
                                             <div class="row no-margin m-b-20">
                                                 <div class="col-md-12">
                                                     <label for="">* Account</label>
-                                                    <input name="account" class="form-control" placeholder="Please enter 4-20 characters" type="text" minlength="6" maxlength="12">
+                                                    <input name="account" class="form-control" placeholder="Only 4 to 20 words and numbers" type="text" minlength="4" maxlength="20">
                                                 </div>
                                             </div>
                                             <div class="row no-margin m-b-20">
                                                 <div class="col-md-12">
                                                     <label for="">* Password</label>
-                                                    <input name="pwd" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" minlength="6" maxlength="12">
+                                                    <input name="pwd" class="form-control" placeholder="Required Fields" type="password" minlength="4" maxlength="20">
                                                 </div>
                                             </div>
                                             <div class="row no-margin m-b-20">
                                                 <div class="col-md-12">
                                                     <label for="">* ConfirmPassword</label>
-                                                    <input name="pwdAgain" class="form-control" placeholder="Please enter 6 to 12 Numbers and letters of the password" type="password" minlength="6" maxlength="12">
+                                                    <input name="pwdAgain" class="form-control" placeholder="Must Typethe Same Password" type="password" minlength="4" maxlength="20">
                                                 </div>
                                             </div>
                                             <div class="row no-margin m-b-20">
                                                 <div class="col-md-12">
                                                     <label for="">* Invite Code</label>
-                                                    <input class="form-control" id="login_pass" name="inviteCode" placeholder="2E334G" type="text">
+                                                    <input class="form-control" id="login_pass" name="inviteCode" placeholder="Required Fields" type="text">
                                                 </div>
                                             </div>
                                         </div>
@@ -108,19 +102,19 @@
                                             <div  class="row no-margin m-b-10">
                                                 <div class="col-md-12">
                                                     <label for="">First name</label>
-                                                    <input class="form-control" name="firstName" placeholder="Marry" type="text" >
+                                                    <input class="form-control" name="firstName" placeholder="Only 4 to 20 Characters" type="text" minlength="4" maxlength="20">
                                                 </div>
                                             </div>
                                             <div  class="row no-margin m-b-10">
                                                 <div class="col-md-12">
                                                     <label for="">Last name</label>
-                                                    <input class="form-control" name="lastName" placeholder="joy" type="text">
+                                                    <input class="form-control" name="lastName" placeholder="Only 4 to 20 Characters" type="text" minlength="4" maxlength="20">
                                                 </div>
                                             </div>
                                             <div  class="row no-margin m-b-10">
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 input-append date">
                                                     <label for="">DateofBirth</label>
-                                                    <input class="form-control" name="birth" placeholder="" type="text">
+                                                    <input class="form-control birthDate"  name="birth" placeholder="" type="text">
                                                 </div>
                                             </div>
                                             <div  class="row no-margin m-b-10">
@@ -135,14 +129,14 @@
                                             <div class="row no-margin m-b-10">
                                                 <div class="col-md-12">
                                                     <label for="">* E-mail</label>
-                                                    <input name="email" class="form-control m-b-5" placeholder="zhangsan@qq.com" type="email">
+                                                    <input name="email" class="form-control m-b-5" placeholder="Required Fields" type="email">
                                                     <a href="" class="pull-right">Send Code</a>
                                                 </div>
                                             </div>
                                             <div class="row no-margin  m-b-20">
                                                 <div class="col-md-12">
                                                     <label for="">* VerificationCode</label>
-                                                    <input name="emailCode" class="form-control" placeholder="" type="text">
+                                                    <input name="emailCode" class="form-control" placeholder="Required Fields" type="text">
                                                 </div>
                                             </div>
                                         </div>
@@ -243,6 +237,7 @@
         <script src="assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
         <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="assets/plugins/jq-tooltips/jquery.poshytip.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
         <script src="common/js/common.js" type="text/javascript"></script>
         <script src="common/js/login.js" type="text/javascript"></script>
     </body>
