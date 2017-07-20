@@ -12,14 +12,14 @@ $(function () {
         var event = e || window.event;
         event.stopPropagation();
         sessionStorage.setItem('alpha_token', '');
-        var email = $('#tab_login [name="email"]').val();
+        var account = $('#tab_login [name="account"]').val();
         var pwd = $('#tab_login [name="pwd"]').val();
         var data = {
-            email: email,
+            email: account,
             password: pwd
         };
         $('#tab_login .text-danger').html('');
-        if (email && pwd && emailReg.test(email) && pwdReg.test(pwd)) {
+        if (email && pwd && accountReg.test(account) && pwdReg.test(pwd)) {
             $.alpha.request_Url('POST', 'user/login', data, function (res) {
                 if (res.archive.status == 0) {
                     sessionStorage.setItem('alpha_token', res.data.token);
@@ -34,8 +34,8 @@ $(function () {
             });
         } else {
             // 提示表单验证
-            if (!email) {
-                $.alpha.props($('#tab_login [name="email"]'), 'top', 'Can\'t Empty!');
+            if (!account) {
+                $.alpha.props($('#tab_login [name="account"]'), 'top', 'Can\'t Empty!');
             }
             if (!pwd) {
                 $.alpha.props($('#tab_login [name="pwd"]'), 'bottom', 'Can\'t Empty!');
@@ -43,11 +43,11 @@ $(function () {
         }
     });
     
-    $('#tab_login [name="email"]').change(function () {
-        if (emailReg.test($(this).val())) {
+    $('#tab_login [name="account"]').change(function () {
+        if (accountReg.test($(this).val())) {
             $.alpha.props($(this), 'none');
         } else {
-            $.alpha.props($(this), 'top', 'Invalid Email!');
+            $.alpha.props($(this), 'top', 'Invalid Account!');
         }
     });
     $('#tab_login [name="pwd"]').change(function () {
