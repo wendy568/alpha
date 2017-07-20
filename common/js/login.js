@@ -4,8 +4,9 @@
 $(function () {
     var emailReg = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     var pwdReg = /^[A-Za-z0-9]{4,20}$/;
-    var accountReg = /^[A-Za-z0-9]{4,20}$/;
-    
+    var accountReg = /^(?![0-9]+$)[A-Za-z0-9]{4,20}$/;
+    var NameReg = /^[A-Za-z]{2,30}$/;
+
     // Login
     $('#btn-login').click(function (e) {
         var event = e || window.event;
@@ -62,6 +63,8 @@ $(function () {
         }
     });
     
+
+
     // Register
     $('#btn-register').click(function (e) {
         var event = e || window.event;
@@ -116,6 +119,21 @@ $(function () {
         }
         
     });
+    
+    var account = $('#tab_register [name="account"]').val().trim(),
+            pwd = $('#tab_register [name="pwd"]').val().trim(),
+            pwdAgain = $('#tab_register [name="pwd"]').val().trim(),
+            inviteCode = $('#tab_register [name="inviteCode"]').val().trim();
+            firstName = $('#tab_register [name="firstName"]').val().trim(),
+            lastName = $('#tab_register [name="lastName"]').val().trim(),
+            birth = $('#tab_register [name="birth"]').val().trim(),
+            sex = $('#tab_register [name="sex"]').val().trim(),
+            email = $('#tab_register [name="email"]').val().trim(),
+            emailCode = $('#tab_register [name="emailCode"]').val().trim(),
+            mt4Account = $('#tab_register [name="mt4Account"]').val().trim(),
+            mt4Group = $('#tab_register [name="mt4Group"]').val().trim(),
+            mt4Server = $('#tab_register [name="mt4Server"]').val().trim();
+    // 选择日期
     $('.birthDate').datepicker({
             language: "zh-CN",
             autoclose: true,//选中之后自动隐藏日期选择框
@@ -233,26 +251,28 @@ $(function () {
         }
     });
     $('#tab_register input[name="mt4Account"]').on('change',function (e) {
-        
     });
     $('#tab_register,#tab_login,#tab_forgot_password').on('show.bs.tab', function (e) {
         var event = e || window.event;
         $.alpha.props($('input'), 'none');
     });
     $('.next').click(function(){
-        var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
-        if(nextIndex < 3){
-            $('.wizard-steps').find('li').eq(nextIndex).addClass('active');
-            $('#tab_register').find('.tab-pane').eq(nextIndex-1).removeClass('active');
-            $('#tab_register').find('.tab-pane').eq(nextIndex).addClass('active');
-        }
-        if(nextIndex == 1){
-            $('.previous').removeClass('hide');
-        }
-        if(nextIndex == 2){
-            $('.next').addClass('hide');
-            $('#btn-register').removeClass('hide');
-        }
+        // if(account && pwd && pwdAgain && inviteCode && sex && email && emailCode){
+            var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
+            if(nextIndex < 3){
+                $('.wizard-steps').find('li').eq(nextIndex).addClass('active');
+                $('#tab_register').find('.tab-pane').eq(nextIndex-1).removeClass('active');
+                $('#tab_register').find('.tab-pane').eq(nextIndex).addClass('active');
+            }
+            if(nextIndex == 1){
+                $('.previous').removeClass('hide');
+            }
+            if(nextIndex == 2){
+                $('.next').addClass('hide');
+                $('#btn-register').removeClass('hide');
+            }
+        // }
+
     });
     $('.previous').click(function(){
         var preIndex = parseInt($('.wizard-steps').find('li.active').length);
