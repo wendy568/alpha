@@ -119,20 +119,7 @@ $(function () {
         }
         
     });
-    
-    var account = $('#tab_register [name="account"]').val().trim(),
-            pwd = $('#tab_register [name="pwd"]').val().trim(),
-            pwdAgain = $('#tab_register [name="pwd"]').val().trim(),
-            inviteCode = $('#tab_register [name="inviteCode"]').val().trim();
-            firstName = $('#tab_register [name="firstName"]').val().trim(),
-            lastName = $('#tab_register [name="lastName"]').val().trim(),
-            birth = $('#tab_register [name="birth"]').val().trim(),
-            sex = $('#tab_register [name="sex"]').val().trim(),
-            email = $('#tab_register [name="email"]').val().trim(),
-            emailCode = $('#tab_register [name="emailCode"]').val().trim(),
-            mt4Account = $('#tab_register [name="mt4Account"]').val().trim(),
-            mt4Group = $('#tab_register [name="mt4Group"]').val().trim(),
-            mt4Server = $('#tab_register [name="mt4Server"]').val().trim();
+
     // 选择日期
     $('.birthDate').datepicker({
             language: "zh-CN",
@@ -257,7 +244,21 @@ $(function () {
         $.alpha.props($('input'), 'none');
     });
     $('.next').click(function(){
-        // if(account && pwd && pwdAgain && inviteCode && sex && email && emailCode){
+        var account = $('#tab_register [name="account"]').val().trim(),
+            pwd = $('#tab_register [name="pwd"]').val().trim(),
+            pwdAgain = $('#tab_register [name="pwdAgain"]').val().trim(),
+            inviteCode = $('#tab_register [name="inviteCode"]').val().trim();
+            firstName = $('#tab_register [name="firstName"]').val().trim(),
+            lastName = $('#tab_register [name="lastName"]').val().trim(),
+            birth = $('#tab_register [name="birth"]').val().trim(),
+            sex = $('#tab_register [name="sex"]').val().trim(),
+            email = $('#tab_register [name="email"]').val().trim(),
+            emailCode = $('#tab_register [name="emailCode"]').val().trim(),
+            mt4Account = $('#tab_register [name="mt4Account"]').val().trim(),
+            mt4Group = $('#tab_register [name="mt4Group"]').val().trim(),
+            mt4Server = $('#tab_register [name="mt4Server"]').val().trim();
+            
+        if((accountReg.test(account) && pwdReg.test(pwd) && pwdAgain === pwd && inviteCode) || (sex && emailReg.test(email) && emailCode)){
             var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
             if(nextIndex < 3){
                 $('.wizard-steps').find('li').eq(nextIndex).addClass('active');
@@ -271,7 +272,7 @@ $(function () {
                 $('.next').addClass('hide');
                 $('#btn-register').removeClass('hide');
             }
-        // }
+        }
 
     });
     $('.previous').click(function(){
