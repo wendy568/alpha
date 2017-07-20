@@ -363,7 +363,7 @@ class User extends MY_Controller
 			$file = str_replace($key, $item, $file);
 		});
 
-		$this->request_post('http://88.80.188.124/mail.php',array(
+		$this->request_post('http://178.79.147.52/mail.php',array(
 			'title' => $title,
 			'content' => $file,
 			'email' => $email,
