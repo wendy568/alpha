@@ -19,7 +19,7 @@ $(function () {
             password: pwd
         };
         $('#tab_login .text-danger').html('');
-        if (email && pwd && accountReg.test(account) && pwdReg.test(pwd)) {
+        if (account && pwd && accountReg.test(account) && pwdReg.test(pwd)) {
             $.alpha.request_Url('POST', 'user/login', data, function (res) {
                 if (res.archive.status == 0) {
                     sessionStorage.setItem('alpha_token', res.data.token);
