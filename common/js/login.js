@@ -19,7 +19,7 @@ $(function () {
             password: pwd
         };
         $('#tab_login .text-danger').html('');
-        if (account && pwd && accountReg.test(account) && pwdReg.test(pwd)) {
+        if (account && pwd && (accountReg.test(account) || emailReg.test(account)) && pwdReg.test(pwd)) {
             $.alpha.request_Url('POST', 'user/login', data, function (res) {
                 if (res.archive.status == 0) {
                     sessionStorage.setItem('alpha_token', res.data.token);
@@ -44,7 +44,7 @@ $(function () {
     });
     
     $('#tab_login [name="account"]').change(function () {
-        if (accountReg.test($(this).val())) {
+        if (accountReg.test($(this).val()) || emailReg.test($(this).val())) {
             $.alpha.props($(this), 'none');
         } else {
             $.alpha.props($(this), 'top', 'Invalid Account!');
