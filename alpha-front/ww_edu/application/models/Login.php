@@ -121,7 +121,7 @@ class Login extends CI_Model
 		return isset($result)?$result['mem_id']:NULL;
 	}
 
-	function nic_name_isexists($nic_name, &$response) 
+	function nic_name_isexists($nic_name) 
 	{
 		$map = 'SELECT id 
 				FROM member 
@@ -145,7 +145,7 @@ class Login extends CI_Model
 		return $result['id'] ? TRUE : FALSE;
 	}
 
-	function username_isexists($username, &$response) 
+	function username_isexists($username) 
 	{
 		$map = 'SELECT id 
 				FROM member 
