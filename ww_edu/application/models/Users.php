@@ -17,7 +17,7 @@ class Users extends CI_Model
 
     	if (isset($result)) {
 
-    		time() - $result > 120;
+    		time() - $result > 300;
 
     		header("Content-type: application/json");
 			set_status_header(405);
