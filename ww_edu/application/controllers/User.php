@@ -62,6 +62,7 @@ class User extends MY_Controller
 		$code = $this->input->get_post('code', TRUE);
 		
 		$this->load->helper('json');
+		$this->load->model('users');
 		$this->users->authorization($email, $code);
 
 		$response = array('archive' => array('status' => 0,'message' =>''));
