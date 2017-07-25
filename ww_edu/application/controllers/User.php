@@ -75,7 +75,7 @@ class User extends MY_Controller
 		$code = $this->input->get_post('code', TRUE);
 
 		$this->authorization($email, $code);
-		
+		die;
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('login');
