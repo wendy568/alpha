@@ -346,7 +346,7 @@ class User extends MY_Controller
 		$email = $this->input->get_post('email', TRUE);
 		$username = $this->input->get_post('username', TRUE);
 
-		$code = (mt_rand(100000,999999));
+		$code = substr(mt_rand(100000, 999999), 0, 3);
 		echo $code; die;
 		$file = file_get_contents(ALPHATEXT.'verify.html');
 		$title = 'Alpha-Trader Authentication';
