@@ -155,7 +155,7 @@ class Users extends CI_Model
 				WHERE email="'.$email.'"';
 		
 		$result = $this->db->query($map)->row_array()['code'];
-		
+		var_dump($result);
 		if (isset($result)) {
 
 			$result = [];
