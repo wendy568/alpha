@@ -13,7 +13,7 @@ class Login extends CI_Model
 	// 	if ($pos === false) {
 			$map = 'SELECT id 
 				FROM member 
-				WHERE nic_name="'.$nic_name.'"';
+				WHERE email="'.$account.'"';
 		
 		$query = $this->db->query($map);
 		$result = $query->row_array();
