@@ -66,6 +66,7 @@ $(function () {
 
 
     // Register
+    var isEmailCode = false;
     $('#btn-register').click(function (e) {
         var event = e || window.event;
         event.stopPropagation();
@@ -89,7 +90,11 @@ $(function () {
             last_name: lastName,
             email: email,
             password: pwd,
-            invite_code: inviteCode
+            invite_code: inviteCode,
+            birthdate:new Date(parseInt(birth)).format('yyyy-MM-dd'),
+            sex:sex,
+            code:emailCode,
+            username:account
         };
         
         if (firstName && email && pwd && emailReg.test(email) && pwdReg.test(pwd)) {
@@ -224,18 +229,37 @@ $(function () {
             setChecked($this);
         }
     });
-    $('#tab_register input[name="emailCode"]').on('change',function (e) {
-        if (!$this.val().trim()){
-            setTimeout(function () {
-                // to request
-                $this.parent().append($('<span class="fa fa-close check text-danger"></span>'));
-                isCode = false;
-            },400)
-        }else{
-            $.alpha.props($this, 'none');
-            setChecked($this);
-            isCode = true;
+    $('#tab_register .send-code').click(function (e) {
+        var email = $('#tab_register input[name="email"]').val().trim();
+        var data = {
+            email:email,
+            username:$('#tab_register input[name="account"]').val().trim()
+        };
+        if (emailReg.test(email)){
+            $.alpha.request_Url('POST', 'user/send_mail', data);
         }
+    })
+    $('#tab_register input[name="emailCode"]').on('change',function (e) {
+        var $this = $(this);
+        $this.parent().find('.check').remove();
+        var code = $this.val().trim();
+        var data = {
+            email: $('#tab_register input[name="email"]').val().trim(),
+            code: code
+        };
+
+        // todo request 
+        setTimeout(function () {
+            $.alpha.request_Url('POST', 'user/authentication', data, function(res){
+                if(res.archive.status == 405 || !code){
+                    $this.parent().append($('<span class="fa fa-close check text-danger"></span>'));
+                    isEmailCode = false;
+                }else if(res.archive.status == 0){
+                    setChecked($this);
+                    isEmailCode = true;
+                }
+            });
+        },400)
     });
     $('#tab_register input[name="mt4Account"]').on('change',function (e) {
     });
@@ -258,7 +282,7 @@ $(function () {
             mt4Group = $('#tab_register [name="mt4Group"]').val().trim(),
             mt4Server = $('#tab_register [name="mt4Server"]').val().trim();
             
-        if((accountReg.test(account) && pwdReg.test(pwd) && pwdAgain === pwd && inviteCode) || (sex && emailReg.test(email) && emailCode)){
+        if((accountReg.test(account) && pwdReg.test(pwd) && pwdAgain === pwd && inviteCode) || (sex && emailReg.test(email) && isEmailCode)){
             var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
             if(nextIndex < 3){
                 $('.wizard-steps').find('li').eq(nextIndex).addClass('active');
@@ -300,7 +324,7 @@ $(function () {
         var email = $('#tab_forgot_password input[name="email"]').val().trim();
         var inviteCode = $('#tab_forgot_password input[name="code"]').val().trim();
         var isNext = accountReg.test(account) && emailReg.test(email) && isCode;
-        if (true){
+        if (isNext){
             $('#forgot_password1').hide();
             $('#forgot_password2').show();
             $(this).hide();
@@ -329,10 +353,14 @@ $(function () {
         }
     })
     
-    $('.send-code').click(function (e) {
+    $('#tab_forgot_password .send-code').click(function (e) {
         var email = $('#tab_forgot_password input[name="email"]').val().trim();
+        var data = {
+            email:email,
+            username:$('#tab_forgot_password input[name="account"]').val().trim()
+        };
         if (emailReg.test(email)){
-        
+            $.alpha.request_Url('POST', 'user/send_mail', data);
         }
     })
     
@@ -363,17 +391,24 @@ $(function () {
     $('#tab_forgot_password input[name="code"]').on('change',function (e) {
         var $this = $(this);
         $this.parent().find('.check').remove();
-        if (!$this.val().trim()){
-            setTimeout(function () {
-                // to request
-                $this.parent().append($('<span class="fa fa-close check text-danger"></span>'));
-                isCode = false;
-            },400)
-        }else{
-            $.alpha.props($this, 'none');
-            setChecked($this);
-            isCode = true;
-        }
+        var code = $this.val().trim();
+        var data = {
+            email: $('#tab_forgot_password input[name="email"]').val().trim(),
+            code: code
+        };
+
+        // todo request 
+        setTimeout(function () {
+            $.alpha.request_Url('POST', 'user/authentication', data, function(res){
+                if(res.archive.status == 405 || !code){
+                    $this.parent().append($('<span class="fa fa-close check text-danger"></span>'));
+                    isCode = false;
+                }else if(res.archive.status == 0){
+                    setChecked($this);
+                    isCode = true;
+                }
+            });
+        },400)
     })
     $('#tab_forgot_password input[name="newPassword"]').on('change',function (e) {
         var $this = $(this);
@@ -398,6 +433,14 @@ $(function () {
             $.alpha.props($this, 'none');   
             setChecked($this);
         }
+    })
+    $('#forgot_submit_btn').click(function(e){
+        var data = {
+            email: $('#tab_forgot_password input[name="email"]').val().trim(),
+            account: $('#tab_forgot_password input[name="account"]').val().trim(),
+            password: $('#tab_forgot_password input[name="newPassword"]').val().trim()
+        };
+        $.alpha.request_Url('POST', 'user/authentication', data, function(res){});
     })
 
     function setChecked(obj){
