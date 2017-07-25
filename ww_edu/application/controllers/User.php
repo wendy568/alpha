@@ -54,14 +54,20 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function authorization($email, $code)
+	public function authentication()
 	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$email = $this->input->get_post('email', TRUE);
+		$code = $this->input->get_post('code', TRUE);
+		
+		$this->load->helper('json');
+		$this->users->authorization($email, $code);
 
-		$this->load->database();
-		$this->load->model('users');
-			
-		return $this->users->authorization($email, $code);
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data']['authorization'] = 1; 
 
+		encode_json($response,$data);
 	}
 
 	public function register()
@@ -75,9 +81,6 @@ class User extends MY_Controller
 		$birthdate = $this->input->get_post('birthdate', TRUE);
 		$sex = $this->input->get_post('sex', TRUE);
 		$password = $this->input->get_post('password', TRUE);
-		$code = $this->input->get_post('code', TRUE);
-
-		$this->authorization($email, $code);
 
 		$this->load->database();
 		$this->load->helper('json');
