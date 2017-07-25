@@ -14,7 +14,7 @@ class Users extends CI_Model
     			WHERE email="'.$email.'" AND code='.$code;
     	
     	$result = $this->db->query($map)->row_array()['time'];
-
+    	var_dump($result);
     	if (isset($result)) {
 
     		if (time() - $result > 300) {
