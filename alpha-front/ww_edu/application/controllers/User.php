@@ -123,7 +123,7 @@ class User extends MY_Controller
 
 		$this->list_show->set_limit($pages, $start, $limit, $page_nums_per);
 		$users = $this->users->user_list($user_type, $start, $limit, $count);
-		
+
 		$get_pagination = $this->list_show->set_array($users, $pages, $page_nums_per)->property('set_pages')->get_property();
 		if ($get_pagination !== false) {
 			$data['data'] = $get_pagination;
@@ -344,20 +344,18 @@ class User extends MY_Controller
 	public function send_mail()
 	{
 		$email = $this->input->get_post('email', TRUE);
+		$username = $this->input->get_post('username', TRUE);
 
-		$str = $this->encode($email);
-		$time = $this->encode(strtotime('+ 1 day'));
+		$code = substr(mt_rand(100000,999999), 0, 3);
+		echo $code; die;
 		$file = file_get_contents(ALPHATEXT.'verify.html');
-		$title = 'AlphaTrader 邮箱验证消息';
+		$title = 'Alpha-Trader Authentication';
 		$this->load->helper('constants');
 		$const = constants::build();
-		$query = array(
-				'referer' => $str,
-				'verify' => $time
-			);
+
 		$list = array(
-				'replaceName' => 'Dear',
-				'replaceUrl' => $const->alphatrader['base']['_pwd_site'].'?'.http_build_query($query)
+				'replaceName' => $username,
+				'replaceUrl' => $code
 			);
 		array_walk($list, function ($item, $key) use (&$file){
 			$file = str_replace($key, $item, $file);
