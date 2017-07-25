@@ -150,39 +150,14 @@ class Users extends CI_Model
 
 	function add_authentication_code($email, $code)
 	{
-		$a = 0;
-		$b = '';
-		$c = -1;
-		$d = [];
-
-		if($a) {
-		 echo 'true' . "\n";
-		} else {
-			echo 'false' . "\n";
-		}
-		if($b) {
-		 echo 'true' . "\n";
-		} else {
-			echo 'false' . "\n";
-		}
-		if($c) {
-		 echo 'true' . "\n";
-		} else {
-			echo 'false' . "\n";
-		}
-		if($d) {
-		 echo 'true' . "\n";
-		} else {
-			echo 'false' . "\n";
-		}
 		$map = 'SELECT code  
 				FROM authentication_code
 				WHERE email="'.$email.'"';
 		
 		$result = $this->db->query($map)->row_array()['code'];
-		var_dump($result);
+
 		if (isset($result)) {
-			echo 123;
+
 			$map = 'UPDATE authentication_code 
 					SET code="'.$code.'"	
 					WHERE email="'.$email.'"';
@@ -191,7 +166,7 @@ class Users extends CI_Model
 			$result = $this->db->affected_rows();
 
 		} else {
-			echo 456;
+
 			$map = 'INSERT authentication_code(email,code) VALUES("'.$email.'","'.$code.'")';	
 			$this->db->query($map);
 		    $result = $this->db->insert_id();
