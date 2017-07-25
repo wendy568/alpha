@@ -21,13 +21,15 @@ class Users extends CI_Model
 
     		header("Content-type: application/json");
 			set_status_header(405);
+			echo 123;
 			echo json_encode($response = array('archive' => array('status' => 405,'message' => 'Authentication Failed')));
 			exit(EXIT_USER_INPUT);
-			
-    	} else 
-    	{
+
+    	} else {
+    		
     		header("Content-type: application/json");
 			set_status_header(405);
+			echo 456;
 			echo json_encode($response = array('archive' => array('status' => 405,'message' => 'Authentication Failed')));
 			exit(EXIT_USER_INPUT);
     	}
