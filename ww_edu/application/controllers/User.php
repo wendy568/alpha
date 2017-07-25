@@ -57,7 +57,7 @@ class User extends MY_Controller
 		$this->load->database();
 		$this->load->model('users');
 			
-		return $this->model->authorization($email, $code);
+		return $this->users->authorization($email, $code);
 
 	}
 
