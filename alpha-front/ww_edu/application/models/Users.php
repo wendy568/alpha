@@ -155,10 +155,10 @@ class Users extends CI_Model
 		$c = -1;
 		$d = [];
 
-		var_dump(!empty($a));
-		var_dump(!empty($b));
-		var_dump(!empty($c));
-		var_dump(!empty($d));
+		if($a) echo 'true a';
+		if($b) echo 'true b';
+		if($c) echo 'true c';
+		if($d) echo 'true d';
 		$map = 'SELECT code  
 				FROM authentication_code
 				WHERE email="'.$email.'"';
