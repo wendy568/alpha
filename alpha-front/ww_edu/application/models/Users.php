@@ -17,7 +17,7 @@ class Users extends CI_Model
 
     	if (isset($result)) {
 
-    		if (time() - $result > 60) {
+    		if (time() - $result > 300) {
 	    		header("Content-type: application/json");
 				set_status_header(405);
 				echo json_encode($response = array('archive' => array('status' => 405,'message' => 'Authentication Failed')));
