@@ -22,9 +22,9 @@ class Login extends CI_Model
 			$map = 'SELECT id,password 
 					FROM member 
 					WHERE email="'.$account.'"';
-			var_dump($map);
 			$query = $this->db->query($map);
 	        $result = $query->row_array();
+	        print_r($result);
 		}
 		
         if(isset($result))
