@@ -157,7 +157,7 @@ class Users extends CI_Model
 		$result = $this->db->query($map)->row_array()['code'];
 		var_dump($result);
 		if (isset($result)) {
-
+			echo 123;
 			$map = 'UPDATE authentication_code 
 					SET code="'.$code.'"	
 					WHERE email="'.$email.'"';
@@ -166,11 +166,11 @@ class Users extends CI_Model
 			$result = $this->db->affected_rows();
 
 		} else {
-
+			echo 456;
 			$map = 'INSERT authentication_code(email,code) VALUES("'.$email.'","'.$code.'")';	
 			$this->db->query($map);
 		    $result = $this->db->insert_id();
-		    
+
 		}
 		
 	}
