@@ -32,19 +32,19 @@ class Login extends CI_Model
 	    	if (password_verify(md5($password), $hash))
 	    	{
 	    		$token = $this->get_token($result['id']);
-				$response = array('archive' => array('status' => 0,'message' =>'登录成功'));
+				$response = array('archive' => array('status' => 0,'message' =>'Login Success'));
 				$data['data']['token'] = $token;
 				// $data['data']['direct'] = "http://localhost:8080/webpack-dev-server/";
 			}
 			else 
 			{
-				$response = array('archive' => array('status' => 101,'message' =>'密码或者账号错误'));
+				$response = array('archive' => array('status' => 101,'message' =>'account or password is invalid'));
 				$data['data'] = [];
 			}
         }
         else
         {
-				$response = array('archive' => array('status' => 101,'message' =>'密码或者账号错误'));
+				$response = array('archive' => array('status' => 101,'message' =>'account or password is invalid'));
 				$data['data'] = [];
         }
 
