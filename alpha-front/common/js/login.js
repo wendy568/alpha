@@ -133,9 +133,9 @@ $(function () {
     $('#tab_register input[name="account"]').on('change',function (e) {
         var $this = $(this);
         $this.parent().find('.check').remove();
-        if (!accountReg.test($this.val().trim())){
+        if (!accountReg.test($this.val().trim()) || $this.val().indexOf('@') > -1){
             setTimeout(function () {
-                $.alpha.props($this, 'right', 'Only 4 to 20 words and numbers!');
+                $.alpha.props($this, 'right', 'Only 4 to 20 words or numbers and no @ character!');
             },400)
         }else{
             $.alpha.props($this, 'none');
