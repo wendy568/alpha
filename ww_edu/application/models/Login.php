@@ -11,20 +11,19 @@ class Login extends CI_Model
 	{
 		$pos = strpos($account, '@');
 		if ($pos === false) {
-			// $result = array();
-			// $map = 'SELECT id,password 
-			// 		FROM member 
-			// 		WHERE username="'.$account.'"';	
-			// $query = $this->db->query($map);
-	  //       $result = $query->row_array();
+			$result = array();
+			$map = 'SELECT id,password 
+					FROM member 
+					WHERE username="'.$account.'"';	
+			$query = $this->db->query($map);
+	        $result = $query->row_array();
 		} else {
 			$result = array();
 			$map = 'SELECT id,password 
 					FROM member 
-					WHERE email="'.$account.'"';
+					WHERE email="'.$account.'"';	
 			$query = $this->db->query($map);
 	        $result = $query->row_array();
-	        print_r($result);die;
 		}
 		
         if(isset($result))
