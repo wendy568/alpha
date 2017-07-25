@@ -24,7 +24,7 @@ class Login extends CI_Model
 					WHERE email="'.$account.'"';
 			$query = $this->db->query($map);
 	        $result = $query->row_array();
-	        print_r($result);
+	        print_r($result);die;
 		}
 		
         if(isset($result))
