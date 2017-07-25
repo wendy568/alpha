@@ -9,8 +9,8 @@ class Login extends CI_Model
 
 	function login($account, $password, &$response, &$data)
 	{
-		// 	$pos = strpos($account, '@');
-		// 	if ($pos === false) {
+		$pos = strpos($account, '@');
+		if ($pos === false) {
 			$result = array();
 			$map = 'SELECT id,password 
 					FROM member 
