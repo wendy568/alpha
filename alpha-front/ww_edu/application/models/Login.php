@@ -8,7 +8,7 @@ class Login extends CI_Model
     }
 
 	function login($account, $password, &$response, &$data)
-	// {
+	{
 	// 	$pos = strpos($account, '@');
 	// 	if ($pos === false) {
 			$result = array();
