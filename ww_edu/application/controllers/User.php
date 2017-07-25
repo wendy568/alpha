@@ -4,15 +4,20 @@ class User extends MY_Controller
 	public function Login()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
-		$data = array();
-		// $username = $this->input->get_post('username', TRUE);
-		$email = $this->input->get_post('email', TRUE);
+		
+		$account = $this->input->get_post('account', TRUE);
 		$password = $this->input->get_post('password', TRUE);
+
+		$pos = strpos($account, '@');
+		if ($pos === false)
+
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('login');
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$this->login->login($email, $password, $response, $data);
+		$data = array();
+
+		$this->login->login($account, $password, $response, $data);
 		
 		encode_json($response,$data);
 	}

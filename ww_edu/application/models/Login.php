@@ -7,15 +7,25 @@ class Login extends CI_Model
         parent::__construct();
     }
 
-	function login($email, $password, &$response, &$data)
+	function login($account, $password, &$response, &$data)
 	{
-		$result = array();
-		$map = 'SELECT id,password 
-				FROM member 
-				WHERE email="'.$email.'"';	
-		$query = $this->db->query($map);
-        $result = $query->row_array();
-
+		$pos = strpos($account, '@');
+		if ($pos === false) {
+			$result = array();
+			$map = 'SELECT id,password 
+					FROM member 
+					WHERE username="'.$account.'"';	
+			$query = $this->db->query($map);
+	        $result = $query->row_array();
+		} else {
+			$result = array();
+			$map = 'SELECT id,password 
+					FROM member 
+					WHERE email="'.$account.'"';	
+			$query = $this->db->query($map);
+	        $result = $query->row_array();
+		}
+		
         if(isset($result))
         {
         	$hash = password_hash($result['password'], PASSWORD_BCRYPT);
@@ -119,7 +129,20 @@ class Login extends CI_Model
 		
 		$query = $this->db->query($map);
 		$result = $query->row_array();
-		$response = $result['id']?array('archive' => array('status' => 100,'message' =>'nicname is exists!')):array('archive' => array('status' => 0,'message' =>''));
+
+		return $result['id'] ? TRUE : FALSE;
+	}
+
+	function email_isexists($email)
+	{
+		$map = 'SELECT id 
+				FROM member 
+				WHERE email="'.$email.'"';
+		
+		$query = $this->db->query($map);
+		$result = $query->row_array();
+
+		return $result['id'] ? TRUE : FALSE;
 	}
 
 	function username_isexists($username, &$response) 
@@ -130,7 +153,8 @@ class Login extends CI_Model
 		
 		$query = $this->db->query($map);
 		$result = $query->row_array();
-		$response = $result['id']?array('archive' => array('status' => 100,'message' =>'username is exists!')):array('archive' => array('status' => 0,'message' =>''));
+
+		return $result['id'] ? TRUE : FALSE;
 	}
 
 	function register($email, $password, &$response, &$data, $first_name, $last_name, $username, $birthdate, $sex)
@@ -140,6 +164,13 @@ class Login extends CI_Model
 			$response = array('archive' => array('status' => 102,'message' =>'email is exists!'));
 			return false;
 		}
+
+		$u_n = $this->username_isexists($username);
+		if($u_n) {
+			$response = array('archive' => array('status' => 102,'message' =>'username is exists!'));
+			return false;
+		}
+
 		$result = array();
 		$map = 'INSERT member(email,password,create_time,username) VALUES("'.$email.'","'.$password.'","'.date('Y-m-d H:i:s',time()).'","'.$username.'")';
 		$this->db->query($map);
@@ -152,17 +183,6 @@ class Login extends CI_Model
 	    $this->db->query($map);
 	    $token = $this->get_token($result);
 	    $data['data']['token'] = $token;
-	}
-
-	function email_isexists($email)
-	{
-		$map = 'SELECT id 
-				FROM member 
-				WHERE email="'.$email.'"';
-		
-		$query = $this->db->query($map);
-		$result = $query->row_array();
-		return $result['id']?TRUE:FALSE;
 	}
 
 	function userLayoutInfo($id)
