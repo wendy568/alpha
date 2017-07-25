@@ -347,6 +347,12 @@ class User extends MY_Controller
 		$username = $this->input->get_post('username', TRUE);
 
 		$code = substr(mt_rand(100000, 999999), 0, 4);
+
+		$this->load->database();
+		$this->load->model('users');
+		
+		$this->users->add_authentication_code($email, $code);
+		die;
 		$file = file_get_contents(ALPHATEXT.'verify.html');
 		$title = 'Alpha-Trader Authentication';
 		$this->load->helper('constants');

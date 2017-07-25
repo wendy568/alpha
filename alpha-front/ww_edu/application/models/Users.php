@@ -136,6 +136,44 @@ class Users extends CI_Model
 		$response['archive'] = array('status' => 103,'message' =>'密码错误');
 	}
 
+	function method($code)
+	{
+		$map = 'UPDATE authentication_code 
+				SET code="'.$code.'"	
+				WHERE email="'.$email.'"';
+		
+		$this->db->query($map);
+		$result = $this->db->affected_rows();
+	
+		return $result;
+	}		
+
+	function add_authentication_code($col1, $col2)
+	{
+		$map = 'SELECT code  
+				FROM authentication_code
+				WHERE email="'.$email.'"';
+		
+		$code = $this->db->query($map)->row_array()['code'];
+		
+		if (isset($code)) {
+
+			$result = [];
+			$map = 'INSERT authentication_code(email,code) VALUES("'.$email.'","'.$code.'")';	
+			$this->db->query($map);
+		    $result = $this->db->insert_id();   
+		} else {
+			
+			$map = 'UPDATE authentication_code 
+					SET code="'.$code.'"	
+					WHERE email="'.$email.'"';
+			
+			$this->db->query($map);
+			$result = $this->db->affected_rows();
+		}
+		
+	}
+
 	function user_list($user_type, $start, $limit, &$count)
 	{
 		$where = " 1=1";
