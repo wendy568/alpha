@@ -352,7 +352,7 @@ class User extends MY_Controller
 		$this->load->model('users');
 		
 		$this->users->add_authentication_code($email, $code);
-		die;
+
 		$file = file_get_contents(ALPHATEXT.'verify.html');
 		$title = 'Alpha-Trader Authentication';
 		$this->load->helper('constants');
