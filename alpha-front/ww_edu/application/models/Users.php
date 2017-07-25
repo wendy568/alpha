@@ -158,18 +158,19 @@ class Users extends CI_Model
 		var_dump($result);
 		if (isset($result)) {
 
-			$result = [];
-			$map = 'INSERT authentication_code(email,code) VALUES("'.$email.'","'.$code.'")';	
-			$this->db->query($map);
-		    $result = $this->db->insert_id();   
-		} else {
-
 			$map = 'UPDATE authentication_code 
 					SET code="'.$code.'"	
 					WHERE email="'.$email.'"';
 			
 			$this->db->query($map);
 			$result = $this->db->affected_rows();
+
+		} else {
+
+			$map = 'INSERT authentication_code(email,code) VALUES("'.$email.'","'.$code.'")';	
+			$this->db->query($map);
+		    $result = $this->db->insert_id();
+		    
 		}
 		
 	}
