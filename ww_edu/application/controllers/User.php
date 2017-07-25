@@ -51,49 +51,37 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function authorization($email, $code)
+	{
+
+		$this->load->database();
+		$this->load->model('users');
+			
+		return $this->model->authorization($email, $code);
+
+	}
+
 	public function register()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 
 		$first_name = $this->input->get_post('first_name', TRUE);
 		$last_name = $this->input->get_post('last_name', TRUE);
-		// $username = $this->input->get_post('username', TRUE);
+		$username = $this->input->get_post('username', TRUE);
 		$email = $this->input->get_post('email', TRUE);
+		$birthdate = $this->input->get_post('birthdate', TRUE);
+		$sex = $this->input->get_post('sex', TRUE);
 		$password = $this->input->get_post('password', TRUE);
+		$code = $this->input->get_post('code', TRUE);
 
+		$this->authorization($email, $code);
+		
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('login');
 		$response = array('archive' => array('status' => 0,'message' =>''));
 		$data = array();
-		$this->login->register($email, md5($password), $response, $data, $first_name, $last_name);
-		if($response['archive']['status'] === 0)
-		{
-			$str = $this->encode($email);
-			$time = $this->encode(strtotime('+ 1 day'));
-			$file = file_get_contents(ALPHATEXT.'verify.html');
-			$title = 'AlphaTrader 邮箱验证消息';
-			$this->load->helper('constants');
-			$const = constants::build();
-			$query = array(
-					'referer' => $str,
-					'verify' => $time
-				);
-			$list = array(
-					'replaceName' => 'customer',
-					'replaceUrl' => $const->alphatrader['base']['_pwd_site'].'?'.http_build_query($query)
-				);
-			array_walk($list, function ($item, $key) use (&$file){
-				$file = str_replace($key, $item, $file);
-			});
-
-			$this->request_post('http://alphacoin.co.uk/mail.php',array(
-				'title' => $title,
-				'content' => $file,
-				'email' => $email,
-				'ssl' => $const->alphatrader['base']['ssl'],
-			));
-		}
+		$this->login->register($email, md5($password), $response, $data, $first_name, $last_name, $username, $birthdate, $sex);
 		
 		encode_json($response,$data);
 	}

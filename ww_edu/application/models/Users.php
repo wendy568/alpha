@@ -7,6 +7,32 @@ class Users extends CI_Model
         parent::__construct();
     }
 
+    function authorization($email, $code)
+    {
+    	$map = 'SELECT `time`  
+    			FROM authentication_code
+    			WHERE email="'.$email.'" AND code='.$code;
+    	
+    	$result = $this->db->query($map)->row_array()['time'];
+
+    	if (isset($result)) {
+
+    		time() - $result > 120;
+
+    		header("Content-type: application/json");
+			set_status_header(405);
+			echo json_encode($response = array('archive' => array('status' => 405,'message' => 'Authentication Failed')));
+			exit(EXIT_USER_INPUT);
+			
+    	} else 
+    	{
+    		header("Content-type: application/json");
+			set_status_header(405);
+			echo json_encode($response = array('archive' => array('status' => 405,'message' => 'Authentication Failed')));
+			exit(EXIT_USER_INPUT);
+    	}
+    }
+
 	function email_verify($email)
 	{
 		$map = 'UPDATE member 
