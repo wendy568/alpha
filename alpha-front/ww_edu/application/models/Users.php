@@ -150,7 +150,7 @@ class Users extends CI_Model
 
 	function add_authentication_code($email, $code)
 	{
-		$a = 0;
+		$a = '';
 		var_dump(isset($a));
 		$map = 'SELECT code  
 				FROM authentication_code
