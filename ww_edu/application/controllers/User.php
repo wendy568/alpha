@@ -1,4 +1,5 @@
 <?php
+
 class User extends MY_Controller
 {
 	public function Login()
@@ -7,9 +8,6 @@ class User extends MY_Controller
 		
 		$account = $this->input->get_post('account', TRUE);
 		$password = $this->input->get_post('password', TRUE);
-
-		$pos = strpos($account, '@');
-		if ($pos === false)
 
 		$this->load->database();
 		$this->load->helper('json');
