@@ -15,7 +15,7 @@ class Login extends CI_Model
 			$map = 'SELECT id,password 
 					FROM member 
 					WHERE username="'.$account.'"';	
-			$query = $this->db->query($map);
+			$query = $this->db->query($map);die;
 	        $result = $query->row_array();
 		// } else {
 		// 	$result = array();
