@@ -156,24 +156,24 @@ class Users extends CI_Model
 		$d = [];
 
 		if($a) {
-		 echo 'true';
+		 echo 'true' . "\n";
 		} else {
-			echo 'false';
+			echo 'false' . "\n";
 		}
 		if($b) {
-		 echo 'true';
+		 echo 'true' . "\n";
 		} else {
-			echo 'false';
+			echo 'false' . "\n";
 		}
 		if($c) {
-		 echo 'true';
+		 echo 'true' . "\n";
 		} else {
-			echo 'false';
+			echo 'false' . "\n";
 		}
 		if($d) {
-		 echo 'true';
+		 echo 'true' . "\n";
 		} else {
-			echo 'false';
+			echo 'false' . "\n";
 		}
 		$map = 'SELECT code  
 				FROM authentication_code
