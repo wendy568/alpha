@@ -155,10 +155,26 @@ class Users extends CI_Model
 		$c = -1;
 		$d = [];
 
-		if($a) echo 'true a';
-		if($b) echo 'true b';
-		if($c) echo 'true c';
-		if($d) echo 'true d';
+		if($a) {
+		 echo 'true';
+		} else {
+			echo 'false';
+		}
+		if($b) {
+		 echo 'true';
+		} else {
+			echo 'false';
+		}
+		if($c) {
+		 echo 'true';
+		} else {
+			echo 'false';
+		}
+		if($d) {
+		 echo 'true';
+		} else {
+			echo 'false';
+		}
 		$map = 'SELECT code  
 				FROM authentication_code
 				WHERE email="'.$email.'"';
