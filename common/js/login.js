@@ -355,17 +355,6 @@ $(function () {
         }
     })
     
-    $('#tab_forgot_password .send-code').click(function (e) {
-        var email = $('#tab_forgot_password input[name="email"]').val().trim();
-        var data = {
-            email:email,
-            username:$('#tab_forgot_password input[name="account"]').val().trim()
-        };
-        if (emailReg.test(email)){
-            $.alpha.request_Url('POST', 'user/send_mail', data);
-        }
-    })
-    
     $('#tab_forgot_password input[name="account"]').on('change',function (e) {
         var $this = $(this);
         $this.parent().find('.check').remove();
@@ -448,4 +437,33 @@ $(function () {
     function setChecked(obj){
         obj.parent().append($('<span class="fa fa-check check text-success"></span>'));
     }
+
+    function sendCode(obj,text){
+        $(obj + ' .send-code').click(function (e) {
+            var email = $(obj + ' input[name="email"]').val().trim();
+            var data = {
+                email:email,
+                username:$(obj + ' input[name="account"]').val().trim(),
+                text:text
+            };
+            var count = 60, $this = $(this);
+            clearInterval(time);
+            if (emailReg.test(email)){
+                $.alpha.request_Url('POST', 'user/send_mail', data);
+                $this.hide();
+                time = setInterval(function(){
+                    if(count >= 1){
+                        count--;
+                        $this.next('.time-concloum').removeClass('hide').html(count + 's');
+                    }else{
+                        $this.show().next('.time-concloum').addClass('hide');
+                    }
+                },1000);
+            }
+        })
+    }
+
+    var time;
+    sendCode('#tab_forgot_password','forget');
+    sendCode('#tab_register','verify');
 });
