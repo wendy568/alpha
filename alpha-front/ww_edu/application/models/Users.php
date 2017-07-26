@@ -9,6 +9,20 @@ class Users extends CI_Model
 
     function changePasswordFromForget($password, $email)
     {
+    	$map = 'SELECT password  
+    			FROM member
+    			WHERE email="'.$email.'"';
+    	
+    	$result = $this->db->query($map)->row_array()['password'];
+
+    	if (isset($result) && md5($password) == $result) {
+    		header("Content-type: application/json");
+			set_status_header(200);
+			echo json_encode($response = array('archive' => array('status' => 21, 'message' => 'The new password is same with the old one
+')));
+			exit(EXIT_USER_INPUT);
+    	}
+    	
     	$map = 'UPDATE member 
     			SET password="'.md5($password).'"
     			WHERE email="'.$email.'"';
@@ -32,7 +46,7 @@ class Users extends CI_Model
     		if (time() - $result > 300) {
 	    		header("Content-type: application/json");
 				set_status_header(200);
-				echo json_encode($response = array('archive' => array('status' => 405, 'message' => 'Time out')));
+				echo json_encode($response = array('archive' => array('status' => 405, 'message' => 'The verification code expired')));
 				exit(EXIT_USER_INPUT);
     		}
     	} else {
