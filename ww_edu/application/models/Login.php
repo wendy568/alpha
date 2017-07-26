@@ -7,16 +7,6 @@ class Login extends CI_Model
         parent::__construct();
     }
 
-    function test_password($username)
-    {
-    	$map = 'SELECT id, password 
-    			FROM member
-    			WHERE username="'.$username.'"';
-    	
-    	$result = $this->db->query($map)->row_array();
-    	return $result;
-    }
-
 	function login($account, $password, &$response, &$data)
 	{
 		$pos = strpos($account, '@');
