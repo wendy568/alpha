@@ -8,7 +8,7 @@ class User extends MY_Controller
 		
 		$account = $this->input->get_post('account', TRUE);
 		$password = $this->input->get_post('password', TRUE);
-
+		print_r($_POST);
 		$this->load->database();
 		$this->load->helper('json');
 		$this->load->model('login');
