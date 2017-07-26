@@ -91,7 +91,7 @@ $(function () {
             email: email,
             password: pwd,
             invite_code: inviteCode,
-            birthdate:new Date(parseInt(birth)).format('yyyy-MM-dd'),
+            birthdate: birth,
             sex:sex,
             code:emailCode,
             username:account
