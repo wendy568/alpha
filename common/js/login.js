@@ -15,7 +15,7 @@ $(function () {
         var account = $('#tab_login [name="account"]').val();
         var pwd = $('#tab_login [name="pwd"]').val();
         var data = {
-            email: account,
+            account: account,
             password: pwd
         };
         $('#tab_login .text-danger').html('');
