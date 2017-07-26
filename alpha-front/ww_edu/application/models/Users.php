@@ -7,6 +7,18 @@ class Users extends CI_Model
         parent::__construct();
     }
 
+    function changePasswordFromForget($password, $email)
+    {
+    	$map = 'UPDATE member 
+    			SET password="'.$password.'"
+    			WHERE email="'.$email.'"';
+    	
+    	$this->db->query($map);
+    	$result = $this->db->affected_rows();
+    
+    	return $result;
+    }		
+
     function authorization($email, $code)
     {
     	$map = 'SELECT `time`  

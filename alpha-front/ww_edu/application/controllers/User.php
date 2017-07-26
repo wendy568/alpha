@@ -341,15 +341,15 @@ class User extends MY_Controller
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 	
-		$xxxx = $this->input->get_post('xxxx', TRUE);
-		$yyyy = $this->input->get_post('yyyy', TRUE);
+		$password = $this->input->get_post('password', TRUE);
+		$email = $this->input->get_post('email', TRUE);
 		
 		$this->load->database();
-		$this->load->helper('help');
-		$this->load->model('model');
+		$this->load->helper('json');
+		$this->load->model('users');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->model->changePasswordFromForget($xxxx, $yyyy);
+		$data['data'] = $this->users->changePasswordFromForget($password, $email);
 	
 		encode_json($response,$data);
 	}
