@@ -29,8 +29,8 @@ class Users extends CI_Model
     	
     	$this->db->query($map);
     	$result = $this->db->affected_rows();
-    	
-    	return $result ? 'success' : 'failed';
+
+    	return $result;
     }		
 
     function authorization($email, $code)
