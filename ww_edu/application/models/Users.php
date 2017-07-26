@@ -10,7 +10,7 @@ class Users extends CI_Model
     function changePasswordFromForget($password, $email)
     {
     	$map = 'UPDATE member 
-    			SET password="'.$password.'"
+    			SET password="'.md5($password).'"
     			WHERE email="'.$email.'"';
     	
     	$this->db->query($map);
