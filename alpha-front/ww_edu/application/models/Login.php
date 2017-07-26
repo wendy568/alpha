@@ -11,7 +11,7 @@ class Login extends CI_Model
 	{
 		// $pos = strpos($account, '@');
 		// if ($pos === false) {
-			$result = array();
+			$result = [];
 			$map = 'SELECT id,password 
 					FROM member 
 					WHERE username="'.$account.'"';	
