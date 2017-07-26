@@ -9,22 +9,22 @@ class Login extends CI_Model
 
 	function login($account, $password, &$response, &$data)
 	{
-		// $pos = strpos($account, '@');
-		// if ($pos === false) {
-			$result = [];
+		$pos = strpos($account, '@');
+		if ($pos === false) {
+			$result = array();
 			$map = 'SELECT id,password 
 					FROM member 
 					WHERE username="'.$account.'"';	
-		// } else {
-		// 	$result = array();
-		// 	$map = 'SELECT id,password 
-		// 			FROM member 
-		// 			WHERE email="'.$account.'"';	
-		// }
+		} else {
+			$result = array();
+			$map = 'SELECT id,password 
+					FROM member 
+					WHERE email="'.$account.'"';	
+		}
 
 		$query = $this->db->query($map);
         $result = $query->row_array();
-		print_r($result['password']);
+		print_r($this->db->query($map)->row_array());
         if(isset($result))
         {
         	$hash = password_hash($result['password'], PASSWORD_BCRYPT);
