@@ -281,23 +281,25 @@ $(function () {
             mt4Account = $('#tab_register [name="mt4Account"]').val().trim(),
             mt4Group = $('#tab_register [name="mt4Group"]').val().trim(),
             mt4Server = $('#tab_register [name="mt4Server"]').val().trim();
-            
-        if((accountReg.test(account) && pwdReg.test(pwd) && pwdAgain === pwd && inviteCode) || (sex && emailReg.test(email) && isEmailCode)){
-            var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
-            if(nextIndex < 3){
+
+        var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
+        if(nextIndex == 1){
+            if(accountReg.test(account) && pwdReg.test(pwd) && pwdAgain === pwd && inviteCode && !isEmailCode){
+                $('.previous').removeClass('hide');
                 $('.wizard-steps').find('li').eq(nextIndex).addClass('active');
                 $('#tab_register').find('.tab-pane').eq(nextIndex-1).removeClass('active');
                 $('#tab_register').find('.tab-pane').eq(nextIndex).addClass('active');
             }
-            if(nextIndex == 1){
-                $('.previous').removeClass('hide');
-            }
-            if(nextIndex == 2){
+        }
+        if(nextIndex == 2){
+            if(isEmailCode && sex.length && emailReg.test(email)){
                 $('.next').addClass('hide');
                 $('#btn-register').removeClass('hide');
+                $('.wizard-steps').find('li').eq(nextIndex).addClass('active');
+                $('#tab_register').find('.tab-pane').eq(nextIndex-1).removeClass('active');
+                $('#tab_register').find('.tab-pane').eq(nextIndex).addClass('active');
             }
         }
-
     });
     $('.previous').click(function(){
         var preIndex = parseInt($('.wizard-steps').find('li.active').length);
