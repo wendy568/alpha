@@ -431,7 +431,18 @@ $(function () {
             account: $('#tab_forgot_password input[name="account"]').val().trim(),
             password: $('#tab_forgot_password input[name="newPassword"]').val().trim()
         };
-        $.alpha.request_Url('POST', 'user/authentication', data, function(res){});
+        var $pwd = $('#tab_forgot_password input[name="newPassword"]');
+        var $this = $(this);
+        $.alpha.request_Url('POST', 'user/changePasswordFromForget', data, function(res){
+            if(res.archive.status == 21){
+                $.alpha.props($pwd, 'right', res.archive.message);
+            }else{
+                setTimeout(function(){
+                    $this.hide().next('span').removeClass('hide');
+                    window.location.href='Login.html';
+                }, 500);
+            }
+        });
     })
 
     function setChecked(obj){
