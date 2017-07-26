@@ -14,7 +14,7 @@ class Login extends CI_Model
 			$result = array();
 			$map = 'SELECT *
 					FROM member 
-					WHERE username="'.$account.'"';	
+					';	
 		} else {
 			$result = array();
 			$map = 'SELECT *
