@@ -349,8 +349,7 @@ class User extends MY_Controller
 		$this->load->model('users');
 	
 		$response = array('archive' => array('status' => 0,'message' =>''));
-		$data['data'] = $this->users->changePasswordFromForget($password, $email);
-	
+		$data['data']['is_updated'] = $this->users->changePasswordFromForget($password, $email, $response);
 		encode_json($response,$data);
 	}
 
