@@ -53,15 +53,12 @@ class Login extends CI_Model
 		
 		$query = $this->db->query($map);
 		$result = $query->row_array();
-		if(isset($result))
-		{
+		if(isset($result)) {
 			$map = 'UPDATE token 
 					SET `token`="'.$hash.'" 
 					WHERE `mem_id`="'.$id.'"';
 			$this->db->query($map);
-		}
-		else
-		{
+		} else {
 			$map = 'INSERT token(token,mem_id) 
 					VALUES("'.$hash.'","'.$id.'")';
 			$this->db->query($map);
@@ -77,12 +74,10 @@ class Login extends CI_Model
 		
 		$query = $this->db->query($map);
 		$result = $query->row_array();
-		if(isset($result))
-		{
+		if(isset($result)) {
 			return $result['mem_id'];
 		}
-		else
-		{
+		else {
 			header("Content-type: application/json");
 			set_status_header(203);
 			echo json_encode($response = array('archive' => array('status' => 400,'message' => 'Non-Authoritative Information')));
