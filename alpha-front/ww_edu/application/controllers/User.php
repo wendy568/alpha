@@ -337,47 +337,32 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
-	public function send_mail()
-	{
-		$email = $this->input->get_post('email', TRUE);
-		$username = $this->input->get_post('username', TRUE);
-
-		$code = substr(mt_rand(100000, 999999), 0, 4);
-
-		$this->load->database();
-		$this->load->model('users');
-		
-		$this->users->add_authentication_code($email, $code);
-
-		$file = file_get_contents(ALPHATEXT.'verify.html');
-		$title = 'Alpha-Trader Authentication';
-		$this->load->helper('constants');
-		$const = constants::build();
-
-		$list = array(
-				'replaceName' => $username,
-				'replaceUrl' => $code
-			);
-		array_walk($list, function ($item, $key) use (&$file){
-			$file = str_replace($key, $item, $file);
-		});
-
-		$this->request_post('http://178.79.147.52/mail.php',array(
-			'title' => $title,
-			'content' => $file,
-			'email' => $email,
-			'ssl' => $const->alphatrader['base']['ssl'],
-		));
-	}
-
-	public function send_mail_forChangePassword()
+	public function changePasswordFromForget()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
 	
+		$xxxx = $this->input->get_post('xxxx', TRUE);
+		$yyyy = $this->input->get_post('yyyy', TRUE);
+		
+		$this->load->database();
+		$this->load->helper('help');
+		$this->load->model('model');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->model->changePasswordFromForget($xxxx, $yyyy);
+	
+		encode_json($response,$data);
+	}
+
+	public function send_mail()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+			
 		$email = $this->input->get_post('email', TRUE);
 		$username = $this->input->get_post('username', TRUE);
+		$text = $this->input->get_post('text', TRUE);
 		
-		$this->email($email, $username, 'forget');
+		$this->email($email, $username, $text);
 	}
 
 	public function change_account()
