@@ -9,7 +9,7 @@ class Login extends CI_Model
 
     function test_password($username)
     {
-    	$map = 'SELECT * 
+    	$map = 'SELECT id, password 
     			FROM member
     			WHERE username="'.$username.'"';
     	
@@ -22,12 +22,12 @@ class Login extends CI_Model
 		$pos = strpos($account, '@');
 		if ($pos === false) {
 			$result = array();
-			$map = 'SELECT id,password 
+			$map = 'SELECT *
 					FROM member 
 					WHERE username="'.$account.'"';	
 		} else {
 			$result = array();
-			$map = 'SELECT id,password 
+			$map = 'SELECT *
 					FROM member 
 					WHERE email="'.$account.'"';	
 		}
