@@ -22,15 +22,15 @@ class Users extends CI_Model
 ')));
 			exit(EXIT_USER_INPUT);
     	}
-    	
+
     	$map = 'UPDATE member 
     			SET password="'.md5($password).'"
     			WHERE email="'.$email.'"';
     	
     	$this->db->query($map);
     	$result = $this->db->affected_rows();
-    
-    	return $result;
+    	
+    	return $result ? 'success' : 'failed';
     }		
 
     function authorization($email, $code)
