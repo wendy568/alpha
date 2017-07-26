@@ -370,6 +370,16 @@ class User extends MY_Controller
 		));
 	}
 
+	public function send_mail_forChangePassword()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$email = $this->input->get_post('email', TRUE);
+		$username = $this->input->get_post('username', TRUE);
+		
+		$this->email($email, $username, 'forget');
+	}
+
 	public function change_account()
 	{
 		header( 'Access-Control-Allow-Origin:*' );

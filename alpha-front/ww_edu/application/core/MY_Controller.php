@@ -115,24 +115,37 @@ class MY_Controller extends CI_Controller
 		return $arr;
 	}
 
-	public function email($email, $title, $content)
+	public function email($email, $username, $file)
 	{
-		header( 'Access-Control-Allow-Origin:*' );
-	
-		$this->load->database();
-		$this->load->model('personals');
+		$email = $this->input->get_post('email', TRUE);
+		$username = $this->input->get_post('username', TRUE);
 
-		$response = array('archive' => array('status' => 0,'message' =>''));
+		$code = substr(mt_rand(100000, 999999), 0, 4);
+
+		$this->load->database();
+		$this->load->model('users');
 		
-		$this->load->helper('mail');
-		$send = send_user::build();
-		$send->title = $title;
-		$send->timestamp = $send->timestamp();
-        $send->sign = $send->emailsign();
-        $send->recipient = $email;
-        $send->content = $content;
-		$send->send($response);
-		// print_r($response);die;
+		$this->users->add_authentication_code($email, $code);
+
+		$file = file_get_contents(ALPHATEXT."{$file}.html");
+		$title = 'Alpha-Trader Authentication';
+		$this->load->helper('constants');
+		$const = constants::build();
+
+		$list = array(
+				'replaceName' => $username,
+				'replaceUrl' => $code
+			);
+		array_walk($list, function ($item, $key) use (&$file){
+			$file = str_replace($key, $item, $file);
+		});
+
+		$this->request_post('http://178.79.147.52/mail.php',array(
+			'title' => $title,
+			'content' => $file,
+			'email' => $email,
+			'ssl' => $const->alphatrader['base']['ssl'],
+		));
 	}
 
 	public function postSend($mobile) 
