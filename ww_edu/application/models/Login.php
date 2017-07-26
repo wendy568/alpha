@@ -25,7 +25,7 @@ class Login extends CI_Model
 			$query = $this->db->query($map);
 	        $result = $query->row_array();
 		}
-		print_r($result);
+		var_dump(isset($result));
         if(isset($result))
         {
         	$hash = password_hash($result['password'], PASSWORD_BCRYPT);
@@ -44,8 +44,8 @@ class Login extends CI_Model
         }
         else
         {
-				$response = array('archive' => array('status' => 101,'message' =>'account or password is invalid'));
-				$data['data'] = [];
+			$response = array('archive' => array('status' => 101,'message' =>'account or password is invalid'));
+			$data['data'] = [];
         }
 
 	}
