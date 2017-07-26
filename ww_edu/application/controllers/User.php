@@ -20,6 +20,22 @@ class User extends MY_Controller
 		encode_json($response,$data);
 	}
 
+	public function test_password()
+	{
+		header( 'Access-Control-Allow-Origin:*' );
+	
+		$username = $this->input->get_post('username', TRUE);
+
+		$this->load->database();
+		$this->load->helper('json');
+		$this->load->model('login');
+	
+		$response = array('archive' => array('status' => 0,'message' =>''));
+		$data['data'] = $this->login->test_password($username);
+	
+		encode_json($response,$data);
+	}
+
 	public function nic_name_isexists()
 	{
 		header( 'Access-Control-Allow-Origin:*' );
