@@ -25,10 +25,11 @@ class Login extends CI_Model
 			$query = $this->db->query($map);
 	        $result = $query->row_array();
 		}
-		var_dump(isset($result));
+
         if(isset($result))
         {
         	$hash = password_hash($result['password'], PASSWORD_BCRYPT);
+        	var_dump(password_verify(md5($password), $hash));
 	    	if (password_verify(md5($password), $hash))
 	    	{
 	    		$token = $this->get_token($result['id']);
