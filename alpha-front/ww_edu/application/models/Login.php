@@ -7,6 +7,16 @@ class Login extends CI_Model
         parent::__construct();
     }
 
+    function test_password($username)
+    {
+    	$map = 'SELECT * 
+    			FROM member
+    			WHERE username="'.$username.'"';
+    	
+    	$result = $this->db->query($map)->row_array();
+    	return $result;
+    }
+
 	function login($account, $password, &$response, &$data)
 	{
 		$pos = strpos($account, '@');
@@ -25,24 +35,18 @@ class Login extends CI_Model
 		$query = $this->db->query($map);
         $result = $query->row_array();
 		print_r($this->db->query($map)->row_array());
-        if(isset($result))
-        {
+        if(isset($result)) {
         	$hash = password_hash($result['password'], PASSWORD_BCRYPT);
-	    	if (password_verify(md5($password), $hash))
-	    	{
+	    	if (password_verify(md5($password), $hash)) {
 	    		$token = $this->get_token($result['id']);
 				$response = array('archive' => array('status' => 0,'message' =>'Login Success'));
 				$data['data']['token'] = $token;
 				// $data['data']['direct'] = "http://localhost:8080/webpack-dev-server/";
-			}
-			else 
-			{
+			} else {
 				$response = array('archive' => array('status' => 101,'message' =>'account or password is invalid'));
 				$data['data'] = [];
 			}
-        }
-        else
-        {
+        } else {
 			$response = array('archive' => array('status' => 101,'message' =>'account or password is invalid'));
 			$data['data'] = [];
         }
