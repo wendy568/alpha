@@ -25,7 +25,7 @@ class Login extends CI_Model
 			$query = $this->db->query($map);
 	        $result = $query->row_array();
 		}
-
+		print_r($result);
         if(isset($result))
         {
         	$hash = password_hash($result['password'], PASSWORD_BCRYPT);
