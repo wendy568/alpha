@@ -18,7 +18,7 @@ class Users extends CI_Model
     	if (isset($result) && md5($password) == $result) {
     		header("Content-type: application/json");
 			set_status_header(200);
-			echo json_encode($response = array('archive' => array('status' => 21, 'message' => 'The new password is same with the old one')));
+			echo json_encode($response = array('archive' => array('status' => 21, 'message' => 'The new password is the same as the old one')));
 			exit(EXIT_USER_INPUT);
     	}
 
