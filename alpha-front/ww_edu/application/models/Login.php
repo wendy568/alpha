@@ -29,6 +29,7 @@ class Login extends CI_Model
         if(isset($result))
         {
         	$hash = password_hash($result['password'], PASSWORD_BCRYPT);
+        	var_dump($hash);
         	var_dump(password_verify(md5($password), $hash));
 	    	if (password_verify(md5($password), $hash))
 	    	{
