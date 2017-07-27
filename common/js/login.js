@@ -257,9 +257,9 @@ $(function () {
             sex = $('#tab_register [name="sex"]').val().trim(),
             email = $('#tab_register [name="email"]').val().trim(),
             emailCode = $('#tab_register [name="emailCode"]').val().trim(),
-            // mt4Account = $('#tab_register [name="mt4Account"]').val().trim(),
-            // mt4Group = $('#tab_register [name="mt4Group"]').val().trim(),
-            // mt4Server = $('#tab_register [name="mt4Server"]').val().trim();
+            mt4Account = $('#tab_register [name="mt4Account"]').val().trim(),
+            mt4Group = $('#tab_register [name="mt4Group"]').val().trim(),
+            mt4Server = $('#tab_register [name="mt4Server"]').val().trim();
 
         var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
         if(nextIndex == 1){
