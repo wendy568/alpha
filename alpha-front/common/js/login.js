@@ -241,6 +241,14 @@ $(function () {
         },400)
     });
     $('#tab_register input[name="mt4Account"]').on('change',function (e) {
+        if($(this).val()){
+            $('#tab_register input[name="mt4Group"]').attr('disabled',false);
+            $('#tab_register input[name="mt4Server"]').attr('disabled',false);
+        }else{
+            $('#tab_register input[name="mt4Group"]').attr('disabled',true);
+            $('#tab_register input[name="mt4Server"]').attr('disabled',true);
+        }
+
     });
     $('#tab_register,#tab_login,#tab_forgot_password').on('show.bs.tab', function (e) {
         var event = e || window.event;
