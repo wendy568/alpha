@@ -6,6 +6,7 @@ $(function () {
     var pwdReg = /^[A-Za-z0-9]{4,20}$/;
     var accountReg = /^(?![0-9]+$)[A-Za-z0-9]{4,20}$/;
     var NameReg = /^[A-Za-z]{2,30}$/;
+    var timer;
 
     // Login
     $('#btn-login').click(function (e) {
@@ -74,7 +75,7 @@ $(function () {
         var account = $('#tab_register [name="account"]').val().trim(),
             pwd = $('#tab_register [name="pwd"]').val().trim(),
             pwdAgain = $('#tab_register [name="pwd"]').val().trim(),
-            inviteCode = $('#tab_register [name="inviteCode"]').val().trim();
+            invite_code = $('#tab_register [name="inviteCode"]').val().trim();
             firstName = $('#tab_register [name="firstName"]').val().trim(),
             lastName = $('#tab_register [name="lastName"]').val().trim(),
             birth = $('#tab_register [name="birth"]').val().trim(),
@@ -90,39 +91,27 @@ $(function () {
             last_name: lastName,
             email: email,
             password: pwd,
-            invite_code: inviteCode,
+            invite_code: invite_code,
             birthdate: birth,
             sex:sex,
             code:emailCode,
             username:account
         };
         
-        if (firstName && email && pwd && emailReg.test(email) && pwdReg.test(pwd)) {
+        if (email && pwd && emailReg.test(email) && pwdReg.test(pwd) && isEmailCode && sex.length && invite_code) {
             $.alpha.request_Url('POST', 'user/register', data, function (res) {
                 if (res.archive.status == 0) {
                     sessionStorage.setItem('alpha_token', res.data.token);
                     window.location.href = 'index.html';
                 } else if (res.archive.status == 102) {
                     // 提示邮箱已存在
-                    $.alpha.props($('#tab_register [name="email"]'), 'right', 'The email has been registered!');
+                    $.alpha.notification('warning', 'The email is exists!');
                 } else {
                     // 提示注册失败
                     $.alpha.alertBox('Fail', 'Register Failed!', '#');
                 }
             });
-        } else {
-            // 提示表单验证
-            if (!email) {
-                $.alpha.props($('#tab_register [name="email"]'), 'right', 'Not Empty!');
-            }
-            if (!pwd) {
-                $.alpha.props($('#tab_register [name="pwd"]'), 'right', 'Not Empty!');
-            }
-            if (!firstName) {
-                $.alpha.props($('#tab_register [name="firstName"]'), 'top', 'Not Empty!');
-            }
         }
-        
     });
 
     // 选择日期
@@ -229,16 +218,6 @@ $(function () {
             setChecked($this);
         }
     });
-    $('#tab_register .send-code').click(function (e) {
-        var email = $('#tab_register input[name="email"]').val().trim();
-        var data = {
-            email:email,
-            username:$('#tab_register input[name="account"]').val().trim()
-        };
-        if (emailReg.test(email)){
-            $.alpha.request_Url('POST', 'user/send_mail', data);
-        }
-    })
     $('#tab_register input[name="emailCode"]').on('change',function (e) {
         var $this = $(this);
         $this.parent().find('.check').remove();
@@ -284,7 +263,7 @@ $(function () {
 
         var nextIndex = parseInt($('.wizard-steps').find('li.active').length);
         if(nextIndex == 1){
-            if(accountReg.test(account) && pwdReg.test(pwd) && pwdAgain === pwd && inviteCode && !isEmailCode){
+            if(accountReg.test(account) && pwdReg.test(pwd) && pwdAgain === pwd && inviteCode){
                 $('.previous').removeClass('hide');
                 $('.wizard-steps').find('li').eq(nextIndex).addClass('active');
                 $('#tab_register').find('.tab-pane').eq(nextIndex-1).removeClass('active');
@@ -350,8 +329,24 @@ $(function () {
         var password2 = $('#tab_forgot_password input[name="new_pwdAgain"]').val();
         var account = $('#tab_forgot_password input[name="account"]').val().trim();
         var email = $('#tab_forgot_password input[name="email"]').val().trim();
+        var data = {
+            email: email,
+            account: account,
+            password: password
+        };
+        var $pwd = $('#tab_forgot_password input[name="newPassword"]');
+        var $this = $(this);
         if (password && password2 == password){
-        
+            $.alpha.request_Url('POST', 'user/changePasswordFromForget', data, function(res){
+                if(res.archive.status == 21){
+                    $.alpha.props($pwd, 'right', res.archive.message);
+                }else{
+                    setTimeout(function(){
+                        $this.hide().next('span').removeClass('hide');
+                        window.location.href='Login.html';
+                    }, 500);
+                }
+            });
         }
     })
     
@@ -425,25 +420,6 @@ $(function () {
             setChecked($this);
         }
     })
-    $('#forgot_submit_btn').click(function(e){
-        var data = {
-            email: $('#tab_forgot_password input[name="email"]').val().trim(),
-            account: $('#tab_forgot_password input[name="account"]').val().trim(),
-            password: $('#tab_forgot_password input[name="newPassword"]').val().trim()
-        };
-        var $pwd = $('#tab_forgot_password input[name="newPassword"]');
-        var $this = $(this);
-        $.alpha.request_Url('POST', 'user/changePasswordFromForget', data, function(res){
-            if(res.archive.status == 21){
-                $.alpha.props($pwd, 'right', res.archive.message);
-            }else{
-                setTimeout(function(){
-                    $this.hide().next('span').removeClass('hide');
-                    window.location.href='Login.html';
-                }, 500);
-            }
-        });
-    })
 
     function setChecked(obj){
         obj.parent().append($('<span class="fa fa-check check text-success"></span>'));
@@ -451,6 +427,8 @@ $(function () {
 
     function sendCode(obj,text){
         $(obj + ' .send-code').click(function (e) {
+            var event = e || window.event;
+            event.stopPropagation();
             var email = $(obj + ' input[name="email"]').val().trim();
             var data = {
                 email:email,
@@ -458,11 +436,11 @@ $(function () {
                 text:text
             };
             var count = 60, $this = $(this);
-            clearInterval(time);
+            clearInterval(timer);
             if (emailReg.test(email)){
                 $.alpha.request_Url('POST', 'user/send_mail', data);
                 $this.hide();
-                time = setInterval(function(){
+                timer = setInterval(function(){
                     if(count >= 1){
                         count--;
                         $this.next('.time-concloum').removeClass('hide').html(count + 's');
@@ -474,7 +452,6 @@ $(function () {
         })
     }
 
-    var time;
     sendCode('#tab_forgot_password','forget');
     sendCode('#tab_register','verify');
 });

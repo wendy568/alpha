@@ -423,7 +423,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             url     : alpha_host + url,
             data    : data,
             success : function(res){
-                if(res.archive.status == 400){
+                if(res.archive && res.archive.status == 400){
                     window.location.href='Login.html';
                 }else {
                     fn && fn(res);
@@ -525,7 +525,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         $nof.animate({'right':0},700);
         setTimeout(function () {
             $nof.remove();
-        },3000);
+        },5000);
     };
     
     // bill type
