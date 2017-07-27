@@ -355,8 +355,8 @@ class Personal extends MY_Controller
 
 	public function test()
 	{
-		$file = $this->input->get_post('file', TRUE);
-
+		$file = $_FILES;
+		print_r($file);die;
 		$mt4_format = array(
 				'order_no',
 				'account_number',
