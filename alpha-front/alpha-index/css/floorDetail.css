@@ -199,12 +199,15 @@
 }
 
  /*modal*/
-
+.modal-header{
+    border:none;
+    padding:20px 0 0;
+}
 .modal-dialog{
     width: 800px;
 }
 .modal-content{
-    padding: 60px 70px 40px;
+    padding: 0 70px 40px;
 }
 .modal-footer{
     border: none;

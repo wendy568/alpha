@@ -311,7 +311,11 @@
     width: 800px;
 }
 .modal-content{
-    padding: 60px 70px 40px;
+    padding: 0 70px 40px;
+}
+.modal-header{
+    border:none;
+    padding:20px 0 0;
 }
 .modal-footer{
     border: none;
