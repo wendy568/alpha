@@ -435,7 +435,7 @@ button:focus{
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
 }
-.nav-tabs a:hover span,.nav-tabs a:focus span,.nav-tabs li.active a span,.nav-tabs li.active a:hover span,.nav-tabs li.active a:focus span{
+.nav-tabs a:hover span,.nav-tabs li.active a span,.nav-tabs li.active a:hover span{
     color: #fff;
     background-color: transparent !important;
 }
