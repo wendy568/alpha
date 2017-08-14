@@ -1,0 +1,342 @@
+.header{
+    width: 100%;
+    height: 160px;
+    background:url("../assets/img/talent_detail_bg03.png")  center no-repeat;
+    background-size: 100% 100%;
+}
+
+.index-logo{
+    height: 40px;
+    width: 157px;
+    margin-top: 10px;
+    display: inline-block;
+    background-size: 100%;
+}
+.index-logo a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/*section----------------------------------------------------------------------------------------------------------------------------*/
+.practice-addr{
+    padding:30px 0 20px;
+    text-align:center;
+    margin-left: calc((1170px - 620px)/2); 
+}
+.london,.hongkong{
+    width: 300px;
+    height: 100px;
+    line-height: 100px;
+    color: #fff;
+    font-size: 18px;
+    float: left;
+    cursor: pointer;
+    background-size: 100% 100%;
+}
+.london>div,.hongkong>div{
+    width: 300px;
+    height: 100px;
+    background-color: rgba(37,47,64,.3);
+}
+.london.active>div,
+.hongkong.active>div{
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid #E7EAF2;
+    background-color:rgba(104,119,136,.7); 
+}
+.london{
+    background: url(../assets/img/talent_city_london.png) no-repeat;
+}
+.hongkong{
+    background: url(../assets/img/talent_city_chengdu.png) no-repeat;
+}
+
+
+/*行程安排*/
+.module2{
+    background: #1f2532 url(../assets/img/talent_detail_bg01.png) no-repeat;
+    background-position: 100% 100%;
+}
+.plan{
+    height: 330px;
+    width: 100%;
+}
+.plan-time,.plan-img,.plan-detail{
+    display: inline-block;
+    float: left;
+}
+.plan-time{
+    width: 130px;
+    height: 330px;
+}
+.plan-time-up,.plan-time-down{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    padding:0 9px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.plan-time-list{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    padding:0 9px;
+    display: block;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #91A0B2;
+    cursor: pointer;
+}
+.plan-time-list.active{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    padding: 0 10px;
+    border:2px solid #fff;
+    color: #fff;
+    font-size:16px;
+    font-weight: bold;
+}
+.plan-img{
+    width: 460px;
+    height: 330px;
+    background: url(../assets/img/demo_trader_detail_route.png) no-repeat;
+    background-size:100% 100%;
+}
+.plan-img img{
+    width: 460px;
+    height: 330px;
+}
+.plan-detail{
+    width: 580px;
+    height: 330px;
+    padding: 40px;
+}
+
+/*班级规模*/
+.class-size,.team-service{
+    height: 360px;
+    width: 100%;
+}
+.project-cost{
+    width: 100%;
+    height: 400px;
+    background: #fff;
+}
+.class-size img,.team-service img,.project-cost img,.class-detail,.project-detail{
+    width: 50%;
+    height: 360px;
+    float: left;
+}
+.class-detail,.project-detail{
+    padding: 60px 40px;
+}
+.class-name,.team-name{
+    width: 120px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 22px;
+    background: url(../assets/img/talent_detail_header.svg) no-repeat;
+    background-size: 100% 100%;
+    background-position: 20px 0px;
+}
+.team-name{
+    width: 100%;
+    background-position: 210px 0px;
+}
+
+/*往期学员*/
+.past-student{
+    width: 100%;
+    overflow: hidden;
+    background: url(../assets/img/talent_detail_bg03.png) no-repeat;
+    background-size:100% 100%;
+}
+.student-list{
+    width: 650px;
+    height: 650px;
+    margin: 40px auto;
+}
+.outside-circle{
+    width: 610px;
+    height: 610px;
+    border:2px dashed rgba(255,255,255,.2);
+    border-radius: 50%;
+    margin:40px auto;
+    position: relative;
+}
+.head1,.head2,.head3,.head4,.head5,.head6{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    border:2px solid #333c4e;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.head1.active,.head2.active,.head3.active,.head4.active,.head5.active,.head6.active{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border:4px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.head1{
+    top:-40px;
+    left:270px;
+}
+.head2{
+    top:130px;
+    left:540px;
+}
+.head3{
+    top:390px;
+    left:540px;
+}
+.head4{
+    top: 560px;
+    left: 270px;
+}
+.head6{
+    top:130px;
+    left:-15px;
+}
+.head5{
+    top:390px;
+    left:-15px;
+}
+.head1.active{
+    top:-50px;
+    left:260px;
+}
+.head2.active{
+    top:110px;
+    left:530px;
+}
+.head3.active{
+    top:390px;
+    left:530px;
+}
+.head4.active{
+    top: 560px;
+    left: 260px;
+}
+.head6.active{
+    top:130px;
+    left:-35px;
+}
+.head5.active{
+    top:370px;
+    left:-35px;
+}
+.inside-circle{
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 90px 80px 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top:-240px;
+    margin-left:-240px;
+    text-align: center;
+}
+.plan-price{
+    width: 100%;
+    height: 550px;
+    margin: 40px 0;
+}
+.unity,.org{
+    width: 560px;
+    height: 100%;
+    float: left;
+}
+.unity-head,.org-head{
+    width: 100%;
+    height: 250px;
+    padding-top: 50px;
+    text-align: center;
+    display: inline-block;
+}
+.unity-head{
+    background: url(../assets/img/talent_detail_plan_indevidual.png) no-repeat;
+    background-size: 100% 100%; 
+}
+.org-head{
+    background: url(../assets/img/talent_detail_plan_enterprise.png) no-repeat;
+    background-size: 100% 100%; 
+}
+.unity-body,.org-body{
+    width: 100%;
+    height: 300px;
+    background: #fff;
+    text-align: center;
+    padding: 40px 130px 0;
+}
+
+/*-Modal-*/
+.modal-dialog{
+    width: 800px;
+}
+.modal-content{
+    padding: 60px 70px 40px;
+}
+.modal-footer{
+    border: none;
+}
+
+.custom{
+    width: 110px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    border: 2px solid #e8edfa;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #394852;
+    display: inline-block;
+    cursor: pointer;
+}
+.custom.active,.custom:hover{
+    border: 2px solid #1F2532;
+    background-color: #e8edfa;
+    color: #1F2532;
+}
+
+.camp{
+    width: 110px;
+    height: 120px;
+    text-align: center;
+    border: 2px solid #e8edfa;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #394852;
+    display: inline-block;
+    cursor: pointer;
+}
+.camp.active,.camp:hover{
+    border: 2px solid #1F2532;
+    background-color: #e8edfa;
+    color: #1F2532;
+}
+.personInput{
+    width: 250px;
+    padding: 10px 15px;
+}
+.add-btn{
+    width: 120px;
+    height: 36px;
+    line-height: 34px;
+    border: 2px solid #1F2532;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #1F2532;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}

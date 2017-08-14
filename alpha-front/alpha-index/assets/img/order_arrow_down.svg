@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="21px" viewBox="0 0 8 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>order_arrow_down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="官网" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Talent-order-personal" transform="translate(-701.000000, -691.000000)">
+            <g id="booking" transform="translate(389.000000, 378.000000)">
+                <g id="Group" transform="translate(4.000000, 157.000000)">
+                    <g id="location" transform="translate(0.000000, 120.000000)">
+                        <g id="chengdu-copy" transform="translate(251.000000, 0.000000)">
+                            <g id="Group-5" transform="translate(28.000000, 37.000000)">
+                                <g id="order_arrow_down" transform="translate(29.000000, 0.000000)">
+                                    <path d="M4,0.476190476 L4,12.8937189" id="Line" stroke="#7C8CA5" stroke-width="2" stroke-linecap="square" stroke-dasharray="3"></path>
+                                    <polygon id="Triangle" fill="#7C8CA5" points="4 20 0 12.3809524 8 12.3809524"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

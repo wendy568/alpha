@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="43px" viewBox="0 0 31 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>talent_enjoy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#6B757E" offset="3.31034758%"></stop>
+            <stop stop-color="#41505D" offset="98.6168686%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#D5E0E3" offset="0%"></stop>
+            <stop stop-color="#A4B3B7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="官网" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Talent-Program" transform="translate(-1147.000000, -716.000000)">
+            <g id="youshi-" transform="translate(135.000000, 691.000000)">
+                <g id="Group-10" transform="translate(226.000000, 22.000000)">
+                    <g id="talent_enjoy" transform="translate(786.000000, 3.000000)">
+                        <path d="M30.786455,12.1239569 L30.786455,9.50276244e-05 L-9.46564887e-05,9.50276244e-05 L-9.46564887e-05,12.1239569 C-9.46564887e-05,20.8702994 6.8764626,27.962211 15.3647832,27.9778906 L14.4875542,27.9778906 L14.4875542,41.0353989 L1.81092061,41.0353989 L1.81092061,42.9005536 L28.9754397,42.9005536 L28.9754397,41.0353989 L16.2988061,41.0353989 L16.2988061,27.9778906 L15.4215771,27.9778906 C23.9098977,27.962211 30.786455,20.8702994 30.786455,12.1239569" id="Path" fill="url(#linearGradient-1)"></path>
+                        <path d="M15.3931802,24.2482939 C9.96889008,24.2482939 5.44738626,20.4476641 4.0836229,15.3059569 C4.88039389,15.8511779 6.93112672,16.7881503 11.7581344,16.7881503 C18.1422412,16.7881503 26.1260427,13.4954431 27.069058,13.0968022 C26.5801573,19.3299017 21.5706992,24.2482939 15.3931802,24.2482939" id="Path" fill="url(#linearGradient-2)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

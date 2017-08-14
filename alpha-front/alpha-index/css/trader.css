@@ -1,0 +1,356 @@
+.header{
+    width: 100%;
+    background:url("../assets/img/trader_bg01.png") 48% 100% no-repeat;
+    height: 942px;
+}
+
+.index-logo{
+    height: 40px;
+    width: 157px;
+    margin-top: 10px;
+    display: inline-block;
+    background-size: 100%;
+}
+.index-logo a{
+    width: 100%;
+
+    height: 100%;
+    display: block;
+}
+
+.head-introduce{
+    margin-top: 70px;
+    width: 440px;
+}
+.head-introduce>div{
+    font-size: 2.57143em;
+    color: #fff;
+    margin-bottom: 40px;
+}
+.head-introduce>p{
+    line-height: 24px;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.143em;
+}
+.head-introduce2{
+    margin-top: 70px;
+}
+.head-introduce2>.fl{
+    width: 440px;
+}
+.head-introduce2>.fl>.title{
+    font-size: 2.57143em;
+    color: #fff;
+    margin-bottom: 40px;
+}
+.head-introduce2>.fl>p{
+    line-height: 2.28em;
+    color: rgba(255,255,255,0.7);
+    font-size: 1.43em;
+}
+.head-introduce2>.fl>a{
+    background: #fff;
+    display: inline-block;
+    margin-top: 60px;
+    width: 190px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+.head-introduce2 .box{
+    width: 581px;
+    height: 360px;
+    overflow: hidden;
+    background: #fff;
+}
+.head-introduce2 .box .box-item{
+    width: 290px;
+    height: 180px;
+    border-top: 0;
+    border-left: 0;
+    text-align: center;
+    padding-top: 50px;
+}
+.head-introduce2 .box .box-item .icon{
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.second{
+    width: 100%;
+    background:url("../assets/img/trader_bg02.png") 60% 0 no-repeat;
+}
+.master{
+    margin-top: 140px;
+    margin-bottom: 60px;
+}
+.master img{
+    width: 584px;
+    height: 360px;
+}
+.master .fr{
+    width: calc(100% - 624px);
+    margin-top: 81px;
+}
+.msg{
+    margin-top: 60px;
+}
+.third{
+    width: 100%;
+}
+.learn-more-btn{
+    width: 140px;
+    height: 42px;
+    display: inline-block;
+    line-height: 42px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+}
+
+.trader_01,.trader_02,.trader_03{
+    width: 100%;
+}
+.road,.last{
+    width: 100%;
+}
+
+.trader_01{
+    background:url("../assets/img/trader_data_bg01.png") 50% 100% no-repeat;
+    background-size: 100%;
+    height: 380px;
+    margin-top: 130px;
+}
+.trader_01>div>.absolute{
+    width: 540px;
+    height: 380px;
+    left:0;
+    top: -70px;
+    z-index: 1;
+}
+.trader_01 .fr,.trader_02 .fl,.trader_03 .fr{
+    width: 410px;
+}
+.trader_01 .learn-more-btn{
+    background: rgba(255,255,255,0.2);
+}
+.trader_01 .marked,.trader_02 .marked,.trader_03 .marked,.last .marked{
+    width: 130px;
+    height: 130px;
+    border:4px solid #333c4e;
+    line-height: 130px;
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+    top: -70px;
+    left: 0;
+    opacity: 0.1;
+    color: #333c4e;
+}
+
+.trader_02{
+    height: 630px;
+    padding-top: 170px;
+}
+.trader_02>div>.absolute{
+    width: 540px;
+    height: 380px;
+    right:0;
+    top: -70px;
+    z-index: 1;
+}
+.trader_03{
+    background:url("../assets/img/trader_data_bg02.png") 50% 100% no-repeat;
+    background-size: 100%;
+    height: 380px;
+}
+.trader_03>div>.absolute{
+    width: 540px;
+    height: 380px;
+    left:0;
+    top: -70px;
+    z-index: 1;
+}
+.trader_03 .learn-more-btn{
+    background: rgba(255,255,255,0.2);
+}
+.last{
+    height: 440px;
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+
+.last .fl{
+    margin-top: 70px;
+    width: 360px;
+}
+.last .fr{
+    width: 810px;
+    overflow: hidden;
+    height: 280px;
+}
+.last .fr>.absolute{
+    height: 40px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.last .fr>.absolute .line{
+    border-top: 1px;
+    border-style: dashed;
+    border-color: #333c4e;
+    width: calc(100% - 120px);
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    z-index: 0;
+}
+.last .fr>.absolute .cart-left,.last .fr>.absolute .cart-right{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    top: 0;
+    background: #242b3a;
+    cursor: pointer;
+}
+.last .fr>.absolute .cart-right{
+    right: 0;
+}
+.last .fr .choose-box{
+    position: relative;
+    margin: 15px 60px;
+    height: 10px;
+    width: calc(100% - 120px);
+    line-height: 10px;
+}
+.last .fr .justify{
+    width: 100%;
+    display: table;
+}
+.last .fr .justify span{
+    display: table-cell;
+    text-align: left;
+}
+.last .fr .justify span i{
+    width: 8px;
+    height: 8px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(255,255,255,0.2);
+    cursor: pointer;
+    display: block;
+    background: #242b3a;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    font-size:14px;
+    letter-spacing:0;
+    vertical-align:middle;
+}
+.last .fr .justify span:last-child{
+    width: 8px;
+}
+.last .fr .justify span.active i{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-color: #fff;
+}
+
+.stage-content{
+    width: 100%;
+    overflow: hidden;
+}
+.stage-content .box{
+    width: 5000px;
+}
+.stage-content .box>div{
+    display: inline-block;
+    width: 220px;
+    height: 220px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding: 30px;
+    margin-right: 30px;
+    overflow: hidden;
+}
+.stage-content .box>div .title{
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.stage-content .box>div .title .cate{
+    display: inline-block;
+    width: 2px;
+    height: 16px;
+    background: #fff;
+    margin-right: 5px;
+}
+.stage-content .box>div .content{
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+.stage-content .orange{  background: #BD8473;  }
+.stage-content .blue{  background: #495E8B;  }
+.stage-content .purple{  background: #655A83;  }
+.stage-content .green{  background: #56857B;  }
+.stage-content .red{  background: #855656;  }
+.stage-content .green-grey{  background: #567D85;  }
+.stage-content .blue-grey{  background: #566685;  }
+
+/*-Modal-*/
+.modal-dialog{
+    width: 800px;
+}
+.modal-content{
+    padding: 60px 70px 40px;
+}
+.modal-footer{
+    border: none;
+}
+.member-info label{
+    width: 98px;
+    line-height: 32px;
+    margin:0 20px 0 0;
+    margin-right: 20px;
+    font-size: 14px;
+    float: left;
+    color:#687788;
+}
+.camp{
+    width: 110px;
+    height: 80px;
+    text-align: center;
+    border: 2px solid #e8edfa;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #394852;
+    display: inline-block;
+    cursor: pointer;
+    float: left;
+}
+.camp.active,.camp:hover{
+    border: 2px solid #1F2532;
+    background-color: #e8edfa;
+    color: #1F2532;
+}
+.add-btn{
+    width: 120px;
+    height: 36px;
+    line-height: 34px;
+    border: 2px solid #1F2532;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #1F2532;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
