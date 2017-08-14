@@ -1,0 +1,9 @@
+function Method($col1,$col2)
+{
+	$map = 'SELECT * 
+			FROM Table
+			WHERE col1="'.$col1.'" AND col2='.$col2;
+	
+	$result = $this->db->query($map)->Array_array();
+	return $result;
+}

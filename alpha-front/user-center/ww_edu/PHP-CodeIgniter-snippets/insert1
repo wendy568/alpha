@@ -1,0 +1,10 @@
+function Method($Col1,$Col2,$Col3,$Col4)
+{
+	$result = array();
+	$map = 'INSERT Table(Col1,Col2,Col3,Col4) VALUES("'.$Col1.'","'.$Col2.'","'.$Col3.'","'.$Col4.'")';	
+	$this->db->query($map);
+    $result = $this->db->insert_id();   
+    
+    return $result;
+
+}

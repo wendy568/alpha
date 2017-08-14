@@ -1,0 +1,11 @@
+function Method($col1,$col2)
+{
+	$map = 'UPDATE Table 
+			SET col1="'.$col1.'" , col2="'.$col2.'"
+			WHERE xxx="'.$xxx.'"';
+	
+	$this->db->query($map);
+	$result = $this->db->affected_rows();
+
+	return $result;
+}		
