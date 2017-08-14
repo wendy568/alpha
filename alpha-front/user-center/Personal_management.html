@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Alpha-v2.0</title>
+        <link href="assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
+        <link href="common/css/common.css" rel="stylesheet" type="text/css" />
+        <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    </head>
+    
+    <body class="">
+        <!-- navbar -->
+        <script src="common/js/navbar.js" type="text/javascript"></script>
+
+        <!-- section -->
+        <div class="page-container row-fluid" >
+            <!-- sidebar -->
+            <script src="common/js/sidebar.js" type="text/javascript"></script>
+            
+            <!-- section content -->
+            <div class="page-content" >
+                <div class="tvbar">
+                    All > <span class="text-c2">Trading level</span>
+                </div>
+                <div class="tv-content">
+                    <!-- left -->
+                    <div class="stage-left m-b-30 m-r-30">
+                        <div class="pro-view">
+                            <img src="assets/img/dem0_img01.png" data-src="assets/img/dem0_img01.png" alt="">
+                            <div class="flot">
+                                <canvas id="c1" width="260" height="260"></canvas>
+                            </div>
+                        </div>
+                        <div class="pro-intr">
+                            <h4 class="text-c1 semi-bold"></h4>
+                            <div class="text-c4">
+                                <p style="display: inline;"></p>
+                                <a href="javascript:;" class="more text-info"></a>
+                            </div>
+                            <div class="description"><span></span> of Level</div>
+                            <div class="progress progress-bar-white m-t-10 m-b-20" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <!-- right -->
+                    <div id="pro-detail" class="stage-right m-b-30">
+                        <div class="pro-detail-head">
+                            <!--<div class="cart"></div>-->
+                            <div class="roll-wrap roll_row" id="levelList">
+                                <ul class="roll-list" style="">
+                                    <li id="1" class="module active s1">
+                                        <a href="#stage1" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 1</a>
+                                    </li>
+                                    <li id="2" class="module s2">
+                                        <a href="#stage2" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 2</a>
+                                    </li>
+                                    <li id="3" class="module s3">
+                                        <a href="#stage3" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 3</a>
+                                    </li>
+                                    <li id="4" class="module s4">
+                                        <a href="#stage4" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 4</a>
+                                    </li>
+                                    <li id="5" class="module s5">
+                                        <a href="#stage5" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 5</a>
+                                    </li>
+                                    <li id="6" class="module s6">
+                                        <a href="#stage6" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 6</a>
+                                    </li>
+                                    <li id="7" class="module s7">
+                                        <a href="#stage7" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 7</a>
+                                    </li>
+                                    <li id="8" class="module s8">
+                                        <a href="#stage8" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 8</a>
+                                    </li>
+                                    <li id="9" class="module s9">
+                                        <a href="#stage9" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 9</a>
+                                    </li>
+                                    <li id="10" class="module s10">
+                                        <a href="#stage10" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 10</a>
+                                    </li>
+                                   <!--  <li class="module s11">
+                                        <a href="#stage11" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 11</a>
+                                    </li>
+                                    <li class="module s12">
+                                        <a href="#stage12" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 12</a>
+                                    </li>
+                                    <li class="module s13">
+                                        <a href="#stage13" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 13</a>
+                                    </li>
+                                    <li class="module s14">
+                                        <a href="#stage14" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 14</a>
+                                    </li>
+                                    <li class="module s15">
+                                        <a href="#stage15" class="text-c1 block" role="tab" data-toggle="tab">LEVEL 15</a>
+                                    </li> -->
+                                </ul>
+                                <!--<a class="control pre" href="javascript:;">&lt;</a>
+                                <a class="control next" href="javascript:;">&gt;</a>-->
+                            </div>
+                        </div>
+                        <!-- body -->
+                        <div class="pro-detail-body tab-content">
+                            <h3 class="text-c1 semi-bold">Introducing of Global</h3>
+                            <div id="stage1" class="tab-pane active">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level1-1">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Video Learning</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div id="level1-1" class="collapse in" style="margin-left:30px;">
+                                              <div class="panel-body no-padding">
+                                                <!-- tv-small -->
+                                                <ul class="row no-padding tv-list">
+                                                
+                                                </ul>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level1-2">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Article learning</p>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </a>
+                                            <div id="level1-2" class="collapse in" style="margin-left:30px;">
+                                            <div class="panel-body no-padding" style="padding-left: 0;">
+                                                <!-- tv-small -->
+                                                <ul class="row no-padding artic-list">
+                                                
+                                                </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage2" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level2-1">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Video Learning</p>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </a>
+                                            <div id="level2-1" class="collapse in" style="margin-left:30px;">
+                                                <div class="panel-body no-padding" style="padding-left: 0;">
+                                                    <ul class="row no-padding tv-list">
+                                                    
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level2-2">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Article learning</p>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </a>
+                                            <div id="level2-2" class="collapse in" style="margin-left:30px;">
+                                                <div class="panel-body no-padding" style="padding-left: 0;">
+                                                    <ul class="row no-padding artic-list">
+                                                    
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Task 1 - Place your order [ <span class="placeYourOrder"></span>/1 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Task 2 - 4 style trade [ <span class="4StyleTrade"></span>/4 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                     <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Task 3 - take profits/stop loss [ <span class="stopLoss"></span>/2 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage3" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Make Transactions [ <span class="makeTransactions"></span>/20 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trade all kinds products [ <span class="tradeAllKindsProducts"></span>/15 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Record [ <span class="tradingRecord"></span> ] – everyday request </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                     <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Learning Report [ <span class="learningReport"></span>/1 ] – about P/L and others.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage4" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level4-1">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Video Learning</p>
+                                                    </div>
+                                                    <div id="level4-1" class="collapse in" style="margin-left:32px;">
+                                                        <div class="panel-body no-padding" style="padding-left: 0;">
+                                                            <!-- tv-small -->
+                                                            <ul class="row no-padding tv-list">
+                                                            
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level4-2">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Article learning</p>
+                                                    </div>
+                                                    <div id="level4-2" class="collapse in" style="margin-left:32px;">
+                                                        <div class="panel-body no-padding" style="padding-left: 0;">
+                                                            <!-- tv-small -->
+                                                            <ul class="row no-padding artic-list">
+                                                            
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Make Transaction 1  [ <span class="makeTransactionOn"></span>/1 ] – based on the predictions</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Make Transaction 2  [  <span class="makeTransactionTwo"></span>/1 ] – make quick response reactions</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage5" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level5-1">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Video Learning</p>
+                                                    </div>
+                                                    <div id="level5-1" class="collapse in" style="margin-left:32px;">
+                                                        <div class="panel-body no-padding" style="padding-left: 0;">
+                                                            <ul class="row no-padding tv-list">
+                                                            
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level5-2">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Article learning</p>
+                                                    </div>
+                                                    <div id="level5-2" class="collapse in" style="margin-left:32px;">
+                                                        <div class="panel-body no-padding" style="padding-left: 0;">
+                                                            <ul class="row no-padding artic-list">
+                                                            
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Make Transactions [ <span class="makeTransactions"></span>/3 ] – mathematical/historical/technical</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage6" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class=" xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Make Transactions [ <span class="makeTransactions"></span>/30 ] - according to candidates’ analysis</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Task 1 - 2 different markets [ <span class="2DifferentMarkets"></span>/2 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Task 2 – 10 different products [<span class="10DifferentProducts"></span>/10] </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Record [ <span class="tradingRecord"></span> ] – reflect the relation between analysis and transaction</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Learning Report [ <span class="learningReport"></span>/1 ] – Write Down Your Analysis </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage7" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">5 tradable products [ <span class="5TradableProducts"></span>/5 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Report [ <span class="tradingRecord"></span> ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage8" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Produce a module [ <span class="produceAModule"></span>/1 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Learning report [ <span class="learningReport"></span>/1 ] – about understanding of module</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage9" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level9-1">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Article learning</p>
+                                                    </div>
+                                                    <div id="level9-1" class="collapse in" style="margin-left:32px;">
+                                                        <div class="panel-body no-padding" style="padding-left: 0;">
+                                                            <ul class="row no-padding artic-list">
+                                                            
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Risk Management Level [ <span class="riskManagementLevel"></span>/30 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage10" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Risk Management Level [ <span class="riskManagementLevel"></span>/60 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Score [ <span class="tradingScore"></span>/30 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                     <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Report [ <span class="tradingRecord"></span> ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                           <!--  <div id="stage11" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level11-1">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Video Learning</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div id="level11-1" class="collapse in" style="margin-left:30px;">
+                                              <div class="panel-body no-padding">
+                                                <ul class="row no-padding tv-list">
+                                                
+                                                </ul>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#level11-2">
+                                                <div class="cbp_tmicon primary animated bounceIn"> <i class="complete"></i> </div>
+                                                <div class="cbp_tmlabel">
+                                                    <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                        <p class="m-t-5 text-c2">Article learning</p>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </a>
+                                            <div id="level11-2" class="collapse in" style="margin-left:30px;">
+                                            <div class="panel-body no-padding" style="padding-left: 0;">
+                                                <ul class="row no-padding artic-list">
+                                                
+                                                </ul>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage12" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Score [ <span class="tradingScore"></span>/30 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                     <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Report [ <span class="tradingRecord"></span> ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage13" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Score [ <span class="tradingScore"></span>/30 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                     <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Report [ <span class="tradingRecord"></span> ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage14" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Score [ <span class="tradingScore"></span>/30 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                     <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Report [ <span class="tradingRecord"></span> ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="stage15" class="tab-pane">
+                                <ul class="cbp_tmtimeline">
+                                    <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Trading Score [ <span class="tradingScore"></span>/30 ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                     <li class="panel no-margin">
+                                        <div class="panel-heading no-padding">
+                                            <div class="cbp_tmicon primary animated bounceIn"> <i class="fa fa-circle-o text-c3"></i> </div>
+                                            <div class="cbp_tmlabel">
+                                                <div class="xs-p-r-10 xs-p-l-10 xs-p-t-5 p-t-10">
+                                                    <p class="m-t-5 text-c2">Profitable Period [ <span class="profitablePeriod"></span>/3 month ]</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- modal -->
+                <div id="tvModal" class="modal fade" tabindex="-1" role="dialog" data-logId="" >
+                    <div class="modal-dialog">
+                        <div class="modal-content tv-detail">
+                            <span type="button" class="text-c1 tv-close close" data-dismiss="modal" style="opacity: 1;">X</span>
+                            <div class="tv-detail-header">
+                            
+                            </div>
+                            <div class="modal-body tv-detail-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="articleModal" class="modal fade" tabindex="-1" role="dialog" data-logId="">
+                    <div class="modal-dialog">
+                        <div class="modal-content tv-detail">
+                            <div class="modal-body tv-detail-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- script -->
+        <script src="assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="common/js/common.js" type="text/javascript"></script>
+        <script src="common/js/personalManagement.js" type="text/javascript"></script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SpriteFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" CssFileName="../images" ImageName="img" IsPhone="false" xmlns="CssSprite">
+  <SpriteList>
+    <Sprite Path="country_jpy.png" LocationX="0" LocationY="0" />
+    <Sprite Path="country_gbp.png" LocationX="44" LocationY="0" />
+    <Sprite Path="country_usd.png" LocationX="88" LocationY="0" />
+    <Sprite Path="country_nzd.png" LocationX="132" LocationY="0" />
+    <Sprite Path="country_chf.png" LocationX="176" LocationY="0" />
+    <Sprite Path="country_aud.png" LocationX="220" LocationY="0" />
+    <Sprite Path="country_eur.png" LocationX="264" LocationY="0" />
+    <Sprite Path="country_cny.png" LocationX="308" LocationY="0" />
+  </SpriteList>
+</SpriteFile>
