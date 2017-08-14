@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>index_globalization</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="官网" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="index" transform="translate(-34.000000, -707.000000)" stroke="#FFFFFF" stroke-width="1.5">
+            <g id="index_globalization" transform="translate(35.000000, 708.000000)">
+                <ellipse id="Oval-3" cx="25" cy="4.76190476" rx="4.76190476" ry="4.76190476"></ellipse>
+                <circle id="Oval-3-Copy-4" fill="#FFFFFF" cx="25" cy="25" r="4.76190476"></circle>
+                <path d="M23.5119048,10.1190476 L23.5119048,19.6428571" id="Line" stroke-linecap="square"></path>
+                <circle id="Oval-3-Copy" cx="45.2380952" cy="28.5714286" r="4.76190476"></circle>
+                <circle id="Oval-3-Copy-2" cx="29.7619048" cy="45.2380952" r="4.76190476"></circle>
+                <ellipse id="Oval-3-Copy-3" cx="4.76190476" cy="28.5714286" rx="4.76190476" ry="4.76190476"></ellipse>
+                <path d="M27.9761905,8.92857143 L42.2619048,24.4047619" id="Line" stroke-linecap="square"></path>
+                <path d="M22.0238095,8.92857143 L7.73809524,24.4047619" id="Line" stroke-linecap="square"></path>
+                <path d="M7.73809524,32.7380952 L24.4047619,42.2619048" id="Line" stroke-linecap="square"></path>
+                <path d="M42.2619048,32.7380952 L33.9285714,41.0714286" id="Line" stroke-linecap="square"></path>
+                <path d="M25.5952381,30.3571429 L27.9761905,39.8809524" id="Line" stroke-linecap="square"></path>
+                <path d="M30.3571429,25.5952381 L39.8809524,27.9761905" id="Line" stroke-linecap="square"></path>
+                <path d="M19.6428571,25.5952381 L10.1190476,27.9761905" id="Line" stroke-linecap="square"></path>
+            </g>
+        </g>
+    </g>
+</svg>

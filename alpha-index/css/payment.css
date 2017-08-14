@@ -1,0 +1,227 @@
+/*header---------------------------------------------------------------------------------------------------------------------------------------------*/
+.header{
+    width: 100%;
+    box-sizing: border-box;
+    background:url("../assets/img/tv-small.png")  center no-repeat fixed;
+    background-size: 100% 100%;
+}
+
+/*navbar*/
+.nav-tabs a{
+    color:#fff;
+    font-weight: bold;
+    font-size: 14px;
+    border:none !important;
+    padding: 10px 5px !important;
+}
+.nav-tabs a:hover{
+    background-color:transparent !important;
+}
+.nav-tabs li{
+    width: 	auto;
+}
+
+.pay-box{
+    margin-top: 80px;
+}
+.step-box .line{
+    top: 15px;
+    margin: 0 15px;
+    width: calc(100% - 30px);
+    height: 2px;
+    background: #7c8ca5;
+    z-index: -1;
+}
+.first, .second, .three{
+    display: inline-block;
+}
+.first,.second{
+    margin-right: 210px;
+}
+.step-box{
+    margin-bottom: 60px;
+}
+.step-box>div.actived .ball{
+    background: #1f2532;
+}
+.step-box .ball{
+    width: 30px;
+    height: 30px;
+    background: #7c8ca5;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+.step-box .ball:after{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    width: auto;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    color:#687788;
+    transform: translate(-50%,0);
+    -webkit-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0);
+    -o-transform: translate(-50%,0);
+    -ms-transform:  translate(-50%,0);
+    margin-left: 15px;
+}
+.step-box .ball::-ms-ticks-after{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 15px;
+    z-index: 1;
+    width: auto;
+    text-align: center;
+    font-size: 12px;
+    color:#687788;
+    transform: translate(-50%,0);
+    -webkit-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0);
+    -o-transform: translate(-50%,0);
+    -ms-transform:  translate(-50%,0);
+    margin-left: 15px;
+}
+.step-box .first .ball:after{
+    content: 'CONFIRMATION';
+}
+.step-box .first .ball::-ms-ticks-after{
+    content: 'CONFIRMATION';
+}
+.step-box .second .ball:after{
+    content: 'PAYMENT';
+}
+.step-box .second .ball::-ms-ticks-after{
+    content: 'PAYMENT';
+}
+.step-box .three .ball:after{
+    content: 'DONE';
+}
+.step-box .three .ball::-ms-ticks-after{
+    content: 'DONE';
+}
+
+.pay-body{
+    padding: 60px 40px;
+    background: #fff;
+}
+.step1 .title{
+    height: 60px;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: #ddd;
+}
+.step1 .title .absolute{
+    left: 0;
+    bottom:15px;
+}
+.person>span{
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.product{
+    width: 100%;
+    display: table;
+}
+.product .thead{
+    font-weight: normal;
+    font-size: 12px;
+    color:#91A0B2;
+    padding-bottom: 15px;
+    text-align: left;
+    border-width: 0 0 1px 0 !important;
+    border-style: solid;
+    border-color: #ccc;
+}
+.product .thead th{
+    font-weight: normal;
+}
+.product input[type="checkbox"]{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+.product .tbody tr img{
+    width: 160px;
+    height: 100px;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.product .tbody tr{
+    border-width: 0 0 1px 0 !important;
+    border-style: solid;
+    border-color: #ccc;
+}
+.remove span{
+    cursor: pointer;
+}
+
+.total{
+    margin-top: 60px;
+    padding-right: 100px;
+}
+.total .fl{
+    margin-right: 60px;
+}
+.total .r{
+    width: 160px;
+    height: 48px;
+    color:#fff;
+    line-height: 48px;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+}
+
+.step2{
+    padding: 50px 0;
+}
+.step2 .box{
+    text-align: center;
+}
+.step2 .type-select{
+    height: 80px;
+    width: 80px;
+    border-width: 2px;
+    padding: 5px;
+    cursor: pointer;
+}
+.step2 .type-select.selected{
+    background: #0093ee;
+}
+.step2 .type-select.selected+span{
+    color: #1F2532;
+}
+.step2 .type-select img{
+    width: 100%;
+    height: 100%;
+}
+.step2 .scan-box{
+    border-width: 2px;
+    width: 260px;
+    height: 260px;
+    margin:  0 auto;
+    text-align: center;
+    line-height: 260px;
+}
+.step2 .scan-box img{
+    width: 160px;
+    height: 160px;
+}
+
+.step1,.step2,.step3{
+    display: none;
+}
+.pay-body .show{
+    display: block;
+}
+.payCount{
+    color:red;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="16px" viewBox="0 0 14 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>order_member_delete</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="官网" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Talent-order-personal" transform="translate(-469.000000, -856.000000)" fill="#7C8CA5">
+            <g id="booking" transform="translate(389.000000, 378.000000)">
+                <g id="member" transform="translate(0.000000, 475.000000)">
+                    <g id="order_member_delete" transform="translate(80.000000, 3.000000)">
+                        <path d="M6.35814783,-1.75e-05 L6.35814783,1.27967 L-2.60869565e-05,1.27967 L-2.60869565e-05,2.5590075 L13.9875391,2.5590075 L13.9875391,1.27967 L7.62945217,1.27967 L7.62945217,-1.75e-05 L6.35814783,-1.75e-05 Z M11.4444957,3.8386075 L11.4444957,14.075145 L2.5431913,14.075145 L2.5431913,3.8386075 L1.2718,3.8386075 L1.2718,15.3544825 L12.7163217,15.3544825 L12.7163217,3.8386075 L11.4444957,3.8386075 Z" id="Fill-1"></path>
+                        <path d="M3.81494783,5.758095 L5.08625217,5.758095 L5.08625217,12.795545 L3.81494783,12.795545 L3.81494783,5.758095 Z M6.35816522,5.758095 L7.62946957,5.758095 L7.62946957,12.795545 L6.35816522,12.795545 L6.35816522,5.758095 Z M8.90129565,5.758095 L10.1731217,5.758095 L10.1731217,12.795545 L8.90129565,12.795545 L8.90129565,5.758095 Z" id="Fill-2"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
