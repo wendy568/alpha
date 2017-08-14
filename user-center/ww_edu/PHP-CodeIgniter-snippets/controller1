@@ -1,0 +1,13 @@
+<?php
+class Controller extends MY_Controller
+{
+	public function Method()
+	{
+		$xxx = $this->input->get_post('xxx', TRUE);
+		$this->load->database();
+		$this->load->helper('url');
+		$this->load->model('Model');
+		$data = $this->Model->Function($xxx);
+		$this->view("View")
+	}
+}
