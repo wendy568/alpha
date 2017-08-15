@@ -1,0 +1,22 @@
+<?php  
+
+class Model extends CI_Model 
+{
+	function __construct()
+    {
+        parent::__construct();
+    }
+
+	function Method()
+	{
+		$result = array();
+		$map = 'SELECT *  
+				FROM Table';
+		$query = $this->db->query($map);
+        $result = $query->Array_array();
+        
+        return $result;
+
+	}
+
+}
