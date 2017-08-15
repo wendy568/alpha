@@ -1,7 +1,0 @@
-function Method($Col1)
-{
-	$map = 'DELETE FROM Table 
-			WHERE Col1="'.$Col1.'"';
-	
-	$this->db->query($map);
-}
