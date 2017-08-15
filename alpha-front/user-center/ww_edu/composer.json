@@ -1,7 +1,0 @@
-{
-	"require": {
-		"blablacar/memcached-client": "@stable",
-		"payments/alipay": "dev-master",
-		"fergusean/nusoap": "^0.9.5"
-	}
-}
