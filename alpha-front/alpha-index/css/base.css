@@ -676,3 +676,11 @@ button:focus{
     display: inline-block;
 }
 /*----------font icons end----------------------------------------------------------------------------------------------------------------------*/
+
+
+// buyCartAlert
+.cartAlert{
+    width: 400px;
+    height: 240px;
+    background:#000;
+}

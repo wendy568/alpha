@@ -109,6 +109,7 @@ function deletePeople(pram){
     });
 }
 
+
 // 滚动执行动画
 $(function() {
     var $window           = $(window),
@@ -150,3 +151,9 @@ $(function() {
 
     revealOnScroll();
 });
+
+
+// buy cart
+function buyCartAlert() {
+
+}
