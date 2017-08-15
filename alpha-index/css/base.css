@@ -435,7 +435,7 @@ button:focus{
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
 }
-.nav-tabs a:hover span,.nav-tabs li.active a span,.nav-tabs li.active a:hover span{
+.nav-tabs a:hover,.nav-tabs li.active a,.nav-tabs li.active a:hover,.nav-tabs a:hover span,.nav-tabs a:visited span{
     color: #fff;
     background-color: transparent !important;
 }
@@ -683,4 +683,7 @@ button:focus{
     width: 400px;
     height: 240px;
     background:#000;
+}
+.cartAlert img{
+    width: 
 }
