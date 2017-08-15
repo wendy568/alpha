@@ -679,12 +679,43 @@ button:focus{
 /*----------font icons end----------------------------------------------------------------------------------------------------------------------*/
 
 
-// buyCartAlert
+/*buyCartAlert*/
 .cartAlert{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index:1000;
+    background-color: rgba(0,0,0,.3);
+}
+.alertBox{
     width: 400px;
     height: 240px;
-    background:#000;
+    background:#fff;
+    text-align: center;
+    position: relative;
+    margin:-200px auto 0;
+    top:50%;
+
 }
-.cartAlert img{
-    width: 
+.alertBox .more,.alertBox .go{
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    color:#fff;
+    font-size:14px;
+    display: inline-block;
+    position: absolute;
+    bottom:0;
+    cursor: pointer;
+}
+.alertBox .more{
+    background-color: #6e778a;
+    left:0;
+}
+.alertBox .go{
+    background-color: #242b3a;
+}
+.alertBox .go:hover{
+    background-color: #1f2532;
 }

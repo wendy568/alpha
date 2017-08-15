@@ -39,4 +39,9 @@
         $(this).addClass('active').siblings().removeClass('active');
     });
 
+    $('.submit-btn').click(function(){
+        $('.cartAlert').removeClass('hide');
+        $('#memberModal').modal('hide');
+    });
+
 })();
