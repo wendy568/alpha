@@ -1,7 +1,7 @@
 .header{
     width: 100%;
     height: 160px;
-    background:url("../assets/img/talent_detail_bg03.png")  center no-repeat;
+    background:url("../assets/img/talent_detail_bg03.jpg")  center no-repeat;
     background-size: 100% 100%;
 }
 
@@ -264,11 +264,11 @@
     display: inline-block;
 }
 .unity-head{
-    background: url(../assets/img/talent_detail_plan_indevidual.png) no-repeat;
+    background: url(../assets/img/talent_detail_plan_indevidual.jpg) no-repeat;
     background-size: 100% 100%; 
 }
 .org-head{
-    background: url(../assets/img/talent_detail_plan_enterprise.png) no-repeat;
+    background: url(../assets/img/talent_detail_plan_enterprise.jpg) no-repeat;
     background-size: 100% 100%; 
 }
 .unity-body,.org-body{
