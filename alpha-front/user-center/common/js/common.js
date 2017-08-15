@@ -424,7 +424,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
             data    : data,
             success : function(res){
                 if(res.archive && res.archive.status == 400){
-                    // window.location.href='../login/Login.html';
+                    window.location.href='../login/Login.html';
                 }else {
                     fn && fn(res);
                 }
