@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('pay', 'PayController@index');
+Route::resource('pay', 'PayController');
 
 Route::get('/', function () {
     return view('welcome');
