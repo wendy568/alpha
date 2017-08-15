@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/pay', 'PayController@index');
+Route::post('/pay', 'PayController@index');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
