@@ -155,7 +155,8 @@ $(function() {
 
 // buy cart
 function buyCartAlert(arg) {
-    var alertStyle = '<div class="cartAlert '+ arg +'">'+
+    var alert = document.createElement('div');
+    var html = '<div class="cartAlert '+ arg +'">'+
                         '<div class="animated fadeInDown alertBox"> '+
                             '<img src="assets/img/Alert_planlist.svg" alt="" class="m-t-40 m-b-30">'+
                             '<p class="font18 text-c1">Add To Plan List Successfull!</p>'+
@@ -163,8 +164,20 @@ function buyCartAlert(arg) {
                             '<a href="../user-center/Order.html" class="go">Go To Plan List</a>'+
                         '</div>'+
                     '</div>';
-    $('body').append(alertStyle);
-    console.log('我被执行了！');
+    alert.innerHTML = html;
+    $(alert).attr({id: 'alertBox'});
+    $('.header').before(alert);
+    this.closeBuyCartAlert();
+    return this;
 }
+function closeBuyCartAlert(){
+    $('.more').on('click',function(){
+        $('#alertBox').addClass('animated fadeOut');
+        setTimeout(function () {
+             $('#alertBox').remove();
+        },500);
+    });
+}
+
 
 

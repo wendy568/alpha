@@ -41,7 +41,6 @@
 
     $('.submit-btn').click(function(){
         buyCartAlert('show');
-        // $('.cartAlert').removeClass('hide');
         $('#memberModal').modal('hide');
     });
 
