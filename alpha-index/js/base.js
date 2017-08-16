@@ -154,9 +154,9 @@ $(function() {
 
 
 // buy cart
-function buyCartAlert(arg) {
+function buyCartAlert() {
     var alert = document.createElement('div');
-    var html = '<div class="cartAlert '+ arg +'">'+
+    var html = '<div class="cartAlert">'+
                         '<div class="animated fadeInDown alertBox"> '+
                             '<img src="assets/img/Alert_planlist.svg" alt="" class="m-t-40 m-b-30">'+
                             '<p class="font18 text-c1">Add To Plan List Successfull!</p>'+
