@@ -24,7 +24,7 @@ $(function () {
             $.alpha.request_Url('POST', 'user/login', data, function (res) {
                 if (res.archive.status == 0) {
                     sessionStorage.setItem('alpha_token', res.data.token);
-                    window.location.href = '../user-center/index.html';
+                    window.location.href = '../alpha-index/index.html';
                 } else if (res.archive.status == 101) {
                     // 弹出框提示用户名或密码错误
                     $('#tab_login .text-danger').html('Wrong Account or Password !');
@@ -104,7 +104,7 @@ $(function () {
             $.alpha.request_Url('POST', 'user/register', data, function (res) {
                 if (res.archive.status == 0) {
                     sessionStorage.setItem('alpha_token', res.data.token);
-                    window.location.href = '../user-center/index.html';
+                    window.location.href = '../alpha-index/index.html';
                 } else if (res.archive.status == 102) {
                     // 提示邮箱已存在
                     $.alpha.notification('warning', 'The email is exists!');

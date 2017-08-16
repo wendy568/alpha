@@ -1,3 +1,39 @@
+// 项目请求根地址-----------------------------------------------------------------------------------------------
+window.alpha_host='http://120.25.211.159/ww_edu/';
+
+// common ajax request------------------------------------------------------------------------------------------
+function request_Url(type, url, data, fn) {
+    // 每次请求都会带上token信息
+    data.token = '';
+    try {
+        data.token = sessionStorage.getItem("alpha_token") || '';
+    }catch (e){
+        console.log(e)
+    }
+    return $.ajax({
+        type    : type || 'post',
+        url     : alpha_host + url,
+        data    : data,
+        success : function(res){
+            if(res.archive && res.archive.status == 400){
+                window.location.href='../login/Login.html';
+            }else {
+                fn && fn(res);
+            }
+            
+        },
+        error   : function(err) {
+            console.log(err);
+        }
+    });
+};
+
+function getUserInfo(fn){
+    this.request_Url('post','user/userLayoutInfo',{},function(data){
+        fn && fn(data.data);
+    });
+};
+
 // choose Date  start--------------------------------------------------------------------------------------------
 SYT="-2017-";
 SMT="-08-";
