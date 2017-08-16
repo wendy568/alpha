@@ -151,7 +151,9 @@
     opacity: 0.1;
     color: #333c4e;
 }
-
+.last .marked{
+    border:4px solid #dbdfe2 !important;
+}
 .trader_02{
     height: 630px;
     padding-top: 170px;
