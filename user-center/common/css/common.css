@@ -9157,11 +9157,8 @@ body.rtl .footer-widget {
 /*tv----------------------------------*/
 .tvbar{
     background: #2A2E36;
-    background: #;
-    padding-left: 20px;
-    height: 50px;
+    padding: 10px 20px;
     margin-top: 60px;
-    line-height: 50px;
 }
 .all-tv{
   background-color: #2A2E36;
