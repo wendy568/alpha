@@ -228,6 +228,7 @@ table{
 .bd1-right{ border-right:1px solid #E7EAF2; }
 .bd1-left{ border-left:1px solid #E7EAF2; }
 .bd1-bottom{ border-bottom:1px solid #E7EAF2; }
+.bd2{ border:1px solid #1F2532;}
 
  /*content-box*/
 .container{

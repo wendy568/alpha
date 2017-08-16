@@ -115,8 +115,20 @@
 	-webkit-transition-delay: 0.58s;
 	transition-delay: 0.58s;
 }
-
-
+.about{
+	width: 180px;
+	height: 200px;
+	background: #242b3a;
+	opacity: 0.9;
+	padding:20px 20px 20px 0;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 4px;
+	position: absolute;
+	top:40px;
+	left:-93px;
+	text-align: right;
+}
 
 /*banner-title*/
 .banner-des{
