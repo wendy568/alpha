@@ -28,10 +28,6 @@
 	-webkit-transition: background-color 0.3s;
 	transition: background-color 0.3s;
 }
-.btn-nina.button--inverted {
-	background: #fff;
-	color: #7986cb;
-}
 .btn-nina > span {
 	display: inline-block;
 	opacity: 0;
@@ -205,6 +201,28 @@
 	padding-right: 20px;
 	box-sizing: border-box;
 	float: left;
+	border-bottom:none;
+	position: relative;
+}
+.bottom-line{
+	width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #1f2532;
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.list-top a:hover{
+	-webkit-transition: background-color 0.4s;
+	transition: background-color 0.4s;
+	background: #DDE1E2;
+}
+.list-top a:hover .bottom-line{
+	width: 100%;
 }
 .list-top li>img{
 	width: 72px;
