@@ -40,7 +40,8 @@
     });
 
     $('.submit-btn').click(function(){
-        $('.cartAlert').removeClass('hide');
+        buyCartAlert('show');
+        // $('.cartAlert').removeClass('hide');
         $('#memberModal').modal('hide');
     });
 
