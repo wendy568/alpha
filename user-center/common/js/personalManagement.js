@@ -337,4 +337,16 @@
         }
     });
     
+    // 课程管理
+    var addCourse = '<div class="add-course"><span class="glyphicon glyphicon-plus"></span></div>';
+    $('.coursed table').hover(function (e) {
+        var event = e || window.event;
+        var target = event.target || event.srcElement;
+        $(this).find('td.learn .course-name').html(addCourse);
+    },function (e) {
+        var event = e || window.event;
+        var target = event.target || event.srcElement;
+        $(this).find('td.learn .course-name').html('');
+    })
+    
 })();

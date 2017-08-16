@@ -47,3 +47,19 @@
 .course .teacher{
     height: 50px;
 }
+
+.add-course{
+    font-size: 32px;
+    height: 146px;
+    line-height: 146px;
+    text-align: center;
+}
+.add-course span{
+    cursor: pointer;
+}
+.course-name .name{
+    height: 100%;
+    vertical-align: middle;
+    text-align: left;
+    color: #fff;
+}
