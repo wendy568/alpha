@@ -2,8 +2,8 @@
 
 var foot =`<div>
 			<!-- alpha-infor -->
-			<div class="alpha-infor bg2 revealOnScroll" data-animation="fadeIn">
-				<div class="container">
+			<div class="alpha-infor bg2">
+				<div class="container revealOnScroll" data-animation="fadeIn">
 					<div class="foot-left">
 						<!-- server -->
 						<div class="foot-server">
