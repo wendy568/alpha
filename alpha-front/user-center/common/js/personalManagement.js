@@ -338,15 +338,75 @@
     });
     
     // 课程管理
-    var addCourse = '<div class="add-course"><span class="glyphicon glyphicon-plus"></span></div>';
+    var ableAdd = '1-2,2-4,3-5,2-1,4-4';
+    var courseList = [{class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'J.K.'},
+        {class:'Modern Bank',teacher:'Wang'},{class:'Bank Certificate',teacher:'Billy'},
+        {class:'Bank Certificate',teacher:'J.K.'},{class:'Bank Certificate',teacher:'Wang'},
+        {class:'Hongkong Bank',teacher:'Billy'},{class:'Hongkong Bank',teacher:'J.K.'},
+        {class:'System Analysis',teacher:'Billy'},{class:'System Analysis',teacher:'Wang'},
+        {class:'Bill Count',teacher:'Wang'},{class:'A haha',teacher:'Billy'},
+        {class:'A haha',teacher:'Billy'},{class:'A haha',teacher:'Billy'},
+        {class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'Billy'},
+        {class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'Billy'},
+        {class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'Billy'},
+        {class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'Billy'}];
+    
+    var list = [];
+    var teachers = [];
+    var coordinate = '';
+    
+    $.each(courseList,function (index,item) {
+        var $course = $('<tr><td>'+item.class+'</td><td>'+item.teacher+'</td><td class="text-right"><a href="javascript:void(0)" class="'+item.class+'_'+item.teacher+'">Select</a></td></tr>');
+        $course.find('a').click(function (e) {
+           var className = $(this).attr('class').split('_')[0];
+           var teacher = $(this).attr('class').split('_')[1];
+           $('#courseSelect').modal('hide');
+           $('.coursed .learn_'+coordinate+' .add-course').hide();
+           $('.coursed .learn_'+coordinate+' .mask').hide();
+           $('.coursed .learn_'+coordinate+' .name').html(className);
+           $('.coursed .learn_'+coordinate+' .teacher').html(teacher);
+        });
+        if(teachers.indexOf(item.teacher) <= -1){
+            teachers.push(item.teacher)
+        }
+        if (list.indexOf(item.class) <= -1){
+            list.push(item.class)
+        }
+        if (index<15){
+            $('#courseSelect .table tbody').append($course);
+        }
+    });
+    
+    // 计算共多少页
+    $('#courseSelect .pages .pageCount').html('1/' + Math.ceil(courseList.length/15));
+    
+    // hover table
     $('.coursed table').hover(function (e) {
-        var event = e || window.event;
-        var target = event.target || event.srcElement;
-        $(this).find('td.learn .course-name').html(addCourse);
+        var $tds = $(this).find('td.learn');
+        $.each($tds,function (index,td) {
+            var xy = $(td).attr('class').split('_')[1];
+            if(ableAdd.indexOf(xy) > -1 && !$(td).find('.name').text()){
+                $(td).find('.add-course').show();
+            }
+        })
     },function (e) {
-        var event = e || window.event;
-        var target = event.target || event.srcElement;
-        $(this).find('td.learn .course-name').html('');
+        $(this).find('td.learn .add-course').hide();
+        $(this).find('td.learn .mask').hide();
     })
     
+    // add
+    $('.coursed table .learn .add-course span').click(function (e) {
+        var xy = $(this).parents('td').attr('class').split('_')[1];
+        coordinate = xy;
+    })
+    
+    // hover td
+    $('.coursed .learn').hover(function (e) {
+        var text = $(this).find('.name').text();
+        if(text){
+            $(this).find('.mask').show()
+        }
+    },function (e) {
+        $(this).find('.mask').hide()
+    })
 })();

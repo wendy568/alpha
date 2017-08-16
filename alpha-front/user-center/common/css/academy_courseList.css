@@ -24,7 +24,7 @@
     display: none;
 }
 
-.coursed .table{
+.coursed .table,#courseSelect .table{
     width: 100%;
     display: table;
     overflow: visible;
@@ -38,6 +38,7 @@
 }
 .coursed td.learn{
     padding: 0;
+    position: relative;
 }
 .coursed .course-name{
     height: 146px;
@@ -53,13 +54,44 @@
     height: 146px;
     line-height: 146px;
     text-align: center;
+    display: none;
 }
 .add-course span{
     cursor: pointer;
 }
 .course-name .name{
     height: 100%;
-    vertical-align: middle;
-    text-align: left;
+    line-height: 146px;
+    text-align: center;
+    color: darkgrey;
+}
+
+#courseSelect .table thead{
+    border-bottom: 2px solid #d7d5d7;
+}
+
+.pages .page-l,.pages .page-r{
+    cursor: pointer;
+}
+
+.coursed .learn .mask{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    text-align: center;
+    line-height: 196px;
     color: #fff;
+    background: rgba(255,255,255,0.3);
+}
+.coursed .learn .mask span{
+    cursor: pointer;
+}
+.coursed .learn .teacher{
+    color:darkgrey;
+    line-height: 50px;
+    text-align: center;
 }
