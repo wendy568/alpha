@@ -1,0 +1,49 @@
+.course-nav{
+    background: #2A2E36;
+    padding: 10px 20px;
+    width: 360px;
+    margin: 70px auto 0;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+.course-nav i{
+    font-style: normal;
+    font-size: 18px;
+}
+.course-nav span{
+    cursor: pointer;
+}
+.course-nav span.actived{
+    color: #fff;
+    text-decoration: underline;
+}
+.course{
+    display: none;
+}
+
+.coursed .table{
+    width: 100%;
+    display: table;
+    overflow: visible;
+}
+.coursed .table td{
+    text-align: center;
+}
+.coursed .table tr td:first-child{
+    width: 120px;
+    vertical-align: middle;
+}
+.coursed td.learn{
+    padding: 0;
+}
+.coursed .course-name{
+    height: 146px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+}
+.course .teacher{
+    height: 50px;
+}

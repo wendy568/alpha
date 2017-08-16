@@ -27,7 +27,7 @@ $(function () {
                     window.location.href = '../user-center/index.html';
                 } else if (res.archive.status == 101) {
                     // 弹出框提示用户名或密码错误
-                    $('#tab_login .text-danger').html('Invalid Account or Password !');
+                    $('#tab_login .text-danger').html('Wrong Account or Password !');
                 } else {
                     // 登录失败提示
                     $.alpha.alertBox('Fail', 'Login Failed!', 'javascript:(0);');
@@ -45,6 +45,7 @@ $(function () {
     });
     
     $('#tab_login [name="account"]').change(function () {
+        $('#tab_login .text-danger').html('');
         if (accountReg.test($(this).val()) || emailReg.test($(this).val())) {
             $.alpha.props($(this), 'none');
         } else {
@@ -52,6 +53,7 @@ $(function () {
         }
     });
     $('#tab_login [name="pwd"]').change(function () {
+        $('#tab_login .text-danger').html('');
         if (pwdReg.test($(this).val())) {
             $.alpha.props($(this), 'none');
         } else {
@@ -123,9 +125,9 @@ $(function () {
             format: "yyyy-mm-dd"
     });
     
-    
     $('#tab_register input[name="account"]').on('change',function (e) {
         var $this = $(this);
+        $.alpha.props($this, 'none');
         $this.parent().find('.check').remove();
         if (!accountReg.test($this.val().trim()) || $this.val().indexOf('@') > -1){
             setTimeout(function () {
@@ -150,6 +152,7 @@ $(function () {
     });
     $('#tab_register input[name="pwdAgain"]').on('change',function (e) {
         var $this = $(this);
+        $.alpha.props($this, 'none');
         $this.parent().find('.check').remove();
         if ($this.val() !== $('#tab_register input[name="pwd"]').val()){
             setTimeout(function () {

@@ -70,6 +70,14 @@
         $('#articleModal .tv-detail-body').empty();
     });
     
+    $('.course-nav span').click(function (e) {
+        var event = e || window.event;
+        event.stopPropagation();
+        var index = $(this).index() > 0 ? 1 : 0;
+        $(this).addClass('actived').siblings('span').removeClass('actived');
+        $('.page-content .course').eq(index).addClass('show').siblings('.course').removeClass('show');
+    })
+    
     // 获取videolist
     function getVideoList(videoList) {
         var tvList = "";
