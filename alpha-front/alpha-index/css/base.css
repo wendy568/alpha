@@ -521,6 +521,7 @@ button:focus{
 /*alpha-infor*/
 .alpha-infor{
     width: 100%;
+    min-width: 1170px;
     height: 430px;
     background-image:  url("../assets/img/index_map.png");
     padding-top: 60px;
@@ -634,6 +635,7 @@ button:focus{
 
 /*copyright*/
 .copyright{
+    min-width: 1170px;
     height: 40px;
     border:1px solid #333c4e;
     line-height: 40px;

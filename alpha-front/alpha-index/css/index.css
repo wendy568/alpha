@@ -5,6 +5,7 @@
 	box-sizing: border-box;
 	background:url("../assets/img/tv-small.jpg")  center no-repeat fixed;
 	background-size: 100% 100%;
+	min-width: 1170px;
 }
 
 /*navbar*/
@@ -174,6 +175,7 @@
 /*alpha-feature*/
 .feature{
 	width: 100%;
+	min-width: 1170px;
 	height: 160px;
 }
 .feature-list{
@@ -200,9 +202,11 @@
 	font-weight: 400;
 	padding: 50px 0 30px;
 	height: 220px;
+	min-width: 1170px;
 }
 .server-list{
 	width: 100%;
+	min-width: 1170px;
 	height: 380px;
 	background:url(../assets/img/index_bg01.jpg) no-repeat fixed;
 	background-size: 100% 100%;
@@ -309,9 +313,11 @@
     text-align: center;
     font-weight: 400;
     padding: 40px 0;
+    min-width: 1170px;
 }
 .said-list{
 	width: 100%;
+	min-width: 1170px;
 	height: 460px;
 	background:url(../assets/img/index_bg02.jpg) no-repeat;
 	background-size: 100%;
