@@ -113,6 +113,10 @@
     color: rgba(255,255,255,0.7);
     text-align: center;
 }
+.learn-more-btn:hover{
+    background: #fff;
+    color:#1F2532;
+}
 
 .trader_01,.trader_02,.trader_03{
     width: 100%;

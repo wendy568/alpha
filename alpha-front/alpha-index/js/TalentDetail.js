@@ -33,6 +33,9 @@
     $('#enterpriseModal .add-btn').click(function(){
         addPeople('#enterpriseModal');
     });
+    $('.outside-circle img').hover(function(){
+        $(this).toggleClass('animated pulse');
+    })
 
     // deletePeople
     deletePeople('#personalModal');
