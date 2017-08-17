@@ -1,5 +1,6 @@
 .header{
     width: 100%;
+    min-width: 1170px;
     height: 160px;
     background:url("../assets/img/talent_detail_bg03.jpg")  center no-repeat;
     background-size: 100% 100%;
@@ -58,6 +59,7 @@
 .module2{
     background: #1f2532 url(../assets/img/talent_detail_bg01.png) no-repeat;
     background-position: 100% 100%;
+    min-width: 1170px;
 }
 .plan{
     height: 330px;
@@ -124,6 +126,7 @@
 }
 .project-cost{
     width: 100%;
+    min-width: 1170px;
     height: 400px;
     background: #fff;
 }
@@ -152,6 +155,7 @@
 /*往期学员*/
 .past-student{
     width: 100%;
+    min-width: 1170px;
     overflow: hidden;
     background: url(../assets/img/talent_detail_bg03.jpg) no-repeat;
     background-size:100% 100%;

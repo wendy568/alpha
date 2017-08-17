@@ -21,7 +21,7 @@ var foot =`<div>
 								<div class="popover popover-default has-footer in right right-bottom" style="display: block;margin-left: 95px;z-index:800;">
 									<div class="arrow"></div>
 									<div class="popover-content">
-										<a href="" class="font14 text-c2" target="_blank">
+										<a href="AboutUs.html#contact" class="font14 text-c2" target="_blank">
 											Leave a message
 										</a>
 									</div>

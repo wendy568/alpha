@@ -1,5 +1,6 @@
 .header{
 	width: 100%;
+	min-width: 1170px;
 	height: 680px;
 	box-sizing: border-box;
 	background:url("../assets/img/floor_banner01.jpg")  center no-repeat;
@@ -73,4 +74,10 @@
 	// height: 210px;
 	float: left;
 
+}
+.prepare{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(31,37,50, 0.6);
+	float: left;
 }
