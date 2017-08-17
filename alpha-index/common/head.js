@@ -12,6 +12,7 @@
 		if (!sessionStorage.getItem('alpha_user_info_userName')) {
 			getUserInfo(function(data){
 				userName = data.first_name + ' ' + data.last_name;
+				sessionStorage.setItem('alpha_user_info_userName', userName);
 				var user =	'<div class="container">'+
 			            '<a href="../user-center/index.html" class="fr font14 clearfix" style="color: #fff" target="_blank">'+
 			                '<i class="glyphicon glyphicon-user m-r-5"></i>'+
