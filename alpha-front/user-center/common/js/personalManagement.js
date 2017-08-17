@@ -355,27 +355,39 @@
     var teachers = [];
     var coordinate = '';
     
-    $.each(courseList,function (index,item) {
-        var $course = $('<tr><td>'+item.class+'</td><td>'+item.teacher+'</td><td class="text-right"><a href="javascript:void(0)" class="'+item.class+'_'+item.teacher+'">Select</a></td></tr>');
-        $course.find('a').click(function (e) {
-           var className = $(this).attr('class').split('_')[0];
-           var teacher = $(this).attr('class').split('_')[1];
-           $('#courseSelect').modal('hide');
-           $('.coursed .learn_'+coordinate+' .add-course').hide();
-           $('.coursed .learn_'+coordinate+' .mask').hide();
-           $('.coursed .learn_'+coordinate+' .name').html(className);
-           $('.coursed .learn_'+coordinate+' .teacher').html(teacher);
-        });
-        if(teachers.indexOf(item.teacher) <= -1){
-            teachers.push(item.teacher)
-        }
-        if (list.indexOf(item.class) <= -1){
-            list.push(item.class)
-        }
-        if (index<15){
-            $('#courseSelect .table tbody').append($course);
-        }
-    });
+    $('#courseSelect').on('shown.bs.modal', function () {
+        $.each(courseList,function (index,item) {
+            var $course = $('<tr><td>'+item.class+'</td><td>'+item.teacher+'</td><td class="text-right"><a href="javascript:void(0)" class="'+item.class+'_'+item.teacher+'">Select</a></td></tr>');
+            $course.find('a').click(function (e) {
+                var className = $(this).attr('class').split('_')[0];
+                var teacher = $(this).attr('class').split('_')[1];
+                var allClass = '';
+                var allTeacher = '';
+                $.each($('.learn'),function (index, td) {
+                    allClass += $(td).find('.name').text() + '_';
+                    allTeacher += $(td).find('.teacher').text() + '_' +
+                        '';
+                    if (!(isSameClass && isSameTeacher)){
+                        $('#courseSelect').modal('hide');
+                        $('.coursed .learn_'+coordinate+' .add-course').hide();
+                        $('.coursed .learn_'+coordinate+' .mask').hide();
+                        $('.coursed .learn_'+coordinate+' .name').html(className);
+                        $('.coursed .learn_'+coordinate+' .teacher').html(teacher);
+                    }
+                })
+            });
+            if(teachers.indexOf(item.teacher) <= -1){
+                teachers.push(item.teacher)
+            }
+            if (list.indexOf(item.class) <= -1){
+                list.push(item.class)
+            }
+            if (index<15){
+                $('#courseSelect .table tbody').append($course);
+            }
+        });s's's's's's's
+    })
+    
     
     // 计算共多少页
     $('#courseSelect .pages .pageCount').html('1/' + Math.ceil(courseList.length/15));
