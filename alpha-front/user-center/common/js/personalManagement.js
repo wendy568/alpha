@@ -409,4 +409,44 @@
     },function (e) {
         $(this).find('.mask').hide()
     })
+    
+    // edit
+    $('.learn .edit').click(function (e) {
+        coordinate = $(this).parent().parent().attr('class').split('_')[1];
+    })
+    
+    // delete
+    $('.learn .delete').click(function (e) {
+        var $td = $(this).parent().parent();
+        $td.find('.teacher').text('');
+        $td.find('.name').text('');
+        $td.find('.mask').hide();
+        $td.find('.add-course').show();
+    })
+    
+    // 翻页
+    $('#courseSelect .page-l').click(function (e) {
+        var name = $('#courseSelect select').eq(0).val();
+        var teacher = $('#courseSelect select').eq(1).val();
+        var page = $('.pages .pageCount').text().split('/')[0];
+        if(page > 0){
+        
+        }
+    })
+    
+    $('#courseSelect .page-r').click(function (e) {
+        var name = $('#courseSelect select').eq(0).val();
+        var teacher = $('#courseSelect select').eq(1).val();
+        var page = $('.pages .pageCount').text().split('/')[0];
+        var all = $('.pages .pageCount').text().split('/')[1];
+        if(page < all){
+        
+        }
+    })
+    
+    // 筛选
+    $('#courseSelect select').change(function (e) {
+        var name = $('#courseSelect select').eq(0).val();
+        var teacher = $('#courseSelect select').eq(1).val();
+    })
 })();
