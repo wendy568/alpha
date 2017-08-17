@@ -20,7 +20,6 @@ function request_Url(type, url, data, fn) {
             }else {
                 fn && fn(res);
             }
-            
         },
         error   : function(err) {
             console.log(err);
