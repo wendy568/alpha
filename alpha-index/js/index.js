@@ -9,8 +9,4 @@
     	$('.learn-list').eq(liIndex).removeClass('hide');
     	$('.learn-list').eq(liIndex).siblings().addClass('hide');
     });
-
-    $('.btn-nina.relative').hover(function(){
-    	$('.about').toggleClass('hide');
-    });
-})();
+})();	
