@@ -41,18 +41,18 @@
     position: relative;
 }
 .coursed .course-name{
-    height: 146px;
+    height: 80px;
     width: 100%;
     border-bottom: 1px solid grey;
 }
 .course .teacher{
-    height: 50px;
+    height: 30px;
 }
 
 .add-course{
     font-size: 32px;
-    height: 146px;
-    line-height: 146px;
+    height: 80px;
+    line-height: 80px;
     text-align: center;
     display: none;
 }
@@ -61,7 +61,7 @@
 }
 .course-name .name{
     height: 100%;
-    line-height: 146px;
+    line-height: 80px;
     text-align: center;
     color: darkgrey;
 }
@@ -83,7 +83,7 @@
     height: 100%;
     z-index: 1;
     text-align: center;
-    line-height: 196px;
+    line-height: 130px;
     color: #fff;
     background: rgba(255,255,255,0.3);
 }
@@ -92,6 +92,13 @@
 }
 .coursed .learn .teacher{
     color:darkgrey;
-    line-height: 50px;
+    line-height: 30px;
     text-align: center;
+}
+
+#courseSelect .table tr{
+    padding: 0;
+}
+#courseSelect .table tr td{
+    padding: 5px;
 }
