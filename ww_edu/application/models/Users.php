@@ -241,7 +241,7 @@ class Users extends CI_Model
 
 		$map = "SELECT COUNT(*) AS count
 				FROM member 
-				WHERE user_type={$user_type}";
+				{$where}";
 		
 		$count = $this->db->query($map)->row_array()['count'];
 
