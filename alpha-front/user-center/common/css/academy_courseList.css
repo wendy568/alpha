@@ -102,3 +102,8 @@
 #courseSelect .table tr td{
     padding: 5px;
 }
+
+#courseSelect select{
+    background: transparent;
+    color: #d7d5d7;
+}
