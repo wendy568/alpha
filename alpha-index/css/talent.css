@@ -43,6 +43,7 @@
 .second .difference .item{
     height: 115px;
 }
+
 .second .difference .item .l{
     height: 90px;
     width: 110px;
@@ -66,6 +67,7 @@
     background: #fff;
     vertical-align: middle;
 }
+
 .second .difference .item .r>div{
     display: table;
     width: 100%;
@@ -75,6 +77,7 @@
     text-align: center;
     display: table-cell;
     height: 100%;
+    width: calc(100%/5);
 }
 .second .difference .item .r .img{
     margin: 15px auto;
