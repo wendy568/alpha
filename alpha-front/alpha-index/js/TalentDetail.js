@@ -41,5 +41,11 @@
     deletePeople('#personalModal');
     deletePeople('#enterpriseModal');
 
+    // choose date
     new YMDselect('year1','month1','day1');
+
+    if($('.london')){
+        
+    }
+    
 })();

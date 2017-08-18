@@ -28,7 +28,6 @@
 .london,.hongkong{
     width: 300px;
     height: 100px;
-    line-height: 100px;
     color: #fff;
     font-size: 18px;
     float: left;
@@ -38,8 +37,11 @@
 .london>div,.hongkong>div{
     width: 300px;
     height: 100px;
-   
     background-color:rgba(104,119,136,.7); 
+    padding-top: 25px;
+}
+.london>div>p,.hongkong>div>p{
+    display: inline-block;
 }
 .london.active>div,
 .hongkong.active>div{
@@ -47,6 +49,7 @@
     font-weight: bold;
     border: 2px solid #E7EAF2;
     background-color: rgba(37,47,64,.3);
+    padding-top: 30px;
 }
 .london{
     background: url(../assets/img/talent_city_london.png) no-repeat;
