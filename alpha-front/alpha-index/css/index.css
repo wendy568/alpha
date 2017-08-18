@@ -22,7 +22,40 @@
 .nav-tabs li{
 	width: 	auto;
 }
-
+.navbar-b{
+	width: 100%;
+	height: 100%;
+	background:#fff;
+}
+.navbar-b a{
+	color:#1F2532;
+}
+.white-navbar{
+	width: 100%;
+    background:#fff;
+    display: none;
+    position: fixed;
+    z-index:10000;
+	top:0;
+	left:0;
+}
+.white-navbar a{
+    color:#1F2532;
+}
+.white-navbar a:hover{
+	color:#1F2532;
+}
+.white-navbar .btn-nina > span{
+	display: inline-block;
+	opacity: 0;
+	color: #1F2532 !important;
+	-webkit-transform: translate3d(0, -10px, 0);
+	transform: translate3d(0, -10px, 0);
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
 .btn-nina {
 	color: #fff;
 	overflow: hidden;
@@ -50,9 +83,6 @@
 	transition: transform 0.3s, opacity 0.3s;
 	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
-}
-.btn-nina:hover {
-	background-color: #3f51b5;
 }
 .btn-nina:hover::before {
 	opacity: 0;

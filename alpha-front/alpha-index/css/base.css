@@ -353,6 +353,15 @@ table tr td,.datepicker-switch,table .prev,table .next{
     background: url(../assets/img/Alpha_logo.svg) center center no-repeat;
     background-size: 100% 100%;
 }
+.alpha-logo-block{
+    height: 40px;
+    width: 157px;
+    margin-top: 10px;
+    display: inline-block;
+    background: url(../assets/img/Alpha_logo_dark.svg) center center no-repeat;
+    background-size: 100% 100%;
+}
+
 .user-head{
     width: 20px;
     height: 20px;
