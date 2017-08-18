@@ -9,6 +9,7 @@
     <title>Alpha-FloorDetail</title>
     <link href="../common-plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../common-plugins/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/lightbox/lightbox.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/floorDetail.css">
 </head>
@@ -122,7 +123,7 @@
     
     <div class="photos clearfix revealOnScroll" data-animation="fadeInLeft">
         <div class="fl relative">
-            <img src="assets/img/floor_img01.png" class="chosen-img" alt="">
+            <a class="livePhotos" href="assets/img/floor_img01.png" data-lightbox="example-1"><img class="chosen-img" src="assets/img/floor_img01.png" alt="image-1" /></a>
             <div class="absolute">
                 <div class="choose-img">
                     <img src="" class="img-item" alt="">
@@ -132,13 +133,13 @@
             </div>
         </div>
         <div class="fr">
-            <img class="img1" src="assets/img/floor_img02.png"/>
-            <img class="img2" src="assets/img/floor_img03.png"/>
-            <img class="img3" src="assets/img/floor_img04.png"/>
+            <a class="livePhotos" href="assets/img/floor_img02.png" data-lightbox="example-2"><img class="img1" src="assets/img/floor_img02.png" alt="image-2" /></a>
+            <a class="livePhotos" href="assets/img/floor_img03.png" data-lightbox="example-3"><img class="img2" src="assets/img/floor_img03.png" alt="image-3" /></a>
+            <a class="livePhotos" href="assets/img/floor_img04.png" data-lightbox="example-4"><img class="img3" src="assets/img/floor_img04.png" alt="image-4" /></a>
         </div>
     </div>
     
-    <div class="last container revealOnScroll" data-animation="fadeInLeft">
+    <div class="last container m-t-40 revealOnScroll" data-animation="fadeInLeft">
         <img src="assets/img/demo_map.png" alt="">
     </div>
 
@@ -337,6 +338,7 @@
     
     <script src="../common-plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="../common-plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="plugins/lightbox/lightbox-plus-jquery.min.js"></script>
     <script src="plugins/video_player/html5media.min.js" type="text/javascript"></script>
     <script src="common/head.js" type="text/javascript"></script>
     <script src="common/footer.js" type="text/javascript"></script>

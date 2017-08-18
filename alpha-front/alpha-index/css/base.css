@@ -1,9 +1,9 @@
  /*base start-------------------------------------------------------------------------------------------------------------------------------*/
 *, ::before, ::after {
-    padding: 0;
     margin: 0;
-    /*去掉chorm浏览器中默认点击的颜色*/
+    padding: 0;
     -webkit-tap-highlight-color: transparent;
+    list-style:none;
 }
 
 @-ms-viewport{ width: device-width; }
@@ -18,9 +18,7 @@ body {
     font-weight: 300;
 }
 
-a {
-    text-decoration: none;
-}
+a {text-decoration: none;}
 a:hover,
 a:focus,
 a:active,
@@ -29,10 +27,6 @@ a:visited{
 }
 .nav-tabs li a:focus{
     background: transparent !important; 
-}
-
-ul,li,dl,dd {
-    list-style: none;
 }
 
 input,
@@ -44,21 +38,14 @@ textarea {
     /*-webkit-appearance: none;*/
 }
 
-sup{
-    vertical-align:text-top;
-}
-sub{
-    vertical-align:text-bottom;
-}
+sup{vertical-align:text-top;}
+sub{vertical-align:text-bottom;}
+
 article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block;}
 div,blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul,table,p,img,section,header,footer,main{
-    margin:0;
-    padding:0;
     border: 0;
 }
-select{
-    cursor: pointer;
-}
+select{ cursor: pointer;}
 
 div,table,p,ul,li,.block,footer,section,header,main,nav,form{
     -webkit-box-sizing: border-box;
@@ -802,3 +789,4 @@ button:focus{
 .alertBox .go:hover{
     background-color: #1f2532;
 }
+
