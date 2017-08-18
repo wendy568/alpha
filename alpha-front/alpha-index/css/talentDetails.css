@@ -38,14 +38,15 @@
 .london>div,.hongkong>div{
     width: 300px;
     height: 100px;
-    background-color: rgba(37,47,64,.3);
+   
+    background-color:rgba(104,119,136,.7); 
 }
 .london.active>div,
 .hongkong.active>div{
     font-size: 24px;
     font-weight: bold;
     border: 2px solid #E7EAF2;
-    background-color:rgba(104,119,136,.7); 
+    background-color: rgba(37,47,64,.3);
 }
 .london{
     background: url(../assets/img/talent_city_london.png) no-repeat;
