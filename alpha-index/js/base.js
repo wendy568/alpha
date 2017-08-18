@@ -149,9 +149,6 @@ function deletePeople(pram){
 $(function() {
     var $window           = $(window),
         win_height_padded = $window.height();
-        // isTouch           = Modernizr.touch;
-
-    // if (isTouch) { $('.revealOnScroll').addClass('animated'); }
 
     $window.on('scroll', revealOnScroll);
 
