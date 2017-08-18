@@ -805,3 +805,12 @@ button:focus{
     background-color: #1f2532;
 }
 
+.modal-content{
+    position: relative;
+}
+.modal-content .close{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}}
+
