@@ -7,7 +7,6 @@
         var index = $(this).index();
         var value = $(this).text();
         $(this).addClass('active').siblings().removeClass('active');
-        console.log(index)
         $('.tab-content').eq(index).addClass('show').siblings('.tab-content').removeClass('show');
         $('.row-1 td').eq(1).text(value);
     });
@@ -33,4 +32,12 @@
     $('.faq-title a').click(function () {
         $(this).addClass('active').parent().parent().siblings().find('.faq-title a').removeClass('active');
     });
+
+
+    var target = window.location.href.split('=')[1];
+    if(target){
+        $('.tab li').eq(target-1).addClass('active').siblings().removeClass('active');
+        $('.tab-content').eq(target-1).addClass('show').siblings('.tab-content').removeClass('show');
+        $('.row-1 td').eq(1).text($('.tab li').eq(target-1).text());
+    }
 })();
