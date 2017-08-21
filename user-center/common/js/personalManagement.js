@@ -1,5 +1,6 @@
 (function () {
     var curStage = 0;
+
     // 环形进度条JS
     function getStage(stage) {
         var c1 = document.getElementById('c1');
@@ -337,7 +338,12 @@
         }
     });
     
-    // 课程管理
+    /*------------------------------课程管理---------------------------------------*/
+
+    $.alpha.request_Url('post','course/all_course', {}, function(res){
+        console.log(res)
+    }, window.alpha_host_new);
+
     var ableAdd = '1-2,2-4,3-5,2-1,4-4';
     var courseList = [{class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'J.K.'},
         {class:'Modern Bank',teacher:'Wang'},{class:'Bank Certificate',teacher:'Billy'},
@@ -385,7 +391,7 @@
             if (index<15){
                 $('#courseSelect .table tbody').append($course);
             }
-        });s's's's's's's
+        });
     })
     
     
