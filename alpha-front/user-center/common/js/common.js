@@ -1,5 +1,6 @@
 // 项目请求根地址
 window.alpha_host='http://120.25.211.159/ww_edu/';
+window.alpha_host_new = 'http://120.25.211.159:7474/api/';
 
 (function($) {
     'use strict';
@@ -410,9 +411,10 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
 
     };
     // common ajax request
-    alpha.prototype.request_Url = function (type, url, data, fn) {
+    alpha.prototype.request_Url = function (type, url, data, fn, host) {
         // 每次请求都会带上token信息
         data.token = '';
+        var host_url = host || alpha_host;
         try {
             data.token = sessionStorage.getItem("alpha_token") || '';
         }catch (e){
@@ -420,7 +422,7 @@ window.alpha_host='http://120.25.211.159/ww_edu/';
         }
         return $.ajax({
             type    : type || 'post',
-            url     : alpha_host + url,
+            url     : host_url + url,
             data    : data,
             success : function(res){
                 if(res.archive && res.archive.status == 400){
