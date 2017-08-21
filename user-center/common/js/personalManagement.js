@@ -362,6 +362,7 @@
     var coordinate = '';
     
     $('#courseSelect').on('shown.bs.modal', function () {
+        $('#courseSelect .table tbody').html('');
         $.each(courseList,function (index,item) {
             var $course = $('<tr><td>'+item.class+'</td><td>'+item.teacher+'</td><td class="text-right"><a href="javascript:void(0)" class="'+item.class+'_'+item.teacher+'">Select</a></td></tr>');
             $course.find('a').click(function (e) {
@@ -369,18 +370,24 @@
                 var teacher = $(this).attr('class').split('_')[1];
                 var allClass = '';
                 var allTeacher = '';
+                var isSameClass = false;
+                var isSameTeacher = false;
                 $.each($('.learn'),function (index, td) {
                     allClass += $(td).find('.name').text() + '_';
-                    allTeacher += $(td).find('.teacher').text() + '_' +
-                        '';
-                    if (!(isSameClass && isSameTeacher)){
-                        $('#courseSelect').modal('hide');
-                        $('.coursed .learn_'+coordinate+' .add-course').hide();
-                        $('.coursed .learn_'+coordinate+' .mask').hide();
-                        $('.coursed .learn_'+coordinate+' .name').html(className);
-                        $('.coursed .learn_'+coordinate+' .teacher').html(teacher);
-                    }
+                    allTeacher += $(td).find('.teacher').text() + '_';
                 })
+                isSameClass = allClass.indexOf(className) > -1;
+                isSameTeacher = allTeacher.indexOf(teacher) > -1;
+                if (!(isSameClass && isSameTeacher)){
+                    $('#courseSelect').modal('hide');
+                    $('.coursed .learn_'+coordinate+' .add-course').hide();
+                    $('.coursed .learn_'+coordinate+' .mask').hide();
+                    $('.coursed .learn_'+coordinate+' .name').html(className);
+                    $('.coursed .learn_'+coordinate+' .teacher').html(teacher);
+                }
+                else{
+                    $.alpha.notification('danger','There has been the course');
+                }
             });
             if(teachers.indexOf(item.teacher) <= -1){
                 teachers.push(item.teacher)
