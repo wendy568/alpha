@@ -101,6 +101,9 @@
 	color: rgba(255,255,255,.7);
 	font-weight: 300;
 }
+.about a:hover{
+	color: #fff;
+}
 .aboutUs:hover ul.about{
  	transition:all .6s;
 	display: block;
