@@ -1,9 +1,34 @@
-.header{
-    width: 100%;
-    min-width: 1170px;
+.bgtx1{
+    width: 120%;
+    background:#edf1f2;
+    height: 360px;
+    position: absolute;
+    transform: rotate(-8deg);
+    -ms-transform: rotate(-8deg);             /* IE 9 */
+    -webkit-transform: rotate(-8deg);      /* Safari and Chrome */
+    -o-transform: rotate(-8deg);              /* Opera */
+    -moz-transform: rotate(-8deg);         /* Firefox */
+    top: 700px;
+    left: 0;
+    z-index: 1;
+}
+.header-father{
     background:url("../assets/img/trader_bg01.jpg") no-repeat;
     background-size: 100% 100%;
     height: 942px;
+    width: 100%;
+    min-width: 1170px;
+    overflow: hidden;
+    position: relative;
+}
+.header{
+    width: 100%;
+    min-width: 1170px;
+    height: 942px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 10;
 }
 
 .index-logo{
@@ -81,12 +106,44 @@
     height: 60px;
     margin: 0 auto;
 }
-
+.bgt1,
+.bgt2{
+    width: 120%;
+    background:#edf1f2;
+    position: absolute;
+    transform: rotate(-8deg);
+    -ms-transform: rotate(-8deg);             /* IE 9 */
+    -webkit-transform: rotate(-8deg);      /* Safari and Chrome */
+    -o-transform: rotate(-8deg);              /* Opera */
+    -moz-transform: rotate(-8deg);         /* Firefox */
+    z-index: 1;
+}
+.bgt1{
+    height: 360px;
+    top: -154px;
+    left: -35px;
+}
+.bgt2{
+    height: 900px;
+    top: 776px;
+    left: 0;
+}
+.second-father{
+    background:url("../assets/img/trader_bg_002.jpg") 0 0 no-repeat;
+    background-size: 100% 100%;
+    height: 1172px;
+    width: 100%;
+    min-width: 1170px;
+    overflow: hidden;
+    position: relative;
+}
 .second{
     width: 100%;
     min-width: 1170px;
-    background:url("../assets/img/trader_bg_002.jpg")  no-repeat;
-    background-size: 100% 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 10;
 }
 .master{
     margin-top: 140px;
