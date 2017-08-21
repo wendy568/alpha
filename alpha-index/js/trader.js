@@ -51,8 +51,12 @@
         html += '<iframe id="tv" src="http://content.jwplatform.com/players/'+data.data.source+'-T351KaXB.html" width="100%" height="100%" frameborder="0" allowfullscreen name="tv"></iframe>';
         $('.trader-video').html(html);
     });
-    $('.learn-more-btn').click(function(e){
-        
-    })
+
+    $('a').click(function(){
+        $('html, body').animate({
+            scrollTop: $( $.attr(this, 'href') ).offset().top
+        }, 500);
+        return false;
+    });
 
 })();
