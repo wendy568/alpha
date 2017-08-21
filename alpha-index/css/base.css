@@ -464,7 +464,91 @@ button:focus{
 }
 
 /*base end-------------------------------------------------------------------------------------------------------------------------------*/
-
+/*-------index-navbar start-------------------------------------------------------------------------------------------------*/
+.navbar .nav-tabs a{
+    color:#fff;
+    font-weight: 400;
+    font-size: 14px;
+    border:none !important;
+    padding: 10px 5px !important;
+}
+.navbar .nav-tabs a:hover{
+    background-color:transparent !important;
+}
+.navbar .nav-tabs li{
+    width:  auto;
+}
+.navbar .navbar-b{
+    width: 100%;
+    height: 100%;
+    background:#fff;
+}
+.navbar .navbar-b a{
+    color:#1F2532;
+}
+.navbar .white-navbar{
+    width: 100%;
+    background:#fff;
+    display: none;
+    position: fixed;
+    z-index:10000;
+    top:0;
+    left:0;
+}
+.navbar .white-navbar a{
+    color:#1F2532;
+    margin-bottom: 10px;
+}
+.navbar .white-navbar a:hover{
+    color:#1F2532;
+}
+.block-navbar .bottom-line,.white-navbar .bottom-line{
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+.bottom-line,.white-navbar .bottom-line{
+    background-color: #1f2532;
+}
+.block-navbar .bottom-line{
+    background-color: #fff;
+}
+.navbar a:hover .bottom-line{
+    width: 100%;
+}
+.navbar .about{
+    width: 180px;
+    height: 215px;
+    background: rgba(36,43,58,.9);
+    padding:20px 20px 20px 0;
+    border-radius: 4px;
+    position: absolute;
+    top:40px;
+    left:-93px;
+    text-align: right;
+    overflow: hidden;
+    z-index:9999;
+    display: none;
+}
+.navbar .about a{
+    font-size: 14px;
+    color: rgba(255,255,255,.7);
+    font-weight: 300;
+}
+.navbar .about a:hover{
+    color: #fff;
+}
+.navbar .aboutUs:hover ul.about{
+    transition:all .6s;
+    display: block;
+ }
+ /*-----------index-navbar end----------------------------------------------------------------------------------------------------*/
 /*------------产品导航 start------------------------------------------------------------------------------------------------------------*/
 .pro-nav{
     width: 480px;
@@ -812,5 +896,17 @@ button:focus{
     position: absolute;
     top: 30px;
     right: 30px;
-}}
+}
 
+
+/*light-box 点击图片放大*/
+.lightbox>div.lb-dataContainer{
+    position: relative;
+}
+.lb-dataContainer .lb-data .lb-closeContainer a{
+    position: absolute;
+    top: -20px;
+    right: -26px;
+    z-index: 10000;
+        
+}
