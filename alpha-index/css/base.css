@@ -465,7 +465,8 @@ button:focus{
 
 /*base end-------------------------------------------------------------------------------------------------------------------------------*/
 /*-------index-navbar start-------------------------------------------------------------------------------------------------*/
-.navbar .nav-tabs a{
+.block-navbar .nav-tabs a,
+.white-navbar .nav-tabs a{
     color:#fff;
     font-weight: 400;
     font-size: 14px;
@@ -558,7 +559,7 @@ button:focus{
 .pro-nav.nav-tabs li{
     width: 33.333%;
 }
-.nav-tabs a{
+.pro-nav.nav-tabs a{
     color: rgba(255,255,255,0.5);
     font-size: 14px;
     border:none !important;

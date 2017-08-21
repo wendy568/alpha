@@ -27,19 +27,19 @@
 							</a>
 							<ul class="about">
 								<li class="m-b-20">
-									<a href="AboutUs.html" target="_blank">ABOUT ALPHA</a>
+									<a href="AboutUs.html?msg=1" target="_blank">ABOUT ALPHA</a>
 								</li>
 								<li class="m-b-20">
-									<a href="AboutUs.html" target="_blank">JOIN US</a>
+									<a href="AboutUs.html?msg=2" target="_blank">JOIN US</a>
 								</li>
 								<li class="m-b-20">
-									<a href="AboutUs.html" target="_blank">COOPERATION</a>
+									<a href="AboutUs.html?msg=3" target="_blank">COOPERATION</a>
 								</li>
 								<li class="m-b-20">
-									<a href="AboutUs.html" target="_blank">FAQ</a>
+									<a href="AboutUs.html?msg=4" target="_blank">FAQ</a>
 								</li>
 								<li>
-									<a href="AboutUs.html" target="_blank">CONTACT</a>
+									<a href="AboutUs.html?msg=5" target="_blank">CONTACT</a>
 								</li>
 							</ul>
 						</li>
@@ -74,19 +74,19 @@
 								</a>
 								<ul class="about">
 									<li class="m-b-20">
-										<a href="AboutUs.html" target="_blank">ABOUT ALPHA</a>
+										<a href="AboutUs.html?msg=1" target="_blank">ABOUT ALPHA</a>
 									</li>
 									<li class="m-b-20">
-										<a href="AboutUs.html" target="_blank">JOIN US</a>
+										<a href="AboutUs.html?msg=2" target="_blank">JOIN US</a>
 									</li>
 									<li class="m-b-20">
-										<a href="AboutUs.html" target="_blank">COOPERATION</a>
+										<a href="AboutUs.html?msg=3" target="_blank">COOPERATION</a>
 									</li>
 									<li class="m-b-20">
-										<a href="AboutUs.html" target="_blank">FAQ</a>
+										<a href="AboutUs.html?msg=4" target="_blank">FAQ</a>
 									</li>
 									<li>
-										<a href="AboutUs.html" target="_blank">CONTACT</a>
+										<a href="AboutUs.html?msg=5" target="_blank">CONTACT</a>
 									</li>
 								</ul>
 							</li>
