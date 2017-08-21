@@ -555,7 +555,7 @@ button:focus{
     height: 80px;
     background: rgba(36, 43, 58, 0.7);
 }
-.nav-tabs li{
+.pro-nav.nav-tabs li{
     width: 33.333%;
 }
 .nav-tabs a{
