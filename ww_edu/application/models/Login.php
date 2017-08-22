@@ -175,7 +175,7 @@ class Login extends CI_Model
 
 	function userLayoutInfo($id)
 	{
-		$map = 'SELECT face, first_name, last_name 
+		$map = 'SELECT face, first_name, last_name, username 
 				FROM member m
 				LEFT JOIN user_info u
 				ON u.mem_id=m.id
