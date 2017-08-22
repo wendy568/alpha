@@ -41,8 +41,8 @@ var foot =`<div>
 
 					<div class="foot-right">
 						<div class="map m-r-40">
-							<img src="assets/img/demo_map.png" alt="" />
-							<iframe src="http://www.google.cn/maps/embed?pb=!1m18!1m12!1m3!1d3436.06250738001!2d104.06118331559031!3d30.54753798170206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36efc651ba745623%3A0xb59890c140b6d5e3!2z6IW-6K6v5oiQ6YO95aSn5Y6mQealvA!5e0!3m2!1szh-CN!2scn!4v1500977506155" width="436" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+							
+							<div id="allmap"></div>
 						</div> 
 						<div class="code">
 							<img src="assets/img/qrcode.png" alt="" >
@@ -86,9 +86,16 @@ $('.foot-navbar li').on('click',function(){
 	var index = ($(this).index())+1;
 	window.location.href = 'AboutUs.html?msg=' + index;
 })
-$('.map iframe').on('load',function(){
+$('#allmap').on('load',function(){
 	$('.map img').addClass('hide');
 })
 
-
+// 百度地图API功能
+var map = new BMap.Map("allmap");
+map.centerAndZoom(new BMap.Point(-2.2345,53.48045),22);
+map.enableScrollWheelZoom(true);
+var new_point = new BMap.Point(-2.2345,53.48045);
+var marker = new BMap.Marker(new_point);  // 创建标注
+map.addOverlay(marker);              // 将标注添加到地图中
+map.panTo(new_point);      	
 
