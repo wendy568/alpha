@@ -212,8 +212,5 @@ function closeBuyCartAlert(){
 }
 
 
-// 点击图片放大查看-------------------------------------------------------------------------------------------------------------
-var viewer = new Viewer(document.getElementById('photos'), {
-    url: 'data-original'
-});
+
 

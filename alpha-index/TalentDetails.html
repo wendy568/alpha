@@ -246,7 +246,7 @@
                 <div class="unity m-r-50">
                     <div class="unity-head">
                         <img src="assets/img/talent_detail_plan_icon_individual.svg" alt="" class="m-b-40">
-                        <h4 class="m-b-20">Individual</h4>
+                        <h4 class="m-b-20 plan-name">Individual</h4>
                         <h2 class="m-b-20">$&nbsp;599.99</h2>
                         <h5>pre month</h5>
                     </div>
@@ -261,8 +261,8 @@
                 <div class="org">
                     <div class="org-head">
                         <img src="assets/img/talent_detail_plan_icon_enterprise.svg" alt="" class="m-b-40">
-                        <h4 class="m-b-20">Individual</h4>
-                        <h2 class="m-b-20">$&nbsp;599.99</h2>
+                        <h4 class="m-b-20 plan-name">Enterprise</h4>
+                        <h2 class="m-b-20">$&nbsp;999.99</h2>
                         <h5>pre month</h5>
                     </div>
                     <div class="org-body">
@@ -273,7 +273,7 @@
                     </div>
                 </div>
             </div>
-            <!-- personalModal -->
+            <!-- commonModal -->
             <div class="modal fade" id="commonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -285,7 +285,7 @@
                             <form action="">
                                 <!-- Personal Information -->
                                 <div class="p-b-30">
-                                    <div class="font16 text-c1 bd1-bottom p-b-15">Personal Information</div>
+                                    <div class="font16 text-c1 bd1-bottom p-b-15"><span class="title-name"></span> Information</div>
                                     <!-- name -->
                                     <div class="p-b-20 p-t-20">
                                         <label for="" class="font14 text-c2 m-r-10"> Name: </label>
@@ -318,9 +318,9 @@
                                         <div class="custom m-r-20 active">Individual</div>
                                         <div class="custom">Enterprise</div>
                                     </div>
-                                    <div class="form-list">
+                                    <div class="order-list animated fadeIn" id="individual">
                                         <!-- Training Camp -->
-                                        <div class="p-t-20">
+                                        <div class="p-t-20 p-b-30">
                                             <label for="" class="font14 text-c2" style="width: 130px;"> Training Camp: </label>
                                             <div class="camp m-r-20 active">
                                                 <p class="p-t-10">Chengdu</p>
@@ -335,8 +335,41 @@
                                                 <p class="font16 text-c1 bold">$ 999.00</p>
                                             </div>
                                         </div>
+
+                                        <!-- Participant Information -->
+                                        <div class="p-b-40">
+                                            <div class="font16 text-c1 bd1-bottom p-b-15">Participant Information</div>
+                                            
+                                            <ul class="p-b-30 people-list">
+                                                <li class="p-t-20">
+                                                    <div class="p-b-15">
+                                                        <label for="" class="font14 text-c2 m-r-20"> Member 1 </label>
+                                                        <div class="font14 text-c2 inlineblock icon-delete"></div>
+                                                    </div>
+                                                    <div>
+                                                        <input type="text" name="studentName" placeholder="Name" class="personInput bd1 form-control inlineblock m-r-40">
+                                                        <div class="radio radio-success inlineblock">
+                                                            <input type="radio" name="individual_sex01" id="individual_male01" value="0"> 
+                                                            <label class="radio-inline text-c2" for="individual_male01">Male</label>
+
+                                                            <input type="radio" name="individual_sex01" id="individual_female01" value="1"> 
+                                                            <label class="radio-inline text-c2" for="individual_female01">Female</label>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            
+                                            <div class="add-btn m-b-40">+add member</div>
+                                            <div>
+                                                <label for="" class="font14 text-c2 m-r-10"> Total: </label>
+                                                <div class="font16 text-c1 bold inlineblock m-b-20 total"></div>
+                                                <div class="font14 green" >
+                                                    <i class="icon-safe"></i> Safe & Secure Payment
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-list hide">
+                                    <div class="order-list hide animated fadeIn" id="enterprise">
                                         <!-- Training Camp -->
                                         <div class="p-t-20">
                                             <label for="" class="font14 text-c2" style="width: 130px;"> Training Camp: </label>
@@ -364,42 +397,41 @@
                                             <select name="day1"></select>
                                         </div>
                                         <!-- Departure Time -->
-                                        <div class="p-t-20">
+                                        <div class="p-t-20 p-b-30">
                                             <label for="" class="font14 text-c2" style="width: 130px;"> Departure Time: </label>
-                                            <div class="font16 text-c1 bold inlineblock m-b-20"> $ 888.00</div>
+                                            <div class="font16 text-c1 bold inlineblock"> $ 888.00</div>
                                         </div>
-                                    </div>
-                                </div>
+                                        <!-- Participant Information -->
+                                        <div class="p-b-40">
+                                            <div class="font16 text-c1 bd1-bottom p-b-15">Participant Information</div>
+                                            
+                                            <ul class="p-b-30 people-list">
+                                                <li class="p-t-20">
+                                                    <div class="p-b-15">
+                                                        <label for="" class="font14 text-c2 m-r-20"> Member 1 </label>
+                                                        <div class="font14 text-c2 inlineblock icon-delete"></div>
+                                                    </div>
+                                                    <div>
+                                                        <input type="text" name="studentName" placeholder="Name" class="personInput bd1 form-control inlineblock m-r-40">
+                                                        <div class="radio radio-success inlineblock">
+                                                            <input type="radio" name="enterprise_sex01" id="enterprise_male01" value="0"> 
+                                                            <label class="radio-inline text-c2" for="enterprise_male01">Male</label>
 
-                                <!-- Participant Information -->
-                                <div class="p-b-40">
-                                    <div class="font16 text-c1 bd1-bottom p-b-15">Participant Information</div>
-                                    
-                                    <ul class="p-b-30 people-list">
-                                        <li class="p-t-20">
-                                            <div class="p-b-15">
-                                                <label for="" class="font14 text-c2 m-r-20"> Member 1 </label>
-                                                <div class="font14 text-c2 inlineblock icon-delete"></div>
-                                            </div>
+                                                            <input type="radio" name="enterprise_sex01" id="enterprise_female01" value="1"> 
+                                                            <label class="radio-inline text-c2" for="enterprise_female01">Female</label>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            
+                                            <div class="add-btn m-b-40">+add member</div>
                                             <div>
-                                                <input type="text" name="studentName" placeholder="Name" class="personInput bd1 form-control inlineblock m-r-40">
-                                                <div class="radio radio-success inlineblock">
-                                                    <input type="radio" name="personalModal_sex01" id="personalModal_male01" value="0"> 
-                                                    <label class="radio-inline text-c2" for="personalModal_male01">Male</label>
-
-                                                    <input type="radio" name="personalModal_sex01" id="personalModal_female01" value="1"> 
-                                                    <label class="radio-inline text-c2" for="personalModal_female01">Female</label>
+                                                <label for="" class="font14 text-c2 m-r-10"> Total: </label>
+                                                <div class="font16 text-c1 bold inlineblock m-b-20 total"></div>
+                                                <div class="font14 green" >
+                                                    <i class="icon-safe"></i> Safe & Secure Payment
                                                 </div>
                                             </div>
-                                        </li>
-                                    </ul>
-                                    
-                                    <div class="add-btn m-b-40">+add member</div>
-                                    <div>
-                                        <label for="" class="font14 text-c2 m-r-10"> Total: </label>
-                                        <div class="font16 text-c1 bold inlineblock m-b-20 total"></div>
-                                        <div class="font14 green" >
-                                            <i class="icon-safe"></i> Safe & Secure Payment
                                         </div>
                                     </div>
                                 </div>
