@@ -254,7 +254,7 @@
                         <div class="font16 text-c4 bd1-bottom p-b-20">Nice features</div>
                         <div class="font16 text-c4 bd1-bottom p-b-20 p-t-20">Fully customizable</div>
                         <div class="font16 text-c4 bd1-bottom p-b-20 p-t-20">Fully customizable</div>
-                        <div class="order-btn m-t-20 bd2" data-toggle="modal" data-target="#personalModal" data-text="Join it"><span>Join it</span></div>
+                        <div class="order-btn m-t-20 bd2" data-toggle="modal" data-target="#commonModal" data-text="Join it"><span>Join it</span></div>
                     </div>
                 </div>
                 <!-- 团体 -->
@@ -269,12 +269,12 @@
                         <div class="font16 text-c4 bd1-bottom p-b-20">Nice features</div>
                         <div class="font16 text-c4 bd1-bottom p-b-20 p-t-20">Fully customizable</div>
                         <div class="font16 text-c4 bd1-bottom p-b-20 p-t-20">Fully customizable</div>
-                        <div class="order-btn m-t-20 bd2" data-toggle="modal" data-target="#enterpriseModal" data-text="Coustomizable"><span>Coustomizable</span></div>
+                        <div class="order-btn m-t-20 bd2" data-toggle="modal" data-target="#commonModal" data-text="Coustomizable"><span>Coustomizable</span></div>
                     </div>
                 </div>
             </div>
             <!-- personalModal -->
-            <div class="modal fade" id="personalModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+            <div class="modal fade" id="commonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -316,22 +316,57 @@
                                     <div class="p-t-20">
                                         <label for="" class="font14 text-c2" style="width: 130px;"> Custom Type: </label>
                                         <div class="custom m-r-20 active">Individual</div>
-                                        <!-- <div class="custom ">Enterprise</div> -->
+                                        <div class="custom">Enterprise</div>
                                     </div>
-                                    <!-- Training Camp -->
-                                    <div class="p-t-20">
-                                        <label for="" class="font14 text-c2" style="width: 130px;"> Training Camp: </label>
-                                        <div class="camp m-r-20 active">
-                                            <p class="p-t-10">Chengdu</p>
-                                            <p class="icon-arrow-down"></p>
-                                            <p class="p-b-10">Shanghai</p>
-                                            <p class="font16 text-c1 bold">$ 888.00</p>
+                                    <div class="form-list">
+                                        <!-- Training Camp -->
+                                        <div class="p-t-20">
+                                            <label for="" class="font14 text-c2" style="width: 130px;"> Training Camp: </label>
+                                            <div class="camp m-r-20 active">
+                                                <p class="p-t-10">Chengdu</p>
+                                                <p class="icon-arrow-down"></p>
+                                                <p class="p-b-10">Shanghai</p>
+                                                <p class="font16 text-c1 bold">$ 888.00</p>
+                                            </div>
+                                            <div class="camp m-r-20">
+                                                <p class="p-t-10">Manchester</p>
+                                                <p class="icon-arrow-down"></p>
+                                                <p class="p-b-10">Beijing</p>
+                                                <p class="font16 text-c1 bold">$ 999.00</p>
+                                            </div>
                                         </div>
-                                        <div class="camp m-r-20">
-                                            <p class="p-t-10">Manchester</p>
-                                            <p class="icon-arrow-down"></p>
-                                            <p class="p-b-10">Beijing</p>
-                                            <p class="font16 text-c1 bold">$ 999.00</p>
+                                    </div>
+                                    <div class="form-list hide">
+                                        <!-- Training Camp -->
+                                        <div class="p-t-20">
+                                            <label for="" class="font14 text-c2" style="width: 130px;"> Training Camp: </label>
+                                            <label for="" class="checkbox-inline text-c2">
+                                                <input type="checkbox" id="" name="address" value="0"> Beijing
+                                            </label>
+                                            <label for="" class="checkbox-inline text-c2">
+                                                <input type="checkbox" id="" name="address" value="1"> Shanghai
+                                            </label>
+                                            <label for="" class="checkbox-inline text-c2">
+                                                <input type="checkbox" id="" name="address" value="1"> Chengdu
+                                            </label>
+                                            <label for="" class="checkbox-inline text-c2">
+                                                <input type="checkbox" id="" name="address" value="1"> Manchester
+                                            </label>
+                                            <label for="" class="checkbox-inline text-c2">
+                                                <input type="checkbox" id="" name="address" value="1"> London
+                                            </label>
+                                        </div>
+                                        <!-- Arrangment -->
+                                        <div class="p-t-20">
+                                            <label for="" class="font14 text-c2" style="width: 130px;line-height: 32px;">Arrangment:</label>
+                                            <select name="year1"></select>
+                                            <select name="month1"></select>
+                                            <select name="day1"></select>
+                                        </div>
+                                        <!-- Departure Time -->
+                                        <div class="p-t-20">
+                                            <label for="" class="font14 text-c2" style="width: 130px;"> Departure Time: </label>
+                                            <div class="font16 text-c1 bold inlineblock m-b-20"> $ 888.00</div>
                                         </div>
                                     </div>
                                 </div>
@@ -377,122 +412,7 @@
                 </div>
             </div>
 
-            <!-- enterpriseModal -->
-            <div class="modal fade" id="enterpriseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title">Modal title</h4>
-                        </div>
-                        <div class="modal-body no-padding">
-                            <form action="">
-                                <!-- Personal Information -->
-                                <div class="p-b-30">
-                                    <div class="font16 text-c1 bd1-bottom p-b-15">Enterprise Information</div>
-                                    <!-- name -->
-                                    <div class="p-b-20 p-t-20">
-                                        <label for="" class="font14 text-c2 m-r-10"> Name: </label>
-                                        <div class="font14 text-c4 inlineblock"> Joernasy</div>
-                                    </div>
-                                    <!-- e-mail -->
-                                    <div class="p-b-20">
-                                        <label for="" class="font14 text-c2 m-r-10"> E-mail: </label>
-                                        <div class="font14 text-c4 inlineblock"> flymints@163.com </div>
-                                    </div>
-                                    <!-- phone -->
-                                    <div>
-                                        <label for="" class="font14 text-c2 m-r-10"> Phone: </label>
-                                        <div class="font14 text-c4 inlineblock"> 138 0823 8888</div>
-                                        <div class="inlineblock fr font12">
-                                            <a href="">
-                                                <i class="glyphicon glyphicon-info-sign"></i>
-                                                Incorrect &nbsp; information?
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Order Information -->
-                                <div class="p-b-30">
-                                    <div class="font16 text-c1 bd1-bottom p-b-15">Booking Information</div>
-                                    <!-- Custom Type -->
-                                    <div class="p-t-20">
-                                        <label for="" class="font14 text-c2" style="width: 130px;"> Custom Type: </label>
-                                        <!-- <div class="custom m-r-20 ">Individual</div> -->
-                                        <div class="custom active">Enterprise</div>
-                                    </div>
-                                    <!-- Training Camp -->
-                                    <div class="p-t-20">
-                                        <label for="" class="font14 text-c2" style="width: 130px;"> Training Camp: </label>
-                                        <label for="" class="checkbox-inline text-c2">
-                                            <input type="checkbox" id="" name="address" value="0"> Beijing
-                                        </label>
-                                        <label for="" class="checkbox-inline text-c2">
-                                            <input type="checkbox" id="" name="address" value="1"> Shanghai
-                                        </label>
-                                        <label for="" class="checkbox-inline text-c2">
-                                            <input type="checkbox" id="" name="address" value="1"> Chengdu
-                                        </label>
-                                        <label for="" class="checkbox-inline text-c2">
-                                            <input type="checkbox" id="" name="address" value="1"> Manchester
-                                        </label>
-                                        <label for="" class="checkbox-inline text-c2">
-                                            <input type="checkbox" id="" name="address" value="1"> London
-                                        </label>
-                                    </div>
-                                    <!-- Departure Time -->
-                                    <div class="p-t-20">
-                                        <label for="" class="font14 text-c2" style="width: 130px;line-height: 32px;">Arrangment:</label>
-                                        <select name="year1"></select>
-                                        <select name="month1"></select>
-                                        <select name="day1"></select>
-                                    </div>
-                                    <div class="p-t-20">
-                                        <label for="" class="font14 text-c2" style="width: 130px;"> Departure Time: </label>
-                                        <div class="font16 text-c1 bold inlineblock m-b-20"> $ 888.00</div>
-                                    </div>
-                                </div>
-
-                                <!-- Participant Information -->
-                                <div class="p-b-40">
-                                    <div class="font16 text-c1 bd1-bottom p-b-15">Participant Information</div>
-                                    
-                                    <ul class="p-b-30 people-list">
-                                        <li class="p-t-20">
-                                            <div class="p-b-15">
-                                                <label for="" class="font14 text-c2 m-r-20"> Member 1 </label>
-                                                <div class="font14 text-c2 inlineblock icon-delete"></div>
-                                            </div>
-                                            <div>
-                                                <input type="text" name="studentName" placeholder="Name" class="personInput bd1 form-control inlineblock m-r-40">
-                                                <div class="radio radio-success inlineblock">
-                                                    <input type="radio" name="enterpriseModal_sex01" id="enterpriseModal_male01" value="0"> 
-                                                    <label class="radio-inline text-c2" for="enterpriseModal_male01">Male</label>
-
-                                                    <input type="radio" name="enterpriseModal_sex01" id="enterpriseModal_female01" value="1"> 
-                                                    <label class="radio-inline text-c2" for="enterpriseModal_female01">Female</label>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    
-                                    <div class="add-btn m-b-40">+add member</div>
-                                    <div>
-                                        <label for="" class="font14 text-c2 m-r-10"> Total: </label>
-                                        <div class="font16 text-c1 bold inlineblock m-b-20 total"></div>
-                                        <div class="font14 green" >
-                                            <i class="icon-safe"></i> Safe & Secure Payment
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="submit-btn" data-text="Add To Plan"><span>Add To Plan</span></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
 

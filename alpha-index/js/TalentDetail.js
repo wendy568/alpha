@@ -17,6 +17,8 @@
     // Modal-Table
     $('.custom').click(function(){
         $(this).addClass('active').siblings().removeClass('active');
+        var index = $(this).index();
+        $('.form-list').eq(index).addClass('active').siblings().removeClass("hide");
     });
     $('.camp').click(function(){
         $(this).addClass('active').siblings().removeClass('active');
@@ -44,5 +46,8 @@
     // choose date
     new YMDselect('year1','month1','day1');
 
-   
+   // 点击图片放大查看-------------------------------------------------------------------------------------------------------------
+    var viewer = new Viewer(document.getElementById('photos'), {
+        url: 'data-original'
+    });
 })();
