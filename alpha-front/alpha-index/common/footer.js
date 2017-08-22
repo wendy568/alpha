@@ -30,11 +30,11 @@ var foot =`<div>
 							
 							<div class="flex-box" style="width: 244px;">
 								<span class="block">ADDRESS</span>
-								<p>1600 Pennsylvania Ave NW,Washington Castle,PA 16101-5161</p>
+								<p>3A,1Portland Street, Manchester,M13BE,the UK</p>
 								<span class="block">PHONE</span>
-								<p>028-888-88888</p>
+								<p>+44 203 637 3999</p>
 								<span class="block">EMAIL</span>
-								<p>www.evan@alphatrader.co.uk</p>
+								<p>info@alphatrader.co.uk</p>
 							</div>
 						</div>
 					</div>
