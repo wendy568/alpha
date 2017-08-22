@@ -890,6 +890,7 @@ button:focus{
     background-color: #1f2532;
 }
 
+/*更改model的默认样式*/
 .modal-content{
     position: relative;
 }
@@ -899,15 +900,7 @@ button:focus{
     right: 30px;
 }
 
-
-/*light-box 点击图片放大*/
-.lightbox>div.lb-dataContainer{
-    position: relative;
-}
-.lb-dataContainer .lb-data .lb-closeContainer a{
-    position: absolute;
-    top: -20px;
-    right: -26px;
-    z-index: 10000;
-        
+/*放大图片下的img*/
+#photos img{
+    cursor: pointer;
 }
