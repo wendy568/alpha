@@ -893,6 +893,8 @@ button:focus{
 /*更改model的默认样式*/
 .modal-content{
     position: relative;
+    box-shadow: none;
+    border:none;
 }
 .modal-content .close{
     position: absolute;
