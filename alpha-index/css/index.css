@@ -20,7 +20,8 @@
 }
 .banner-left{
 	padding-top: calc((590px - 106px)/2);
-	text-align: right;
+    text-align: left;
+    padding-left: 70px;
 }
 .banner-right{
 	padding-top: calc((590px - 330px)/2);
