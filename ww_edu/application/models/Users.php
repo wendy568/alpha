@@ -227,7 +227,7 @@ class Users extends CI_Model
 
 	function user_list($user_type, $start, $limit, &$count)
 	{
-		$where = " 1=1";
+		$where = " WHERE 1=1";
 		$where .= (isset($user_type) && $user_type) ? " AND user_type={$user_type}" : null;
 		$map = "SELECT m.id, u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone, m.create_time, u.update_time
 				FROM member m 
