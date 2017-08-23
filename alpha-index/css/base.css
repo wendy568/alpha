@@ -636,9 +636,13 @@ button:focus{
 }
 .map,.map img{
     width: 436px;
-    height: 100%;
+    height: 250px;
     display: inline-block;
     float: left;
+}
+#allmap{
+    height:250px;
+    width:436px;
 }
 .code{
     width: 210px;

@@ -41,7 +41,6 @@ var foot =`<div>
 
 					<div class="foot-right">
 						<div class="map m-r-40">
-							
 							<div id="allmap"></div>
 						</div> 
 						<div class="code">
@@ -86,16 +85,29 @@ $('.foot-navbar li').on('click',function(){
 	var index = ($(this).index())+1;
 	window.location.href = 'AboutUs.html?msg=' + index;
 })
-$('#allmap').on('load',function(){
-	$('.map img').addClass('hide');
-})
 
-// 百度地图API功能
-var map = new BMap.Map("allmap");
-map.centerAndZoom(new BMap.Point(-2.2345,53.48045),22);
-map.enableScrollWheelZoom(true);
-var new_point = new BMap.Point(-2.2345,53.48045);
-var marker = new BMap.Marker(new_point);  // 创建标注
-map.addOverlay(marker);              // 将标注添加到地图中
-map.panTo(new_point);      	
-
+window.onload = function(){
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(-2.2345,53.48045);
+	map.centerAndZoom(point,18);
+	map.enableScrollWheelZoom(true);
+	var marker = new BMap.Marker(point);  // 创建标注
+	map.addOverlay(marker);              // 将标注添加到地图中
+	map.panTo(point);  
+	var label = new BMap.Label("3A,1Portland Street, Manchester",{offset:new BMap.Size(0,-25)});
+	label.setStyle({
+			 color : "white",
+			 fontSize : "12px",
+			 height : "20px",
+			 lineHeight : "20px",
+			 fontFamily:"微软雅黑",
+			 border:0,
+			 borderRadius:'4px',
+			 background:'#000',
+			 width:"190px",
+			 maxWidth:'none'
+			 
+		 });
+	marker.setLabel(label); 
+}
