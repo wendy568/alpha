@@ -340,28 +340,37 @@
     
     /*------------------------------课程管理---------------------------------------*/
 
-    // $('input').iCheck({
-    //     checkboxClass: 'icheckbox_square',
-    //     radioClass: 'iradio_square',
-    //     increaseArea: '20%' // optional
-    // });
-
     var timeLine = ['08:00-09:30', '10:00-11:30', '13:00-14:30', '15:00-16:30', '17:00-18:30', '21:00-22:30'];
-    var dates = [];
+    var week = 0;
     getCourseList();
+    $('.week-count').html(week);
+
+    $('.coursed .weekSelect').click(function(e){
+        if($(this).html().indexOf('pre') > -1){
+            week--;
+        }else{
+            week++;
+        }
+        getCourseList(week);
+        $('.week-count').html(week);
+    });
 
     function getCourseList(week){
         $.alpha.request_Url('post','course/my_course', {week:week || ''}, function(res){
             var course = res.data;
             var list = [];
-            dates = [];
+            var index = 0;
+            $('.coursed .learn').html('');
+            $('.coursed .dates').html('');
+
             for (var i in course){
-                dates.push(i);
+                $('.coursed .dates').eq(index).html(i);
                 for (var j in course[i]){
                     list = list.concat(course[i][j]);
                 }
+                index++;
             }
-            $('.coursed .learn').html('');
+
             for (var x in list){
                 var day = list[x].the_day;
                 var time_zone = 0;
@@ -373,16 +382,18 @@
                 }
                 var $course = $('<div class="p-t-10 p-b-10 p-l-10 text-left" style="cursor:pointer;">'+
                                 '<input type="checkbox" name="learn_'+time_zone+'-'+day+'" style="vertical-align:middle"/>'+
-                                '<span class="m-l-5">'+list[x].course+'</span><span class="m-l-5">('+list[x].teacher+')</span></div>');
+                                '<span class="m-l-5 name">'+list[x].course+'</span><span class="m-l-5 name">('+list[x].teacher+')</span></div>');
                 
                 $course.css('color', isChecked ? '#fff' : 'inherit');
                 isChecked ? $course.find('input').prop('checked',true) : '';
 
                 $course.on('click',function(e){
                     var ischecked = !$(this).find('input').prop('checked');
+                    var special = list[x].special;
                     $(this).parent('td').find('input').prop('checked',false);
                     $(this).find('input').prop('checked', ischecked);
                     ischecked ? $(this).css('color', '#fff') : $(this).css('color', 'inherit');
+                    $.alpha.request_Url('post','course/pickUpCourse', {special:special}, function(res){},window.alpha_host_new);
                 })
                 $('.coursed .learn_' + time_zone + '-' + day).append($course);
             }

@@ -24,6 +24,10 @@
     display: none;
 }
 
+.page-content .course .coursed{
+    color: #bdc7d4;
+}
+
 .coursed .table,#courseSelect .table{
     width: 100%;
     display: table;
@@ -40,70 +44,15 @@
     padding: 0;
     position: relative;
 }
-.coursed .course-name{
-    height: 80px;
-    width: 100%;
-    border-bottom: 1px solid grey;
-}
-.course .teacher{
-    height: 30px;
-}
 
-.add-course{
-    font-size: 32px;
-    height: 80px;
-    line-height: 80px;
-    text-align: center;
-    display: none;
-}
-.add-course span{
+.coursed .weekSelect{
+    padding: 5px 10px;
+    vertical-align: middle;
+    border: 1px solid lightskyblue;
     cursor: pointer;
-}
-.course-name .name{
-    height: 100%;
-    line-height: 80px;
-    text-align: center;
-    color: darkgrey;
-}
-
-#courseSelect .table thead{
-    border-bottom: 2px solid #d7d5d7;
-}
-
-.pages .page-l,.pages .page-r{
-    cursor: pointer;
-}
-
-.coursed .learn .mask{
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    text-align: center;
-    line-height: 130px;
+    border-radius: 4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
     color: #fff;
-    background: rgba(255,255,255,0.3);
-}
-.coursed .learn .mask span{
-    cursor: pointer;
-}
-.coursed .learn .teacher{
-    color:darkgrey;
-    line-height: 30px;
-    text-align: center;
-}
-
-#courseSelect .table tr{
-    padding: 0;
-}
-#courseSelect .table tr td{
-    padding: 5px;
-}
-
-#courseSelect select{
-    background: transparent;
-    color: #d7d5d7;
+    background: rgba(135, 206, 250, 0.3)
 }
