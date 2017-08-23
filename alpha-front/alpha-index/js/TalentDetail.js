@@ -63,4 +63,9 @@
     // deletePeople
     deletePeople('#individual');
     deletePeople('#enterprise');
+
+    $('.submit-btn').click(function(){
+        buyCartAlert();
+        $('#commonModal').modal('hide');
+    });
 })();
