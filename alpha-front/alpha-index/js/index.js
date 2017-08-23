@@ -17,7 +17,4 @@
     	$('.learn-list').eq(liIndex).siblings().addClass('hide');
     });
 
-    var viedoContent = document.getElementById('tv').contentWindow.document.getElementById('botr_tKA6wjXz_T351KaXB_div');
-    console.log(viedoContent);
-
 })();	
