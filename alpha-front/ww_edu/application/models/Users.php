@@ -229,7 +229,7 @@ class Users extends CI_Model
 	{
 		$where = " 1=1";
 		$where .= (isset($user_type) && $user_type) ? " AND user_type={$user_type}" : null;
-		print_r($where);
+		var_dump(expression)($where);
 		$map = "SELECT m.id, u.first_name, u.last_name, u.sex, u.age, u.country, m.email, m.phone, m.create_time, u.update_time
 				FROM member m 
 				LEFT JOIN user_info u 
