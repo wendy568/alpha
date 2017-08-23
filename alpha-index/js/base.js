@@ -188,14 +188,16 @@ $(function() {
 // buy cart--------------------------------------------------------------------------------------------------------------------
 function buyCartAlert() {
     var alert = document.createElement('div');
-    var html = '<div class="cartAlert">'+
-                        '<div class="animated fadeInDown alertBox"> '+
+    var html =  '<div class="modal fade" id="alertModal" tabindex="-1" role="dialog">'+
+                    '<div class="modal-dialog" role="document">'+
+                        '<div class="modal-content">'+
                             '<img src="assets/img/Alert_planlist.svg" alt="" class="m-t-40 m-b-30">'+
                             '<p class="font18 text-c1">Add To Plan List Successfull!</p>'+
                             '<div class="more">View More</div>'+
-                            '<a href="../user-center/Order.html" class="go">Go To Plan List</a>'+
+                            '<a href="Payment.html" class="go">Go To Plan List</a>'+
                         '</div>'+
-                    '</div>';
+                    '</div>'+
+                '</div>';
     alert.innerHTML = html;
     $(alert).attr({id: 'alertBox'});
     $('.header').before(alert);
@@ -204,10 +206,7 @@ function buyCartAlert() {
 }
 function closeBuyCartAlert(){
     $('.more').on('click',function(){
-        $('#alertBox').addClass('animated fadeOut');
-        setTimeout(function () {
-             $('#alertBox').remove();
-        },500);
+        $('#alertModal').modal('hide');
     });
 }
 
