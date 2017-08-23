@@ -227,7 +227,6 @@ class Users extends CI_Model
 
 	function user_list($user_type, $start, $limit, &$count)
 	{
-		die;
 		$where = " 1=1";
 		$where .= (isset($user_type) && $user_type) ? " AND user_type={$user_type}" : null;
 		var_dump($where);die;
