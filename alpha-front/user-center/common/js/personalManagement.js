@@ -342,7 +342,7 @@
 
     var timeLine = ['08:00-09:30', '10:00-11:30', '13:00-14:30', '15:00-16:30', '17:00-18:30', '21:00-22:30'];
     var week = 0;
-    getCourseList();
+    getCourseList(week);
     $('.week-count').html(week);
 
     $('.coursed .weekSelect').click(function(e){
@@ -374,25 +374,35 @@
             for (var x in list){
                 var day = list[x].the_day;
                 var time_zone = 0;
-                var isChecked = list[x].isSpecial ? true : false;
+                var isChecked = list[x].is_special;
                 for (var j in timeLine){
                     if(timeLine[j] == list[x].time_zone){
                         time_zone = parseInt(j) + 1;
                     }
                 }
-                var $course = $('<div class="p-t-10 p-b-10 p-l-10 text-left" style="cursor:pointer;">'+
+                var $course = $('<div class="p-t-10 p-b-10 p-l-10 text-left" data-special="'+list[x].special+'">'+
                                 '<input type="checkbox" name="learn_'+time_zone+'-'+day+'" style="vertical-align:middle"/>'+
                                 '<span class="m-l-5 name">'+list[x].course+'</span><span class="m-l-5 name">('+list[x].teacher+')</span></div>');
                 
                 $course.css('color', isChecked ? '#fff' : 'inherit');
                 isChecked ? $course.find('input').prop('checked',true) : '';
 
-                $course.on('click',function(e){
-                    var ischecked = !$(this).find('input').prop('checked');
-                    var special = list[x].special;
-                    $(this).parent('td').find('input').prop('checked',false);
-                    $(this).find('input').prop('checked', ischecked);
-                    ischecked ? $(this).css('color', '#fff') : $(this).css('color', 'inherit');
+                $course.find('input').on('click',function(e){
+                    var event = e || window.event;
+                    event.stopPropagation();
+                    var ischeck = $(this).prop('checked');
+                    var special = $(this).parent().attr('data-special');
+                    var $curCourse = $(this).parent().parent('td').find('div[data-special]');
+                    $.each($curCourse,function(index,item){
+                        var lastCheck = $(item).find('input').prop('checked');
+                        $(item).css('color', 'inherit');
+                        if(lastCheck && (special != $(item).attr('data-special'))){
+                            $.alpha.request_Url('post','course/pickUpCourse', {special:$(item).attr('data-special')}, function(res){},window.alpha_host_new);
+                        }
+                    });
+                    $(this).parent().parent('td').find('input').prop('checked',false);
+                    $(this).prop('checked',ischeck);
+                    ischeck ? $(this).parent().css('color', '#fff') : $(this).parent().css('color', 'inherit');
                     $.alpha.request_Url('post','course/pickUpCourse', {special:special}, function(res){},window.alpha_host_new);
                 })
                 $('.coursed .learn_' + time_zone + '-' + day).append($course);
