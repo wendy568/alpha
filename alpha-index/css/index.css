@@ -20,10 +20,11 @@
 }
 .banner-left{
 	padding-top: calc((590px - 106px)/2);
+	text-align: right;
 }
 .banner-right{
 	padding-top: calc((590px - 330px)/2);
-	text-align: right;
+	text-align: left;
 }
 .banner-title{
 	font-weight: 400;
