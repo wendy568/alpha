@@ -46,41 +46,6 @@
         ]
     },
     {
-        "name": "payments/alipay",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/chenqidage/payments.git",
-            "reference": "80f58fbffdca90d2bc436f640c790192220c10eb"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/chenqidage/payments/zipball/80f58fbffdca90d2bc436f640c790192220c10eb",
-            "reference": "80f58fbffdca90d2bc436f640c790192220c10eb",
-            "shasum": ""
-        },
-        "time": "2017-02-24T07:31:31+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Alipay\\": "Alipay"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Chen Qi",
-                "email": "7chnqe22@gmail.com"
-            }
-        ],
-        "description": "common,function,library,ext"
-    },
-    {
         "name": "fergusean/nusoap",
         "version": "0.9.5",
         "version_normalized": "0.9.5.0",
@@ -118,5 +83,40 @@
             }
         ],
         "description": "NuSOAP re-packaged for Packagist/Composer"
+    },
+    {
+        "name": "payments/alipay",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/chenqidage/payments.git",
+            "reference": "d2da26c9499f1f242ee3bb9b1f67f5e79057bfa8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/chenqidage/payments/d2da26c9499f1f242ee3bb9b1f67f5e79057bfa8.zip",
+            "reference": "d2da26c9499f1f242ee3bb9b1f67f5e79057bfa8",
+            "shasum": ""
+        },
+        "time": "2017-08-16T08:07:02+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Alipay\\": "Alipay"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chen Qi",
+                "email": "7chnqe22@gmail.com"
+            }
+        ],
+        "description": "common,function,library,ext"
     }
 ]

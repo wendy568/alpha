@@ -93,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chenqidage/payments.git",
-                "reference": "80f58fbffdca90d2bc436f640c790192220c10eb"
+                "reference": "d2da26c9499f1f242ee3bb9b1f67f5e79057bfa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chenqidage/payments/zipball/80f58fbffdca90d2bc436f640c790192220c10eb",
-                "reference": "80f58fbffdca90d2bc436f640c790192220c10eb",
+                "url": "https://files.phpcomposer.com/files/chenqidage/payments/d2da26c9499f1f242ee3bb9b1f67f5e79057bfa8.zip",
+                "reference": "d2da26c9499f1f242ee3bb9b1f67f5e79057bfa8",
                 "shasum": ""
             },
             "type": "library",
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "common,function,library,ext",
-            "time": "2017-02-24 07:31:31"
+            "time": "2017-08-16 08:07:02"
         }
     ],
     "packages-dev": [],
