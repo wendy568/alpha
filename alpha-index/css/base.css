@@ -462,7 +462,10 @@ table tr td,.datepicker-switch,table .prev,table .next{
 button:focus{
     outline: none;
 }
-
+.userFace{
+    width: 20px;
+    height: 20px;
+}
 /*base end-------------------------------------------------------------------------------------------------------------------------------*/
 /*-------index-navbar start-------------------------------------------------------------------------------------------------*/
 .block-navbar .nav-tabs a,
@@ -842,7 +845,7 @@ button:focus{
     height: 20px;
     line-height: 20px;
     float: right;
-    margin-top:10px;
+    margin-top:12px;
 }
 .icon-vip1{
     background: url(../assets/img/member_tag_vip1.svg) no-repeat;
