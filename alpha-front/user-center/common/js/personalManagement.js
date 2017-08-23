@@ -340,124 +340,52 @@
     
     /*------------------------------课程管理---------------------------------------*/
 
-    $.alpha.request_Url('post','course/all_course', {}, function(res){
-        console.log(res)
-    }, window.alpha_host_new);
+    // $('input').iCheck({
+    //     checkboxClass: 'icheckbox_square',
+    //     radioClass: 'iradio_square',
+    //     increaseArea: '20%' // optional
+    // });
 
-    var ableAdd = '1-2,2-4,3-5,2-1,4-4';
-    var courseList = [{class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'J.K.'},
-        {class:'Modern Bank',teacher:'Wang'},{class:'Bank Certificate',teacher:'Billy'},
-        {class:'Bank Certificate',teacher:'J.K.'},{class:'Bank Certificate',teacher:'Wang'},
-        {class:'Hongkong Bank',teacher:'Billy'},{class:'Hongkong Bank',teacher:'J.K.'},
-        {class:'System Analysis',teacher:'Billy'},{class:'System Analysis',teacher:'Wang'},
-        {class:'Bill Count',teacher:'Wang'},{class:'A haha',teacher:'Billy'},
-        {class:'A haha',teacher:'Billy'},{class:'A haha',teacher:'Billy'},
-        {class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'Billy'},
-        {class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'Billy'},
-        {class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'Billy'},
-        {class:'Modern Bank',teacher:'Billy'},{class:'Modern Bank',teacher:'Billy'}];
-    
-    var list = [];
-    var teachers = [];
-    var coordinate = '';
-    
-    $('#courseSelect').on('shown.bs.modal', function () {
-        $('#courseSelect .table tbody').html('');
-        $.each(courseList,function (index,item) {
-            var $course = $('<tr><td>'+item.class+'</td><td>'+item.teacher+'</td><td class="text-right"><a href="javascript:void(0)" class="'+item.class+'_'+item.teacher+'">Select</a></td></tr>');
-            $course.find('a').click(function (e) {
-                var className = $(this).attr('class').split('_')[0];
-                var teacher = $(this).attr('class').split('_')[1];
-            
-                $('#courseSelect').modal('hide');
-                $('.coursed .learn_'+coordinate+' .add-course').hide();
-                $('.coursed .learn_'+coordinate+' .mask').hide();
-                $('.coursed .learn_'+coordinate+' .name').html(className);
-                $('.coursed .learn_'+coordinate+' .teacher').html(teacher);
-            });
-            if(teachers.indexOf(item.teacher) <= -1){
-                teachers.push(item.teacher)
+    var timeLine = ['08:00-09:30', '10:00-11:30', '13:00-14:30', '15:00-16:30', '17:00-18:30', '21:00-22:30'];
+    var dates = [];
+    getCourseList();
+
+    function getCourseList(week){
+        $.alpha.request_Url('post','course/my_course', {week:week || ''}, function(res){
+            var course = res.data;
+            var list = [];
+            dates = [];
+            for (var i in course){
+                dates.push(i);
+                for (var j in course[i]){
+                    list = list.concat(course[i][j]);
+                }
             }
-            if (list.indexOf(item.class) <= -1){
-                list.push(item.class)
+            $('.coursed .learn').html('');
+            for (var x in list){
+                var day = list[x].the_day;
+                var time_zone = 0;
+                var isChecked = list[x].isSpecial ? true : false;
+                for (var j in timeLine){
+                    if(timeLine[j] == list[x].time_zone){
+                        time_zone = parseInt(j) + 1;
+                    }
+                }
+                var $course = $('<div class="p-t-10 p-b-10 p-l-10 text-left" style="cursor:pointer;">'+
+                                '<input type="checkbox" name="learn_'+time_zone+'-'+day+'" style="vertical-align:middle"/>'+
+                                '<span class="m-l-5">'+list[x].course+'</span><span class="m-l-5">('+list[x].teacher+')</span></div>');
+                
+                $course.css('color', isChecked ? '#fff' : 'inherit');
+                isChecked ? $course.find('input').prop('checked',true) : '';
+
+                $course.on('click',function(e){
+                    var ischecked = !$(this).find('input').prop('checked');
+                    $(this).parent('td').find('input').prop('checked',false);
+                    $(this).find('input').prop('checked', ischecked);
+                    ischecked ? $(this).css('color', '#fff') : $(this).css('color', 'inherit');
+                })
+                $('.coursed .learn_' + time_zone + '-' + day).append($course);
             }
-            if (index<15){
-                $('#courseSelect .table tbody').append($course);
-            }
-        });
-    })
-    
-    
-    // 计算共多少页
-    $('#courseSelect .pages .pageCount').html('1/' + Math.ceil(courseList.length/15));
-    
-    // hover table
-    $('.coursed table').hover(function (e) {
-        var $tds = $(this).find('td.learn');
-        $.each($tds,function (index,td) {
-            var xy = $(td).attr('class').split('_')[1];
-            if(ableAdd.indexOf(xy) > -1 && !$(td).find('.name').text()){
-                $(td).find('.add-course').show();
-            }
-        })
-    },function (e) {
-        $(this).find('td.learn .add-course').hide();
-        $(this).find('td.learn .mask').hide();
-    })
-    
-    // add
-    $('.coursed table .learn .add-course span').click(function (e) {
-        var xy = $(this).parents('td').attr('class').split('_')[1];
-        coordinate = xy;
-    })
-    
-    // hover td
-    $('.coursed .learn').hover(function (e) {
-        var text = $(this).find('.name').text();
-        if(text){
-            $(this).find('.mask').show()
-        }
-    },function (e) {
-        $(this).find('.mask').hide()
-    })
-    
-    // edit
-    $('.learn .edit').click(function (e) {
-        coordinate = $(this).parent().parent().attr('class').split('_')[1];
-    })
-    
-    // delete
-    $('.learn .delete').click(function (e) {
-        var $td = $(this).parent().parent();
-        $td.find('.teacher').text('');
-        $td.find('.name').text('');
-        $td.find('.mask').hide();
-        $td.find('.add-course').show();
-    })
-    
-    // 翻页
-    $('#courseSelect .page-l').click(function (e) {
-        var name = $('#courseSelect select').eq(0).val();
-        var teacher = $('#courseSelect select').eq(1).val();
-        var page = $('.pages .pageCount').text().split('/')[0];
-        if(page > 0){
-        
-        }
-    })
-    
-    $('#courseSelect .page-r').click(function (e) {
-        var name = $('#courseSelect select').eq(0).val();
-        var teacher = $('#courseSelect select').eq(1).val();
-        var page = $('.pages .pageCount').text().split('/')[0];
-        var all = $('.pages .pageCount').text().split('/')[1];
-        if(page < all){
-        
-        }
-    })
-    
-    // 筛选
-    $('#courseSelect select').change(function (e) {
-        var name = $('#courseSelect select').eq(0).val();
-        var teacher = $('#courseSelect select').eq(1).val();
-    })
+        }, window.alpha_host_new);
+    }
 })();
