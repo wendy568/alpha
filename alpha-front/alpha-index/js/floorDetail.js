@@ -12,6 +12,11 @@
 
     new YMDselect('year1','month1','day1');
 
+    // 点击图片放大查看-------------------------------------------------------------------------------------------------------------
+    var viewer = new Viewer(document.getElementById('photos'), {
+        url: 'data-original'
+    });
+
     // window.onload = function(){
         // 百度地图API功能
         var map = new BMap.Map("map");
