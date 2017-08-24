@@ -10205,8 +10205,8 @@ url("chrome://browser/content/history/history-panel.xul")
 
 .check{
     position: absolute;
-    left: calc(100% - 20px);
-    top: 56%;
+    left: calc(100% - 25px);
+    top: 35px;
     font-size: 16px;
     z-index: 10;
 }
