@@ -82,4 +82,7 @@ function file_click(){
     }
 }
 setTimeout(file_click);
+    $('.btn-group .btn').on('click',function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    })
 })()
