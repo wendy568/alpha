@@ -226,3 +226,16 @@
 	height: 32px;
 }
 
+.said-list .said1{
+	animation-duration: 1.3s;
+}
+ .said-list .said2{
+	 animation-duration: 1.6s;
+ }
+ .said-list .said3{
+	 animation-duration: 1.9s;
+ }
+ .said-list .said4{
+	 animation-duration: 2.2s;
+ }
+
