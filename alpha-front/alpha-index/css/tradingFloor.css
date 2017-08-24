@@ -3,7 +3,7 @@
 	min-width: 1170px;
 	height: 680px;
 	box-sizing: border-box;
-	background:url("../assets/img/floor_banner01.png")  center no-repeat;
+	background:url("../assets/img/floor_banner01.jpg")  center no-repeat;
 	background-size: 100%;
 }
 /*navbar*/
@@ -28,7 +28,7 @@
 	background: #252f40;
 	color: #fff;
 }
-.module01-head,.module01-body{
+.module01-head,.module01-body,.module01-head img{
 	width: 500px;
 	height: 300px;
 }
@@ -48,7 +48,7 @@
 	color:#fff;
 }
 .site:first-child{
-	background: url(../assets/img/floor_city_london.png) no-repeat;
+	background: url(../assets/img/floor_city_london.jpg) no-repeat;
 	background-size: 100% 100%;
 }
 .site:last-child{
