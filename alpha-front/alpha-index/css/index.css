@@ -35,9 +35,9 @@
 	color: rgba(255,255,255,.7);
 	font-size: 16px;
 }
-
-video{
-	height: 330px;
+.index-video{
+	width: 540px;
+	height: 300px;
 	border:2px solid rgba(255, 255, 255, 0.2);
 }
 
