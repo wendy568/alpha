@@ -343,7 +343,7 @@ body.boxed-layout .footer-widget {
 .header .header-quick-nav {
   padding-right: 10px;
   height: 60px;
-  -webkit-transition-duration: 1;
+  -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
@@ -4145,8 +4145,8 @@ form legend,
 */
 .grid {
   clear: both;
-  margin-top: 0px;
-  padding: 0px;
+  margin-top: 0;
+  padding: 0;
 }
 .grid .yun{
     position: absolute;
@@ -10206,7 +10206,7 @@ url("chrome://browser/content/history/history-panel.xul")
 .check{
     position: absolute;
     left: calc(100% - 20px);
-    top: 50%;
+    top: 56%;
     font-size: 16px;
     z-index: 10;
 }
