@@ -13,7 +13,7 @@ $(function () {
         var event = e || window.event;
         event.stopPropagation();
         sessionStorage.setItem('alpha_token', '');
-        var account = $('#tab_login [name="account"]').val();
+        var account = $('#tab_login [name="account/email"]').val();
         var pwd = $('#tab_login [name="pwd"]').val();
         var data = {
             account: account,
@@ -36,7 +36,7 @@ $(function () {
         } else {
             // 提示表单验证
             if (!account) {
-                $.alpha.props($('#tab_login [name="account"]'), 'top', 'Can\'t Empty!');
+                $.alpha.props($('#tab_login [name="account/email"]'), 'top', 'Can\'t Empty!');
             }
             if (!pwd) {
                 $.alpha.props($('#tab_login [name="pwd"]'), 'bottom', 'Can\'t Empty!');
@@ -44,7 +44,7 @@ $(function () {
         }
     });
     
-    $('#tab_login [name="account"]').change(function () {
+    $('#tab_login [name="account/email"]').change(function () {
         $('#tab_login .text-danger').html('');
         if (accountReg.test($(this).val()) || emailReg.test($(this).val())) {
             $.alpha.props($(this), 'none');
@@ -131,7 +131,7 @@ $(function () {
         $this.parent().find('.check').remove();
         if (!accountReg.test($this.val().trim()) || $this.val().indexOf('@') > -1){
             setTimeout(function () {
-                $.alpha.props($this, 'right', 'Only 4 to 20 words or numbers and no @ character!');
+                $.alpha.props($this, 'right', 'Only enter 4 to 20 characters and can not contain @ symbols!');
             },400)
         }else{
             $.alpha.props($this, 'none');
@@ -143,7 +143,7 @@ $(function () {
         $this.parent().find('.check').remove();
         if (!pwdReg.test($this.val())){
             setTimeout(function () {
-                $.alpha.props($this, 'right', 'Invalid password!');
+                $.alpha.props($this, 'right', 'Only enter 4 to 20 characters!');
             },400)
         }else{
             $.alpha.props($this, 'none');
