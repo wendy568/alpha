@@ -342,6 +342,7 @@
 
     var timeLine = ['08:00-09:30', '10:00-11:30', '13:00-14:30', '15:00-16:30', '17:00-18:30', '21:00-22:30'];
     var week = 0;
+    var isChoosingStatus = false;
     getCourseList(week);
     $('.week-count').html(week);
 
@@ -353,13 +354,13 @@
         }
         getCourseList(week);
         $('.week-count').html(week);
-        chooseClass();
     });
     
     $('.isChooseClass').click(function (e) {
         var $course  = $('.learn .course-name');
         var index = $(this).attr('class').indexOf('begin') > -1 ? 0 : 1;
         if(index > 0){
+            isChoosingStatus = false;
             $('.isChooseClass').hide().eq(0).show();
             $.each($course,function (index,item) {
                 var isCheck = $(item).find('input').prop('checked');
@@ -371,6 +372,7 @@
                 }
             })
         }else{
+            isChoosingStatus = true;
             $('.isChooseClass').hide().eq(1).show();
             $.each($course,function (index,item) {
                 $(item).find('input').show();
@@ -416,7 +418,7 @@
                                 '<span class="m-l-5 name">'+list[x].course+'</span><span class="m-l-5 name">('+list[x].teacher+')</span></div>');
                 
                 $course.css('color', isChecked ? '#fff' : 'inherit');
-                isChecked ? $course.find('input').prop('checked',true) : $course.hide();
+                $course.find('input').prop('checked',isChecked);
 
                 $course.find('input').on('click',function(e){
                     var event = e || window.event;
@@ -435,7 +437,10 @@
                     $(this).prop('checked',ischeck);
                     ischeck ? $(this).parent().css('color', '#fff') : $(this).parent().css('color', 'inherit');
                     $.alpha.request_Url('post','course/pickUpCourse', {special:special}, function(res){},window.alpha_host_new);
-                }).hide();
+                });
+    
+                isChoosingStatus || isChecked ? $course.show() : $course.hide();
+                isChoosingStatus ? $course.find('input').show() : $course.find('input').hide();
                 $('.coursed .learn_' + time_zone + '-' + day).append($course);
             }
         }, window.alpha_host_new);
