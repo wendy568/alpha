@@ -1,4 +1,5 @@
 (function(){
+   
     // learning  tabs
     $('.list-bottom li').hover(function(){
     	var liIndex = $(this).index();
