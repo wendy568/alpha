@@ -354,6 +354,55 @@
         getCourseList(week);
         $('.week-count').html(week);
     });
+    
+    $('.isChooseClass').eq(1).hide();
+    $('.isChooseClass').click(function (e) {
+        var $course  = $('.learn .course-name');
+        var index = $(this).attr('class').indexOf('begin') > -1 ? 0 : 1;
+        if(index > 0){
+            $('.isChooseClass').hide().eq(0).show();
+            $.each($course,function (index,item) {
+                var isCheck = $(item).find('input').prop('checked');
+                $(item).find('input').hide();
+                if(!isCheck){
+                    $(item).hide();
+                }else{
+                    $(item).show();
+                }
+            })
+        }else{
+            $('.isChooseClass').hide().eq(1).show();
+            $.each($course,function (index,item) {
+                $(item).find('input').show();
+                $(item).show();
+            })
+        }
+    })
+    
+    function chooseClass () {
+        $('.isChooseClass').click(function (e) {
+            var $course  = $('.learn .course-name');
+            var index = $(this).attr('class').indexOf('begin') > -1 ? 0 : 1;
+            if(index > 0){
+                $('.isChooseClass').hide().eq(1).show();
+                $.each($course,function (index,item) {
+                    var isCheck = $(item).find('input').prop('checked');
+                    $(item).find('input').hide();
+                    if(!isCheck){
+                        $(item).hide();
+                    }else{
+                        $(item).show();
+                    }
+                })
+            }else{
+                $('.isChooseClass').hide().eq(0).show();
+                $.each($course,function (index,item) {
+                    $(item).find('input').show();
+                    $(item).show();
+                })
+            }
+        })
+    }
 
     function getCourseList(week){
         $.alpha.request_Url('post','course/my_course', {week:week || ''}, function(res){
@@ -380,12 +429,12 @@
                         time_zone = parseInt(j) + 1;
                     }
                 }
-                var $course = $('<div class="p-t-10 p-b-10 p-l-10 text-left" data-special="'+list[x].special+'">'+
+                var $course = $('<div class="p-t-10 p-b-10 p-l-10 text-left course-name" data-special="'+list[x].special+'">'+
                                 '<input type="checkbox" name="learn_'+time_zone+'-'+day+'" style="vertical-align:middle"/>'+
                                 '<span class="m-l-5 name">'+list[x].course+'</span><span class="m-l-5 name">('+list[x].teacher+')</span></div>');
                 
                 $course.css('color', isChecked ? '#fff' : 'inherit');
-                isChecked ? $course.find('input').prop('checked',true) : '';
+                isChecked ? $course.find('input').prop('checked',true) : $course.hide();
 
                 $course.find('input').on('click',function(e){
                     var event = e || window.event;
@@ -404,7 +453,7 @@
                     $(this).prop('checked',ischeck);
                     ischeck ? $(this).parent().css('color', '#fff') : $(this).parent().css('color', 'inherit');
                     $.alpha.request_Url('post','course/pickUpCourse', {special:special}, function(res){},window.alpha_host_new);
-                })
+                }).hide();
                 $('.coursed .learn_' + time_zone + '-' + day).append($course);
             }
         }, window.alpha_host_new);
