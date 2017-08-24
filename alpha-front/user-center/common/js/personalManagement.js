@@ -353,9 +353,9 @@
         }
         getCourseList(week);
         $('.week-count').html(week);
+        chooseClass();
     });
     
-    $('.isChooseClass').eq(1).hide();
     $('.isChooseClass').click(function (e) {
         var $course  = $('.learn .course-name');
         var index = $(this).attr('class').indexOf('begin') > -1 ? 0 : 1;
@@ -379,29 +379,11 @@
         }
     })
     
+    chooseClass();
+    
     function chooseClass () {
-        $('.isChooseClass').click(function (e) {
-            var $course  = $('.learn .course-name');
-            var index = $(this).attr('class').indexOf('begin') > -1 ? 0 : 1;
-            if(index > 0){
-                $('.isChooseClass').hide().eq(1).show();
-                $.each($course,function (index,item) {
-                    var isCheck = $(item).find('input').prop('checked');
-                    $(item).find('input').hide();
-                    if(!isCheck){
-                        $(item).hide();
-                    }else{
-                        $(item).show();
-                    }
-                })
-            }else{
-                $('.isChooseClass').hide().eq(0).show();
-                $.each($course,function (index,item) {
-                    $(item).find('input').show();
-                    $(item).show();
-                })
-            }
-        })
+        $('.isChooseClass').eq(1).hide();
+        $('.isChooseClass').eq(0).show();
     }
 
     function getCourseList(week){
