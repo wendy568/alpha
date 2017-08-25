@@ -148,13 +148,13 @@ function deletePeople(pram){
 // 滚动执行动画-------------------------------------------------------------------------------------------------------------------------------------------
 $(function() {
     var $window           = $(window),
-        win_height_padded = $window.height();
+        win_height_padded = $window.height() * 1;
 
     $window.on('scroll', revealOnScroll);
 
     function revealOnScroll() {
         var scrolled = $window.scrollTop(),
-            win_height_padded = $window.height();
+            win_height_padded = $window.height() * 1;
 
         // Showed...
         $(".revealOnScroll:not(.animated)").each(function () {
@@ -165,20 +165,20 @@ $(function() {
                 if ($this.data('timeout')) {
                     window.setTimeout(function(){
                         $this.addClass('animated ' + $this.data('animation'));
-                    }, parseInt($this.data('timeout'),100));
+                    }, parseInt($this.data('timeout'),500));
                 } else {
                     $this.addClass('animated ' + $this.data('animation'));
                 }
             }
         });
         // Hidden...
-       $(".revealOnScroll.animated").each(function (index) {
-            var $this     = $(this),
-                offsetTop = $this.offset().top;
-            if (scrolled + win_height_padded < offsetTop) {
-                $(this).removeClass('animated  flipInX flipInY fadeIn fadeInRight fadeInLeft fadeInUp fadeInDown  flash lightSpeedIn')
-            }
-        });
+        // $(".revealOnScroll.animated").each(function (index) {
+        //     var $this     = $(this),
+        //         offsetTop = $this.offset().top;
+        //     if (scrolled + win_height_padded < offsetTop) {
+        //         $(this).removeClass('animated  flipInX flipInY fadeIn fadeInRight fadeInLeft fadeInUp fadeInDown  flash lightSpeedIn')
+        //     }
+        // });
     }
 
     revealOnScroll();
