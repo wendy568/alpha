@@ -4,7 +4,7 @@
 	height: 680px;
 	box-sizing: border-box;
 	background:url("../assets/img/floor_banner01.jpg")  center no-repeat;
-	background-size: 100%;
+	background-size: 100% 100%;
 }
 /*navbar*/
 .index-logo{

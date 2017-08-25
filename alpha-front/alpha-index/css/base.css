@@ -329,7 +329,7 @@ table tr td,.datepicker-switch,table .prev,table .next{
 .head{
     height: 40px;
     line-height: 40px;
-    border:1px solid rgba(255, 255, 255,0.1);
+    border-bottom:1px solid rgba(255, 255, 255,0.1);
 }
 /*alpha-logo*/
 .alpha-logo{
