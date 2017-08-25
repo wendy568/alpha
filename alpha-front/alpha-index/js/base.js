@@ -148,13 +148,13 @@ function deletePeople(pram){
 // 滚动执行动画-------------------------------------------------------------------------------------------------------------------------------------------
 $(function() {
     var $window           = $(window),
-        win_height_padded = $window.height() * 1;
+        win_height_padded = $window.height();
 
     $window.on('scroll', revealOnScroll);
 
     function revealOnScroll() {
         var scrolled = $window.scrollTop(),
-            win_height_padded = $window.height() * 1;
+            win_height_padded = $window.height();
 
         // Showed...
         $(".revealOnScroll:not(.animated)").each(function () {
