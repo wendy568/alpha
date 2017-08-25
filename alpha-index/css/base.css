@@ -313,7 +313,9 @@ input[type="color"] {
 table tr td,.datepicker-switch,table .prev,table .next{
     color:#687788;
 }
-
+.panel{
+    box-shadow: none;
+}
 
 /*content-box*/
 .container{
